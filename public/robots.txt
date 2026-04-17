@@ -1,5 +1,5 @@
 # Robots.txt for Frostrek
-# https://info.frostrek.com
+# https://www.frostrek.com
 
 User-agent: *
 Allow: /
@@ -10,7 +10,7 @@ Disallow: /_next/
 Disallow: /static/chunks/
 
 # Sitemap location
-Sitemap: https://info.frostrek.com/sitemap.xml
+Sitemap: https://www.frostrek.com/sitemap.xml
 
 # Crawl-delay (optional - be nice to server)
 Crawl-delay: 1
