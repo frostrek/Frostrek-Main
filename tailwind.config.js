@@ -9,17 +9,17 @@ export default {
         extend: {
             colors: {
                 // Dark theme colors (from reference design)
-                'dark-bg': '#322d27',        // Hero section background
-                'dark-navbar': '#2a2622',    // Navbar background
-                'dark-card': '#373027',      // Card/bubble background
-                'dark-accent': '#bf8440',    // Button/accent color (golden)
+                'dark-bg': '#000000',        // Hero section background
+                'dark-navbar': '#000000',    // Navbar background
+                'dark-card': '#1a1a1a',      // Card/bubble background
+                'dark-accent': '#2EE1C7',    // Button/accent color (golden)
                 'dark-text': '#f9fafb',      // Primary text
                 'dark-text-muted': '#A89A8A', // Muted text
 
                 // Brown/Bronze Earthy Theme
-                background: '#FDFBF7', // Warm Eggshell
-                'background-alt': '#F7F5F0', // Slightly darker warm gray
-                navbar: '#FDFBF7',
+                background: '#000000', // Warm Eggshell
+                'background-alt': '#000000', // Slightly darker warm gray
+                navbar: '#000000',
 
                 // Text colors (dark for readability)
                 primary: '#2D241E', // Dark Brown/Black
@@ -30,40 +30,40 @@ export default {
                 'brand-green': {
                     50: '#FAF6F3',
                     100: '#F2E8DF',
-                    200: '#E6D0C6',
+                    200: '#2EE1C7',
                     300: '#D5B09D',
                     400: '#C48F71',
-                    500: '#B07552', // Main Bronze
-                    600: '#A97142', // Slightly richer for hover
-                    700: '#8A5A35',
-                    800: '#6E4629',
-                    900: '#563621',
+                    500: '#2EE1C7', // Main Bronze
+                    600: '#2EE1C7', // Slightly richer for hover
+                    700: '#2EE1C7',
+                    800: '#2EE1C7',
+                    900: '#2EE1C7',
                 },
                 // Secondary Accent - Sand/Gold (Replacing brand-yellow)
                 'brand-yellow': {
                     50: '#FDFBF5',
                     100: '#FAF5E6',
-                    200: '#F3E9CD',
-                    300: '#EBDCB3',
-                    400: '#E0CC94',
-                    500: '#D4BB75', // Main Sand/Gold
-                    600: '#BFA45E',
-                    700: '#9E8547',
+                    200: '#2EE1C7',
+                    300: '#2EE1C7',
+                    400: '#2EE1C7',
+                    500: '#2EE1C7', // Main Sand/Gold
+                    600: '#2EE1C7',
+                    700: '#2EE1C7',
                     800: '#7D6836',
                     900: '#614E29',
                 },
 
                 // Accent colors - Mapped to new palette
-                'accent-green': '#B07552', // Bronze
-                'accent-yellow': '#D4BB75', // Gold
-                'dark-green': '#8A5A35',
-                'dark-yellow': '#9E8547',
+                'accent-green': '#2EE1C7', // Bronze
+                'accent-yellow': '#2EE1C7', // Gold
+                'dark-green': '#2EE1C7',
+                'dark-yellow': '#2EE1C7',
 
                 // Button gradient colors - Mapped
                 'green-bright': '#C48F71',
-                'green-dark': '#B07552',
-                'yellow-bright': '#E0CC94',
-                'yellow-dark': '#D4BB75',
+                'green-dark': '#2EE1C7',
+                'yellow-bright': '#2EE1C7',
+                'yellow-dark': '#2EE1C7',
             },
             fontFamily: {
                 sans: ['Raleway', 'system-ui', 'sans-serif'],

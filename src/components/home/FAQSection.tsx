@@ -31,22 +31,17 @@ const FAQSection = () => {
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
     return (
-        <section className={`py-20 relative overflow-hidden ${theme === 'dark' ? 'bg-dark-bg' : 'bg-gray-50'}`}>
-            {/* Decorative Elements */}
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-                <div className={`absolute top-20 right-[10%] w-64 h-64 rounded-full blur-[100px] opacity-20 ${theme === 'dark' ? 'bg-[#B07552]' : 'bg-[#E6D0C6]'}`} />
-                <div className={`absolute bottom-20 left-[10%] w-72 h-72 rounded-full blur-[100px] opacity-20 ${theme === 'dark' ? 'bg-dark-accent' : 'bg-blue-200'}`} />
-            </div>
+        <section className={`py-20 relative overflow-hidden bg-transparent`}>
 
             <div className="container mx-auto px-4 md:px-6 relative z-10">
                 <div className="text-center max-w-3xl mx-auto mb-16">
                     <div className="flex items-center justify-center gap-2 mb-4">
-                        <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${theme === 'dark' ? 'bg-white/10 text-[#B07552]' : 'bg-[#F3E9CD] text-[#8A5A35]'}`}>
+                        <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${theme === 'dark' ? 'bg-white/10 text-[#2EE1C7]' : 'bg-[#2EE1C7] text-[#2EE1C7]'}`}>
                             Common Queries
                         </span>
                     </div>
                     <h2 className={`text-3xl md:text-5xl font-bold mb-6 font-display ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
-                        Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B07552] to-[#E6D0C6]">Questions</span>
+                        Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2EE1C7] to-[#2EE1C7]">Questions</span>
                     </h2>
                     <p className={`text-lg ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
                         Everything you need to know about our process, security, and delivery.
@@ -62,8 +57,8 @@ const FAQSection = () => {
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             className={`rounded-2xl border transition-all duration-300 ${theme === 'dark'
-                                ? `bg-white/5 border-white/10 hover:border-[#B07552]/50 ${activeIndex === index ? 'border-[#B07552]' : ''}`
-                                : `bg-white border-gray-200 hover:border-[#B07552]/50 ${activeIndex === index ? 'border-[#B07552] shadow-lg' : 'shadow-sm'}`
+                                ? `bg-white/5 border-white/10 hover:border-[#2EE1C7]/50 ${activeIndex === index ? 'border-[#2EE1C7]' : ''}`
+                                : `bg-white border-gray-200 hover:border-[#2EE1C7]/50 ${activeIndex === index ? 'border-[#2EE1C7] shadow-lg' : 'shadow-sm'}`
                                 }`}
                         >
                             <button
@@ -71,7 +66,7 @@ const FAQSection = () => {
                                 className="w-full px-6 py-5 flex items-center justify-between gap-4 text-left focus:outline-none"
                             >
                                 <div className="flex items-center gap-4">
-                                    <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${theme === 'dark' ? 'bg-white/10 text-[#B07552]' : 'bg-[#F3E9CD] text-[#8A5A35]'
+                                    <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${theme === 'dark' ? 'bg-white/10 text-[#2EE1C7]' : 'bg-[#2EE1C7] text-[#2EE1C7]'
                                         }`}>
                                         {index + 1}
                                     </span>
@@ -81,7 +76,7 @@ const FAQSection = () => {
                                 </div>
                                 <div className={`transition-transform duration-300 ${activeIndex === index ? 'rotate-180' : ''}`}>
                                     {activeIndex === index ?
-                                        <Minus className={`w-5 h-5 ${theme === 'dark' ? 'text-[#B07552]' : 'text-[#8A5A35]'}`} /> :
+                                        <Minus className={`w-5 h-5 ${theme === 'dark' ? 'text-[#2EE1C7]' : 'text-[#2EE1C7]'}`} /> :
                                         <Plus className={`w-5 h-5 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`} />
                                     }
                                 </div>

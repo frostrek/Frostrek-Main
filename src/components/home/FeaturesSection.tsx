@@ -64,12 +64,7 @@ const FeaturesSection = () => {
     }, { scope: sectionRef });
 
     return (
-        <section ref={sectionRef} className={`pt-8 pb-16 relative overflow-hidden transition-colors duration-300 ${theme === 'dark' ? 'bg-dark-bg' : 'bg-transparent'}`}>
-            {/* Background pattern */}
-            <div className="absolute inset-0 opacity-[0.03]" style={{
-                backgroundImage: `radial-gradient(circle, ${theme === 'dark' ? '#fff' : '#000'} 1px, transparent 1px)`,
-                backgroundSize: '24px 24px'
-            }} />
+        <section ref={sectionRef} className={`pt-8 pb-16 relative overflow-hidden transition-colors duration-300 bg-transparent`}>
 
             <div className="container mx-auto px-4 md:px-6 relative z-10">
                 <div ref={headingRef} className="text-center mb-16">

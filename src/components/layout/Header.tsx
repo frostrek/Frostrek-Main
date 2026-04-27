@@ -6,7 +6,6 @@ import { NAV_ITEMS } from '../../utils/constants';
 import Button from '../ui/Button';
 import { cn } from '../../utils/cn';
 import MegaMenu from './MegaMenu';
-import ThemeToggle from '../ui/ThemeToggle';
 import { useTheme } from '../../context/ThemeContext';
 
 
@@ -35,24 +34,21 @@ const Header = () => {
 
     return (
         <header className={cn(
-            "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+            "fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-500 backdrop-blur-xl rounded-full border w-[95%] max-w-7xl",
             isScrolled
-                ? "h-16 shadow-[0_1px_0_rgba(176,117,82,0.15)]"
-                : "h-20",
-            theme === 'dark'
-                ? "bg-dark-navbar"
-                : "bg-[#B07552]"
+                ? "top-4 h-16 bg-black/40 border-[#2EE1C7]/50 shadow-[0_8px_32px_rgba(46,225,199,0.15)]"
+                : "top-6 h-20 bg-black/20 border-[#2EE1C7]/30"
         )}>
             <div className="container mx-auto px-4 md:px-6 h-full flex items-center justify-between">
                 {/* 1. Logo (Left) */}
-                <Link to="/" className="flex items-center gap-0 group min-w-[140px]">
+                <Link to="/" className="flex items-center gap-2 group min-w-[140px]">
                     <img
                         src="/logo.png"
                         alt="Frostrek"
-                        className="h-8 w-auto object-contain"
+                        className="h-10 w-auto object-contain"
                     />
-                    <span className="text-xl font-bold font-sans tracking-tight text-background">
-                        frostrek
+                    <span className="text-2xl font-bold font-sans tracking-tight text-white">
+                        Frostrek
                     </span>
                 </Link>
 
@@ -63,11 +59,11 @@ const Header = () => {
                             <Link
                                 to={item.href}
                                 className={cn(
-                                    "flex items-center gap-1 text-sm font-semibold transition-colors py-2 relative",
+                                    "flex items-center gap-1 text-sm font-medium transition-colors py-2 px-4 rounded-full relative z-10",
                                     theme === 'dark'
-                                        ? "text-dark-text/80 hover:text-dark-accent"
+                                        ? "text-gray-300 hover:text-white"
                                         : "text-background hover:text-primary",
-                                    location.pathname === item.href && (theme === 'dark' ? "text-dark-accent font-bold" : "text-primary font-bold")
+                                    location.pathname === item.href && (theme === 'dark' ? "text-[#2EE1C7]" : "text-primary font-bold")
                                 )}
                             >
                                 {item.label}
@@ -76,8 +72,8 @@ const Header = () => {
                                     <motion.div
                                         layoutId="navbar-active"
                                         className={cn(
-                                            "absolute bottom-0 left-0 right-0 h-0.5 rounded-full",
-                                            theme === 'dark' ? "bg-dark-accent" : "bg-[#8A5A35]"
+                                            "absolute inset-0 rounded-full -z-10",
+                                            theme === 'dark' ? "bg-[#2EE1C7]/15" : "bg-[#2EE1C7]"
                                         )}
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}
@@ -100,17 +96,15 @@ const Header = () => {
                 <div className="hidden xl:flex items-center justify-end gap-3 min-w-[160px] shrink-0">
                     <Link to="/schedule-demo">
                         <Button size="sm" className={cn(
-                            "px-4 text-sm rounded-md font-semibold border-none shadow-md whitespace-nowrap",
+                            "px-6 text-sm rounded-full font-semibold border-none shadow-md whitespace-nowrap",
                             theme === 'dark'
-                                ? "bg-dark-accent text-dark-bg hover:bg-dark-accent/90"
-                                : "bg-background text-[#B07552]"
+                                ? "bg-dark-accent text-black hover:bg-dark-accent/90"
+                                : "bg-background text-black"
                         )}>
-                            Request Demo
+                            Book a Demo
                         </Button>
                     </Link>
 
-                    {/* Theme Toggle Button */}
-                    <ThemeToggle />
                 </div>
 
                 {/* Mobile Menu Toggle */}
@@ -134,8 +128,7 @@ const Header = () => {
                         exit={{ opacity: 0, y: -20 }}
                         transition={{ duration: 0.2 }}
                         className={cn(
-                            "xl:hidden absolute top-full left-0 w-full border-b shadow-xl z-50",
-                            theme === 'dark' ? "bg-dark-navbar border-dark-accent/20" : "bg-[#FDFBF7] border-gray-100"
+                            "xl:hidden absolute top-full left-1/2 -translate-x-1/2 w-[95%] max-w-7xl border shadow-xl z-50 backdrop-blur-xl bg-black/90 border-[#2EE1C7]/50 rounded-2xl mt-4 overflow-hidden"
                         )}
                     >
                         <div className="container mx-auto px-6 py-8 flex flex-col gap-6 max-h-[85vh] overflow-y-auto">
@@ -156,33 +149,12 @@ const Header = () => {
                             <div className="mt-4 flex flex-col gap-3">
                                 <Link to="/schedule-demo" onClick={() => setMobileMenuOpen(false)}>
                                     <Button className={cn(
-                                        "w-full justify-center",
-                                        theme === 'dark' ? "bg-dark-accent text-dark-bg" : "bg-[#B07552] text-white"
+                                        "w-full justify-center text-black font-bold",
+                                        theme === 'dark' ? "bg-dark-accent" : "bg-[#2EE1C7]"
                                     )}>
                                         Request Demo
                                     </Button>
                                 </Link>
-
-                                {/* Mobile Theme Toggle */}
-                                <button
-                                    onClick={toggleTheme}
-                                    className={cn(
-                                        "w-full flex items-center justify-center gap-2 py-3 rounded-lg transition-all duration-300",
-                                        theme === 'dark'
-                                            ? "bg-dark-card text-dark-accent hover:bg-dark-accent/20"
-                                            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                                    )}
-                                    aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-                                >
-                                    <motion.div
-                                        initial={false}
-                                        animate={{ rotate: theme === 'dark' ? 360 : 0 }}
-                                        transition={{ duration: 0.5, ease: 'easeInOut' }}
-                                    >
-                                        <Palette size={20} />
-                                    </motion.div>
-                                    <span className="font-medium">{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>
-                                </button>
                             </div>
                         </div>
                     </motion.div>

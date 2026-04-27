@@ -132,28 +132,28 @@ const Footer = () => {
                 <div className="flex items-center gap-6">
                   <div className="flex-shrink-0">
                     <svg className="careers-icon w-12 h-12 opacity-80" viewBox="0 0 64 64" fill="none">
-                      <circle cx="32" cy="32" r="28" stroke="currentColor" strokeWidth="2" className={theme === 'dark' ? 'text-dark-accent' : 'text-[#B07552]'} />
-                      <circle cx="32" cy="16" r="4" fill="currentColor" className={`${theme === 'dark' ? 'text-dark-text-muted' : 'text-[#8A5A35]'} network-node`} />
-                      <circle cx="16" cy="32" r="4" fill="currentColor" className={`${theme === 'dark' ? 'text-dark-text-muted' : 'text-[#8A5A35]'} network-node`} />
-                      <circle cx="48" cy="32" r="4" fill="currentColor" className={`${theme === 'dark' ? 'text-dark-text-muted' : 'text-[#8A5A35]'} network-node`} />
-                      <circle cx="32" cy="48" r="4" fill="currentColor" className={`${theme === 'dark' ? 'text-dark-text-muted' : 'text-[#8A5A35]'} network-node`} />
-                      <line x1="32" y1="20" x2="32" y2="28" stroke="currentColor" strokeWidth="2" className={theme === 'dark' ? 'text-dark-accent' : 'text-[#B07552]'} />
-                      <line x1="20" y1="32" x2="28" y2="32" stroke="currentColor" strokeWidth="2" className={theme === 'dark' ? 'text-dark-accent' : 'text-[#B07552]'} />
-                      <line x1="36" y1="32" x2="44" y2="32" stroke="currentColor" strokeWidth="2" className={theme === 'dark' ? 'text-dark-accent' : 'text-[#B07552]'} />
-                      <line x1="32" y1="36" x2="32" y2="44" stroke="currentColor" strokeWidth="2" className={theme === 'dark' ? 'text-dark-accent' : 'text-[#B07552]'} />
+                      <circle cx="32" cy="32" r="28" stroke="currentColor" strokeWidth="2" className={theme === 'dark' ? 'text-dark-accent' : 'text-[#2EE1C7]'} />
+                      <circle cx="32" cy="16" r="4" fill="currentColor" className={`${theme === 'dark' ? 'text-dark-text-muted' : 'text-[#2EE1C7]'} network-node`} />
+                      <circle cx="16" cy="32" r="4" fill="currentColor" className={`${theme === 'dark' ? 'text-dark-text-muted' : 'text-[#2EE1C7]'} network-node`} />
+                      <circle cx="48" cy="32" r="4" fill="currentColor" className={`${theme === 'dark' ? 'text-dark-text-muted' : 'text-[#2EE1C7]'} network-node`} />
+                      <circle cx="32" cy="48" r="4" fill="currentColor" className={`${theme === 'dark' ? 'text-dark-text-muted' : 'text-[#2EE1C7]'} network-node`} />
+                      <line x1="32" y1="20" x2="32" y2="28" stroke="currentColor" strokeWidth="2" className={theme === 'dark' ? 'text-dark-accent' : 'text-[#2EE1C7]'} />
+                      <line x1="20" y1="32" x2="28" y2="32" stroke="currentColor" strokeWidth="2" className={theme === 'dark' ? 'text-dark-accent' : 'text-[#2EE1C7]'} />
+                      <line x1="36" y1="32" x2="44" y2="32" stroke="currentColor" strokeWidth="2" className={theme === 'dark' ? 'text-dark-accent' : 'text-[#2EE1C7]'} />
+                      <line x1="32" y1="36" x2="32" y2="44" stroke="currentColor" strokeWidth="2" className={theme === 'dark' ? 'text-dark-accent' : 'text-[#2EE1C7]'} />
                     </svg>
                   </div>
                   <div className="flex-grow">
                     <h3 className={`text-xl font-bold mb-1 flex items-center gap-2 ${theme === 'dark' ? 'text-dark-text' : 'text-gray-900'}`}>
                       Build the Future of AI at Frostrek
-                      <Sparkles className={`w-4 h-4 ${theme === 'dark' ? 'text-dark-accent' : 'text-[#B07552]'}`} />
+                      <Sparkles className={`w-4 h-4 ${theme === 'dark' ? 'text-dark-accent' : 'text-[#2EE1C7]'}`} />
                     </h3>
                     <p className={`text-sm ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}>
                       Join our team of innovators solving real-world problems.
                     </p>
                   </div>
                   <div className="flex-shrink-0 hidden md:block">
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center ${theme === 'dark' ? 'bg-dark-accent/20 text-dark-accent' : 'bg-[#F3E9CD] text-[#8A5A35]'}`}>
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center ${theme === 'dark' ? 'bg-dark-accent/20 text-dark-accent' : 'bg-[#2EE1C7] text-[#2EE1C7]'}`}>
                       →
                     </div>
                   </div>
@@ -183,10 +183,10 @@ const Footer = () => {
                   </Link>
                   {/* ISO Badges - Now Next to Logo */}
                   <div className="flex items-center gap-2">
-                    <div className={`iso-badge px-2 py-0.5 border rounded text-[10px] font-bold tracking-wide transition-colors ${theme === 'dark' ? 'bg-dark-card border-dark-accent/30 text-dark-accent' : 'bg-[#FDFBF7] border-[#E6D0C6] text-[#8A5A35]'}`}>
+                    <div className={`iso-badge px-2 py-0.5 border rounded text-[10px] font-bold tracking-wide transition-colors ${theme === 'dark' ? 'bg-dark-card border-dark-accent/30 text-dark-accent' : 'bg-[#FDFBF7] border-[#2EE1C7] text-[#2EE1C7]'}`}>
                       ISO 27001
                     </div>
-                    <div className={`iso-badge px-2 py-0.5 border rounded text-[10px] font-bold tracking-wide transition-colors ${theme === 'dark' ? 'bg-dark-card border-dark-accent/30 text-dark-accent' : 'bg-[#FDFBF7] border-[#E6D0C6] text-[#8A5A35]'}`}>
+                    <div className={`iso-badge px-2 py-0.5 border rounded text-[10px] font-bold tracking-wide transition-colors ${theme === 'dark' ? 'bg-dark-card border-dark-accent/30 text-dark-accent' : 'bg-[#FDFBF7] border-[#2EE1C7] text-[#2EE1C7]'}`}>
                       ISO 9001
                     </div>
                   </div>
@@ -200,10 +200,10 @@ const Footer = () => {
 
               {/* Social Icons - Moved here */}
               <div className="flex items-center gap-3 flex-wrap">
-                <a href={COMPANY_INFO.socials.linkedin} target="_blank" rel="noopener noreferrer" className={`social-icon w-8 h-8 rounded-full flex items-center justify-center transition-colors ${theme === 'dark' ? 'bg-dark-card text-dark-accent hover:bg-dark-accent hover:text-white' : 'bg-[#fdfbf7] text-[#B07552] hover:bg-[#B07552] hover:text-white'}`}><Linkedin size={16} /></a>
-                <a href={COMPANY_INFO.socials.instagram} target="_blank" rel="noopener noreferrer" className={`social-icon w-8 h-8 rounded-full flex items-center justify-center transition-colors ${theme === 'dark' ? 'bg-dark-card text-dark-accent hover:bg-dark-accent hover:text-white' : 'bg-[#fdfbf7] text-[#B07552] hover:bg-[#B07552] hover:text-white'}`}><Instagram size={16} /></a>
-                <a href="https://wa.me/17574722491" target="_blank" rel="noopener noreferrer" className={`social-icon group w-8 h-8 rounded-full flex items-center justify-center transition-colors ${theme === 'dark' ? 'bg-dark-card text-dark-accent hover:bg-dark-accent hover:text-white' : 'bg-[#fdfbf7] text-[#B07552] hover:bg-[#B07552] hover:text-white'}`}><img src="/whatsapp.png" alt="WhatsApp" className="w-5 h-5 object-contain transition-all group-hover:brightness-0 group-hover:invert" /></a>
-                <a href="mailto:contact@frostrek.com" className={`social-icon w-8 h-8 rounded-full flex items-center justify-center transition-colors ${theme === 'dark' ? 'bg-dark-card text-dark-accent hover:bg-dark-accent hover:text-white' : 'bg-[#fdfbf7] text-[#B07552] hover:bg-[#B07552] hover:text-white'}`}><Mail size={16} /></a>
+                <a href={COMPANY_INFO.socials.linkedin} target="_blank" rel="noopener noreferrer" className={`social-icon w-8 h-8 rounded-full flex items-center justify-center transition-colors ${theme === 'dark' ? 'bg-dark-card text-dark-accent hover:bg-dark-accent hover:text-white' : 'bg-[#fdfbf7] text-[#2EE1C7] hover:bg-[#2EE1C7] hover:text-white'}`}><Linkedin size={16} /></a>
+                <a href={COMPANY_INFO.socials.instagram} target="_blank" rel="noopener noreferrer" className={`social-icon w-8 h-8 rounded-full flex items-center justify-center transition-colors ${theme === 'dark' ? 'bg-dark-card text-dark-accent hover:bg-dark-accent hover:text-white' : 'bg-[#fdfbf7] text-[#2EE1C7] hover:bg-[#2EE1C7] hover:text-white'}`}><Instagram size={16} /></a>
+                <a href="https://wa.me/17574722491" target="_blank" rel="noopener noreferrer" className={`social-icon group w-8 h-8 rounded-full flex items-center justify-center transition-colors ${theme === 'dark' ? 'bg-dark-card text-dark-accent hover:bg-dark-accent hover:text-white' : 'bg-[#fdfbf7] text-[#2EE1C7] hover:bg-[#2EE1C7] hover:text-white'}`}><img src="/whatsapp.png" alt="WhatsApp" className="w-5 h-5 object-contain transition-all group-hover:brightness-0 group-hover:invert" /></a>
+                <a href="mailto:contact@frostrek.com" className={`social-icon w-8 h-8 rounded-full flex items-center justify-center transition-colors ${theme === 'dark' ? 'bg-dark-card text-dark-accent hover:bg-dark-accent hover:text-white' : 'bg-[#fdfbf7] text-[#2EE1C7] hover:bg-[#2EE1C7] hover:text-white'}`}><Mail size={16} /></a>
               </div>
             </div>
 
@@ -215,7 +215,7 @@ const Footer = () => {
                 <ul className="space-y-2">
                   {NAV_ITEMS.find(n => n.label === 'Products')?.megaMenu?.flatMap(s => s.items).slice(0, 5).map(item => (
                     <li key={item.name}>
-                      <Link to={item.href} className={`footer-link text-sm ${theme === 'dark' ? 'text-dark-text-muted hover:text-dark-accent' : 'text-gray-600 hover:text-[#B07552]'}`}>{item.name}</Link>
+                      <Link to={item.href} className={`footer-link text-sm ${theme === 'dark' ? 'text-dark-text-muted hover:text-dark-accent' : 'text-gray-600 hover:text-[#2EE1C7]'}`}>{item.name}</Link>
                     </li>
                   ))}
                 </ul>
@@ -227,11 +227,11 @@ const Footer = () => {
                 <ul className="space-y-2">
                   {NAV_ITEMS.find(n => n.label === 'Solutions')?.megaMenu?.flatMap(s => s.items).map(item => (
                     <li key={item.name}>
-                      <Link to={item.href} className={`footer-link text-sm ${theme === 'dark' ? 'text-dark-text-muted hover:text-dark-accent' : 'text-gray-600 hover:text-[#B07552]'}`}>{item.name}</Link>
+                      <Link to={item.href} className={`footer-link text-sm ${theme === 'dark' ? 'text-dark-text-muted hover:text-dark-accent' : 'text-gray-600 hover:text-[#2EE1C7]'}`}>{item.name}</Link>
                     </li>
                   ))}
                   <li>
-                    <a href="https://frostrek.com/" target="_blank" rel="noopener noreferrer" className={`footer-link text-sm ${theme === 'dark' ? 'text-dark-text-muted hover:text-dark-accent' : 'text-gray-600 hover:text-[#B07552]'}`}>AI Training</a>
+                    <a href="https://frostrek.com/" target="_blank" rel="noopener noreferrer" className={`footer-link text-sm ${theme === 'dark' ? 'text-dark-text-muted hover:text-dark-accent' : 'text-gray-600 hover:text-[#2EE1C7]'}`}>AI Training</a>
                   </li>
                 </ul>
               </div>
@@ -240,11 +240,11 @@ const Footer = () => {
               <div className="space-y-3">
                 <h4 className={`section-title font-semibold mb-2 text-sm uppercase tracking-wider ${theme === 'dark' ? 'text-dark-text' : 'text-gray-900'}`}>Company</h4>
                 <ul className="space-y-2">
-                  <li><Link to="/about" className={`footer-link text-sm ${theme === 'dark' ? 'text-dark-text-muted hover:text-dark-accent' : 'text-gray-600 hover:text-[#B07552]'}`}>About Us</Link></li>
-                  <li><Link to="/experience" className={`footer-link text-sm ${theme === 'dark' ? 'text-dark-text-muted hover:text-dark-accent' : 'text-gray-600 hover:text-[#B07552]'}`}>Experience</Link></li>
-                  <li><Link to="/resources" className={`footer-link text-sm ${theme === 'dark' ? 'text-dark-text-muted hover:text-dark-accent' : 'text-gray-600 hover:text-[#B07552]'}`}>Resources</Link></li>
-                  <li><Link to="/schedule-demo" className={`footer-link text-sm ${theme === 'dark' ? 'text-dark-text-muted hover:text-dark-accent' : 'text-gray-600 hover:text-[#B07552]'}`}>Schedule Demo</Link></li>
-                  <li><Link to="/contact" className={`footer-link text-sm ${theme === 'dark' ? 'text-dark-text-muted hover:text-dark-accent' : 'text-gray-600 hover:text-[#B07552]'}`}>Contact</Link></li>
+                  <li><Link to="/about" className={`footer-link text-sm ${theme === 'dark' ? 'text-dark-text-muted hover:text-dark-accent' : 'text-gray-600 hover:text-[#2EE1C7]'}`}>About Us</Link></li>
+                  <li><Link to="/experience" className={`footer-link text-sm ${theme === 'dark' ? 'text-dark-text-muted hover:text-dark-accent' : 'text-gray-600 hover:text-[#2EE1C7]'}`}>Experience</Link></li>
+                  <li><Link to="/resources" className={`footer-link text-sm ${theme === 'dark' ? 'text-dark-text-muted hover:text-dark-accent' : 'text-gray-600 hover:text-[#2EE1C7]'}`}>Resources</Link></li>
+                  <li><Link to="/schedule-demo" className={`footer-link text-sm ${theme === 'dark' ? 'text-dark-text-muted hover:text-dark-accent' : 'text-gray-600 hover:text-[#2EE1C7]'}`}>Schedule Demo</Link></li>
+                  <li><Link to="/contact" className={`footer-link text-sm ${theme === 'dark' ? 'text-dark-text-muted hover:text-dark-accent' : 'text-gray-600 hover:text-[#2EE1C7]'}`}>Contact</Link></li>
                 </ul>
               </div>
 
@@ -270,7 +270,7 @@ const Footer = () => {
                   <div className="absolute bottom-2 left-2 z-[400]">
                     <div className={`px-2 py-1 rounded-md shadow-lg backdrop-blur-md flex flex-col gap-0.5 ${theme === 'dark' ? 'bg-dark-card/90 text-white border border-dark-accent/30' : 'bg-white/90 text-gray-900 border border-gray-200'}`}>
                       <div className="flex items-center gap-1">
-                        <MapPin size={10} className={theme === 'dark' ? 'text-dark-accent' : 'text-[#B07552]'} />
+                        <MapPin size={10} className={theme === 'dark' ? 'text-dark-accent' : 'text-[#2EE1C7]'} />
                         <span className="text-[10px] font-bold">JMD Empire, Sector 62</span>
                       </div>
                     </div>
@@ -290,7 +290,7 @@ const Footer = () => {
 
 
       {showBackToTop && (
-        <button onClick={scrollToTop} className={`back-to-top fixed bottom-8 right-8 w-12 h-12 rounded-full shadow-lg flex items-center justify-center z-40 transition-colors ${theme === 'dark' ? 'bg-dark-accent text-dark-text hover:bg-dark-accent/80' : 'bg-[#B07552] text-white hover:bg-[#8A5A35]'}`} aria-label="Back to top">
+        <button onClick={scrollToTop} className={`back-to-top fixed bottom-8 right-8 w-12 h-12 rounded-full shadow-lg flex items-center justify-center z-40 transition-colors ${theme === 'dark' ? 'bg-dark-accent text-dark-text hover:bg-dark-accent/80' : 'bg-[#2EE1C7] text-white hover:bg-[#2EE1C7]'}`} aria-label="Back to top">
           <ArrowUp size={20} className="arrow-icon" />
         </button>
       )

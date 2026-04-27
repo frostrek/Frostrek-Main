@@ -44,7 +44,7 @@ const SOLUTIONS: Solution[] = [
             'Custom personality & brand voice'
         ],
         link: '/products/frosty-ai',
-        gradient: 'from-[#E6D0C6] to-[#B07552]'
+        gradient: 'from-[#2EE1C7] to-orange-400'
     },
     {
         id: 'voice-ai',
@@ -60,7 +60,7 @@ const SOLUTIONS: Solution[] = [
             'Real-time transcription & analytics'
         ],
         link: '/products/voice-ai',
-        gradient: 'from-[#F3E9CD] to-[#E6D0C6]'
+        gradient: 'from-[#2EE1C7] to-orange-400'
     },
     {
         id: 'rag-solutions',
@@ -76,7 +76,7 @@ const SOLUTIONS: Solution[] = [
             'Secure enterprise deployment'
         ],
         link: '/solutions/erp',
-        gradient: 'from-[#E6D0C6] to-amber-500'
+        gradient: 'from-[#2EE1C7] to-amber-500'
     },
     {
         id: 'workflow-automation',
@@ -92,7 +92,7 @@ const SOLUTIONS: Solution[] = [
             'Error handling & retry logic'
         ],
         link: '/solutions/sales',
-        gradient: 'from-[#F3E9CD] to-orange-400'
+        gradient: 'from-[#2EE1C7] to-orange-400'
     },
     {
         id: 'data-intelligence',
@@ -108,7 +108,7 @@ const SOLUTIONS: Solution[] = [
             'Custom report generation'
         ],
         link: '/solutions/ecommerce',
-        gradient: 'from-[#B07552] to-[#8A5A35]'
+        gradient: 'from-[#2EE1C7] to-orange-400'
     }
 ];
 
@@ -124,7 +124,7 @@ const ChatDemo = () => {
     return (
         <div className={`rounded-xl p-4 h-[200px] overflow-hidden border transition-colors ${theme === 'dark' ? 'bg-dark-bg border-dark-accent/30' : 'bg-[#f5ece4] border-gray-300'}`}>
             <div className={`flex items-center gap-2 mb-3 pb-2 border-b ${theme === 'dark' ? 'border-dark-accent/20' : 'border-gray-300'}`}>
-                <div className="w-2 h-2 rounded-full bg-[#B07552] animate-pulse" />
+                <div className="w-2 h-2 rounded-full bg-[#2EE1C7] animate-pulse" />
                 <span className={`text-xs ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}>Frosty AI Agent</span>
             </div>
             <div className="space-y-3">
@@ -136,7 +136,7 @@ const ChatDemo = () => {
                     >
                         <div
                             className={`max-w-[80%] px-3 py-2 rounded-xl text-xs animate-fade-in ${msg.role === 'user'
-                                ? 'bg-[#B07552] text-white rounded-br-sm'
+                                ? 'bg-[#2EE1C7] text-white rounded-br-sm'
                                 : `${theme === 'dark' ? 'bg-dark-card text-dark-text border-dark-accent/20' : 'bg-white text-gray-700 border-gray-200'} rounded-bl-sm border`
                                 }`}
                             style={{ animationDelay: `${i * 0.8}s` }}
@@ -165,17 +165,17 @@ const VoiceDemo = () => {
     return (
         <div className={`rounded-xl p-4 h-[200px] border flex flex-col items-center justify-center transition-colors ${theme === 'dark' ? 'bg-dark-bg border-dark-accent/30' : 'bg-[#f5ece4] border-gray-300'}`}>
             <div className="relative mb-4">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#B07552] to-[#8A5A35] flex items-center justify-center animate-pulse">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#2EE1C7] to-[#2EE1C7] flex items-center justify-center animate-pulse">
                     <Volume2 className="w-8 h-8 text-white" />
                 </div>
                 {/* Single ping element instead of double for performance */}
-                <div className="absolute inset-0 w-16 h-16 rounded-full border-2 border-[#B07552]/50 animate-ping" />
+                <div className="absolute inset-0 w-16 h-16 rounded-full border-2 border-[#2EE1C7]/50 animate-ping" />
             </div>
             <div className="flex items-center gap-1 mb-2">
                 {WAVE_HEIGHTS.map((height, i) => (
                     <div
                         key={i}
-                        className="w-1 bg-gradient-to-t from-[#B07552] to-[#E6D0C6] rounded-full animate-voice-wave"
+                        className="w-1 bg-gradient-to-t from-[#2EE1C7] to-[#2EE1C7] rounded-full animate-voice-wave"
                         style={{
                             height: `${height}px`,
                             animationDelay: `${i * 0.2}s`
@@ -210,10 +210,10 @@ const SearchDemo = () => {
                         style={{ animationDelay: `${i * 0.5}s` }}
                     >
                         <div className="flex items-center gap-2">
-                            <Database className="w-3 h-3 text-[#B07552]" />
+                            <Database className="w-3 h-3 text-[#2EE1C7]" />
                             <span className={`text-xs ${theme === 'dark' ? 'text-dark-text' : 'text-gray-700'}`}>{result.title}</span>
                         </div>
-                        <span className="text-xs font-medium text-[#B07552]">{result.match}</span>
+                        <span className="text-xs font-medium text-[#2EE1C7]">{result.match}</span>
                     </div>
                 ))}
             </div>
@@ -264,13 +264,13 @@ const WorkflowDemo = () => {
                         >
                             <motion.div
                                 className={`w-12 h-12 rounded-lg flex items-center justify-center ${i === 0 ? 'bg-orange-500' :
-                                    i === 3 ? 'bg-[#B07552]' :
+                                    i === 3 ? 'bg-[#2EE1C7]' :
                                         theme === 'dark' ? 'bg-dark-card' : 'bg-gray-300'
                                     }`}
                                 animate={{
                                     backgroundColor: isActive
-                                        ? (i === 0 ? ['#f97316', theme === 'dark' ? '#373027' : '#d1d5db'] : i === 3 ? '#B07552' : theme === 'dark' ? '#373027' : '#d1d5db')
-                                        : (i === 0 ? '#f97316' : i === 3 ? '#B07552' : theme === 'dark' ? '#373027' : '#d1d5db')
+                                        ? (i === 0 ? ['#f97316', theme === 'dark' ? '#373027' : '#d1d5db'] : i === 3 ? '#2EE1C7' : theme === 'dark' ? '#373027' : '#d1d5db')
+                                        : (i === 0 ? '#f97316' : i === 3 ? '#2EE1C7' : theme === 'dark' ? '#373027' : '#d1d5db')
                                 }}
                                 transition={{
                                     duration: 0.6,
@@ -290,7 +290,7 @@ const WorkflowDemo = () => {
                         {i < steps.length - 1 && (
                             <div className={`hidden md:block relative w-5 mx-1 h-0.5 overflow-hidden ${theme === 'dark' ? 'bg-dark-card' : 'bg-gray-300'}`}>
                                 <motion.div
-                                    className="absolute inset-0 bg-[#B07552]"
+                                    className="absolute inset-0 bg-[#2EE1C7]"
                                     initial={{ x: '-100%' }}
                                     animate={{ x: isActive ? '0%' : '-100%' }}
                                     transition={{
@@ -341,7 +341,7 @@ const AnalyticsDemo = () => {
             <div className="flex items-center justify-between mb-3">
                 <span className={`text-xs ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}>Revenue Growth</span>
                 <motion.div
-                    className="flex items-center gap-1 text-[#B07552]"
+                    className="flex items-center gap-1 text-[#2EE1C7]"
                     animate={{ scale: isActive ? [1, 1.1, 1] : 1 }}
                     transition={{ duration: 0.5, delay: 1 }}
                 >
@@ -353,7 +353,7 @@ const AnalyticsDemo = () => {
                 {bars.map((height, i) => (
                     <motion.div
                         key={i}
-                        className="flex-1 bg-gradient-to-t from-[#B07552] to-[#E6D0C6] rounded-t-sm"
+                        className="flex-1 bg-gradient-to-t from-[#2EE1C7] to-[#2EE1C7] rounded-t-sm"
                         initial={{ height: '0%' }}
                         animate={{ height: isActive ? `${height}%` : '15%' }}
                         transition={{
@@ -483,23 +483,23 @@ const AISolutionsShowcase = () => {
     return (
         <section ref={sectionRef} className={`relative py-16 overflow-hidden transition-colors duration-300 ${theme === 'dark' ? 'bg-dark-bg' : 'bg-transparent'}`}>
             {/* Decorative blur elements */}
-            <div className="absolute top-20 right-10 w-64 h-64 bg-[#E6D0C6]/30 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute bottom-20 left-10 w-48 h-48 bg-[#B07552]/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute top-20 right-10 w-64 h-64 bg-[#2EE1C7]/30 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-20 left-10 w-48 h-48 bg-[#2EE1C7]/10 rounded-full blur-3xl pointer-events-none" />
 
             <div className="container mx-auto px-4 md:px-6 relative z-10">
                 {/* Header */}
                 <div ref={headerRef} className="text-center mb-12">
-                    <div className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full border mb-3 ${theme === 'dark' ? 'bg-dark-card border-dark-accent/30' : 'bg-[#fdfbf7] border-[#E6D0C6]'}`}>
+                    <div className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full border mb-3 ${theme === 'dark' ? 'bg-dark-card border-dark-accent/30' : 'bg-[#fdfbf7] border-[#2EE1C7]'}`}>
                         <span className="relative flex h-2 w-2">
-                            <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${theme === 'dark' ? 'bg-dark-accent/60' : 'bg-[#B07552]/60'}`} />
-                            <span className={`relative inline-flex rounded-full h-2 w-2 ${theme === 'dark' ? 'bg-dark-accent' : 'bg-[#B07552]'}`} />
+                            <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${theme === 'dark' ? 'bg-dark-accent/60' : 'bg-[#2EE1C7]/60'}`} />
+                            <span className={`relative inline-flex rounded-full h-2 w-2 ${theme === 'dark' ? 'bg-dark-accent' : 'bg-[#2EE1C7]'}`} />
                         </span>
-                        <span className={`text-xs font-semibold uppercase tracking-wider ${theme === 'dark' ? 'text-dark-accent' : 'text-[#8A5A35]'}`}>
+                        <span className={`text-xs font-semibold uppercase tracking-wider ${theme === 'dark' ? 'text-dark-accent' : 'text-[#2EE1C7]'}`}>
                             AI Solutions
                         </span>
                     </div>
                     <h2 className={`text-2xl md:text-4xl font-bold mb-3 ${theme === 'dark' ? 'text-dark-text' : 'text-gray-900'}`}>
-                        Our AI Business <span className={theme === 'dark' ? 'text-dark-accent' : 'text-[#B07552]'}>Solutions</span>
+                        Our AI Business <span className={theme === 'dark' ? 'text-dark-accent' : 'text-[#2EE1C7]'}>Solutions</span>
                     </h2>
                     <p className={`text-base max-w-2xl mx-auto ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}>
                         AI Agents and agentic workflows that embed AI where the value is.
@@ -536,15 +536,15 @@ const AISolutionsShowcase = () => {
                                     >
                                         <div
                                             className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 shadow-md ${isActive
-                                                ? 'bg-gradient-to-br from-[#B07552] to-[#8A5A35] shadow-lg'
+                                                ? 'bg-gradient-to-br from-[#2EE1C7] to-[#2EE1C7] shadow-lg'
                                                 : `${theme === 'dark' ? 'bg-dark-card border border-dark-accent/40' : 'bg-white border border-gray-300'}`
                                                 }`}
                                         >
-                                            <Icon className={`w-6 h-6 transition-colors ${isActive ? 'text-white' : theme === 'dark' ? 'text-dark-text' : 'text-[#B07552]'}`} />
+                                            <Icon className={`w-6 h-6 transition-colors ${isActive ? 'text-black' : theme === 'dark' ? 'text-dark-text' : 'text-[#2EE1C7]'}`} />
                                         </div>
                                         {isActive && (
                                             <motion.div
-                                                className="absolute inset-0 rounded-full border-2 border-[#B07552]"
+                                                className="absolute inset-0 rounded-full border-2 border-[#2EE1C7]"
                                                 initial={{ scale: 1 }}
                                                 animate={{ scale: 1.25 }}
                                                 transition={{ duration: 0.5, repeat: Infinity }}
@@ -588,7 +588,7 @@ const AISolutionsShowcase = () => {
                                         className="flex items-start gap-2 animate-fade-in"
                                         style={{ animationDelay: `${i * 0.1}s` }}
                                     >
-                                        <CheckCircle2 className="w-4 h-4 text-[#B07552] mt-0.5 flex-shrink-0" />
+                                        <CheckCircle2 className="w-4 h-4 text-[#2EE1C7] mt-0.5 flex-shrink-0" />
                                         <span className={`text-xs ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}>{feature}</span>
                                     </div>
                                 ))}
@@ -598,14 +598,14 @@ const AISolutionsShowcase = () => {
                             <div className="px-4 pb-4 flex flex-col gap-2">
                                 <Link
                                     to={activeSolution.link}
-                                    className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#8A5A35] hover:bg-[#B07552] text-white rounded-lg font-medium text-sm transition-all hover:shadow-lg"
+                                    className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#2EE1C7] hover:bg-[#2EE1C7] text-black rounded-lg font-medium text-sm transition-all hover:shadow-lg"
                                 >
                                     Learn More
                                     <ArrowRight className="w-4 h-4" />
                                 </Link>
                                 <Link
                                     to="/contact"
-                                    className={`inline-flex items-center justify-center gap-2 px-5 py-2.5 border rounded-lg font-medium text-sm transition-all ${theme === 'dark' ? 'border-dark-accent/50 text-dark-text hover:border-dark-accent hover:text-dark-accent' : 'border-gray-300 hover:border-[#B07552] text-gray-700 hover:text-[#B07552]'}`}
+                                    className={`inline-flex items-center justify-center gap-2 px-5 py-2.5 border rounded-lg font-medium text-sm transition-all ${theme === 'dark' ? 'border-dark-accent/50 text-dark-text hover:border-dark-accent hover:text-dark-accent' : 'border-gray-300 hover:border-[#2EE1C7] text-gray-700 hover:text-[#2EE1C7]'}`}
                                 >
                                     <MessageCircle className="w-4 h-4" />
                                     Book Demo
@@ -629,27 +629,27 @@ const AISolutionsShowcase = () => {
                                             key={solution.id}
                                             onClick={() => handleTabChange(index)}
                                             className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition-all duration-300 group ${isActive
-                                                ? 'bg-gradient-to-r from-[#B07552] to-[#8A5A35] text-white shadow-lg shadow-[#B07552]/30'
-                                                : `${theme === 'dark' ? 'bg-dark-card border-none hover:bg-dark-card/80 text-dark-text' : 'bg-white hover:bg-[#FDFBF7] text-gray-700 border border-gray-200 hover:border-[#E6D0C6]'}`
+                                                ? 'bg-gradient-to-r from-[#2EE1C7] to-[#2EE1C7] text-black shadow-lg shadow-[#2EE1C7]/30'
+                                                : `${theme === 'dark' ? 'bg-dark-card border-none hover:bg-dark-card/80 text-dark-text' : 'bg-white hover:bg-[#FDFBF7] text-gray-700 border border-gray-200 hover:border-[#2EE1C7]'}`
                                                 }`}
                                         >
                                             <div className={`w-10 h-10 shrink-0 rounded-full flex items-center justify-center transition-all duration-300 ${isActive
                                                 ? 'bg-white/10'
-                                                : `${theme === 'dark' ? 'bg-dark-bg group-hover:bg-dark-accent/20' : 'bg-gray-100 group-hover:bg-[#E6D0C6]/30'}`
+                                                : `${theme === 'dark' ? 'bg-dark-bg group-hover:bg-dark-accent/20' : 'bg-gray-100 group-hover:bg-[#2EE1C7]/30'}`
                                                 }`}>
-                                                <Icon className={`w-5 h-5 transition-colors ${isActive ? 'text-white' : 'text-gray-600 group-hover:text-[#B07552]'
+                                                <Icon className={`w-5 h-5 transition-colors ${isActive ? 'text-black' : 'text-gray-600 group-hover:text-[#2EE1C7]'
                                                     }`} />
                                             </div>
                                             <div className="flex-1">
-                                                <div className={`font-semibold text-sm ${isActive ? 'text-white' : theme === 'dark' ? 'text-dark-text' : 'text-gray-900'}`}>
+                                                <div className={`font-semibold text-sm ${isActive ? 'text-black' : theme === 'dark' ? 'text-dark-text' : 'text-gray-900'}`}>
                                                     {solution.title}
                                                 </div>
-                                                <div className={`text-xs ${isActive ? 'text-gray-300' : 'text-gray-500'}`}>
+                                                <div className={`text-xs ${isActive ? 'text-black/70' : 'text-gray-500'}`}>
                                                     {solution.tagline}
                                                 </div>
                                             </div>
                                             {isActive && (
-                                                <div className="w-1.5 h-8 bg-[#F3E9CD] rounded-full" />
+                                                <div className="w-1.5 h-8 bg-[#2EE1C7] rounded-full" />
                                             )}
                                         </button>
                                     );
@@ -659,7 +659,7 @@ const AISolutionsShowcase = () => {
                             {/* View Ecosystem Link */}
                             <Link
                                 to="/products"
-                                className={`mt-4 flex items-center gap-2 px-4 py-3 rounded-xl border border-dashed text-sm font-medium transition-all group ${theme === 'dark' ? 'border-dark-accent/30 text-dark-text-muted hover:border-dark-accent hover:text-dark-accent' : 'border-gray-300 text-gray-600 hover:border-[#B07552] hover:text-[#B07552]'}`}
+                                className={`mt-4 flex items-center gap-2 px-4 py-3 rounded-xl border border-dashed text-sm font-medium transition-all group ${theme === 'dark' ? 'border-dark-accent/30 text-dark-text-muted hover:border-dark-accent hover:text-dark-accent' : 'border-gray-300 text-gray-600 hover:border-[#2EE1C7] hover:text-[#2EE1C7]'}`}
                             >
                                 <Sparkles className="w-4 h-4" />
                                 <span className="text-sm font-medium">View Full AI Ecosystem</span>
@@ -678,7 +678,7 @@ const AISolutionsShowcase = () => {
                                         </div>
                                         <div>
                                             <h3 className={`text-xl font-bold mb-1 ${theme === 'dark' ? 'text-dark-text' : 'text-gray-900'}`}>
-                                                AI for <span className="text-[#B07552]">{activeSolution.title}</span>
+                                                AI for <span className="text-[#2EE1C7]">{activeSolution.title}</span>
                                             </h3>
                                             <p className={`text-sm leading-relaxed ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}>
                                                 {activeSolution.description}
@@ -702,7 +702,7 @@ const AISolutionsShowcase = () => {
                                                 className="flex items-start gap-2 animate-fade-in"
                                                 style={{ animationDelay: `${i * 0.1}s` }}
                                             >
-                                                <CheckCircle2 className="w-4 h-4 text-[#B07552] mt-0.5 flex-shrink-0" />
+                                                <CheckCircle2 className="w-4 h-4 text-[#2EE1C7] mt-0.5 flex-shrink-0" />
                                                 <span className={`text-sm ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}>{feature}</span>
                                             </div>
                                         ))}
@@ -713,14 +713,14 @@ const AISolutionsShowcase = () => {
                                 <div className="px-6 pb-6 flex flex-wrap gap-3">
                                     <Link
                                         to={activeSolution.link}
-                                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#8A5A35] hover:bg-[#B07552] text-white rounded-lg font-medium text-sm transition-all hover:shadow-lg"
+                                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#2EE1C7] hover:bg-[#2EE1C7] text-black rounded-lg font-medium text-sm transition-all hover:shadow-lg"
                                     >
                                         Learn More
                                         <ArrowRight className="w-4 h-4" />
                                     </Link>
                                     <Link
                                         to="/contact"
-                                        className={`inline-flex items-center gap-2 px-5 py-2.5 border rounded-lg font-medium text-sm transition-all ${theme === 'dark' ? 'border-dark-accent/50 text-dark-text hover:border-dark-accent hover:text-dark-accent' : 'border-gray-300 hover:border-[#B07552] text-gray-700 hover:text-[#B07552]'}`}
+                                        className={`inline-flex items-center gap-2 px-5 py-2.5 border rounded-lg font-medium text-sm transition-all ${theme === 'dark' ? 'border-dark-accent/50 text-dark-text hover:border-dark-accent hover:text-dark-accent' : 'border-gray-300 hover:border-[#2EE1C7] text-gray-700 hover:text-[#2EE1C7]'}`}
                                     >
                                         <MessageCircle className="w-4 h-4" />
                                         Book Demo

@@ -219,13 +219,13 @@ const MagneticButton = memo(({ children, className, onClick, variant = 'primary'
     const [hover, setHover] = useState(false);
     const [press, setPress] = useState(false);
 
-    // Dark mode uses #bf8440 (dark-accent), light mode uses brand-green gradient
+    // Dark mode uses #2EE1C7 (dark-accent), light mode uses brand-green gradient
     const baseStyles = theme === 'dark'
         ? variant === 'primary'
-            ? 'bg-[#bf8440] text-dark-bg shadow-lg shadow-[#bf8440]/25'
+            ? 'bg-[#2EE1C7] text-dark-bg shadow-lg shadow-[#2EE1C7]/25'
             : variant === 'cta'
-                ? 'bg-[#bf8440] text-dark-bg shadow-xl'
-                : 'bg-dark-card border-2 border-[#bf8440]/40 text-[#bf8440]'
+                ? 'bg-[#2EE1C7] text-dark-bg shadow-xl'
+                : 'bg-dark-card border-2 border-[#2EE1C7]/40 text-[#2EE1C7]'
         : variant === 'primary'
             ? 'bg-gradient-to-r from-brand-green-500 to-brand-green-600 text-white shadow-lg shadow-brand-green-500/25'
             : variant === 'cta'
@@ -782,8 +782,8 @@ const TechEcosystemDiagram = memo(() => {
 
     const categories = [
         { icon: Brain, label: 'AI/ML', angle: 0, color: '#8B5CF6' },
-        { icon: Cloud, label: 'Cloud', angle: 90, color: '#B07552' },
-        { icon: ShieldCheck, label: 'Security', angle: 180, color: '#D4BB75' },
+        { icon: Cloud, label: 'Cloud', angle: 90, color: '#2EE1C7' },
+        { icon: ShieldCheck, label: 'Security', angle: 180, color: '#2EE1C7' },
         { icon: Code, label: 'Dev', angle: 270, color: '#F97316' },
     ];
 

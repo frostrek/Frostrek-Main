@@ -113,14 +113,14 @@ const HeroRobot = () => {
                 <pointLight
                     position={[3, 0, 2]}
                     intensity={0.8}
-                    color="#B07552"
+                    color="#2EE1C7"
                     distance={8}
                     decay={2}
                 />
                 <pointLight
                     position={[-3, 1, 2]}
                     intensity={0.6}
-                    color="#E6D0C6"
+                    color="#2EE1C7"
                     distance={8}
                     decay={2}
                 />

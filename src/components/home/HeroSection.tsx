@@ -96,18 +96,7 @@ const HeroSection = () => {
     }, []);
 
     return (
-        <section className={`relative min-h-[90vh] flex items-center overflow-hidden pt-24 lg:pt-32 pb-8 transition-colors duration-300 ${theme === 'dark' ? 'bg-dark-bg' : 'bg-[#FDFBF7]'}`}>
-            {/* Decorative Elements - Bronze Theme (matching TestimonialsSection) */}
-            <div className="absolute top-10 left-10 w-32 h-32 rounded-full border-4 border-[#B07552]/20 opacity-60" />
-            <div className="absolute top-20 left-20 w-20 h-20 rounded-full bg-gradient-to-br from-[#E6D0C6] to-[#B07552] opacity-20" />
-            <div className="absolute bottom-20 right-10 w-40 h-40 rounded-full border-4 border-[#B07552]/20 opacity-50" />
-            <div className="absolute bottom-10 right-20 w-24 h-24 rounded-full bg-gradient-to-br from-[#B07552] to-amber-600 opacity-20" />
-            <div className="absolute top-1/2 right-0 w-16 h-16 rounded-full bg-[#B07552] opacity-20 translate-x-1/2" />
-            {/* Additional subtle background gradients */}
-            <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
-                <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-[#E6D0C6]/10 blur-[100px]" />
-                <div className="absolute bottom-[-20%] right-[-10%] w-[700px] h-[700px] rounded-full bg-[#F3E9CD]/15 blur-[120px]" />
-            </div>
+        <section className={`relative min-h-[90vh] flex items-center overflow-hidden pt-24 lg:pt-32 pb-8 transition-colors duration-300 bg-transparent`}>
 
 
             <div className="container mx-auto px-4 md:px-6 relative z-10">
@@ -128,7 +117,7 @@ const HeroSection = () => {
                                         animate={{ y: 0, opacity: 1 }}
                                         exit={{ y: -50, opacity: 0 }}
                                         transition={{ duration: 0.6, ease: "easeOut" }}
-                                        className={`block whitespace-nowrap pb-1 ${theme === 'dark' ? 'text-dark-accent' : 'text-[#B07552]'}`}
+                                        className={`block whitespace-nowrap pb-1 ${theme === 'dark' ? 'text-dark-accent' : 'text-[#2EE1C7]'}`}
                                     >
                                         {ROTATING_TEXTS[index].part1}
                                     </motion.span>
@@ -146,7 +135,7 @@ const HeroSection = () => {
                                         animate={{ y: 0, opacity: 1 }}
                                         exit={{ y: -50, opacity: 0 }}
                                         transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-                                        className={`block whitespace-nowrap pb-1 ${theme === 'dark' ? 'text-dark-accent' : 'text-[#B07552]'}`}
+                                        className={`block whitespace-nowrap pb-1 ${theme === 'dark' ? 'text-dark-accent' : 'text-[#2EE1C7]'}`}
                                     >
                                         {ROTATING_TEXTS[index].part2}
                                     </motion.span>
@@ -159,10 +148,10 @@ const HeroSection = () => {
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-                            <Link to="/schedule-demo" className={`px-8 py-4 text-white rounded-xl font-semibold shadow-lg transition-all transform hover:scale-105 w-full sm:w-auto text-center ${theme === 'dark' ? 'bg-dark-accent hover:bg-dark-accent/90 shadow-dark-accent/20' : 'bg-[#B07552] hover:bg-[#8A5A35] shadow-[#B07552]/20'}`}>
+                            <Link to="/schedule-demo" className={`px-8 py-4 text-black rounded-xl font-bold shadow-lg transition-all transform hover:scale-105 w-full sm:w-auto text-center ${theme === 'dark' ? 'bg-dark-accent hover:bg-dark-accent/90 shadow-dark-accent/20' : 'bg-[#2EE1C7] hover:bg-[#2EE1C7] shadow-[#2EE1C7]/20'}`}>
                                 Schedule a Demo
                             </Link>
-                            <Link to="/contact" className={`px-8 py-4 bg-transparent border-2 rounded-xl font-semibold transition-all w-full sm:w-auto hover:scale-105 text-center flex items-center justify-center ${theme === 'dark' ? 'border-dark-accent text-dark-accent hover:bg-dark-accent/10' : 'border-[#B07552] text-[#B07552] hover:bg-[#B07552]/5 hover:text-[#8A5A35]'}`}>
+                            <Link to="/contact" className={`px-8 py-4 bg-transparent border-2 rounded-xl font-bold transition-all w-full sm:w-auto hover:scale-105 text-center flex items-center justify-center ${theme === 'dark' ? 'border-dark-accent text-white hover:bg-dark-accent hover:text-black' : 'border-[#2EE1C7] text-white hover:bg-[#2EE1C7] hover:text-black'}`}>
                                 Contact Sales
                             </Link>
                         </div>
@@ -171,9 +160,6 @@ const HeroSection = () => {
                     {/* Right Column: 3D Robot */}
                     <div className="flex justify-center items-center relative mt-8 lg:mt-0">
                         <div className="relative w-full max-w-[450px] lg:max-w-[500px] aspect-[4/5] flex items-center justify-center mx-auto">
-                            {/* Subtle glow behind robot */}
-                            <div className="absolute inset-0 bg-gradient-to-tr from-[#E6D0C6] to-transparent opacity-30 rounded-full blur-3xl transform scale-90" />
-
                             {/* Interactive Message Bubble - positioned above robot head */}
                             <AnimatePresence>
                                 {showMessage && (
@@ -185,13 +171,13 @@ const HeroSection = () => {
                                         className="absolute top-[-5%] left-1/2 z-50"
                                         style={{ fontFamily: 'Quicksand, sans-serif' }}
                                     >
-                                        <div className={`relative backdrop-blur-md px-6 py-3 border lg:ml-20 lg:mt-10 mb-6 lg:mb-0 rounded-2xl shadow-[0_8px_32px_rgba(176,117,82,0.25)] border-2 transition-colors duration-300 ${theme === 'dark' ? 'bg-dark-card border-dark-accent/30' : 'bg-gradient-to-br from-white to-[#FDF8F3] border-[#B07552]/30'}`}>
+                                        <div className={`relative backdrop-blur-md px-6 py-3 border lg:ml-20 lg:mt-10 mb-6 lg:mb-0 rounded-2xl shadow-[0_8px_32px_rgba(176,117,82,0.25)] border-2 transition-colors duration-300 ${theme === 'dark' ? 'bg-dark-card border-dark-accent/30' : 'bg-gradient-to-br from-white to-[#FDF8F3] border-[#2EE1C7]/30'}`}>
                                             <span className={`font-semibold text-lg whitespace-nowrap  transition-colors duration-300 ${theme === 'dark' ? 'text-dark-text' : 'text-[#5c3d2e]'}`}>
                                                 {ROBOT_MESSAGES[messageIndex]}
                                             </span>
                                             {/* Speech bubble arrow pointing down to robot */}
                                             <div
-                                                className={`absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 rotate-45 border-r-2 border-b-2 transition-colors duration-300 ${theme === 'dark' ? 'bg-dark-card border-dark-accent/30' : 'bg-gradient-to-br from-white to-[#FDF8F3] border-[#B07552]/30'}`}
+                                                className={`absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 rotate-45 border-r-2 border-b-2 transition-colors duration-300 ${theme === 'dark' ? 'bg-dark-card border-dark-accent/30' : 'bg-gradient-to-br from-white to-[#FDF8F3] border-[#2EE1C7]/30'}`}
                                                 style={{ boxShadow: '2px 2px 4px rgba(176,117,82,0.15)' }}
                                             />
                                         </div>
@@ -209,7 +195,7 @@ const HeroSection = () => {
                                 <Suspense
                                     fallback={
                                         <div className="w-full h-full flex items-center justify-center">
-                                            <div className="w-32 h-32 rounded-full border-4 border-[#B07552]/20 border-t-[#B07552] animate-spin" />
+                                            <div className="w-32 h-32 rounded-full border-4 border-[#2EE1C7]/20 border-t-[#2EE1C7] animate-spin" />
                                         </div>
                                     }
                                 >
