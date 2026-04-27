@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown, Palette } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { NAV_ITEMS } from '../../utils/constants';
 import Button from '../ui/Button';
@@ -13,7 +13,7 @@ const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const location = useLocation();
-    const { theme, toggleTheme } = useTheme();
+    const { theme } = useTheme();
     const ticking = useRef(false);
 
     useEffect(() => {
