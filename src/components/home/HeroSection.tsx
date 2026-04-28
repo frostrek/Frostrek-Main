@@ -1,10 +1,9 @@
 "use client";
-import React from "react";
 import { useTheme } from "../../context/ThemeContext";
 import HeroFlowchart from "./HeroFlowchart";
 
 const HeroSection = () => {
-    const { theme } = useTheme();
+    useTheme();
 
     return (
         <section className={`relative flex flex-col items-center overflow-hidden pt-32 lg:pt-40 pb-16 transition-colors duration-300 bg-transparent`}>

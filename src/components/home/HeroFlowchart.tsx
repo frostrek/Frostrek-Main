@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import {
   FileText, Filter, Network, BrainCircuit,
   Zap, Brain, Settings, TrendingUp,
   Lock, Boxes, Activity, Link as LinkIcon
 } from 'lucide-react';
-import { Link } from "react-router-dom";
+
 import { useTheme } from "../../context/ThemeContext";
 import { motion, AnimatePresence } from "framer-motion";
 

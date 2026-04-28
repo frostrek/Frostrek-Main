@@ -511,7 +511,7 @@ const AISolutionsShowcase = () => {
                     {/* MOBILE VIEW - Horizontal Icons */}
                     <div className="lg:hidden mb-8">
                         {/* Horizontal Icon Navigation - FIXED */}
-                        <div 
+                        <div
                             ref={tabsRef}
                             className="flex justify-center gap-4 mb-6 overflow-x-auto p-2"
                             style={{
