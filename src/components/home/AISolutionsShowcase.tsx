@@ -537,10 +537,10 @@ const AISolutionsShowcase = () => {
                                         <div
                                             className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 shadow-md ${isActive
                                                 ? 'bg-gradient-to-br from-[#2EE1C7] to-[#2EE1C7] shadow-lg'
-                                                : `${theme === 'dark' ? 'bg-dark-card border border-dark-accent/40' : 'bg-white border border-gray-300'}`
+                                                : `${theme === 'dark' ? 'bg-dark-accent/20 border border-dark-accent/40' : 'bg-[#2EE1C7]/30 border border-[#2EE1C7]/40'}`
                                                 }`}
                                         >
-                                            <Icon className={`w-6 h-6 transition-colors ${isActive ? 'text-black' : theme === 'dark' ? 'text-dark-text' : 'text-[#2EE1C7]'}`} />
+                                            <Icon className={`w-6 h-6 transition-colors ${isActive ? 'text-black' : 'text-[#2EE1C7]'}`} />
                                         </div>
                                         {isActive && (
                                             <motion.div
@@ -635,10 +635,9 @@ const AISolutionsShowcase = () => {
                                         >
                                             <div className={`w-10 h-10 shrink-0 rounded-full flex items-center justify-center transition-all duration-300 ${isActive
                                                 ? 'bg-white/10'
-                                                : `${theme === 'dark' ? 'bg-dark-bg group-hover:bg-dark-accent/20' : 'bg-gray-100 group-hover:bg-[#2EE1C7]/30'}`
+                                                : `${theme === 'dark' ? 'bg-dark-accent/20' : 'bg-[#2EE1C7]/30'}`
                                                 }`}>
-                                                <Icon className={`w-5 h-5 transition-colors ${isActive ? 'text-black' : 'text-gray-600 group-hover:text-[#2EE1C7]'
-                                                    }`} />
+                                                <Icon className={`w-5 h-5 transition-colors ${isActive ? 'text-black' : 'text-[#2EE1C7]'}`} />
                                             </div>
                                             <div className="flex-1">
                                                 <div className={`font-semibold text-sm ${isActive ? 'text-black' : theme === 'dark' ? 'text-dark-text' : 'text-gray-900'}`}>
