@@ -76,7 +76,7 @@ const HeroFlowchart = () => {
   }, []);
 
   return (
-    <div className="w-full max-w-[1450px] mx-auto mt-0 relative z-20 px-4 pb-20">
+    <div className="w-full max-w-[1450px] mx-auto mt-0 relative z-20 px-4 pb-16">
       <style>{`
         @keyframes breathe-border {
           0%, 100% { border-color: rgba(46, 225, 199, 0.2); }

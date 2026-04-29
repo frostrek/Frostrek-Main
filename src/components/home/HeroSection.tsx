@@ -6,7 +6,7 @@ const HeroSection = () => {
     useTheme();
 
     return (
-        <section className={`relative flex flex-col items-center overflow-hidden pt-32 lg:pt-40 pb-16 transition-colors duration-300 bg-transparent`}>
+        <section className={`relative flex flex-col items-center overflow-hidden pt-32 lg:pt-40 pb-10 transition-colors duration-300 bg-transparent`}>
             {/* Decorative Glow Effect - Using specified #2EE1C7 color with breathing animation */}
             <style>{`
               @keyframes breathe-glow {

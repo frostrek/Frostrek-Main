@@ -83,10 +83,10 @@ const OurServicesSection = () => {
   return (
     <section
       id="our-services"
-      className="relative min-h-screen py-24 md:py-32 font-sans overflow-hidden bg-black"
+      className="relative pt-6 pb-12 md:pt-10 md:pb-20 font-sans overflow-hidden bg-black"
     >
       {/* Content Container */}
-      <div className="relative z-10 mx-auto flex max-w-7xl flex-col gap-16 md:gap-20 px-4 sm:px-6 md:px-8">
+      <div className="relative z-10 mx-auto flex max-w-7xl flex-col gap-10 md:gap-12 px-4 sm:px-6 md:px-8">
         {/* Header Section */}
         <div className="mx-auto max-w-4xl text-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border mb-3 bg-zinc-900/50 border-[#2EE1C7]/30">

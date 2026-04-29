@@ -11,11 +11,11 @@ const Home = () => {
     return (
         <div className="min-h-screen relative bg-black">
             <HeroSection />
-            <AISolutionsShowcase />
             <OurServicesSection />
+            <AISolutionsShowcase />
             <TrustedBySection />
             <FeaturesSection />
-            <TestimonialsSection />
+            {/* <TestimonialsSection /> */}
             <FAQSection />
             <CTASection />
         </div>
