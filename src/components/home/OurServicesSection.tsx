@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Bot, Brain, Code, Cpu, LineChart, Workflow, Server } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import SpotlightCard from '../ui/SpotlightCard';
 
 interface Service {
   title: string;
@@ -62,6 +63,41 @@ const cardVariants = {
   }),
 };
 
+const ServiceCard = ({ service, index }: { service: Service; index: number }) => {
+  const Icon = service.icon;
+
+  return (
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      custom={index}
+      variants={cardVariants}
+      className="h-full"
+    >
+      <SpotlightCard 
+        className="group h-full rounded-xl border-[#2EE1C7]/40 bg-zinc-950/40 p-5 md:p-6 transition-all duration-300 hover:border-[#2EE1C7]/60 hover:bg-zinc-900/50 hover:shadow-[0_0_30px_rgba(46,225,199,0.15)]"
+        spotlightColor="rgba(46, 225, 199, 0.4)"
+      >
+        {/* Header Row: Title and Icon */}
+        <div className="relative z-10 flex items-start justify-between gap-4 mb-4">
+          <h3 className="text-lg font-bold text-slate-50 leading-tight group-hover:text-white transition-colors">
+            {service.title}
+          </h3>
+          <div className="w-9 h-9 shrink-0 rounded-lg bg-[#2EE1C7]/10 flex items-center justify-center text-[#2EE1C7] border border-[#2EE1C7]/20 group-hover:bg-[#2EE1C7]/20 transition-colors">
+            <Icon className="w-4.5 h-4.5" />
+          </div>
+        </div>
+
+        {/* Description */}
+        <p className="relative z-10 text-xs leading-relaxed text-slate-400 group-hover:text-slate-300 transition-colors flex-grow">
+          {service.description}
+        </p>
+      </SpotlightCard>
+    </motion.div>
+  );
+};
+
 const OurServicesSection = () => {
   return (
     <section
@@ -104,36 +140,9 @@ const OurServicesSection = () => {
 
         {/* Services Grid */}
         <div className="grid gap-6 sm:gap-7 md:gap-8 lg:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, index) => {
-            const Icon = service.icon;
-
-            return (
-              <motion.article
-                key={service.title}
-                className="group relative flex flex-col h-full rounded-xl border border-[#2EE1C7]/40 bg-zinc-950/40 p-5 md:p-6 text-left transition-all duration-300 hover:border-[#2EE1C7]/60 hover:bg-zinc-900/50"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
-                custom={index}
-                variants={cardVariants}
-              >
-                {/* Header Row: Title and Icon */}
-                <div className="flex items-start justify-between gap-4 mb-4">
-                  <h3 className="text-lg font-bold text-slate-50 leading-tight group-hover:text-white transition-colors">
-                    {service.title}
-                  </h3>
-                  <div className="w-9 h-9 shrink-0 rounded-lg bg-[#2EE1C7]/10 flex items-center justify-center text-[#2EE1C7] border border-[#2EE1C7]/20 group-hover:bg-[#2EE1C7]/20 transition-colors">
-                    <Icon className="w-4.5 h-4.5" />
-                  </div>
-                </div>
-
-                {/* Description */}
-                <p className="text-xs leading-relaxed text-slate-400 group-hover:text-slate-300 transition-colors flex-grow">
-                  {service.description}
-                </p>
-              </motion.article>
-            );
-          })}
+          {services.map((service, index) => (
+            <ServiceCard key={service.title} service={service} index={index} />
+          ))}
         </div>
       </div>
     </section>
