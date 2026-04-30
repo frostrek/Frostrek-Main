@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import prerender from '@prerenderer/rollup-plugin'
 import sitemap from 'vite-plugin-sitemap'
 
 const routes = [
@@ -25,18 +24,6 @@ const routes = [
 export default defineConfig({
   plugins: [
     react(),
-    prerender({
-      routes: routes,
-      renderer: '@prerenderer/renderer-puppeteer',
-      rendererOptions: {
-        renderAfterDocumentEvent: 'custom-render-trigger',
-        maxConcurrentRoutes: 1, // Optional: useful for avoiding out-of-memory
-      },
-      postProcess(renderedRoute) {
-        // Ignore any redirects.
-        renderedRoute.html = renderedRoute.html.trim()
-      }
-    }),
     sitemap({
       hostname: 'https://www.frostrek.com',
       dynamicRoutes: routes,
