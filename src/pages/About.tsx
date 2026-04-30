@@ -9,7 +9,7 @@ import { useTheme } from '../context/ThemeContext';
 const HEADLINE_WORDS = ['Accelerate', 'growth', 'at', 'the', 'new', 'speed', 'of', 'business'];
 import CTASection from '../components/home/CTASection';
 import { useNavigate } from 'react-router-dom';
-
+import SEO from '../components/seo/SEO';
 
 // ============ TEAM DATA ============
 const TEAM_DATA = [
@@ -1025,6 +1025,11 @@ const About = () => {
 
     return (
         <div ref={ref} className={`min-h-screen relative overflow-hidden ${theme === 'dark' ? 'bg-dark-bg' : ''}`}>
+            <SEO 
+                title="About Us | Frostrek - Pioneering Enterprise AI" 
+                description="Learn about Frostrek's mission to make enterprise-grade AI accessible, our team of experts, and our commitment to security and innovation." 
+                path="/about" 
+            />
             {theme !== 'dark' && <CuteBackground />}
 
             {/* ===== HERO ===== */}

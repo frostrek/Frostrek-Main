@@ -7,6 +7,7 @@ import CuteBackground from '../components/ui/CuteBackground';
 import { useTheme } from '../context/ThemeContext';
 import CTASection from '../components/home/CTASection';
 import { useEffect } from 'react';
+import SEO from '../components/seo/SEO';
 
 const ExperiencePage = () => {
     const { theme } = useTheme();
@@ -16,6 +17,11 @@ const ExperiencePage = () => {
 
     return (
         <div className={`min-h-screen relative overflow-hidden transition-colors duration-300 ${theme === 'dark' ? 'bg-dark-bg' : ''}`}>
+            <SEO 
+                title="Experience AI in Action | Frostrek" 
+                description="Try our AI solutions yourself. Test our voice AI, chatbot, and LinkedIn outreach tools live." 
+                path="/experience" 
+            />
             {/* Background */}
             {theme !== 'dark' && <CuteBackground />}
 

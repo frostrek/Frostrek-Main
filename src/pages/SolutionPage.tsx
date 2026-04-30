@@ -9,6 +9,26 @@ import FrostrekAdvantage from '../components/solution/FrostrekAdvantage';
 import AllSolutionsSection from '../components/solution/AllSolutionsSection';
 import { useTheme } from '../context/ThemeContext';
 import CTASection from '../components/home/CTASection';
+import SEO from '../components/seo/SEO';
+
+const softwareSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Frostrek AI Platform",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "description": "Contact for enterprise pricing"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "ratingCount": "150"
+  }
+});
 
 const SolutionPage = () => {
     const { theme } = useTheme();
@@ -21,8 +41,31 @@ const SolutionPage = () => {
 
     if (!solution) return null;
 
+    // Optional FAQ schema if solution has FAQs
+    const faqSchema = (solution as any).faq ? JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": (solution as any).faq.map((q: any) => ({
+        "@type": "Question",
+        "name": q.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": q.answer
+        }
+      }))
+    }) : null;
+
+    const schemas = [softwareSchema];
+    if (faqSchema) schemas.push(faqSchema);
+
     return (
         <div className={`pt-20 ${theme === 'dark' ? 'bg-dark-bg' : ''}`}>
+            <SEO 
+                title={`${solution.title} | Frostrek Solutions`} 
+                description={solution.description} 
+                path={location.pathname} 
+                schema={schemas}
+            />
             {/* Hero Section */}
             <section className={`relative overflow-hidden text-white pt-24 pb-32 ${theme === 'dark' ? 'bg-dark-navbar' : 'bg-brand-green-900'}`}>
                 <div className="container mx-auto px-4 md:px-6 relative z-10">

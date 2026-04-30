@@ -8,6 +8,7 @@ import Card from '../components/ui/Card';
 import { CASE_STUDIES, BLOG_POSTS } from '../data/resources';
 import type { CaseStudy, BlogPost } from '../data/resources';
 import { useTheme } from '../context/ThemeContext';
+import SEO from '../components/seo/SEO';
 
 const ResourcesHero = () => {
     const { theme } = useTheme();
@@ -206,6 +207,11 @@ const ResourcesPage = () => {
 
     return (
         <div className={`relative min-h-screen pb-20 ${theme === 'dark' ? 'bg-dark-bg' : ''}`}>
+            <SEO 
+                title="Resources | Frostrek - AI Insights & Success Stories" 
+                description="Deep dives into how we help enterprises build production-ready AI systems through high-quality data operations and case studies." 
+                path="/resources" 
+            />
             {theme !== 'dark' && <CuteBackground />}
 
             <ResourcesHero />

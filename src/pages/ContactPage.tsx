@@ -3,6 +3,7 @@ import { Mail, Send, Check, Loader2, ArrowRight, MessageCircle, Phone, Globe } f
 import { motion } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
 import CuteBackground from '../components/ui/CuteBackground';
+import SEO from '../components/seo/SEO';
 
 import emailjs from '@emailjs/browser';
 
@@ -142,6 +143,11 @@ ${formData.projectDetails}
 
     return (
         <div className={`min-h-screen pt-24 pb-12 relative ${theme === 'dark' ? 'bg-dark-bg text-white' : 'bg-gray-50 text-gray-900'}`}>
+            <SEO 
+                title="Contact Us | Frostrek" 
+                description="Get in touch with Frostrek to explore how AI can transform your business. We are here to help." 
+                path="/contact" 
+            />
             <CuteBackground />
 
             <div className="container mx-auto px-4 lg:px-8 relative z-10">

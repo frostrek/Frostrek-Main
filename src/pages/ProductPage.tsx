@@ -12,6 +12,26 @@ import ProductHero from '../components/product/ProductHero';
 import AllProductsSection from '../components/product/AllProductsSection';
 import { useTheme } from '../context/ThemeContext';
 import CTASection from '../components/home/CTASection';
+import SEO from '../components/seo/SEO';
+
+const softwareSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Frostrek AI Platform",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "description": "Contact for enterprise pricing"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "ratingCount": "150"
+  }
+});
 
 const ProductPage = () => {
     const { theme } = useTheme();
@@ -25,8 +45,30 @@ const ProductPage = () => {
 
     if (!product) return null;
 
+    const faqSchema = product.faq ? JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": product.faq.map(q => ({
+        "@type": "Question",
+        "name": q.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": q.answer
+        }
+      }))
+    }) : null;
+
+    const schemas = [softwareSchema];
+    if (faqSchema) schemas.push(faqSchema);
+
     return (
         <div className={`relative min-h-screen transition-colors duration-300 ${theme === 'dark' ? 'bg-dark-bg' : ''}`}>
+            <SEO 
+                title={`${product.title} | Frostrek Enterprise AI`} 
+                description={product.description} 
+                path={location.pathname} 
+                schema={schemas}
+            />
             {/* CuteBackground - placed at root level with proper z-indexing */}
             {theme !== 'dark' && <CuteBackground />}
 

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { MapPin, Clock, Calendar as CalendarIcon, Loader2 } from 'lucide-react';
 import CuteBackground from '../components/ui/CuteBackground';
 import { useTheme } from '../context/ThemeContext';
+import SEO from '../components/seo/SEO';
 
 const CALENDAR_URL = 'https://calendar.app.google/zm9hU7K2Gqo2Q5Hh6';
 
@@ -11,6 +12,11 @@ const ScheduleDemo = () => {
 
     return (
         <div className={`min-h-screen pt-20 relative ${theme === 'dark' ? 'bg-dark-bg' : ''}`}>
+            <SEO 
+                title="Schedule a Demo | Frostrek" 
+                description="Meet with our team to discover how Frostrek can transform your business with AI-powered automation." 
+                path="/schedule-demo" 
+            />
             {theme !== 'dark' && <CuteBackground />}
             <div className="container mx-auto px-4 py-12 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
