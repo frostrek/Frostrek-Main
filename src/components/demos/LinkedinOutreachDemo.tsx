@@ -75,7 +75,7 @@ const LinkedinOutreachDemo = () => {
 
     return (
         <div className={`w-full rounded-3xl overflow-hidden border shadow-xl ${theme === 'dark'
-            ? 'bg-white/5 border-white/10 shadow-black/30'
+            ? 'bg-dark-card border-[#2EE1C7]/20 shadow-black/30'
             : 'bg-white border-white/40 shadow-xl'
             }`}>
             {/* Content Area - Compact */}
@@ -106,8 +106,8 @@ const LinkedinOutreachDemo = () => {
                                             value={formData.niche}
                                             onChange={e => setFormData({ ...formData, niche: e.target.value })}
                                             className={`w-full pl-10 pr-4 py-3 rounded-xl outline-none border transition-all ${theme === 'dark'
-                                                ? 'bg-black/20 border-white/10 focus:border-[#B07552] text-white placeholder-gray-500'
-                                                : 'bg-gray-50 border-gray-200 focus:border-[#B07552] text-gray-900'
+                                                ? 'bg-black/20 border-white/10 focus:border-[#2EE1C7] text-white placeholder-gray-500'
+                                                : 'bg-gray-50 border-gray-200 focus:border-[#2EE1C7] text-gray-900'
                                                 }`}
                                         />
                                     </div>
@@ -127,8 +127,8 @@ const LinkedinOutreachDemo = () => {
                                                 value={formData.location}
                                                 onChange={e => setFormData({ ...formData, location: e.target.value })}
                                                 className={`w-full pl-10 pr-4 py-3 rounded-xl outline-none border transition-all ${theme === 'dark'
-                                                    ? 'bg-black/20 border-white/10 focus:border-[#B07552] text-white placeholder-gray-500'
-                                                    : 'bg-gray-50 border-gray-200 focus:border-[#B07552] text-gray-900'
+                                                    ? 'bg-black/20 border-white/10 focus:border-[#2EE1C7] text-white placeholder-gray-500'
+                                                    : 'bg-gray-50 border-gray-200 focus:border-[#2EE1C7] text-gray-900'
                                                     }`}
                                             />
                                         </div>
@@ -144,8 +144,8 @@ const LinkedinOutreachDemo = () => {
                                                 value={formData.size}
                                                 onChange={e => setFormData({ ...formData, size: e.target.value })}
                                                 className={`w-full pl-10 pr-4 py-3 rounded-xl outline-none border transition-all appearance-none cursor-pointer ${theme === 'dark'
-                                                    ? 'bg-black/20 border-white/10 focus:border-[#B07552] text-white'
-                                                    : 'bg-gray-50 border-gray-200 focus:border-[#B07552] text-gray-900'
+                                                    ? 'bg-black/20 border-white/10 focus:border-[#2EE1C7] text-white'
+                                                    : 'bg-gray-50 border-gray-200 focus:border-[#2EE1C7] text-gray-900'
                                                     }`}
                                             >
                                                 <option value="" disabled>Select Size</option>
@@ -162,7 +162,7 @@ const LinkedinOutreachDemo = () => {
 
                             <Button
                                 type="submit"
-                                className="w-full py-4 text-base font-semibold bg-[#0077B5] hover:bg-[#006396] text-white shadow-lg shadow-blue-500/20 border-none"
+                                className={`w-full py-4 text-base font-semibold text-black shadow-lg border-none ${theme === 'dark' ? 'bg-[#2EE1C7] hover:bg-white shadow-[#2EE1C7]/20' : 'bg-[#0077B5] hover:bg-[#006396] !text-white shadow-blue-500/20'}`}
                             >
                                 Start Automation <ArrowRight className="w-5 h-5 ml-2" />
                             </Button>
@@ -189,7 +189,7 @@ const LinkedinOutreachDemo = () => {
                                     <motion.circle
                                         cx="50" cy="50" r="45"
                                         fill="none"
-                                        stroke="#0077B5"
+                                        stroke={theme === 'dark' ? '#2EE1C7' : '#0077B5'}
                                         strokeWidth="8"
                                         strokeLinecap="round"
                                         initial={{ pathLength: 0 }}
@@ -235,10 +235,10 @@ const LinkedinOutreachDemo = () => {
                         >
                             <div className="flex items-center justify-between">
                                 <h3 className="text-xl font-bold flex items-center gap-2">
-                                    <CheckCircle2 className="text-green-500 w-6 h-6" />
+                                    <CheckCircle2 className={`w-6 h-6 ${theme === 'dark' ? 'text-[#2EE1C7]' : 'text-green-500'}`} />
                                     Leads Extracted
                                 </h3>
-                                <span className={`text-sm px-3 py-1 rounded-full ${theme === 'dark' ? 'bg-green-500/20 text-green-400' : 'bg-green-100 text-green-700'
+                                <span className={`text-sm px-3 py-1 rounded-full ${theme === 'dark' ? 'bg-[#2EE1C7]/20 text-[#2EE1C7]' : 'bg-green-100 text-green-700'
                                     }`}>
                                     3 Verified Matches
                                 </span>
@@ -252,13 +252,13 @@ const LinkedinOutreachDemo = () => {
                                         animate={{ opacity: 1, x: 0 }}
                                         transition={{ delay: i * 0.1 }}
                                         className={`p-4 rounded-xl border flex items-center justify-between group cursor-pointer transition-all ${theme === 'dark'
-                                            ? 'bg-white/5 border-white/10 hover:border-[#0077B5]/50 hover:bg-white/10'
+                                            ? 'bg-dark-card border-[#2EE1C7]/20 hover:border-[#2EE1C7]/50 hover:bg-dark-card/80'
                                             : 'bg-white border-gray-100 hover:border-[#0077B5]/50 hover:bg-gray-50 shadow-sm hover:shadow-md'
                                             }`}
                                     >
                                         <div className="flex items-center gap-4">
-                                            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gray-200 to-gray-400 flex items-center justify-center overflow-hidden">
-                                                <User className="w-6 h-6 text-gray-600" />
+                                            <div className={`w-10 h-10 rounded-full flex items-center justify-center overflow-hidden ${theme === 'dark' ? 'bg-[#2EE1C7]/10' : 'bg-gradient-to-br from-gray-200 to-gray-400'}`}>
+                                                <User className={`w-6 h-6 ${theme === 'dark' ? 'text-[#2EE1C7]' : 'text-gray-600'}`} />
                                             </div>
                                             <div>
                                                 <h4 className={`font-bold ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
@@ -274,7 +274,7 @@ const LinkedinOutreachDemo = () => {
                                             <div className={`hidden sm:flex items-center gap-1.5 text-xs ${theme === 'dark' ? 'text-gray-500' : 'text-gray-400'}`}>
                                                 <MapPin className="w-3 h-3" /> {lead.location}
                                             </div>
-                                            <ArrowRight className={`w-5 h-5 transition-transform group-hover:translate-x-1 ${theme === 'dark' ? 'text-gray-600 group-hover:text-[#0077B5]' : 'text-gray-300 group-hover:text-[#0077B5]'
+                                            <ArrowRight className={`w-5 h-5 transition-transform group-hover:translate-x-1 ${theme === 'dark' ? 'text-gray-600 group-hover:text-[#2EE1C7]' : 'text-gray-300 group-hover:text-[#0077B5]'
                                                 }`} />
                                         </div>
                                     </motion.div>
@@ -284,7 +284,7 @@ const LinkedinOutreachDemo = () => {
                             <Button
                                 onClick={resetDemo}
                                 className={`w-full py-3 mt-4 border ${theme === 'dark'
-                                    ? 'bg-transparent border-white/20 hover:bg-white/5 text-white'
+                                    ? 'bg-transparent border-[#2EE1C7]/30 hover:bg-[#2EE1C7]/10 text-white'
                                     : 'bg-white border-gray-200 hover:bg-gray-50 text-gray-700'
                                     }`}
                             >

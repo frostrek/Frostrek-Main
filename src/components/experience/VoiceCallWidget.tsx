@@ -344,22 +344,22 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
             >
                 {/* Background Glow Effect */}
                 <div
-                    className={`absolute inset-0 transition-opacity duration-500 pointer-events-none ${isCallActive ? 'opacity-100' : 'opacity-0'} ${theme === 'dark' ? 'bg-gradient-to-br from-dark-accent/10 to-amber-500/10' : 'bg-gradient-to-br from-brand-green-500/10 to-cyan-500/10'}`}
+                    className={`absolute inset-0 transition-opacity duration-500 pointer-events-none ${isCallActive ? 'opacity-100' : 'opacity-0'} ${theme === 'dark' ? 'bg-gradient-to-br from-[#2EE1C7]/10 to-[#2EE1C7]/5' : 'bg-gradient-to-br from-brand-green-500/10 to-cyan-500/10'}`}
                 />
 
                 {/* Animated Orb */}
                 <div className="relative flex justify-center mb-8">
                     <motion.div
                         className={`relative w-32 h-32 rounded-full flex items-center justify-center ${isCallActive
-                            ? (theme === 'dark' ? 'bg-gradient-to-br from-dark-accent to-amber-600' : 'bg-gradient-to-br from-brand-green-400 to-cyan-500')
+                            ? (theme === 'dark' ? 'bg-gradient-to-br from-[#2EE1C7] to-[#2EE1C7]/70' : 'bg-gradient-to-br from-brand-green-400 to-cyan-500')
                             : (theme === 'dark' ? 'bg-gradient-to-br from-gray-600 to-gray-700' : 'bg-gradient-to-br from-gray-200 to-gray-300')
                             }`}
                         animate={{
                             scale: isCallActive ? [1, 1.05, 1] : 1,
                             boxShadow: isCallActive
                                 ? [
-                                    '0 0 0 0px rgba(20, 184, 166, 0.3)',
-                                    '0 0 0 20px rgba(20, 184, 166, 0)',
+                                    '0 0 0 0px rgba(46, 225, 199, 0.3)',
+                                    '0 0 0 20px rgba(46, 225, 199, 0)',
                                 ]
                                 : '0 0 0 0px rgba(0, 0, 0, 0)',
                         }}

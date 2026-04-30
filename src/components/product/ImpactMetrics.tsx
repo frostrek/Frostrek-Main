@@ -7,10 +7,10 @@ import { useTheme } from '../../context/ThemeContext';
 // Color palette for metrics - clean pie chart colors
 // Color palette for metrics - Frostrek Earthy/Bronze Theme
 const METRIC_COLORS = [
-    { fill: '#B07552', light: '#F2E8DF', darkBg: 'rgba(176, 117, 82, 0.2)', name: 'bronze' },  // Main Bronze
-    { fill: '#D4BB75', light: '#FAF5E6', darkBg: 'rgba(212, 187, 117, 0.2)', name: 'gold' },    // Gold/Sand
-    { fill: '#8A5A35', light: '#EDE4DD', darkBg: 'rgba(138, 90, 53, 0.2)', name: 'earth' },   // Deep Earth
-    { fill: '#A89A8A', light: '#F0EFEB', darkBg: 'rgba(168, 154, 138, 0.2)', name: 'stone' },   // Muted Stone
+    { fill: '#2EE1C7', light: '#F2E8DF', darkBg: 'rgba(46, 225, 199, 0.2)', name: 'teal' },
+    { fill: '#2EE1C7', light: '#FAF5E6', darkBg: 'rgba(46, 225, 199, 0.15)', name: 'teal-soft' },
+    { fill: '#22B8A5', light: '#EDE4DD', darkBg: 'rgba(34, 184, 165, 0.2)', name: 'teal-deep' },
+    { fill: '#1AA891', light: '#F0EFEB', darkBg: 'rgba(26, 168, 145, 0.2)', name: 'teal-muted' },
 ];
 
 // Clean Filled Pie Chart Component
@@ -185,7 +185,7 @@ const TrendChart = ({ value, label, delay, theme, index: _index = 0 }: { value: 
                     <motion.path
                         d="M0,45 C20,45 40,40 50,25 C60,10 80,10 100,5"
                         fill="none"
-                        stroke="#B07552"
+                        stroke="#2EE1C7"
                         strokeWidth="3"
                         strokeLinecap="round"
                         initial={{ pathLength: 0 }}
@@ -202,8 +202,8 @@ const TrendChart = ({ value, label, delay, theme, index: _index = 0 }: { value: 
                     />
                     <defs>
                         <linearGradient id="trendGradientSmall" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stopColor="#B07552" stopOpacity="0.2" />
-                            <stop offset="100%" stopColor="#B07552" stopOpacity="0" />
+                            <stop offset="0%" stopColor="#2EE1C7" stopOpacity="0.2" />
+                            <stop offset="100%" stopColor="#2EE1C7" stopOpacity="0" />
                         </linearGradient>
                     </defs>
                 </svg>
@@ -294,8 +294,8 @@ export const ImpactMetrics = ({ statistics }: { statistics: ProductStatistic[] }
                             <h3 className={`text-xl font-bold flex items-center gap-2 ${theme === 'dark' ? 'text-dark-text' : 'text-gray-900'}`}>
                                 Performance Overview
                                 <span className="flex h-2 w-2 relative">
-                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2EE1C7] opacity-75"></span>
+                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#2EE1C7]"></span>
                                 </span>
                             </h3>
                             <p className={`text-sm ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-500'}`}>Live data from enterprise deployments</p>

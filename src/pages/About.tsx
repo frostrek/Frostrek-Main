@@ -69,25 +69,25 @@ const CERTIFICATIONS_DATA = [
         name: 'ISO 27001',
         icon: ShieldCheck,
         description: 'International standard for information security management systems (ISMS)',
-        color: 'from-blue-500 to-blue-600',
+        color: 'from-[#2EE1C7] to-[#2EE1C7]/80',
     },
     {
         name: 'SOC 2 Type II',
         icon: Lock,
         description: 'Audited security, availability, and confidentiality controls',
-        color: 'from-purple-500 to-purple-600',
+        color: 'from-[#2EE1C7]/90 to-[#2EE1C7]/70',
     },
     {
         name: 'GDPR Compliant',
         icon: Shield,
         description: 'Full compliance with EU General Data Protection Regulation',
-        color: 'from-green-500 to-green-600',
+        color: 'from-[#2EE1C7]/80 to-[#2EE1C7]/60',
     },
     {
         name: 'HIPAA Ready',
         icon: BadgeCheck,
         description: 'Healthcare data protection and privacy standards',
-        color: 'from-red-500 to-red-600',
+        color: 'from-[#2EE1C7]/70 to-[#2EE1C7]/50',
     },
 ];
 
@@ -98,28 +98,28 @@ const AWARDS_DATA = [
         issuer: 'TechCrunch Disrupt',
         year: '2024',
         icon: Trophy,
-        color: 'from-amber-400 to-amber-600',
+        color: 'from-[#2EE1C7] to-[#2EE1C7]/80',
     },
     {
         title: 'Innovation Leader',
         issuer: 'Gartner Magic Quadrant',
         year: '2024',
         icon: Star,
-        color: 'from-brand-green-400 to-brand-green-600',
+        color: 'from-[#2EE1C7]/90 to-[#2EE1C7]/70',
     },
     {
         title: 'Top 50 AI Startups',
         issuer: 'Forbes',
         year: '2023',
         icon: Award,
-        color: 'from-rose-400 to-rose-600',
+        color: 'from-[#2EE1C7]/80 to-[#2EE1C7]/60',
     },
     {
         title: 'Enterprise Excellence',
         issuer: 'Enterprise Tech Awards',
         year: '2023',
         icon: Trophy,
-        color: 'from-indigo-400 to-indigo-600',
+        color: 'from-[#2EE1C7]/70 to-[#2EE1C7]/50',
     },
 ];
 
@@ -128,7 +128,7 @@ const TECH_CATEGORIES = [
     {
         name: 'AI & Machine Learning',
         icon: Brain,
-        color: 'from-purple-500 to-violet-600',
+        color: 'from-[#2EE1C7] to-[#2EE1C7]/80',
         technologies: [
             { name: 'PyTorch', desc: 'Deep learning framework for research and production' },
             { name: 'TensorFlow', desc: 'End-to-end ML platform for scalable deployments' },
@@ -139,7 +139,7 @@ const TECH_CATEGORIES = [
     {
         name: 'Infrastructure',
         icon: Cloud,
-        color: 'from-brand-green-500 to-brand-green-600',
+        color: 'from-[#2EE1C7]/90 to-[#2EE1C7]/70',
         technologies: [
             { name: 'Kubernetes', desc: 'Container orchestration at enterprise scale' },
             { name: 'AWS/GCP/Azure', desc: 'Multi-cloud deployment flexibility' },
@@ -150,7 +150,7 @@ const TECH_CATEGORIES = [
     {
         name: 'Security',
         icon: ShieldCheck,
-        color: 'from-green-500 to-emerald-600',
+        color: 'from-[#2EE1C7]/80 to-[#2EE1C7]/60',
         technologies: [
             { name: 'Zero Trust', desc: 'Never trust, always verify architecture' },
             { name: 'E2E Encryption', desc: 'AES-256 encryption for data at rest and transit' },
@@ -161,7 +161,7 @@ const TECH_CATEGORIES = [
     {
         name: 'Development',
         icon: Code,
-        color: 'from-orange-500 to-red-600',
+        color: 'from-[#2EE1C7]/70 to-[#2EE1C7]/50',
         technologies: [
             { name: 'TypeScript', desc: 'Type-safe development for robust applications' },
             { name: 'Python', desc: 'Core language for AI/ML development' },
@@ -203,7 +203,7 @@ const TypewriterText = memo(({ texts }: { texts: string[] }) => {
     return (
         <span className="relative">
             {text}
-            <span className="inline-block w-[3px] h-[0.85em] bg-brand-green-400 ml-1 align-middle rounded-full animate-pulse" />
+            <span className="inline-block w-[3px] h-[0.85em] bg-[#2EE1C7] ml-1 align-middle rounded-full animate-pulse" />
         </span>
     );
 });
@@ -287,17 +287,17 @@ const TiltCard = memo(({ children, className, color = 'brand-green' }: {
             className={`relative cursor-pointer ${className}`}
             animate={{
                 y: hover ? -8 : 0,
-                boxShadow: hover ? `0 20px 40px -15px ${color === 'brand-green' ? 'rgba(176,117,82,0.3)' : 'rgba(212,187,117,0.3)'}` : '0 4px 20px -5px rgba(0,0,0,0.1)'
+                boxShadow: hover ? `0 20px 40px -15px rgba(46,225,199,0.3)` : '0 4px 20px -5px rgba(0,0,0,0.1)'
             }}
             transition={{ type: 'spring', stiffness: 300, damping: 20 }}
         >
             {/* Gradient border on hover */}
             <motion.div
-                className={`absolute -inset-[2px] rounded-2xl bg-gradient-to-r ${color === 'brand-green' ? 'from-brand-green-400 via-brand-yellow-400 to-brand-green-400' : 'from-brand-yellow-400 via-brand-green-400 to-brand-yellow-400'}`}
+                className={`absolute -inset-[2px] rounded-2xl bg-gradient-to-r from-[#2EE1C7] via-[#2EE1C7]/60 to-[#2EE1C7]`}
                 animate={{ opacity: hover ? 1 : 0 }}
                 transition={{ duration: 0.2 }}
             />
-            <div className="relative bg-white rounded-2xl h-full" style={{ transform: 'translateZ(20px)' }}>
+            <div className="relative bg-dark-card rounded-2xl h-full" style={{ transform: 'translateZ(20px)' }}>
                 {children}
             </div>
         </motion.div>
@@ -334,10 +334,10 @@ const Counter = memo(({ value, suffix = '' }: { value: number; suffix?: string }
 // ============ FLOATING ICON ============
 const FloatingIcon = memo(({ icon: Icon, delay, x, y }: { icon: LucideIcon; delay: number; x: string; y: string }) => (
     <div
-        className="absolute w-10 h-10 bg-white/80 backdrop-blur rounded-xl shadow-lg flex items-center justify-center border border-brand-green-500/20 animate-bounce-slow"
+        className="absolute w-10 h-10 bg-dark-card backdrop-blur rounded-xl shadow-lg flex items-center justify-center border border-[#2EE1C7]/20 animate-bounce-slow"
         style={{ left: x, top: y, animationDelay: `${delay}s` }}
     >
-        <Icon className="w-5 h-5 text-brand-green-600" />
+        <Icon className="w-5 h-5 text-[#2EE1C7]" />
     </div>
 ));
 
@@ -358,25 +358,25 @@ const InteractiveGlobe = memo(() => {
     return (
         <div className="relative w-full h-80 flex items-center justify-center">
             {/* Animated rings - Using CSS instead of Framer Motion for performance */}
-            <div className="absolute w-56 h-56 border-2 border-dashed border-brand-green-500/20 rounded-full animate-spin-slow" />
-            <div className="absolute w-44 h-44 border-2 border-dashed border-brand-yellow-500/20 rounded-full animate-spin-slow-reverse" />
+            <div className="absolute w-56 h-56 border-2 border-dashed border-[#2EE1C7]/20 rounded-full animate-spin-slow" />
+            <div className="absolute w-44 h-44 border-2 border-dashed border-[#2EE1C7]/15 rounded-full animate-spin-slow-reverse" />
 
             {/* Globe center */}
             <motion.div
-                className="relative w-24 h-24 bg-gradient-to-br from-brand-green-400 via-brand-green-500 to-brand-green-600 rounded-full flex items-center justify-center shadow-2xl cursor-pointer z-10"
+                className="relative w-24 h-24 bg-gradient-to-br from-[#2EE1C7] via-[#2EE1C7]/80 to-[#2EE1C7]/60 rounded-full flex items-center justify-center shadow-2xl cursor-pointer z-10"
                 onMouseEnter={() => setIsGlobeHovered(true)}
                 onMouseLeave={() => setIsGlobeHovered(false)}
                 animate={{
                     scale: isGlobeHovered ? 1.1 : 1,
                     boxShadow: isGlobeHovered
-                        ? '0 0 60px 10px rgba(176,117,82,0.4)'
-                        : '0 20px 50px -10px rgba(176,117,82,0.4)'
+                        ? '0 0 60px 10px rgba(46,225,199,0.4)'
+                        : '0 20px 50px -10px rgba(46,225,199,0.4)'
                 }}
                 transition={{ type: 'spring', stiffness: 300 }}
             >
                 <Globe className="w-12 h-12 text-white" />
                 {/* Pulse rings - Using CSS for performance */}
-                <div className="absolute inset-0 rounded-full border-2 border-brand-green-300 animate-ping" />
+                <div className="absolute inset-0 rounded-full border-2 border-[#2EE1C7] animate-ping" />
             </motion.div>
 
             {/* City dots with tooltips */}
@@ -395,8 +395,8 @@ const InteractiveGlobe = memo(() => {
                         className="relative cursor-pointer"
                         animate={{ scale: hoveredCity === i ? 1.5 : 1 }}
                     >
-                        <div className="w-4 h-4 bg-brand-green-500 rounded-full shadow-lg" />
-                        <div className="absolute inset-0 rounded-full bg-brand-green-400 animate-ping" style={{ animationDelay: `${i * 0.3}s` }} />
+                        <div className="w-4 h-4 bg-[#2EE1C7] rounded-full shadow-lg" />
+                        <div className="absolute inset-0 rounded-full bg-[#2EE1C7] animate-ping" style={{ animationDelay: `${i * 0.3}s` }} />
                     </motion.div>
                     <AnimatePresence>
                         {hoveredCity === i && (
@@ -427,12 +427,12 @@ const CheckItem = memo(({ text, delay }: { text: string; delay: number }) => (
         className="flex items-center gap-3 group"
     >
         <motion.div
-            className="w-6 h-6 rounded-full bg-gradient-to-br from-brand-green-500 to-brand-green-600 flex items-center justify-center"
+            className="w-6 h-6 rounded-full bg-gradient-to-br from-[#2EE1C7] to-[#2EE1C7]/70 flex items-center justify-center"
             whileHover={{ scale: 1.2, rotate: 10 }}
         >
             <CheckCircle2 className="w-4 h-4 text-white" />
         </motion.div>
-        <span className="text-gray-600 group-hover:text-gray-900 transition-colors">{text}</span>
+        <span className="text-slate-300 group-hover:text-white transition-colors">{text}</span>
     </motion.div>
 ));
 
@@ -450,15 +450,15 @@ const TechIcon = memo(({ icon: Icon, label, delay }: { icon: LucideIcon; label: 
             onMouseLeave={() => setHover(false)}
         >
             <motion.div
-                className="w-16 h-16 bg-white rounded-2xl border-2 border-brand-green-500/20 flex items-center justify-center shadow-lg cursor-pointer"
+                className="w-16 h-16 bg-dark-card rounded-2xl border-2 border-[#2EE1C7]/20 flex items-center justify-center shadow-lg cursor-pointer"
                 animate={{
                     y: hover ? -8 : 0,
-                    borderColor: hover ? 'rgb(176 117 82)' : 'rgba(176 117 82 / 0.2)',
-                    boxShadow: hover ? '0 15px 30px -10px rgba(176,117,82,0.3)' : '0 4px 15px -5px rgba(0,0,0,0.1)'
+                    borderColor: hover ? '#2EE1C7' : 'rgba(46,225,199,0.2)',
+                    boxShadow: hover ? '0 15px 30px -10px rgba(46,225,199,0.3)' : '0 4px 15px -5px rgba(0,0,0,0.1)'
                 }}
                 transition={{ type: 'spring', stiffness: 300 }}
             >
-                <Icon className="w-8 h-8 text-brand-green-600" />
+                <Icon className="w-8 h-8 text-[#2EE1C7]" />
             </motion.div>
             <AnimatePresence>
                 {hover && (
@@ -466,7 +466,7 @@ const TechIcon = memo(({ icon: Icon, label, delay }: { icon: LucideIcon; label: 
                         initial={{ opacity: 0, y: -5 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -5 }}
-                        className="absolute -bottom-6 text-xs font-medium text-brand-green-600 whitespace-nowrap"
+                        className="absolute -bottom-6 text-xs font-medium text-[#2EE1C7] whitespace-nowrap"
                     >
                         {label}
                     </motion.span>
@@ -522,7 +522,7 @@ const TeamFlipCard = memo(({ member, delay }: { member: typeof TEAM_DATA[0]; del
                         <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/90 via-black/60 to-transparent">
                             <div className="bg-black/40 rounded-xl p-4 border border-white/10">
                                 <h3 className="text-xl font-bold text-white mb-1">{member.name}</h3>
-                                <p className="text-brand-yellow-300 font-medium">{member.role}</p>
+                                <p className="text-[#2EE1C7] font-medium">{member.role}</p>
                             </div>
                         </div>
                         {/* Hover Hint */}
@@ -540,17 +540,17 @@ const TeamFlipCard = memo(({ member, delay }: { member: typeof TEAM_DATA[0]; del
                     style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
                 >
                     {/* Optimized: Solid background instead of backdrop-blur-xl */}
-                    <div className="w-full h-full bg-slate-900 border border-slate-700 p-6 flex flex-col">
+                    <div className="w-full h-full bg-dark-card border border-[#2EE1C7]/20 p-6 flex flex-col">
                         <div className="flex-1 flex flex-col">
                             <div className="flex items-center gap-4 mb-4">
                                 <img
                                     src={member.image}
                                     alt={member.name}
-                                    className="w-16 h-16 rounded-xl object-cover border-2 border-brand-green-500/50"
+                                    className="w-16 h-16 rounded-xl object-cover border-2 border-[#2EE1C7]/50"
                                 />
                                 <div>
                                     <h3 className="text-lg font-bold text-white">{member.name}</h3>
-                                    <p className="text-brand-yellow-400 text-sm font-medium">{member.role}</p>
+                                    <p className="text-[#2EE1C7] text-sm font-medium">{member.role}</p>
                                 </div>
                             </div>
 
@@ -561,7 +561,7 @@ const TeamFlipCard = memo(({ member, delay }: { member: typeof TEAM_DATA[0]; del
                                 {member.linkedin && (
                                     <motion.a
                                         href={member.linkedin}
-                                        className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-white hover:bg-brand-green-500/50 transition-colors"
+                                        className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-white hover:bg-[#2EE1C7]/30 transition-colors"
                                         whileHover={{ scale: 1.1, y: -2 }}
                                         whileTap={{ scale: 0.95 }}
                                     >
@@ -571,7 +571,7 @@ const TeamFlipCard = memo(({ member, delay }: { member: typeof TEAM_DATA[0]; del
                                 {member.twitter && (
                                     <motion.a
                                         href={member.twitter}
-                                        className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-white hover:bg-brand-green-500/50 transition-colors"
+                                        className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-white hover:bg-[#2EE1C7]/30 transition-colors"
                                         whileHover={{ scale: 1.1, y: -2 }}
                                         whileTap={{ scale: 0.95 }}
                                     >
@@ -581,7 +581,7 @@ const TeamFlipCard = memo(({ member, delay }: { member: typeof TEAM_DATA[0]; del
                                 {member.github && (
                                     <motion.a
                                         href={member.github}
-                                        className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-white hover:bg-brand-green-500/50 transition-colors"
+                                        className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-white hover:bg-[#2EE1C7]/30 transition-colors"
                                         whileHover={{ scale: 1.1, y: -2 }}
                                         whileTap={{ scale: 0.95 }}
                                     >
@@ -663,8 +663,8 @@ const AwardCard = memo(({ award, delay }: { award: typeof AWARDS_DATA[0]; delay:
                 className="relative bg-white rounded-2xl p-6 border-2 border-gray-100 shadow-lg overflow-hidden cursor-pointer h-full min-h-[200px]"
                 animate={{
                     y: hover ? -8 : 0,
-                    borderColor: hover ? 'rgba(176, 117, 82, 0.5)' : 'rgb(243, 244, 246)',
-                    boxShadow: hover ? '0 20px 40px -15px rgba(176,117,82,0.3)' : '0 4px 20px -5px rgba(0,0,0,0.1)',
+                    borderColor: hover ? 'rgba(46, 225, 199, 0.5)' : 'rgb(243, 244, 246)',
+                    boxShadow: hover ? '0 20px 40px -15px rgba(46,225,199,0.3)' : '0 4px 20px -5px rgba(0,0,0,0.1)',
                 }}
                 transition={{ type: 'spring', stiffness: 300 }}
             >
@@ -711,14 +711,14 @@ const ExpandableTechCategory = memo(({ category, delay }: { category: typeof TEC
             <motion.div
                 className="bg-white rounded-2xl border-2 border-gray-100 shadow-lg overflow-hidden cursor-pointer"
                 animate={{
-                    borderColor: isExpanded ? 'rgba(176, 117, 82, 0.5)' : 'rgb(243, 244, 246)',
+                    borderColor: isExpanded ? 'rgba(46, 225, 199, 0.5)' : 'rgb(243, 244, 246)',
                 }}
             >
                 {/* Header */}
                 <motion.div
                     className="p-6 flex items-center justify-between"
                     onClick={() => setIsExpanded(!isExpanded)}
-                    whileHover={{ backgroundColor: 'rgba(176, 117, 82, 0.05)' }}
+                    whileHover={{ backgroundColor: 'rgba(46, 225, 199, 0.05)' }}
                 >
                     <div className="flex items-center gap-4">
                         <motion.div
@@ -781,25 +781,25 @@ const TechEcosystemDiagram = memo(() => {
     const [hoveredCategory, setHoveredCategory] = useState<number | null>(null);
 
     const categories = [
-        { icon: Brain, label: 'AI/ML', angle: 0, color: '#8B5CF6' },
+        { icon: Brain, label: 'AI/ML', angle: 0, color: '#2EE1C7' },
         { icon: Cloud, label: 'Cloud', angle: 90, color: '#2EE1C7' },
         { icon: ShieldCheck, label: 'Security', angle: 180, color: '#2EE1C7' },
-        { icon: Code, label: 'Dev', angle: 270, color: '#F97316' },
+        { icon: Code, label: 'Dev', angle: 270, color: '#2EE1C7' },
     ];
 
     return (
         <div className="relative w-full max-w-[320px] aspect-square mx-auto">
             {/* Orbiting Rings */}
             <div
-                className="absolute inset-8 border-2 border-dashed border-gray-200 rounded-full animate-spin-slow"
+                className="absolute inset-8 border-2 border-dashed border-[#2EE1C7]/20 rounded-full animate-spin-slow"
             />
             <div
-                className="absolute inset-16 border-2 border-dashed border-gray-200 rounded-full animate-spin-slow-reverse"
+                className="absolute inset-16 border-2 border-dashed border-[#2EE1C7]/10 rounded-full animate-spin-slow-reverse"
             />
 
             {/* Center Logo */}
             <div
-                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-gradient-to-br from-brand-green-500 to-brand-yellow-600 rounded-2xl flex items-center justify-center shadow-2xl z-10 animate-pulse"
+                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-gradient-to-br from-[#2EE1C7] to-[#2EE1C7]/60 rounded-2xl flex items-center justify-center shadow-2xl z-10 animate-pulse"
             >
                 <span className="text-white font-bold text-lg">F</span>
             </div>
@@ -838,7 +838,7 @@ const TechEcosystemDiagram = memo(() => {
                                     initial={{ opacity: 0, y: 5 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     exit={{ opacity: 0, y: 5 }}
-                                    className="absolute top-14 left-1/2 -translate-x-1/2 text-xs font-semibold text-gray-700 whitespace-nowrap"
+                                    className="absolute top-14 left-1/2 -translate-x-1/2 text-xs font-semibold text-slate-300 whitespace-nowrap"
                                 >
                                     {cat.label}
                                 </motion.span>
@@ -1040,10 +1040,10 @@ const About = () => {
                             className={`text-3xl md:text-5xl lg:text-6xl font-bold mb-6 md:mb-8 leading-tight ${theme === 'dark' ? 'text-dark-text' : 'text-gray-900'}`}
                         >
                             Revolutionizing AI Solutions with{' '}
-                            <span className={`relative inline-block ${theme === 'dark' ? 'text-[#bf8441]' : 'text-brand-green-500'}`}>
+                            <span className={`relative inline-block ${theme === 'dark' ? 'text-[#2EE1C7]' : 'text-brand-green-500'}`}>
                                 <TypewriterText texts={texts} />
                                 <motion.span
-                                    className="absolute -bottom-2 left-0 h-1.5 bg-gradient-to-r from-brand-green-400 to-brand-yellow-400 rounded-full"
+                                    className="absolute -bottom-2 left-0 h-1.5 bg-gradient-to-r from-[#2EE1C7] to-[#2EE1C7]/50 rounded-full"
                                     initial={{ width: 0 }}
                                     animate={{ width: '100%' }}
                                     transition={{ delay: 0.5, duration: 0.8 }}
@@ -1111,10 +1111,10 @@ const About = () => {
                                 <motion.div key={i} variants={fadeUp}>
                                     <TiltCard color={i % 2 === 0 ? 'brand-green' : 'brand-yellow'}>
                                         <div className="p-6 text-center">
-                                            <div className="text-3xl md:text-4xl font-bold text-brand-green-600 mb-1">
+                                            <div className={`text-3xl md:text-4xl font-bold mb-1 ${theme === 'dark' ? 'text-[#2EE1C7]' : 'text-brand-green-600'}`}>
                                                 <Counter value={s.value} suffix={s.suffix} />
                                             </div>
-                                            <div className="text-sm text-gray-500">{s.label}</div>
+                                            <div className={`text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>{s.label}</div>
                                         </div>
                                     </TiltCard>
                                 </motion.div>
@@ -1171,14 +1171,14 @@ const About = () => {
 
                             <motion.div
                                 variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
-                                className="relative pl-8 border-l border-dotted border-gray-300"
+                                className={`relative pl-8 border-l border-dotted ${theme === 'dark' ? 'border-[#2EE1C7]/30' : 'border-gray-300'}`}
                             >
-                                <div className="absolute top-0 left-[-1px] w-[1px] h-8 bg-black"></div>
-                                <div className="absolute bottom-0 left-[-1px] w-[1px] h-8 bg-black"></div>
+                                <div className={`absolute top-0 left-[-1px] w-[1px] h-8 ${theme === 'dark' ? 'bg-[#2EE1C7]' : 'bg-black'}`}></div>
+                                <div className={`absolute bottom-0 left-[-1px] w-[1px] h-8 ${theme === 'dark' ? 'bg-[#2EE1C7]' : 'bg-black'}`}></div>
 
                                 <div className="flex flex-wrap gap-4">
-                                    <MagneticButton variant="primary" onClick={() => navigate("/experience")} className={`px-8 py-4 !rounded-none !shadow-none font-bold text-xs tracking-widest uppercase ${theme === 'dark' ? '!bg-[#bf8441] !text-dark-bg hover:!bg-[#bf8441]/90' : '!bg-gray-950 !text-white hover:!bg-brand-green-600'}`}>
-                                        <span className="flex items-center gap-2">VIEW OUR AGENT PLATFORM <span className={theme === 'dark' ? 'text-dark-bg' : 'text-brand-green-400'}>•</span></span>
+                                    <MagneticButton variant="primary" onClick={() => navigate("/experience")} className={`px-8 py-4 !rounded-none !shadow-none font-bold text-xs tracking-widest uppercase ${theme === 'dark' ? '!bg-[#2EE1C7] !text-black hover:!bg-white' : '!bg-gray-950 !text-white hover:!bg-brand-green-600'}`}>
+                                        <span className="flex items-center gap-2">VIEW OUR AGENT PLATFORM <span className={theme === 'dark' ? 'text-black' : 'text-brand-green-400'}>•</span></span>
                                     </MagneticButton>
 
                                     <MagneticButton variant="secondary" onClick={() => navigate("/contact")} className="px-8 py-4 font-bold text-xs tracking-widest uppercase">
@@ -1213,16 +1213,16 @@ const About = () => {
                                     transition={{ delay: 0.4 }}
                                 >
                                     <div className="bg-white/90 backdrop-blur-sm p-2 rounded-xl shadow-lg border border-white/50">
-                                        <div className="text-2xl font-bold tracking-tight text-gray-900">
-                                            Team <span className={theme === 'dark' ? 'text-[#bf8441]' : 'text-brand-green-500'}> Frostrek</span>
+                                            <div className="text-2xl font-bold tracking-tight text-gray-900">
+                                            Team <span className={theme === 'dark' ? 'text-[#2EE1C7]' : 'text-brand-green-500'}> Frostrek</span>
                                         </div>
                                     </div>
                                 </motion.div>
                             </div>
 
                             {/* Subtle Decorative Elements */}
-                            <div className="absolute -top-12 -right-12 w-64 h-64 bg-brand-green-50/30 rounded-full blur-3xl -z-10"></div>
-                            <div className="absolute -bottom-12 -left-12 w-64 h-64 bg-blue-50/30 rounded-full blur-3xl -z-10"></div>
+                            <div className="absolute -top-12 -right-12 w-64 h-64 bg-[#2EE1C7]/5 rounded-full blur-3xl -z-10"></div>
+                            <div className="absolute -bottom-12 -left-12 w-64 h-64 bg-[#2EE1C7]/5 rounded-full blur-3xl -z-10"></div>
                         </motion.div>
                     </div>
                 </div>
@@ -1253,7 +1253,7 @@ const About = () => {
 
                     <div className="relative max-w-5xl mx-auto">
                         {/* Vertical Line */}
-                        <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-brand-green-500/0 via-brand-green-500/50 to-brand-green-500/0 md:-translate-x-1/2"></div>
+                        <div className={`absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b ${theme === 'dark' ? 'from-[#2EE1C7]/0 via-[#2EE1C7]/50 to-[#2EE1C7]/0' : 'from-brand-green-500/0 via-brand-green-500/50 to-brand-green-500/0'} md:-translate-x-1/2`}></div>
 
                         {TIMELINE_DATA.map((item, i) => {
                             const isActive = activeImageIndex === i;
@@ -1272,12 +1272,12 @@ const About = () => {
                                         ref={(el) => {
                                             if (el) dotsRef.current[i] = el;
                                         }}
-                                        className="absolute left-4 md:left-1/2 w-4 h-4 rounded-full bg-brand-green-500 shadow-[0_0_0_4px_rgba(176,117,82,0.2)] z-10 md:-translate-x-1/2 translate-x-[-7px] md:translate-x-[-8px]"
+                                        className="absolute left-4 md:left-1/2 w-4 h-4 rounded-full bg-[#2EE1C7] shadow-[0_0_0_4px_rgba(46,225,199,0.2)] z-10 md:-translate-x-1/2 translate-x-[-7px] md:translate-x-[-8px]"
                                     >
                                         {/* Pulsing effect when active */}
                                         {isActive && (
                                             <motion.div
-                                                className="absolute inset-0 bg-brand-green-400 rounded-full"
+                                                className="absolute inset-0 bg-[#2EE1C7] rounded-full"
                                                 animate={{ scale: [1, 1.3, 1], opacity: [1, 0.5, 1] }}
                                                 transition={{ duration: 1.5, repeat: Infinity }}
                                             />
@@ -1289,23 +1289,25 @@ const About = () => {
                                         className={`ml-12 md:ml-0 md:w-1/2 ${i % 2 === 0 ? 'md:pr-16 text-left md:text-right' : 'md:pl-16 text-left'}`}
                                     >
                                         <motion.div
-                                            className="bg-white rounded-2xl border-2 border-gray-100 shadow-sm p-6 cursor-pointer"
+                                            className={`rounded-2xl border-2 shadow-sm p-6 cursor-pointer transition-all duration-300 ${theme === 'dark' ? 'bg-dark-card border-[#2EE1C7]/20 hover:border-[#2EE1C7] hover:shadow-[0_10px_30px_-10px_rgba(46,225,199,0.3)]' : 'bg-white border-gray-100'}`}
                                             whileHover={{
                                                 y: -4,
-                                                borderColor: item.color.border,
-                                                boxShadow: `0 10px 30px -10px ${item.color.shadow}`
+                                                ...(theme !== 'dark' && {
+                                                    borderColor: item.color.border,
+                                                    boxShadow: `0 10px 30px -10px ${item.color.shadow}`
+                                                })
                                             }}
                                             transition={{ duration: 0.2 }}
                                         >
                                             <div className={`flex flex-col gap-3 ${i % 2 === 0 ? 'md:items-end' : 'md:items-start'}`}>
                                                 <div className="flex items-center gap-3 mb-1">
-                                                    <span className={`px-3 py-1 ${item.color.bg} ${item.color.text} rounded-full text-sm font-bold shadow-sm`}>
+                                                    <span className={`px-3.5 py-1 rounded-full text-sm font-bold shadow-sm border ${theme === 'dark' ? 'bg-[#2EE1C7]/10 text-[#2EE1C7] border-[#2EE1C7]/40' : `${item.color.bg} ${item.color.text} border-transparent`}`}>
                                                         {item.year}
                                                     </span>
-                                                    <item.icon className={`w-5 h-5 ${item.color.iconColor} ${i % 2 === 0 ? 'md:order-first' : ''}`} />
+                                                    <item.icon className={`w-5 h-5 ${theme === 'dark' ? 'text-[#2EE1C7]' : item.color.iconColor} ${i % 2 === 0 ? 'md:order-first' : ''}`} />
                                                 </div>
-                                                <h3 className="text-2xl font-bold text-gray-900">{item.title}</h3>
-                                                <p className="text-gray-600 leading-relaxed font-medium">
+                                                <h3 className={`text-2xl font-bold ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>{item.title}</h3>
+                                                <p className={`leading-relaxed font-medium ${theme === 'dark' ? 'text-slate-300' : 'text-gray-600'}`}>
                                                     {item.description}
                                                 </p>
                                             </div>
@@ -1324,7 +1326,7 @@ const About = () => {
                                                     transition={{ duration: 0.5, ease: "easeOut" }}
                                                     className="relative overflow-hidden rounded-2xl shadow-2xl w-[300px] h-[200px]"
                                                     style={{
-                                                        boxShadow: `0 25px 50px -12px ${item.color.shadow}`
+                                                        boxShadow: theme === 'dark' ? '0 25px 50px -12px rgba(46, 225, 199, 0.2)' : `0 25px 50px -12px ${item.color.shadow}`
                                                     }}
                                                 >
                                                     <motion.img
@@ -1340,7 +1342,9 @@ const About = () => {
                                                     <div
                                                         className="absolute inset-0 pointer-events-none"
                                                         style={{
-                                                            background: `linear-gradient(135deg, ${item.color.border}15 0%, transparent 50%)`
+                                                            background: theme === 'dark'
+                                                                ? 'linear-gradient(135deg, rgba(46,225,199,0.08) 0%, transparent 50%)'
+                                                                : `linear-gradient(135deg, ${item.color.border}15 0%, transparent 50%)`
                                                         }}
                                                     />
                                                 </motion.div>
@@ -1452,13 +1456,13 @@ const About = () => {
                                 <TiltCard color={v.color}>
                                     <div className="p-6 text-center">
                                         <motion.div
-                                            className={`w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4 ${v.color === 'brand-green' ? 'bg-gradient-to-br from-brand-green-400 to-brand-green-600' : 'bg-gradient-to-br from-brand-yellow-400 to-brand-yellow-600'}`}
+                                            className={`w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4 bg-gradient-to-br from-[#2EE1C7] to-[#2EE1C7]/70`}
                                             whileHover={{ rotate: 10, scale: 1.1 }}
                                         >
                                             <v.icon className="w-7 h-7 text-white" />
                                         </motion.div>
-                                        <h3 className="font-bold text-gray-900 mb-1">{v.title}</h3>
-                                        <p className="text-gray-600 text-sm">{v.desc}</p>
+                                        <h3 className={`font-bold mb-1 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>{v.title}</h3>
+                                        <p className={`text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>{v.desc}</p>
                                     </div>
                                 </TiltCard>
                             </motion.div>
@@ -1493,8 +1497,8 @@ const About = () => {
                                         <div
                                             className={`absolute inset-0 w-full h-full rounded-lg shadow-lg border transition-shadow duration-300 hover:shadow-xl overflow-hidden ${theme === 'dark'
                                                 ? i % 2 === 0
-                                                    ? 'bg-dark-card border-brand-green-500/30'
-                                                    : 'bg-dark-card border-brand-yellow-500/30'
+                                                    ? 'bg-dark-card border-[#2EE1C7]/30'
+                                                    : 'bg-dark-card border-[#2EE1C7]/30'
                                                 : i % 2 === 0
                                                     ? 'bg-white border-brand-green-100'
                                                     : 'bg-white border-brand-yellow-100'
@@ -1522,10 +1526,10 @@ const About = () => {
                                                     <motion.div
                                                         className={`flex-shrink-0 w-16 h-16 rounded-xl flex items-center justify-center font-bold text-2xl shadow-lg ${i % 2 === 0
                                                             ? theme === 'dark'
-                                                                ? 'bg-brand-green-500/20 text-brand-green-400 border border-brand-green-500/30'
+                                                                ? 'bg-[#2EE1C7]/20 text-[#2EE1C7] border border-[#2EE1C7]/30'
                                                                 : 'bg-gradient-to-br from-brand-green-400 to-brand-green-600 text-white'
                                                             : theme === 'dark'
-                                                                ? 'bg-brand-yellow-500/20 text-brand-yellow-400 border border-brand-yellow-500/30'
+                                                                ? 'bg-[#2EE1C7]/20 text-[#2EE1C7] border border-[#2EE1C7]/30'
                                                                 : 'bg-gradient-to-br from-brand-yellow-400 to-brand-yellow-600 text-white'
                                                             }`}
                                                         whileHover={{ scale: 1.05, rotate: 5 }}
@@ -1545,16 +1549,18 @@ const About = () => {
 
                                                 {/* Footer with stat */}
                                                 <div className={`flex items-center justify-between pt-5 mt-4 mb-1 border-t ${theme === 'dark'
-                                                    ? i % 2 === 0 ? 'border-brand-green-500/20' : 'border-brand-yellow-500/20'
+                                                    ? i % 2 === 0 ? 'border-[#2EE1C7]/20' : 'border-[#2EE1C7]/20'
                                                     : i % 2 === 0 ? 'border-brand-green-100' : 'border-brand-yellow-100'
                                                     }`}>
-                                                    <span className={`text-xs font-semibold ${i % 2 === 0 ? 'text-brand-green-600' : 'text-brand-yellow-600'}`}>
+                                                    <span className={`text-xs font-semibold ${theme === 'dark' ? 'text-[#2EE1C7]' : i % 2 === 0 ? 'text-brand-green-600' : 'text-brand-yellow-600'}`}>
                                                         {f.stat}
                                                     </span>
                                                     <motion.div
-                                                        className={`w-8 h-8 rounded-full flex items-center justify-center ${i % 2 === 0
-                                                            ? 'bg-brand-green-100 text-brand-green-600'
-                                                            : 'bg-brand-yellow-100 text-brand-yellow-600'
+                                                        className={`w-8 h-8 rounded-full flex items-center justify-center ${theme === 'dark'
+                                                            ? 'bg-[#2EE1C7]/10 text-[#2EE1C7]'
+                                                            : i % 2 === 0
+                                                                ? 'bg-brand-green-100 text-brand-green-600'
+                                                                : 'bg-brand-yellow-100 text-brand-yellow-600'
                                                             }`}
                                                         whileHover={{ scale: 1.1, rotate: 90 }}
                                                     >
@@ -1568,8 +1574,8 @@ const About = () => {
                                         <div
                                             className={`absolute inset-0 w-full h-full rounded-lg shadow-lg border overflow-hidden ${theme === 'dark'
                                                 ? i % 2 === 0
-                                                    ? 'bg-dark-card border-brand-green-500/30'
-                                                    : 'bg-dark-card border-brand-yellow-500/30'
+                                                    ? 'bg-dark-card border-[#2EE1C7]/30'
+                                                    : 'bg-dark-card border-[#2EE1C7]/30'
                                                 : i % 2 === 0
                                                     ? 'bg-white border-brand-green-100'
                                                     : 'bg-white border-brand-yellow-100'
@@ -1583,19 +1589,19 @@ const About = () => {
                                             <div className="p-5 h-full flex flex-col overflow-y-auto">
                                                 <div className="flex items-center justify-between mb-2 flex-shrink-0">
                                                     <h3 className={`font-bold text-base ${theme === 'dark' ? 'text-dark-text' : 'text-gray-900'}`}>{f.title}</h3>
-                                                    <span className={`text-xl font-bold flex-shrink-0 ${i % 2 === 0 ? 'text-brand-green-500' : 'text-brand-yellow-500'}`}>{f.num}</span>
+                                                    <span className={`text-xl font-bold flex-shrink-0 text-[#2EE1C7]`}>{f.num}</span>
                                                 </div>
                                                 <p className={`text-xs mb-3 leading-relaxed ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}>{f.details}</p>
                                                 <div className="space-y-1.5 flex-1">
                                                     {f.highlights.map((highlight, idx) => (
                                                         <div key={idx} className="flex items-start gap-2">
-                                                            <CheckCircle2 size={14} className={`flex-shrink-0 mt-0.5 ${i % 2 === 0 ? 'text-brand-green-500' : 'text-brand-yellow-500'}`} />
+                                                            <CheckCircle2 size={14} className="flex-shrink-0 mt-0.5 text-[#2EE1C7]" />
                                                             <span className={`text-xs leading-tight ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-700'}`}>{highlight}</span>
                                                         </div>
                                                     ))}
                                                 </div>
                                                 <div className="mt-3 text-center flex-shrink-0">
-                                                    <span className={`text-xs font-semibold ${i % 2 === 0 ? 'text-brand-green-600' : 'text-brand-yellow-600'}`}>Click to flip back ↻</span>
+                                                    <span className="text-xs font-semibold text-[#2EE1C7]">Click to flip back ↻</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -1612,8 +1618,8 @@ const About = () => {
 
                 {/* Decorative background */}
                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                    <div className={`absolute top-20 -left-20 w-96 h-96 rounded-full blur-3xl opacity-20 ${theme === 'dark' ? 'bg-brand-green-500' : 'bg-brand-green-200'}`} />
-                    <div className={`absolute bottom-20 -right-20 w-96 h-96 rounded-full blur-3xl opacity-20 ${theme === 'dark' ? 'bg-brand-yellow-500' : 'bg-brand-yellow-200'}`} />
+                    <div className={`absolute top-20 -left-20 w-96 h-96 rounded-full blur-3xl opacity-20 ${theme === 'dark' ? 'bg-[#2EE1C7]' : 'bg-brand-green-200'}`} />
+                    <div className={`absolute bottom-20 -right-20 w-96 h-96 rounded-full blur-3xl opacity-20 ${theme === 'dark' ? 'bg-[#2EE1C7]' : 'bg-brand-yellow-200'}`} />
                 </div>
 
                 <div className="container mx-auto px-4 relative z-10">
@@ -1692,7 +1698,7 @@ const About = () => {
                                                     <motion.a
                                                         href={o.mapUrl}
                                                         target="_blank"
-                                                        className="px-5 py-2 bg-gradient-to-r from-brand-green-500 to-brand-green-600 text-white rounded-lg font-semibold text-sm"
+                                                        className={`px-5 py-2 rounded-lg font-semibold text-sm ${theme === 'dark' ? 'bg-[#2EE1C7] text-black' : 'bg-gradient-to-r from-brand-green-500 to-brand-green-600 text-white'}`}
                                                         whileHover={{ scale: 1.05 }}
                                                         whileTap={{ scale: 0.95 }}
                                                     >
@@ -1709,7 +1715,7 @@ const About = () => {
                                         <div>
                                             <div className="flex items-center gap-2 mb-2">
                                                 <img src={o.flagImg} alt="flag" className="w-6 h-4 rounded" />
-                                                <span className={`text-xs font-bold uppercase tracking-wider ${theme === 'dark' ? 'text-brand-green-400' : 'text-brand-green-600'
+                                                <span className={`text-xs font-bold uppercase tracking-wider ${theme === 'dark' ? 'text-[#2EE1C7]' : 'text-brand-green-600'
                                                     }`}>
                                                     {o.name}
                                                 </span>
@@ -1730,7 +1736,7 @@ const About = () => {
                                             <a
                                                 href={o.mapUrl}
                                                 target="_blank"
-                                                className="block w-full text-center px-4 py-2 bg-gradient-to-r from-brand-green-500 to-brand-green-600 text-white rounded-lg font-semibold text-sm"
+                                                className={`block w-full text-center px-4 py-2 rounded-lg font-semibold text-sm ${theme === 'dark' ? 'bg-[#2EE1C7] text-black' : 'bg-gradient-to-r from-brand-green-500 to-brand-green-600 text-white'}`}
                                             >
                                                 Get Directions
                                             </a>

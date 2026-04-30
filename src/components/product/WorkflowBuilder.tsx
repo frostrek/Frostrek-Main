@@ -138,9 +138,9 @@ const DynamicConnection = ({
         >
             <defs>
                 <linearGradient id="executionGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#10B981" />
-                    <stop offset="50%" stopColor="#34D399" />
-                    <stop offset="100%" stopColor="#10B981" />
+                    <stop offset="0%" stopColor="#2EE1C7" />
+                    <stop offset="50%" stopColor="#5EEBD6" />
+                    <stop offset="100%" stopColor="#2EE1C7" />
                 </linearGradient>
                 <filter id="glowGreen" x="-50%" y="-50%" width="200%" height="200%">
                     <feGaussianBlur stdDeviation="3" result="coloredBlur" />
@@ -155,7 +155,7 @@ const DynamicConnection = ({
             <motion.path
                 d={pathD}
                 fill="none"
-                stroke={theme === 'dark' ? '#3a3025' : '#E5E7EB'}
+                stroke={theme === 'dark' ? '#1a1a1a' : '#E5E7EB'}
                 strokeWidth="4"
             />
 
@@ -163,13 +163,13 @@ const DynamicConnection = ({
             <motion.path
                 d={pathD}
                 fill="none"
-                stroke={isExecuting ? '#10B981' : '#B07552'}
+                stroke={isExecuting ? '#2EE1C7' : (theme === 'dark' ? '#2EE1C7' : '#B07552')}
                 strokeWidth="2"
                 strokeLinecap="round"
                 initial={{ pathLength: 0 }}
                 animate={{
                     pathLength: 1,
-                    stroke: isExecuting ? '#10B981' : '#B07552'
+                    stroke: isExecuting ? '#2EE1C7' : (theme === 'dark' ? '#2EE1C7' : '#B07552')
                 }}
                 transition={{ duration: 1.5, delay, ease: "easeInOut" }}
             />
@@ -181,7 +181,7 @@ const DynamicConnection = ({
                     <motion.path
                         d={pathD}
                         fill="none"
-                        stroke="#10B981"
+                        stroke="#2EE1C7"
                         strokeWidth="3"
                         strokeLinecap="round"
                         filter="url(#glowGreen)"
@@ -193,7 +193,7 @@ const DynamicConnection = ({
                     {/* Traveling dot */}
                     <motion.circle
                         r="6"
-                        fill="#10B981"
+                        fill="#2EE1C7"
                         filter="url(#glowGreen)"
                         initial={{ offsetDistance: "0%" }}
                         animate={{ offsetDistance: "100%" }}
@@ -316,25 +316,25 @@ export const WorkflowBuilder = ({ steps }: { steps: ProductProcessStep[] }) => {
                         whileHover={{ scale: (isExecuting || isCompleted) ? 1 : 1.02 }}
                         whileTap={{ scale: (isExecuting || isCompleted) ? 1 : 0.98 }}
                         className={`mt-auto p-4 rounded-xl border cursor-pointer transition-all duration-300 ${isExecuting
-                            ? 'bg-emerald-500/10 border-emerald-500/30'
+                            ? 'bg-[#2EE1C7]/10 border-[#2EE1C7]/30'
                             : isCompleted
-                                ? 'bg-blue-500/10 border-blue-500/30'
+                                ? 'bg-[#2EE1C7]/10 border-[#2EE1C7]/30'
                                 : theme === 'dark'
                                     ? 'bg-dark-accent/10 border-dark-accent/30 hover:bg-dark-accent/20 hover:border-dark-accent/50'
                                     : 'bg-brand-green-50 border-brand-green-100 hover:bg-brand-green-100 hover:border-brand-green-200'
                             }`}
                     >
                         <div className={`flex items-center gap-2 mb-2 font-bold text-sm transition-colors duration-300 ${isExecuting
-                            ? 'text-emerald-500'
+                            ? 'text-[#2EE1C7]'
                             : isCompleted
-                                ? 'text-blue-500'
+                                ? 'text-[#2EE1C7]'
                                 : theme === 'dark' ? 'text-dark-accent' : 'text-brand-green-700'
                             }`}>
                             {isExecuting ? (
                                 <motion.div
                                     animate={{ rotate: 360 }}
                                     transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                                    className="w-4 h-4 border-2 border-emerald-500 border-t-transparent rounded-full"
+                                    className="w-4 h-4 border-2 border-[#2EE1C7] border-t-transparent rounded-full"
                                 />
                             ) : isCompleted ? (
                                 <motion.div
@@ -342,7 +342,7 @@ export const WorkflowBuilder = ({ steps }: { steps: ProductProcessStep[] }) => {
                                     animate={{ scale: 1 }}
                                     className="w-4 h-4"
                                 >
-                                    <CheckCircle2 className="w-4 h-4 text-blue-500" />
+                                    <CheckCircle2 className="w-4 h-4 text-[#2EE1C7]" />
                                 </motion.div>
                             ) : (
                                 <Play className="w-4 h-4 fill-current" />
@@ -355,9 +355,9 @@ export const WorkflowBuilder = ({ steps }: { steps: ProductProcessStep[] }) => {
                                     : 'Ready to automate?'}
                         </div>
                         <p className={`text-xs transition-colors duration-300 ${isExecuting
-                            ? 'text-emerald-600/80 dark:text-emerald-400/80'
+                            ? 'text-[#2EE1C7]/80 dark:text-[#2EE1C7]/80'
                             : isCompleted
-                                ? 'text-blue-600/80 dark:text-blue-400/80'
+                                ? 'text-[#2EE1C7]/80 dark:text-[#2EE1C7]/80'
                                 : theme === 'dark' ? 'text-dark-text-muted' : 'text-brand-green-600'
                             }`}>
                             {isExecuting

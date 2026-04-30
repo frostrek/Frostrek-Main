@@ -139,7 +139,7 @@ const SolutionPage = () => {
 
                     {/* Radial Glows */}
                     <div className={`absolute top-[-20%] left-[-10%] w-[800px] h-[800px] rounded-full blur-[120px] mix-blend-screen animate-pulse ${theme === 'dark' ? 'bg-dark-accent/30' : 'bg-brand-green-600/30'}`} style={{ animationDuration: '4s' }} />
-                    <div className={`absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] rounded-full blur-[100px] mix-blend-screen ${theme === 'dark' ? 'bg-amber-500/20' : 'bg-teal-500/20'}`} />
+                    <div className={`absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] rounded-full blur-[100px] mix-blend-screen ${theme === 'dark' ? 'bg-dark-accent/20' : 'bg-teal-500/20'}`} />
 
                     {/* Diagonal Light Streak */}
                     <div className="absolute top-0 right-0 w-[1000px] h-full bg-gradient-to-l from-white/5 to-transparent skew-x-12 blur-3xl opacity-30" />

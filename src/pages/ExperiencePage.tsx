@@ -34,7 +34,7 @@ const ExperiencePage = () => {
 
                         <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 font-heading ${theme === 'dark' ? 'text-dark-text' : 'text-gray-800'}`}>
                             Experience{' '}
-                            <span className={`bg-clip-text text-transparent ${theme === 'dark' ? 'bg-gradient-to-r from-dark-accent to-amber-400' : 'bg-gradient-to-r from-brand-green-500 to-brand-green-700'}`}>
+                            <span className={`bg-clip-text text-transparent ${theme === 'dark' ? 'bg-gradient-to-r from-[#2EE1C7] to-[#2EE1C7]/70' : 'bg-gradient-to-r from-brand-green-500 to-brand-green-700'}`}>
                                 AI in Action
                             </span>
                         </h1>
@@ -60,7 +60,7 @@ const ExperiencePage = () => {
                             className="space-y-6"
                         >
                             <div className="flex items-center gap-3">
-                                <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shadow-lg ${theme === 'dark' ? 'bg-gradient-to-br from-dark-accent to-amber-600' : 'bg-gradient-to-br from-brand-green-400 to-brand-green-600'}`}>
+                                <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shadow-lg ${theme === 'dark' ? 'bg-gradient-to-br from-[#2EE1C7] to-[#2EE1C7]/70' : 'bg-gradient-to-br from-brand-green-400 to-brand-green-600'}`}>
                                     <Phone className="w-6 h-6 text-white" />
                                 </div>
                                 <div>
@@ -92,7 +92,7 @@ const ExperiencePage = () => {
                             className="space-y-6"
                         >
                             <div className="flex items-center gap-3">
-                                <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shadow-lg ${theme === 'dark' ? 'bg-gradient-to-br from-amber-500 to-orange-600' : 'bg-gradient-to-br from-brand-yellow-400 to-brand-yellow-600'}`}>
+                                <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shadow-lg ${theme === 'dark' ? 'bg-gradient-to-br from-[#2EE1C7] to-[#2EE1C7]/70' : 'bg-gradient-to-br from-brand-yellow-400 to-brand-yellow-600'}`}>
                                     <MessageSquare className="w-6 h-6 text-white" />
                                 </div>
                                 <div>
@@ -128,11 +128,11 @@ const ExperiencePage = () => {
                             className="space-y-6"
                         >
                             <div className="flex items-center gap-3">
-                                <div className="w-12 h-12 rounded-2xl flex items-center justify-center shadow-lg bg-[#0077B5]">
+                                <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shadow-lg ${theme === 'dark' ? 'bg-[#2EE1C7]' : 'bg-[#0077B5]'}`}>
                                     <Linkedin className="w-6 h-6 text-white" />
                                 </div>
                                 <div>
-                                    <span className="inline-block py-0.5 px-2 rounded-full bg-[#0077B5]/10 text-[#0077B5] text-[10px] font-bold tracking-wide mb-1">
+                                    <span className={`inline-block py-0.5 px-2 rounded-full text-[10px] font-bold tracking-wide mb-1 ${theme === 'dark' ? 'bg-[#2EE1C7]/10 text-[#2EE1C7]' : 'bg-[#0077B5]/10 text-[#0077B5]'}`}>
                                         NEW
                                     </span>
                                     <h2 className={`text-2xl font-bold font-heading ${theme === 'dark' ? 'text-dark-text' : 'text-gray-800'}`}>LinkedIn Outreach</h2>
@@ -163,7 +163,7 @@ const ExperiencePage = () => {
                             transition={{ duration: 0.6 }}
                             className="space-y-6 flex flex-col items-center justify-center"
                         >
-                            <div className={`w-full h-full min-h-[400px] rounded-3xl border-2 border-dashed flex flex-col items-center justify-center p-8 ${theme === 'dark' ? 'border-white/10 bg-white/5' : 'border-gray-200 bg-gray-50/50'}`}>
+                            <div className={`w-full h-full min-h-[400px] rounded-3xl border-2 border-dashed flex flex-col items-center justify-center p-8 ${theme === 'dark' ? 'border-[#2EE1C7]/20 bg-dark-card/50' : 'border-gray-200 bg-gray-50/50'}`}>
                                 <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-4 ${theme === 'dark' ? 'bg-white/10' : 'bg-gray-100'}`}>
                                     <Sparkles className={`w-8 h-8 ${theme === 'dark' ? 'text-dark-accent' : 'text-gray-400'}`} />
                                 </div>

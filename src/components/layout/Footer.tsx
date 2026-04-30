@@ -85,7 +85,7 @@ const Footer = () => {
 
         .footer-revealed { animation: footerReveal 300ms ease-out forwards; }
         .section-title { position: relative; display: inline-block; }
-        .section-title::after { content: ''; position: absolute; bottom: -4px; left: 0; height: 2px; background: rgba(176, 117, 82, 0.5); width: 0; }
+        .section-title::after { content: ''; position: absolute; bottom: -4px; left: 0; height: 2px; background: #2EE1C7; width: 0; }
         .footer-revealed .section-title::after { animation: underlineExpand 400ms ease-out 150ms forwards; }
         .footer-link { position: relative; display: inline-block; transition: color 150ms ease-out; }
         .footer-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 100%; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform 200ms ease-out; }
@@ -97,7 +97,7 @@ const Footer = () => {
         .social-icon::before { content: ''; position: absolute; top: 50%; left: 50%; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.5); border-radius: 50%; transform: translate(-50%, -50%) scale(0); pointer-events: none; }
         .social-icon:active::before { animation: ripple 600ms ease-out; }
         .iso-badge { transition: all 200ms ease-out; }
-        .iso-badge:hover { transform: scale(1.02); box-shadow: 0 0 12px rgba(176, 117, 82, 0.3); }
+        .iso-badge:hover { transform: scale(1.02); box-shadow: 0 0 12px rgba(46, 225, 199, 0.3); }
 
         .feedback-tab { transition: all 200ms ease-out; }
         .feedback-tab:hover { padding-right: 20px; }
@@ -211,7 +211,7 @@ const Footer = () => {
             <div className="lg:col-span-9 grid grid-cols-2 md:grid-cols-4 gap-6">
               {/* Products */}
               <div className="space-y-3">
-                <h4 className={`section-title font-semibold mb-2 text-sm uppercase tracking-wider ${theme === 'dark' ? 'text-dark-text' : 'text-gray-900'}`}>Products</h4>
+                <h4 className={`section-title font-semibold mb-2 text-sm uppercase tracking-wider ${theme === 'dark' ? 'text-[#2EE1C7]' : 'text-gray-900'}`}>Products</h4>
                 <ul className="space-y-2">
                   {NAV_ITEMS.find(n => n.label === 'Products')?.megaMenu?.flatMap(s => s.items).slice(0, 5).map(item => (
                     <li key={item.name}>
@@ -223,7 +223,7 @@ const Footer = () => {
 
               {/* Solutions */}
               <div className="space-y-3">
-                <h4 className={`section-title font-semibold mb-2 text-sm uppercase tracking-wider ${theme === 'dark' ? 'text-dark-text' : 'text-gray-900'}`}>Solutions</h4>
+                <h4 className={`section-title font-semibold mb-2 text-sm uppercase tracking-wider ${theme === 'dark' ? 'text-[#2EE1C7]' : 'text-gray-900'}`}>Solutions</h4>
                 <ul className="space-y-2">
                   {NAV_ITEMS.find(n => n.label === 'Solutions')?.megaMenu?.flatMap(s => s.items).map(item => (
                     <li key={item.name}>
@@ -238,7 +238,7 @@ const Footer = () => {
 
               {/* Company */}
               <div className="space-y-3">
-                <h4 className={`section-title font-semibold mb-2 text-sm uppercase tracking-wider ${theme === 'dark' ? 'text-dark-text' : 'text-gray-900'}`}>Company</h4>
+                <h4 className={`section-title font-semibold mb-2 text-sm uppercase tracking-wider ${theme === 'dark' ? 'text-[#2EE1C7]' : 'text-gray-900'}`}>Company</h4>
                 <ul className="space-y-2">
                   <li><Link to="/about" className={`footer-link text-sm ${theme === 'dark' ? 'text-dark-text-muted hover:text-dark-accent' : 'text-gray-600 hover:text-[#2EE1C7]'}`}>About Us</Link></li>
                   <li><Link to="/experience" className={`footer-link text-sm ${theme === 'dark' ? 'text-dark-text-muted hover:text-dark-accent' : 'text-gray-600 hover:text-[#2EE1C7]'}`}>Experience</Link></li>
@@ -250,7 +250,7 @@ const Footer = () => {
 
               {/* Connect (Map only) */}
               <div className="space-y-3">
-                <h4 className={`section-title font-semibold mb-2 text-sm uppercase tracking-wider ${theme === 'dark' ? 'text-dark-text' : 'text-gray-900'}`}>Location</h4>
+                <h4 className={`font-semibold mb-2 text-sm uppercase tracking-wider ${theme === 'dark' ? 'text-dark-text' : 'text-gray-900'}`}>Location</h4>
 
                 {/* Embedded Map - Expanded */}
                 <div ref={locationRef} onClick={handleLocationClick} className={`relative w-full h-42 rounded-lg overflow-hidden shadow-md border group cursor-pointer transition-all duration-300 ${theme === 'dark' ? 'border-dark-accent/30 bg-dark-card hover:shadow-dark-accent/10' : 'border-gray-200 bg-gray-50 hover:shadow-lg'}`}>

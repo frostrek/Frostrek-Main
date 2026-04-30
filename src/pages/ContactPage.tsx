@@ -142,7 +142,7 @@ ${formData.projectDetails}
 
     return (
         <div className={`min-h-screen pt-24 pb-12 relative ${theme === 'dark' ? 'bg-dark-bg text-white' : 'bg-gray-50 text-gray-900'}`}>
-            <CuteBackground />
+            {theme !== 'dark' && <CuteBackground />}
 
             <div className="container mx-auto px-4 lg:px-8 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 min-h-[calc(100vh-180px)]">
@@ -166,7 +166,7 @@ ${formData.projectDetails}
                         {/* Contact Methods - Enhanced Design */}
                         <div className="space-y-6">
                             {/* GET IN TOUCH Section */}
-                            <div className={`p-8 rounded-2xl ${theme === 'dark' ? 'bg-white/5 border border-white/10' : 'bg-white shadow-xl border border-gray-100'}`}>
+                            <div className={`p-8 rounded-2xl ${theme === 'dark' ? 'bg-dark-card border border-[#2EE1C7]/20' : 'bg-white shadow-xl border border-gray-100'}`}>
                                 <h3 className={`text-xs font-bold uppercase tracking-widest mb-6 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>
                                     GET IN TOUCH
                                 </h3>
@@ -209,7 +209,7 @@ ${formData.projectDetails}
                                             className={`flex items-start gap-3 p-4 rounded-lg transition-all duration-300 group ${theme === 'dark' ? 'bg-white/5 hover:bg-white/10' : 'bg-gray-50 hover:bg-gray-100'}`}
                                         >
                                             <div className={`p-2 rounded-lg ${theme === 'dark' ? 'bg-white/10' : 'bg-white'}`}>
-                                                <MessageCircle className="w-5 h-5 text-[#25D366]" />
+                                                <MessageCircle className={`w-5 h-5 ${theme === 'dark' ? 'text-[#2EE1C7]' : 'text-[#25D366]'}`} />
                                             </div>
                                             <div className="min-w-0 flex-1">
                                                 <h4 className={`font-semibold text-sm mb-0.5 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>WhatsApp (US)</h4>
@@ -221,7 +221,7 @@ ${formData.projectDetails}
                             </div>
 
                             {/* GLOBAL OFFICES Section */}
-                            <div className={`p-8 rounded-2xl ${theme === 'dark' ? 'bg-white/5 border border-white/10' : 'bg-white shadow-xl border border-gray-100'}`}>
+                            <div className={`p-8 rounded-2xl ${theme === 'dark' ? 'bg-dark-card border border-[#2EE1C7]/20' : 'bg-white shadow-xl border border-gray-100'}`}>
                                 <div className="flex items-center justify-center gap-2 mb-6">
                                     <Globe className={`w-5 h-5 ${theme === 'dark' ? 'text-[#2EE1C7]' : 'text-[#2EE1C7]'}`} />
                                     <h3 className={`text-xs font-bold uppercase tracking-widest ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>
@@ -301,7 +301,7 @@ ${formData.projectDetails}
                         transition={{ duration: 0.6, delay: 0.2 }}
                     >
                         <div className={`p-5 md:p-6 rounded-2xl backdrop-blur-xl border shadow-2xl ${theme === 'dark'
-                            ? 'bg-white/5 border-white/10 shadow-black/20'
+                            ? 'bg-dark-card border-[#2EE1C7]/20 shadow-[#2EE1C7]/5'
                             : 'bg-[#FDFBF7]/90 border-[#2EE1C7]/50 shadow-xl'
                             }`}>
                             <h3 className="text-xl font-bold mb-3">Send us a message</h3>
@@ -435,7 +435,7 @@ ${formData.projectDetails}
                                     <button
                                         type="submit"
                                         disabled={isSubmitting}
-                                        className={`w-full py-2.5 rounded-lg font-semibold text-sm text-white shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-2 ${isSubmitting ? 'opacity-70 cursor-wait' : 'hover:shadow-xl'
+                                        className={`w-full py-2.5 rounded-lg font-semibold text-sm text-black shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-2 ${isSubmitting ? 'opacity-70 cursor-wait' : 'hover:shadow-xl'
                                             }`}
                                         style={{ background: 'linear-gradient(135deg, #2EE1C7 0%, #2EE1C7 100%)' }}
                                     >
@@ -458,8 +458,8 @@ ${formData.projectDetails}
                                     animate={{ opacity: 1, scale: 1 }}
                                     className="py-12 flex flex-col items-center text-center space-y-4"
                                 >
-                                    <div className="w-20 h-20 rounded-full bg-green-500/10 flex items-center justify-center mb-4">
-                                        <Check className="w-10 h-10 text-green-500" />
+                                    <div className="w-20 h-20 rounded-full bg-[#2EE1C7]/10 flex items-center justify-center mb-4">
+                                        <Check className="w-10 h-10 text-[#2EE1C7]" />
                                     </div>
                                     <h3 className="text-2xl font-bold">Message Sent!</h3>
                                     <p className="text-gray-500 max-w-xs">
