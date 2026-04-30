@@ -36,7 +36,7 @@ const ResourcesHero = () => {
                 >
                     Insights &amp; <br />
                     <span className={`text-transparent bg-clip-text ${theme === 'dark'
-                        ? 'bg-gradient-to-r from-dark-accent via-amber-500 to-dark-accent'
+                        ? 'bg-gradient-to-r from-dark-accent via-dark-accent/70 to-dark-accent'
                         : 'bg-gradient-to-r from-brand-yellow-600 via-brand-green-600 to-brand-green-800'
                         }`}>
                         Success Stories
@@ -76,7 +76,7 @@ const CaseStudyCard = ({ study, onClick }: { study: CaseStudy; onClick: () => vo
                 : 'border-white/40 bg-white/60 hover:bg-white/80 hover:shadow-xl hover:border-brand-green-200'
                 }`}>
                 <div className={`absolute top-0 left-0 w-full h-1 opacity-0 group-hover:opacity-100 transition-opacity ${theme === 'dark'
-                    ? 'bg-gradient-to-r from-dark-accent to-amber-500'
+                    ? 'bg-gradient-to-r from-dark-accent to-dark-accent/70'
                     : 'bg-gradient-to-r from-brand-green-400 to-brand-yellow-400'
                     }`} />
 
@@ -286,7 +286,7 @@ const ResourcesPage = () => {
                                         {/* Animated background pattern */}
                                         <div className="absolute inset-0 overflow-hidden">
                                             <div className={`absolute top-0 right-0 w-96 h-96 rounded-full blur-[100px] opacity-20 animate-pulse ${theme === 'dark' ? 'bg-dark-accent' : 'bg-brand-green-400'}`} />
-                                            <div className={`absolute bottom-0 left-0 w-72 h-72 rounded-full blur-[80px] opacity-15 animate-pulse delay-1000 ${theme === 'dark' ? 'bg-amber-500' : 'bg-brand-yellow-400'}`} />
+                                            <div className={`absolute bottom-0 left-0 w-72 h-72 rounded-full blur-[80px] opacity-15 animate-pulse delay-1000 ${theme === 'dark' ? 'bg-dark-accent/70' : 'bg-brand-yellow-400'}`} />
                                             {/* Grid pattern overlay */}
                                             <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle, currentColor 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
                                         </div>
@@ -330,7 +330,7 @@ const ResourcesPage = () => {
                                                             animate={{ scale: 1 }}
                                                             transition={{ delay: 0.8, type: 'spring' }}
                                                             className={`absolute -top-2 -right-2 lg:right-4 w-16 h-16 rounded-full flex items-center justify-center shadow-xl ${theme === 'dark'
-                                                                ? 'bg-gradient-to-br from-dark-accent to-amber-500 text-dark-bg'
+                                                                ? 'bg-gradient-to-br from-dark-accent to-dark-accent/70 text-dark-bg'
                                                                 : 'bg-gradient-to-br from-brand-green-500 to-brand-green-600 text-white'
                                                                 }`}
                                                         >
@@ -385,7 +385,7 @@ const ResourcesPage = () => {
                                                         whileHover={{ scale: 1.05, boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)' }}
                                                         whileTap={{ scale: 0.98 }}
                                                         className={`group relative px-8 py-5 rounded-2xl font-bold text-lg transition-all duration-300 ${theme === 'dark'
-                                                            ? 'bg-dark-accent text-dark-bg hover:bg-amber-400'
+                                                            ? 'bg-dark-accent text-dark-bg hover:bg-white'
                                                             : 'bg-brand-green-600 text-white hover:bg-brand-green-700'
                                                             }`}
                                                     >
@@ -445,7 +445,7 @@ const ResourcesPage = () => {
                                         {/* Animated background pattern */}
                                         <div className="absolute inset-0 overflow-hidden">
                                             <div className={`absolute top-0 right-0 w-96 h-96 rounded-full blur-[100px] opacity-20 animate-pulse ${theme === 'dark' ? 'bg-dark-accent' : 'bg-brand-green-400'}`} />
-                                            <div className={`absolute bottom-0 left-0 w-72 h-72 rounded-full blur-[80px] opacity-15 animate-pulse delay-1000 ${theme === 'dark' ? 'bg-amber-500' : 'bg-brand-yellow-400'}`} />
+                                            <div className={`absolute bottom-0 left-0 w-72 h-72 rounded-full blur-[80px] opacity-15 animate-pulse delay-1000 ${theme === 'dark' ? 'bg-dark-accent/70' : 'bg-brand-yellow-400'}`} />
                                             {/* Grid pattern overlay */}
                                             <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle, currentColor 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
                                         </div>
@@ -489,7 +489,7 @@ const ResourcesPage = () => {
                                                             animate={{ scale: 1 }}
                                                             transition={{ delay: 0.8, type: 'spring' }}
                                                             className={`absolute -top-2 -right-2 lg:right-4 w-16 h-16 rounded-full flex items-center justify-center shadow-xl ${theme === 'dark'
-                                                                ? 'bg-gradient-to-br from-dark-accent to-amber-500 text-dark-bg'
+                                                                ? 'bg-gradient-to-br from-dark-accent to-dark-accent/70 text-dark-bg'
                                                                 : 'bg-gradient-to-br from-brand-green-500 to-brand-green-600 text-white'
                                                                 }`}
                                                         >
@@ -544,7 +544,7 @@ const ResourcesPage = () => {
                                                         whileHover={{ scale: 1.05, boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)' }}
                                                         whileTap={{ scale: 0.98 }}
                                                         className={`group relative px-8 py-5 rounded-2xl font-bold text-lg transition-all duration-300 ${theme === 'dark'
-                                                            ? 'bg-dark-accent text-dark-bg hover:bg-amber-400'
+                                                            ? 'bg-dark-accent text-dark-bg hover:bg-white'
                                                             : 'bg-brand-green-600 text-white hover:bg-brand-green-700'
                                                             }`}
                                                     >
@@ -727,9 +727,11 @@ const ResourcesPage = () => {
                                         <span className="flex items-center gap-1.5"><Calendar className="w-4 h-4" /> {selectedBlog.date}</span>
                                         <span className="flex items-center gap-1.5"><Clock className="w-4 h-4" /> {selectedBlog.readTime}</span>
                                     </div>
-                                    <div className={`inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide mb-2 ${selectedBlog.category === 'Industry Trends' ? 'bg-amber-100 text-amber-800' :
-                                        selectedBlog.category === 'Technical Deep Dive' ? 'bg-blue-100 text-blue-800' :
-                                            'bg-green-100 text-green-800'
+                                    <div className={`inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide mb-2 ${theme === 'dark'
+                                        ? 'bg-[#2EE1C7]/20 text-[#2EE1C7]'
+                                        : selectedBlog.category === 'Industry Trends' ? 'bg-amber-100 text-amber-800' :
+                                            selectedBlog.category === 'Technical Deep Dive' ? 'bg-blue-100 text-blue-800' :
+                                                'bg-green-100 text-green-800'
                                         }`}>
                                         {selectedBlog.category}
                                     </div>

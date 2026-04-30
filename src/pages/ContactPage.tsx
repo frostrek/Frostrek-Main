@@ -148,7 +148,7 @@ ${formData.projectDetails}
                 description="Get in touch with Frostrek to explore how AI can transform your business. We are here to help." 
                 path="/contact" 
             />
-            <CuteBackground />
+            {theme !== 'dark' && <CuteBackground />}
 
             <div className="container mx-auto px-4 lg:px-8 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 min-h-[calc(100vh-180px)]">
@@ -162,7 +162,7 @@ ${formData.projectDetails}
                         <div>
                             <h1 className="text-5xl md:text-6xl font-bold mb-6 font-display tracking-tight">
                                 Let's Start a <br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B07552] to-[#E6D0C6]">Conversation</span>
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2EE1C7] to-[#2EE1C7]">Conversation</span>
                             </h1>
                             <p className={`text-lg md:text-xl max-w-lg leading-relaxed ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
                                 Have a project in mind or want to explore how AI can transform your business? We're here to help.
@@ -172,7 +172,7 @@ ${formData.projectDetails}
                         {/* Contact Methods - Enhanced Design */}
                         <div className="space-y-6">
                             {/* GET IN TOUCH Section */}
-                            <div className={`p-8 rounded-2xl ${theme === 'dark' ? 'bg-white/5 border border-white/10' : 'bg-white shadow-xl border border-gray-100'}`}>
+                            <div className={`p-8 rounded-2xl ${theme === 'dark' ? 'bg-dark-card border border-[#2EE1C7]/20' : 'bg-white shadow-xl border border-gray-100'}`}>
                                 <h3 className={`text-xs font-bold uppercase tracking-widest mb-6 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>
                                     GET IN TOUCH
                                 </h3>
@@ -180,7 +180,7 @@ ${formData.projectDetails}
                                     {/* Call Us - Primary Featured Button */}
                                     <a
                                         href="tel:+916399999955"
-                                        className={`flex items-center justify-between gap-4 p-5 rounded-xl transition-all duration-300 group ${theme === 'dark' ? 'bg-[#B07552] hover:bg-[#8A5A35]' : 'bg-[#B07552] hover:bg-[#8A5A35]'} shadow-lg hover:shadow-xl transform hover:scale-[1.02]`}
+                                        className={`flex items-center justify-between gap-4 p-5 rounded-xl transition-all duration-300 group ${theme === 'dark' ? 'bg-[#2EE1C7] hover:bg-[#2EE1C7]' : 'bg-[#2EE1C7] hover:bg-[#2EE1C7]'} shadow-lg hover:shadow-xl transform hover:scale-[1.02]`}
                                     >
                                         <div className="flex items-center gap-4">
                                             <div className="p-3 rounded-lg bg-white/20">
@@ -201,7 +201,7 @@ ${formData.projectDetails}
                                             className={`flex items-start gap-3 p-4 rounded-lg transition-all duration-300 group ${theme === 'dark' ? 'bg-white/5 hover:bg-white/10' : 'bg-gray-50 hover:bg-gray-100'}`}
                                         >
                                             <div className={`p-2 rounded-lg ${theme === 'dark' ? 'bg-white/10' : 'bg-white'}`}>
-                                                <Mail className={`w-5 h-5 ${theme === 'dark' ? 'text-[#B07552]' : 'text-[#8A5A35]'}`} />
+                                                <Mail className={`w-5 h-5 ${theme === 'dark' ? 'text-[#2EE1C7]' : 'text-[#2EE1C7]'}`} />
                                             </div>
                                             <div className="min-w-0 flex-1">
                                                 <h4 className={`font-semibold text-sm mb-0.5 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>Email Us</h4>
@@ -215,7 +215,7 @@ ${formData.projectDetails}
                                             className={`flex items-start gap-3 p-4 rounded-lg transition-all duration-300 group ${theme === 'dark' ? 'bg-white/5 hover:bg-white/10' : 'bg-gray-50 hover:bg-gray-100'}`}
                                         >
                                             <div className={`p-2 rounded-lg ${theme === 'dark' ? 'bg-white/10' : 'bg-white'}`}>
-                                                <MessageCircle className="w-5 h-5 text-[#25D366]" />
+                                                <MessageCircle className={`w-5 h-5 ${theme === 'dark' ? 'text-[#2EE1C7]' : 'text-[#25D366]'}`} />
                                             </div>
                                             <div className="min-w-0 flex-1">
                                                 <h4 className={`font-semibold text-sm mb-0.5 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>WhatsApp (US)</h4>
@@ -227,9 +227,9 @@ ${formData.projectDetails}
                             </div>
 
                             {/* GLOBAL OFFICES Section */}
-                            <div className={`p-8 rounded-2xl ${theme === 'dark' ? 'bg-white/5 border border-white/10' : 'bg-white shadow-xl border border-gray-100'}`}>
+                            <div className={`p-8 rounded-2xl ${theme === 'dark' ? 'bg-dark-card border border-[#2EE1C7]/20' : 'bg-white shadow-xl border border-gray-100'}`}>
                                 <div className="flex items-center justify-center gap-2 mb-6">
-                                    <Globe className={`w-5 h-5 ${theme === 'dark' ? 'text-[#B07552]' : 'text-[#B07552]'}`} />
+                                    <Globe className={`w-5 h-5 ${theme === 'dark' ? 'text-[#2EE1C7]' : 'text-[#2EE1C7]'}`} />
                                     <h3 className={`text-xs font-bold uppercase tracking-widest ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>
                                         GLOBAL OFFICES
                                     </h3>
@@ -261,35 +261,35 @@ ${formData.projectDetails}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className={`flex items-center justify-center gap-4 p-4 rounded-xl transition-all duration-300 cursor-pointer group hover:-translate-y-1 hover:shadow-lg border-2 ${theme === 'dark'
-                                                ? 'bg-white/5 border-transparent hover:bg-[#B07552]/20 hover:border-[#B07552]/40'
-                                                : 'bg-gray-50 border-transparent hover:bg-[#B07552]/10 hover:border-[#B07552]/30'
+                                                ? 'bg-white/5 border-transparent hover:bg-[#2EE1C7]/20 hover:border-[#2EE1C7]/40'
+                                                : 'bg-gray-50 border-transparent hover:bg-[#2EE1C7]/10 hover:border-[#2EE1C7]/30'
                                                 }`}
                                         >
                                             <div className="flex items-center gap-3 flex-1">
                                                 <div className="flex-1 min-w-0 text-center">
                                                     <div className="flex items-center justify-center gap-2 mb-1">
                                                         <h4 className={`font-bold text-base transition-colors ${theme === 'dark'
-                                                            ? 'text-white group-hover:text-[#B07552]'
-                                                            : 'text-gray-900 group-hover:text-[#8A5A35]'
+                                                            ? 'text-white group-hover:text-[#2EE1C7]'
+                                                            : 'text-gray-900 group-hover:text-[#2EE1C7]'
                                                             }`}>
                                                             {office.title}
                                                         </h4>
                                                         {office.isHQ && (
-                                                            <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${theme === 'dark' ? 'bg-[#B07552]/30 text-[#B07552]' : 'bg-[#B07552]/20 text-[#8A5A35]'
+                                                            <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${theme === 'dark' ? 'bg-[#2EE1C7]/30 text-[#2EE1C7]' : 'bg-[#2EE1C7]/20 text-[#2EE1C7]'
                                                                 }`}>
                                                                 HQ
                                                             </span>
                                                         )}
                                                     </div>
                                                     <p className={`text-sm transition-colors ${theme === 'dark'
-                                                        ? 'text-gray-400 group-hover:text-[#E6D0C6]'
-                                                        : 'text-gray-600 group-hover:text-[#8A5A35]'
+                                                        ? 'text-gray-400 group-hover:text-[#2EE1C7]'
+                                                        : 'text-gray-600 group-hover:text-[#2EE1C7]'
                                                         }`}>
                                                         {office.address}
                                                     </p>
                                                 </div>
                                             </div>
-                                            <div className={`flex-shrink-0 opacity-0 group-hover:opacity-100 transition-all ${theme === 'dark' ? 'text-[#B07552]' : 'text-[#8A5A35]'
+                                            <div className={`flex-shrink-0 opacity-0 group-hover:opacity-100 transition-all ${theme === 'dark' ? 'text-[#2EE1C7]' : 'text-[#2EE1C7]'
                                                 }`}>
                                                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                             </div>
@@ -307,8 +307,8 @@ ${formData.projectDetails}
                         transition={{ duration: 0.6, delay: 0.2 }}
                     >
                         <div className={`p-5 md:p-6 rounded-2xl backdrop-blur-xl border shadow-2xl ${theme === 'dark'
-                            ? 'bg-white/5 border-white/10 shadow-black/20'
-                            : 'bg-[#FDFBF7]/90 border-[#E6D0C6]/50 shadow-xl'
+                            ? 'bg-dark-card border-[#2EE1C7]/20 shadow-[#2EE1C7]/5'
+                            : 'bg-[#FDFBF7]/90 border-[#2EE1C7]/50 shadow-xl'
                             }`}>
                             <h3 className="text-xl font-bold mb-3">Send us a message</h3>
 
@@ -395,7 +395,7 @@ ${formData.projectDetails}
                                                     checked={formData.reachType === option}
                                                     onChange={handleChange}
                                                     required
-                                                    className="accent-[#B07552]"
+                                                    className="accent-[#2EE1C7]"
                                                 />
                                                 <span className={theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}>
                                                     {option}
@@ -418,8 +418,8 @@ ${formData.projectDetails}
                                             required
                                             placeholder="Tell us a bit more about what you're looking for..."
                                             className={`w-full px-3 py-2 rounded-lg outline-none border transition-all duration-300 resize-none ${theme === 'dark'
-                                                ? 'bg-black/20 border-white/10 focus:border-[#B07552] text-white placeholder-gray-500'
-                                                : 'bg-white/50 border-gray-200 focus:border-[#B07552] text-gray-900 placeholder-gray-400'
+                                                ? 'bg-black/20 border-white/10 focus:border-[#2EE1C7] text-white placeholder-gray-500'
+                                                : 'bg-white/50 border-gray-200 focus:border-[#2EE1C7] text-gray-900 placeholder-gray-400'
                                                 }`}
                                         />
                                     </div>
@@ -441,9 +441,9 @@ ${formData.projectDetails}
                                     <button
                                         type="submit"
                                         disabled={isSubmitting}
-                                        className={`w-full py-2.5 rounded-lg font-semibold text-sm text-white shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-2 ${isSubmitting ? 'opacity-70 cursor-wait' : 'hover:shadow-xl'
+                                        className={`w-full py-2.5 rounded-lg font-semibold text-sm text-black shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-2 ${isSubmitting ? 'opacity-70 cursor-wait' : 'hover:shadow-xl'
                                             }`}
-                                        style={{ background: 'linear-gradient(135deg, #B07552 0%, #8A5A35 100%)' }}
+                                        style={{ background: 'linear-gradient(135deg, #2EE1C7 0%, #2EE1C7 100%)' }}
                                     >
                                         {isSubmitting ? (
                                             <>
@@ -464,8 +464,8 @@ ${formData.projectDetails}
                                     animate={{ opacity: 1, scale: 1 }}
                                     className="py-12 flex flex-col items-center text-center space-y-4"
                                 >
-                                    <div className="w-20 h-20 rounded-full bg-green-500/10 flex items-center justify-center mb-4">
-                                        <Check className="w-10 h-10 text-green-500" />
+                                    <div className="w-20 h-20 rounded-full bg-[#2EE1C7]/10 flex items-center justify-center mb-4">
+                                        <Check className="w-10 h-10 text-[#2EE1C7]" />
                                     </div>
                                     <h3 className="text-2xl font-bold">Message Sent!</h3>
                                     <p className="text-gray-500 max-w-xs">
@@ -473,7 +473,7 @@ ${formData.projectDetails}
                                     </p>
                                     <button
                                         onClick={() => setIsSuccess(false)}
-                                        className="mt-6 px-6 py-2 text-sm font-medium hover:text-[#B07552] transition-colors flex items-center gap-1"
+                                        className="mt-6 px-6 py-2 text-sm font-medium hover:text-[#2EE1C7] transition-colors flex items-center gap-1"
                                     >
                                         Send another <ArrowRight className="w-4 h-4" />
                                     </button>
@@ -519,8 +519,8 @@ const InputGroup = ({
             required={required}
             placeholder={placeholder}
             className={`w-full px-3 py-2 rounded-xl outline-none border transition-all duration-300 ${theme === 'dark'
-                ? 'bg-black/20 border-white/10 focus:border-[#B07552] text-white placeholder-gray-500'
-                : 'bg-white/50 border-gray-200 focus:border-[#B07552] text-gray-900 placeholder-gray-400'
+                ? 'bg-black/20 border-white/10 focus:border-[#2EE1C7] text-white placeholder-gray-500'
+                : 'bg-white/50 border-gray-200 focus:border-[#2EE1C7] text-gray-900 placeholder-gray-400'
                 }`}
         />
     </div>

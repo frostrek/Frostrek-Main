@@ -12,7 +12,7 @@ const LOGOS = [
     { name: 'ISO Certified', src: '/iso.webp', rating: 'ISO', reviews: '9001 Certified' },
 ] as const;
 
-const ACCENT_DARK = '#B07552';
+const ACCENT_DARK = '#2EE1C7';
 
 const TrustedBySection = () => {
     const { theme } = useTheme();
@@ -54,13 +54,13 @@ const TrustedBySection = () => {
     return (
         <section
             ref={sectionRef}
-            className={`relative pt-10 pb-4 md:pt-12 md:pb-6 overflow-hidden transition-colors duration-300 ${theme === 'dark' ? 'bg-dark-bg' : 'bg-transparent'}`}
+            className={`relative pt-10 pb-4 md:pt-12 md:pb-6 overflow-hidden transition-colors duration-300 bg-transparent`}
         >
             <div className="container mx-auto px-6 relative z-10">
                 {/* Title */}
                 <div className="trusted-title text-center mb-14">
                     <h3 className={`text-2xl md:text-4xl font-light mb-3 transition-colors duration-300 ${theme === 'dark' ? 'text-dark-text' : 'text-gray-900'}`}>
-                        Trusted by <span className="font-semibold" style={{ color: theme === 'dark' ? '#bf8440' : ACCENT_DARK }}>Industry Leaders</span>
+                        Trusted by <span className="font-semibold" style={{ color: theme === 'dark' ? '#2EE1C7' : ACCENT_DARK }}>Industry Leaders</span>
                     </h3>
                     <p className={`text-sm transition-colors duration-300 ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-400'}`}>Industry leaders trust us to deliver excellence</p>
                 </div>

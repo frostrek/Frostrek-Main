@@ -1,12 +1,12 @@
 import HeroSection from '../components/home/HeroSection';
 import AISolutionsShowcase from '../components/home/AISolutionsShowcase';
+import OurServicesSection from '../components/home/OurServicesSection';
 import TrustedBySection from '../components/home/TrustedBySection';
 import FeaturesSection from '../components/home/FeaturesSection';
-import TestimonialsSection from '../components/home/TestimonialsSection';
+// import TestimonialsSection from '../components/home/TestimonialsSection';
 import FAQSection from '../components/home/FAQSection';
 import CTASection from '../components/home/CTASection';
 
-import CuteBackground from '../components/ui/CuteBackground';
 import SEO from '../components/seo/SEO';
 
 const organizationSchema = JSON.stringify({
@@ -115,19 +115,19 @@ const faqSchema = JSON.stringify({
 
 const Home = () => {
     return (
-        <div className="min-h-screen relative">
+        <div className="min-h-screen relative bg-black">
             <SEO 
                 title="Frostrek | AI-Powered Enterprise Solutions & Conversational AI Agents" 
                 description="Transform your business with Frostrek's cutting-edge AI solutions. Explore conversational AI agents, intelligent automation, and enterprise-grade AI copilots that enhance productivity and streamline workflows." 
                 path="/" 
                 schema={[organizationSchema, websiteSchema, faqSchema]}
             />
-            <CuteBackground />
             <HeroSection />
+            <OurServicesSection />
             <AISolutionsShowcase />
             <TrustedBySection />
             <FeaturesSection />
-            <TestimonialsSection />
+            {/* <TestimonialsSection /> */}
             <FAQSection />
             <CTASection />
         </div>

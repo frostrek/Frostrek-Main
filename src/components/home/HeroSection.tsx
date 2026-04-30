@@ -1,229 +1,45 @@
 "use client";
-import { useState, useEffect, Suspense, lazy } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
 import { useTheme } from "../../context/ThemeContext";
-// import Plasma from "./Plasma";
-// Lazy load 3D component to prevent blocking initial page load
-const HeroRobot = lazy(() => import('./HeroRobot'));
-
-const ROTATING_TEXTS = [
-    { part1: "Employee Experiences", part2: "AI Copilots" },
-    { part1: "Support Workflows", part2: "AI Agents" },
-    { part1: "Operations", part2: "Automation" },
-];
-
-const ROBOT_MESSAGES = [
-    "Hi there! 👋",
-    "I'm Frosty 🤖",
-    "Ask me anything! 💡",
-    "How can I help? 🚀"
-];
-
-
+import HeroFlowchart from "./HeroFlowchart";
 
 const HeroSection = () => {
-    const [index, setIndex] = useState(0);
-    const [messageIndex, setMessageIndex] = useState(0);
-    const [showMessage, setShowMessage] = useState(true);
-    const { theme } = useTheme();
-
-    // Text Rotation Interval - visibility aware
-    useEffect(() => {
-        let interval: ReturnType<typeof setInterval> | null = null;
-
-        const startInterval = () => {
-            if (interval) clearInterval(interval);
-            interval = setInterval(() => {
-                setIndex((prev) => (prev + 1) % ROTATING_TEXTS.length);
-            }, 3500);
-        };
-
-        const handleVisibility = () => {
-            if (document.hidden) {
-                if (interval) clearInterval(interval);
-                interval = null;
-            } else {
-                startInterval();
-            }
-        };
-
-        startInterval();
-        document.addEventListener('visibilitychange', handleVisibility);
-
-        return () => {
-            if (interval) clearInterval(interval);
-            document.removeEventListener('visibilitychange', handleVisibility);
-        };
-    }, []);
-
-    // Robot Message Cycling - visibility aware
-    useEffect(() => {
-        let interval: ReturnType<typeof setInterval> | null = null;
-        let timeout: ReturnType<typeof setTimeout> | null = null;
-
-        const startInterval = () => {
-            if (interval) clearInterval(interval);
-            interval = setInterval(() => {
-                setShowMessage(false);
-                timeout = setTimeout(() => {
-                    setMessageIndex((prev) => (prev + 1) % ROBOT_MESSAGES.length);
-                    setShowMessage(true);
-                }, 500);
-            }, 4000);
-        };
-
-        const handleVisibility = () => {
-            if (document.hidden) {
-                if (interval) clearInterval(interval);
-                if (timeout) clearTimeout(timeout);
-                interval = null;
-                timeout = null;
-            } else {
-                setShowMessage(true); // Reset to visible state
-                startInterval();
-            }
-        };
-
-        startInterval();
-        document.addEventListener('visibilitychange', handleVisibility);
-
-        return () => {
-            if (interval) clearInterval(interval);
-            if (timeout) clearTimeout(timeout);
-            document.removeEventListener('visibilitychange', handleVisibility);
-        };
-    }, []);
+    useTheme();
 
     return (
-        <section className={`relative min-h-[90vh] flex items-center overflow-hidden pt-24 lg:pt-32 pb-8 transition-colors duration-300 ${theme === 'dark' ? 'bg-dark-bg' : 'bg-[#FDFBF7]'}`}>
-            {/* Decorative Elements - Bronze Theme (matching TestimonialsSection) */}
-            <div className="absolute top-10 left-10 w-32 h-32 rounded-full border-4 border-[#B07552]/20 opacity-60" />
-            <div className="absolute top-20 left-20 w-20 h-20 rounded-full bg-gradient-to-br from-[#E6D0C6] to-[#B07552] opacity-20" />
-            <div className="absolute bottom-20 right-10 w-40 h-40 rounded-full border-4 border-[#B07552]/20 opacity-50" />
-            <div className="absolute bottom-10 right-20 w-24 h-24 rounded-full bg-gradient-to-br from-[#B07552] to-amber-600 opacity-20" />
-            <div className="absolute top-1/2 right-0 w-16 h-16 rounded-full bg-[#B07552] opacity-20 translate-x-1/2" />
-            {/* Additional subtle background gradients */}
-            <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
-                <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-[#E6D0C6]/10 blur-[100px]" />
-                <div className="absolute bottom-[-20%] right-[-10%] w-[700px] h-[700px] rounded-full bg-[#F3E9CD]/15 blur-[120px]" />
+        <section className={`relative flex flex-col items-center overflow-hidden pt-32 lg:pt-40 pb-10 transition-colors duration-300 bg-transparent`}>
+            {/* Decorative Glow Effect - Using specified #2EE1C7 color with breathing animation */}
+            <style>{`
+              @keyframes breathe-glow {
+                0%, 100% { transform: translate(-50%, -60%) scale(1); opacity: 0.4; }
+                50% { transform: translate(-50%, -60%) scale(1.1); opacity: 0.7; }
+              }
+              @keyframes breathe-glow-mid {
+                0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+                50% { transform: translate(-50%, -50%) scale(1.05); opacity: 0.8; }
+              }
+            `}</style>
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none z-0 overflow-visible">
+                {/* Outer ultra-wide glow */}
+                <div
+                    className="absolute top-0 left-1/2 w-[1600px] h-[800px] rounded-full blur-[180px] bg-[#2EE1C7]/20"
+                    style={{ animation: 'breathe-glow 6s ease-in-out infinite' }}
+                />
+                {/* Middle broad glow */}
+                <div
+                    className="absolute top-0 left-1/2 w-[1200px] h-[600px] rounded-full blur-[140px] bg-[#2EE1C7]/25"
+                    style={{ animation: 'breathe-glow-mid 5s ease-in-out infinite alternate' }}
+                />
+                {/* Inner concentrated emergent glow */}
+                <div
+                    className="absolute top-0 left-1/2 w-[800px] h-[400px] rounded-full blur-[100px] -translate-y-[40%] -translate-x-1/2 bg-[#2EE1C7]/35"
+                />
             </div>
-
-
-            <div className="container mx-auto px-4 md:px-6 relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-
-                    {/* Left Column: Text Content */}
-                    <div className="flex flex-col items-center lg:items-start text-center lg:text-left w-full mx-auto lg:mx-0">
-                        {/* Transforming */}
-                        <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.15] tracking-tight mb-8 w-full flex flex-col items-center lg:items-start transition-colors duration-300 ${theme === 'dark' ? 'text-dark-text' : 'text-primary'}`}>
-                            <span className="block">Transforming</span>
-
-                            {/* Line 2: Animated Part 1 */}
-                            <div className="h-[1.4em] relative overflow-hidden flex items-center justify-center lg:justify-start w-fit min-w-full">
-                                <AnimatePresence mode="popLayout">
-                                    <motion.span
-                                        key={index}
-                                        initial={{ y: 50, opacity: 0 }}
-                                        animate={{ y: 0, opacity: 1 }}
-                                        exit={{ y: -50, opacity: 0 }}
-                                        transition={{ duration: 0.6, ease: "easeOut" }}
-                                        className={`block whitespace-nowrap pb-1 ${theme === 'dark' ? 'text-dark-accent' : 'text-[#B07552]'}`}
-                                    >
-                                        {ROTATING_TEXTS[index].part1}
-                                    </motion.span>
-                                </AnimatePresence>
-                            </div>
-
-                            <span className="block whitespace-nowrap">with Conversational</span>
-
-                            {/* Line 4: Animated Part 2 */}
-                            <div className="h-[1.4em] relative overflow-hidden flex items-center justify-center lg:justify-start w-fit min-w-full">
-                                <AnimatePresence mode="popLayout">
-                                    <motion.span
-                                        key={index}
-                                        initial={{ y: 50, opacity: 0 }}
-                                        animate={{ y: 0, opacity: 1 }}
-                                        exit={{ y: -50, opacity: 0 }}
-                                        transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-                                        className={`block whitespace-nowrap pb-1 ${theme === 'dark' ? 'text-dark-accent' : 'text-[#B07552]'}`}
-                                    >
-                                        {ROTATING_TEXTS[index].part2}
-                                    </motion.span>
-                                </AnimatePresence>
-                            </div>
-                        </h1>
-
-                        <p className={`text-lg sm:text-xl mb-10 max-w-[600px] lg:max-w-lg leading-relaxed transition-colors duration-300 ${theme === 'dark' ? 'text-dark-text-muted' : 'text-muted'}`}>
-                            Harness the power of AI to enhance productivity, streamline workflows, and foster a more engaged workforce across your enterprise.
-                        </p>
-
-                        <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-                            <Link to="/schedule-demo" className={`px-8 py-4 text-white rounded-xl font-semibold shadow-lg transition-all transform hover:scale-105 w-full sm:w-auto text-center ${theme === 'dark' ? 'bg-dark-accent hover:bg-dark-accent/90 shadow-dark-accent/20' : 'bg-[#B07552] hover:bg-[#8A5A35] shadow-[#B07552]/20'}`}>
-                                Schedule a Demo
-                            </Link>
-                            <Link to="/contact" className={`px-8 py-4 bg-transparent border-2 rounded-xl font-semibold transition-all w-full sm:w-auto hover:scale-105 text-center flex items-center justify-center ${theme === 'dark' ? 'border-dark-accent text-dark-accent hover:bg-dark-accent/10' : 'border-[#B07552] text-[#B07552] hover:bg-[#B07552]/5 hover:text-[#8A5A35]'}`}>
-                                Contact Sales
-                            </Link>
-                        </div>
-                    </div>
-
-                    {/* Right Column: 3D Robot */}
-                    <div className="flex justify-center items-center relative mt-8 lg:mt-0">
-                        <div className="relative w-full max-w-[450px] lg:max-w-[500px] aspect-[4/5] flex items-center justify-center mx-auto">
-                            {/* Subtle glow behind robot */}
-                            <div className="absolute inset-0 bg-gradient-to-tr from-[#E6D0C6] to-transparent opacity-30 rounded-full blur-3xl transform scale-90" />
-
-                            {/* Interactive Message Bubble - positioned above robot head */}
-                            <AnimatePresence>
-                                {showMessage && (
-                                    <motion.div
-                                        initial={{ opacity: 0, y: 10, scale: 0.9, x: "-50%" }}
-                                        animate={{ opacity: 1, y: 0, scale: 1, x: "-50%" }}
-                                        exit={{ opacity: 0, y: -10, scale: 0.9, x: "-50%" }}
-                                        transition={{ duration: 0.4, ease: "easeOut" }}
-                                        className="absolute top-[-5%] left-1/2 z-50"
-                                        style={{ fontFamily: 'Quicksand, sans-serif' }}
-                                    >
-                                        <div className={`relative backdrop-blur-md px-6 py-3 border lg:ml-20 lg:mt-10 mb-6 lg:mb-0 rounded-2xl shadow-[0_8px_32px_rgba(176,117,82,0.25)] border-2 transition-colors duration-300 ${theme === 'dark' ? 'bg-dark-card border-dark-accent/30' : 'bg-gradient-to-br from-white to-[#FDF8F3] border-[#B07552]/30'}`}>
-                                            <span className={`font-semibold text-lg whitespace-nowrap  transition-colors duration-300 ${theme === 'dark' ? 'text-dark-text' : 'text-[#5c3d2e]'}`}>
-                                                {ROBOT_MESSAGES[messageIndex]}
-                                            </span>
-                                            {/* Speech bubble arrow pointing down to robot */}
-                                            <div
-                                                className={`absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 rotate-45 border-r-2 border-b-2 transition-colors duration-300 ${theme === 'dark' ? 'bg-dark-card border-dark-accent/30' : 'bg-gradient-to-br from-white to-[#FDF8F3] border-[#B07552]/30'}`}
-                                                style={{ boxShadow: '2px 2px 4px rgba(176,117,82,0.15)' }}
-                                            />
-                                        </div>
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
-
-                            {/* 3D Robot with loading fallback */}
-                            <motion.div
-                                className="w-full h-full relative z-10"
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 0.8, ease: "easeOut" }}
-                            >
-                                <Suspense
-                                    fallback={
-                                        <div className="w-full h-full flex items-center justify-center">
-                                            <div className="w-32 h-32 rounded-full border-4 border-[#B07552]/20 border-t-[#B07552] animate-spin" />
-                                        </div>
-                                    }
-                                >
-                                    <HeroRobot />
-                                </Suspense>
-                            </motion.div>
-                        </div>
-                    </div>
-
-                </div>
+            <div className="w-full max-w-[1450px] mx-auto px-4 md:px-6 relative z-10">
+                {/* Automation Flowchart with integrated Header */}
+                <HeroFlowchart />
             </div>
         </section>
     );
 };
 
 export default HeroSection;
-

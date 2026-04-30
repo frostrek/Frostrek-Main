@@ -1,6 +1,6 @@
-import { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
+import { createContext, useContext, useEffect, type ReactNode } from 'react';
 
-type Theme = 'light' | 'dark';
+type Theme = 'dark';
 
 interface ThemeContextType {
     theme: Theme;
@@ -22,33 +22,17 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
-    const [theme, setTheme] = useState<Theme>(() => {
-        // Check localStorage first, then system preference
-        const savedTheme = localStorage.getItem('frostrek-theme') as Theme | null;
-        if (savedTheme) return savedTheme;
-
-        // Check system preference
-        if (typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            return 'dark';
-        }
-        return 'light';
-    });
+    const theme: Theme = 'dark';
 
     useEffect(() => {
-        // Update document class and localStorage when theme changes
+        // Ensure the dark class is always present
         const root = document.documentElement;
-
-        if (theme === 'dark') {
-            root.classList.add('dark');
-        } else {
-            root.classList.remove('dark');
-        }
-
-        localStorage.setItem('frostrek-theme', theme);
-    }, [theme]);
+        root.classList.add('dark');
+        localStorage.setItem('frostrek-theme', 'dark');
+    }, []);
 
     const toggleTheme = () => {
-        setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
+        // Do nothing, light mode is removed
     };
 
     return (

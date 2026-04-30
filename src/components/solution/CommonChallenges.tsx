@@ -30,7 +30,7 @@ const MobileCard = ({ challenge, index, total, theme }: { challenge: Challenge; 
                     className="w-full h-full object-cover"
                     loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-br from-[#B07552]/90 to-[#6E4629]/95" />
+                <div className={`absolute inset-0 ${theme === 'dark' ? 'bg-gradient-to-b from-black/40 via-black/50 to-black/80' : 'bg-gradient-to-br from-[#B07552]/90 to-[#6E4629]/95'}`} />
                 <div className="absolute inset-0 p-4 flex flex-col justify-between">
                     <span className="self-start font-mono text-xs tracking-wider bg-white/10 px-3 py-1 rounded-full border border-white/20 text-white">
                         0{index + 1} / 0{total}
@@ -43,10 +43,10 @@ const MobileCard = ({ challenge, index, total, theme }: { challenge: Challenge; 
             </div>
             <div className="p-4">
                 <div className="flex items-center gap-2 mb-3">
-                    <span className="w-6 h-6 rounded-full bg-[#B07552] text-white flex items-center justify-center">
+                    <span className={`w-6 h-6 rounded-full text-white flex items-center justify-center ${theme === 'dark' ? 'bg-[#2EE1C7]' : 'bg-[#B07552]'}`}>
                         <CheckCircle2 size={14} />
                     </span>
-                    <span className="text-[#B07552] font-bold text-xs uppercase tracking-wide">AI Solution</span>
+                    <span className={`font-bold text-xs uppercase tracking-wide ${theme === 'dark' ? 'text-[#2EE1C7]' : 'text-[#B07552]'}`}>AI Solution</span>
                 </div>
                 <p className={`text-base font-light leading-snug mb-4 ${theme === 'dark' ? 'text-dark-text' : 'text-[#2D241E]'}`}>{challenge.solvedBy}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
@@ -71,7 +71,7 @@ const DesktopCard = ({ challenge, index, total, theme }: { challenge: Challenge;
             <div className="relative h-full w-[42%] overflow-hidden text-white">
                 <div className="absolute inset-0">
                     <img src={IMAGES[index % IMAGES.length]} alt={challenge.title} className="w-full h-full object-cover" loading="lazy" />
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#B07552]/95 to-[#6E4629]/95" />
+                    <div className={`absolute inset-0 ${theme === 'dark' ? 'bg-gradient-to-b from-black/30 via-black/50 to-black/75' : 'bg-gradient-to-br from-[#B07552]/95 to-[#6E4629]/95'}`} />
                 </div>
                 <div className="relative z-10 flex flex-col h-full p-6">
                     <span className="self-start font-mono text-xs tracking-wider bg-white/10 px-3 py-1.5 rounded-full border border-white/20 mb-auto">0{index + 1} / 0{total}</span>
@@ -81,16 +81,16 @@ const DesktopCard = ({ challenge, index, total, theme }: { challenge: Challenge;
                         <p className="text-white/90 text-sm leading-relaxed">{challenge.description}</p>
                     </div>
                     <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/30 bg-white/10 text-xs font-semibold uppercase tracking-wider self-start">
-                        <Zap size={12} className="text-[#E0CC94]" /><span>Challenge</span>
+                        <Zap size={12} className={theme === 'dark' ? 'text-[#2EE1C7]' : 'text-[#E0CC94]'} /><span>Challenge</span>
                     </div>
                 </div>
             </div>
             <div className={`relative h-full w-[58%] p-6 flex flex-col ${theme === 'dark' ? 'bg-dark-card' : 'bg-[#FDFBF7]'}`}>
-                <div className={`absolute inset-0 opacity-20 [background-size:20px_20px] ${theme === 'dark' ? 'bg-[radial-gradient(#bf8440_1px,transparent_1px)]' : 'bg-[radial-gradient(#B07552_1px,transparent_1px)]'}`} />
+                <div className={`absolute inset-0 opacity-20 [background-size:20px_20px] ${theme === 'dark' ? 'bg-[radial-gradient(rgba(46,225,199,0.3)_1px,transparent_1px)]' : 'bg-[radial-gradient(#B07552_1px,transparent_1px)]'}`} />
                 <div className="relative z-10 flex-1 flex flex-col">
                     <div className="flex items-center gap-2 mb-4">
-                        <span className="w-8 h-8 rounded-full bg-[#B07552] text-white flex items-center justify-center shadow-md"><CheckCircle2 size={16} /></span>
-                        <span className="text-[#B07552] font-bold text-xs uppercase tracking-wide">AI Solution</span>
+                        <span className={`w-8 h-8 rounded-full text-white flex items-center justify-center shadow-md ${theme === 'dark' ? 'bg-[#2EE1C7]' : 'bg-[#B07552]'}`}><CheckCircle2 size={16} /></span>
+                        <span className={`font-bold text-xs uppercase tracking-wide ${theme === 'dark' ? 'text-[#2EE1C7]' : 'text-[#B07552]'}`}>AI Solution</span>
                     </div>
                     <p className={`text-xl lg:text-2xl font-light leading-snug mb-5 ${theme === 'dark' ? 'text-dark-text' : 'text-[#2D241E]'}`}>{challenge.solvedBy}</p>
                     <div className="grid grid-cols-2 gap-2 mb-4">
@@ -243,12 +243,12 @@ const CommonChallenges = ({ challenges }: CommonChallengesProps) => {
                     <Sparkles size={12} /><span>The Solution Stack</span>
                 </div>
                 <h2 className={`text-2xl md:text-5xl font-bold mb-3 ${theme === 'dark' ? 'text-dark-text' : 'text-[#2D241E]'}`}>
-                    Problems, <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B07552] to-[#8A5A35]">Solved.</span>
+                    Problems, <span className={`text-transparent bg-clip-text bg-gradient-to-r ${theme === 'dark' ? 'from-[#2EE1C7] to-[#2EE1C7]/70' : 'from-[#B07552] to-[#8A5A35]'}`}>Solved.</span>
                 </h2>
                 <p className={`text-sm md:text-lg max-w-xl mx-auto mb-3 ${theme === 'dark' ? 'text-dark-text-muted' : 'text-[#5D5046]'}`}>
                     {isMobile ? 'Swipe to explore solutions.' : 'Scroll to explore how our AI tackles your challenges.'}
                 </p>
-                <div className={`animate-bounce text-[#B07552]/50 ${isMobile ? 'hidden' : ''}`}>
+                <div className={`animate-bounce ${isMobile ? 'hidden' : ''} ${theme === 'dark' ? 'text-[#2EE1C7]/50' : 'text-[#B07552]/50'}`}>
                     <MousePointer2 size={20} className="mx-auto" />
                 </div>
             </div>

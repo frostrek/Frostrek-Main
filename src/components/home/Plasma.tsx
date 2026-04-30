@@ -75,8 +75,8 @@ void main() {
   float intensity = (rgb.r + rgb.g + rgb.b) / 3.0;
   // Theme base colors from your Tailwind palette
 vec3 cream = vec3(0.992, 0.984, 0.969);   // #FDFBF7
-vec3 bronze = uCustomColor;               // #B07552 passed from React
-vec3 gold = vec3(0.831, 0.733, 0.459);    // #D4BB75
+vec3 bronze = uCustomColor;               // #2EE1C7 passed from React
+vec3 gold = vec3(0.831, 0.733, 0.459);    // #2EE1C7
 
 // Warm tinting
 vec3 warmPlasma = mix(rgb, bronze, 0.65);

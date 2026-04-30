@@ -17,10 +17,10 @@ const Button = ({
     ...props
 }: ButtonProps) => {
     const variants: Record<ButtonVariant, string> = {
-        primary: "bg-gradient-to-r from-brand-green-600 to-brand-green-500 hover:from-brand-green-700 hover:to-brand-green-600 text-white shadow-lg shadow-brand-green-500/30",
+        primary: "bg-gradient-to-r from-brand-green-600 to-brand-green-500 hover:from-brand-green-700 hover:to-brand-green-600 text-black shadow-lg shadow-brand-green-500/30",
         secondary: "bg-gray-100 hover:bg-gray-200 text-gray-900 border border-gray-300",
-        outline: "bg-transparent hover:bg-green-50 text-brand-green-700 border-2 border-brand-green-600",
-        ghost: "bg-transparent hover:bg-green-50 text-brand-green-700"
+        outline: "bg-transparent hover:bg-brand-green-600 text-white hover:text-black border-2 border-brand-green-600",
+        ghost: "bg-transparent hover:bg-green-50 text-white"
     };
 
     const sizes: Record<ButtonSize, string> = {

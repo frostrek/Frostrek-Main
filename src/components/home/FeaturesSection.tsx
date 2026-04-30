@@ -5,6 +5,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
 import { useTheme } from '../../context/ThemeContext';
+import SpotlightCard from '../ui/SpotlightCard';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -64,12 +65,7 @@ const FeaturesSection = () => {
     }, { scope: sectionRef });
 
     return (
-        <section ref={sectionRef} className={`pt-8 pb-16 relative overflow-hidden transition-colors duration-300 ${theme === 'dark' ? 'bg-dark-bg' : 'bg-transparent'}`}>
-            {/* Background pattern */}
-            <div className="absolute inset-0 opacity-[0.03]" style={{
-                backgroundImage: `radial-gradient(circle, ${theme === 'dark' ? '#fff' : '#000'} 1px, transparent 1px)`,
-                backgroundSize: '24px 24px'
-            }} />
+        <section ref={sectionRef} className={`pt-8 pb-16 relative overflow-hidden transition-colors duration-300 bg-transparent`}>
 
             <div className="container mx-auto px-4 md:px-6 relative z-10">
                 <div ref={headingRef} className="text-center mb-16">
@@ -85,10 +81,10 @@ const FeaturesSection = () => {
                 <div ref={gridRef} className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
 
                     {/* Hero Card - Enterprise Security (spans 2 rows on desktop) */}
-                    <div className={`bento-card lg:row-span-2 group relative overflow-hidden rounded-3xl border-2 border-dashed p-8 transition-all duration-500 hover:shadow-2xl ${theme === 'dark' ? 'border-dark-accent/30 bg-gradient-to-br from-dark-card to-dark-bg hover:border-dark-accent' : 'border-brand-green-300 bg-gradient-to-br from-brand-green-50 to-white hover:border-brand-green-500'}`}>
-                        {/* Glow effect */}
-                        <div className="absolute -top-20 -right-20 w-40 h-40 bg-brand-green-200/30 rounded-full blur-3xl group-hover:bg-brand-green-300/40 transition-all duration-500" />
-
+                    <SpotlightCard 
+                        className={`bento-card lg:row-span-2 group relative overflow-hidden rounded-3xl border-2 border-dashed p-8 transition-all duration-500 hover:shadow-2xl ${theme === 'dark' ? 'border-dark-accent/30 bg-gradient-to-br from-dark-card to-dark-bg hover:border-dark-accent' : 'border-brand-green-300 bg-gradient-to-br from-brand-green-50 to-white hover:border-brand-green-500'}`}
+                        spotlightColor="rgba(46, 225, 199, 0.25)"
+                    >
                         <div className="relative z-10">
                             {/* Icon */}
                             <div className={`mb-6 inline-flex items-center justify-center w-16 h-16 rounded-2xl border-2 transition-all duration-300 ${theme === 'dark' ? 'bg-dark-bg border-dark-accent/40 group-hover:bg-dark-accent group-hover:border-dark-accent' : 'bg-brand-green-100 border-brand-green-200 group-hover:bg-brand-green-600 group-hover:border-brand-green-600'}`}>
@@ -119,11 +115,14 @@ const FeaturesSection = () => {
                                 Learn More <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                             </Link>
                         </div>
-                    </div>
+                    </SpotlightCard>
 
                     {/* Lightning Fast */}
-                    <div className={`bento-card group relative overflow-hidden rounded-2xl border p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${theme === 'dark' ? 'bg-dark-card border-dark-accent/20 hover:border-dark-accent' : 'bg-white border-gray-200 hover:border-brand-green-400'}`}>
-                        <div className="flex items-start gap-4">
+                    <SpotlightCard 
+                        className={`bento-card group relative overflow-hidden rounded-2xl border p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${theme === 'dark' ? 'bg-dark-card border-dark-accent/20 hover:border-dark-accent' : 'bg-white border-gray-200 hover:border-brand-green-400'}`}
+                        spotlightColor="rgba(255, 170, 0, 0.2)"
+                    >
+                        <div className="flex items-start gap-4 relative z-10">
                             <div className={`flex-shrink-0 w-12 h-12 rounded-xl border flex items-center justify-center transition-all duration-300 ${theme === 'dark' ? 'bg-dark-bg border-dark-accent/40 group-hover:bg-dark-accent group-hover:border-dark-accent' : 'bg-brand-green-100 border-brand-green-200 group-hover:bg-brand-green-500 group-hover:border-brand-green-500'}`}>
                                 <Zap className={`transition-colors ${theme === 'dark' ? 'text-dark-accent group-hover:text-dark-text' : 'text-brand-green-600 group-hover:text-white'}`} size={24} />
                             </div>
@@ -136,11 +135,14 @@ const FeaturesSection = () => {
                                 </p>
                             </div>
                         </div>
-                    </div>
+                    </SpotlightCard>
 
                     {/* Real-time Analytics */}
-                    <div className={`bento-card group relative overflow-hidden rounded-2xl border p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${theme === 'dark' ? 'bg-dark-card border-dark-accent/20 hover:border-dark-accent' : 'bg-white border-gray-200 hover:border-brand-green-400'}`}>
-                        <div className="flex items-start gap-4">
+                    <SpotlightCard 
+                        className={`bento-card group relative overflow-hidden rounded-2xl border p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${theme === 'dark' ? 'bg-dark-card border-dark-accent/20 hover:border-dark-accent' : 'bg-white border-gray-200 hover:border-brand-green-400'}`}
+                        spotlightColor="rgba(46, 225, 199, 0.25)"
+                    >
+                        <div className="flex items-start gap-4 relative z-10">
                             <div className={`flex-shrink-0 w-12 h-12 rounded-xl border flex items-center justify-center transition-all duration-300 ${theme === 'dark' ? 'bg-dark-bg border-dark-accent/40 group-hover:bg-dark-accent group-hover:border-dark-accent' : 'bg-brand-green-100 border-brand-green-200 group-hover:bg-brand-green-500 group-hover:border-brand-green-500'}`}>
                                 <BarChart className={`transition-colors ${theme === 'dark' ? 'text-dark-accent group-hover:text-dark-text' : 'text-brand-green-600 group-hover:text-white'}`} size={24} />
                             </div>
@@ -153,11 +155,14 @@ const FeaturesSection = () => {
                                 </p>
                             </div>
                         </div>
-                    </div>
+                    </SpotlightCard>
 
                     {/* Multi-agent Orchestration */}
-                    <div className={`bento-card group relative overflow-hidden rounded-2xl border p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${theme === 'dark' ? 'bg-dark-card border-dark-accent/20 hover:border-dark-accent' : 'bg-white border-gray-200 hover:border-brand-green-400'}`}>
-                        <div className="flex items-start gap-4">
+                    <SpotlightCard 
+                        className={`bento-card group relative overflow-hidden rounded-2xl border p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${theme === 'dark' ? 'bg-dark-card border-dark-accent/20 hover:border-dark-accent' : 'bg-white border-gray-200 hover:border-brand-green-400'}`}
+                        spotlightColor="rgba(255, 170, 0, 0.2)"
+                    >
+                        <div className="flex items-start gap-4 relative z-10">
                             <div className={`flex-shrink-0 w-12 h-12 rounded-xl border flex items-center justify-center transition-all duration-300 ${theme === 'dark' ? 'bg-dark-bg border-dark-accent/40 group-hover:bg-dark-accent group-hover:border-dark-accent' : 'bg-brand-green-100 border-brand-green-200 group-hover:bg-brand-green-500 group-hover:border-brand-green-500'}`}>
                                 <Users className={`transition-colors ${theme === 'dark' ? 'text-dark-accent group-hover:text-dark-text' : 'text-brand-green-600 group-hover:text-white'}`} size={24} />
                             </div>
@@ -170,7 +175,7 @@ const FeaturesSection = () => {
                                 </p>
                             </div>
                         </div>
-                    </div>
+                    </SpotlightCard>
 
                 </div>
             </div>

@@ -77,8 +77,8 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ sections, onClose }) => {
                     )}>
                     {sections.map((section, idx) => (
                         <div key={idx} className="space-y-3">
-                            <h3 className="text-[10px] font-bold text-[#B07552] uppercase tracking-wider flex items-center gap-2 mb-2">
-                                <span className="w-6 h-[2px] bg-[#B07552] rounded-full"></span>
+                            <h3 className="text-[10px] font-bold text-[#2EE1C7] uppercase tracking-wider flex items-center gap-2 mb-2">
+                                <span className="w-6 h-[2px] bg-[#2EE1C7] rounded-full"></span>
                                 {section.title}
                             </h3>
                             <div className="grid gap-2">
@@ -93,14 +93,14 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ sections, onClose }) => {
                                                 "group flex items-start gap-3 p-2 rounded-lg transition-all duration-200 border border-transparent",
                                                 theme === 'dark'
                                                     ? "hover:bg-dark-bg hover:shadow-md hover:shadow-dark-accent/10 hover:border-dark-accent/30"
-                                                    : "hover:bg-[#FDFBF7] hover:shadow-md hover:shadow-[#B07552]/10 hover:border-[#E6D0C6]"
+                                                    : "hover:bg-[#FDFBF7] hover:shadow-md hover:shadow-[#2EE1C7]/10 hover:border-[#2EE1C7]"
                                             )}
                                         >
                                             <div className={cn(
                                                 "p-2 rounded-full transition-colors duration-200 shadow-sm shrink-0",
                                                 theme === 'dark'
                                                     ? "bg-dark-accent/20 text-dark-accent group-hover:bg-dark-accent group-hover:text-dark-bg"
-                                                    : "bg-[#E6D0C6]/20 text-[#B07552] group-hover:bg-[#B07552] group-hover:text-white"
+                                                    : "bg-[#2EE1C7]/20 text-[#2EE1C7] group-hover:bg-[#2EE1C7] group-hover:text-white"
                                             )}>
                                                 <Icon size={18} />
                                             </div>
@@ -109,7 +109,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ sections, onClose }) => {
                                                     "font-bold text-sm transition-colors",
                                                     theme === 'dark'
                                                         ? "text-dark-text group-hover:text-dark-accent"
-                                                        : "text-gray-900 group-hover:text-[#B07552]"
+                                                        : "text-gray-900 group-hover:text-[#2EE1C7]"
                                                 )}>
                                                     {item.name}
                                                 </h4>

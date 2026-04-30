@@ -28,7 +28,7 @@ const PROCESS_NODES: ProcessNode[] = [
         icon: Lightbulb,
         x: -30,
         y: -30,
-        color: "#B07552" // Bronze
+        color: "#2EE1C7" // Teal
     },
     {
         id: "develop",
@@ -37,7 +37,7 @@ const PROCESS_NODES: ProcessNode[] = [
         icon: Code2,
         x: 30,
         y: -30,
-        color: "#D4BB75" // Gold
+        color: "#2EE1C7" // Teal
     },
     {
         id: "test",
@@ -46,7 +46,7 @@ const PROCESS_NODES: ProcessNode[] = [
         icon: TestTube2,
         x: 30,
         y: 25,
-        color: "#8A5A35" // Dark Brown
+        color: "#2EE1C7" // Teal
     },
     {
         id: "deploy",
@@ -55,7 +55,7 @@ const PROCESS_NODES: ProcessNode[] = [
         icon: Rocket,
         x: -30,
         y: 25,
-        color: "#C48F71" // Light Bronze
+        color: "#2EE1C7" // Teal
     },
 ];
 
@@ -198,13 +198,13 @@ const InnovationProcess = () => {
             >
                 <defs>
                     <linearGradient id="innovation-line-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#B07552" stopOpacity="0.4" />
-                        <stop offset="50%" stopColor="#D4BB75" stopOpacity="0.4" />
-                        <stop offset="100%" stopColor="#8A5A35" stopOpacity="0.1" />
+                        <stop offset="0%" stopColor="#2EE1C7" stopOpacity="0.4" />
+                        <stop offset="50%" stopColor="#2EE1C7" stopOpacity="0.3" />
+                        <stop offset="100%" stopColor="#2EE1C7" stopOpacity="0.1" />
                     </linearGradient>
                     <linearGradient id="floating-line-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#C48F71" stopOpacity="0.6" />
-                        <stop offset="100%" stopColor="#E6D0C6" stopOpacity="0.3" />
+                        <stop offset="0%" stopColor="#2EE1C7" stopOpacity="0.6" />
+                        <stop offset="100%" stopColor="#2EE1C7" stopOpacity="0.2" />
                     </linearGradient>
                 </defs>
 
@@ -235,12 +235,12 @@ const InnovationProcess = () => {
             {/* Center Hub - Impact - PREMIUM DESIGN */}
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
                 <div
-                    className="relative bg-white/90 backdrop-blur-xl rounded-full shadow-[0_0_50px_rgba(176,117,82,0.25)] p-6 md:p-8 text-center border-4 border-brand-green-50 group hover:scale-105 transition-transform duration-500"
+                    className="relative bg-dark-card/90 backdrop-blur-xl rounded-full shadow-[0_0_50px_rgba(46,225,199,0.25)] p-6 md:p-8 text-center border-4 border-[#2EE1C7]/10 group hover:scale-105 transition-transform duration-500"
                 >
-                    <div className="absolute inset-0 bg-gradient-to-br from-brand-green-500/10 to-brand-yellow-500/10 rounded-full animate-pulse-slow"></div>
-                    <TrendingUp className="w-8 h-8 md:w-10 md:h-10 text-brand-green-600 mx-auto mb-2 relative z-10" />
-                    <div className="text-lg md:text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-green-600 to-brand-green-500 relative z-10">Impact</div>
-                    <div className="text-[10px] md:text-xs text-slate-500 font-bold uppercase tracking-widest mt-1 relative z-10">Business Growth</div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#2EE1C7]/10 to-[#2EE1C7]/5 rounded-full animate-pulse-slow"></div>
+                    <TrendingUp className="w-8 h-8 md:w-10 md:h-10 text-[#2EE1C7] mx-auto mb-2 relative z-10" />
+                    <div className="text-lg md:text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#2EE1C7] to-[#2EE1C7]/70 relative z-10">Impact</div>
+                    <div className="text-[10px] md:text-xs text-gray-400 font-bold uppercase tracking-widest mt-1 relative z-10">Business Growth</div>
                 </div>
             </div>
 
@@ -276,17 +276,17 @@ const InnovationProcess = () => {
                                 relative overflow-hidden backdrop-blur-md rounded-2xl p-3 md:p-4 flex flex-col items-center gap-2 min-w-[110px] md:min-w-[140px]
                                 transition-all duration-300
                                 ${isActive
-                                    ? "bg-white shadow-2xl ring-2 ring-offset-2 ring-transparent"
+                                    ? "bg-dark-card shadow-2xl ring-2 ring-offset-2 ring-transparent"
                                     : isFloating
-                                        ? "bg-orange-50/90 shadow-xl border border-orange-200"
-                                        : "bg-white/80 shadow-xl border border-white/60 hover:bg-white hover:shadow-2xl"
+                                        ? "bg-dark-card/90 shadow-xl border border-[#2EE1C7]/30"
+                                        : "bg-dark-card/80 shadow-xl border border-white/10 hover:bg-dark-card hover:shadow-2xl"
                                 }
                             `}
                             style={{
                                 boxShadow: isActive
                                     ? `0 20px 60px -10px ${node.color}40`
                                     : isFloating
-                                        ? `0 10px 30px -5px rgba(249, 115, 22, 0.2)`
+                                        ? `0 10px 30px -5px rgba(46, 225, 199, 0.2)`
                                         : '0 10px 30px -5px rgba(0,0,0,0.05)',
                                 borderColor: isActive ? node.color : undefined
                             }}
@@ -300,19 +300,19 @@ const InnovationProcess = () => {
                             <div
                                 className="w-10 h-10 md:w-12 md:h-12 rounded-2xl flex items-center justify-center transition-colors duration-300 shadow-[inset_0_2px_4px_rgba(0,0,0,0.05)]"
                                 style={{
-                                    backgroundColor: isActive ? node.color : isFloating ? "#fed7aa" : `${node.color}10`,
+                                    backgroundColor: isActive ? node.color : isFloating ? "rgba(46,225,199,0.15)" : `${node.color}10`,
                                 }}
                             >
                                 <Icon
                                     size={20}
-                                    style={{ color: isActive ? "#ffffff" : isFloating ? "#ea580c" : node.color }}
+                                    style={{ color: isActive ? "#000000" : isFloating ? "#2EE1C7" : node.color }}
                                     className="md:w-6 md:h-6 transition-colors duration-300"
                                 />
                             </div>
 
                             <div className="text-center">
-                                <span className="block text-sm md:text-base font-bold text-slate-800 mb-0.5">{node.label}</span>
-                                <span className={`text-[10px] md:text-xs text-slate-500 font-medium transition-opacity duration-300 ${isActive ? 'opacity-100' : 'opacity-70'}`}>
+                                <span className="block text-sm md:text-base font-bold text-white mb-0.5">{node.label}</span>
+                                <span className={`text-[10px] md:text-xs text-gray-400 font-medium transition-opacity duration-300 ${isActive ? 'opacity-100' : 'opacity-70'}`}>
                                     {isActive ? node.description : 'Drag to explore'}
                                 </span>
                             </div>
@@ -323,8 +323,8 @@ const InnovationProcess = () => {
 
             {/* Refresh hint when nodes are floating */}
             {floatingNodes.size > 0 && (
-                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-xs text-slate-500 bg-white/90 backdrop-blur px-4 py-2 rounded-full border border-slate-200 shadow-lg flex items-center gap-2 animate-fade-in">
-                    <span className="w-2 h-2 rounded-full bg-orange-400 animate-pulse"></span>
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-xs text-gray-400 bg-dark-card/90 backdrop-blur px-4 py-2 rounded-full border border-[#2EE1C7]/20 shadow-lg flex items-center gap-2 animate-fade-in">
+                    <span className="w-2 h-2 rounded-full bg-[#2EE1C7] animate-pulse"></span>
                     Auto-aligning in 3s...
                 </div>
             )}

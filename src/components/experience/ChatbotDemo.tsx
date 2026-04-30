@@ -200,13 +200,13 @@ const ChatbotDemo: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
         >
             {/* Header */}
-            <div className={`p-4 text-white flex items-center gap-3 ${theme === 'dark' ? 'bg-gradient-to-r from-dark-accent to-amber-600' : 'bg-gradient-to-r from-brand-green-600 to-brand-green-500'}`}>
+            <div className={`p-4 text-white flex items-center gap-3 ${theme === 'dark' ? 'bg-gradient-to-r from-[#2EE1C7] to-[#2EE1C7]/70' : 'bg-gradient-to-r from-brand-green-600 to-brand-green-500'}`}>
                 <div className="p-2 bg-white/20 rounded-lg backdrop-blur-sm">
                     <MessageSquare className="w-5 h-5" />
                 </div>
                 <div>
                     <h3 className="font-bold text-sm">Chat with Frosty</h3>
-                    <p className={`text-xs opacity-90 ${theme === 'dark' ? 'text-amber-100' : 'text-brand-green-100'}`}>AI-powered assistant</p>
+                    <p className={`text-xs opacity-90 ${theme === 'dark' ? 'text-white/80' : 'text-brand-green-100'}`}>AI-powered assistant</p>
                 </div>
             </div>
 

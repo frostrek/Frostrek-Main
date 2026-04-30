@@ -21,7 +21,7 @@ const ScheduleDemo = () => {
             <div className="container mx-auto px-4 py-12 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
                     {/* Left Column - Company Info */}
-                    <div className={`rounded-2xl shadow-xl p-8 lg:p-12 ${theme === 'dark' ? 'bg-dark-card' : 'bg-white'}`}>
+                    <div className={`rounded-2xl shadow-xl p-8 lg:p-12 ${theme === 'dark' ? 'bg-dark-card border border-[#2EE1C7]/20' : 'bg-white'}`}>
                         <div className="mb-8">
                             <div className={`inline-block px-3 py-1 rounded-full text-sm font-semibold mb-4 ${theme === 'dark' ? 'bg-dark-accent/20 text-dark-accent' : 'bg-brand-green-100 text-brand-green-700'}`}>
                                 FROSTREK
@@ -72,11 +72,11 @@ const ScheduleDemo = () => {
                     </div>
 
                     {/* Right Column - Google Calendar Booking */}
-                    <div className={`rounded-2xl shadow-xl p-6 lg:p-8 ${theme === 'dark' ? 'bg-dark-card' : 'bg-white'}`}>
+                    <div className={`rounded-2xl shadow-xl p-6 lg:p-8 ${theme === 'dark' ? 'bg-dark-card border border-[#2EE1C7]/20' : 'bg-white'}`}>
                         <div className="relative w-full min-h-[500px] md:min-h-[630px]">
                             {/* Loading skeleton shown while iframe loads */}
                             {!calendarLoaded && (
-                                <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 rounded-xl bg-gray-50 dark:bg-dark-accent/10">
+                                <div className={`absolute inset-0 flex flex-col items-center justify-center gap-4 rounded-xl ${theme === 'dark' ? 'bg-dark-card' : 'bg-gray-50'}`}>
                                     <Loader2 className={`w-10 h-10 animate-spin ${theme === 'dark' ? 'text-dark-accent' : 'text-brand-green-600'}`} />
                                     <p className={`text-sm font-medium ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-500'}`}>
                                         Loading calendar…
