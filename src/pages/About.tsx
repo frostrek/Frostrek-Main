@@ -256,7 +256,7 @@ const MagneticButton = memo(({ children, className, onClick, variant = 'primary'
 });
 
 // ============ 3D TILT CARD ============
-const TiltCard = memo(({ children, className, color = 'brand-green' }: {
+const TiltCard = memo(({ children, className, color: _color = 'brand-green' }: {
     children: React.ReactNode;
     className?: string;
     color?: 'brand-green' | 'brand-yellow'
