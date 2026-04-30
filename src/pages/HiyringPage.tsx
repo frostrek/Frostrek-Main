@@ -2,8 +2,6 @@ import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus, Users, Video, Clock, TrendingUp, CheckCircle, Search, FileText, Globe, Shield, Star } from 'lucide-react';
-import Card from '../components/ui/Card';
-import Button from '../components/ui/Button';
 import CuteBackground from '../components/ui/CuteBackground';
 import { ImpactMetrics } from '../components/product/ImpactMetrics';
 import { WorkflowBuilder } from '../components/product/WorkflowBuilder';
