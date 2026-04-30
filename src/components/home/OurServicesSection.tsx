@@ -47,9 +47,9 @@ const services: Service[] = [
     icon: Workflow,
   },
   {
-    title: "ServiceNow Expertise",
+    title: "Manufacturing Intelligence and Production Optimisation",
     description:
-      "Frostrek provides ServiceNow-focused implementation and managed services support through in-house certified professionals with CSA and CAD certifications.",
+      "Real-time visibility across your entire operation. AI scheduling that recovers lost production. Built on what you already have — without replacing a single system.",
     icon: Code,
   },
 ];

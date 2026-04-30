@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Bot, Mic, MessageSquare, Linkedin, Database, ArrowRight, Sparkles, Play, ChevronRight } from 'lucide-react';
+import { Bot, Mic, MessageSquare, Linkedin, Database, ArrowRight, Sparkles, Play, ChevronRight, Users } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 
 interface Product {
@@ -54,6 +54,16 @@ const products: Product[] = [
         icon: Linkedin,
         href: '/products/linkedin-automation',
         features: ['Smart Targeting', 'Auto Follow-up', 'Analytics'],
+        category: 'enterprise'
+    },
+    {
+        id: 'hiyring',
+        name: 'Hiyring',
+        description: 'Transforming talent acquisition through AI-powered interviews.',
+        shortDesc: 'Screen thousands of candidates in minutes with AI video interviews.',
+        icon: Users,
+        href: '/products/hiyring',
+        features: ['AI Video Interviews', 'Instant Screening', 'Bias Reduction'],
         category: 'enterprise'
     },
     {
