@@ -17,6 +17,7 @@ export const NAV_ITEMS = [
             {
                 title: 'Enterprise Tools',
                 items: [
+                    { name: 'Hiyring', href: '/products/hiyring', desc: 'AI-powered autonomous video interviews.', icon: 'Users' },
                     { name: 'LinkedIn Automation', href: '/products/linkedin-automation', desc: 'Scale your outreach with smart automation.', icon: 'Linkedin' },
                     { name: 'ERPNext AI Modules', href: '/products/erpnext-ai', desc: 'Intelligent add-ons for your ERP system.', icon: 'Database' },
                 ],
