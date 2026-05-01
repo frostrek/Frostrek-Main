@@ -26,15 +26,15 @@ function getOrCreateSessionId(): string {
 
 // Color Scheme - AI Copilot Theme
 const COLORS = {
-    primary: '#A67C52', // Brown/Tan
-    primaryDark: '#8B6741',
-    primaryLight: '#C9987A',
-    accent: '#A67C52', // Teal/Cyan
-    accentLight: '#A67C52',
-    background: '#F8F6F0', // Light beige
-    text: '#1a1a1a',
-    textLight: '#666666',
-    white: '#FFFFFF',
+    primary: '#2EE1C7', // Brand Teal
+    primaryDark: '#1CB8A1',
+    primaryLight: '#5BF2DD',
+    accent: '#2EE1C7', // Brand Teal
+    accentLight: '#5BF2DD',
+    background: '#0F172A', // Dark blueish
+    text: '#FFFFFF', // White
+    textLight: '#E2E8F0', // Lighter white
+    white: '#1E293B', // Dark card for bot messages
 };
 
 const Chatbot: React.FC = () => {
@@ -385,7 +385,7 @@ const Chatbot: React.FC = () => {
                     background-color: ${COLORS.primaryDark} !important;
                 }
                 .ai-copilot-suggestion {
-                    background-color: white;
+                    background-color: transparent;
                     border: 1.5px solid ${COLORS.primary};
                     color: ${COLORS.text};
                     border-radius: 20px;
@@ -397,7 +397,7 @@ const Chatbot: React.FC = () => {
                 }
                 .ai-copilot-suggestion:hover {
                     background-color: ${COLORS.primary};
-                    color: white;
+                    color: #FFFFFF;
                     transform: translateY(-2px);
                 }
                 /* Custom Scrollbar Styling */
@@ -589,11 +589,11 @@ const Chatbot: React.FC = () => {
                                             )}
                                         </div>
                                         <div
-                                            className={`p-4 rounded-2xl shadow-sm text-sm leading-relaxed whitespace-pre-wrap ${msg.type === 'user' ? 'text-white rounded-br-sm' : 'text-gray-700 rounded-bl-sm border'}`}
+                                            className={`p-4 rounded-2xl shadow-sm text-sm leading-relaxed whitespace-pre-wrap ${msg.type === 'user' ? 'text-white rounded-br-sm' : 'text-gray-200 rounded-bl-sm border'}`}
                                             style={{
                                                 backgroundColor: msg.type === 'user' ? COLORS.primary : COLORS.white,
-                                                color: msg.type === 'user' ? COLORS.white : COLORS.text,
-                                                borderColor: msg.type === 'user' ? 'transparent' : '#e0e0e0',
+                                                color: msg.type === 'user' ? '#FFFFFF' : COLORS.text,
+                                                borderColor: msg.type === 'user' ? 'transparent' : '#334155',
                                             }}
                                         >
                                             {msg.content && (
@@ -656,7 +656,7 @@ const Chatbot: React.FC = () => {
                                         >
                                             <Sparkles className="w-4 h-4" style={{ color: COLORS.accent }} />
                                         </div>
-                                        <div className="p-4 rounded-2xl rounded-tl-none shadow-sm border flex items-center" style={{ backgroundColor: COLORS.white, borderColor: '#e0e0e0' }}>
+                                        <div className="p-4 rounded-2xl rounded-tl-none shadow-sm border flex items-center" style={{ backgroundColor: COLORS.white, borderColor: '#334155' }}>
                                             <div className="flex gap-1">
                                                 <span className="typing-dot"></span>
                                                 <span className="typing-dot"></span>
@@ -669,7 +669,7 @@ const Chatbot: React.FC = () => {
                             </div>
 
                             {/* Footer (Input) */}
-                            <div className="p-4 border-t" style={{ backgroundColor: COLORS.white, borderColor: '#e0e0e0' }}>
+                            <div className="p-4 border-t" style={{ backgroundColor: COLORS.white, borderColor: '#334155' }}>
                                 {selectedFile && (
                                     <div className="text-xs mb-2 flex items-center gap-2" style={{ color: COLORS.textLight }}>
                                         <span>📎 {selectedFile.name}</span>
@@ -682,7 +682,7 @@ const Chatbot: React.FC = () => {
                                     </div>
                                 )}
 
-                                <form onSubmit={onSubmit} className="flex items-center gap-2 rounded-full px-3 py-2 shadow-sm border" style={{ backgroundColor: COLORS.background, borderColor: '#d0d0d0' }}>
+                                <form onSubmit={onSubmit} className="flex items-center gap-2 rounded-full px-3 py-2 shadow-sm border" style={{ backgroundColor: COLORS.background, borderColor: '#334155' }}>
                                     {/* Hidden File Input */}
                                     <input
                                         type="file"

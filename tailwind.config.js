@@ -14,7 +14,7 @@ export default {
                 'dark-card': '#1a1a1a',      // Card/bubble background
                 'dark-accent': '#2EE1C7',    // Button/accent color (golden)
                 'dark-text': '#f9fafb',      // Primary text
-                'dark-text-muted': '#A89A8A', // Muted text
+                'dark-text-muted': '#FFFFFF', // Muted text changed to white
 
                 // Brown/Bronze Earthy Theme
                 background: '#000000', // Warm Eggshell
