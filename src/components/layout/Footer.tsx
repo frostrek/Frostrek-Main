@@ -202,7 +202,7 @@ const Footer = () => {
               <div className="flex items-center gap-3 flex-wrap">
                 <a href={COMPANY_INFO.socials.linkedin} target="_blank" rel="noopener noreferrer" className={`social-icon w-8 h-8 rounded-full flex items-center justify-center transition-colors ${theme === 'dark' ? 'bg-dark-card text-dark-accent hover:bg-dark-accent hover:text-white' : 'bg-[#fdfbf7] text-[#2EE1C7] hover:bg-[#2EE1C7] hover:text-white'}`}><Linkedin size={16} /></a>
                 <a href={COMPANY_INFO.socials.instagram} target="_blank" rel="noopener noreferrer" className={`social-icon w-8 h-8 rounded-full flex items-center justify-center transition-colors ${theme === 'dark' ? 'bg-dark-card text-dark-accent hover:bg-dark-accent hover:text-white' : 'bg-[#fdfbf7] text-[#2EE1C7] hover:bg-[#2EE1C7] hover:text-white'}`}><Instagram size={16} /></a>
-                <a href="https://wa.me/17574722491" target="_blank" rel="noopener noreferrer" className={`social-icon group w-8 h-8 rounded-full flex items-center justify-center transition-colors ${theme === 'dark' ? 'bg-dark-card text-dark-accent hover:bg-dark-accent hover:text-white' : 'bg-[#fdfbf7] text-[#2EE1C7] hover:bg-[#2EE1C7] hover:text-white'}`}><img src="/whatsapp.png" alt="WhatsApp" className="w-5 h-5 object-contain transition-all brightness-0 invert" /></a>
+                <a href="https://wa.me/17574722491" target="_blank" rel="noopener noreferrer" className={`social-icon group w-8 h-8 rounded-full flex items-center justify-center transition-colors ${theme === 'dark' ? 'bg-dark-card text-dark-accent hover:bg-dark-accent hover:text-white' : 'bg-[#fdfbf7] text-[#2EE1C7] hover:bg-[#2EE1C7] hover:text-white'}`}><img src="/whatsapp.png" alt="WhatsApp" className="w-5 h-5 object-contain transition-all" style={{ filter: 'brightness(0) saturate(100%) invert(76%) sepia(52%) saturate(531%) hue-rotate(115deg) brightness(100%) contrast(100%)' }} /></a>
                 <a href="mailto:contact@frostrek.com" className={`social-icon w-8 h-8 rounded-full flex items-center justify-center transition-colors ${theme === 'dark' ? 'bg-dark-card text-dark-accent hover:bg-dark-accent hover:text-white' : 'bg-[#fdfbf7] text-[#2EE1C7] hover:bg-[#2EE1C7] hover:text-white'}`}><Mail size={16} /></a>
               </div>
             </div>
@@ -280,7 +280,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className={`text-center pt-4 border-t ${theme === 'dark' ? 'border-dark-accent/10' : 'border-gray-200'} text-xs ${theme === 'dark' ? 'text-gray-500' : 'text-gray-500'}`}>
+          <div className={`text-center pt-4 border-t ${theme === 'dark' ? 'border-dark-accent/10' : 'border-gray-200'} text-xs ${theme === 'dark' ? 'text-dark-accent' : 'text-[#2EE1C7]'}`}>
             &copy; {currentYear} {COMPANY_INFO.name}. All rights reserved.
           </div>
 
