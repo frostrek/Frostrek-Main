@@ -61,7 +61,22 @@ const Chatbot: React.FC = () => {
 
 
     const scrollToBottom = () => {
-        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+        // Save page scroll position first
+        const scrollX = window.scrollX;
+        const scrollY = window.scrollY;
+        if (messagesEndRef.current) {
+            const parent = messagesEndRef.current.parentElement;
+            if (parent) {
+                parent.scrollTo({
+                    top: parent.scrollHeight,
+                    behavior: 'smooth'
+                });
+            }
+        }
+        // Restore page scroll position to prevent page jump
+        requestAnimationFrame(() => {
+            window.scrollTo(scrollX, scrollY);
+        });
     };
 
     useEffect(() => {
@@ -90,7 +105,7 @@ const Chatbot: React.FC = () => {
         setConversationId(crypto.randomUUID()); // New conversation
 
         setTimeout(() => {
-            messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+            scrollToBottom();
         }, 100);
     };
 
@@ -369,9 +384,17 @@ const Chatbot: React.FC = () => {
 
     const onSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+        e.stopPropagation();
+        // Save page scroll position before any state changes
+        const scrollX = window.scrollX;
+        const scrollY = window.scrollY;
         if (message.trim() || selectedFile) {
             handleSendMessage(message);
         }
+        // Restore page scroll position to prevent page jump
+        requestAnimationFrame(() => {
+            window.scrollTo(scrollX, scrollY);
+        });
     };
 
     return (
@@ -480,7 +503,9 @@ const Chatbot: React.FC = () => {
                                         w-[380px] max-w-[95vw] h-[600px] max-h-[80vh] 
                                         rounded-2xl shadow-2xl border border-gray-200
                                         overflow-hidden flex flex-col z-[9999]"
-                            style={{ backgroundColor: COLORS.white }}
+                            style={{ backgroundColor: COLORS.white, overscrollBehavior: 'contain' }}
+                            onWheel={(e) => e.stopPropagation()}
+                            onTouchMove={(e) => e.stopPropagation()}
                         >
 
                             {/* Header - Draggable Area */}
@@ -727,6 +752,11 @@ const Chatbot: React.FC = () => {
                                         disabled={isRecording || isLoading}
                                         className="flex-1 bg-transparent outline-none text-sm px-2"
                                         style={{ color: COLORS.text }}
+                                        onFocus={(e) => {
+                                            // Prevent browser from scrolling the page to keep input visible
+                                            e.preventDefault();
+                                            e.target.focus({ preventScroll: true });
+                                        }}
                                     />
 
                                     <button

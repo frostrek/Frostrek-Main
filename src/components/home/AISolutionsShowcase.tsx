@@ -44,7 +44,7 @@ const SOLUTIONS: Solution[] = [
             'Custom personality & brand voice'
         ],
         link: '/products/frosty-ai',
-        gradient: 'from-[#2EE1C7] to-orange-400'
+        gradient: 'from-[#2EE1C7] to-[#1CB8A1]'
     },
     {
         id: 'voice-ai',
@@ -60,7 +60,7 @@ const SOLUTIONS: Solution[] = [
             'Real-time transcription & analytics'
         ],
         link: '/products/voice-ai',
-        gradient: 'from-[#2EE1C7] to-orange-400'
+        gradient: 'from-[#2EE1C7] to-[#1CB8A1]'
     },
     {
         id: 'rag-solutions',
@@ -76,7 +76,7 @@ const SOLUTIONS: Solution[] = [
             'Secure enterprise deployment'
         ],
         link: '/solutions/erp',
-        gradient: 'from-[#2EE1C7] to-amber-500'
+        gradient: 'from-[#2EE1C7] to-[#1CB8A1]'
     },
     {
         id: 'workflow-automation',
@@ -92,7 +92,7 @@ const SOLUTIONS: Solution[] = [
             'Error handling & retry logic'
         ],
         link: '/solutions/sales',
-        gradient: 'from-[#2EE1C7] to-orange-400'
+        gradient: 'from-[#2EE1C7] to-[#1CB8A1]'
     },
     {
         id: 'data-intelligence',
@@ -108,7 +108,7 @@ const SOLUTIONS: Solution[] = [
             'Custom report generation'
         ],
         link: '/solutions/ecommerce',
-        gradient: 'from-[#2EE1C7] to-orange-400'
+        gradient: 'from-[#2EE1C7] to-[#1CB8A1]'
     }
 ];
 
@@ -263,14 +263,14 @@ const WorkflowDemo = () => {
                             }}
                         >
                             <motion.div
-                                className={`w-12 h-12 rounded-lg flex items-center justify-center ${i === 0 ? 'bg-orange-500' :
+                                className={`w-12 h-12 rounded-lg flex items-center justify-center ${i === 0 ? 'bg-[#2EE1C7]' :
                                     i === 3 ? 'bg-[#2EE1C7]' :
                                         theme === 'dark' ? 'bg-dark-card' : 'bg-gray-300'
                                     }`}
                                 animate={{
                                     backgroundColor: isActive
-                                        ? (i === 0 ? ['#f97316', theme === 'dark' ? '#373027' : '#d1d5db'] : i === 3 ? '#2EE1C7' : theme === 'dark' ? '#373027' : '#d1d5db')
-                                        : (i === 0 ? '#f97316' : i === 3 ? '#2EE1C7' : theme === 'dark' ? '#373027' : '#d1d5db')
+                                        ? (i === 0 ? ['#2EE1C7', theme === 'dark' ? '#1a1a1a' : '#d1d5db'] : i === 3 ? '#2EE1C7' : theme === 'dark' ? '#1a1a1a' : '#d1d5db')
+                                        : (i === 0 ? '#2EE1C7' : i === 3 ? '#2EE1C7' : theme === 'dark' ? '#1a1a1a' : '#d1d5db')
                                 }}
                                 transition={{
                                     duration: 0.6,

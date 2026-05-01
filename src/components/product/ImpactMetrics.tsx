@@ -148,7 +148,7 @@ const BarChart = ({ value, label, delay, theme, index: _index = 0 }: { value: st
         <div className="flex flex-col justify-end h-full p-4 relative group">
             <div className="flex items-end justify-center gap-3 h-28 mb-3 w-full px-2">
                 <motion.div
-                    className={`w-8 rounded-t-lg ${theme === 'dark' ? 'bg-dark-bg' : 'bg-gray-100'}`}
+                    className={`w-8 rounded-t-lg ${theme === 'dark' ? 'bg-[#333333]' : 'bg-gray-100'}`}
                     initial={{ height: 0 }}
                     whileInView={{ height: '30%' }}
                     viewport={{ once: true }}

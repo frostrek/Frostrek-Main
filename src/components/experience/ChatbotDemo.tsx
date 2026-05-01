@@ -49,9 +49,25 @@ const ChatbotDemo: React.FC = () => {
     const audioChunksRef = useRef<Blob[]>([]);
 
     const messagesEndRef = useRef<HTMLDivElement>(null);
+    const chatBodyRef = useRef<HTMLDivElement>(null);
+    const inputRef = useRef<HTMLInputElement>(null);
 
     const scrollToBottom = () => {
-        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+        const scrollX = window.scrollX;
+        const scrollY = window.scrollY;
+        if (messagesEndRef.current) {
+            const parent = messagesEndRef.current.parentElement;
+            if (parent) {
+                parent.scrollTo({
+                    top: parent.scrollHeight,
+                    behavior: 'smooth'
+                });
+            }
+        }
+        // Restore page scroll position to prevent page jump
+        requestAnimationFrame(() => {
+            window.scrollTo(scrollX, scrollY);
+        });
     };
 
     useEffect(() => {
@@ -187,9 +203,17 @@ const ChatbotDemo: React.FC = () => {
 
     const onSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+        e.stopPropagation();
+        const scrollX = window.scrollX;
+        const scrollY = window.scrollY;
         if (message.trim()) {
             handleSendMessage(message);
         }
+        // Restore page scroll and re-focus input so user can keep typing
+        requestAnimationFrame(() => {
+            window.scrollTo(scrollX, scrollY);
+            inputRef.current?.focus({ preventScroll: true });
+        });
     };
 
     return (
@@ -211,7 +235,24 @@ const ChatbotDemo: React.FC = () => {
             </div>
 
             {/* Messages */}
-            <div className={`flex-1 overflow-y-auto p-4 flex flex-col gap-3 ${theme === 'dark' ? 'bg-dark-bg' : 'bg-gray-50'}`}>
+            <div
+                ref={chatBodyRef}
+                className={`flex-1 overflow-y-auto p-4 flex flex-col gap-3 ${theme === 'dark' ? 'bg-dark-bg' : 'bg-gray-50'}`}
+                style={{ overscrollBehavior: 'contain' }}
+                onWheel={(e) => {
+                    // Trap scroll inside the chat body — don't let it bubble to the page
+                    const el = chatBodyRef.current;
+                    if (!el) return;
+                    const { scrollTop, scrollHeight, clientHeight } = el;
+                    const atTop = scrollTop === 0 && e.deltaY < 0;
+                    const atBottom = scrollTop + clientHeight >= scrollHeight - 1 && e.deltaY > 0;
+                    if (!atTop && !atBottom) {
+                        e.stopPropagation();
+                    }
+                    // Always prevent default to keep page from scrolling
+                    e.stopPropagation();
+                }}
+            >
                 {messages.map((msg, idx) => (
                     <motion.div
                         key={idx}
@@ -283,12 +324,17 @@ const ChatbotDemo: React.FC = () => {
                         {isRecording ? <Square className="w-4 h-4 fill-current" /> : <Mic className="w-4 h-4" />}
                     </button>
                     <input
+                        ref={inputRef}
                         type="text"
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
                         placeholder={isRecording ? "Listening..." : "Type a message..."}
                         disabled={isRecording || isLoading}
                         className={`w-full pl-3 pr-10 py-2.5 border-transparent rounded-xl text-sm transition-all duration-200 outline-none disabled:opacity-60 ${theme === 'dark' ? 'bg-dark-bg text-dark-text placeholder-dark-text-muted/60 focus:bg-dark-bg focus:border-dark-accent focus:ring-2 focus:ring-dark-accent/20' : 'bg-gray-100 focus:bg-white focus:border-brand-green-500 focus:ring-2 focus:ring-brand-green-500/20'}`}
+                        onFocus={(e) => {
+                            e.preventDefault();
+                            e.target.focus({ preventScroll: true });
+                        }}
                     />
                     <button
                         type="submit"
