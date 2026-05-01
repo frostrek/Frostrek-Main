@@ -167,10 +167,10 @@ const Footer = () => {
       {/* Footer */}
       <footer
         ref={footerRef}
-        className={`border-t pt-8 pb-4 transition-colors duration-300 ${isVisible ? 'footer-revealed' : 'opacity-0'} ${theme === 'dark' ? 'bg-dark-navbar border-dark-accent/20' : 'bg-gradient-to-b from-white to-gray-50 border-gray-200'}`}
+        className={`border-t pt-8 transition-colors duration-300 ${isVisible ? 'footer-revealed' : 'opacity-0'} ${theme === 'dark' ? 'bg-dark-navbar border-dark-accent/20' : 'bg-gradient-to-b from-white to-gray-50 border-gray-200'}`}
       >
         <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8">
             {/* Brand & Info (Left - Uses 3/12 cols) */}
             <div className="lg:col-span-3 space-y-4">
               <div className="space-y-3">
@@ -280,12 +280,14 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className={`text-center pt-4 border-t ${theme === 'dark' ? 'border-dark-accent/10' : 'border-gray-200'} text-xs ${theme === 'dark' ? 'text-dark-accent' : 'text-[#2EE1C7]'}`}>
+        </div>
+
+        <div className="w-full bg-[#2EE1C7] py-2 mt-2">
+          <div className="container mx-auto px-4 md:px-6 text-center text-xs text-white font-medium tracking-wide">
             &copy; {currentYear} {COMPANY_INFO.name}. All rights reserved.
           </div>
-
         </div>
-      </footer >
+      </footer>
 
 
 
