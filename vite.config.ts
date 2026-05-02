@@ -38,7 +38,7 @@ export default defineConfig({
       }
     }),
     sitemap({
-      hostname: 'https://www.frostrek.com',
+      hostname: 'https://www.frostrek.ai',
       dynamicRoutes: routes,
     })
   ],
