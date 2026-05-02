@@ -76,7 +76,7 @@ const HeroFlowchart = () => {
   }, []);
 
   return (
-    <div className="w-full max-w-[1450px] mx-auto mt-0 relative z-20 px-4 pb-16">
+    <div className="w-full max-w-[1450px] mx-auto mt-0 relative z-20 px-3 sm:px-4 pb-8 sm:pb-16">
       <style>{`
         @keyframes breathe-border {
           0%, 100% { border-color: rgba(46, 225, 199, 0.2); }
@@ -89,7 +89,7 @@ const HeroFlowchart = () => {
       `}</style>
 
       {/* ── FLOWCHART GRID ── */}
-      <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr_320px] xl:grid-cols-[350px_1fr_350px] gap-8 lg:gap-0 items-start relative w-full lg:h-[500px]">
+      <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr_320px] xl:grid-cols-[350px_1fr_350px] gap-5 sm:gap-8 lg:gap-0 items-start relative w-full lg:h-[500px]">
 
         {/* SVG CONNECTING LINES */}
         <div className="absolute inset-0 pointer-events-none hidden lg:block z-0 lg:left-[320px] lg:right-[320px] xl:left-[350px] xl:right-[350px]">
@@ -133,8 +133,8 @@ const HeroFlowchart = () => {
           </svg>
         </div>
 
-        {/* LEFT COLUMN: Training Pipeline */}
-        <div className="relative w-full h-auto lg:h-[500px]">
+        {/* LEFT COLUMN: Training Pipeline — order-2 on mobile, order-1 on desktop */}
+        <div className="relative w-full h-auto lg:h-[500px] order-2 lg:order-1">
           <div className="lg:absolute top-0 left-0 w-full text-center lg:text-left mb-6 lg:mb-0">
             <h2 className="text-[#2EE1C7] font-bold tracking-wider text-[11px] lg:text-xs xl:text-sm">LLM TRAINING PIPELINE</h2>
             <p className="text-gray-400 text-[10px] lg:text-xs mt-1">Train your AI with your data</p>
@@ -147,12 +147,12 @@ const HeroFlowchart = () => {
           </div>
         </div>
 
-        {/* CENTER COLUMN: AI Engine */}
-        <div className="relative w-full h-auto lg:h-[500px] flex flex-col items-center justify-start">
+        {/* CENTER COLUMN: AI Engine — order-1 on mobile (renders first), order-2 on desktop */}
+        <div className="relative w-full h-auto lg:h-[500px] flex flex-col items-center justify-start order-1 lg:order-2">
 
           {/* ── Heading above hexagon — absolutely positioned on desktop ── */}
           <div className="lg:absolute lg:top-0 w-full flex flex-col items-center text-center mb-8 lg:mb-0 z-30">
-            <h1 className={`text-2xl md:text-4xl font-bold mb-3 leading-tight tracking-tight transition-colors duration-300 ${theme === 'dark' ? 'text-dark-text' : 'text-primary'}`}>
+            <h1 className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 leading-tight tracking-tight transition-colors duration-300 ${theme === 'dark' ? 'text-dark-text' : 'text-primary'}`}>
               <div className="flex flex-row flex-wrap items-center justify-center gap-x-2 mb-0.5">
                 <AnimatePresence mode="popLayout">
                   <motion.span
@@ -187,16 +187,16 @@ const HeroFlowchart = () => {
           </div>
 
           {/* Glowing Hexagon — positioned below heading: top ≈ 140px */}
-          <div className="lg:absolute lg:top-[140px] relative w-[240px] h-[240px] flex items-center justify-center rounded-full my-8 lg:my-0 z-20">
+          <div className="lg:absolute lg:top-[140px] relative w-[200px] h-[200px] sm:w-[240px] sm:h-[240px] flex items-center justify-center rounded-full my-4 sm:my-6 lg:my-0 z-20">
             <div className="absolute inset-0 rounded-full bg-[#2EE1C7]/20 blur-2xl mix-blend-screen" style={{ animation: 'breathe-core 3s ease-in-out infinite' }}></div>
 
             {/* Hexagon shape */}
             <div
-              className="relative w-[210px] h-[210px] bg-[#0a1a17] border-2 border-[#2EE1C7] flex flex-col items-center justify-center text-center p-4 shadow-[inset_0_0_20px_rgba(46,225,199,0.3),0_0_30px_rgba(46,225,199,0.4)] backdrop-blur-xl z-20"
+              className="relative w-[170px] h-[170px] sm:w-[210px] sm:h-[210px] bg-[#0a1a17] border-2 border-[#2EE1C7] flex flex-col items-center justify-center text-center p-3 sm:p-4 shadow-[inset_0_0_20px_rgba(46,225,199,0.3),0_0_30px_rgba(46,225,199,0.4)] backdrop-blur-xl z-20"
               style={{ clipPath: 'polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%)' }}
             >
-              <Brain className="w-12 h-12 text-[#2EE1C7] mb-2" style={{ animation: 'breathe-icon 3s ease-in-out infinite' }} />
-              <h2 className="text-lg font-bold text-white leading-tight drop-shadow-md">FROSTREK<br />AI ENGINE</h2>
+              <Brain className="w-10 h-10 sm:w-12 sm:h-12 text-[#2EE1C7] mb-1 sm:mb-2" style={{ animation: 'breathe-icon 3s ease-in-out infinite' }} />
+              <h2 className="text-base sm:text-lg font-bold text-white leading-tight drop-shadow-md">FROSTREK<br />AI ENGINE</h2>
               <p className="text-[9px] text-[#2EE1C7] mt-1 tracking-widest uppercase font-semibold">Intelligence Core</p>
             </div>
 
@@ -233,8 +233,8 @@ const HeroFlowchart = () => {
           </div>
         </div>
 
-        {/* RIGHT COLUMN: Automation Workflow */}
-        <div className="relative w-full h-auto lg:h-[500px]">
+        {/* RIGHT COLUMN: Automation Workflow — order-3 on mobile and desktop */}
+        <div className="relative w-full h-auto lg:h-[500px] order-3">
           <div className="lg:absolute top-0 right-0 w-full text-center lg:text-right mb-6 lg:mb-0">
             <h2 className="text-[#2EE1C7] font-bold tracking-wider text-[11px] lg:text-xs xl:text-sm">AUTOMATION WORKFLOW</h2>
             <p className="text-gray-400 text-[10px] lg:text-xs mt-1">Automate decisions in real-time</p>

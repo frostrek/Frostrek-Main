@@ -95,10 +95,10 @@ const CTASection = () => {
 
             <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
                 <div ref={contentRef} className="max-w-4xl mx-auto">
-                    <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white leading-tight">
+                    <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-6 text-white leading-tight">
                         Ready to transform your business?
                     </h2>
-                    <p className="text-xl text-[#2EE1C7] mb-10 max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-base sm:text-lg md:text-xl text-[#2EE1C7] mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed">
                         Join forward-thinking enterprises using Frostrek to automate, scale, and innovate.
                     </p>
 

@@ -18,15 +18,15 @@ const ScheduleDemo = () => {
                 path="/schedule-demo" 
             />
             {theme !== 'dark' && <CuteBackground />}
-            <div className="container mx-auto px-4 py-12 relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
+            <div className="container mx-auto px-3 sm:px-4 py-8 sm:py-12 relative z-10">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 max-w-7xl mx-auto">
                     {/* Left Column - Company Info */}
-                    <div className={`rounded-2xl shadow-xl p-8 lg:p-12 ${theme === 'dark' ? 'bg-dark-card border border-[#2EE1C7]/20' : 'bg-white'}`}>
+                    <div className={`rounded-2xl shadow-xl p-6 sm:p-8 lg:p-12 ${theme === 'dark' ? 'bg-dark-card border border-[#2EE1C7]/20' : 'bg-white'}`}>
                         <div className="mb-8">
                             <div className={`inline-block px-3 py-1 rounded-full text-sm font-semibold mb-4 ${theme === 'dark' ? 'bg-dark-accent/20 text-dark-accent' : 'bg-brand-green-100 text-brand-green-700'}`}>
                                 FROSTREK
                             </div>
-                            <h1 className={`text-4xl font-bold mb-4 ${theme === 'dark' ? 'text-dark-text' : 'text-gray-900'}`}>
+                            <h1 className={`text-2xl sm:text-3xl md:text-4xl font-bold mb-4 ${theme === 'dark' ? 'text-dark-text' : 'text-gray-900'}`}>
                                 Schedule a Demo
                             </h1>
                             <p className={`text-lg mb-8 ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}>
@@ -73,7 +73,7 @@ const ScheduleDemo = () => {
 
                     {/* Right Column - Google Calendar Booking */}
                     <div className={`rounded-2xl shadow-xl p-6 lg:p-8 ${theme === 'dark' ? 'bg-dark-card border border-[#2EE1C7]/20' : 'bg-white'}`}>
-                        <div className="relative w-full min-h-[500px] md:min-h-[630px]">
+                        <div className="relative w-full min-h-[400px] md:min-h-[630px]">
                             {/* Loading skeleton shown while iframe loads */}
                             {!calendarLoaded && (
                                 <div className={`absolute inset-0 flex flex-col items-center justify-center gap-4 rounded-xl ${theme === 'dark' ? 'bg-dark-card' : 'bg-gray-50'}`}>
@@ -93,9 +93,9 @@ const ScheduleDemo = () => {
                                     WebkitFilter: theme === 'dark' ? 'invert(0.87) hue-rotate(180deg) brightness(0.95) contrast(0.8)' : 'none',
                                 }}
                                 width="100%"
-                                height="630"
+                                height="500"
                                 title="Schedule a Demo"
-                                className="w-full min-h-[500px] md:min-h-[630px] rounded-xl"
+                                className="w-full min-h-[400px] md:min-h-[630px] rounded-xl"
                                 loading="eager"
                                 onLoad={() => setCalendarLoaded(true)}
                             ></iframe>

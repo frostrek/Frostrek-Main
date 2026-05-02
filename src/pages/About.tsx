@@ -1181,12 +1181,12 @@ const About = () => {
                                 <div className={`absolute top-0 left-[-1px] w-[1px] h-8 ${theme === 'dark' ? 'bg-[#2EE1C7]' : 'bg-black'}`}></div>
                                 <div className={`absolute bottom-0 left-[-1px] w-[1px] h-8 ${theme === 'dark' ? 'bg-[#2EE1C7]' : 'bg-black'}`}></div>
 
-                                <div className="flex flex-wrap gap-4">
-                                    <MagneticButton variant="primary" onClick={() => navigate("/experience")} className={`px-8 py-4 !rounded-none !shadow-none font-bold text-xs tracking-widest uppercase ${theme === 'dark' ? '!bg-[#2EE1C7] !text-black hover:!bg-white' : '!bg-gray-950 !text-white hover:!bg-brand-green-600'}`}>
-                                        <span className="flex items-center gap-2">VIEW OUR AGENT PLATFORM <span className={theme === 'dark' ? 'text-black' : 'text-brand-green-400'}>•</span></span>
+                                <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
+                                    <MagneticButton variant="primary" onClick={() => navigate("/experience")} className={`w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 !rounded-none !shadow-none font-bold text-xs tracking-widest uppercase ${theme === 'dark' ? '!bg-[#2EE1C7] !text-black hover:!bg-white' : '!bg-gray-950 !text-white hover:!bg-brand-green-600'}`}>
+                                        <span className="flex items-center justify-center gap-2">VIEW OUR AGENT PLATFORM <ArrowRight className="w-4 h-4" /></span>
                                     </MagneticButton>
 
-                                    <MagneticButton variant="secondary" onClick={() => navigate("/contact")} className="px-8 py-4 font-bold text-xs tracking-widest uppercase">
+                                    <MagneticButton variant="secondary" onClick={() => navigate("/contact")} className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 font-bold text-xs tracking-widest uppercase">
                                         CONTACT US
                                     </MagneticButton>
                                 </div>

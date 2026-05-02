@@ -455,8 +455,8 @@ const Chatbot: React.FC = () => {
                 onClick={toggleChat}
                 style={{
                     position: 'fixed',
-                    bottom: '24px',
-                    right: '24px',
+                    bottom: '16px',
+                    right: '16px',
                     zIndex: 10000,
                     backgroundColor: isOpen ? '#f0f0f0' : COLORS.primary,
                 }}
@@ -499,8 +499,8 @@ const Chatbot: React.FC = () => {
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
                             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-                            className="fixed bottom-[90px] right-4 md:right-6 
-                                        w-[380px] max-w-[95vw] h-[600px] max-h-[80vh] 
+                            className="fixed bottom-[72px] right-2 sm:right-4 md:right-6 
+                                        w-[calc(100vw-16px)] sm:w-[380px] max-w-[95vw] h-[calc(100vh-90px)] sm:h-[600px] max-h-[80vh] 
                                         rounded-2xl shadow-2xl border border-gray-200
                                         overflow-hidden flex flex-col z-[9999]"
                             style={{ backgroundColor: COLORS.white, overscrollBehavior: 'contain' }}
@@ -694,20 +694,20 @@ const Chatbot: React.FC = () => {
                             </div>
 
                             {/* Footer (Input) */}
-                            <div className="p-4 border-t" style={{ backgroundColor: COLORS.white, borderColor: '#334155' }}>
+                            <div className="p-3 sm:p-4 border-t" style={{ backgroundColor: COLORS.white, borderColor: '#334155' }}>
                                 {selectedFile && (
                                     <div className="text-xs mb-2 flex items-center gap-2" style={{ color: COLORS.textLight }}>
-                                        <span>📎 {selectedFile.name}</span>
+                                        <span className="truncate">📎 {selectedFile.name}</span>
                                         <button
                                             onClick={() => setSelectedFile(null)}
-                                            className="text-red-500 text-xs hover:underline"
+                                            className="text-red-500 text-xs hover:underline flex-shrink-0"
                                         >
                                             Remove
                                         </button>
                                     </div>
                                 )}
 
-                                <form onSubmit={onSubmit} className="flex items-center gap-2 rounded-full px-3 py-2 shadow-sm border" style={{ backgroundColor: COLORS.background, borderColor: '#334155' }}>
+                                <form onSubmit={onSubmit} className="flex items-center gap-1.5 sm:gap-2 rounded-2xl px-2 sm:px-3 py-2 shadow-sm border" style={{ backgroundColor: COLORS.background, borderColor: '#334155' }}>
                                     {/* Hidden File Input */}
                                     <input
                                         type="file"
@@ -720,37 +720,37 @@ const Chatbot: React.FC = () => {
                                     <button
                                         type="button"
                                         onClick={() => fileInputRef.current?.click()}
-                                        className="p-2 rounded-lg transition-all duration-200"
+                                        className="p-1.5 sm:p-2 rounded-lg transition-all duration-200 flex-shrink-0"
                                         style={{
                                             backgroundColor: COLORS.primary + '20',
                                             color: COLORS.primary,
                                         }}
                                         title="Upload file"
                                     >
-                                        <Paperclip className="w-5 h-5" />
+                                        <Paperclip className="w-4 h-4 sm:w-5 sm:h-5" />
                                     </button>
 
                                     {/* Mic Button */}
                                     <button
                                         type="button"
                                         onClick={isRecording ? stopRecording : startRecording}
-                                        className={`p-2 rounded-lg transition-all duration-200 ${isRecording ? 'animate-pulse' : ''}`}
+                                        className={`p-1.5 sm:p-2 rounded-lg transition-all duration-200 flex-shrink-0 ${isRecording ? 'animate-pulse' : ''}`}
                                         style={{
                                             backgroundColor: isRecording ? '#ff4444' : COLORS.primary + '20',
                                             color: isRecording ? 'white' : COLORS.primary,
                                         }}
                                         title={isRecording ? "Stop Recording" : "Start Recording"}
                                     >
-                                        {isRecording ? <Square className="w-5 h-5 fill-current" /> : <Mic className="w-5 h-5" />}
+                                        {isRecording ? <Square className="w-4 h-4 sm:w-5 sm:h-5 fill-current" /> : <Mic className="w-4 h-4 sm:w-5 sm:h-5" />}
                                     </button>
 
                                     <input
                                         type="text"
                                         value={message}
                                         onChange={(e) => setMessage(e.target.value)}
-                                        placeholder={isRecording ? "Listening..." : "Type your message..."}
+                                        placeholder={isRecording ? "Listening..." : "Type a message..."}
                                         disabled={isRecording || isLoading}
-                                        className="flex-1 bg-transparent outline-none text-sm px-2"
+                                        className="flex-1 min-w-0 bg-transparent outline-none text-sm px-1.5 sm:px-2"
                                         style={{ color: COLORS.text }}
                                         onFocus={(e) => {
                                             // Prevent browser from scrolling the page to keep input visible
@@ -762,15 +762,15 @@ const Chatbot: React.FC = () => {
                                     <button
                                         type="submit"
                                         disabled={!message.trim() || isLoading || isRecording}
-                                        className="w-9 h-9 text-white rounded-full flex items-center justify-center hover:shadow-lg transition-shadow disabled:opacity-50"
+                                        className="w-8 h-8 sm:w-9 sm:h-9 flex-shrink-0 text-white rounded-full flex items-center justify-center hover:shadow-lg transition-all disabled:opacity-40"
                                         style={{ backgroundColor: COLORS.primary }}
                                     >
-                                        <Send className="w-4 h-4" />
+                                        <Send className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                                     </button>
                                 </form>
 
-                                <div className="text-center mt-2">
-                                    <p className="text-[10px]" style={{ color: COLORS.textLight }}>Powered by Frostrek AI</p>
+                                <div className="text-center mt-1.5">
+                                    <p className="text-[9px] sm:text-[10px]" style={{ color: COLORS.textLight }}>Powered by Frostrek AI</p>
                                 </div>
                             </div>
                         </motion.div>

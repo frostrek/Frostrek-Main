@@ -40,7 +40,7 @@ const FAQSection = () => {
                             Common Queries
                         </span>
                     </div>
-                    <h2 className={`text-3xl md:text-5xl font-bold mb-6 font-display ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
+                    <h2 className={`text-2xl sm:text-3xl md:text-5xl font-bold mb-6 font-display ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
                         Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2EE1C7] to-[#2EE1C7]">Questions</span>
                     </h2>
                     <p className={`text-lg ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -63,14 +63,14 @@ const FAQSection = () => {
                         >
                             <button
                                 onClick={() => setActiveIndex(activeIndex === index ? null : index)}
-                                className="w-full px-6 py-5 flex items-center justify-between gap-4 text-left focus:outline-none"
+                                className="w-full px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between gap-3 sm:gap-4 text-left focus:outline-none"
                             >
                                 <div className="flex items-center gap-4">
                                     <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${theme === 'dark' ? 'bg-white/10 text-[#2EE1C7]' : 'bg-[#2EE1C7] text-[#2EE1C7]'
                                         }`}>
                                         {index + 1}
                                     </span>
-                                    <span className={`text-lg font-semibold ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
+                                    <span className={`text-base sm:text-lg font-semibold ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
                                         {faq.question}
                                     </span>
                                 </div>
@@ -91,7 +91,7 @@ const FAQSection = () => {
                                         transition={{ duration: 0.3, ease: "easeInOut" }}
                                         className="overflow-hidden"
                                     >
-                                        <div className={`px-6 pb-6 pl-[4.5rem] leading-relaxed ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
+                                        <div className={`px-4 sm:px-6 pb-5 sm:pb-6 pl-12 sm:pl-[4.5rem] leading-relaxed text-sm sm:text-base ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
                                             {faq.answer}
                                         </div>
                                     </motion.div>

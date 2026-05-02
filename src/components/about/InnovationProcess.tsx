@@ -187,7 +187,7 @@ const InnovationProcess = () => {
     return (
         <div
             ref={containerRef}
-            className="relative w-full h-full min-h-[400px] md:min-h-[550px] select-none"
+            className="relative w-full h-full min-h-[350px] md:min-h-[550px] select-none"
             onPointerMove={handlePointerMove}
         >
             {/* SVG Connection Lines */}
@@ -235,12 +235,12 @@ const InnovationProcess = () => {
             {/* Center Hub - Impact - PREMIUM DESIGN */}
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
                 <div
-                    className="relative bg-dark-card/90 backdrop-blur-xl rounded-full shadow-[0_0_50px_rgba(46,225,199,0.25)] p-6 md:p-8 text-center border-4 border-[#2EE1C7]/10 group hover:scale-105 transition-transform duration-500"
+                    className="relative bg-dark-card/90 backdrop-blur-xl rounded-full shadow-[0_0_50px_rgba(46,225,199,0.25)] p-4 sm:p-6 md:p-8 text-center border-4 border-[#2EE1C7]/10 group hover:scale-105 transition-transform duration-500"
                 >
                     <div className="absolute inset-0 bg-gradient-to-br from-[#2EE1C7]/10 to-[#2EE1C7]/5 rounded-full animate-pulse-slow"></div>
-                    <TrendingUp className="w-8 h-8 md:w-10 md:h-10 text-[#2EE1C7] mx-auto mb-2 relative z-10" />
-                    <div className="text-lg md:text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#2EE1C7] to-[#2EE1C7]/70 relative z-10">Impact</div>
-                    <div className="text-[10px] md:text-xs text-gray-400 font-bold uppercase tracking-widest mt-1 relative z-10">Business Growth</div>
+                    <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-[#2EE1C7] mx-auto mb-1 sm:mb-2 relative z-10" />
+                    <div className="text-base sm:text-lg md:text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#2EE1C7] to-[#2EE1C7]/70 relative z-10">Impact</div>
+                    <div className="text-[9px] sm:text-[10px] md:text-xs text-gray-400 font-bold uppercase tracking-widest mt-1 relative z-10">Business Growth</div>
                 </div>
             </div>
 
@@ -273,7 +273,7 @@ const InnovationProcess = () => {
                     >
                         <div
                             className={`
-                                relative overflow-hidden backdrop-blur-md rounded-2xl p-3 md:p-4 flex flex-col items-center gap-2 min-w-[110px] md:min-w-[140px]
+                                relative overflow-hidden backdrop-blur-md rounded-2xl p-2.5 sm:p-3 md:p-4 flex flex-col items-center gap-1.5 sm:gap-2 min-w-[95px] sm:min-w-[110px] md:min-w-[140px]
                                 transition-all duration-300
                                 ${isActive
                                     ? "bg-dark-card shadow-2xl ring-2 ring-offset-2 ring-transparent"

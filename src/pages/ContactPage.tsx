@@ -142,7 +142,7 @@ ${formData.projectDetails}
     };
 
     return (
-        <div className={`min-h-screen pt-24 pb-12 relative ${theme === 'dark' ? 'bg-dark-bg text-white' : 'bg-gray-50 text-gray-900'}`}>
+        <div className={`min-h-screen pt-20 sm:pt-24 pb-12 relative ${theme === 'dark' ? 'bg-dark-bg text-white' : 'bg-gray-50 text-gray-900'}`}>
             <SEO 
                 title="Contact Us | Frostrek" 
                 description="Get in touch with Frostrek to explore how AI can transform your business. We are here to help." 
@@ -151,7 +151,7 @@ ${formData.projectDetails}
             {theme !== 'dark' && <CuteBackground />}
 
             <div className="container mx-auto px-4 lg:px-8 relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 min-h-[calc(100vh-180px)]">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-24 min-h-[calc(100vh-180px)]">
                     {/* Left Side: Info */}
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
@@ -160,7 +160,7 @@ ${formData.projectDetails}
                         className="space-y-8 pt-8 md:pt-12"
                     >
                         <div>
-                            <h1 className="text-5xl md:text-6xl font-bold mb-6 font-display tracking-tight">
+                            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 font-display tracking-tight">
                                 Let's Start a <br />
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2EE1C7] to-[#2EE1C7]">Conversation</span>
                             </h1>

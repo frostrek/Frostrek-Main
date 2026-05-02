@@ -292,7 +292,7 @@ const Footer = () => {
 
 
       {showBackToTop && (
-        <button onClick={scrollToTop} className={`back-to-top fixed bottom-8 right-8 w-12 h-12 rounded-full shadow-lg flex items-center justify-center z-40 transition-colors ${theme === 'dark' ? 'bg-dark-accent text-dark-text hover:bg-dark-accent/80' : 'bg-[#2EE1C7] text-white hover:bg-[#2EE1C7]'}`} aria-label="Back to top">
+        <button onClick={scrollToTop} className={`back-to-top fixed bottom-[88px] right-4 sm:right-6 w-11 h-11 sm:w-12 sm:h-12 rounded-full shadow-lg flex items-center justify-center z-40 transition-colors ${theme === 'dark' ? 'bg-dark-accent text-dark-text hover:bg-dark-accent/80' : 'bg-[#2EE1C7] text-white hover:bg-[#2EE1C7]'}`} aria-label="Back to top">
           <ArrowUp size={20} className="arrow-icon" />
         </button>
       )
