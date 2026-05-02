@@ -167,10 +167,10 @@ const Footer = () => {
       {/* Footer */}
       <footer
         ref={footerRef}
-        className={`border-t pt-8 transition-colors duration-300 ${isVisible ? 'footer-revealed' : 'opacity-0'} ${theme === 'dark' ? 'bg-dark-navbar border-dark-accent/20' : 'bg-gradient-to-b from-white to-gray-50 border-gray-200'}`}
+        className={`border-t pt-8 pb-4 transition-colors duration-300 ${isVisible ? 'footer-revealed' : 'opacity-0'} ${theme === 'dark' ? 'bg-dark-navbar border-dark-accent/20' : 'bg-gradient-to-b from-white to-gray-50 border-gray-200'}`}
       >
         <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-6">
             {/* Brand & Info (Left - Uses 3/12 cols) */}
             <div className="lg:col-span-3 space-y-4">
               <div className="space-y-3">
@@ -202,7 +202,7 @@ const Footer = () => {
               <div className="flex items-center gap-3 flex-wrap">
                 <a href={COMPANY_INFO.socials.linkedin} target="_blank" rel="noopener noreferrer" className={`social-icon w-8 h-8 rounded-full flex items-center justify-center transition-colors ${theme === 'dark' ? 'bg-dark-card text-dark-accent hover:bg-dark-accent hover:text-white' : 'bg-[#fdfbf7] text-[#2EE1C7] hover:bg-[#2EE1C7] hover:text-white'}`}><Linkedin size={16} /></a>
                 <a href={COMPANY_INFO.socials.instagram} target="_blank" rel="noopener noreferrer" className={`social-icon w-8 h-8 rounded-full flex items-center justify-center transition-colors ${theme === 'dark' ? 'bg-dark-card text-dark-accent hover:bg-dark-accent hover:text-white' : 'bg-[#fdfbf7] text-[#2EE1C7] hover:bg-[#2EE1C7] hover:text-white'}`}><Instagram size={16} /></a>
-                <a href="https://wa.me/17574722491" target="_blank" rel="noopener noreferrer" className={`social-icon group w-8 h-8 rounded-full flex items-center justify-center transition-colors ${theme === 'dark' ? 'bg-dark-card text-dark-accent hover:bg-dark-accent hover:text-white' : 'bg-[#fdfbf7] text-[#2EE1C7] hover:bg-[#2EE1C7] hover:text-white'}`}><img src="/whatsapp.png" alt="WhatsApp" className="w-5 h-5 object-contain transition-all" style={{ filter: 'brightness(0) saturate(100%) invert(76%) sepia(52%) saturate(531%) hue-rotate(115deg) brightness(100%) contrast(100%)' }} /></a>
+                <a href="https://wa.me/17574722491" target="_blank" rel="noopener noreferrer" className={`social-icon group w-8 h-8 rounded-full flex items-center justify-center transition-colors ${theme === 'dark' ? 'bg-dark-card text-dark-accent hover:bg-dark-accent hover:text-white' : 'bg-[#fdfbf7] text-[#2EE1C7] hover:bg-[#2EE1C7] hover:text-white'}`}><img src="/whatsapp.png" alt="WhatsApp" className="w-5 h-5 object-contain transition-all group-hover:brightness-0 group-hover:invert" /></a>
                 <a href="mailto:contact@frostrek.com" className={`social-icon w-8 h-8 rounded-full flex items-center justify-center transition-colors ${theme === 'dark' ? 'bg-dark-card text-dark-accent hover:bg-dark-accent hover:text-white' : 'bg-[#fdfbf7] text-[#2EE1C7] hover:bg-[#2EE1C7] hover:text-white'}`}><Mail size={16} /></a>
               </div>
             </div>
@@ -231,7 +231,7 @@ const Footer = () => {
                     </li>
                   ))}
                   <li>
-                    <a href="https://www.frostrek.ai/" target="_blank" rel="noopener noreferrer" className={`footer-link text-sm ${theme === 'dark' ? 'text-dark-text-muted hover:text-dark-accent' : 'text-gray-600 hover:text-[#2EE1C7]'}`}>AI Training</a>
+                    <a href="https://frostrek.com/" target="_blank" rel="noopener noreferrer" className={`footer-link text-sm ${theme === 'dark' ? 'text-dark-text-muted hover:text-dark-accent' : 'text-gray-600 hover:text-[#2EE1C7]'}`}>AI Training</a>
                   </li>
                 </ul>
               </div>
@@ -280,19 +280,17 @@ const Footer = () => {
             </div>
           </div>
 
-        </div>
-
-        <div className="w-full bg-[#2EE1C7] py-2 mt-2">
-          <div className="container mx-auto px-4 md:px-6 text-center text-xs text-white font-medium tracking-wide">
+          <div className={`text-center pt-4 border-t ${theme === 'dark' ? 'border-dark-accent/10' : 'border-gray-200'} text-xs ${theme === 'dark' ? 'text-gray-500' : 'text-gray-500'}`}>
             &copy; {currentYear} {COMPANY_INFO.name}. All rights reserved.
           </div>
+
         </div>
-      </footer>
+      </footer >
 
 
 
       {showBackToTop && (
-        <button onClick={scrollToTop} className={`back-to-top fixed bottom-[88px] right-4 sm:right-6 w-11 h-11 sm:w-12 sm:h-12 rounded-full shadow-lg flex items-center justify-center z-40 transition-colors ${theme === 'dark' ? 'bg-dark-accent text-dark-text hover:bg-dark-accent/80' : 'bg-[#2EE1C7] text-white hover:bg-[#2EE1C7]'}`} aria-label="Back to top">
+        <button onClick={scrollToTop} className={`back-to-top fixed bottom-8 right-8 w-12 h-12 rounded-full shadow-lg flex items-center justify-center z-40 transition-colors ${theme === 'dark' ? 'bg-dark-accent text-dark-text hover:bg-dark-accent/80' : 'bg-[#2EE1C7] text-white hover:bg-[#2EE1C7]'}`} aria-label="Back to top">
           <ArrowUp size={20} className="arrow-icon" />
         </button>
       )

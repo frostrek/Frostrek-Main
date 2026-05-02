@@ -256,9 +256,10 @@ const MagneticButton = memo(({ children, className, onClick, variant = 'primary'
 });
 
 // ============ 3D TILT CARD ============
-const TiltCard = memo(({ children, className }: {
+const TiltCard = memo(({ children, className, color = 'brand-green' }: {
     children: React.ReactNode;
     className?: string;
+    color?: 'brand-green' | 'brand-yellow'
 }) => {
     const ref = useRef<HTMLDivElement>(null);
     const [hover, setHover] = useState(false);
@@ -1024,10 +1025,10 @@ const About = () => {
 
     return (
         <div ref={ref} className={`min-h-screen relative overflow-hidden ${theme === 'dark' ? 'bg-dark-bg' : ''}`}>
-            <SEO 
-                title="About Us | Frostrek - Pioneering Enterprise AI" 
-                description="Learn about Frostrek's mission to make enterprise-grade AI accessible, our team of experts, and our commitment to security and innovation." 
-                path="/about" 
+            <SEO
+                title="About Us | Frostrek - Pioneering Enterprise AI"
+                description="Learn about Frostrek's mission to make enterprise-grade AI accessible, our team of experts, and our commitment to security and innovation."
+                path="/about"
             />
             {theme !== 'dark' && <CuteBackground />}
 
@@ -1113,7 +1114,7 @@ const About = () => {
                                 { value: 50, suffix: '+', label: 'Enterprise Clients' },
                             ].map((s, i) => (
                                 <motion.div key={i} variants={fadeUp}>
-                                    <TiltCard>
+                                    <TiltCard color={i % 2 === 0 ? 'brand-green' : 'brand-yellow'}>
                                         <div className="p-6 text-center">
                                             <div className={`text-3xl md:text-4xl font-bold mb-1 ${theme === 'dark' ? 'text-[#2EE1C7]' : 'text-brand-green-600'}`}>
                                                 <Counter value={s.value} suffix={s.suffix} />
@@ -1180,12 +1181,12 @@ const About = () => {
                                 <div className={`absolute top-0 left-[-1px] w-[1px] h-8 ${theme === 'dark' ? 'bg-[#2EE1C7]' : 'bg-black'}`}></div>
                                 <div className={`absolute bottom-0 left-[-1px] w-[1px] h-8 ${theme === 'dark' ? 'bg-[#2EE1C7]' : 'bg-black'}`}></div>
 
-                                <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
-                                    <MagneticButton variant="primary" onClick={() => navigate("/experience")} className={`w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 !rounded-none !shadow-none font-bold text-xs tracking-widest uppercase ${theme === 'dark' ? '!bg-[#2EE1C7] !text-black hover:!bg-white' : '!bg-gray-950 !text-white hover:!bg-brand-green-600'}`}>
-                                        <span className="flex items-center justify-center gap-2">VIEW OUR AGENT PLATFORM <ArrowRight className="w-4 h-4" /></span>
+                                <div className="flex flex-wrap gap-4">
+                                    <MagneticButton variant="primary" onClick={() => navigate("/experience")} className={`px-8 py-4 !rounded-none !shadow-none font-bold text-xs tracking-widest uppercase ${theme === 'dark' ? '!bg-[#2EE1C7] !text-black hover:!bg-white' : '!bg-gray-950 !text-white hover:!bg-brand-green-600'}`}>
+                                        <span className="flex items-center gap-2">VIEW OUR AGENT PLATFORM <span className={theme === 'dark' ? 'text-black' : 'text-brand-green-400'}>•</span></span>
                                     </MagneticButton>
 
-                                    <MagneticButton variant="secondary" onClick={() => navigate("/contact")} className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 font-bold text-xs tracking-widest uppercase">
+                                    <MagneticButton variant="secondary" onClick={() => navigate("/contact")} className="px-8 py-4 font-bold text-xs tracking-widest uppercase">
                                         CONTACT US
                                     </MagneticButton>
                                 </div>
@@ -1217,7 +1218,7 @@ const About = () => {
                                     transition={{ delay: 0.4 }}
                                 >
                                     <div className="bg-white/90 backdrop-blur-sm p-2 rounded-xl shadow-lg border border-white/50">
-                                            <div className="text-2xl font-bold tracking-tight text-gray-900">
+                                        <div className="text-2xl font-bold tracking-tight text-gray-900">
                                             Team <span className={theme === 'dark' ? 'text-[#2EE1C7]' : 'text-brand-green-500'}> Frostrek</span>
                                         </div>
                                     </div>
@@ -1457,7 +1458,7 @@ const About = () => {
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-5xl mx-auto">
                         {values.map((v, i) => (
                             <motion.div key={i} variants={fadeUp}>
-                                <TiltCard>
+                                <TiltCard color={v.color}>
                                     <div className="p-6 text-center">
                                         <motion.div
                                             className={`w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4 bg-gradient-to-br from-[#2EE1C7] to-[#2EE1C7]/70`}
