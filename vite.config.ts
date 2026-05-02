@@ -25,7 +25,7 @@ export default defineConfig({
   plugins: [
     react(),
     sitemap({
-      hostname: 'https://www.frostrek.com',
+      hostname: 'https://www.frostrek.ai',
       dynamicRoutes: routes,
     })
   ],

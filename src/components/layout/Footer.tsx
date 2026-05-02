@@ -231,7 +231,7 @@ const Footer = () => {
                     </li>
                   ))}
                   <li>
-                    <a href="https://frostrek.com/" target="_blank" rel="noopener noreferrer" className={`footer-link text-sm ${theme === 'dark' ? 'text-dark-text-muted hover:text-dark-accent' : 'text-gray-600 hover:text-[#2EE1C7]'}`}>AI Training</a>
+                    <a href="https://www.frostrek.ai/" target="_blank" rel="noopener noreferrer" className={`footer-link text-sm ${theme === 'dark' ? 'text-dark-text-muted hover:text-dark-accent' : 'text-gray-600 hover:text-[#2EE1C7]'}`}>AI Training</a>
                   </li>
                 </ul>
               </div>

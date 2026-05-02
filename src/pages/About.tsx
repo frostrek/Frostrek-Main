@@ -256,10 +256,9 @@ const MagneticButton = memo(({ children, className, onClick, variant = 'primary'
 });
 
 // ============ 3D TILT CARD ============
-const TiltCard = memo(({ children, className, color: _color = 'brand-green' }: {
+const TiltCard = memo(({ children, className }: {
     children: React.ReactNode;
     className?: string;
-    color?: 'brand-green' | 'brand-yellow'
 }) => {
     const ref = useRef<HTMLDivElement>(null);
     const [hover, setHover] = useState(false);
@@ -1114,7 +1113,7 @@ const About = () => {
                                 { value: 50, suffix: '+', label: 'Enterprise Clients' },
                             ].map((s, i) => (
                                 <motion.div key={i} variants={fadeUp}>
-                                    <TiltCard color={i % 2 === 0 ? 'brand-green' : 'brand-yellow'}>
+                                    <TiltCard>
                                         <div className="p-6 text-center">
                                             <div className={`text-3xl md:text-4xl font-bold mb-1 ${theme === 'dark' ? 'text-[#2EE1C7]' : 'text-brand-green-600'}`}>
                                                 <Counter value={s.value} suffix={s.suffix} />
@@ -1458,7 +1457,7 @@ const About = () => {
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-5xl mx-auto">
                         {values.map((v, i) => (
                             <motion.div key={i} variants={fadeUp}>
-                                <TiltCard color={v.color}>
+                                <TiltCard>
                                     <div className="p-6 text-center">
                                         <motion.div
                                             className={`w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4 bg-gradient-to-br from-[#2EE1C7] to-[#2EE1C7]/70`}
