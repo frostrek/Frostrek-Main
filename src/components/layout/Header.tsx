@@ -7,6 +7,7 @@ import Button from '../ui/Button';
 import { cn } from '../../utils/cn';
 import MegaMenu from './MegaMenu';
 import { useTheme } from '../../context/ThemeContext';
+import { useLenis } from '../providers/SmoothScrollProvider';
 
 
 const Header = () => {
@@ -16,6 +17,7 @@ const Header = () => {
     const location = useLocation();
     const { theme } = useTheme();
     const ticking = useRef(false);
+    const lenis = useLenis();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -32,20 +34,23 @@ const Header = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Lock body scroll when mobile menu is open
+    // Lock body scroll AND stop Lenis when mobile menu is open
     useEffect(() => {
         if (mobileMenuOpen) {
             document.body.style.overflow = 'hidden';
             document.body.style.touchAction = 'none';
+            lenis?.stop();
         } else {
             document.body.style.overflow = '';
             document.body.style.touchAction = '';
+            lenis?.start();
         }
         return () => {
             document.body.style.overflow = '';
             document.body.style.touchAction = '';
+            lenis?.start();
         };
-    }, [mobileMenuOpen]);
+    }, [mobileMenuOpen, lenis]);
 
     // Close mobile menu on route change
     useEffect(() => {
