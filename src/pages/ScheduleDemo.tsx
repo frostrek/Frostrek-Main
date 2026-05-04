@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import { MapPin, Clock, Calendar as CalendarIcon, Sparkles, ArrowRight } from 'lucide-react';
+import { MapPin, Clock, Calendar as CalendarIcon, Sparkles, ArrowRight, type LucideIcon } from 'lucide-react';
 import CuteBackground from '../components/ui/CuteBackground';
 import { useTheme } from '../context/ThemeContext';
 import SEO from '../components/seo/SEO';
@@ -75,7 +75,7 @@ const InfoCard = ({
     children,
     isDark,
 }: {
-    icon: React.ElementType;
+    icon: LucideIcon;
     title: string;
     children: React.ReactNode;
     isDark: boolean;
