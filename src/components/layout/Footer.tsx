@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Linkedin, Instagram, Mail, ArrowUp, Sparkles, MapPin } from 'lucide-react';
+import { Linkedin, Instagram, Mail, Sparkles, MapPin } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { NAV_ITEMS, COMPANY_INFO } from '../../utils/constants';
 
@@ -11,7 +11,7 @@ const Footer = () => {
   const location = useLocation();
   const currentYear = new Date().getFullYear();
   const [isVisible, setIsVisible] = useState(false);
-  const [showBackToTop, setShowBackToTop] = useState(false);
+
 
   const footerRef = useRef<HTMLDivElement>(null);
   const locationRef = useRef<HTMLDivElement>(null);
@@ -38,29 +38,13 @@ const Footer = () => {
 
 
 
-  // Scroll handler for back-to-top with rAF throttling
-  useEffect(() => {
-    let ticking = false;
-    const handleScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-        setShowBackToTop(scrollPercent > 60);
-        ticking = false;
-      });
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
 
 
 
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+
+
 
 
 
@@ -112,9 +96,7 @@ const Footer = () => {
         .network-node:nth-child(2) { animation-delay: 0.6s; }
         .network-node:nth-child(3) { animation-delay: 1.2s; }
         .network-node:nth-child(4) { animation-delay: 1.8s; }
-        .back-to-top { animation: fadeSlideUp 250ms ease-out; }
-        .back-to-top:hover .arrow-icon { transform: translateY(-2px); }
-        .arrow-icon { transition: transform 150ms ease-out; }
+
         .copy-notification { animation: copyPulse 200ms ease-out; }
 
         @media (prefers-reduced-motion: reduce) {
@@ -287,14 +269,6 @@ const Footer = () => {
         </div>
       </footer >
 
-
-
-      {showBackToTop && (
-        <button onClick={scrollToTop} className={`back-to-top fixed bottom-8 right-8 w-12 h-12 rounded-full shadow-lg flex items-center justify-center z-40 transition-colors ${theme === 'dark' ? 'bg-dark-accent text-dark-text hover:bg-dark-accent/80' : 'bg-[#2EE1C7] text-white hover:bg-[#2EE1C7]'}`} aria-label="Back to top">
-          <ArrowUp size={20} className="arrow-icon" />
-        </button>
-      )
-      }
     </>
   );
 };

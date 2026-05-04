@@ -580,7 +580,7 @@ const ResourcesPage = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm overflow-hidden touch-none"
+                        className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm overflow-hidden touch-none"
                         onClick={() => setSelectedStudy(null)}
                         onWheel={(e) => e.stopPropagation()}
                     >
@@ -696,7 +696,7 @@ const ResourcesPage = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm overflow-hidden touch-none"
+                        className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm overflow-hidden touch-none"
                         onClick={() => setSelectedBlog(null)}
                         onWheel={(e) => e.stopPropagation()}
                     >
