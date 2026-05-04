@@ -169,7 +169,7 @@ const Header = () => {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -10 }}
                             transition={{ duration: 0.25, ease: "easeOut" }}
-                            className="fixed top-[72px] sm:top-[88px] left-3 right-3 sm:left-4 sm:right-4 z-[58] border shadow-2xl backdrop-blur-xl bg-black/95 border-[#2EE1C7]/40 rounded-2xl overflow-hidden"
+                            className="fixed top-[84px] sm:top-[104px] left-3 right-3 sm:left-4 sm:right-4 z-[58] border shadow-2xl backdrop-blur-xl bg-black/95 border-[#2EE1C7]/40 rounded-2xl overflow-hidden"
                             onWheel={(e) => e.stopPropagation()}
                             onTouchMove={(e) => e.stopPropagation()}
                             style={{ overscrollBehavior: 'contain' }}
