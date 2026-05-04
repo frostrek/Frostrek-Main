@@ -13,8 +13,8 @@ const organizationSchema = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Frostrek",
-  "url": "https://www.frostrek.com",
-  "logo": "https://www.frostrek.com/logo.png",
+  "url": "https://www.frostrek.ai",
+  "logo": "https://www.frostrek.ai/logo.png",
   "description": "AI-powered enterprise solutions including conversational AI agents, automation, and AI copilots.",
   "sameAs": [
     "https://www.linkedin.com/company/frostrek",
@@ -58,10 +58,10 @@ const websiteSchema = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "Frostrek",
-  "url": "https://www.frostrek.com",
+  "url": "https://www.frostrek.ai",
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "https://www.frostrek.com/search?q={search_term_string}",
+    "target": "https://www.frostrek.ai/search?q={search_term_string}",
     "query-input": "required name=search_term_string"
   }
 });

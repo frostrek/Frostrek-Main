@@ -17,8 +17,8 @@ export default function SEO({
   type = "website",
   schema
 }: SEOProps) {
-  const url = `https://www.frostrek.com${path}`;
-  const image = "https://www.frostrek.com/logo.png";
+  const url = `https://www.frostrek.ai${path}`;
+  const image = "https://www.frostrek.ai/logo.png";
 
   // Auto-generate BreadcrumbList schema
   const pathParts = path.split('/').filter(Boolean);
@@ -27,7 +27,7 @@ export default function SEO({
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://www.frostrek.com/"
+      "item": "https://www.frostrek.ai/"
     }
   ];
 
@@ -45,7 +45,7 @@ export default function SEO({
       "@type": "ListItem",
       "position": index + 2,
       "name": itemName,
-      "item": `https://www.frostrek.com${currentPath}`
+      "item": `https://www.frostrek.ai${currentPath}`
     });
   });
 
