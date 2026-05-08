@@ -1,6 +1,6 @@
 
 import { motion } from 'framer-motion';
-import { ChevronRight, BadgeCheck, Rocket } from 'lucide-react';
+import { ChevronRight, Rocket } from 'lucide-react';
 import Button from '../ui/Button';
 import { useTheme } from '../../context/ThemeContext';
 import { useNavigate } from 'react-router-dom';
