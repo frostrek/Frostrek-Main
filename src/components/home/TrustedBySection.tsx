@@ -12,8 +12,6 @@ const LOGOS = [
     { name: 'ISO Certified', src: '/iso.webp', rating: 'ISO', reviews: '9001 Certified' },
 ] as const;
 
-const ACCENT_DARK = '#2EE1C7';
-
 const TrustedBySection = () => {
     const { theme } = useTheme();
     const sectionRef = useRef<HTMLElement>(null);
