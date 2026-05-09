@@ -59,10 +59,12 @@ const TrustedBySection = () => {
             <div className="container mx-auto px-6 relative z-10">
                 {/* Title */}
                 <div className="trusted-title text-center mb-14">
-                    <h3 className={`text-2xl md:text-4xl font-light mb-3 transition-colors duration-300 ${theme === 'dark' ? 'text-dark-text' : 'text-gray-900'}`}>
-                        Trusted by <span className="font-semibold" style={{ color: theme === 'dark' ? '#2EE1C7' : ACCENT_DARK }}>Industry Leaders</span>
-                    </h3>
-                    <p className={`text-sm transition-colors duration-300 ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-400'}`}>Industry leaders trust us to deliver excellence</p>
+                    <h2 className={`text-2xl md:text-4xl font-bold mb-3 ${theme === 'dark' ? 'text-dark-text' : 'text-gray-900'}`}>
+                        Trusted by <span className={theme === 'dark' ? 'text-dark-accent' : 'text-[#2EE1C7]'}>Industry Leaders</span>
+                    </h2>
+                    <p className={`max-w-2xl mx-auto transition-colors duration-300 ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}>
+                        Industry leaders trust us to deliver excellence.
+                    </p>
                 </div>
 
                 {/* Marquee */}

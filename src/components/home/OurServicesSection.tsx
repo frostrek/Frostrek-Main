@@ -7,6 +7,7 @@ interface Service {
   title: string;
   description: string;
   icon: LucideIcon;
+  image: string;
 }
 
 const services: Service[] = [
@@ -15,42 +16,49 @@ const services: Service[] = [
     description:
       "Identify and place experienced AI professionals who align precisely with your project goals, technical needs, and delivery schedules.",
     icon: Cpu,
+    image: "/images/services/talent-acquisition.png",
   },
   {
-    title: "AI Model Training & Performance Optimization",
+    title: "AI Model Training & Optimization",
     description:
       "Improve AI model outcomes through expert-led training, fine-tuning, and real-world validation for consistent accuracy and impact.",
     icon: LineChart,
+    image: "/images/services/model-training.png",
   },
   {
     title: "Tailored AI Development Solutions",
     description:
       "Create custom-built AI systems designed to solve complex business problems with scalable, dependable, and efficient architectures.",
     icon: Brain,
+    image: "/images/services/ai-solutions.png",
   },
   {
     title: "AI Agents & Autonomous Systems",
     description:
       "Build intelligent AI agents capable of independent reasoning, decision-making, and task execution across operational workflows.",
     icon: Bot,
+    image: "/images/services/ai-agents.png",
   },
   {
-    title: "AI-Powered Application & Platform Development",
+    title: "AI Platform Development",
     description:
-      "Build production-ready web and mobile applications, internal tools, dashboards, and platforms that seamlessly embed AI into everyday business operations.",
+      "Build production-ready applications and platforms that seamlessly embed AI into everyday business operations.",
     icon: Server,
+    image: "/images/services/platform-dev.png",
   },
   {
-    title: "Organizational Workflow Automation & Integration",
+    title: "Workflow Automation & Integration",
     description:
-      "Integrate AI into organizational processes to automate workflows, enhance efficiency, and enable seamless coordination across systems and teams.",
+      "Integrate AI into organizational processes to automate workflows, enhance efficiency, and enable seamless coordination.",
     icon: Workflow,
+    image: "/services/automation.png",
   },
   {
-    title: "Manufacturing Intelligence and Production Optimisation",
+    title: "Manufacturing Intelligence",
     description:
-      "Real-time visibility across your entire operation. AI scheduling that recovers lost production. Built on what you already have — without replacing a single system.",
+      "Real-time visibility across your entire operation. AI scheduling that recovers lost production without replacing existing systems.",
     icon: Code,
+    image: "/services/aitraining.png",
   },
 ];
 
@@ -70,29 +78,39 @@ const ServiceCard = ({ service, index }: { service: Service; index: number }) =>
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.1 }}
       custom={index}
       variants={cardVariants}
       className="h-full"
     >
-      <SpotlightCard 
-        className="group h-full rounded-xl border-[#2EE1C7]/40 bg-zinc-950/40 p-5 md:p-6 transition-all duration-300 hover:border-[#2EE1C7]/60 hover:bg-zinc-900/50 hover:shadow-[0_0_30px_rgba(46,225,199,0.15)]"
-        spotlightColor="rgba(46, 225, 199, 0.4)"
+      <SpotlightCard
+        className="group h-full flex flex-col overflow-hidden rounded-2xl border border-[#2EE1C7]/30 bg-zinc-950/80 transition-all duration-500 hover:border-[#2EE1C7]/60 hover:shadow-[0_0_30px_rgba(46,225,199,0.25)]"
+        spotlightColor="rgba(46, 225, 199, 0.15)"
       >
-        {/* Header Row: Title and Icon */}
-        <div className="relative z-10 flex items-start justify-between gap-4 mb-4">
-          <h3 className="text-lg font-bold text-slate-50 leading-tight group-hover:text-white transition-colors">
-            {service.title}
-          </h3>
-          <div className="w-9 h-9 shrink-0 rounded-lg bg-[#2EE1C7]/10 flex items-center justify-center text-[#2EE1C7] border border-[#2EE1C7]/20 group-hover:bg-[#2EE1C7]/20 transition-colors">
-            <Icon className="w-4.5 h-4.5" />
+        {/* Image Wrapper */}
+        <div className="relative h-56 overflow-hidden">
+          <img
+            src={service.image}
+            alt={service.title}
+            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent" />
+
+          {/* Icon Badge Overlay */}
+          <div className="absolute bottom-4 left-4 w-10 h-10 rounded-xl bg-black/60 backdrop-blur-md border border-[#2EE1C7]/30 flex items-center justify-center text-[#2EE1C7] group-hover:scale-110 transition-transform duration-300">
+            <Icon className="w-5 h-5" />
           </div>
         </div>
 
-        {/* Description */}
-        <p className="relative z-10 text-xs leading-relaxed text-slate-400 group-hover:text-slate-300 transition-colors flex-grow">
-          {service.description}
-        </p>
+        {/* Content */}
+        <div className="p-6 flex flex-col flex-grow">
+          <h3 className="text-base font-bold text-white mb-3 group-hover:text-[#2EE1C7] transition-colors line-clamp-2">
+            {service.title}
+          </h3>
+          <p className="text-xs leading-relaxed text-slate-400 group-hover:text-slate-300 transition-colors line-clamp-4">
+            {service.description}
+          </p>
+        </div>
       </SpotlightCard>
     </motion.div>
   );
@@ -102,44 +120,43 @@ const OurServicesSection = () => {
   return (
     <section
       id="our-services"
-      className="relative pt-6 pb-12 md:pt-10 md:pb-20 font-sans overflow-hidden bg-black"
+      className="relative py-20 font-sans overflow-hidden bg-black"
     >
-      {/* Content Container */}
-      <div className="relative z-10 mx-auto flex max-w-7xl flex-col gap-10 md:gap-12 px-4 sm:px-6 md:px-8">
+      {/* Dynamic Background Effects */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#2EE1C7]/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#2EE1C7]/3 rounded-full blur-[100px] pointer-events-none" />
+
+      <div className="relative z-10 mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
-        <div className="mx-auto max-w-4xl text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border mb-3 bg-zinc-900/50 border-[#2EE1C7]/30">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 bg-[#2EE1C7]/60" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#2EE1C7]" />
-            </span>
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#2EE1C7]">
+        <div className="max-w-3xl mx-auto text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#2EE1C7]/30 bg-[#2EE1C7]/5 mb-4">
+            <div className="w-1.5 h-1.5 rounded-full bg-[#2EE1C7] animate-pulse" />
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#2EE1C7]">
               Services
             </span>
           </div>
           <motion.h2
-            className="text-2xl md:text-4xl font-bold mb-3 text-slate-50"
+            className="text-3xl md:text-5xl font-bold mb-6 text-white tracking-tight"
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
           >
-            Our <span className="text-[#2EE1C7]">Services</span>
+            Our {" "}
+            <span className="text-[#2EE1C7]">Services</span>
           </motion.h2>
-
           <motion.p
-            className="text-base max-w-2xl mx-auto text-slate-300/90"
-            initial={{ opacity: 0, y: -10 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            className="text-base text-slate-400 max-w-xl mx-auto"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            transition={{ delay: 0.2 }}
           >
             Cutting-edge AI services engineered for scale, reliability, and real-world impact.
           </motion.p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid gap-6 sm:gap-7 md:gap-8 lg:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        {/* Services Grid - 5 columns on laptop */}
+        <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
           {services.map((service, index) => (
             <ServiceCard key={service.title} service={service} index={index} />
           ))}

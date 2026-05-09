@@ -1,5 +1,6 @@
 import HeroSection from '../components/home/HeroSection';
 import AISolutionsShowcase from '../components/home/AISolutionsShowcase';
+import WhyChooseFrostrek from '../components/home/WhyChooseFrostrek';
 import OurServicesSection from '../components/home/OurServicesSection';
 import TrustedBySection from '../components/home/TrustedBySection';
 import FeaturesSection from '../components/home/FeaturesSection';
@@ -125,6 +126,7 @@ const Home = () => {
             <HeroSection />
             <OurServicesSection />
             <AISolutionsShowcase />
+            <WhyChooseFrostrek />
             <TrustedBySection />
             <FeaturesSection />
             {/* <TestimonialsSection /> */}
