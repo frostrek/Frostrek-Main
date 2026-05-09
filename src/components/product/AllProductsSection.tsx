@@ -101,7 +101,7 @@ const products: Product[] = [
     }
 ];
 
-// Animated Product Card with Hover Expansion
+// Animated Product Card with Hover Expansions
 const ProductCard = ({ product, index, isActive, onClick }: {
     product: Product;
     index: number;
@@ -197,11 +197,10 @@ const ProductCard = ({ product, index, isActive, onClick }: {
                                     {product.name}
                                 </h4>
                                 {product.liveBuild && (
-                                    <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider ${
-                                        theme === 'dark'
+                                    <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider ${theme === 'dark'
                                             ? 'bg-[#2EE1C7]/15 text-[#2EE1C7] border border-[#2EE1C7]/30'
                                             : 'bg-[#2EE1C7]/10 text-[#0d9488] border border-[#2EE1C7]/40'
-                                    }`}>
+                                        }`}>
                                         <span className="w-1.5 h-1.5 rounded-full bg-[#2EE1C7] animate-pulse" />
                                         Live Build
                                     </span>
@@ -400,13 +399,11 @@ const AllProductsSection = () => {
                                     onClick={() => setActiveProduct(isActive ? null : product.id)}
                                     className="cursor-pointer group"
                                 >
-                                    <div className={`relative overflow-hidden rounded-2xl border-2 transition-all duration-500 ${
-                                        isActive ? 'shadow-[0_0_40px_rgba(46,225,199,0.15)]' : ''
-                                    } ${
-                                        theme === 'dark'
+                                    <div className={`relative overflow-hidden rounded-2xl border-2 transition-all duration-500 ${isActive ? 'shadow-[0_0_40px_rgba(46,225,199,0.15)]' : ''
+                                        } ${theme === 'dark'
                                             ? `bg-[#0D0D0D] ${isActive ? 'border-[#2EE1C7]/50' : 'border-[#2EE1C7]/15 hover:border-[#2EE1C7]/40'}`
                                             : `bg-white ${isActive ? 'border-[#2EE1C7]/60' : 'border-[#2EE1C7]/20 hover:border-[#2EE1C7]/40'}`
-                                    }`}>
+                                        }`}>
                                         {/* Gradient bg */}
                                         <div className={`absolute inset-0 bg-gradient-to-br from-[#2EE1C7]/5 to-transparent transition-opacity duration-500 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-60'}`} />
 
@@ -435,11 +432,10 @@ const AllProductsSection = () => {
 
                                                 <div className="flex-1 min-w-0">
                                                     <div className="flex items-center gap-2 mb-1">
-                                                        <h4 className={`text-lg font-bold transition-colors ${
-                                                            theme === 'dark'
+                                                        <h4 className={`text-lg font-bold transition-colors ${theme === 'dark'
                                                                 ? `text-white ${isActive ? 'text-[#2EE1C7]' : 'group-hover:text-[#2EE1C7]'}`
                                                                 : `text-gray-900 ${isActive ? 'text-[#0d9488]' : 'group-hover:text-[#0d9488]'}`
-                                                        }`}>{product.name}</h4>
+                                                            }`}>{product.name}</h4>
                                                         <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider bg-[#2EE1C7]/15 text-[#2EE1C7] border border-[#2EE1C7]/30">
                                                             <span className="w-1.5 h-1.5 rounded-full bg-[#2EE1C7] animate-pulse" />
                                                             Live Build
@@ -459,11 +455,10 @@ const AllProductsSection = () => {
                                             {/* Feature pills always visible */}
                                             <div className="flex flex-wrap gap-2 ml-[72px]">
                                                 {product.features.map((f) => (
-                                                    <span key={f} className={`px-2.5 py-1 rounded-full text-[10px] font-semibold ${
-                                                        theme === 'dark'
+                                                    <span key={f} className={`px-2.5 py-1 rounded-full text-[10px] font-semibold ${theme === 'dark'
                                                             ? 'bg-[#2EE1C7]/10 text-[#2EE1C7] border border-[#2EE1C7]/20'
                                                             : 'bg-[#2EE1C7]/10 text-[#0d9488] border border-[#2EE1C7]/20'
-                                                    }`}>{f}</span>
+                                                        }`}>{f}</span>
                                                 ))}
                                             </div>
 
