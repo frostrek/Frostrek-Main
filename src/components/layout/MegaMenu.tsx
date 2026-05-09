@@ -15,7 +15,9 @@ import {
     Server,
     TrendingUp,
     Linkedin,
-    Users
+    Users,
+    Trophy,
+    Factory
 } from 'lucide-react';
 
 // Icon mapping
@@ -30,7 +32,9 @@ const iconMap: Record<string, React.FC<any>> = {
     Server,
     TrendingUp,
     Linkedin,
-    Users
+    Users,
+    Trophy,
+    Factory
 };
 
 interface SubItem {

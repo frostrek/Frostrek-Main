@@ -135,6 +135,62 @@ export const SOLUTION_DATA: Record<string, SolutionData> = {
             { title: 'Process Mining', description: 'Identify bottlenecks and inefficiencies in your workflows.', icon: Zap },
         ]
     },
+    '/solutions/manufacturing': {
+        id: 'manufacturing',
+        title: 'Manufacturing Intelligence',
+        subtitle: 'Precision, Prediction, Profit',
+        description: 'Unify factory telemetry, ERP data, and AI scheduling into a single pane of glass. Recover lost production and optimize resource allocation in real-time.',
+        challenges: [
+            {
+                title: 'Disconnected Legacy Systems',
+                description: 'Data trapped in silos prevents a unified view of factory floor operations.',
+                solvedBy: 'Unified data layer connects legacy ERPs and modern IoT sensors into one dashboard.'
+            },
+            {
+                title: 'Inefficient Scheduling',
+                description: 'Manual production planning leads to downtime and material waste.',
+                solvedBy: 'AI scheduling engine optimizes runs based on supply chain reality and machine health.'
+            },
+            {
+                title: 'Unseen Production Losses',
+                description: '24/7 plants often lose tonnes of output due to undetected micro-stoppages.',
+                solvedBy: 'Live telemetry detects and alerts on performance drops before they become failures.'
+            },
+        ],
+        features: [
+            { title: 'Live Factory Telemetry', description: 'Real-time sensor integration for every machine on the floor.', icon: Server },
+            { title: 'AI Scheduling Engine', description: 'Dynamic production planning that adapts to supply chain shifts.', icon: Zap },
+            { title: 'Cost Intelligence', description: 'Automated per-batch cost tracking and anomaly detection.', icon: TrendingUp },
+        ]
+    },
+    '/solutions/web3': {
+        id: 'web3',
+        title: 'Web3 Ecosystems',
+        subtitle: 'Bridging Web2 Commerce and Web3 Finance',
+        description: 'Launch enterprise-grade, multi-tenant decentralized marketplaces. Leverage programmable wallets and on-chain settlement for global, frictionless commerce.',
+        challenges: [
+            {
+                title: 'Web3 UX Friction',
+                description: 'Crypto wallets and gas fees often scare away mainstream consumers.',
+                solvedBy: 'Abstracted wallet experiences provide a seamless Web2-like checkout for crypto payments.'
+            },
+            {
+                title: 'Fragmented Settlements',
+                description: 'Global clubs and vendors struggle with complex, slow cross-border payments.',
+                solvedBy: 'Circle programmable wallets automate on-chain treasury and instant settlement.'
+            },
+            {
+                title: 'Security & Custody',
+                description: 'Balancing decentralized finance with secure, enterprise-ready treasury management.',
+                solvedBy: 'Multi-sig and programmable custody ensure funds are handled with institutional-grade security.'
+            },
+        ],
+        features: [
+            { title: 'Programmable Wallets', description: 'Automated on-chain settlement and treasury management.', icon: Shield },
+            { title: 'Multi-Tenant Architecture', description: 'One platform powering hundreds of custom-branded storefronts.', icon: Layout },
+            { title: 'On-Chain Transparency', description: 'Real-time, immutable transaction logging for audit-ready finance.', icon: Clock },
+        ]
+    },
     // Fallback
     'generic': {
         id: 'generic',

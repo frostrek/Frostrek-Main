@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Minus } from 'lucide-react';
+import { Plus, Minus, Rocket, ArrowRight, BadgeCheck } from 'lucide-react';
 import { PRODUCT_DATA } from '../utils/productData';
 import Card from '../components/ui/Card';
 import CuteBackground from '../components/ui/CuteBackground';
@@ -77,6 +77,8 @@ const ProductPage = () => {
                 title={product.title}
                 description={product.description}
                 tagline={product.tagline}
+                badge={product.badge}
+                isCaseStudy={product.isCaseStudy}
             />
 
             {/* 2. All Products Section - Showcases all available products */}
@@ -191,6 +193,76 @@ const ProductPage = () => {
                     </section>
                 )
             }
+
+            {/* Case Study CTA — only for live builds */}
+            {product.isCaseStudy && (
+                <section className={`py-20 transition-colors ${theme === 'dark' ? 'bg-dark-bg' : 'bg-white'}`}>
+                    <div className="container mx-auto px-4 md:px-6">
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.7 }}
+                            className={`max-w-4xl mx-auto rounded-3xl border-2 overflow-hidden ${
+                                theme === 'dark'
+                                    ? 'bg-gradient-to-br from-[#2EE1C7]/5 via-dark-card to-dark-card border-[#2EE1C7]/20'
+                                    : 'bg-gradient-to-br from-[#2EE1C7]/5 via-white to-white border-[#2EE1C7]/30'
+                            }`}
+                        >
+                            <div className="p-8 md:p-12 text-center">
+                                <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full border mb-6 ${
+                                    theme === 'dark'
+                                        ? 'bg-[#2EE1C7]/10 border-[#2EE1C7]/30'
+                                        : 'bg-[#2EE1C7]/10 border-[#2EE1C7]/40'
+                                }`}>
+                                    <BadgeCheck className="w-4 h-4 text-[#2EE1C7]" />
+                                    <span className="text-xs font-bold uppercase tracking-widest text-[#2EE1C7]">Live Frostrek Build</span>
+                                </div>
+
+                                <h2 className={`text-3xl md:text-4xl font-black mb-4 ${
+                                    theme === 'dark' ? 'text-white' : 'text-gray-900'
+                                }`}>
+                                    Want Something Like{' '}
+                                    <span className="text-[#2EE1C7]">{product.title}</span>?
+                                </h2>
+                                <p className={`text-base md:text-lg mb-8 max-w-2xl mx-auto ${
+                                    theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
+                                }`}>
+                                    This is a real product we designed, built, and deployed. Our team can architect
+                                    and ship a similar solution tailored to your industry and requirements.
+                                </p>
+
+                                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                                    <Link to="/contact">
+                                        <motion.button
+                                            whileHover={{ scale: 1.03 }}
+                                            whileTap={{ scale: 0.97 }}
+                                            className="px-8 py-4 rounded-2xl font-bold text-base bg-[#2EE1C7] text-black transition-all hover:shadow-lg hover:shadow-[#2EE1C7]/30 flex items-center gap-2"
+                                        >
+                                            <Rocket className="w-5 h-5" />
+                                            Start Your Project
+                                            <ArrowRight className="w-5 h-5" />
+                                        </motion.button>
+                                    </Link>
+                                    <Link to="/schedule-demo">
+                                        <motion.button
+                                            whileHover={{ scale: 1.03 }}
+                                            whileTap={{ scale: 0.97 }}
+                                            className={`px-8 py-4 rounded-2xl font-bold text-base border transition-all flex items-center gap-2 ${
+                                                theme === 'dark'
+                                                    ? 'border-white/20 text-white hover:border-white/40'
+                                                    : 'border-gray-300 text-gray-700 hover:border-gray-400'
+                                            }`}
+                                        >
+                                            Talk to Our Team
+                                        </motion.button>
+                                    </Link>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </div>
+                </section>
+            )}
 
             {/* 7. Final Call to Action */}
             <CTASection />

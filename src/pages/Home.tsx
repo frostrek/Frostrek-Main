@@ -4,6 +4,7 @@ import WhyChooseFrostrek from '../components/home/WhyChooseFrostrek';
 import OurServicesSection from '../components/home/OurServicesSection';
 import TrustedBySection from '../components/home/TrustedBySection';
 import FeaturesSection from '../components/home/FeaturesSection';
+import CaseStudiesSection from '../components/home/CaseStudiesSection';
 // import TestimonialsSection from '../components/home/TestimonialsSection';
 import FAQSection from '../components/home/FAQSection';
 import CTASection from '../components/home/CTASection';
@@ -127,6 +128,7 @@ const Home = () => {
             <OurServicesSection />
             <AISolutionsShowcase />
             <WhyChooseFrostrek />
+            <CaseStudiesSection />
             <TrustedBySection />
             <FeaturesSection />
             {/* <TestimonialsSection /> */}
