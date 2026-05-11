@@ -72,8 +72,6 @@ const cardVariants = {
 };
 
 const ServiceCard = ({ service, index }: { service: Service; index: number }) => {
-  const Icon = service.icon;
-
   return (
     <motion.div
       initial="hidden"
