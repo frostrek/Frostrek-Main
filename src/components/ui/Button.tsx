@@ -1,5 +1,6 @@
 import { cn } from '../../utils/cn';
 import type { ComponentProps } from 'react';
+import FlipText from './FlipText';
 
 type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'ghost';
 type ButtonSize = 'sm' | 'md' | 'lg';
@@ -17,30 +18,32 @@ const Button = ({
     ...props
 }: ButtonProps) => {
     const variants: Record<ButtonVariant, string> = {
-        primary: "bg-gradient-to-r from-brand-green-600 to-brand-green-500 hover:from-brand-green-700 hover:to-brand-green-600 text-black shadow-lg shadow-brand-green-500/30",
+        primary: "bg-gradient-to-r from-[#2D6A4F] to-[#1B4332] text-white shadow-lg shadow-[#2D6A4F]/20",
         secondary: "bg-gray-100 hover:bg-gray-200 text-gray-900 border border-gray-300",
         outline: "bg-transparent hover:bg-brand-green-600 text-white hover:text-black border-2 border-brand-green-600",
-        ghost: "bg-transparent hover:bg-green-50 text-white"
+        ghost: "bg-transparent hover:bg-green-50 text-[#2D6A4F]"
     };
 
     const sizes: Record<ButtonSize, string> = {
-        sm: "px-4 py-2 text-sm",
-        md: "px-6 py-3 text-base",
-        lg: "px-8 py-4 text-lg"
+        sm: "px-5 py-2.5 text-sm",
+        md: "px-7 py-3 text-base",
+        lg: "px-10 py-4 text-lg"
     };
 
     return (
         <button
             className={cn(
-                "rounded-full font-semibold transition-all duration-300 flex items-center justify-center gap-2",
-                "hover:scale-105 active:scale-95",
+                "group rounded-full font-medium transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden",
+                "active:scale-95",
                 variants[variant],
                 sizes[size],
                 className
             )}
             {...props}
         >
-            {children}
+            <FlipText>
+                {children}
+            </FlipText>
         </button>
     );
 };

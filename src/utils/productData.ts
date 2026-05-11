@@ -57,10 +57,10 @@ export interface ProductData {
 }
 
 export const PRODUCT_DATA: Record<string, ProductData> = {
-    '/products/pcc-marketplace': {
-        id: 'pcc-marketplace',
+    '/products/frostrek-web3-commerce': {
+        id: 'frostrek-web3-commerce',
         tagline: 'WEB3 SPORTS MERCHANDISE PLATFORM',
-        title: 'PCC Marketplace Ecosystem',
+        title: 'Frostrek Web3 Commerce',
         subtitle: 'Where Sports Fandom Meets Blockchain Commerce',
         description:
             'A world-class, multi-tenant e-commerce ecosystem built for the next generation of sports fans. Global club storefronts powered by Circle programmable wallets, automated on-chain treasury settlement, and a cinematic luxury UI — bridging Web3 finance and the global sports merchandise market.',
@@ -83,7 +83,7 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
                 ],
             },
             {
-                value: '$PCC',
+                value: '$TOKEN',
                 label: 'Native Token Payments',
                 icon: Zap,
             },
@@ -104,19 +104,19 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
                 step: '01',
                 title: 'Connect & Provision',
                 description:
-                    'Users register, receive a Circle-provisioned Programmable Wallet on the Polygon Amoy network, and top up their $PCC balance — all within the platform, no external wallet required.',
+                    'Users register, receive a Circle-provisioned Programmable Wallet on the Polygon Amoy network, and top up their $TOKEN balance — all within the platform, no external wallet required.',
             },
             {
                 step: '02',
                 title: 'Shop by Club',
                 description:
-                    'Browse fully branded, themeable storefronts for global clubs. Each club store features curated product catalogs, cinematic GSAP-animated showcases, and real-time $PCC pricing.',
+                    'Browse fully branded, themeable storefronts for global clubs. Each club store features curated product catalogs, cinematic GSAP-animated showcases, and real-time $TOKEN pricing.',
             },
             {
                 step: '03',
                 title: 'Checkout & Settle On-Chain',
                 description:
-                    'Smart checkout validates the user\'s $PCC balance, groups cart items by club, and triggers an automated backend minting process that settles payment directly to each club\'s blockchain treasury address.',
+                    'Smart checkout validates the user\'s $TOKEN balance, groups cart items by club, and triggers an automated backend minting process that settles payment directly to each club\'s blockchain treasury address.',
             },
         ],
 
@@ -130,7 +130,7 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
             {
                 title: 'Circle Programmable Wallets',
                 description:
-                    'Seamless Web3 onboarding via Circle\'s infrastructure. Users manage $PCC balances, view Polygon transaction history, and top up instantly — all without ever leaving the platform.',
+                    'Seamless Web3 onboarding via Circle\'s infrastructure. Users manage $TOKEN balances, view Polygon transaction history, and top up instantly — all without ever leaving the platform.',
                 icon: Wallet,
             },
             {
@@ -142,13 +142,13 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
             {
                 title: 'Smart Multi-Club Checkout',
                 description:
-                    'Cart items are grouped by club tenant, $PCC balance is validated in real time, and shipping data is securely managed — all in a single, seamless checkout flow.',
+                    'Cart items are grouped by club tenant, $TOKEN balance is validated in real time, and shipping data is securely managed — all in a single, seamless checkout flow.',
                 icon: ShoppingCart,
             },
             {
                 title: 'Fan Dashboard',
                 description:
-                    'Comprehensive user profiles with order tracking, live wallet widgets showing $PCC balance and recent transactions, and quick-access links to gaming and betting modules within the PCC ecosystem.',
+                    'Comprehensive user profiles with order tracking, live wallet widgets showing $TOKEN balance and recent transactions, and quick-access links to gaming and betting modules within the ecosystem.',
                 icon: Users,
             },
             {
@@ -168,12 +168,12 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
             {
                 title: 'Fan-First Onboarding — No Crypto Knowledge Required',
                 description:
-                    'Circle\'s programmable wallet abstracts away seed phrases, gas fees, and network complexity. Fans simply register, top up their $PCC balance, and shop — the blockchain layer is invisible.',
+                    'Circle\'s programmable wallet abstracts away seed phrases, gas fees, and network complexity. Fans simply register, top up their $TOKEN balance, and shop — the blockchain layer is invisible.',
             },
             {
                 title: 'Extensible Ecosystem — Beyond Merchandise',
                 description:
-                    'The PCC wallet and token infrastructure extends into gaming and betting modules within the same ecosystem. The marketplace is one node in a broader fan engagement and monetisation platform.',
+                    'The token infrastructure extends into gaming and betting modules within the same ecosystem. The marketplace is one node in a broader fan engagement and monetisation platform.',
             },
         ],
 
@@ -181,13 +181,13 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
             {
                 title: 'Sports Club Merchandise',
                 description:
-                    'Clubs onboard with a branded storefront, upload their product catalog, and start receiving $PCC settlements to their treasury wallet — no blockchain knowledge required.',
+                    'Clubs onboard with a branded storefront, upload their product catalog, and start receiving $TOKEN settlements to their treasury wallet — no blockchain knowledge required.',
                 icon: Trophy,
             },
             {
                 title: 'Fan Token Ecosystems',
                 description:
-                    'Sports organisations building fan token economies can use PCC Marketplace as the primary utility layer — giving tokens real-world merchandise spending power.',
+                    'Sports organisations building fan token economies can use Frostrek Web3 Commerce as the primary utility layer — giving tokens real-world merchandise spending power.',
                 icon: ShoppingBag,
             },
             {
@@ -205,7 +205,7 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
                     'None. The club provides their branding, product catalog, and a treasury wallet address. Frostrek handles all integration, wallet provisioning, and on-chain settlement infrastructure.',
             },
             {
-                question: 'How do fans acquire $PCC tokens?',
+                question: 'How do fans acquire $TOKEN tokens?',
                 answer:
                     'Fans top up directly within the platform via the Circle wallet integration. The on-ramp process is abstracted — users interact with a familiar top-up flow, not a crypto exchange.',
             },
@@ -226,14 +226,14 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
             },
         ],
     },
-    '/products/saf-manufacturing': {
-        id: 'saf-manufacturing',
+    '/products/frostrek-manufacturing-os': {
+        id: 'frostrek-manufacturing-os',
         tagline: 'MANUFACTURING INTELLIGENCE PLATFORM',
-        title: 'SAF Manufacturing Intelligence',
+        title: 'Frostrek Manufacturing OS',
         subtitle: 'From Disconnected Systems to Real-Time Factory Visibility',
         description:
-            'A 24/7 aquatic feed manufacturing plant was running four disconnected systems with zero unified view. We built a three-phase AI-powered platform that connected every sensor, ERP, and warehouse system — delivering live dashboards, automated cost intelligence, and an AI scheduling engine that recovers 25+ tonnes of lost production weekly.',
-        badge: 'Live Case Study',
+            'Our flagship manufacturing platform that unifies disconnected factory systems (ERP, WMS, SCADA) into a single intelligence hub. Built from the ground up to deliver live sensor dashboards, automated cost analytics, and an AI-driven production scheduler capable of recovering massive production losses.',
+        badge: 'Enterprise Platform',
         isCaseStudy: true,
         heroImage: '/saf-hero.png',        // replace with your actual image path
         demoImage: '/saf-dashboard.png',   // replace with your actual image path

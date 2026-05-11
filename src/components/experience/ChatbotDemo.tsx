@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Send, Sparkles, Mic, Square, MessageSquare } from 'lucide-react';
-import { useTheme } from '../../context/ThemeContext';
 
 const WEBHOOK_URL = 'https://n8n.frostrek.com/webhook/cac2fab9-d171-4d67-8587-9ac8d834f436';
 
@@ -31,7 +30,6 @@ interface Message {
 }
 
 const ChatbotDemo: React.FC = () => {
-    const { theme } = useTheme();
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState<Message[]>([
         { type: 'bot', content: "Hello! 👋 I'm your AI assistant from Frostrek.\nHow can I help you innovate today?" }
@@ -64,7 +62,6 @@ const ChatbotDemo: React.FC = () => {
                 });
             }
         }
-        // Restore page scroll position to prevent page jump
         requestAnimationFrame(() => {
             window.scrollTo(scrollX, scrollY);
         });
@@ -126,7 +123,6 @@ const ChatbotDemo: React.FC = () => {
             let response;
 
             if (textInput) {
-                // Text: application/json
                 const payload = {
                     user_id: userId,
                     session_id: sessionId,
@@ -141,7 +137,6 @@ const ChatbotDemo: React.FC = () => {
                     body: JSON.stringify(payload),
                 });
             } else if (audioBlob) {
-                // Voice: multipart/form-data
                 const formData = new FormData();
                 formData.append('audio', audioBlob, 'voice-message.webm');
                 formData.append('user_id', userId);
@@ -209,7 +204,6 @@ const ChatbotDemo: React.FC = () => {
         if (message.trim()) {
             handleSendMessage(message);
         }
-        // Restore page scroll and re-focus input so user can keep typing
         requestAnimationFrame(() => {
             window.scrollTo(scrollX, scrollY);
             inputRef.current?.focus({ preventScroll: true });
@@ -218,29 +212,28 @@ const ChatbotDemo: React.FC = () => {
 
     return (
         <motion.div
-            className={`rounded-3xl shadow-xl border overflow-hidden flex flex-col h-[500px] ${theme === 'dark' ? 'bg-dark-card border-dark-accent/20' : 'bg-white border-gray-100'}`}
+            className="rounded-3xl shadow-[0_15px_40px_rgba(45,106,79,0.06)] border border-[#2D6A4F]/10 overflow-hidden flex flex-col h-[500px] bg-white font-body"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
         >
-            {/* Header */}
-            <div className={`p-4 text-white flex items-center gap-3 ${theme === 'dark' ? 'bg-gradient-to-r from-[#2EE1C7] to-[#2EE1C7]/70' : 'bg-gradient-to-r from-brand-green-600 to-brand-green-500'}`}>
-                <div className="p-2 bg-white/20 rounded-lg backdrop-blur-sm">
-                    <MessageSquare className="w-5 h-5" />
+            {/* Header - Vibrant Brand Green */}
+            <div className="p-4 text-white flex items-center gap-3 bg-gradient-to-r from-[#2D6A4F] to-[#1B4332]">
+                <div className="p-2 bg-white/15 rounded-xl backdrop-blur-sm shadow-inner">
+                    <MessageSquare className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                    <h3 className="font-bold text-sm">Chat with Frosty</h3>
-                    <p className={`text-xs opacity-90 ${theme === 'dark' ? 'text-white/80' : 'text-brand-green-100'}`}>AI-powered assistant</p>
+                    <h3 className="font-serif font-extrabold text-sm tracking-wide">Chat with Frosty</h3>
+                    <p className="text-[10px] text-[#E8F5EE] font-medium tracking-wider">AI-powered assistant</p>
                 </div>
             </div>
 
             {/* Messages */}
             <div
                 ref={chatBodyRef}
-                className={`flex-1 overflow-y-auto p-4 flex flex-col gap-3 ${theme === 'dark' ? 'bg-dark-bg' : 'bg-gray-50'}`}
+                className="flex-1 overflow-y-auto p-4 flex flex-col gap-3 bg-gray-50/50"
                 style={{ overscrollBehavior: 'contain' }}
                 onWheel={(e) => {
-                    // Trap scroll inside the chat body — don't let it bubble to the page
                     const el = chatBodyRef.current;
                     if (!el) return;
                     const { scrollTop, scrollHeight, clientHeight } = el;
@@ -249,7 +242,6 @@ const ChatbotDemo: React.FC = () => {
                     if (!atTop && !atBottom) {
                         e.stopPropagation();
                     }
-                    // Always prevent default to keep page from scrolling
                     e.stopPropagation();
                 }}
             >
@@ -260,20 +252,22 @@ const ChatbotDemo: React.FC = () => {
                         animate={{ opacity: 1, y: 0 }}
                         className={`flex gap-2 max-w-[85%] ${msg.type === 'user' ? 'self-end flex-row-reverse' : ''}`}
                     >
-                        <div className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden ${msg.type === 'user'
-                            ? (theme === 'dark' ? 'bg-dark-card' : 'bg-gray-200')
-                            : (theme === 'dark' ? 'bg-dark-accent/20 border border-dark-accent/30' : 'bg-brand-green-100 border border-brand-green-200')
-                            }`}>
+                        <div className={`w-7.5 h-7.5 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden border ${
+                            msg.type === 'user'
+                                ? 'bg-[#E8F5EE] border-[#2D6A4F]/25 text-[#2D6A4F]'
+                                : 'bg-white border-gray-200 text-gray-500'
+                        }`}>
                             {msg.type === 'user' ? (
-                                <span className={`text-[10px] font-bold ${theme === 'dark' ? 'text-dark-text' : 'text-gray-600'}`}>You</span>
+                                <span className="text-[9px] font-bold">You</span>
                             ) : (
-                                <Sparkles className={`w-4 h-4 ${theme === 'dark' ? 'text-dark-accent' : 'text-brand-green-600'}`} />
+                                <Sparkles className="w-4 h-4 text-[#2D6A4F]" />
                             )}
                         </div>
-                        <div className={`p-3 rounded-2xl shadow-sm text-sm leading-relaxed whitespace-pre-wrap ${msg.type === 'user'
-                            ? (theme === 'dark' ? 'bg-dark-accent text-dark-bg rounded-tr-none' : 'bg-brand-green-500 text-white rounded-tr-none')
-                            : (theme === 'dark' ? 'bg-dark-card text-dark-text border border-dark-accent/20 rounded-tl-none' : 'bg-white text-gray-700 border border-gray-100 rounded-tl-none')
-                            }`}>
+                        <div className={`p-3 rounded-2xl text-sm leading-relaxed whitespace-pre-wrap font-medium shadow-sm ${
+                            msg.type === 'user'
+                                ? 'bg-[#2D6A4F] text-white rounded-tr-none'
+                                : 'bg-white text-slate-800 border border-gray-100 rounded-tl-none'
+                        }`}>
                             {msg.content}
                             {msg.image && (
                                 <div className="mt-2 rounded-lg overflow-hidden border border-gray-200">
@@ -286,22 +280,14 @@ const ChatbotDemo: React.FC = () => {
 
                 {isLoading && (
                     <div className="flex gap-2 max-w-[85%]">
-                        <div className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 ${theme === 'dark' ? 'bg-dark-accent/20 border border-dark-accent/30' : 'bg-brand-green-100 border border-brand-green-200'}`}>
-                            <Sparkles className={`w-4 h-4 ${theme === 'dark' ? 'text-dark-accent' : 'text-brand-green-600'}`} />
+                        <div className="w-7.5 h-7.5 rounded-full flex items-center justify-center flex-shrink-0 bg-white border border-gray-200">
+                            <Sparkles className="w-4 h-4 text-[#2D6A4F]" />
                         </div>
-                        <div className={`p-3 rounded-2xl rounded-tl-none shadow-sm flex items-center ${theme === 'dark' ? 'bg-dark-card border border-dark-accent/20' : 'bg-white border border-gray-100'}`}>
-                            <div className="flex gap-1">
-                                <div
-                                    className={`w-1.5 h-1.5 rounded-full animate-pulse ${theme === 'dark' ? 'bg-dark-accent' : 'bg-brand-green-500'}`}
-                                />
-                                <div
-                                    className={`w-1.5 h-1.5 rounded-full animate-pulse ${theme === 'dark' ? 'bg-dark-accent' : 'bg-brand-green-500'}`}
-                                    style={{ animationDelay: '0.2s' }}
-                                />
-                                <div
-                                    className={`w-1.5 h-1.5 rounded-full animate-pulse ${theme === 'dark' ? 'bg-dark-accent' : 'bg-brand-green-500'}`}
-                                    style={{ animationDelay: '0.4s' }}
-                                />
+                        <div className="p-3 rounded-2xl rounded-tl-none shadow-sm flex items-center bg-white border border-gray-100">
+                            <div className="flex gap-1.5">
+                                <div className="w-1.5 h-1.5 rounded-full bg-[#2D6A4F] animate-pulse" />
+                                <div className="w-1.5 h-1.5 rounded-full bg-[#2D6A4F] animate-pulse" style={{ animationDelay: '0.2s' }} />
+                                <div className="w-1.5 h-1.5 rounded-full bg-[#2D6A4F] animate-pulse" style={{ animationDelay: '0.4s' }} />
                             </div>
                         </div>
                     </div>
@@ -309,16 +295,17 @@ const ChatbotDemo: React.FC = () => {
                 <div ref={messagesEndRef} />
             </div>
 
-            {/* Input */}
-            <div className={`p-3 border-t ${theme === 'dark' ? 'bg-dark-card border-dark-accent/20' : 'bg-white border-gray-100'}`}>
+            {/* Input - Perfectly readable text and inputs */}
+            <div className="p-3 border-t bg-white border-gray-150">
                 <form onSubmit={onSubmit} className="relative flex items-center gap-2">
                     <button
                         type="button"
                         onClick={isRecording ? stopRecording : startRecording}
-                        className={`p-2.5 rounded-xl transition-all duration-200 ${isRecording
-                            ? 'bg-red-500/20 text-red-400 animate-pulse ring-2 ring-red-500/20'
-                            : (theme === 'dark' ? 'bg-dark-bg text-dark-text-muted hover:bg-dark-accent/20 hover:text-dark-accent' : 'bg-gray-100 text-gray-500 hover:bg-gray-200 hover:text-gray-700')
-                            }`}
+                        className={`p-2.5 rounded-xl transition-all duration-200 border ${
+                            isRecording
+                                ? 'bg-red-50 text-red-500 border-red-200 animate-pulse ring-2 ring-red-500/20'
+                                : 'bg-gray-50 border-gray-200 text-gray-500 hover:bg-gray-100 hover:text-gray-700'
+                        }`}
                         title={isRecording ? "Stop Recording" : "Start Recording"}
                     >
                         {isRecording ? <Square className="w-4 h-4 fill-current" /> : <Mic className="w-4 h-4" />}
@@ -330,7 +317,7 @@ const ChatbotDemo: React.FC = () => {
                         onChange={(e) => setMessage(e.target.value)}
                         placeholder={isRecording ? "Listening..." : "Type a message..."}
                         disabled={isRecording || isLoading}
-                        className={`w-full pl-3 pr-10 py-2.5 border-transparent rounded-xl text-sm transition-all duration-200 outline-none disabled:opacity-60 ${theme === 'dark' ? 'bg-dark-bg text-dark-text placeholder-dark-text-muted/60 focus:bg-dark-bg focus:border-dark-accent focus:ring-2 focus:ring-dark-accent/20' : 'bg-gray-100 focus:bg-white focus:border-brand-green-500 focus:ring-2 focus:ring-brand-green-500/20'}`}
+                        className="w-full pl-3 pr-10 py-2.5 border border-gray-200 rounded-xl text-sm transition-all duration-200 outline-none disabled:opacity-60 bg-gray-50 text-gray-900 placeholder-gray-400 focus:bg-white focus:border-[#2D6A4F] focus:ring-2 focus:ring-[#2D6A4F]/10 font-bold"
                         onFocus={(e) => {
                             e.preventDefault();
                             e.target.focus({ preventScroll: true });
@@ -339,7 +326,7 @@ const ChatbotDemo: React.FC = () => {
                     <button
                         type="submit"
                         disabled={!message.trim() || isLoading || isRecording}
-                        className={`absolute right-2 p-1.5 rounded-lg transition-colors disabled:opacity-50 ${theme === 'dark' ? 'bg-dark-accent text-dark-bg hover:bg-dark-accent/90 disabled:hover:bg-dark-accent' : 'bg-brand-green-500 text-white hover:bg-brand-green-600 disabled:hover:bg-brand-green-500'}`}
+                        className="absolute right-2 p-1.5 rounded-lg transition-colors disabled:opacity-40 bg-[#2D6A4F] text-white hover:bg-[#1B4332]"
                     >
                         <Send className="w-4 h-4" />
                     </button>

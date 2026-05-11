@@ -1,21 +1,17 @@
 import { useEffect, useState, useRef } from 'react';
 import { MapPin, Clock, Calendar as CalendarIcon, Sparkles, ArrowRight, type LucideIcon } from 'lucide-react';
-import CuteBackground from '../components/ui/CuteBackground';
-import { useTheme } from '../context/ThemeContext';
 import SEO from '../components/seo/SEO';
 
 const CALENDLY_URL = 'https://calendly.com/akash-mittal-frostrek/30min';
 
-/* ── Skeleton placeholder mimicking a calendar widget ── */
-const CalendarSkeleton = ({ isDark }: { isDark: boolean }) => {
-    const base = isDark ? 'bg-[#2EE1C7]/[0.06]' : 'bg-gray-200/70';
-    const shimmer = isDark
-        ? 'before:bg-gradient-to-r before:from-transparent before:via-[#2EE1C7]/[0.03] before:to-transparent'
-        : 'before:bg-gradient-to-r before:from-transparent before:via-white/60 before:to-transparent';
+/* ── Skeleton placeholder mimicking a light, beautiful calendar widget ── */
+const CalendarSkeleton = () => {
+    const base = 'bg-slate-100';
+    const shimmer = 'before:bg-gradient-to-r before:from-transparent before:via-white/60 before:to-transparent';
     const pulse = `relative overflow-hidden before:absolute before:inset-0 before:animate-[shimmer_1.8s_infinite] ${shimmer}`;
 
     return (
-        <div className="flex flex-col gap-5 p-6 sm:p-8 animate-pulse" aria-hidden="true">
+        <div className="flex flex-col gap-5 p-6 sm:p-8 bg-white animate-pulse" aria-hidden="true">
             {/* Avatar + name */}
             <div className="flex flex-col items-center gap-3 mb-2">
                 <div className={`w-16 h-16 rounded-full ${base} ${pulse}`} />
@@ -73,34 +69,23 @@ const InfoCard = ({
     icon: Icon,
     title,
     children,
-    isDark,
 }: {
     icon: LucideIcon;
     title: string;
     children: React.ReactNode;
-    isDark: boolean;
 }) => (
-    <div className={`flex items-start gap-4 p-4 rounded-xl transition-all duration-300 group hover:scale-[1.02] ${
-        isDark
-            ? 'bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.04]'
-            : 'bg-gray-50 hover:bg-gray-100/80 border border-gray-100'
-    }`}>
-        <div className={`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
-            isDark
-                ? 'bg-[#2EE1C7]/10 group-hover:bg-[#2EE1C7]/20 shadow-[0_0_20px_rgba(46,225,199,0.08)]'
-                : 'bg-[#2EE1C7]/10 group-hover:bg-[#2EE1C7]/20'
-        }`}>
-            <Icon className="w-5 h-5 text-[#2EE1C7]" />
+    <div className="flex items-start gap-4 p-5 rounded-2xl transition-all duration-300 group hover:scale-[1.01] bg-[#FAFCFB] hover:bg-white border border-[#2D6A4F]/5 hover:border-[#2D6A4F]/25 shadow-sm hover:shadow-md">
+        <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 bg-[#E8F5EE] text-[#2D6A4F] group-hover:bg-[#2D6A4F] group-hover:text-white transition-all duration-300 shadow-sm">
+            <Icon className="w-5 h-5" />
         </div>
-        <div>
-            <h3 className={`font-semibold text-sm mb-0.5 ${isDark ? 'text-white' : 'text-gray-900'}`}>{title}</h3>
-            <div className={`text-sm leading-relaxed ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>{children}</div>
+        <div className="min-w-0 flex-1">
+            <h3 className="font-serif font-black text-sm text-gray-950 mb-1">{title}</h3>
+            <div className="text-sm text-slate-500 font-medium leading-relaxed font-body">{children}</div>
         </div>
     </div>
 );
 
 const ScheduleDemo = () => {
-    const { theme } = useTheme();
     const [widgetReady, setWidgetReady] = useState(false);
     const messageListenerRef = useRef<((e: MessageEvent) => void) | null>(null);
     const fallbackTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -127,7 +112,6 @@ const ScheduleDemo = () => {
         // Add Calendly JS
         const existingScript = document.querySelector('script[src*="calendly.com"]');
         if (existingScript) {
-            // Script already in DOM, just init
             initCalendly();
         } else {
             const scriptEl = document.createElement('script');
@@ -143,13 +127,13 @@ const ScheduleDemo = () => {
 
             container.innerHTML = '';
 
-            const isDark = theme === 'dark';
-            // Use Calendly's dark color scheme matching our theme
-            const bgColor = isDark ? '0d1117' : 'f9fafb';
-            const textColor = isDark ? 'e6edf3' : '1a1a1a';
+            // ALWAYS use beautiful premium light style for Calendly Embed to align with white theme
+            const bgColor = 'ffffff';
+            const textColor = '1a1a1a';
+            const primaryColor = '2d6a4f'; // Exact Forest Green BRAND tone
 
             (window as any).Calendly.initInlineWidget({
-                url: `${CALENDLY_URL}?hide_gdpr_banner=1&hide_landing_page_details=1&background_color=${bgColor}&text_color=${textColor}&primary_color=2EE1C7`,
+                url: `${CALENDLY_URL}?hide_gdpr_banner=1&hide_landing_page_details=1&background_color=${bgColor}&text_color=${textColor}&primary_color=${primaryColor}`,
                 parentElement: container,
             });
 
@@ -177,105 +161,96 @@ const ScheduleDemo = () => {
                 clearTimeout(fallbackTimerRef.current);
             }
         };
-    }, [theme]);
-
-    const isDark = theme === 'dark';
+    }, []);
 
     return (
-        <div className={`min-h-screen pt-20 relative ${isDark ? 'bg-dark-bg' : 'bg-gray-50'}`}>
+        <div className="min-h-screen pt-24 pb-16 bg-gradient-to-b from-white via-[#FAFCFB] to-white relative font-body overflow-hidden">
             <SEO
                 title="Schedule a Demo | Frostrek"
                 description="Meet with our team to discover how Frostrek can transform your business with AI-powered automation."
                 path="/schedule-demo"
             />
-            {!isDark && <CuteBackground />}
 
-            {/* Hero section */}
-            <div className="relative z-10 text-center pt-10 sm:pt-16 pb-6 sm:pb-10 px-4">
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase mb-5 border"
+            {/* Decorative Grid Background */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                <div className="absolute top-1/4 left-[-10%] w-[500px] h-[500px] rounded-full blur-[120px] bg-[#E8F5EE]/40" />
+                <div className="absolute bottom-1/4 right-[-10%] w-[500px] h-[500px] rounded-full blur-[120px] bg-[#E8F5EE]/40" />
+                <div className="absolute inset-0 opacity-[0.015]"
                     style={{
-                        background: isDark ? 'rgba(46,225,199,0.08)' : 'rgba(46,225,199,0.1)',
-                        borderColor: isDark ? 'rgba(46,225,199,0.2)' : 'rgba(46,225,199,0.3)',
-                        color: '#2EE1C7',
+                        backgroundImage: 'linear-gradient(#2d6a4f 1px, transparent 1px), linear-gradient(90deg, #2d6a4f 1px, transparent 1px)',
+                        backgroundSize: '40px 40px'
                     }}
-                >
-                    <Sparkles className="w-3.5 h-3.5" />
-                    Book Your Demo
+                />
+            </div>
+
+            {/* Hero section with high-contrast visible text */}
+            <div className="relative z-10 text-center pt-8 md:pt-12 pb-10 px-4">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full mb-6 bg-[#E8F5EE] border border-[#2D6A4F]/20 text-[#2D6A4F] font-bold text-[11px] uppercase tracking-wider">
+                    <Sparkles size={12} className="animate-pulse" />
+                    <span>Book Your Demo</span>
                 </div>
-                <h1 className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-black tracking-tight text-gray-950 leading-tight">
                     Let's Build Something{' '}
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2EE1C7] to-[#1AB3A0]">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2D6A4F] via-[#40916C] to-[#1B4332]">
                         Amazing
                     </span>
                 </h1>
-                <p className={`text-base sm:text-lg max-w-2xl mx-auto ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-                    Meet with our team to discover how Frostrek can transform your business with AI-powered cold chain automation.
+                <p className="text-base sm:text-lg text-slate-600 font-medium leading-relaxed max-w-xl mx-auto mt-4">
+                    Meet with our team to discover how Frostrek can transform your business with AI-powered enterprise systems and conversational agents.
                 </p>
             </div>
 
             {/* Main content */}
-            <div className="container mx-auto px-3 sm:px-4 pb-12 sm:pb-20 relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 sm:gap-8 max-w-7xl mx-auto">
+            <div className="container mx-auto px-4 lg:px-8 pb-12 sm:pb-20 relative z-10">
+                <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 max-w-7xl mx-auto items-start">
 
                     {/* Left Column - Company Info (2 cols) */}
-                    <div className="lg:col-span-2 flex flex-col gap-4">
-                        {/* Info cards */}
-                        <div className={`rounded-2xl p-5 sm:p-6 ${
-                            isDark
-                                ? 'bg-[#0d1117] border border-[#2EE1C7]/10 shadow-[0_4px_30px_rgba(0,0,0,0.4)]'
-                                : 'bg-white border border-gray-200/60 shadow-lg shadow-gray-200/30'
-                        }`}>
-                            <div className="flex flex-col gap-3">
-                                <InfoCard icon={Clock} title="Meeting Duration" isDark={isDark}>
-                                    <p>30 minutes</p>
+                    <div className="lg:col-span-2 flex flex-col gap-6">
+                        {/* Info cards with pristine light theme */}
+                        <div className="rounded-3xl p-6 sm:p-8 bg-white border border-[#2D6A4F]/10 shadow-2xl shadow-[#2D6A4F]/5">
+                            <div className="flex flex-col gap-4">
+                                <InfoCard icon={Clock} title="Meeting Duration">
+                                    <p className="font-semibold text-slate-600">30 minutes</p>
                                 </InfoCard>
-                                <InfoCard icon={MapPin} title="Meeting Location" isDark={isDark}>
-                                    <p>Microsoft Teams / Google Meet</p>
+                                <InfoCard icon={MapPin} title="Meeting Location">
+                                    <p className="font-semibold text-slate-600">Microsoft Teams / Google Meet</p>
                                 </InfoCard>
-                                <InfoCard icon={CalendarIcon} title="What to Expect" isDark={isDark}>
-                                    <ul className="space-y-0.5">
+                                <InfoCard icon={CalendarIcon} title="What to Expect">
+                                    <ul className="space-y-1 font-semibold text-slate-600 mt-1">
                                         <li className="flex items-center gap-2">
-                                            <ArrowRight className="w-3 h-3 text-[#2EE1C7] flex-shrink-0" />
-                                            Product walkthrough
+                                            <ArrowRight className="w-3.5 h-3.5 text-[#2D6A4F] flex-shrink-0 animate-pulse" />
+                                            <span>Product walkthrough</span>
                                         </li>
                                         <li className="flex items-center gap-2">
-                                            <ArrowRight className="w-3 h-3 text-[#2EE1C7] flex-shrink-0" />
-                                            Q&A session
+                                            <ArrowRight className="w-3.5 h-3.5 text-[#2D6A4F] flex-shrink-0 animate-pulse" />
+                                            <span>Q&A session</span>
                                         </li>
                                         <li className="flex items-center gap-2">
-                                            <ArrowRight className="w-3 h-3 text-[#2EE1C7] flex-shrink-0" />
-                                            Custom solution discussion
+                                            <ArrowRight className="w-3.5 h-3.5 text-[#2D6A4F] flex-shrink-0 animate-pulse" />
+                                            <span>Custom solution discussion</span>
                                         </li>
                                     </ul>
                                 </InfoCard>
                             </div>
                         </div>
 
-                        {/* Trust badge */}
-                        <div className={`rounded-2xl p-5 text-center ${
-                            isDark
-                                ? 'bg-[#0d1117] border border-[#2EE1C7]/10'
-                                : 'bg-white border border-gray-200/60 shadow-lg shadow-gray-200/30'
-                        }`}>
-                            <p className={`text-xs font-medium uppercase tracking-wider mb-2 ${isDark ? 'text-[#2EE1C7]/60' : 'text-[#2EE1C7]'}`}>
+                        {/* Trust badge with pristine light card styling */}
+                        <div className="rounded-3xl p-7 text-center bg-white border border-[#2D6A4F]/10 shadow-xl">
+                            <p className="text-[10px] font-extrabold uppercase tracking-widest text-[#2D6A4F] mb-2 font-body">
                                 Trusted by enterprises
                             </p>
-                            <p className={`text-sm ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>
-                                Join 100+ companies using Frostrek for intelligent cold chain management.
+                            <p className="text-sm font-semibold text-slate-500 font-body leading-relaxed">
+                                Join 100+ global brands leveraging Frostrek for high-scale, secure conversational AI integrations.
                             </p>
                         </div>
                     </div>
 
-                    {/* Right Column - Calendly Widget (3 cols) */}
-                    <div className={`lg:col-span-3 rounded-2xl overflow-hidden relative ${
-                        isDark
-                            ? 'bg-[#0d1117] border border-[#2EE1C7]/10 shadow-[0_4px_30px_rgba(0,0,0,0.4)]'
-                            : 'bg-white border border-gray-200/60 shadow-lg shadow-gray-200/30'
-                    }`}>
+                    {/* Right Column - Calendly Widget Container (3 cols) */}
+                    <div className="lg:col-span-3 rounded-3xl overflow-hidden relative bg-white border border-[#2D6A4F]/10 shadow-2xl shadow-[#2D6A4F]/5 p-3 sm:p-4">
                         {/* Skeleton loading state */}
                         {!widgetReady && (
                             <div className="absolute inset-0 z-10">
-                                <CalendarSkeleton isDark={isDark} />
+                                <CalendarSkeleton />
                             </div>
                         )}
 
@@ -302,7 +277,7 @@ const ScheduleDemo = () => {
                     min-height: 750px !important;
                     height: 100% !important;
                     width: 100% !important;
-                    border-radius: 16px;
+                    border-radius: 18px;
                 }
             `}</style>
         </div>

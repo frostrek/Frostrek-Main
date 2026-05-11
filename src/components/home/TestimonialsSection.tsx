@@ -156,9 +156,9 @@ const TestimonialsSection = () => {
             <div className="container mx-auto px-4 md:px-6 relative z-10">
                 {/* Header */}
                 <div className="text-center mb-16">
-                    <h2 className={`text-3xl md:text-4xl font-light transition-colors ${theme === 'dark' ? 'text-dark-text' : 'text-gray-800'}`}>
+                    <h2 className={`text-3xl md:text-4xl font-light transition-colors ${theme === 'dark' ? 'text-[#2D6A4F]' : 'text-gray-800'}`}>
                         Don't take our word for it. <br />
-                        <span className={`font-bold italic ${theme === 'dark' ? 'text-dark-accent' : 'text-[#2EE1C7]'}`}>Take theirs...</span>
+                        <span className={`font-bold italic ${theme === 'dark' ? 'text-[#2D6A4F]' : 'text-[#2D6A4F]'}`}>Take theirs...</span>
                     </h2>
                 </div>
 
@@ -171,8 +171,8 @@ const TestimonialsSection = () => {
                             className="relative flex-shrink-0"
                         >
                             {/* Decorative frame behind image */}
-                            <div className="absolute -inset-4 bg-gradient-to-br from-[#2EE1C7] to-[#2EE1C7] rounded-3xl transform rotate-3" />
-                            <div className="absolute -inset-2 bg-gradient-to-br from-[#2EE1C7]/30 to-[#2EE1C7]/30 rounded-3xl transform -rotate-2 opacity-60" />
+                            <div className="absolute -inset-4 bg-gradient-to-br from-[#2D6A4F] to-[#2D6A4F] rounded-3xl transform rotate-3" />
+                            <div className="absolute -inset-2 bg-gradient-to-br from-[#2D6A4F]/30 to-[#2D6A4F]/30 rounded-3xl transform -rotate-2 opacity-60" />
 
                             <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-2xl overflow-hidden shadow-2xl">
                                 <img
@@ -196,15 +196,15 @@ const TestimonialsSection = () => {
                         >
                             {/* Author Info */}
                             <div className="mb-6">
-                                <h3 className={`text-xl font-bold ${theme === 'dark' ? 'text-dark-accent' : 'text-[#2EE1C7]'}`}>{current.author}</h3>
+                                <h3 className={`text-xl font-bold ${theme === 'dark' ? 'text-[#2D6A4F]' : 'text-[#2D6A4F]'}`}>{current.author}</h3>
                                 <p className={`text-sm ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-500'}`}>{current.role}</p>
-                                <p className={`text-sm font-semibold mt-1 ${theme === 'dark' ? 'text-dark-accent/80' : 'text-[#2EE1C7]'}`}>{current.company}</p>
+                                <p className={`text-sm font-semibold mt-1 ${theme === 'dark' ? 'text-[#2D6A4F]/80' : 'text-[#2D6A4F]'}`}>{current.company}</p>
                             </div>
 
                             {/* Quote */}
                             <div className="relative">
-                                <Quote className={`absolute -top-4 -left-4 w-8 h-8 opacity-30 ${theme === 'dark' ? 'text-dark-accent' : 'text-[#2EE1C7]'}`} />
-                                <p className={`text-lg md:text-xl leading-relaxed font-medium ${theme === 'dark' ? 'text-dark-text' : 'text-gray-700'}`}>
+                                <Quote className={`absolute -top-4 -left-4 w-8 h-8 opacity-30 ${theme === 'dark' ? 'text-[#2D6A4F]' : 'text-[#2D6A4F]'}`} />
+                                <p className={`text-lg md:text-xl leading-relaxed font-medium ${theme === 'dark' ? 'text-[#2D6A4F]' : 'text-gray-700'}`}>
                                     {current.quote}
                                 </p>
                             </div>
@@ -217,7 +217,7 @@ const TestimonialsSection = () => {
                         <button
                             onClick={goToPrev}
                             disabled={isAnimating}
-                            className="w-10 h-10 rounded-full border-2 border-[#2EE1C7] flex items-center justify-center text-gray-500 hover:border-[#2EE1C7] hover:text-[#2EE1C7] transition-colors disabled:opacity-50"
+                            className="w-10 h-10 rounded-full border-2 border-[#2D6A4F] flex items-center justify-center text-gray-500 hover:border-[#2D6A4F] hover:text-[#2D6A4F] transition-colors disabled:opacity-50"
                             aria-label="Previous testimonial"
                         >
                             <ChevronLeft size={20} />
@@ -230,8 +230,8 @@ const TestimonialsSection = () => {
                                     key={idx}
                                     onClick={() => goToIndex(idx)}
                                     className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${idx === currentIndex
-                                        ? 'bg-[#2EE1C7] w-8'
-                                        : 'bg-[#2EE1C7] hover:bg-[#2EE1C7]/70'
+                                        ? 'bg-[#2D6A4F] w-8'
+                                        : 'bg-[#2D6A4F] hover:bg-[#2D6A4F]/70'
                                         }`}
                                     aria-label={`Go to testimonial ${idx + 1}`}
                                 />
@@ -242,7 +242,7 @@ const TestimonialsSection = () => {
                         <button
                             onClick={goToNext}
                             disabled={isAnimating}
-                            className="w-10 h-10 rounded-full border-2 border-[#2EE1C7] flex items-center justify-center text-gray-500 hover:border-[#2EE1C7] hover:text-[#2EE1C7] transition-colors disabled:opacity-50"
+                            className="w-10 h-10 rounded-full border-2 border-[#2D6A4F] flex items-center justify-center text-gray-500 hover:border-[#2D6A4F] hover:text-[#2D6A4F] transition-colors disabled:opacity-50"
                             aria-label="Next testimonial"
                         >
                             <ChevronRight size={20} />

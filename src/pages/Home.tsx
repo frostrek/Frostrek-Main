@@ -1,11 +1,9 @@
 import HeroSection from '../components/home/HeroSection';
 import AISolutionsShowcase from '../components/home/AISolutionsShowcase';
-import WhyChooseFrostrek from '../components/home/WhyChooseFrostrek';
-import OurServicesSection from '../components/home/OurServicesSection';
+import WhatWeDoSection from '../components/home/WhatWeDoSection';
+import ImpactComparison from '../components/home/ImpactComparison';
 import TrustedBySection from '../components/home/TrustedBySection';
 import FeaturesSection from '../components/home/FeaturesSection';
-import CaseStudiesSection from '../components/home/CaseStudiesSection';
-// import TestimonialsSection from '../components/home/TestimonialsSection';
 import FAQSection from '../components/home/FAQSection';
 import CTASection from '../components/home/CTASection';
 
@@ -116,26 +114,31 @@ const faqSchema = JSON.stringify({
 });
 
 const Home = () => {
-    return (
-        <div className="min-h-screen relative bg-black">
-            <SEO 
-                title="Frostrek | AI-Powered Enterprise Solutions & Conversational AI Agents" 
-                description="Transform your business with Frostrek's cutting-edge AI solutions. Explore conversational AI agents, intelligent automation, and enterprise-grade AI copilots that enhance productivity and streamline workflows." 
-                path="/" 
-                schema={[organizationSchema, websiteSchema, faqSchema]}
-            />
-            <HeroSection />
-            <OurServicesSection />
-            <AISolutionsShowcase />
-            <WhyChooseFrostrek />
-            <CaseStudiesSection />
-            <TrustedBySection />
-            <FeaturesSection />
-            {/* <TestimonialsSection /> */}
-            <FAQSection />
-            <CTASection />
-        </div>
-    );
+  return (
+    <div className="min-h-screen relative bg-brand-light-bg">
+      <SEO
+        title="Frostrek | AI-Powered Enterprise Solutions & Conversational AI Agents"
+        description="Transform your business with Frostrek's cutting-edge AI solutions. Explore conversational AI agents, intelligent automation, and enterprise-grade AI copilots that enhance productivity and streamline workflows."
+        path="/"
+        schema={[organizationSchema, websiteSchema, faqSchema]}
+      />
+      <HeroSection />
+      {/* 2. Our two flagship AI solutions */}
+      <AISolutionsShowcase />
+      {/* 3. What We Do & How We Transform */}
+      <WhatWeDoSection />
+      {/* 4. AI-Driven Outcomes We Deliver */}
+      <ImpactComparison />
+      {/* 5. Trusted By */}
+      <TrustedBySection />
+      {/* 6. Why Choose Frostrek */}
+      <FeaturesSection />
+      {/* 7. FAQ */}
+      <FAQSection />
+      {/* 8. Ready to Transform */}
+      <CTASection />
+    </div>
+  );
 };
 
 export default Home;

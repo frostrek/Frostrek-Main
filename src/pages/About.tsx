@@ -1,15 +1,15 @@
 import { motion, useScroll, useTransform, useMotionValue, AnimatePresence } from 'framer-motion';
-import { Target, Award, Zap, Shield, Globe, ArrowRight, Code, Brain, Cpu, Database, Layers, Sparkles, CheckCircle2, Trophy, Star, BadgeCheck, Lock, ShieldCheck, Linkedin, Twitter, Github, Cloud, ChevronDown, type LucideIcon } from 'lucide-react';
+import { Target, Award, Zap, Shield, Globe, ArrowRight, Code, Brain, Cpu, Database, Layers, Sparkles, CheckCircle2, Trophy, Star, BadgeCheck, Lock, ShieldCheck, Linkedin, Twitter, Cloud, ChevronDown, Bot, PhoneCall, type LucideIcon } from 'lucide-react';
 import CuteBackground from '../components/ui/CuteBackground';
 import { useRef, useState, useEffect, useMemo, memo } from 'react';
 import { TIMELINE_DATA } from '../utils/aboutData';
 import InnovationProcess from '../components/about/InnovationProcess';
-import { useTheme } from '../context/ThemeContext';
-// Extracted constant for optimization
-const HEADLINE_WORDS = ['Accelerate', 'growth', 'at', 'the', 'new', 'speed', 'of', 'business'];
 import CTASection from '../components/home/CTASection';
 import { useNavigate } from 'react-router-dom';
 import SEO from '../components/seo/SEO';
+import FlipText from '../components/ui/FlipText';
+
+const HEADLINE_WORDS = ['Accelerate', 'growth', 'at', 'the', 'new', 'speed', 'of', 'business'];
 
 // ============ TEAM DATA ============
 const TEAM_DATA = [
@@ -69,25 +69,25 @@ const CERTIFICATIONS_DATA = [
         name: 'ISO 27001',
         icon: ShieldCheck,
         description: 'International standard for information security management systems (ISMS)',
-        color: 'from-[#2EE1C7] to-[#2EE1C7]/80',
+        color: 'from-[#2D6A4F] to-[#2D6A4F]/80',
     },
     {
         name: 'SOC 2 Type II',
         icon: Lock,
         description: 'Audited security, availability, and confidentiality controls',
-        color: 'from-[#2EE1C7]/90 to-[#2EE1C7]/70',
+        color: 'from-[#2D6A4F]/90 to-[#2D6A4F]/70',
     },
     {
         name: 'GDPR Compliant',
         icon: Shield,
         description: 'Full compliance with EU General Data Protection Regulation',
-        color: 'from-[#2EE1C7]/80 to-[#2EE1C7]/60',
+        color: 'from-[#2D6A4F]/80 to-[#2D6A4F]/60',
     },
     {
         name: 'HIPAA Ready',
         icon: BadgeCheck,
         description: 'Healthcare data protection and privacy standards',
-        color: 'from-[#2EE1C7]/70 to-[#2EE1C7]/50',
+        color: 'from-[#2D6A4F]/70 to-[#2D6A4F]/50',
     },
 ];
 
@@ -98,28 +98,28 @@ const AWARDS_DATA = [
         issuer: 'TechCrunch Disrupt',
         year: '2024',
         icon: Trophy,
-        color: 'from-[#2EE1C7] to-[#2EE1C7]/80',
+        color: 'from-[#2D6A4F] to-[#2D6A4F]/80',
     },
     {
         title: 'Innovation Leader',
         issuer: 'Gartner Magic Quadrant',
         year: '2024',
         icon: Star,
-        color: 'from-[#2EE1C7]/90 to-[#2EE1C7]/70',
+        color: 'from-[#2D6A4F]/90 to-[#2D6A4F]/70',
     },
     {
         title: 'Top 50 AI Startups',
         issuer: 'Forbes',
         year: '2023',
         icon: Award,
-        color: 'from-[#2EE1C7]/80 to-[#2EE1C7]/60',
+        color: 'from-[#2D6A4F]/80 to-[#2D6A4F]/60',
     },
     {
         title: 'Enterprise Excellence',
         issuer: 'Enterprise Tech Awards',
         year: '2023',
         icon: Trophy,
-        color: 'from-[#2EE1C7]/70 to-[#2EE1C7]/50',
+        color: 'from-[#2D6A4F]/70 to-[#2D6A4F]/50',
     },
 ];
 
@@ -128,7 +128,7 @@ const TECH_CATEGORIES = [
     {
         name: 'AI & Machine Learning',
         icon: Brain,
-        color: 'from-[#2EE1C7] to-[#2EE1C7]/80',
+        color: 'from-[#2D6A4F] to-[#2D6A4F]/80',
         technologies: [
             { name: 'PyTorch', desc: 'Deep learning framework for research and production' },
             { name: 'TensorFlow', desc: 'End-to-end ML platform for scalable deployments' },
@@ -139,7 +139,7 @@ const TECH_CATEGORIES = [
     {
         name: 'Infrastructure',
         icon: Cloud,
-        color: 'from-[#2EE1C7]/90 to-[#2EE1C7]/70',
+        color: 'from-[#2D6A4F]/90 to-[#2D6A4F]/70',
         technologies: [
             { name: 'Kubernetes', desc: 'Container orchestration at enterprise scale' },
             { name: 'AWS/GCP/Azure', desc: 'Multi-cloud deployment flexibility' },
@@ -150,7 +150,7 @@ const TECH_CATEGORIES = [
     {
         name: 'Security',
         icon: ShieldCheck,
-        color: 'from-[#2EE1C7]/80 to-[#2EE1C7]/60',
+        color: 'from-[#2D6A4F]/80 to-[#2D6A4F]/60',
         technologies: [
             { name: 'Zero Trust', desc: 'Never trust, always verify architecture' },
             { name: 'E2E Encryption', desc: 'AES-256 encryption for data at rest and transit' },
@@ -161,7 +161,7 @@ const TECH_CATEGORIES = [
     {
         name: 'Development',
         icon: Code,
-        color: 'from-[#2EE1C7]/70 to-[#2EE1C7]/50',
+        color: 'from-[#2D6A4F]/70 to-[#2D6A4F]/50',
         technologies: [
             { name: 'TypeScript', desc: 'Type-safe development for robust applications' },
             { name: 'Python', desc: 'Core language for AI/ML development' },
@@ -201,9 +201,9 @@ const TypewriterText = memo(({ texts }: { texts: string[] }) => {
     }, [text, phase, index, texts]);
 
     return (
-        <span className="relative">
+        <span className="relative font-serif">
             {text}
-            <span className="inline-block w-[3px] h-[0.85em] bg-[#2EE1C7] ml-1 align-middle rounded-full animate-pulse" />
+            <span className="inline-block w-[3px] h-[0.85em] bg-[#2D6A4F] ml-1 align-middle rounded-full animate-pulse" />
         </span>
     );
 });
@@ -215,42 +215,19 @@ const MagneticButton = memo(({ children, className, onClick, variant = 'primary'
     onClick?: () => void;
     variant?: 'primary' | 'secondary' | 'cta'
 }) => {
-    const { theme } = useTheme();
-    const [hover, setHover] = useState(false);
-    const [press, setPress] = useState(false);
-
-    // Dark mode uses #2EE1C7 (dark-accent), light mode uses brand-green gradient
-    const baseStyles = theme === 'dark'
-        ? variant === 'primary'
-            ? 'bg-[#2EE1C7] text-dark-bg shadow-lg shadow-[#2EE1C7]/25'
-            : variant === 'cta'
-                ? 'bg-[#2EE1C7] text-dark-bg shadow-xl'
-                : 'bg-dark-card border-2 border-[#2EE1C7]/40 text-[#2EE1C7]'
-        : variant === 'primary'
-            ? 'bg-gradient-to-r from-brand-green-500 to-brand-green-600 text-white shadow-lg shadow-brand-green-500/25'
-            : variant === 'cta'
-                ? 'bg-white text-brand-green-600 shadow-xl'
-                : 'bg-white/90 border-2 border-brand-green-500/40 text-brand-green-600';
+    const baseStyles = variant === 'primary'
+        ? 'bg-[#2D6A4F] hover:bg-[#204F3B] text-white shadow-lg shadow-[#2D6A4F]/25'
+        : variant === 'cta'
+            ? 'bg-white hover:bg-gray-50 text-[#2D6A4F] shadow-xl'
+            : 'bg-white/95 border border-gray-200 hover:border-[#2D6A4F] text-gray-800';
 
     return (
         <motion.button
-            onMouseEnter={() => setHover(true)}
-            onMouseLeave={() => setHover(false)}
-            onMouseDown={() => setPress(true)}
-            onMouseUp={() => setPress(false)}
+            whileTap={{ scale: 0.98 }}
             onClick={onClick}
-            className={`relative overflow-hidden rounded-xl font-semibold transition-all ${baseStyles} ${className}`}
-            animate={{ scale: press ? 0.97 : hover ? 1.03 : 1 }}
-            transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+            className={`group relative overflow-hidden rounded-xl font-medium transition-all font-body ${baseStyles} ${className} px-6 py-3.5`}
         >
-            {/* Shine effect */}
-            <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                initial={{ x: '-100%' }}
-                animate={hover ? { x: '100%' } : { x: '-100%' }}
-                transition={{ duration: 0.5 }}
-            />
-            <span className="relative z-10">{children}</span>
+            <FlipText>{children}</FlipText>
         </motion.button>
     );
 });
@@ -285,18 +262,17 @@ const TiltCard = memo(({ children, className }: {
             style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
             className={`relative cursor-pointer ${className}`}
             animate={{
-                y: hover ? -8 : 0,
-                boxShadow: hover ? `0 20px 40px -15px rgba(46,225,199,0.3)` : '0 4px 20px -5px rgba(0,0,0,0.1)'
+                y: hover ? -6 : 0,
+                boxShadow: hover ? `0 20px 40px -15px rgba(45,106,79,0.15)` : '0 4px 20px -5px rgba(0,0,0,0.05)'
             }}
             transition={{ type: 'spring', stiffness: 300, damping: 20 }}
         >
-            {/* Gradient border on hover */}
             <motion.div
-                className={`absolute -inset-[2px] rounded-2xl bg-gradient-to-r from-[#2EE1C7] via-[#2EE1C7]/60 to-[#2EE1C7]`}
-                animate={{ opacity: hover ? 1 : 0 }}
+                className={`absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-[#2D6A4F] via-[#2D6A4F]/60 to-[#2D6A4F]`}
+                animate={{ opacity: hover ? 0.7 : 0 }}
                 transition={{ duration: 0.2 }}
             />
-            <div className="relative bg-dark-card rounded-2xl h-full" style={{ transform: 'translateZ(20px)' }}>
+            <div className="relative bg-white rounded-2xl h-full border border-gray-100" style={{ transform: 'translateZ(10px)' }}>
                 {children}
             </div>
         </motion.div>
@@ -333,10 +309,10 @@ const Counter = memo(({ value, suffix = '' }: { value: number; suffix?: string }
 // ============ FLOATING ICON ============
 const FloatingIcon = memo(({ icon: Icon, delay, x, y }: { icon: LucideIcon; delay: number; x: string; y: string }) => (
     <div
-        className="absolute w-10 h-10 bg-dark-card backdrop-blur rounded-xl shadow-lg flex items-center justify-center border border-[#2EE1C7]/20 animate-bounce-slow"
+        className="absolute w-10 h-10 bg-white backdrop-blur rounded-xl shadow-lg flex items-center justify-center border border-[#2D6A4F]/20 animate-bounce-slow"
         style={{ left: x, top: y, animationDelay: `${delay}s` }}
     >
-        <Icon className="w-5 h-5 text-[#2EE1C7]" />
+        <Icon className="w-5 h-5 text-[#2D6A4F]" />
     </div>
 ));
 
@@ -355,30 +331,26 @@ const InteractiveGlobe = memo(() => {
     ], []);
 
     return (
-        <div className="relative w-full h-80 flex items-center justify-center">
-            {/* Animated rings - Using CSS instead of Framer Motion for performance */}
-            <div className="absolute w-56 h-56 border-2 border-dashed border-[#2EE1C7]/20 rounded-full animate-spin-slow" />
-            <div className="absolute w-44 h-44 border-2 border-dashed border-[#2EE1C7]/15 rounded-full animate-spin-slow-reverse" />
+        <div className="relative w-full h-80 flex items-center justify-center bg-gray-50/50 rounded-2xl border border-gray-100 overflow-hidden">
+            <div className="absolute w-56 h-56 border border-dashed border-[#2D6A4F]/20 rounded-full animate-spin-slow" />
+            <div className="absolute w-44 h-44 border border-dashed border-[#2D6A4F]/15 rounded-full animate-spin-slow-reverse" />
 
-            {/* Globe center */}
             <motion.div
-                className="relative w-24 h-24 bg-gradient-to-br from-[#2EE1C7] via-[#2EE1C7]/80 to-[#2EE1C7]/60 rounded-full flex items-center justify-center shadow-2xl cursor-pointer z-10"
+                className="relative w-24 h-24 bg-gradient-to-br from-[#2D6A4F] via-[#2D6A4F]/80 to-[#2D6A4F]/60 rounded-full flex items-center justify-center shadow-2xl cursor-pointer z-10"
                 onMouseEnter={() => setIsGlobeHovered(true)}
                 onMouseLeave={() => setIsGlobeHovered(false)}
                 animate={{
-                    scale: isGlobeHovered ? 1.1 : 1,
+                    scale: isGlobeHovered ? 1.08 : 1,
                     boxShadow: isGlobeHovered
-                        ? '0 0 60px 10px rgba(46,225,199,0.4)'
-                        : '0 20px 50px -10px rgba(46,225,199,0.4)'
+                        ? '0 0 40px 5px rgba(45,106,79,0.25)'
+                        : '0 10px 30px -10px rgba(45,106,79,0.2)'
                 }}
                 transition={{ type: 'spring', stiffness: 300 }}
             >
-                <Globe className="w-12 h-12 text-white" />
-                {/* Pulse rings - Using CSS for performance */}
-                <div className="absolute inset-0 rounded-full border-2 border-[#2EE1C7] animate-ping" />
+                <Globe className="w-10 h-10 text-white animate-pulse" />
+                <div className="absolute inset-0 rounded-full border-2 border-[#2D6A4F]/50 animate-ping" />
             </motion.div>
 
-            {/* City dots with tooltips */}
             {cities.map((city, i) => (
                 <motion.div
                     key={i}
@@ -386,27 +358,27 @@ const InteractiveGlobe = memo(() => {
                     style={{ left: city.x, top: city.y }}
                     initial={{ scale: 0, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
-                    transition={{ delay: 0.5 + i * 0.1, type: 'spring' }}
+                    transition={{ delay: 0.2 + i * 0.05, type: 'spring' }}
                     onMouseEnter={() => setHoveredCity(i)}
                     onMouseLeave={() => setHoveredCity(null)}
                 >
                     <motion.div
                         className="relative cursor-pointer"
-                        animate={{ scale: hoveredCity === i ? 1.5 : 1 }}
+                        animate={{ scale: hoveredCity === i ? 1.3 : 1 }}
                     >
-                        <div className="w-4 h-4 bg-[#2EE1C7] rounded-full shadow-lg" />
-                        <div className="absolute inset-0 rounded-full bg-[#2EE1C7] animate-ping" style={{ animationDelay: `${i * 0.3}s` }} />
+                        <div className="w-3.5 h-3.5 bg-[#2D6A4F] rounded-full shadow-lg border border-white" />
+                        <div className="absolute inset-0 rounded-full bg-[#2D6A4F] animate-ping" style={{ animationDelay: `${i * 0.3}s` }} />
                     </motion.div>
                     <AnimatePresence>
                         {hoveredCity === i && (
                             <motion.div
-                                initial={{ opacity: 0, y: 10, scale: 0.9 }}
+                                initial={{ opacity: 0, y: 5, scale: 0.95 }}
                                 animate={{ opacity: 1, y: 0, scale: 1 }}
-                                exit={{ opacity: 0, y: 10, scale: 0.9 }}
-                                className="absolute top-6 left-1/2 -translate-x-1/2 px-3 py-2 bg-gray-900/95 backdrop-blur rounded-xl text-white text-xs whitespace-nowrap shadow-xl z-30"
+                                exit={{ opacity: 0, y: 5, scale: 0.95 }}
+                                className="absolute top-6 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-gray-900 border border-gray-800 rounded-xl text-white text-xs whitespace-nowrap shadow-xl z-30 flex items-center gap-1.5"
                             >
-                                <span className="text-base mr-1">{city.flag}</span>
-                                <span className="font-medium">{city.name}</span>
+                                <span className="text-sm">{city.flag}</span>
+                                <span className="font-semibold font-body">{city.name}</span>
                             </motion.div>
                         )}
                     </AnimatePresence>
@@ -419,19 +391,19 @@ const InteractiveGlobe = memo(() => {
 // ============ CHECK ITEM WITH ANIMATION ============
 const CheckItem = memo(({ text, delay }: { text: string; delay: number }) => (
     <motion.div
-        initial={{ opacity: 0, x: -20 }}
+        initial={{ opacity: 0, x: -15 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ delay, duration: 0.4 }}
         className="flex items-center gap-3 group"
     >
         <motion.div
-            className="w-6 h-6 rounded-full bg-gradient-to-br from-[#2EE1C7] to-[#2EE1C7]/70 flex items-center justify-center"
-            whileHover={{ scale: 1.2, rotate: 10 }}
+            className="w-6 h-6 rounded-full bg-gradient-to-br from-[#2D6A4F] to-[#2D6A4F]/70 flex items-center justify-center"
+            whileHover={{ scale: 1.15, rotate: 10 }}
         >
             <CheckCircle2 className="w-4 h-4 text-white" />
         </motion.div>
-        <span className="text-slate-300 group-hover:text-white transition-colors">{text}</span>
+        <span className="text-gray-700 font-body group-hover:text-gray-950 transition-colors">{text}</span>
     </motion.div>
 ));
 
@@ -441,7 +413,7 @@ const TechIcon = memo(({ icon: Icon, label, delay }: { icon: LucideIcon; label: 
 
     return (
         <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay, duration: 0.4 }}
             className="relative flex flex-col items-center"
@@ -449,15 +421,15 @@ const TechIcon = memo(({ icon: Icon, label, delay }: { icon: LucideIcon; label: 
             onMouseLeave={() => setHover(false)}
         >
             <motion.div
-                className="w-16 h-16 bg-dark-card rounded-2xl border-2 border-[#2EE1C7]/20 flex items-center justify-center shadow-lg cursor-pointer"
+                className="w-16 h-16 bg-white rounded-2xl border border-gray-200 flex items-center justify-center shadow-md cursor-pointer"
                 animate={{
-                    y: hover ? -8 : 0,
-                    borderColor: hover ? '#2EE1C7' : 'rgba(46,225,199,0.2)',
-                    boxShadow: hover ? '0 15px 30px -10px rgba(46,225,199,0.3)' : '0 4px 15px -5px rgba(0,0,0,0.1)'
+                    y: hover ? -6 : 0,
+                    borderColor: hover ? '#2D6A4F' : 'rgba(229,231,235,1)',
+                    boxShadow: hover ? '0 15px 30px -10px rgba(45,106,79,0.15)' : '0 4px 15px -5px rgba(0,0,0,0.04)'
                 }}
                 transition={{ type: 'spring', stiffness: 300 }}
             >
-                <Icon className="w-8 h-8 text-[#2EE1C7]" />
+                <Icon className="w-7 h-7 text-[#2D6A4F]" />
             </motion.div>
             <AnimatePresence>
                 {hover && (
@@ -465,7 +437,7 @@ const TechIcon = memo(({ icon: Icon, label, delay }: { icon: LucideIcon; label: 
                         initial={{ opacity: 0, y: -5 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -5 }}
-                        className="absolute -bottom-6 text-xs font-medium text-[#2EE1C7] whitespace-nowrap"
+                        className="absolute -bottom-6 text-[11px] font-semibold text-[#2D6A4F] whitespace-nowrap font-body"
                     >
                         {label}
                     </motion.span>
@@ -475,23 +447,13 @@ const TechIcon = memo(({ icon: Icon, label, delay }: { icon: LucideIcon; label: 
     );
 });
 
-// ============ SCROLL INDICATOR ============
-// const ScrollIndicator = memo(() => (
-//     <div
-//         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer animate-bounce-slow"
-//         onClick={() => document.getElementById('stats')?.scrollIntoView({ behavior: 'smooth' })}
-//     >
-//         <MousePointer2 className="w-5 h-5 text-brand-green-500" />
-//     </div>
-// ));
-
 // ============ TEAM FLIP CARD ============
 const TeamFlipCard = memo(({ member, delay }: { member: typeof TEAM_DATA[0]; delay: number }) => {
     const [isFlipped, setIsFlipped] = useState(false);
 
     return (
         <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay, duration: 0.5 }}
@@ -507,7 +469,7 @@ const TeamFlipCard = memo(({ member, delay }: { member: typeof TEAM_DATA[0]; del
             >
                 {/* Front Face */}
                 <div
-                    className="absolute inset-0 backface-hidden rounded-2xl overflow-hidden shadow-xl"
+                    className="absolute inset-0 backface-hidden rounded-2xl overflow-hidden shadow-lg border border-gray-100"
                     style={{ backfaceVisibility: 'hidden' }}
                 >
                     <div className="relative w-full h-full">
@@ -517,77 +479,62 @@ const TeamFlipCard = memo(({ member, delay }: { member: typeof TEAM_DATA[0]; del
                             className="w-full h-full object-cover"
                             loading="lazy"
                         />
-                        {/* Overlay - Optimized: Removed backdrop-blur for performance */}
-                        <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/90 via-black/60 to-transparent">
-                            <div className="bg-black/40 rounded-xl p-4 border border-white/10">
-                                <h3 className="text-xl font-bold text-white mb-1">{member.name}</h3>
-                                <p className="text-[#2EE1C7] font-medium">{member.role}</p>
+                        <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/90 via-black/50 to-transparent">
+                            <div className="bg-black/40 backdrop-blur-sm rounded-xl p-4 border border-white/10">
+                                <h3 className="text-xl font-serif font-bold text-white mb-1">{member.name}</h3>
+                                <p className="text-[#34A853] font-body font-semibold">{member.role}</p>
                             </div>
                         </div>
-                        {/* Hover Hint */}
-                        <div
-                            className="absolute top-4 right-4 bg-black/40 rounded-full px-3 py-1.5 text-xs text-white border border-white/20 animate-pulse"
-                        >
+                        <div className="absolute top-4 right-4 bg-gray-900/80 backdrop-blur-sm rounded-full px-3 py-1.5 text-[10px] text-white border border-white/15 animate-pulse font-body">
                             Hover for bio
                         </div>
                     </div>
                 </div>
 
-                {/* Back Face */}
+                {/* Back Face - Legibility Fixed (White/light bg with deep slate text) */}
                 <div
-                    className="absolute inset-0 backface-hidden rounded-2xl overflow-hidden shadow-xl"
+                    className="absolute inset-0 backface-hidden rounded-2xl overflow-hidden shadow-lg border border-gray-200"
                     style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
                 >
-                    {/* Optimized: Solid background instead of backdrop-blur-xl */}
-                    <div className="w-full h-full bg-dark-card border border-[#2EE1C7]/20 p-6 flex flex-col">
-                        <div className="flex-1 flex flex-col">
-                            <div className="flex items-center gap-4 mb-4">
+                    <div className="w-full h-full bg-white p-6 flex flex-col justify-between">
+                        <div className="space-y-4">
+                            <div className="flex items-center gap-4">
                                 <img
                                     src={member.image}
                                     alt={member.name}
-                                    className="w-16 h-16 rounded-xl object-cover border-2 border-[#2EE1C7]/50"
+                                    className="w-14 h-14 rounded-xl object-cover border border-[#2D6A4F]/30"
                                 />
                                 <div>
-                                    <h3 className="text-lg font-bold text-white">{member.name}</h3>
-                                    <p className="text-[#2EE1C7] text-sm font-medium">{member.role}</p>
+                                    <h3 className="text-lg font-serif font-bold text-gray-900">{member.name}</h3>
+                                    <p className="text-[#2D6A4F] text-xs font-semibold font-body">{member.role}</p>
                                 </div>
                             </div>
+                            <p className="text-gray-600 text-xs sm:text-sm leading-relaxed font-body font-medium">
+                                {member.bio}
+                            </p>
+                        </div>
 
-                            <p className="text-gray-300 text-sm leading-relaxed flex-1">{member.bio}</p>
-
-                            {/* Social Links */}
-                            <div className="flex gap-3 mt-4 pt-4 border-t border-white/10">
-                                {member.linkedin && (
-                                    <motion.a
-                                        href={member.linkedin}
-                                        className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-white hover:bg-[#2EE1C7]/30 transition-colors"
-                                        whileHover={{ scale: 1.1, y: -2 }}
-                                        whileTap={{ scale: 0.95 }}
-                                    >
-                                        <Linkedin className="w-5 h-5" />
-                                    </motion.a>
-                                )}
-                                {member.twitter && (
-                                    <motion.a
-                                        href={member.twitter}
-                                        className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-white hover:bg-[#2EE1C7]/30 transition-colors"
-                                        whileHover={{ scale: 1.1, y: -2 }}
-                                        whileTap={{ scale: 0.95 }}
-                                    >
-                                        <Twitter className="w-5 h-5" />
-                                    </motion.a>
-                                )}
-                                {member.github && (
-                                    <motion.a
-                                        href={member.github}
-                                        className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-white hover:bg-[#2EE1C7]/30 transition-colors"
-                                        whileHover={{ scale: 1.1, y: -2 }}
-                                        whileTap={{ scale: 0.95 }}
-                                    >
-                                        <Github className="w-5 h-5" />
-                                    </motion.a>
-                                )}
-                            </div>
+                        <div className="flex gap-3 pt-4 border-t border-gray-100">
+                            {member.linkedin && (
+                                <motion.a
+                                    href={member.linkedin}
+                                    className="w-9 h-9 rounded-lg bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#2D6A4F]/15 hover:text-[#2D6A4F] transition-colors"
+                                    whileHover={{ scale: 1.1, y: -2 }}
+                                    whileTap={{ scale: 0.95 }}
+                                >
+                                    <Linkedin className="w-4.5 h-4.5" />
+                                </motion.a>
+                            )}
+                            {member.twitter && (
+                                <motion.a
+                                    href={member.twitter}
+                                    className="w-9 h-9 rounded-lg bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#2D6A4F]/15 hover:text-[#2D6A4F] transition-colors"
+                                    whileHover={{ scale: 1.1, y: -2 }}
+                                    whileTap={{ scale: 0.95 }}
+                                >
+                                    <Twitter className="w-4.5 h-4.5" />
+                                </motion.a>
+                            )}
                         </div>
                     </div>
                 </div>
@@ -601,46 +548,40 @@ const CertificationBadge = memo(({ cert, delay }: { cert: typeof CERTIFICATIONS_
     const [showTooltip, setShowTooltip] = useState(false);
 
     return (
-        <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay, type: 'spring', stiffness: 200 }}
+        <div
             className="relative"
             onMouseEnter={() => setShowTooltip(true)}
             onMouseLeave={() => setShowTooltip(false)}
         >
             <motion.div
-                className={`relative px-6 py-4 rounded-2xl bg-gradient-to-br ${cert.color} cursor-pointer overflow-hidden`}
-                whileHover={{ scale: 1.05, y: -5 }}
-                transition={{ type: 'spring', stiffness: 300 }}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay, type: 'spring', stiffness: 200 }}
+                className={`px-6 py-4 rounded-2xl bg-gradient-to-br ${cert.color} cursor-pointer overflow-hidden shadow-md`}
+                whileHover={{ scale: 1.04, y: -3 }}
             >
-                {/* Glow effect */}
-                <div
-                    className="absolute inset-0 bg-white/20 animate-pulse"
-                />
-
-                <div className="relative flex items-center gap-3">
-                    <cert.icon className="w-6 h-6 text-white" />
-                    <span className="text-white font-bold text-sm">{cert.name}</span>
+                <div className="relative flex items-center gap-3 z-10">
+                    <cert.icon className="w-5 h-5 text-white" />
+                    <span className="text-white font-bold text-sm font-body">{cert.name}</span>
                 </div>
             </motion.div>
 
-            {/* Tooltip - positioned ABOVE the badge */}
+            {/* Tooltip Legibility Fixed (Dark backdrop with white text) */}
             <AnimatePresence>
                 {showTooltip && (
                     <motion.div
                         initial={{ opacity: 0, y: 10, scale: 0.95 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                        className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-4 py-3 bg-gray-900 text-white text-xs rounded-xl shadow-xl z-50 w-56 text-center"
+                        className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-4 py-2.5 bg-gray-900 text-white text-xs rounded-xl shadow-xl z-50 w-52 text-center border border-gray-800"
                     >
-                        <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-gray-900 rotate-45" />
-                        <p className="relative z-10">{cert.description}</p>
+                        <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-gray-900 rotate-45 border-b border-r border-gray-800" />
+                        <p className="relative z-10 font-body font-medium">{cert.description}</p>
                     </motion.div>
                 )}
             </AnimatePresence>
-        </motion.div>
+        </div>
     );
 });
 
@@ -650,7 +591,7 @@ const AwardCard = memo(({ award, delay }: { award: typeof AWARDS_DATA[0]; delay:
 
     return (
         <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay, duration: 0.5 }}
@@ -659,34 +600,25 @@ const AwardCard = memo(({ award, delay }: { award: typeof AWARDS_DATA[0]; delay:
             onMouseLeave={() => setHover(false)}
         >
             <motion.div
-                className="relative bg-white rounded-2xl p-6 border-2 border-gray-100 shadow-lg overflow-hidden cursor-pointer h-full min-h-[200px]"
+                className="bg-white rounded-2xl p-6 border border-gray-100 shadow-md overflow-hidden cursor-pointer h-full min-h-[180px]"
                 animate={{
-                    y: hover ? -8 : 0,
-                    borderColor: hover ? 'rgba(46, 225, 199, 0.5)' : 'rgb(243, 244, 246)',
-                    boxShadow: hover ? '0 20px 40px -15px rgba(46,225,199,0.3)' : '0 4px 20px -5px rgba(0,0,0,0.1)',
+                    y: hover ? -6 : 0,
+                    borderColor: hover ? '#2D6A4F' : 'rgb(243, 244, 246)',
+                    boxShadow: hover ? '0 20px 40px -15px rgba(45,106,79,0.12)' : '0 4px 15px -5px rgba(0,0,0,0.03)',
                 }}
-                transition={{ type: 'spring', stiffness: 300 }}
             >
-                {/* Background Glow */}
-                <motion.div
-                    className={`absolute -top-10 -right-10 w-32 h-32 rounded-full bg-gradient-to-br ${award.color} opacity-20 blur-2xl`}
-                    animate={{ scale: hover ? 1.5 : 1 }}
-                />
-
                 <div className="relative">
-                    {/* Icon */}
                     <motion.div
-                        className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${award.color} flex items-center justify-center mb-4 shadow-lg`}
-                        animate={{ rotate: hover ? [0, -10, 10, 0] : 0 }}
+                        className={`w-12 h-12 rounded-xl bg-gradient-to-br ${award.color} flex items-center justify-center mb-4 shadow-sm`}
+                        animate={{ rotate: hover ? [0, -8, 8, 0] : 0 }}
                         transition={{ duration: 0.5 }}
                     >
-                        <award.icon className="w-7 h-7 text-white" />
+                        <award.icon className="w-5 h-5 text-white" />
                     </motion.div>
 
-                    {/* Content */}
-                    <h3 className="text-base font-bold text-gray-900 mb-1 line-clamp-2">{award.title}</h3>
-                    <p className="text-gray-500 text-sm mb-2 line-clamp-1">{award.issuer}</p>
-                    <span className="inline-block px-3 py-1 bg-gray-100 rounded-full text-xs font-semibold text-gray-600">
+                    <h3 className="text-base font-serif font-bold text-gray-900 mb-1 leading-snug">{award.title}</h3>
+                    <p className="text-gray-500 text-xs font-body mb-2">{award.issuer}</p>
+                    <span className="inline-block px-2.5 py-1 bg-gray-50 border border-gray-100 rounded-full text-[10px] font-bold text-gray-600 font-body">
                         {award.year}
                     </span>
                 </div>
@@ -701,218 +633,112 @@ const ExpandableTechCategory = memo(({ category, delay }: { category: typeof TEC
 
     return (
         <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay, duration: 0.5 }}
-            className="relative"
+            className="relative font-body"
         >
-            <motion.div
-                className="bg-white rounded-2xl border-2 border-gray-100 shadow-lg overflow-hidden cursor-pointer"
-                animate={{
-                    borderColor: isExpanded ? 'rgba(46, 225, 199, 0.5)' : 'rgb(243, 244, 246)',
-                }}
-            >
-                {/* Header */}
-                <motion.div
-                    className="p-6 flex items-center justify-between"
+            <div className="bg-white rounded-2xl border border-gray-100 shadow-md overflow-hidden">
+                <div
+                    className="p-5 flex items-center justify-between cursor-pointer hover:bg-gray-50/50 transition-colors"
                     onClick={() => setIsExpanded(!isExpanded)}
-                    whileHover={{ backgroundColor: 'rgba(46, 225, 199, 0.05)' }}
                 >
                     <div className="flex items-center gap-4">
-                        <motion.div
-                            className={`w-12 h-12 rounded-xl bg-gradient-to-br ${category.color} flex items-center justify-center shadow-lg`}
-                            animate={{ rotate: isExpanded ? 360 : 0 }}
-                            transition={{ duration: 0.5 }}
-                        >
-                            <category.icon className="w-6 h-6 text-white" />
-                        </motion.div>
+                        <div className={`w-11 h-11 rounded-xl bg-gradient-to-br ${category.color} flex items-center justify-center shadow-md`}>
+                            <category.icon className="w-5 h-5 text-white" />
+                        </div>
                         <div>
-                            <h3 className="text-lg font-bold text-gray-900">{category.name}</h3>
-                            <p className="text-sm text-gray-500">{category.technologies.length} technologies</p>
+                            <h3 className="text-base font-serif font-bold text-gray-900">{category.name}</h3>
+                            <p className="text-xs text-gray-500 font-medium">{category.technologies.length} technologies</p>
                         </div>
                     </div>
-                    <motion.div
-                        animate={{ rotate: isExpanded ? 180 : 0 }}
-                        transition={{ duration: 0.3 }}
-                    >
-                        <ChevronDown className="w-6 h-6 text-gray-400" />
+                    <motion.div animate={{ rotate: isExpanded ? 180 : 0 }}>
+                        <ChevronDown className="w-5 h-5 text-gray-400" />
                     </motion.div>
-                </motion.div>
+                </div>
 
-                {/* Expandable Content */}
                 <AnimatePresence>
                     {isExpanded && (
                         <motion.div
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: 'auto', opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.3 }}
-                            className="overflow-hidden"
+                            transition={{ duration: 0.25 }}
+                            className="overflow-hidden border-t border-gray-50"
                         >
-                            <div className="px-6 pb-6 space-y-3">
+                            <div className="px-5 pb-5 pt-3 space-y-2">
                                 {category.technologies.map((tech, i) => (
-                                    <motion.div
+                                    <div
                                         key={i}
-                                        initial={{ opacity: 0, x: -20 }}
-                                        animate={{ opacity: 1, x: 0 }}
-                                        transition={{ delay: i * 0.05 }}
-                                        className="flex items-start gap-3 p-3 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors"
+                                        className="flex items-start gap-3 p-3 rounded-xl bg-gray-50 border border-gray-100/50"
                                     >
-                                        <div className={`w-2 h-2 rounded-full bg-gradient-to-br ${category.color} mt-2 flex-shrink-0`} />
+                                        <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-br ${category.color} mt-1.5 shrink-0`} />
                                         <div>
-                                            <h4 className="font-semibold text-gray-900 text-sm">{tech.name}</h4>
-                                            <p className="text-gray-500 text-xs">{tech.desc}</p>
+                                            <h4 className="font-bold text-gray-900 text-sm">{tech.name}</h4>
+                                            <p className="text-gray-500 text-xs mt-0.5 leading-relaxed">{tech.desc}</p>
                                         </div>
-                                    </motion.div>
+                                    </div>
                                 ))}
                             </div>
                         </motion.div>
                     )}
                 </AnimatePresence>
-            </motion.div>
+            </div>
         </motion.div>
     );
 });
 
 // ============ TECH ECOSYSTEM DIAGRAM ============
 const TechEcosystemDiagram = memo(() => {
-    const [hoveredCategory, setHoveredCategory] = useState<number | null>(null);
-
-    const categories = [
-        { icon: Brain, label: 'AI/ML', angle: 0, color: '#2EE1C7' },
-        { icon: Cloud, label: 'Cloud', angle: 90, color: '#2EE1C7' },
-        { icon: ShieldCheck, label: 'Security', angle: 180, color: '#2EE1C7' },
-        { icon: Code, label: 'Dev', angle: 270, color: '#2EE1C7' },
-    ];
-
     return (
-        <div className="relative w-full max-w-[320px] aspect-square mx-auto">
-            {/* Orbiting Rings */}
-            <div
-                className="absolute inset-8 border-2 border-dashed border-[#2EE1C7]/20 rounded-full animate-spin-slow"
-            />
-            <div
-                className="absolute inset-16 border-2 border-dashed border-[#2EE1C7]/10 rounded-full animate-spin-slow-reverse"
-            />
+        <div className="relative w-full max-w-[320px] aspect-square mx-auto flex items-center justify-center">
+            <div className="absolute inset-8 border border-dashed border-[#2D6A4F]/20 rounded-full animate-spin-slow" />
+            <div className="absolute inset-16 border border-dashed border-[#2D6A4F]/10 rounded-full animate-spin-slow-reverse" />
 
-            {/* Center Logo */}
-            <div
-                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-gradient-to-br from-[#2EE1C7] to-[#2EE1C7]/60 rounded-2xl flex items-center justify-center shadow-2xl z-10 animate-pulse"
-            >
-                <span className="text-white font-bold text-lg">F</span>
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-gradient-to-br from-[#2D6A4F] to-[#2D6A4F]/80 rounded-2xl flex items-center justify-center shadow-xl z-10 animate-pulse">
+                <span className="text-white font-serif font-bold text-2xl">F</span>
             </div>
 
-            {/* Orbiting Icons */}
-            {categories.map((cat, i) => {
-                const radius = 110;
-                const x = Math.cos((cat.angle * Math.PI) / 180) * radius;
-                const y = Math.sin((cat.angle * Math.PI) / 180) * radius;
-
-                return (
-                    <motion.div
-                        key={i}
-                        className="absolute left-1/2 top-1/2 z-20"
-                        style={{
-                            x: x - 24,
-                            y: y - 24,
-                        }}
-                        onMouseEnter={() => setHoveredCategory(i)}
-                        onMouseLeave={() => setHoveredCategory(null)}
-                    >
-                        <motion.div
-                            className="w-12 h-12 rounded-xl flex items-center justify-center shadow-lg cursor-pointer"
-                            style={{ backgroundColor: cat.color }}
-                            animate={{
-                                scale: hoveredCategory === i ? 1.2 : 1,
-                                boxShadow: hoveredCategory === i ? `0 10px 30px ${cat.color}50` : '0 4px 15px rgba(0,0,0,0.1)',
-                            }}
-                            transition={{ type: 'spring', stiffness: 300 }}
-                        >
-                            <cat.icon className="w-6 h-6 text-white" />
-                        </motion.div>
-                        <AnimatePresence>
-                            {hoveredCategory === i && (
-                                <motion.span
-                                    initial={{ opacity: 0, y: 5 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, y: 5 }}
-                                    className="absolute top-14 left-1/2 -translate-x-1/2 text-xs font-semibold text-slate-300 whitespace-nowrap"
-                                >
-                                    {cat.label}
-                                </motion.span>
-                            )}
-                        </AnimatePresence>
-
-                        {/* Connection Line */}
-                        <svg
-                            className="absolute left-6 top-6 pointer-events-none"
-                            width="100"
-                            height="100"
-                            style={{ overflow: 'visible' }}
-                        >
-                            <motion.line
-                                x1="0"
-                                y1="0"
-                                x2={-x + 24}
-                                y2={-y + 24}
-                                stroke={cat.color}
-                                strokeWidth="2"
-                                strokeDasharray="4 4"
-                                initial={{ pathLength: 0 }}
-                                animate={{ pathLength: 1 }}
-                                transition={{ duration: 1, delay: i * 0.2 }}
-                            />
-                        </svg>
-                    </motion.div>
-                );
-            })}
+            {/* Simulated Calling Agents */}
+            <motion.div
+                className="absolute w-8 h-8 rounded-full bg-white shadow-lg border border-gray-100 flex items-center justify-center top-4 left-1/4"
+                animate={{ y: [0, -6, 0] }}
+                transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
+            >
+                <Bot size={14} className="text-[#2D6A4F]" />
+            </motion.div>
+            <motion.div
+                className="absolute w-8 h-8 rounded-full bg-white shadow-lg border border-gray-100 flex items-center justify-center bottom-6 right-1/4"
+                animate={{ y: [0, 6, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+            >
+                <PhoneCall size={13} className="text-[#2D6A4F]" />
+            </motion.div>
         </div>
     );
 });
 
 // ============ STAGGER ANIMATIONS ============
-const stagger = { visible: { transition: { staggerChildren: 0.1 } } };
-const fadeUp = { hidden: { opacity: 0, y: 25 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } };
+const stagger = { visible: { transition: { staggerChildren: 0.08 } } };
+const fadeUp = { hidden: { opacity: 0, y: 15 }, visible: { opacity: 1, y: 0, transition: { duration: 0.4 } } };
 
 // ============ MAIN COMPONENT ============
 const About = () => {
     const navigate = useNavigate();
-    const { theme } = useTheme();
     const ref = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({ target: ref });
-    const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '15%']);
+    const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '10%']);
     const opacity = useTransform(scrollYProgress, [0, 0.15], [1, 0.95]);
 
-    // const [activeOffice, setActiveOffice] = useState<number>(0);
     const [flippedCard, setFlippedCard] = useState<number | null>(null);
     const [activeImageIndex, setActiveImageIndex] = useState<number>(0);
     const dotsRef = useRef<(HTMLDivElement | null)[]>([]);
 
-    // useEffect(() => {
-    //     const handleScroll = () => {
-    //         dotsRef.current.forEach((dot, index) => {
-    //             if (!dot) return;
-
-    //             const rect = dot.getBoundingClientRect();
-    //             const windowCenter = window.innerHeight / 2;
-
-    //             if (rect.top <= windowCenter && rect.bottom >= windowCenter) {
-    //                 setActiveImageIndex(index);
-    //             }
-    //         });
-    //     };
-
-    //     window.addEventListener('scroll', handleScroll);
-    //     return () => window.removeEventListener('scroll', handleScroll);
-    // }, []);
-
     useEffect(() => {
         const observers: IntersectionObserver[] = [];
-
         dotsRef.current.forEach((dot, index) => {
             if (!dot) return;
-
             const observer = new IntersectionObserver(
                 ([entry]) => {
                     if (entry.isIntersecting) {
@@ -925,16 +751,13 @@ const About = () => {
                     threshold: 0
                 }
             );
-
             observer.observe(dot);
             observers.push(observer);
         });
-
         return () => {
             observers.forEach(obs => obs.disconnect());
         };
     }, []);
-
 
     const texts = useMemo(() => ['Intelligent Systems', 'Agentic AI', 'Machine Learning', 'Neural Networks'], []);
 
@@ -1023,89 +846,82 @@ const About = () => {
     ], []);
 
     return (
-        <div ref={ref} className={`min-h-screen relative overflow-hidden ${theme === 'dark' ? 'bg-dark-bg' : ''}`}>
+        <div ref={ref} className="min-h-screen relative overflow-hidden bg-white text-gray-900">
             <SEO
                 title="About Us | Frostrek - Pioneering Enterprise AI"
                 description="Learn about Frostrek's mission to make enterprise-grade AI accessible, our team of experts, and our commitment to security and innovation."
                 path="/about"
             />
-            {theme !== 'dark' && <CuteBackground />}
+            <CuteBackground />
 
             {/* ===== HERO ===== */}
-            <motion.section style={{ y: bgY, opacity }} className="relative min-h-[50vh] md:min-h-[85vh] flex items-center py-10 md:py-20 pt-20 md:pt-32">
-                <div className="container mx-auto px-4">
+            <motion.section style={{ y: bgY, opacity }} className="relative min-h-[50vh] md:min-h-[85vh] flex items-center py-10 md:py-20 pt-24 md:pt-36">
+                <div className="container mx-auto px-4 relative z-10">
                     <motion.div
-                        initial={{ opacity: 0, y: 40 }}
+                        initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7 }}
-                        className="max-w-4xl mx-auto text-center"
+                        className="max-w-4xl mx-auto text-center space-y-6"
                     >
-                        <motion.h1
-                            className={`text-3xl md:text-5xl lg:text-6xl font-bold mb-6 md:mb-8 leading-tight ${theme === 'dark' ? 'text-dark-text' : 'text-gray-900'}`}
-                        >
-                            Revolutionizing AI Solutions with{' '}
-                            <span className={`relative inline-block ${theme === 'dark' ? 'text-[#2EE1C7]' : 'text-brand-green-500'}`}>
+                        {/* Live Calling Agent Decorative Badge */}
+                        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E8F5EE] border border-[#2D6A4F]/25 text-[#2D6A4F] text-xs font-bold uppercase tracking-wider mx-auto shadow-sm">
+                            <span className="w-2 h-2 rounded-full bg-[#2D6A4F] animate-pulse" />
+                            <Bot size={13} className="inline" /> Calling Enterprise Agents Active
+                        </div>
+
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-gray-900 leading-[1.1] tracking-tight">
+                            Revolutionizing AI with{' '}
+                            <span className="relative inline-block text-[#2D6A4F]">
                                 <TypewriterText texts={texts} />
                                 <motion.span
-                                    className="absolute -bottom-2 left-0 h-1.5 bg-gradient-to-r from-[#2EE1C7] to-[#2EE1C7]/50 rounded-full"
+                                    className="absolute -bottom-1.5 left-0 h-1 bg-gradient-to-r from-[#2D6A4F] to-[#2D6A4F]/40 rounded-full"
                                     initial={{ width: 0 }}
                                     animate={{ width: '100%' }}
                                     transition={{ delay: 0.5, duration: 0.8 }}
                                 />
                             </span>
-                        </motion.h1>
+                        </h1>
 
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.3 }}
-                            className={`text-lg md:text-xl mb-10 max-w-2xl mx-auto ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}
-                        >
-                            We specialize in AI model training, agentic AI systems, and end-to-end software development that transforms businesses.
-                        </motion.p>
+                        <p className="text-base sm:text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed font-body font-medium">
+                            We specialize in custom enterprise AI training, multi-agent orchestrations, and full-stack software systems built to redefine human-to-AI operational capacity.
+                        </p>
 
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.5 }}
-                            className="flex flex-wrap gap-4 justify-center"
-                        >
+                        <div className="flex flex-wrap gap-4 justify-center pt-4">
                             <MagneticButton
                                 variant="primary"
-                                className="px-8 py-4"
+                                className="px-8 py-4 text-sm"
                                 onClick={() => navigate('/contact')}
                             >
-                                <span className="flex items-center gap-2">
+                                <span className="flex items-center gap-2 font-body font-bold">
                                     Get Started <ArrowRight className="w-5 h-5" />
                                 </span>
                             </MagneticButton>
-                            <MagneticButton variant="secondary" className="px-8 py-4" onClick={() => document.getElementById('stats')?.scrollIntoView({ behavior: 'smooth' })}>
-                                Learn More
+                            <MagneticButton variant="secondary" className="px-8 py-4 text-sm" onClick={() => document.getElementById('stats')?.scrollIntoView({ behavior: 'smooth' })}>
+                                <span className="font-body font-bold">Learn More</span>
                             </MagneticButton>
-                        </motion.div>
+                        </div>
                     </motion.div>
                 </div>
-                {/* <ScrollIndicator /> */}
             </motion.section>
 
             {/* ===== TECH STACK ===== */}
-            <section className="">
+            <section className="relative py-6 z-10">
                 <div className="container mx-auto px-4">
-                    <div className="flex flex-wrap justify-center gap-8">
-                        {tech.map((t, i) => <TechIcon key={i} icon={t.icon} label={t.label} delay={i * 0.1} />)}
+                    <div className="flex flex-wrap justify-center gap-6 sm:gap-10">
+                        {tech.map((t, i) => <TechIcon key={i} icon={t.icon} label={t.label} delay={i * 0.08} />)}
                     </div>
                 </div>
             </section>
 
             {/* ===== STATS ===== */}
-            <section id="stats" className="py-12 md:py-20">
+            <section id="stats" className="py-12 md:py-20 relative z-10">
                 <div className="container mx-auto px-4">
-                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="max-w-4xl mx-auto">
-                        <motion.p variants={fadeUp} className={`text-center mb-12 text-lg ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}>
-                            Building AI systems that transform how organizations operate.
+                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="max-w-4xl mx-auto space-y-12">
+                        <motion.p variants={fadeUp} className="text-center text-slate-600 text-lg md:text-xl font-body font-semibold max-w-2xl mx-auto leading-relaxed">
+                            Pioneering enterprise AI software built for compliance, scale, and high-performance outcomes.
                         </motion.p>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
                             {[
                                 { value: 5000, suffix: '+', label: 'Training Sessions' },
                                 { value: 200, suffix: '+', label: 'AI Specialists' },
@@ -1114,11 +930,11 @@ const About = () => {
                             ].map((s, i) => (
                                 <motion.div key={i} variants={fadeUp}>
                                     <TiltCard>
-                                        <div className="p-6 text-center">
-                                            <div className={`text-3xl md:text-4xl font-bold mb-1 ${theme === 'dark' ? 'text-[#2EE1C7]' : 'text-brand-green-600'}`}>
+                                        <div className="p-6 text-center space-y-1 font-body">
+                                            <div className="text-3xl md:text-4xl font-serif font-bold text-[#2D6A4F]">
                                                 <Counter value={s.value} suffix={s.suffix} />
                                             </div>
-                                            <div className={`text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>{s.label}</div>
+                                            <div className="text-sm font-semibold text-slate-500">{s.label}</div>
                                         </div>
                                     </TiltCard>
                                 </motion.div>
@@ -1129,7 +945,7 @@ const About = () => {
             </section>
 
             {/* ===== PURPOSE / GROWTH SECTION ===== */}
-            <section className="py-16 md:py-24 overflow-hidden">
+            <section className="py-16 md:py-24 overflow-hidden relative z-10">
                 <div className="container mx-auto px-4">
                     <div className="grid lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
                         {/* Left Content */}
@@ -1141,15 +957,16 @@ const About = () => {
                                 hidden: { opacity: 0 },
                                 visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
                             }}
+                            className="space-y-6"
                         >
-                            <h2 className={`text-4xl md:text-5xl lg:text-[3.5rem] font-bold leading-[1.1] mb-8 ${theme === 'dark' ? 'text-dark-text' : 'text-gray-900'}`}>
+                            <h2 className="text-4xl md:text-5xl font-serif font-bold leading-[1.1] text-gray-950">
                                 {HEADLINE_WORDS.map((word, i) => (
                                     <span key={i} className="inline-block whitespace-pre">
                                         <motion.span
                                             className="inline-block"
                                             variants={{
-                                                hidden: { opacity: 0, y: 20 },
-                                                visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+                                                hidden: { opacity: 0, y: 15 },
+                                                visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } }
                                             }}
                                         >
                                             {word}
@@ -1160,32 +977,28 @@ const About = () => {
                             </h2>
 
                             <motion.p
-                                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-                                className={`text-xl mb-8 leading-relaxed font-medium ${theme === 'dark' ? 'text-dark-text' : 'text-slate-700'}`}
+                                variants={{ hidden: { opacity: 0, y: 15 }, visible: { opacity: 1, y: 0 } }}
+                                className="text-lg md:text-xl leading-relaxed font-body font-semibold text-slate-800"
                             >
-                                We work with enterprises to reimagine business with our AI Agent Platform, AI Solutions for Work, Service and Process, and Agent Marketplace.
+                                We partner with leading organizations to build next-generation agentic solutions, automating complex workflows with unmatched speed, accuracy, and security filters.
                             </motion.p>
 
                             <motion.p
-                                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-                                className={`text-lg mb-12 leading-relaxed ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-500'}`}
+                                variants={{ hidden: { opacity: 0, y: 15 }, visible: { opacity: 1, y: 0 } }}
+                                className="text-sm sm:text-base leading-relaxed font-body font-medium text-slate-600"
                             >
-                                With Frostrek, customers get a standardized approach to developing, deploying, and orchestrating AI agents across the enterprise with speed, control, and flexibility. We help you keep up with the rapid pace of the AI industry.
+                                From planning workflows to orchestrating hundreds of parallel agents, our systems scale seamlessly on auto-scaling clusters, ensuring you stay ahead of the curve in a hyper-competitive AI landscape.
                             </motion.p>
 
                             <motion.div
                                 variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
-                                className={`relative pl-8 border-l border-dotted ${theme === 'dark' ? 'border-[#2EE1C7]/30' : 'border-gray-300'}`}
+                                className="relative pl-6 border-l border-dashed border-gray-300 space-y-4 pt-2"
                             >
-                                <div className={`absolute top-0 left-[-1px] w-[1px] h-8 ${theme === 'dark' ? 'bg-[#2EE1C7]' : 'bg-black'}`}></div>
-                                <div className={`absolute bottom-0 left-[-1px] w-[1px] h-8 ${theme === 'dark' ? 'bg-[#2EE1C7]' : 'bg-black'}`}></div>
-
                                 <div className="flex flex-wrap gap-4">
-                                    <MagneticButton variant="primary" onClick={() => navigate("/experience")} className={`px-8 py-4 !rounded-none !shadow-none font-bold text-xs tracking-widest uppercase ${theme === 'dark' ? '!bg-[#2EE1C7] !text-black hover:!bg-white' : '!bg-gray-950 !text-white hover:!bg-brand-green-600'}`}>
-                                        <span className="flex items-center gap-2">VIEW OUR AGENT PLATFORM <span className={theme === 'dark' ? 'text-black' : 'text-brand-green-400'}>•</span></span>
+                                    <MagneticButton variant="primary" onClick={() => navigate("/experience")} className="px-6 py-3.5 text-xs font-bold tracking-wider uppercase bg-[#2D6A4F] text-white">
+                                        VIEW OUR AGENT PLATFORM
                                     </MagneticButton>
-
-                                    <MagneticButton variant="secondary" onClick={() => navigate("/contact")} className="px-8 py-4 font-bold text-xs tracking-widest uppercase">
+                                    <MagneticButton variant="secondary" onClick={() => navigate("/contact")} className="px-6 py-3.5 text-xs font-bold tracking-wider uppercase border border-gray-200">
                                         CONTACT US
                                     </MagneticButton>
                                 </div>
@@ -1194,70 +1007,70 @@ const About = () => {
 
                         {/* Right Image */}
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.95 }}
+                            initial={{ opacity: 0, scale: 0.96 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
+                            transition={{ duration: 0.7 }}
                             className="relative"
                         >
-                            <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-square lg:aspect-[4/3]">
+                            <div className="relative rounded-3xl overflow-hidden shadow-xl aspect-square sm:aspect-[4/3] border border-gray-100">
                                 <img
                                     src="/campus-4.jpg"
-                                    alt="Frostrek Team"
+                                    alt="Frostrek Team Workspaces"
                                     className="w-full h-full object-cover"
                                     loading="lazy"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent"></div>
 
                                 {/* Floating Logo Overlay */}
                                 <motion.div
-                                    className="absolute bottom-8 right-8"
-                                    initial={{ y: 20, opacity: 0 }}
+                                    className="absolute bottom-6 right-6"
+                                    initial={{ y: 15, opacity: 0 }}
                                     whileInView={{ y: 0, opacity: 1 }}
-                                    transition={{ delay: 0.4 }}
+                                    transition={{ delay: 0.3 }}
                                 >
-                                    <div className="bg-white/90 backdrop-blur-sm p-2 rounded-xl shadow-lg border border-white/50">
-                                        <div className="text-2xl font-bold tracking-tight text-gray-900">
-                                            Team <span className={theme === 'dark' ? 'text-[#2EE1C7]' : 'text-brand-green-500'}> Frostrek</span>
+                                    <div className="bg-white/95 backdrop-blur-md px-4 py-2 rounded-xl shadow-lg border border-gray-100">
+                                        <div className="text-base font-serif font-bold text-gray-900">
+                                            Team <span className="text-[#2D6A4F]">Frostrek</span>
                                         </div>
                                     </div>
                                 </motion.div>
                             </div>
 
-                            {/* Subtle Decorative Elements */}
-                            <div className="absolute -top-12 -right-12 w-64 h-64 bg-[#2EE1C7]/5 rounded-full blur-3xl -z-10"></div>
-                            <div className="absolute -bottom-12 -left-12 w-64 h-64 bg-[#2EE1C7]/5 rounded-full blur-3xl -z-10"></div>
+                            {/* Background blur overlays for depth */}
+                            <div className="absolute -top-12 -right-12 w-48 h-48 bg-[#2D6A4F]/5 rounded-full blur-3xl -z-10" />
+                            <div className="absolute -bottom-12 -left-12 w-48 h-48 bg-[#2D6A4F]/5 rounded-full blur-3xl -z-10" />
                         </motion.div>
                     </div>
                 </div>
             </section>
 
             {/* ===== TIMELINE SECTION ===== */}
-            <section className="py-16 md:py-24 relative overflow-hidden">
+            <section className="py-16 md:py-24 relative overflow-hidden z-10">
                 <div className="container mx-auto px-4">
-                    <div className="text-center mb-20">
+                    <div className="text-center mb-16 space-y-3">
                         <motion.h2
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 15 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className={`text-4xl md:text-5xl font-bold mb-6 ${theme === 'dark' ? 'text-dark-text' : 'text-gray-900'}`}
+                            className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-gray-950"
                         >
                             Our Journey
                         </motion.h2>
                         <motion.p
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 15 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.1 }}
-                            className={`text-xl max-w-2xl mx-auto ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}
+                            className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto font-body font-medium"
                         >
-                            From a bold idea to a global leader in Agentic AI.
+                            From a core R&D initiative to a global trailblazer in Multi-Agent Enterprise systems.
                         </motion.p>
                     </div>
 
                     <div className="relative max-w-5xl mx-auto">
-                        {/* Vertical Line */}
-                        <div className={`absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b ${theme === 'dark' ? 'from-[#2EE1C7]/0 via-[#2EE1C7]/50 to-[#2EE1C7]/0' : 'from-brand-green-500/0 via-brand-green-500/50 to-brand-green-500/0'} md:-translate-x-1/2`}></div>
+                        {/* Vertical line with exact green gradient */}
+                        <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#2D6A4F]/0 via-[#2D6A4F]/40 to-[#2D6A4F]/0 md:-translate-x-1/2" />
 
                         {TIMELINE_DATA.map((item, i) => {
                             const isActive = activeImageIndex === i;
@@ -1265,92 +1078,67 @@ const About = () => {
                             return (
                                 <motion.div
                                     key={i}
-                                    initial={{ opacity: 0, y: 30 }}
+                                    initial={{ opacity: 0, y: 25 }}
                                     whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true, margin: "-50px" }}
-                                    transition={{ delay: i * 0.1, duration: 0.5 }}
+                                    viewport={{ once: true, margin: "-40px" }}
+                                    transition={{ delay: i * 0.08, duration: 0.5 }}
                                     className={`relative flex items-center gap-8 mb-16 last:mb-0 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
                                 >
-                                    {/* Timeline Dot with Ref */}
+                                    {/* Timeline Dot */}
                                     <div
                                         ref={(el) => {
                                             if (el) dotsRef.current[i] = el;
                                         }}
-                                        className="absolute left-4 md:left-1/2 w-4 h-4 rounded-full bg-[#2EE1C7] shadow-[0_0_0_4px_rgba(46,225,199,0.2)] z-10 md:-translate-x-1/2 translate-x-[-7px] md:translate-x-[-8px]"
+                                        className="absolute left-4 md:left-1/2 w-4.5 h-4.5 rounded-full bg-[#2D6A4F] border-4 border-white shadow-md z-10 md:-translate-x-1/2 translate-x-[-10px] md:translate-x-[-9px]"
                                     >
-                                        {/* Pulsing effect when active */}
                                         {isActive && (
                                             <motion.div
-                                                className="absolute inset-0 bg-[#2EE1C7] rounded-full"
-                                                animate={{ scale: [1, 1.3, 1], opacity: [1, 0.5, 1] }}
+                                                className="absolute inset-0 bg-[#2D6A4F] rounded-full"
+                                                animate={{ scale: [1, 1.4, 1], opacity: [1, 0.4, 1] }}
                                                 transition={{ duration: 1.5, repeat: Infinity }}
                                             />
                                         )}
                                     </div>
 
-                                    {/* Content Card */}
-                                    <div
-                                        className={`ml-12 md:ml-0 md:w-1/2 ${i % 2 === 0 ? 'md:pr-16 text-left md:text-right' : 'md:pl-16 text-left'}`}
-                                    >
+                                    {/* Content Card with perfect contrast */}
+                                    <div className={`ml-12 md:ml-0 md:w-1/2 ${i % 2 === 0 ? 'md:pr-12 text-left md:text-right' : 'md:pl-12 text-left'}`}>
                                         <motion.div
-                                            className={`rounded-2xl border-2 shadow-sm p-6 cursor-pointer transition-all duration-300 ${theme === 'dark' ? 'bg-dark-card border-[#2EE1C7]/20 hover:border-[#2EE1C7] hover:shadow-[0_10px_30px_-10px_rgba(46,225,199,0.3)]' : 'bg-white border-gray-100'}`}
-                                            whileHover={{
-                                                y: -4,
-                                                ...(theme !== 'dark' && {
-                                                    borderColor: item.color.border,
-                                                    boxShadow: `0 10px 30px -10px ${item.color.shadow}`
-                                                })
-                                            }}
-                                            transition={{ duration: 0.2 }}
+                                            className="bg-white rounded-2xl border border-gray-100 shadow-md p-6 cursor-pointer"
+                                            whileHover={{ y: -3, boxShadow: '0 12px 30px rgba(45,106,79,0.08)' }}
                                         >
-                                            <div className={`flex flex-col gap-3 ${i % 2 === 0 ? 'md:items-end' : 'md:items-start'}`}>
-                                                <div className="flex items-center gap-3 mb-1">
-                                                    <span className={`px-3.5 py-1 rounded-full text-sm font-bold shadow-sm border ${theme === 'dark' ? 'bg-[#2EE1C7]/10 text-[#2EE1C7] border-[#2EE1C7]/40' : `${item.color.bg} ${item.color.text} border-transparent`}`}>
+                                            <div className={`flex flex-col gap-2 ${i % 2 === 0 ? 'md:items-end' : 'md:items-start'}`}>
+                                                <div className="flex items-center gap-2 mb-1">
+                                                    <span className="px-3 py-0.5 rounded-full text-xs font-bold bg-[#E8F5EE] border border-[#2D6A4F]/20 text-[#2D6A4F] font-body">
                                                         {item.year}
                                                     </span>
-                                                    <item.icon className={`w-5 h-5 ${theme === 'dark' ? 'text-[#2EE1C7]' : item.color.iconColor} ${i % 2 === 0 ? 'md:order-first' : ''}`} />
+                                                    <item.icon className="w-4 h-4 text-[#2D6A4F]" />
                                                 </div>
-                                                <h3 className={`text-2xl font-bold ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>{item.title}</h3>
-                                                <p className={`leading-relaxed font-medium ${theme === 'dark' ? 'text-slate-300' : 'text-gray-600'}`}>
+                                                <h3 className="text-xl font-serif font-bold text-gray-900">{item.title}</h3>
+                                                <p className="text-slate-600 text-sm leading-relaxed font-body font-medium">
                                                     {item.description}
                                                 </p>
                                             </div>
                                         </motion.div>
                                     </div>
 
-                                    {/* IMAGE DISPLAY - ONLY WHEN DOT IS AT CENTER */}
-                                    <div className={`hidden md:flex md:w-1/2 items-center ${i % 2 === 0 ? 'md:pl-16 justify-start' : 'md:pr-16 justify-end'}`}>
+                                    {/* Milestone visual block */}
+                                    <div className={`hidden md:flex md:w-1/2 items-center ${i % 2 === 0 ? 'md:pl-12 justify-start' : 'md:pr-12 justify-end'}`}>
                                         <AnimatePresence mode="wait">
                                             {isActive && (
                                                 <motion.div
-                                                    key={i}
-                                                    initial={{ opacity: 0, scale: 0.95, y: 10 }}
-                                                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                                                    exit={{ opacity: 0, scale: 0.95, y: 10 }}
-                                                    transition={{ duration: 0.5, ease: "easeOut" }}
-                                                    className="relative overflow-hidden rounded-2xl shadow-2xl w-[300px] h-[200px]"
-                                                    style={{
-                                                        boxShadow: theme === 'dark' ? '0 25px 50px -12px rgba(46, 225, 199, 0.2)' : `0 25px 50px -12px ${item.color.shadow}`
-                                                    }}
+                                                    initial={{ opacity: 0, scale: 0.95 }}
+                                                    animate={{ opacity: 1, scale: 1 }}
+                                                    exit={{ opacity: 0, scale: 0.95 }}
+                                                    transition={{ duration: 0.4 }}
+                                                    className="relative overflow-hidden rounded-2xl shadow-lg border border-gray-100 w-[280px] h-[180px]"
                                                 >
-                                                    <motion.img
+                                                    <img
                                                         src={item.image}
                                                         alt={item.title}
                                                         className="w-full h-full object-cover"
                                                         loading="lazy"
-                                                        initial={{ scale: 1.05 }}
-                                                        animate={{ scale: 1 }}
-                                                        transition={{ duration: 0.6 }}
                                                     />
-                                                    {/* Gradient overlay */}
-                                                    <div
-                                                        className="absolute inset-0 pointer-events-none"
-                                                        style={{
-                                                            background: theme === 'dark'
-                                                                ? 'linear-gradient(135deg, rgba(46,225,199,0.08) 0%, transparent 50%)'
-                                                                : `linear-gradient(135deg, ${item.color.border}15 0%, transparent 50%)`
-                                                        }}
-                                                    />
+                                                    <div className="absolute inset-0 bg-[#2D6A4F]/5 pointer-events-none" />
                                                 </motion.div>
                                             )}
                                         </AnimatePresence>
@@ -1363,110 +1151,47 @@ const About = () => {
             </section>
 
             {/* ===== INNOVATION ENGINE ===== */}
-            <section className={`py-16 md:py-24 ${theme === 'dark' ? 'bg-dark-card' : 'bg-gradient-to-b from-slate-50/50 to-white'}`}>
+            <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50/50 via-white to-white border-y border-gray-100 relative z-10">
                 <div className="container mx-auto px-4">
-                    <div className="text-center mb-16">
-                        <motion.span
-                            initial={{ opacity: 0, y: 10 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            className={`inline-block px-4 py-2 rounded-full text-sm font-semibold mb-4 ${theme === 'dark' ? 'bg-dark-accent/20 text-dark-accent' : 'bg-gradient-to-r from-brand-green-100 to-brand-green-200 text-brand-green-700'}`}
-                        >
-                            How We Work
-                        </motion.span>
-                        <motion.h2
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            className={`text-4xl md:text-5xl font-bold mb-4 ${theme === 'dark' ? 'text-dark-text' : 'text-gray-900'}`}
-                        >
+                    <div className="text-center mb-16 space-y-3">
+                        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#E8F5EE] text-[#2D6A4F] border border-[#2D6A4F]/15 font-body uppercase tracking-wider">
+                            <Sparkles size={12} /> Execution Strategy
+                        </div>
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-gray-950">
                             Our Innovation Engine
-                        </motion.h2>
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.1 }}
-                            className={`text-xl max-w-2xl mx-auto ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}
-                        >
-                            A proven methodology that transforms ideas into enterprise-grade AI solutions.
-                        </motion.p>
+                        </h2>
+                        <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto font-body font-medium">
+                            Our robust, multi-phase testing and orchestration blueprint ensures seamless, risk-free enterprise AI deployment.
+                        </p>
                     </div>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
-                    >
-                        <InnovationProcess />
-                    </motion.div>
+                    <InnovationProcess />
                 </div>
             </section>
 
-            {/* ===== TEAM / LEADERSHIP ===== */}
-            {/* Hidden as per requirement */}
-            {false && (
-                <section className={`py-16 md:py-24 ${theme === 'dark' ? 'bg-dark-bg' : 'bg-gradient-to-b from-white via-slate-50/50 to-white'}`}>
-                    <div className="container mx-auto px-4">
-                        <div className="text-center mb-16">
-                            <motion.span
-                                initial={{ opacity: 0, y: 10 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                className={`inline-block px-4 py-2 rounded-full text-sm font-semibold mb-4 ${theme === 'dark' ? 'bg-dark-accent/20 text-dark-accent' : 'bg-brand-green-100 text-brand-green-700'}`}
-                            >
-                                Meet the Team
-                            </motion.span>
-                            <motion.h2
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                className={`text-4xl md:text-5xl font-bold mb-4 ${theme === 'dark' ? 'text-dark-text' : 'text-gray-900'}`}
-                            >
-                                Leadership That Drives Innovation
-                            </motion.h2>
-                            <motion.p
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: 0.1 }}
-                                className={`text-xl max-w-2xl mx-auto ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}
-                            >
-                                World-class experts united by a mission to make AI accessible and impactful.
-                            </motion.p>
-                        </div>
-
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                            {TEAM_DATA.map((member, i) => (
-                                <TeamFlipCard key={i} member={member} delay={i * 0.1} />
-                            ))}
-                        </div>
-                    </div>
-                </section>
-            )}
-
             {/* ===== CORE VALUES ===== */}
-            <section className="py-12 md:py-20">
+            <section className="py-16 md:py-24 relative z-10 bg-white">
                 <div className="container mx-auto px-4">
-                    <div className="text-center mb-12">
-                        <h2 className={`text-3xl md:text-4xl font-bold mb-3 ${theme === 'dark' ? 'text-dark-text' : 'text-gray-900'}`}>Core Values</h2>
-                        <p className={theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}>The principles that guide us</p>
+                    <div className="text-center mb-16 space-y-2">
+                        <h2 className="text-3xl sm:text-4xl font-serif font-bold text-gray-900">Core Values</h2>
+                        <p className="text-slate-600 font-body font-semibold">The foundations powering our platform</p>
                     </div>
 
-                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-5xl mx-auto">
+                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
                         {values.map((v, i) => (
                             <motion.div key={i} variants={fadeUp}>
                                 <TiltCard>
-                                    <div className="p-6 text-center">
+                                    <div className="p-6 text-center space-y-4">
                                         <motion.div
-                                            className={`w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4 bg-gradient-to-br from-[#2EE1C7] to-[#2EE1C7]/70`}
-                                            whileHover={{ rotate: 10, scale: 1.1 }}
+                                            className="w-12 h-12 rounded-2xl flex items-center justify-center mx-auto bg-gradient-to-br from-[#2D6A4F] to-[#2D6A4F]/70 shadow-md"
+                                            whileHover={{ rotate: 8, scale: 1.05 }}
                                         >
-                                            <v.icon className="w-7 h-7 text-white" />
+                                            <v.icon className="w-5 h-5 text-white" />
                                         </motion.div>
-                                        <h3 className={`font-bold mb-1 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>{v.title}</h3>
-                                        <p className={`text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>{v.desc}</p>
+                                        <div className="space-y-1 font-body">
+                                            <h3 className="font-serif font-bold text-gray-900 text-lg">{v.title}</h3>
+                                            <p className="text-slate-500 text-xs sm:text-sm font-medium leading-relaxed">{v.desc}</p>
+                                        </div>
                                     </div>
                                 </TiltCard>
                             </motion.div>
@@ -1476,11 +1201,11 @@ const About = () => {
             </section>
 
             {/* ===== WHY CHOOSE ===== */}
-            <section className="py-12 md:py-20">
+            <section className="py-16 md:py-24 relative z-10 bg-gray-50/40 border-t border-gray-100">
                 <div className="container mx-auto px-4">
-                    <div className="text-center mb-12">
-                        <h2 className={`text-3xl md:text-4xl font-bold mb-3 ${theme === 'dark' ? 'text-dark-text' : 'text-gray-900'}`}>Why Frostrek?</h2>
-                        <p className={theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}>Experience the difference</p>
+                    <div className="text-center mb-16 space-y-2">
+                        <h2 className="text-3xl sm:text-4xl font-serif font-bold text-gray-900">Why Frostrek?</h2>
+                        <p className="text-slate-600 font-body font-semibold">Our unique platform advantages</p>
                     </div>
 
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -1499,114 +1224,65 @@ const About = () => {
                                     >
                                         {/* Front Side */}
                                         <div
-                                            className={`absolute inset-0 w-full h-full rounded-lg shadow-lg border transition-shadow duration-300 hover:shadow-xl overflow-hidden ${theme === 'dark'
-                                                ? i % 2 === 0
-                                                    ? 'bg-dark-card border-[#2EE1C7]/30'
-                                                    : 'bg-dark-card border-[#2EE1C7]/30'
-                                                : i % 2 === 0
-                                                    ? 'bg-white border-brand-green-100'
-                                                    : 'bg-white border-brand-yellow-100'
-                                                }`}
+                                            className="absolute inset-0 w-full h-full rounded-2xl shadow-md border border-gray-100 bg-white p-6 pb-8 flex flex-col justify-between overflow-hidden"
                                             style={{
                                                 backfaceVisibility: 'hidden',
                                                 WebkitBackfaceVisibility: 'hidden'
                                             }}
                                         >
-                                            {/* Decorative gradient background */}
-                                            <div className={`absolute inset-0 opacity-5 ${i % 2 === 0
-                                                ? 'bg-gradient-to-br from-brand-green-500 via-transparent to-brand-green-500/30'
-                                                : 'bg-gradient-to-br from-brand-yellow-500 via-transparent to-brand-yellow-500/30'
-                                                }`} />
-
-                                            {/* Decorative pattern */}
-                                            <div className="absolute top-0 right-0 w-32 h-32 opacity-10">
-                                                <div className={`absolute inset-0 ${i % 2 === 0 ? 'bg-brand-green-500' : 'bg-brand-yellow-500'}`}
-                                                    style={{ clipPath: 'polygon(100% 0, 0 0, 100% 100%)' }} />
-                                            </div>
-
-                                            <div className="relative p-6 pb-8 flex flex-col h-full">
-                                                {/* Number badge */}
-                                                <div className="flex items-start gap-4 mb-4">
-                                                    <motion.div
-                                                        className={`flex-shrink-0 w-16 h-16 rounded-xl flex items-center justify-center font-bold text-2xl shadow-lg ${i % 2 === 0
-                                                            ? theme === 'dark'
-                                                                ? 'bg-[#2EE1C7]/20 text-[#2EE1C7] border border-[#2EE1C7]/30'
-                                                                : 'bg-gradient-to-br from-brand-green-400 to-brand-green-600 text-white'
-                                                            : theme === 'dark'
-                                                                ? 'bg-[#2EE1C7]/20 text-[#2EE1C7] border border-[#2EE1C7]/30'
-                                                                : 'bg-gradient-to-br from-brand-yellow-400 to-brand-yellow-600 text-white'
-                                                            }`}
-                                                        whileHover={{ scale: 1.05, rotate: 5 }}
-                                                    >
+                                            <div className="space-y-4">
+                                                <div className="flex items-start gap-4">
+                                                    <div className="w-12 h-12 rounded-xl bg-[#E8F5EE] border border-[#2D6A4F]/20 flex items-center justify-center font-serif font-bold text-[#2D6A4F] text-lg shrink-0">
                                                         {f.num}
-                                                    </motion.div>
-                                                    <div className="flex-1 min-w-0">
-                                                        <h3 className={`font-bold text-lg mb-1 ${theme === 'dark' ? 'text-dark-text' : 'text-gray-900'}`}>{f.title}</h3>
-                                                        <div className={`h-1 w-12 rounded-full ${i % 2 === 0 ? 'bg-brand-green-500' : 'bg-brand-yellow-500'}`} />
+                                                    </div>
+                                                    <div className="space-y-1">
+                                                        <h3 className="font-serif font-bold text-base text-gray-900 leading-tight">{f.title}</h3>
+                                                        <div className="h-1 w-10 bg-[#2D6A4F] rounded-full" />
                                                     </div>
                                                 </div>
-
-                                                {/* Description */}
-                                                <p className={`text-sm leading-relaxed flex-1 ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}>
+                                                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-body font-medium">
                                                     {f.desc}
                                                 </p>
+                                            </div>
 
-                                                {/* Footer with stat */}
-                                                <div className={`flex items-center justify-between pt-5 mt-4 mb-1 border-t ${theme === 'dark'
-                                                    ? i % 2 === 0 ? 'border-[#2EE1C7]/20' : 'border-[#2EE1C7]/20'
-                                                    : i % 2 === 0 ? 'border-brand-green-100' : 'border-brand-yellow-100'
-                                                    }`}>
-                                                    <span className={`text-xs font-semibold ${theme === 'dark' ? 'text-[#2EE1C7]' : i % 2 === 0 ? 'text-brand-green-600' : 'text-brand-yellow-600'}`}>
-                                                        {f.stat}
-                                                    </span>
-                                                    <motion.div
-                                                        className={`w-8 h-8 rounded-full flex items-center justify-center ${theme === 'dark'
-                                                            ? 'bg-[#2EE1C7]/10 text-[#2EE1C7]'
-                                                            : i % 2 === 0
-                                                                ? 'bg-brand-green-100 text-brand-green-600'
-                                                                : 'bg-brand-yellow-100 text-brand-yellow-600'
-                                                            }`}
-                                                        whileHover={{ scale: 1.1, rotate: 90 }}
-                                                    >
-                                                        →
-                                                    </motion.div>
-                                                </div>
+                                            <div className="flex items-center justify-between border-t border-gray-50 pt-4 font-body">
+                                                <span className="text-xs font-bold text-[#2D6A4F]">
+                                                    {f.stat}
+                                                </span>
+                                                <span className="text-xs font-bold text-gray-400 flex items-center gap-1 hover:text-[#2D6A4F]">
+                                                    Flip for details ↻
+                                                </span>
                                             </div>
                                         </div>
 
-                                        {/* Back Side */}
+                                        {/* Back Side - Fixed Text Contrast (Light bg, dark text) */}
                                         <div
-                                            className={`absolute inset-0 w-full h-full rounded-lg shadow-lg border overflow-hidden ${theme === 'dark'
-                                                ? i % 2 === 0
-                                                    ? 'bg-dark-card border-[#2EE1C7]/30'
-                                                    : 'bg-dark-card border-[#2EE1C7]/30'
-                                                : i % 2 === 0
-                                                    ? 'bg-white border-brand-green-100'
-                                                    : 'bg-white border-brand-yellow-100'
-                                                }`}
+                                            className="absolute inset-0 w-full h-full rounded-2xl shadow-md border border-[#2D6A4F]/30 bg-white p-6 flex flex-col justify-between overflow-hidden"
                                             style={{
                                                 backfaceVisibility: 'hidden',
                                                 WebkitBackfaceVisibility: 'hidden',
                                                 transform: 'rotateY(180deg)'
                                             }}
                                         >
-                                            <div className="p-5 h-full flex flex-col overflow-y-auto">
-                                                <div className="flex items-center justify-between mb-2 flex-shrink-0">
-                                                    <h3 className={`font-bold text-base ${theme === 'dark' ? 'text-dark-text' : 'text-gray-900'}`}>{f.title}</h3>
-                                                    <span className={`text-xl font-bold flex-shrink-0 text-[#2EE1C7]`}>{f.num}</span>
+                                            <div className="space-y-3">
+                                                <div className="flex items-center justify-between border-b border-gray-100 pb-2">
+                                                    <h3 className="font-serif font-bold text-sm sm:text-base text-gray-900">{f.title}</h3>
+                                                    <span className="text-sm font-bold text-[#2D6A4F]">{f.num}</span>
                                                 </div>
-                                                <p className={`text-xs mb-3 leading-relaxed ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}>{f.details}</p>
-                                                <div className="space-y-1.5 flex-1">
+                                                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-body font-medium">
+                                                    {f.details}
+                                                </p>
+                                                <div className="space-y-1.5 pt-1">
                                                     {f.highlights.map((highlight, idx) => (
-                                                        <div key={idx} className="flex items-start gap-2">
-                                                            <CheckCircle2 size={14} className="flex-shrink-0 mt-0.5 text-[#2EE1C7]" />
-                                                            <span className={`text-xs leading-tight ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-700'}`}>{highlight}</span>
+                                                        <div key={idx} className="flex items-center gap-2">
+                                                            <CheckCircle2 size={13} className="text-[#2D6A4F] shrink-0" />
+                                                            <span className="text-xs text-gray-700 font-body font-semibold">{highlight}</span>
                                                         </div>
                                                     ))}
                                                 </div>
-                                                <div className="mt-3 text-center flex-shrink-0">
-                                                    <span className="text-xs font-semibold text-[#2EE1C7]">Click to flip back ↻</span>
-                                                </div>
+                                            </div>
+                                            <div className="text-center text-[11px] font-bold text-[#2D6A4F] pt-2 border-t border-gray-100 font-body">
+                                                Click to flip back ↻
                                             </div>
                                         </div>
                                     </motion.div>
@@ -1618,129 +1294,79 @@ const About = () => {
             </section>
 
             {/* ===== GLOBAL PRESENCE ===== */}
-            <section className={`py-16 md:py-24 relative overflow-hidden ${theme === 'dark' ? 'bg-dark-bg' : 'bg-gradient-to-b from-white via-slate-50/50 to-white'}`}>
-
-                {/* Decorative background */}
-                <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                    <div className={`absolute top-20 -left-20 w-96 h-96 rounded-full blur-3xl opacity-20 ${theme === 'dark' ? 'bg-[#2EE1C7]' : 'bg-brand-green-200'}`} />
-                    <div className={`absolute bottom-20 -right-20 w-96 h-96 rounded-full blur-3xl opacity-20 ${theme === 'dark' ? 'bg-[#2EE1C7]' : 'bg-brand-yellow-200'}`} />
-                </div>
-
-                <div className="container mx-auto px-4 relative z-10">
-
-                    {/* Header */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-center mb-16"
-                    >
-                        <motion.span
-                            initial={{ opacity: 0, y: 10 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            className={`inline-block px-4 py-2 rounded-full text-sm font-semibold mb-4 ${theme === 'dark' ? 'bg-dark-accent/20 text-dark-accent' : 'bg-gradient-to-r from-brand-green-100 to-brand-yellow-100 text-brand-green-700'}`}
-                        >
-                            <Globe className="inline w-4 h-4 mr-2" />
-                            Our Locations
-                        </motion.span>
-
-                        <h2 className={`text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r ${theme === 'dark' ? 'from-dark-text to-dark-text-muted' : 'from-gray-900 to-gray-700'} bg-clip-text text-transparent`}>
+            <section className="py-16 md:py-24 relative overflow-hidden z-10 bg-white">
+                <div className="container mx-auto px-4">
+                    <div className="text-center mb-16 space-y-3">
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold bg-[#E8F5EE] text-[#2D6A4F] border border-[#2D6A4F]/15 font-body uppercase tracking-wider">
+                            <Globe size={13} /> Our Global Offices
+                        </div>
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-gray-950">
                             Global Presence
                         </h2>
-
-                        <p className={`text-lg max-w-2xl mx-auto ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}>
-                            Serving enterprises across three continents
+                        <p className="text-slate-600 text-base sm:text-lg max-w-xl mx-auto font-body font-semibold">
+                            Serving fast-growing enterprises across three global hubs.
                         </p>
-                    </motion.div>
+                    </div>
 
-                    {/* Main Grid */}
-                    <div className="max-w-[1400px] mx-auto">
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="max-w-[1200px] mx-auto">
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {offices.map((o, i) => (
                                 <motion.div
                                     key={i}
-                                    initial={{ opacity: 0, y: 30 }}
+                                    initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
-                                    transition={{ delay: i * 0.1 }}
-                                    className={`group relative rounded-2xl overflow-hidden shadow-xl cursor-pointer h-[470px] w-[92%] mx-auto ${theme === 'dark' ? 'bg-dark-card' : 'bg-white'
-                                        }`}
-                                // onClick={() => setActiveOffice(i)}
+                                    transition={{ delay: i * 0.08 }}
+                                    className="group bg-white rounded-2xl border border-gray-100 shadow-md overflow-hidden flex flex-col justify-between h-[450px]"
                                 >
-                                    {/* Image with Hover Overlay ONLY on Image */}
-                                    <motion.div className="h-[70%] overflow-hidden relative group">
-
-                                        <motion.img
+                                    {/* Image block with hover directions */}
+                                    <div className="h-[60%] overflow-hidden relative group">
+                                        <img
                                             src={o.image}
                                             alt={o.city}
-                                            className="w-full h-full object-cover"
-                                            whileHover={{ scale: 1.05 }}
-                                            transition={{ duration: 0.4 }}
+                                            className="w-full h-full object-cover group-hover:scale-104 transition-transform duration-500"
+                                            loading="lazy"
                                         />
+                                        <div className="absolute inset-0 bg-black/15 group-hover:bg-black/45 transition-colors duration-300" />
 
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-
-                                        {/* Hover Overlay - NOW CENTERED ONLY ON IMAGE */}
-                                        <motion.div
-                                            className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                                            initial={{ opacity: 0 }}
-                                            whileHover={{ opacity: 1 }}
-                                        >
-                                            <div
-                                                className={`m-6 p-5 rounded-xl w-[88%] max-w-[320px] shadow-xl backdrop-blur-md ${theme === 'dark'
-                                                    ? 'bg-dark-card/95 border border-white/10'
-                                                    : 'bg-white/95 border border-gray-100'
-                                                    }`}
-                                            >
-                                                <p className={`text-sm mb-4 text-center ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'
-                                                    }`}>
+                                        {/* Hover map overlay */}
+                                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                            <div className="bg-white/95 backdrop-blur px-4 py-3 rounded-2xl shadow-xl max-w-[85%] border border-gray-100 text-center space-y-3">
+                                                <p className="text-xs text-gray-700 font-body font-semibold leading-relaxed">
                                                     {o.address}
                                                 </p>
-
-                                                <div className="flex justify-center">
-                                                    <motion.a
-                                                        href={o.mapUrl}
-                                                        target="_blank"
-                                                        className={`px-5 py-2 rounded-lg font-semibold text-sm ${theme === 'dark' ? 'bg-[#2EE1C7] text-black' : 'bg-gradient-to-r from-brand-green-500 to-brand-green-600 text-white'}`}
-                                                        whileHover={{ scale: 1.05 }}
-                                                        whileTap={{ scale: 0.95 }}
-                                                    >
-                                                        Get Directions
-                                                    </motion.a>
-                                                </div>
+                                                <a
+                                                    href={o.mapUrl}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="inline-block px-4 py-1.5 rounded-lg bg-[#2D6A4F] hover:bg-[#204F3B] text-white font-body font-bold text-xs shadow-md transition-colors"
+                                                >
+                                                    Get Directions
+                                                </a>
                                             </div>
-                                        </motion.div>
+                                        </div>
+                                    </div>
 
-                                    </motion.div>
-
-                                    {/* Info Section - Unaffected */}
-                                    <div className="h-[26%] p-5 flex flex-col justify-between">
-                                        <div>
-                                            <div className="flex items-center gap-2 mb-2">
-                                                <img src={o.flagImg} alt="flag" className="w-6 h-4 rounded" />
-                                                <span className={`text-xs font-bold uppercase tracking-wider ${theme === 'dark' ? 'text-[#2EE1C7]' : 'text-brand-green-600'
-                                                    }`}>
+                                    {/* Footer details */}
+                                    <div className="h-[40%] p-5 flex flex-col justify-between">
+                                        <div className="space-y-1.5">
+                                            <div className="flex items-center gap-1.5">
+                                                <img src={o.flagImg} alt="flag" className="w-5 h-3.5 rounded border border-gray-100 object-cover" />
+                                                <span className="text-[10px] font-bold uppercase tracking-wider text-[#2D6A4F] font-body">
                                                     {o.name}
                                                 </span>
                                             </div>
-
-                                            <h3 className={`text-xl font-bold ${theme === 'dark' ? 'text-dark-text' : 'text-gray-900'
-                                                }`}>
-                                                {o.city}
-                                            </h3>
-
-                                            <p className={`text-sm ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'
-                                                }`}>
-                                                {o.country}
-                                            </p>
+                                            <h3 className="text-xl font-serif font-bold text-gray-900">{o.city}</h3>
+                                            <p className="text-xs sm:text-sm text-gray-500 font-body font-medium">{o.country}</p>
                                         </div>
-                                        {/* MOBILE ONLY BUTTON */}
-                                        <div className="lg:hidden mt-2">
+
+                                        {/* Mobile directions link */}
+                                        <div className="lg:hidden">
                                             <a
                                                 href={o.mapUrl}
                                                 target="_blank"
-                                                className={`block w-full text-center px-4 py-2 rounded-lg font-semibold text-sm ${theme === 'dark' ? 'bg-[#2EE1C7] text-black' : 'bg-gradient-to-r from-brand-green-500 to-brand-green-600 text-white'}`}
+                                                rel="noopener noreferrer"
+                                                className="block w-full text-center py-2 rounded-xl bg-gray-50 border border-gray-200 text-xs font-bold text-gray-700 font-body"
                                             >
                                                 Get Directions
                                             </a>
@@ -1753,9 +1379,7 @@ const About = () => {
                 </div>
             </section>
 
-
-            {/* ===== CTA ===== */}
-            {/* ===== CTA ===== */}
+            {/* ===== CTA SECTION ===== */}
             <CTASection />
         </div>
     );
@@ -1763,5 +1387,4 @@ const About = () => {
 
 export default About;
 
-// Export unused components for potential future use
-export { FloatingIcon, InteractiveGlobe, CheckItem, CertificationBadge, AwardCard, ExpandableTechCategory, TechEcosystemDiagram };
+export { FloatingIcon, InteractiveGlobe, CheckItem, CertificationBadge, AwardCard, ExpandableTechCategory, TechEcosystemDiagram, TeamFlipCard };

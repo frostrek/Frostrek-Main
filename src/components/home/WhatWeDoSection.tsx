@@ -1,113 +1,281 @@
-import { Bot, MessageSquare, Headphones, Database, Zap } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { Factory, Trophy, Bot, CheckCircle, ArrowRight, Mic, MessageSquare, Sparkles } from 'lucide-react';
 
-const SERVICES = [
-    {
-        id: 'voice-ai',
-        title: 'AI Voice Agent',
-        icon: Headphones,
-        gradient: 'from-blue-500 to-cyan-500',
-        link: '/products/voice-ai'
-    },
-    {
-        id: 'chat-ai',
-        title: 'Chat AI Agent',
-        icon: MessageSquare,
-        gradient: 'from-green-500 to-teal-500',
-        link: '/products/frosty-ai'
-    },
-    {
-        id: 'ai-assist',
-        title: 'AI Agent Assist',
-        icon: Bot,
-        gradient: 'from-pink-500 to-rose-500',
-        link: '/products/voice-ai'
-    },
-    {
-        id: 'rag-search',
-        title: 'RAG Cognitive Search',
-        icon: Database,
-        gradient: 'from-orange-500 to-red-500',
-        link: '/solutions/support'
-    },
-    {
-        id: 'automation',
-        title: 'Workflow Automation',
-        icon: Zap,
-        gradient: 'from-purple-500 to-indigo-500',
-        link: '/solutions/sales'
-    }
+// ─── Observe.ai-style arrow SVG (exact paths from user) ─────────────────────
+const CurlyArrow = ({ className = '' }: { className?: string }) => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 150 84"
+        width="150"
+        height="84"
+        preserveAspectRatio="xMidYMid meet"
+        className={className}
+        aria-hidden
+        fill="none"
+    >
+        <g transform="matrix(1.203660011291504,0,0,1.203660011291504,78.125,34.75)" opacity="1">
+            <g opacity="1" transform="matrix(1,0,0,1,0,0)">
+                <path
+                    strokeLinecap="round"
+                    strokeLinejoin="miter"
+                    fillOpacity="0"
+                    strokeMiterlimit="4"
+                    stroke="currentColor"
+                    strokeOpacity="1"
+                    strokeWidth="4"
+                    d="M55.5,31.5 C55.5,31.5 -11.319000244140625,37.178001403808594 -9.857999801635742,-2.484999895095825 C-9.092000007629395,-23.27400016784668 24.405000686645508,-27.20800018310547 29.908000946044922,-5.761000156402588 C31.027999877929688,-1.3949999809265137 32.67499923706055,20.930999755859375 -1.75,24.5 C-31.881999969482422,27.624000549316406 -52.4640007019043,-9.656000137329102 -51.5,-18.334999084472656 C-51.375,-18.834999084472656 -36.25,-9.375 -36.25,-9.375"
+                />
+            </g>
+            <g opacity="1" transform="matrix(1,0,0,1,0,0)">
+                <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    fillOpacity="0"
+                    stroke="currentColor"
+                    strokeOpacity="1"
+                    strokeWidth="4"
+                    d="M-59.96900177001953,-3.303999900817871 C-59.96900177001953,-3.303999900817871 -51.46900177001953,-18.304000854492188 -51.46900177001953,-18.304000854492188"
+                />
+            </g>
+        </g>
+    </svg>
+);
+
+// ─── Card 1: Manufacturing OS ─────────────────────────────────────────────────
+const ManufacturingDemo = () => {
+    const [tick, setTick] = useState(0);
+    useEffect(() => {
+        const t = setInterval(() => setTick(v => (v + 1) % 4), 1800);
+        return () => clearInterval(t);
+    }, []);
+    const metrics = [{ label: 'OEE', value: '87%' }, { label: 'Cost/Unit', value: '$1.24' }, { label: 'Uptime', value: '99.2%' }];
+    const alerts = [
+        { id: 0, text: 'Extruder 3 — temp spike detected', icon: '⚡' },
+        { id: 1, text: 'Changeover optimised · saved 1.4h', icon: '✅' },
+        { id: 2, text: 'Batch cost updated · $1.24/kg', icon: '📊' },
+        { id: 3, text: 'Shift handover logged — Team B', icon: '📋' },
+    ];
+    return (
+        <div className="w-full text-xs select-none font-body">
+            <div className="bg-[#F4FAF7] border border-[#C8E6DA] rounded-xl px-4 py-2.5 mb-3 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#2D6A4F] animate-pulse" />
+                    <span className="text-[#2D6A4F]/60 text-[10px] uppercase tracking-widest font-semibold">Live Factory Dashboard</span>
+                </div>
+                <span className="text-gray-400 text-[10px]">30s refresh</span>
+            </div>
+            <div className="grid grid-cols-3 gap-2 mb-3">
+                {metrics.map(m => (
+                    <div key={m.label} className="bg-white border border-gray-100 rounded-xl p-3 text-center shadow-sm">
+                        <div className="text-[#2D6A4F] font-bold text-sm">{m.value}</div>
+                        <div className="text-gray-400 text-[10px] mt-0.5">{m.label}</div>
+                    </div>
+                ))}
+            </div>
+            <div className="space-y-2">
+                <AnimatePresence mode="popLayout">
+                    {[alerts[tick], alerts[(tick + 1) % 4]].map((a, i) => (
+                        <motion.div key={a.id} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.4, delay: i * 0.1 }} className="flex items-center gap-3 bg-[#F4FAF7] border border-[#C8E6DA] rounded-xl px-3 py-2.5">
+                            <span>{a.icon}</span>
+                            <span className="text-gray-600 text-[11px] leading-tight">{a.text}</span>
+                        </motion.div>
+                    ))}
+                </AnimatePresence>
+            </div>
+        </div>
+    );
+};
+
+// ─── Card 2: Web3 Commerce ────────────────────────────────────────────────────
+const Web3Demo = () => {
+    const [phase, setPhase] = useState(0);
+    useEffect(() => { const t = setInterval(() => setPhase(v => (v + 1) % 4), 1600); return () => clearInterval(t); }, []);
+    const clubs = [{ name: 'Real Madrid', emoji: '👑' }, { name: 'FC Barcelona', emoji: '🔵🔴' }, { name: 'Man City', emoji: '🩵' }];
+    const steps = [{ label: 'Wallet provisioned', done: true }, { label: 'Cart validated', done: phase >= 1 }, { label: 'On-chain settlement', done: phase >= 2 }, { label: 'Treasury updated', done: phase >= 3 }];
+    return (
+        <div className="w-full font-body text-xs select-none space-y-3">
+            <div className="bg-[#F4FAF7] border border-[#C8E6DA] rounded-xl px-4 py-3 flex items-center justify-between">
+                <div><div className="text-gray-400 text-[10px] uppercase tracking-widest mb-1">Wallet Balance</div><div className="text-[#2D6A4F] font-bold text-base">1,450 <span className="text-xs text-gray-400">$TOKEN</span></div></div>
+                <div className="w-9 h-9 rounded-full bg-[#E8F5EE] border border-[#C8E6DA] flex items-center justify-center"><Trophy className="w-4 h-4 text-[#2D6A4F]" /></div>
+            </div>
+            <div className="flex gap-2">
+                {clubs.map((c, i) => (<div key={c.name} className={`flex-1 border rounded-xl p-2 text-center transition-all duration-500 ${i === phase % 3 ? 'border-[#2D6A4F]/40 bg-[#F4FAF7]' : 'border-gray-100 bg-white'}`}><div className="text-sm">{c.emoji}</div><div className="text-gray-500 text-[9px] mt-0.5 truncate">{c.name}</div></div>))}
+            </div>
+            <div className="bg-white border border-gray-100 rounded-xl px-4 py-3 space-y-2 shadow-sm">
+                {steps.map(s => (<div key={s.label} className="flex items-center gap-2"><div className={`w-3.5 h-3.5 rounded-full flex items-center justify-center transition-all duration-500 flex-shrink-0 ${s.done ? 'bg-[#2D6A4F]' : 'bg-gray-100'}`}>{s.done && <CheckCircle className="w-2.5 h-2.5 text-white" />}</div><span className={`text-[10px] transition-colors duration-300 ${s.done ? 'text-gray-700' : 'text-gray-300'}`}>{s.label}</span></div>))}
+            </div>
+        </div>
+    );
+};
+
+// ─── Card 3: AI Agents ────────────────────────────────────────────────────────
+const AIAgentDemo = () => {
+    const [msgs, setMsgs] = useState<{ id: number; who: string; text: string }[]>([{ id: 0, who: 'user', text: 'I need to reschedule my appointment.' }]);
+    const [typing, setTyping] = useState(false);
+    const replies = [{ who: 'bot', text: 'Sure! I can handle that for you instantly.' }, { who: 'bot', text: 'What date works best for you?' }, { who: 'user', text: 'Next Tuesday at 2pm please.' }, { who: 'bot', text: '✅ Confirmed! Reminder set for Monday.' }];
+    const idx = useRef(0);
+    useEffect(() => {
+        const loop = () => {
+            if (idx.current >= replies.length) { setTimeout(() => { setMsgs([{ id: 0, who: 'user', text: 'I need to reschedule my appointment.' }]); idx.current = 0; }, 2500); return; }
+            setTyping(true);
+            setTimeout(() => { setTyping(false); const r = replies[idx.current]; setMsgs(prev => [...prev, { id: prev.length, ...r }]); idx.current++; }, 900);
+        };
+        const t = setInterval(loop, 1800);
+        return () => clearInterval(t);
+    }, []);
+    return (
+        <div className="w-full font-body text-xs select-none space-y-2">
+            <div className="flex items-center gap-2 bg-[#F4FAF7] border border-[#C8E6DA] rounded-xl px-3 py-2 mb-3">
+                <div className="w-7 h-7 rounded-full bg-[#E8F5EE] border border-[#C8E6DA] flex items-center justify-center"><Bot className="w-3.5 h-3.5 text-[#2D6A4F]" /></div>
+                <div><div className="text-gray-800 text-[10px] font-semibold">Frosty AI Agent</div><div className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-[#2D6A4F] animate-pulse" /><span className="text-[#2D6A4F] text-[9px]">Online</span></div></div>
+                <div className="ml-auto flex gap-1.5"><Mic className="w-3.5 h-3.5 text-gray-300" /><MessageSquare className="w-3.5 h-3.5 text-gray-300" /></div>
+            </div>
+            <div className="space-y-2 min-h-[140px]">
+                <AnimatePresence>
+                    {msgs.map(m => (<motion.div key={m.id} initial={{ opacity: 0, y: 8, scale: 0.95 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 0.3 }} className={`flex ${m.who === 'user' ? 'justify-end' : 'justify-start'}`}><div className={`max-w-[80%] px-3 py-2 rounded-2xl text-[11px] leading-snug ${m.who === 'user' ? 'bg-gray-100 text-gray-700 rounded-br-sm' : 'bg-[#E8F5EE] border border-[#C8E6DA] text-[#2D6A4F] rounded-bl-sm'}`}>{m.text}</div></motion.div>))}
+                </AnimatePresence>
+                {typing && (<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex justify-start"><div className="bg-[#E8F5EE] border border-[#C8E6DA] rounded-2xl rounded-bl-sm px-3 py-2 flex gap-1 items-center">{[0, 0.15, 0.3].map((d, i) => (<span key={i} className="w-1.5 h-1.5 rounded-full bg-[#2D6A4F] animate-bounce" style={{ animationDelay: `${d}s` }} />))}</div></motion.div>)}
+            </div>
+        </div>
+    );
+};
+
+// ─── Cards data ───────────────────────────────────────────────────────────────
+const CARDS = [
+    { icon: Factory, label: 'Manufacturing Intelligence', title: 'Frostrek Manufacturing OS', desc: 'Unify ERP, WMS, SCADA and PLC data into a single real-time intelligence hub. Live dashboards, AI cost analytics, and automated production scheduling.', href: '/products/frostrek-manufacturing-os', Demo: ManufacturingDemo },
+    { icon: Trophy, label: 'Web3 Commerce', title: 'Frostrek Web3 Commerce', desc: 'A multi-tenant Web3 e-commerce platform for global sports clubs. Circle programmable wallets, $TOKEN payments, and automated on-chain treasury settlement.', href: '/products/frostrek-web3-commerce', Demo: Web3Demo },
+    { icon: Bot, label: 'AI Agents', title: 'Frostrek AI Agents', desc: 'Deploy intelligent AI agents across voice, chat, and WhatsApp. Context-aware, sentiment-sensitive, resolving 80% of inquiries without human intervention.', href: '/products/frosty-ai', Demo: AIAgentDemo },
 ];
 
+// ─── Main Section ─────────────────────────────────────────────────────────────
 const WhatWeDoSection = () => {
+    const sectionRef = useRef(null);
+    const headingRef = useRef(null);
+    const isInView = useInView(sectionRef, { once: true, margin: '-80px' });
+    const headingInView = useInView(headingRef, { once: true, margin: '-60px' });
+
     return (
-        <section className="py-16 bg-background relative">
-            <div className="container mx-auto px-4 md:px-6">
-                {/* Header */}
-                <div className="text-center mb-12">
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 mb-4">
-                        <span className="w-2 h-2 rounded-full bg-cyan-500" />
-                        <span className="text-xs font-semibold text-cyan-400 uppercase tracking-wider">
-                            AI Agent Platform for Enterprises and Contact Center Automation
-                        </span>
-                    </div>
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                        Accelerate LLM Adoption and Build{' '}
-                        <span className="bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text text-transparent">
-                            AI Agents
-                        </span>
-                    </h2>
-                    <p className="text-gray-400 max-w-3xl mx-auto">
-                        Integrate with Any Data Source, Service, or Channel to Transform Business-Critical Tasks
-                    </p>
-                </div>
+        <section ref={sectionRef} className="bg-brand-light-bg py-24 md:py-32 px-4 overflow-hidden font-body">
+            <div className="max-w-7xl mx-auto">
 
-                {/* Service Buttons */}
-                <div className="flex flex-wrap justify-center items-center gap-4 max-w-5xl mx-auto">
-                    {SERVICES.map((service) => (
-                        <Link
-                            key={service.id}
-                            to={service.link}
-                            className={`
-                group relative overflow-hidden
-                px-6 py-3.5 rounded-full
-                bg-gradient-to-r ${service.gradient}
-                hover:shadow-lg hover:shadow-${service.gradient.split('-')[1]}-500/30
-                transition-all duration-300
-                hover:scale-105
-                flex items-center gap-3
-              `}
+                {/* ── Heading block — observe.ai style with curly arrow ── */}
+                <div ref={headingRef} className="text-center mb-16">
+
+                    {/* Badge */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 16 }}
+                        animate={headingInView ? { opacity: 1, y: 0 } : {}}
+                        transition={{ duration: 0.5 }}
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#C8E6DA] bg-[#F4FAF7] mb-8"
+                    >
+                        <Sparkles className="w-3.5 h-3.5 text-[#2D6A4F]" />
+                        <span className="text-[#2D6A4F] text-xs font-bold uppercase tracking-widest">What We Do</span>
+                    </motion.div>
+
+                    {/* Line 1: "What We Do & How" */}
+                    <div className="overflow-hidden mb-1">
+                        <motion.div
+                            initial={{ y: '100%', opacity: 0 }}
+                            animate={headingInView ? { y: 0, opacity: 1 } : {}}
+                            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+                            className="font-serif text-5xl md:text-6xl lg:text-7xl text-[#2D6A4F] leading-[1.08] tracking-[-0.02em]"
                         >
-                            <service.icon className="w-5 h-5 text-white" />
-                            <span className="font-semibold text-white text-sm md:text-base whitespace-nowrap">
-                                {service.title}
-                            </span>
+                            What We Do &amp; How
+                        </motion.div>
+                    </div>
 
-                            {/* Shine effect */}
-                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-                        </Link>
+                    {/* Line 2: "We Transform" + green accent + curly arrow */}
+                    <div className="overflow-visible flex items-center justify-center gap-3 md:gap-5">
+                        <div className="overflow-hidden">
+                            <motion.div
+                                initial={{ y: '100%', opacity: 0 }}
+                                animate={headingInView ? { y: 0, opacity: 1 } : {}}
+                                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.22 }}
+                                className="font-serif text-5xl md:text-6xl lg:text-7xl text-[#2D6A4F] leading-[1.08] tracking-[-0.02em]"
+                            >
+                                We{' '}
+                                <motion.span
+                                    initial={{ opacity: 0, x: -10 }}
+                                    animate={headingInView ? { opacity: 1, x: 0 } : {}}
+                                    transition={{ duration: 0.6, ease: 'easeOut', delay: 0.5 }}
+                                    className="italic text-[#3D8B6E]"
+                                >
+                                    Transform
+                                </motion.span>
+                            </motion.div>
+                        </div>
+
+                        {/* Curly arrow — slides in from left after text */}
+                        <motion.div
+                            initial={{ opacity: 0, x: -20, rotate: -15 }}
+                            animate={headingInView ? { opacity: 1, x: 0, rotate: 0 } : {}}
+                            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.7 }}
+                            className="flex-shrink-0"
+                        >
+                            <CurlyArrow className="w-10 h-12 md:w-14 md:h-16 text-[#3D8B6E]/70" />
+                        </motion.div>
+                    </div>
+
+                    {/* Subtitle */}
+                    <motion.p
+                        initial={{ opacity: 0, y: 16 }}
+                        animate={headingInView ? { opacity: 1, y: 0 } : {}}
+                        transition={{ duration: 0.6, delay: 0.75 }}
+                        className="mt-6 max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                    >
+                        Three flagship platforms. One vision — replace manual chaos with real-time intelligence.
+                    </motion.p>
+                </div>
+
+                {/* ── 3-column card grid ── */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {CARDS.map((card, i) => {
+                        const Icon = card.icon;
+                        const Demo = card.Demo;
+                        return (
+                            <motion.div
+                                key={card.label}
+                                initial={{ opacity: 0, y: 40 }}
+                                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                                transition={{ duration: 0.6, delay: 0.1 + i * 0.15 }}
+                                className="group relative rounded-3xl border border-gray-100 bg-white p-7 flex flex-col gap-5 hover:border-[#C8E6DA] hover:shadow-[0_20px_50px_rgba(45,106,79,0.07)] transition-all duration-500"
+                            >
+                                <div className="absolute top-0 left-8 right-8 h-0.5 bg-gradient-to-r from-transparent via-[#2D6A4F]/25 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                <div>
+                                    <div className="flex items-center gap-2 mb-4">
+                                        <div className="w-9 h-9 rounded-xl bg-[#E8F5EE] border border-[#C8E6DA] flex items-center justify-center">
+                                            <Icon style={{ width: 18, height: 18 }} className="text-[#2D6A4F]" />
+                                        </div>
+                                        <span className="text-[#3D8B6E] text-[10px] font-bold uppercase tracking-widest">{card.label}</span>
+                                    </div>
+                                    <h3 className="font-serif text-xl font-bold text-[#2D6A4F] mb-2 leading-snug">{card.title}</h3>
+                                    <p className="text-gray-500 text-sm leading-relaxed">{card.desc}</p>
+                                </div>
+                                <div className="flex-1"><Demo /></div>
+                                <Link to={card.href} className="inline-flex items-center gap-2 text-[#2D6A4F] text-sm font-bold group/link hover:gap-3 transition-all duration-300">
+                                    Explore platform <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+                                </Link>
+                            </motion.div>
+                        );
+                    })}
+                </div>
+
+                {/* ── Stats bar ── */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.6, delay: 0.6 }}
+                    className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-px bg-gray-100 rounded-2xl overflow-hidden border border-gray-100"
+                >
+                    {[{ value: '8 wks', label: 'Avg. time to go live' }, { value: '4+', label: 'Systems unified' }, { value: '80%', label: 'Inquiries automated' }, { value: '10x', label: 'ROI potential' }].map(s => (
+                        <div key={s.label} className="bg-white px-6 py-5 text-center">
+                            <div className="font-serif text-2xl font-bold text-[#2D6A4F]">{s.value}</div>
+                            <div className="text-gray-400 text-xs mt-1 font-body">{s.label}</div>
+                        </div>
                     ))}
-                </div>
-
-                {/* Optional: Stats or metrics below */}
-                <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
-                    <div className="text-center">
-                        <div className="text-2xl md:text-3xl font-bold text-cyan-400">95%</div>
-                        <div className="text-xs text-gray-500 mt-1">Query Resolution</div>
-                    </div>
-                    <div className="text-center">
-                        <div className="text-2xl md:text-3xl font-bold text-purple-400">{'<'}2s</div>
-                        <div className="text-xs text-gray-500 mt-1">Response Time</div>
-                    </div>
-                    <div className="text-center">
-                        <div className="text-2xl md:text-3xl font-bold text-green-400">24/7</div>
-                        <div className="text-xs text-gray-500 mt-1">Availability</div>
-                    </div>
-                    <div className="text-center">
-                        <div className="text-2xl md:text-3xl font-bold text-orange-400">50+</div>
-                        <div className="text-xs text-gray-500 mt-1">Languages</div>
-                    </div>
-                </div>
+                </motion.div>
             </div>
         </section>
     );

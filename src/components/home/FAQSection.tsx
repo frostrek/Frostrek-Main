@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus, HelpCircle } from 'lucide-react';
-import { useTheme } from '../../context/ThemeContext';
+import FlipText from '../ui/FlipText';
 
 const FAQS = [
     {
@@ -27,23 +28,21 @@ const FAQS = [
 ];
 
 const FAQSection = () => {
-    const { theme } = useTheme();
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
     return (
-        <section className={`py-20 relative overflow-hidden bg-transparent`}>
-
-            <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <section className="py-24 relative overflow-hidden bg-brand-light-bg font-sans">
+            <div className="container mx-auto px-4 md:px-6 relative z-10 max-w-[1400px]">
                 <div className="text-center max-w-3xl mx-auto mb-16">
-                    <div className="flex items-center justify-center gap-2 mb-4">
-                        <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${theme === 'dark' ? 'bg-white/10 text-[#2EE1C7]' : 'bg-[#2EE1C7] text-[#2EE1C7]'}`}>
+                    <div className="flex items-center justify-center gap-2 mb-6">
+                        <span className="px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-brand-badge-bg border border-[#c4e0d4]/50 text-brand-badge-text">
                             Common Queries
                         </span>
                     </div>
-                    <h2 className={`text-2xl sm:text-3xl md:text-5xl font-bold mb-6 font-display ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
-                        Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2EE1C7] to-[#2EE1C7]">Questions</span>
+                    <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]">
+                        Frequently Asked <span className="text-[#336B55]">Questions</span>
                     </h2>
-                    <p className={`text-lg ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
+                    <p className="text-lg text-gray-500 font-medium">
                         Everything you need to know about our process, security, and delivery.
                     </p>
                 </div>
@@ -56,29 +55,24 @@ const FAQSection = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className={`rounded-2xl border transition-all duration-300 ${theme === 'dark'
-                                ? `bg-white/5 border-white/10 hover:border-[#2EE1C7]/50 ${activeIndex === index ? 'border-[#2EE1C7]' : ''}`
-                                : `bg-white border-gray-200 hover:border-[#2EE1C7]/50 ${activeIndex === index ? 'border-[#2EE1C7] shadow-lg' : 'shadow-sm'}`
-                                }`}
+                            className={`rounded-2xl border transition-all duration-300 bg-white border-[#E6EFE6] ${
+                                activeIndex === index ? 'border-[#2D6A4F]/30 shadow-[0_10px_30px_rgba(45,106,79,0.06)]' : 'hover:border-[#2D6A4F]/20 hover:shadow-md'
+                            }`}
                         >
                             <button
                                 onClick={() => setActiveIndex(activeIndex === index ? null : index)}
-                                className="w-full px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between gap-3 sm:gap-4 text-left focus:outline-none"
+                                className="w-full px-6 py-5 md:py-6 flex items-center justify-between gap-4 text-left focus:outline-none"
                             >
-                                <div className="flex items-center gap-4">
-                                    <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${theme === 'dark' ? 'bg-white/10 text-[#2EE1C7]' : 'bg-[#2EE1C7] text-[#2EE1C7]'
-                                        }`}>
-                                        {index + 1}
+                                <div className="flex items-center gap-4 md:gap-6">
+                                    <span className="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold bg-brand-badge-bg text-[#2D6A4F] border border-[#c4e0d4]/50">
+                                        0{index + 1}
                                     </span>
-                                    <span className={`text-base sm:text-lg font-semibold ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
+                                    <span className="text-base md:text-[1.1rem] font-bold text-[#2D6A4F]">
                                         {faq.question}
                                     </span>
                                 </div>
-                                <div className={`transition-transform duration-300 ${activeIndex === index ? 'rotate-180' : ''}`}>
-                                    {activeIndex === index ?
-                                        <Minus className={`w-5 h-5 ${theme === 'dark' ? 'text-[#2EE1C7]' : 'text-[#2EE1C7]'}`} /> :
-                                        <Plus className={`w-5 h-5 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`} />
-                                    }
+                                <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${activeIndex === index ? 'bg-[#2D6A4F] text-white rotate-180' : 'bg-gray-50 text-[#2D6A4F] border border-gray-200'}`}>
+                                    {activeIndex === index ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                                 </div>
                             </button>
 
@@ -91,7 +85,7 @@ const FAQSection = () => {
                                         transition={{ duration: 0.3, ease: "easeInOut" }}
                                         className="overflow-hidden"
                                     >
-                                        <div className={`px-4 sm:px-6 pb-5 sm:pb-6 pl-12 sm:pl-[4.5rem] leading-relaxed text-sm sm:text-base ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
+                                        <div className="px-6 pb-6 pt-2 md:pl-[5.5rem] leading-relaxed text-[15px] text-gray-500 font-medium">
                                             {faq.answer}
                                         </div>
                                     </motion.div>
@@ -102,13 +96,19 @@ const FAQSection = () => {
                 </div>
 
                 {/* Still have questions CTA */}
-                <div className="mt-12 text-center">
-                    <p className={`mb-4 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>Still have questions? We're here to help.</p>
-                    <a href="/contact" className={`inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all hover:scale-105 ${theme === 'dark' ? 'bg-white/10 text-white hover:bg-white/20' : 'bg-gray-100 text-gray-900 hover:bg-gray-200'}`}>
-                        <HelpCircle size={18} /> Contact Support
-                    </a>
+                <div className="mt-16 text-center">
+                    <p className="mb-6 text-[15px] font-bold text-gray-400 uppercase tracking-wide">
+                        Still have questions? We're here to help.
+                    </p>
+                    <Link 
+                        to="/contact" 
+                        className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl font-medium text-sm bg-white border-2 border-gray-200 text-gray-700 transition-all hover:border-[#2D6A4F] hover:bg-gray-50"
+                    >
+                        <FlipText>
+                            <HelpCircle size={18} /> Contact Support
+                        </FlipText>
+                    </Link>
                 </div>
-
             </div>
         </section>
     );

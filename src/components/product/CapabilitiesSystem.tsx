@@ -1,48 +1,42 @@
-
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Shield, Server, Brain, Activity, Lock, Zap, Database } from 'lucide-react';
 import type { ProductFeature } from '../../utils/productData';
-import { useTheme } from '../../context/ThemeContext';
 
 const FeatureNode = ({
     feature,
     isActive,
     index,
-    onHover,
-    theme
+    onHover
 }: {
     feature: ProductFeature,
     isActive: boolean,
     index: number,
-    onHover: (idx: number) => void,
-    theme: string
+    onHover: (idx: number) => void
 }) => {
     return (
         <motion.div
             onHoverStart={() => onHover(index)}
             onClick={() => onHover(index)}
-            className={`relative p-4 rounded-xl border transition-all duration-300 cursor-pointer group w-full ${isActive
-                ? theme === 'dark' ? 'bg-dark-card border-dark-accent shadow-lg shadow-dark-accent/20 z-10' : 'bg-white border-brand-green-200 shadow-lg shadow-brand-green-100 z-10'
-                : theme === 'dark' ? 'bg-dark-bg/50 border-dark-accent/30 hover:bg-dark-card hover:border-dark-accent/50' : 'bg-white/50 border-gray-100 hover:bg-white hover:border-brand-green-100'
-                }`}
+            className={`relative p-5 rounded-2xl border transition-all duration-300 cursor-pointer group w-full ${
+                isActive
+                    ? 'bg-white border-[#2D6A4F] shadow-lg shadow-[#2D6A4F]/5 z-10'
+                    : 'bg-white/60 border-gray-150 hover:bg-white hover:border-[#2D6A4F]/35'
+            }`}
             whileHover={{ x: 5 }}
         >
             <div className="flex items-center gap-3">
-                <div className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 transition-colors duration-300 ${isActive
-                    ? theme === 'dark' ? 'bg-[#2EE1C7] text-black' : 'bg-brand-green-600 text-white'
-                    : theme === 'dark' ? 'bg-dark-accent/30 text-dark-accent' : 'bg-brand-green-50 text-brand-green-600'
-                    }`}>
+                <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-colors duration-300 ${
+                    isActive ? 'bg-[#2D6A4F] text-white' : 'bg-[#E8F5EE] text-[#2D6A4F]'
+                }`}>
                     {feature.icon && <feature.icon className="w-5 h-5" />}
                 </div>
                 <div>
-                    <h4 className={`text-base font-bold transition-colors ${isActive
-                        ? theme === 'dark' ? 'text-dark-text' : 'text-gray-900'
-                        : theme === 'dark' ? 'text-dark-text/80' : 'text-gray-600'
-                        }`}>
+                    <h4 className="text-base font-serif font-bold text-gray-900 mb-1 leading-tight">
                         {feature.title}
                     </h4>
-                    <p className={`text-xs leading-relaxed ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-500'}`}>
+                    {/* FIXED: high-contrast text-slate-500 ensures description text is beautifully visible */}
+                    <p className="text-xs text-slate-500 font-medium leading-relaxed">
                         {feature.description}
                     </p>
                 </div>
@@ -51,24 +45,24 @@ const FeatureNode = ({
     );
 };
 
-const CoreEngine = ({ activeIndex, theme, isAllActive, onToggleAll }: { activeIndex: number, theme: string, isAllActive: boolean, onToggleAll: () => void }) => {
+const CoreEngine = ({ activeIndex, isAllActive, onToggleAll }: { activeIndex: number, isAllActive: boolean, onToggleAll: () => void }) => {
     // Satellite positions
     const satellites = [
-        { x: -120, y: -80, icon: Database, bg: 'bg-[#2EE1C7]/10', text: 'text-[#2EE1C7]' },
-        { x: 120, y: -80, icon: Shield, bg: 'bg-[#2EE1C7]/15', text: 'text-[#2EE1C7]' },
-        { x: -120, y: 80, icon: Server, bg: 'bg-[#2EE1C7]/10', text: 'text-[#2EE1C7]' },
-        { x: 120, y: 80, icon: Zap, bg: 'bg-[#2EE1C7]/15', text: 'text-[#2EE1C7]' },
-        { x: 0, y: -130, icon: Activity, bg: 'bg-[#2EE1C7]/10', text: 'text-[#2EE1C7]' },
-        { x: 0, y: 130, icon: Lock, bg: 'bg-[#2EE1C7]/15', text: 'text-[#2EE1C7]' }
+        { x: -120, y: -80, icon: Database, bg: 'bg-[#E8F5EE]', text: 'text-[#2D6A4F]' },
+        { x: 120, y: -80, icon: Shield, bg: 'bg-[#E8F5EE]', text: 'text-[#2D6A4F]' },
+        { x: -120, y: 80, icon: Server, bg: 'bg-[#E8F5EE]', text: 'text-[#2D6A4F]' },
+        { x: 120, y: 80, icon: Zap, bg: 'bg-[#E8F5EE]', text: 'text-[#2D6A4F]' },
+        { x: 0, y: -130, icon: Activity, bg: 'bg-[#E8F5EE]', text: 'text-[#2D6A4F]' },
+        { x: 0, y: 130, icon: Lock, bg: 'bg-[#E8F5EE]', text: 'text-[#2D6A4F]' }
     ];
 
     return (
         <div className="relative w-full h-[500px] flex items-center justify-center">
             {/* Background Grid */}
-            <div className="absolute inset-0 opacity-[0.3]"
+            <div className="absolute inset-0 opacity-[0.2]"
                 style={{
-                    backgroundImage: theme === 'dark' ? 'radial-gradient(rgba(46,225,199,0.3) 1px, transparent 1px)' : 'radial-gradient(#2EE1C7 1px, transparent 1px)',
-                    backgroundSize: '30px 30px'
+                    backgroundImage: 'radial-gradient(#2D6A4F 1.2px, transparent 1.2px)',
+                    backgroundSize: '24px 24px'
                 }}
             />
 
@@ -79,8 +73,8 @@ const CoreEngine = ({ activeIndex, theme, isAllActive, onToggleAll }: { activeIn
                         key={i}
                         x1="50%" y1="50%"
                         x2={`calc(50% + ${sat.x}px)`} y2={`calc(50% + ${sat.y}px)`}
-                        stroke={(isAllActive || activeIndex % satellites.length === i) ? "#2EE1C7" : (theme === 'dark' ? '#333' : '#E5E7EB')}
-                        strokeWidth={(isAllActive || activeIndex % satellites.length === i) ? 3 : 1}
+                        stroke={(isAllActive || activeIndex % satellites.length === i) ? "#2D6A4F" : "#E8F5EE"}
+                        strokeWidth={(isAllActive || activeIndex % satellites.length === i) ? 3 : 1.5}
                         initial={{ pathLength: 0 }}
                         animate={{ pathLength: 1 }}
                         transition={{ duration: 1 }}
@@ -88,31 +82,33 @@ const CoreEngine = ({ activeIndex, theme, isAllActive, onToggleAll }: { activeIn
                 ))}
             </svg>
 
-            {/* Central Core - Using CSS animation for pulse glow instead of Framer Motion infinite */}
+            {/* Central Core */}
             <motion.div
                 onClick={onToggleAll}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className={`relative z-20 w-32 h-32 rounded-full border-4 flex items-center justify-center shadow-2xl cursor-pointer transition-all duration-300 ${isAllActive ? 'ring-4 ring-[#2EE1C7]/50 scale-105' : ''} ${theme === 'dark' ? 'bg-dark-card border-[#2EE1C7]/50' : 'bg-white border-[#2EE1C7]/20'}`}
+                className={`relative z-20 w-32 h-32 rounded-full border-4 flex items-center justify-center shadow-2xl cursor-pointer transition-all duration-300 bg-white border-[#2D6A4F]/40 ${
+                    isAllActive ? 'ring-4 ring-[#2D6A4F]/20 scale-105' : ''
+                }`}
             >
-                <div className={`absolute inset-2 rounded-full flex items-center justify-center text-white text-center p-2 shadow-inner transition-all duration-300 ${isAllActive ? 'animate-pulse' : ''} ${theme === 'dark' ? 'bg-gradient-to-br from-[#2EE1C7] to-[#2EE1C7]/70' : 'bg-gradient-to-br from-[#2EE1C7] to-[#2EE1C7]/70'}`}>
-                    <Brain className={`w-12 h-12 transition-all duration-300 ${isAllActive ? 'scale-110 drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]' : ''} ${theme === 'dark' ? 'text-black/90' : 'text-white/90'}`} />
+                <div className={`absolute inset-2 rounded-full flex items-center justify-center text-white text-center p-2 shadow-inner transition-all duration-300 bg-[#2D6A4F] ${isAllActive ? 'animate-pulse' : ''}`}>
+                    <Brain className={`w-12 h-12 text-white/90 transition-all duration-300 ${isAllActive ? 'scale-110 drop-shadow-[0_0_10px_rgba(255,255,255,0.4)]' : ''}`} />
                 </div>
 
-                {/* Orbiting Rings - Using CSS animation instead of Framer Motion infinite */}
+                {/* Orbiting Rings */}
                 <div
-                    className={`absolute -inset-4 border rounded-full border-dashed ${isAllActive ? 'animate-spin-fast' : 'animate-spin-slow'} ${theme === 'dark' ? 'border-[#2EE1C7]/30' : 'border-[#2EE1C7]/20'} ${isAllActive ? 'border-[#2EE1C7]' : ''}`}
+                    className={`absolute -inset-4 border rounded-full border-dashed border-[#2D6A4F]/30 ${
+                        isAllActive ? 'animate-spin-fast border-[#2D6A4F]' : 'animate-spin-slow'
+                    }`}
                 />
-                <div
-                    className={`absolute -inset-8 border rounded-full animate-spin-slow-reverse ${theme === 'dark' ? 'border-[#2EE1C7]/10' : 'border-brand-green-100/50'}`}
-                />
+                <div className="absolute -inset-8 border rounded-full animate-spin-slow-reverse border-[#2D6A4F]/10" />
             </motion.div>
 
             {/* Satellites */}
             {satellites.map((sat, i) => (
                 <motion.div
                     key={i}
-                    className={`absolute z-20 w-12 h-12 rounded-xl ${sat.bg} flex items-center justify-center shadow-sm border ${theme === 'dark' ? 'border-[#2EE1C7]/20' : 'border-white'}`}
+                    className={`absolute z-20 w-12 h-12 rounded-xl ${sat.bg} flex items-center justify-center shadow-sm border border-[#2D6A4F]/15`}
                     style={{ x: sat.x, y: sat.y }}
                     animate={{
                         scale: (isAllActive || activeIndex % satellites.length === i) ? 1.2 : 1,
@@ -124,8 +120,9 @@ const CoreEngine = ({ activeIndex, theme, isAllActive, onToggleAll }: { activeIn
             ))}
 
             {/* Status Pill */}
-            <div className={`absolute bottom-10 left-1/2 -translate-x-1/2 backdrop-blur px-4 py-1.5 rounded-full border text-xs font-semibold flex items-center gap-2 shadow-sm ${theme === 'dark' ? 'bg-dark-card/80 border-dark-accent/30 text-dark-text-muted' : 'bg-white/80 border-gray-200 text-gray-500'}`}>
-                <span className={`w-2 h-2 rounded-full ${isAllActive ? 'bg-[#2EE1C7] animate-ping' : 'bg-[#2EE1C7] animate-pulse'}`} />
+            {/* FIXED: high-contrast text-slate-600 instead of text-dark-text-muted to ensure readability on white backdrop */}
+            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 backdrop-blur-md px-4.5 py-2 rounded-full border text-xs font-bold flex items-center gap-2 shadow-sm bg-white border-[#2D6A4F]/15 text-slate-600">
+                <span className={`w-2 h-2 rounded-full bg-[#2D6A4F] ${isAllActive ? 'animate-ping' : 'animate-pulse'}`} />
                 {isAllActive ? 'FULL SYSTEM ACTIVE' : 'SYSTEM OPERATIONAL'}
             </div>
         </div>
@@ -133,7 +130,6 @@ const CoreEngine = ({ activeIndex, theme, isAllActive, onToggleAll }: { activeIn
 };
 
 export const CapabilitiesSystem = ({ features }: { features: ProductFeature[] }) => {
-    const { theme } = useTheme();
     const [activeIndex, setActiveIndex] = useState(0);
     const [isAllActive, setIsAllActive] = useState(false);
 
@@ -142,7 +138,7 @@ export const CapabilitiesSystem = ({ features }: { features: ProductFeature[] })
     };
 
     return (
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-center">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-center font-body">
             {/* Left Column - Controls */}
             <div className="w-full lg:w-5/12 space-y-2">
                 {features.map((feature, idx) => (
@@ -154,21 +150,19 @@ export const CapabilitiesSystem = ({ features }: { features: ProductFeature[] })
                         onHover={(idx) => {
                             if (!isAllActive) setActiveIndex(idx);
                         }}
-                        theme={theme}
                     />
                 ))}
             </div>
 
             {/* Right Column - Visualizer */}
             <div className="w-full lg:w-7/12 relative">
-                {/* Visualizer Container */}
-                <div className={`relative rounded-[3rem] border shadow-2xl backdrop-blur-xl overflow-hidden ${theme === 'dark' ? 'bg-dark-card/50 border-dark-accent/30' : 'bg-white/50 border-white'}`}>
-                    <div className={`absolute inset-0 ${theme === 'dark' ? 'bg-gradient-to-br from-dark-accent/10 to-transparent' : 'bg-gradient-to-br from-brand-green-50/50 to-transparent'}`} />
-                    <CoreEngine activeIndex={activeIndex} theme={theme} isAllActive={isAllActive} onToggleAll={handleToggleAll} />
+                <div className="relative rounded-[3rem] border shadow-2xl backdrop-blur-md overflow-hidden bg-white border-gray-150">
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#E8F5EE]/40 to-transparent" />
+                    <CoreEngine activeIndex={activeIndex} isAllActive={isAllActive} onToggleAll={handleToggleAll} />
                 </div>
 
-                {/* Decorative Elements */}
-                <div className={`absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] blur-3xl rounded-full transition-colors duration-500 ${isAllActive ? 'bg-[#2EE1C7]/10' : 'bg-[#2EE1C7]/5'}`} />
+                {/* Decorative Blur */}
+                <div className={`absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] blur-3xl rounded-full transition-colors duration-500 ${isAllActive ? 'bg-[#2D6A4F]/10' : 'bg-[#2D6A4F]/5'}`} />
             </div>
         </div>
     );

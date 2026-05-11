@@ -2,7 +2,6 @@ import { useState, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Bot, Mic, MessageSquare, Linkedin, Database, ArrowRight, Sparkles, Play, ChevronRight, Users, Trophy, Factory } from 'lucide-react';
-import { useTheme } from '../../context/ThemeContext';
 
 interface Product {
     id: string;
@@ -48,23 +47,23 @@ const products: Product[] = [
         category: 'core'
     },
     {
-        id: 'pcc-marketplace',
-        name: 'PCC Marketplace',
+        id: 'frostrek-web3-commerce',
+        name: 'Frostrek Web3 Commerce',
         description: 'Web3 Sports Merchandise Platform.',
         shortDesc: 'Bridging Web3 finance and the global sports merchandise market.',
         icon: Trophy,
-        href: '/products/pcc-marketplace',
-        features: ['Multi-tenant Clubs', '$PCC Payments', 'On-chain Settlement'],
+        href: '/products/frostrek-web3-commerce',
+        features: ['Multi-tenant Clubs', '$TOKEN Payments', 'On-chain Settlement'],
         category: 'enterprise',
         liveBuild: true
     },
     {
-        id: 'saf-manufacturing',
-        name: 'SAF Manufacturing',
-        description: 'Manufacturing Intelligence Platform.',
+        id: 'frostrek-manufacturing-os',
+        name: 'Frostrek Manufacturing OS',
+        description: 'A complete real-time intelligence platform for 24/7 manufacturing operations. Unifies ERP, WMS, and SCADA.',
         shortDesc: 'Recovering 25+ tonnes of lost production weekly with AI scheduling.',
         icon: Factory,
-        href: '/products/saf-manufacturing',
+        href: '/products/frostrek-manufacturing-os',
         features: ['Live Telemetry', 'AI Scheduling', 'Cost Intelligence'],
         category: 'enterprise',
         liveBuild: true
@@ -108,7 +107,6 @@ const ProductCard = ({ product, index, isActive, onClick }: {
     isActive: boolean;
     onClick: () => void;
 }) => {
-    const { theme } = useTheme();
     const IconComponent = product.icon as any;
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
@@ -120,30 +118,19 @@ const ProductCard = ({ product, index, isActive, onClick }: {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: index * 0.1 }}
             onClick={onClick}
-            className={`
-                relative cursor-pointer group
-                ${isActive ? 'z-20' : 'z-10'}
-            `}
+            className={`relative cursor-pointer group ${isActive ? 'z-20' : 'z-10'}`}
         >
             {/* Card */}
             <motion.div
                 layout
-                className={`
-                    relative overflow-hidden rounded-2xl border transition-all duration-500
-                    ${theme === 'dark'
-                        ? `bg-dark-card border-dark-accent/20 ${isActive ? 'border-dark-accent shadow-2xl shadow-dark-accent/20' : 'hover:border-dark-accent/50'}`
-                        : `bg-white border-gray-200 ${isActive ? 'border-[#B07552] shadow-2xl shadow-[#B07552]/15' : 'hover:border-[#B07552]/50 hover:shadow-xl'}`
-                    }
-                `}
+                className={`relative overflow-hidden rounded-2xl border transition-all duration-500 bg-white ${
+                    isActive
+                        ? 'border-[#2D6A4F] shadow-2xl shadow-[#2D6A4F]/10'
+                        : 'border-gray-200 hover:border-[#2D6A4F]/50 hover:shadow-xl'
+                }`}
             >
                 {/* Animated Background Gradient */}
-                <div className={`
-                    absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500
-                    ${theme === 'dark'
-                        ? 'bg-gradient-to-br from-dark-accent/5 to-transparent'
-                        : 'bg-gradient-to-br from-[#B07552]/5 to-transparent'
-                    }
-                `} />
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-[#E8F5EE]/30 to-transparent" />
 
                 {/* Active Indicator */}
                 <AnimatePresence>
@@ -152,7 +139,7 @@ const ProductCard = ({ product, index, isActive, onClick }: {
                             initial={{ scaleX: 0 }}
                             animate={{ scaleX: 1 }}
                             exit={{ scaleX: 0 }}
-                            className={`absolute top-0 left-0 w-full h-1 origin-left ${theme === 'dark' ? 'bg-dark-accent' : 'bg-[#B07552]'}`}
+                            className="absolute top-0 left-0 w-full h-1 origin-left bg-[#2D6A4F]"
                         />
                     )}
                 </AnimatePresence>
@@ -162,14 +149,7 @@ const ProductCard = ({ product, index, isActive, onClick }: {
                     <div className="flex items-start gap-4 mb-4">
                         {/* Icon with animated ring */}
                         <motion.div
-                            className={`
-                                relative w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0
-                                transition-all duration-300
-                                ${theme === 'dark'
-                                    ? 'bg-gradient-to-br from-dark-accent/20 to-dark-accent/5'
-                                    : 'bg-gradient-to-br from-[#f5e6db] to-[#edd5c5]'
-                                }
-                            `}
+                            className="relative w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 transition-all duration-300 bg-[#E8F5EE]"
                             animate={isActive ? { scale: [1, 1.05, 1] } : {}}
                             transition={{ duration: 2, repeat: isActive ? Infinity : 0 }}
                         >
@@ -179,34 +159,28 @@ const ProductCard = ({ product, index, isActive, onClick }: {
                                     initial={{ scale: 1, opacity: 0.5 }}
                                     animate={{ scale: 1.5, opacity: 0 }}
                                     transition={{ duration: 1.5, repeat: Infinity }}
-                                    className={`absolute inset-0 rounded-2xl ${theme === 'dark' ? 'bg-dark-accent' : 'bg-[#B07552]'}`}
+                                    className="absolute inset-0 rounded-2xl bg-[#2D6A4F]/30"
                                 />
                             )}
-                            <IconComponent className={`w-7 h-7 relative z-10 ${theme === 'dark' ? 'text-dark-accent' : 'text-[#B07552]'}`} />
+                            <IconComponent className="w-7 h-7 relative z-10 text-[#2D6A4F]" />
                         </motion.div>
 
                         <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2 mb-1">
-                                <h4 className={`
-                                    text-lg font-bold transition-colors duration-300
-                                    ${theme === 'dark'
-                                        ? `text-dark-text ${isActive ? 'text-dark-accent' : 'group-hover:text-dark-accent'}`
-                                        : `text-gray-900 ${isActive ? 'text-[#B07552]' : 'group-hover:text-[#B07552]'}`
-                                    }
-                                `}>
+                                <h4 className={`text-lg font-bold transition-colors duration-300 text-gray-900 ${
+                                    isActive ? 'text-[#2D6A4F]' : 'group-hover:text-[#2D6A4F]'
+                                }`}>
                                     {product.name}
                                 </h4>
                                 {product.liveBuild && (
-                                    <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider ${theme === 'dark'
-                                            ? 'bg-[#2EE1C7]/15 text-[#2EE1C7] border border-[#2EE1C7]/30'
-                                            : 'bg-[#2EE1C7]/10 text-[#0d9488] border border-[#2EE1C7]/40'
-                                        }`}>
-                                        <span className="w-1.5 h-1.5 rounded-full bg-[#2EE1C7] animate-pulse" />
+                                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider bg-[#E8F5EE] text-[#2D6A4F] border border-[#2D6A4F]/25">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-[#2D6A4F] animate-pulse" />
                                         Live Build
                                     </span>
                                 )}
                             </div>
-                            <p className={`text-sm ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-500'}`}>
+                            {/* FIXED: text-slate-500 instead of text-dark-text-muted to ensure crisp contrast */}
+                            <p className="text-sm text-slate-500 font-medium">
                                 {product.description}
                             </p>
                         </div>
@@ -214,12 +188,9 @@ const ProductCard = ({ product, index, isActive, onClick }: {
                         {/* Arrow indicator */}
                         <motion.div
                             animate={{ x: isActive ? 0 : -5, opacity: isActive ? 1 : 0 }}
-                            className={`
-                                w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0
-                                ${theme === 'dark' ? 'bg-dark-accent/20' : 'bg-[#B07552]/10'}
-                            `}
+                            className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 bg-[#E8F5EE]"
                         >
-                            <ChevronRight className={`w-4 h-4 ${theme === 'dark' ? 'text-dark-accent' : 'text-[#B07552]'}`} />
+                            <ChevronRight className="w-4 h-4 text-[#2D6A4F]" />
                         </motion.div>
                     </div>
 
@@ -233,8 +204,8 @@ const ProductCard = ({ product, index, isActive, onClick }: {
                                 transition={{ duration: 0.3 }}
                                 className="overflow-hidden"
                             >
-                                <div className={`pt-4 border-t ${theme === 'dark' ? 'border-dark-accent/20' : 'border-gray-100'}`}>
-                                    <p className={`text-sm mb-4 ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}>
+                                <div className="pt-4 border-t border-gray-100">
+                                    <p className="text-sm mb-4 text-slate-600 font-medium leading-relaxed">
                                         {product.shortDesc}
                                     </p>
 
@@ -246,13 +217,7 @@ const ProductCard = ({ product, index, isActive, onClick }: {
                                                 initial={{ opacity: 0, scale: 0.8 }}
                                                 animate={{ opacity: 1, scale: 1 }}
                                                 transition={{ delay: i * 0.1 }}
-                                                className={`
-                                                    px-3 py-1.5 rounded-full text-xs font-medium
-                                                    ${theme === 'dark'
-                                                        ? 'bg-dark-accent/10 text-dark-accent border border-dark-accent/20'
-                                                        : 'bg-[#B07552]/10 text-[#8A5A35] border border-[#B07552]/20'
-                                                    }
-                                                `}
+                                                className="px-3 py-1.5 rounded-full text-xs font-bold bg-[#E8F5EE] text-[#2D6A4F] border border-[#2D6A4F]/15"
                                             >
                                                 {feature}
                                             </motion.span>
@@ -264,18 +229,11 @@ const ProductCard = ({ product, index, isActive, onClick }: {
                                         <motion.button
                                             whileHover={{ scale: 1.02 }}
                                             whileTap={{ scale: 0.98 }}
-                                            className={`
-                                                w-full py-3 px-6 rounded-xl font-semibold text-sm
-                                                flex items-center justify-center gap-2 transition-all duration-300
-                                                ${theme === 'dark'
-                                                    ? 'bg-dark-accent text-dark-bg hover:bg-dark-accent/90'
-                                                    : 'bg-[#B07552] text-white hover:bg-[#8A5A35]'
-                                                }
-                                            `}
+                                            className="w-full py-3.5 px-6 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all duration-300 bg-[#2D6A4F] text-white hover:bg-[#1B4332] cursor-pointer"
                                         >
-                                            <Play className="w-4 h-4" />
+                                            <Play className="w-4 h-4 fill-current text-white" />
                                             Explore {product.name.split(' ')[0]}
-                                            <ArrowRight className="w-4 h-4" />
+                                            <ArrowRight className="w-4 h-4 text-white" />
                                         </motion.button>
                                     </Link>
                                 </div>
@@ -290,8 +248,6 @@ const ProductCard = ({ product, index, isActive, onClick }: {
 
 // Connection Line Between Cards
 const ConnectionLine = ({ isVisible }: { isVisible: boolean }) => {
-    const { theme } = useTheme();
-
     return (
         <motion.div
             className="hidden lg:flex items-center justify-center h-2 -my-1 relative z-0"
@@ -299,7 +255,7 @@ const ConnectionLine = ({ isVisible }: { isVisible: boolean }) => {
             animate={{ opacity: isVisible ? 1 : 0 }}
         >
             <motion.div
-                className={`w-0.5 h-full ${theme === 'dark' ? 'bg-dark-accent/30' : 'bg-[#B07552]/20'}`}
+                className="w-0.5 h-full bg-[#2D6A4F]/20"
                 initial={{ scaleY: 0 }}
                 animate={{ scaleY: isVisible ? 1 : 0 }}
                 transition={{ duration: 0.5 }}
@@ -307,7 +263,7 @@ const ConnectionLine = ({ isVisible }: { isVisible: boolean }) => {
             {/* Animated dot */}
             {isVisible && (
                 <motion.div
-                    className={`absolute w-2 h-2 rounded-full ${theme === 'dark' ? 'bg-dark-accent' : 'bg-[#B07552]'}`}
+                    className="absolute w-2 h-2 rounded-full bg-[#2D6A4F]"
                     initial={{ y: -20 }}
                     animate={{ y: 20 }}
                     transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
@@ -318,7 +274,6 @@ const ConnectionLine = ({ isVisible }: { isVisible: boolean }) => {
 };
 
 const AllProductsSection = () => {
-    const { theme } = useTheme();
     const [activeProduct, setActiveProduct] = useState<string | null>(null);
     const sectionRef = useRef(null);
     const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
@@ -330,19 +285,19 @@ const AllProductsSection = () => {
     return (
         <section
             ref={sectionRef}
-            className={`py-24 relative overflow-hidden transition-colors ${theme === 'dark' ? 'bg-dark-bg' : 'bg-gradient-to-b from-[#fdfbf7] to-white'}`}
+            className="py-24 relative overflow-hidden bg-gradient-to-b from-white to-[#F9FBFA] font-body"
         >
             {/* Decorative Background */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
                 <motion.div
                     animate={{ x: [0, 50, 0], y: [0, -30, 0], scale: [1, 1.1, 1] }}
                     transition={{ duration: 20, repeat: Infinity }}
-                    className={`absolute top-20 right-20 w-96 h-96 rounded-full blur-3xl ${theme === 'dark' ? 'bg-dark-accent/5' : 'bg-[#B07552]/5'}`}
+                    className="absolute top-20 right-20 w-96 h-96 rounded-full blur-3xl bg-[#2D6A4F]/5"
                 />
                 <motion.div
                     animate={{ x: [0, -30, 0], y: [0, 50, 0], scale: [1, 1.15, 1] }}
                     transition={{ duration: 25, repeat: Infinity }}
-                    className={`absolute bottom-40 left-10 w-80 h-80 rounded-full blur-3xl ${theme === 'dark' ? 'bg-dark-accent/5' : 'bg-[#E6D0C6]/30'}`}
+                    className="absolute bottom-40 left-10 w-80 h-80 rounded-full blur-3xl bg-[#2D6A4F]/5"
                 />
             </div>
 
@@ -352,21 +307,22 @@ const AllProductsSection = () => {
                     initial={{ opacity: 0, y: 30 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.8 }}
-                    className="text-center mb-16"
+                    className="text-center mb-16 space-y-4"
                 >
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={isInView ? { opacity: 1, scale: 1 } : {}}
                         transition={{ delay: 0.2 }}
-                        className={`inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 ${theme === 'dark' ? 'bg-dark-accent/10 border border-dark-accent/20' : 'bg-[#B07552]/10 border border-[#B07552]/20'}`}
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#E8F5EE] border border-[#2D6A4F]/25"
                     >
-                        <Sparkles className={`w-4 h-4 ${theme === 'dark' ? 'text-dark-accent' : 'text-[#B07552]'}`} />
-                        <span className={`text-sm font-semibold ${theme === 'dark' ? 'text-dark-accent' : 'text-[#8A5A35]'}`}>Product Suite</span>
+                        <Sparkles className="w-4 h-4 text-[#2D6A4F]" />
+                        <span className="text-sm font-bold text-[#2D6A4F]">Product Suite</span>
                     </motion.div>
-                    <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-5 ${theme === 'dark' ? 'text-dark-text' : 'text-gray-900'}`}>
-                        Explore Our{' '}<span className={theme === 'dark' ? 'text-dark-accent' : 'text-[#B07552]'}>AI Products</span>
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-black text-gray-900 leading-tight">
+                        Explore Our <span className="text-[#2D6A4F]">AI Products</span>
                     </h2>
-                    <p className={`max-w-2xl mx-auto text-base md:text-lg ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}>
+                    {/* FIXED: text-slate-500 instead of text-dark-text-muted to ensure visibility */}
+                    <p className="max-w-2xl mx-auto text-base md:text-lg text-slate-500 font-medium">
                         Click on any product to explore its features and capabilities
                     </p>
                 </motion.div>
@@ -380,13 +336,13 @@ const AllProductsSection = () => {
                         transition={{ delay: 0.2 }}
                         className="flex items-center gap-3 mb-6"
                     >
-                        <div className="w-1.5 h-8 rounded-full bg-[#2EE1C7]" />
-                        <span className="text-sm font-bold uppercase tracking-wider text-[#2EE1C7]">
+                        <div className="w-1.5 h-8 rounded-full bg-[#2D6A4F]" />
+                        <span className="text-sm font-extrabold uppercase tracking-wider text-[#2D6A4F]">
                             Featured Builds — Deployed by Frostrek
                         </span>
                     </motion.div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-14">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-14">
                         {featuredProducts.map((product, idx) => {
                             const IconComp = product.icon as any;
                             const isActive = activeProduct === product.id;
@@ -399,19 +355,20 @@ const AllProductsSection = () => {
                                     onClick={() => setActiveProduct(isActive ? null : product.id)}
                                     className="cursor-pointer group"
                                 >
-                                    <div className={`relative overflow-hidden rounded-2xl border-2 transition-all duration-500 ${isActive ? 'shadow-[0_0_40px_rgba(46,225,199,0.15)]' : ''
-                                        } ${theme === 'dark'
-                                            ? `bg-[#0D0D0D] ${isActive ? 'border-[#2EE1C7]/50' : 'border-[#2EE1C7]/15 hover:border-[#2EE1C7]/40'}`
-                                            : `bg-white ${isActive ? 'border-[#2EE1C7]/60' : 'border-[#2EE1C7]/20 hover:border-[#2EE1C7]/40'}`
-                                        }`}>
+                                    {/* FIXED: pure white card with glowing emerald border instead of dark-black box */}
+                                    <div className={`relative overflow-hidden rounded-2xl border-2 transition-all duration-500 bg-white ${
+                                        isActive 
+                                            ? 'border-[#2D6A4F] shadow-xl shadow-[#2D6A4F]/10' 
+                                            : 'border-[#2D6A4F]/15 hover:border-[#2D6A4F]/45 hover:shadow-lg'
+                                    }`}>
                                         {/* Gradient bg */}
-                                        <div className={`absolute inset-0 bg-gradient-to-br from-[#2EE1C7]/5 to-transparent transition-opacity duration-500 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-60'}`} />
+                                        <div className={`absolute inset-0 bg-gradient-to-br from-[#E8F5EE]/40 to-transparent transition-opacity duration-500 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-60'}`} />
 
                                         {/* Top accent */}
                                         <AnimatePresence>
                                             {isActive && (
                                                 <motion.div initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} exit={{ scaleX: 0 }}
-                                                    className="absolute top-0 left-0 w-full h-1 origin-left bg-[#2EE1C7]" />
+                                                    className="absolute top-0 left-0 w-full h-1 origin-left bg-[#2D6A4F]" />
                                             )}
                                         </AnimatePresence>
 
@@ -420,45 +377,45 @@ const AllProductsSection = () => {
                                                 <motion.div
                                                     animate={isActive ? { scale: [1, 1.05, 1] } : {}}
                                                     transition={{ duration: 2, repeat: isActive ? Infinity : 0 }}
-                                                    className="relative w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 bg-[#2EE1C7]/15"
+                                                    className="relative w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 bg-[#E8F5EE]"
                                                 >
                                                     {isActive && (
                                                         <motion.div initial={{ scale: 1, opacity: 0.5 }} animate={{ scale: 1.5, opacity: 0 }}
                                                             transition={{ duration: 1.5, repeat: Infinity }}
-                                                            className="absolute inset-0 rounded-2xl bg-[#2EE1C7]" />
+                                                            className="absolute inset-0 rounded-2xl bg-[#2D6A4F]/30" />
                                                     )}
-                                                    <IconComp className="w-7 h-7 relative z-10 text-[#2EE1C7]" />
+                                                    <IconComp className="w-7 h-7 relative z-10 text-[#2D6A4F]" />
                                                 </motion.div>
 
                                                 <div className="flex-1 min-w-0">
                                                     <div className="flex items-center gap-2 mb-1">
-                                                        <h4 className={`text-lg font-bold transition-colors ${theme === 'dark'
-                                                                ? `text-white ${isActive ? 'text-[#2EE1C7]' : 'group-hover:text-[#2EE1C7]'}`
-                                                                : `text-gray-900 ${isActive ? 'text-[#0d9488]' : 'group-hover:text-[#0d9488]'}`
-                                                            }`}>{product.name}</h4>
-                                                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider bg-[#2EE1C7]/15 text-[#2EE1C7] border border-[#2EE1C7]/30">
-                                                            <span className="w-1.5 h-1.5 rounded-full bg-[#2EE1C7] animate-pulse" />
+                                                        <h4 className={`text-lg font-bold transition-colors text-gray-900 ${
+                                                            isActive ? 'text-[#2D6A4F]' : 'group-hover:text-[#2D6A4F]'
+                                                        }`}>
+                                                            {product.name}
+                                                        </h4>
+                                                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider bg-[#E8F5EE] text-[#2D6A4F] border border-[#2D6A4F]/25">
+                                                            <span className="w-1.5 h-1.5 rounded-full bg-[#2D6A4F] animate-pulse" />
                                                             Live Build
                                                         </span>
                                                     </div>
-                                                    <p className={`text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>{product.description}</p>
+                                                    <p className="text-sm text-slate-500 font-medium">{product.description}</p>
                                                 </div>
 
                                                 <motion.div
                                                     animate={{ x: isActive ? 0 : -5, opacity: isActive ? 1 : 0 }}
-                                                    className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${theme === 'dark' ? 'bg-[#2EE1C7]/20' : 'bg-[#2EE1C7]/10'}`}
+                                                    className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 bg-[#E8F5EE]"
                                                 >
-                                                    <ChevronRight className="w-4 h-4 text-[#2EE1C7]" />
+                                                    <ChevronRight className="w-4 h-4 text-[#2D6A4F]" />
                                                 </motion.div>
                                             </div>
 
                                             {/* Feature pills always visible */}
                                             <div className="flex flex-wrap gap-2 ml-[72px]">
                                                 {product.features.map((f) => (
-                                                    <span key={f} className={`px-2.5 py-1 rounded-full text-[10px] font-semibold ${theme === 'dark'
-                                                            ? 'bg-[#2EE1C7]/10 text-[#2EE1C7] border border-[#2EE1C7]/20'
-                                                            : 'bg-[#2EE1C7]/10 text-[#0d9488] border border-[#2EE1C7]/20'
-                                                        }`}>{f}</span>
+                                                    <span key={f} className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-[#E8F5EE] text-[#2D6A4F] border border-[#2D6A4F]/15">
+                                                        {f}
+                                                    </span>
                                                 ))}
                                             </div>
 
@@ -466,14 +423,14 @@ const AllProductsSection = () => {
                                             <AnimatePresence>
                                                 {isActive && (
                                                     <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.3 }} className="overflow-hidden">
-                                                        <div className={`pt-4 mt-4 border-t ${theme === 'dark' ? 'border-[#2EE1C7]/20' : 'border-[#2EE1C7]/15'}`}>
-                                                            <p className={`text-sm mb-4 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>{product.shortDesc}</p>
+                                                        <div className="pt-4 mt-4 border-t border-gray-150">
+                                                            <p className="text-sm mb-4 text-slate-600 font-medium leading-relaxed">{product.shortDesc}</p>
                                                             <Link to={product.href}>
                                                                 <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
-                                                                    className="w-full py-3 px-6 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 bg-[#2EE1C7] text-black hover:bg-[#2EE1C7]/90 transition-all">
-                                                                    <Play className="w-4 h-4" />
+                                                                    className="w-full py-3.5 px-6 rounded-xl font-bold text-sm flex items-center justify-center gap-2 bg-[#2D6A4F] text-white hover:bg-[#1B4332] transition-all cursor-pointer border-none">
+                                                                    <Play className="w-4 h-4 text-white fill-current" />
                                                                     View Case Study
-                                                                    <ArrowRight className="w-4 h-4" />
+                                                                    <ArrowRight className="w-4 h-4 text-white" />
                                                                 </motion.button>
                                                             </Link>
                                                         </div>
@@ -492,8 +449,8 @@ const AllProductsSection = () => {
                         {/* Core AI Agents */}
                         <div>
                             <motion.div initial={{ opacity: 0, x: -20 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ delay: 0.3 }} className="flex items-center gap-3 mb-6">
-                                <div className={`w-1.5 h-8 rounded-full ${theme === 'dark' ? 'bg-dark-accent' : 'bg-[#B07552]'}`} />
-                                <span className={`text-sm font-bold uppercase tracking-wider ${theme === 'dark' ? 'text-dark-accent' : 'text-[#B07552]'}`}>Core AI Agents</span>
+                                <div className="w-1.5 h-8 rounded-full bg-[#2D6A4F]" />
+                                <span className="text-sm font-extrabold uppercase tracking-wider text-[#2D6A4F]">Core AI Agents</span>
                             </motion.div>
                             <div className="space-y-4">
                                 {coreProducts.map((product, idx) => (
@@ -509,8 +466,8 @@ const AllProductsSection = () => {
                         {/* Enterprise Tools */}
                         <div>
                             <motion.div initial={{ opacity: 0, x: -20 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ delay: 0.4 }} className="flex items-center gap-3 mb-6">
-                                <div className={`w-1.5 h-8 rounded-full ${theme === 'dark' ? 'bg-dark-accent' : 'bg-[#B07552]'}`} />
-                                <span className={`text-sm font-bold uppercase tracking-wider ${theme === 'dark' ? 'text-dark-accent' : 'text-[#B07552]'}`}>Enterprise Tools</span>
+                                <div className="w-1.5 h-8 rounded-full bg-[#2D6A4F]" />
+                                <span className="text-sm font-extrabold uppercase tracking-wider text-[#2D6A4F]">Enterprise Tools</span>
                             </motion.div>
                             <div className="space-y-4">
                                 {enterpriseProducts.map((product, idx) => (
@@ -524,16 +481,18 @@ const AllProductsSection = () => {
 
                             {/* CTA Card */}
                             <motion.div initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.8 }}
-                                className={`mt-6 p-6 rounded-2xl border-2 border-dashed ${theme === 'dark' ? 'border-dark-accent/30 bg-dark-accent/5' : 'border-[#B07552]/30 bg-[#B07552]/5'}`}>
-                                <div className="text-center">
-                                    <h4 className={`font-bold mb-2 ${theme === 'dark' ? 'text-dark-text' : 'text-gray-900'}`}>Need a Custom Solution?</h4>
-                                    <p className={`text-sm mb-4 ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}>Let's build something tailored for your business.</p>
-                                    <Link to="/contact">
-                                        <motion.button whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
-                                            className={`px-6 py-3 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 mx-auto transition-all duration-300 ${theme === 'dark' ? 'bg-dark-accent/20 text-dark-accent border border-dark-accent/30 hover:bg-dark-accent/30' : 'bg-white text-[#B07552] border border-[#B07552]/30 hover:bg-[#B07552]/10'}`}>
-                                            Contact Us <ArrowRight className="w-4 h-4" />
-                                        </motion.button>
-                                    </Link>
+                                className="mt-6 p-6 rounded-2xl border-2 border-dashed border-[#2D6A4F]/25 bg-[#E8F5EE]/30">
+                                <div className="text-center space-y-2">
+                                    <h4 className="font-serif font-bold text-gray-900 text-lg">Need a Custom Solution?</h4>
+                                    <p className="text-sm text-slate-600 font-medium">Let's build something tailored for your business.</p>
+                                    <div className="pt-2">
+                                        <Link to="/contact">
+                                            <motion.button whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
+                                                className="px-6 py-3 rounded-xl font-bold text-sm flex items-center justify-center gap-2 mx-auto transition-all duration-300 bg-white text-[#2D6A4F] border border-[#2D6A4F]/25 hover:bg-[#E8F5EE]/50 cursor-pointer">
+                                                Contact Us <ArrowRight className="w-4 h-4 text-[#2D6A4F]" />
+                                            </motion.button>
+                                        </Link>
+                                    </div>
                                 </div>
                             </motion.div>
                         </div>
@@ -545,4 +504,3 @@ const AllProductsSection = () => {
 };
 
 export default AllProductsSection;
-

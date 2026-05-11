@@ -183,7 +183,7 @@ export const TECH_CATEGORIES: TechCategory[] = [
     {
         name: 'Infrastructure',
         icon: Cloud,
-        color: 'from-cyan-500 to-blue-600',
+        color: 'from-[#2D6A4F] to-blue-600',
         technologies: [
             { name: 'Kubernetes', desc: 'Container orchestration at enterprise scale' },
             { name: 'AWS/GCP/Azure', desc: 'Multi-cloud deployment flexibility' },

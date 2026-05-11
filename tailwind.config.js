@@ -64,11 +64,20 @@ export default {
                 'green-dark': '#2EE1C7',
                 'yellow-bright': '#2EE1C7',
                 'yellow-dark': '#2EE1C7',
+
+                // Light theme specific
+                'brand-deep-green': '#1E3B32',
+                'brand-light-bg': '#Fcfcfc',
+                'brand-badge-bg': '#E6EFE6',
+                'brand-badge-text': '#2E5A4D',
+                'brand-light-green': '#EBF2F0',
             },
             fontFamily: {
                 sans: ['Raleway', 'system-ui', 'sans-serif'],
                 body: ['Quicksand', 'system-ui', 'sans-serif'],
+                serif: ['Playfair Display', 'serif'],
             },
+
             backgroundImage: {
                 'hero-gradient': 'linear-gradient(135deg, rgba(169, 113, 66, 0.05) 0%, rgba(138, 90, 53, 0.05) 100%)',
                 'card-gradient': 'linear-gradient(135deg, #FDFBF7 0%, #FAF6F3 100%)',

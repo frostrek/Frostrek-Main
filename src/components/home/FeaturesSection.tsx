@@ -4,20 +4,18 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
-import { useTheme } from '../../context/ThemeContext';
 import SpotlightCard from '../ui/SpotlightCard';
+import FlipText from '../ui/FlipText';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const FeaturesSection = () => {
-    const { theme } = useTheme();
     const sectionRef = useRef<HTMLElement>(null);
     const headingRef = useRef<HTMLDivElement>(null);
     const gridRef = useRef<HTMLDivElement>(null);
 
     useGSAP(() => {
         const ctx = gsap.context(() => {
-            // Animate heading
             gsap.fromTo(headingRef.current,
                 { y: 50, opacity: 0, filter: 'blur(8px)' },
                 {
@@ -34,15 +32,10 @@ const FeaturesSection = () => {
                 }
             );
 
-            // Staggered card reveal
             const cards = gridRef.current?.querySelectorAll('.bento-card');
             if (cards) {
                 gsap.fromTo(cards,
-                    {
-                        y: 60,
-                        opacity: 0,
-                        scale: 0.95
-                    },
+                    { y: 60, opacity: 0, scale: 0.95 },
                     {
                         y: 0,
                         opacity: 1,
@@ -58,79 +51,75 @@ const FeaturesSection = () => {
                     }
                 );
             }
-
         }, sectionRef);
 
         return () => ctx.revert();
     }, { scope: sectionRef });
 
     return (
-        <section ref={sectionRef} className={`pt-8 pb-16 relative overflow-hidden transition-colors duration-300 bg-transparent`}>
-
-            <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <section ref={sectionRef} className="py-24 relative overflow-hidden bg-brand-light-bg font-sans">
+            <div className="container mx-auto px-4 md:px-6 relative z-10 max-w-[1400px]">
                 <div ref={headingRef} className="text-center mb-16">
-                    <h2 className={`text-3xl md:text-4xl font-bold mb-4 transition-colors duration-300 ${theme === 'dark' ? 'text-dark-text' : 'text-gray-900'}`}>
-                        Built for <span className="text-gradient-green">Enterprise Scale</span>
+                    <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] mb-4 leading-[1.15] tracking-[-0.01em]">
+                        Why Choose <span className="text-[#336B55]">Frostrek</span>
                     </h2>
-                    <p className={`max-w-2xl mx-auto transition-colors duration-300 ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}>
+                    <p className="max-w-2xl mx-auto text-lg text-gray-500 font-medium">
                         Everything you need to build, deploy, and scale AI agents in your organization.
                     </p>
                 </div>
 
-                {/* Bento Grid Layout */}
                 <div ref={gridRef} className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-
-                    {/* Hero Card - Enterprise Security (spans 2 rows on desktop) */}
+                    {/* Hero Card - Enterprise Security */}
                     <SpotlightCard 
-                        className={`bento-card lg:row-span-2 group relative overflow-hidden rounded-3xl border-2 border-dashed p-8 transition-all duration-500 hover:shadow-2xl ${theme === 'dark' ? 'border-dark-accent/30 bg-gradient-to-br from-dark-card to-dark-bg hover:border-dark-accent' : 'border-brand-green-300 bg-gradient-to-br from-brand-green-50 to-white hover:border-brand-green-500'}`}
-                        spotlightColor="rgba(46, 225, 199, 0.25)"
+                        className="bento-card lg:row-span-2 group relative overflow-hidden rounded-[2.5rem] border p-8 md:p-10 transition-all duration-500 bg-white border-[#E6EFE6] hover:border-[#2D6A4F]/30 hover:shadow-[0_20px_50px_rgba(45,106,79,0.06)]"
+                        spotlightColor="rgba(30, 59, 50, 0.03)"
                     >
                         <div className="relative z-10">
-                            {/* Icon */}
-                            <div className={`mb-6 inline-flex items-center justify-center w-16 h-16 rounded-2xl border-2 transition-all duration-300 ${theme === 'dark' ? 'bg-dark-bg border-dark-accent/40 group-hover:bg-dark-accent group-hover:border-dark-accent' : 'bg-brand-green-100 border-brand-green-200 group-hover:bg-brand-green-600 group-hover:border-brand-green-600'}`}>
-                                <Shield className={`transition-colors ${theme === 'dark' ? 'text-dark-accent group-hover:text-dark-text' : 'text-brand-green-600 group-hover:text-white'}`} size={32} />
+                            <div className="mb-8 inline-flex items-center justify-center w-20 h-20 rounded-[1.25rem] border bg-brand-badge-bg border-[#c4e0d4]/50 transition-all duration-300 group-hover:scale-110 shadow-sm">
+                                <Shield className="text-[#2D6A4F]" size={36} strokeWidth={1.5} />
                             </div>
 
-                            <h3 className={`text-2xl font-bold mb-4 transition-colors ${theme === 'dark' ? 'text-dark-text group-hover:text-dark-accent' : 'text-gray-900 group-hover:text-brand-green-700'}`}>
+                            <h3 className="font-serif text-3xl font-bold mb-4 text-[#2D6A4F]">
                                 Enterprise Security
                             </h3>
-                            <p className={`mb-6 leading-relaxed transition-colors ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}>
+                            <p className="mb-8 text-base leading-relaxed text-gray-500 font-medium">
                                 Role-based access control, end-to-end data encryption, comprehensive audit logs, and compliance-ready infrastructure built-in.
                             </p>
 
-                            {/* Feature tags */}
-                            <div className="flex flex-wrap gap-2 mb-6">
-                                <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 border rounded-full text-sm font-medium ${theme === 'dark' ? 'bg-dark-bg border-dark-accent/40 text-dark-accent' : 'bg-white border-brand-green-200 text-brand-green-700'}`}>
-                                    <CheckCircle2 size={14} /> SOC 2 Compliant
+                            <div className="flex flex-wrap gap-3 mb-10">
+                                <span className="inline-flex items-center gap-1.5 px-4 py-2 border rounded-full text-sm font-bold bg-[#F4F9F6] border-[#E6EFE6] text-[#2D6A4F] shadow-sm">
+                                    <CheckCircle2 size={16} className="text-[#336B55]" /> SOC 2 Compliant
                                 </span>
-                                <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 border rounded-full text-sm font-medium ${theme === 'dark' ? 'bg-dark-bg border-dark-accent/40 text-dark-accent' : 'bg-white border-brand-green-200 text-brand-green-700'}`}>
-                                    <CheckCircle2 size={14} /> GDPR Ready
+                                <span className="inline-flex items-center gap-1.5 px-4 py-2 border rounded-full text-sm font-bold bg-[#F4F9F6] border-[#E6EFE6] text-[#2D6A4F] shadow-sm">
+                                    <CheckCircle2 size={16} className="text-[#336B55]" /> GDPR Ready
                                 </span>
-                                <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 border rounded-full text-sm font-medium ${theme === 'dark' ? 'bg-dark-bg border-dark-accent/40 text-dark-accent' : 'bg-white border-brand-green-200 text-brand-green-700'}`}>
-                                    <CheckCircle2 size={14} /> ISO 27001
+                                <span className="inline-flex items-center gap-1.5 px-4 py-2 border rounded-full text-sm font-bold bg-[#F4F9F6] border-[#E6EFE6] text-[#2D6A4F] shadow-sm">
+                                    <CheckCircle2 size={16} className="text-[#336B55]" /> ISO 27001
                                 </span>
                             </div>
 
-                            <Link to="/contact" className={`inline-flex items-center gap-2 text-sm font-semibold transition-colors ${theme === 'dark' ? 'text-dark-accent group-hover:text-dark-text' : 'text-brand-green-600 group-hover:text-brand-green-800'}`}>
-                                Learn More <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                            <Link to="/contact" className="group inline-flex items-center gap-2 text-[15px] font-medium text-[#2D6A4F] hover:text-[#336B55] transition-colors">
+                                <FlipText>
+                                    Learn More <ArrowRight size={18} />
+                                </FlipText>
                             </Link>
                         </div>
                     </SpotlightCard>
 
                     {/* Lightning Fast */}
                     <SpotlightCard 
-                        className={`bento-card group relative overflow-hidden rounded-2xl border p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${theme === 'dark' ? 'bg-dark-card border-dark-accent/20 hover:border-dark-accent' : 'bg-white border-gray-200 hover:border-brand-green-400'}`}
-                        spotlightColor="rgba(255, 170, 0, 0.2)"
+                        className="bento-card group relative overflow-hidden rounded-[2rem] border p-8 transition-all duration-300 bg-white border-[#E6EFE6] hover:border-[#2D6A4F]/30 hover:shadow-[0_15px_40px_rgba(45,106,79,0.05)] hover:-translate-y-1"
+                        spotlightColor="rgba(30, 59, 50, 0.03)"
                     >
-                        <div className="flex items-start gap-4 relative z-10">
-                            <div className={`flex-shrink-0 w-12 h-12 rounded-xl border flex items-center justify-center transition-all duration-300 ${theme === 'dark' ? 'bg-dark-bg border-dark-accent/40 group-hover:bg-dark-accent group-hover:border-dark-accent' : 'bg-brand-green-100 border-brand-green-200 group-hover:bg-brand-green-500 group-hover:border-brand-green-500'}`}>
-                                <Zap className={`transition-colors ${theme === 'dark' ? 'text-dark-accent group-hover:text-dark-text' : 'text-brand-green-600 group-hover:text-white'}`} size={24} />
+                        <div className="flex flex-col sm:flex-row items-start gap-5 relative z-10">
+                            <div className="flex-shrink-0 w-14 h-14 rounded-2xl border flex items-center justify-center transition-all duration-300 bg-brand-badge-bg border-[#c4e0d4]/50 group-hover:scale-110 shadow-sm">
+                                <Zap className="text-[#2D6A4F]" size={26} strokeWidth={1.5} />
                             </div>
                             <div>
-                                <h3 className={`text-lg font-bold mb-2 transition-colors ${theme === 'dark' ? 'text-dark-text group-hover:text-dark-accent' : 'text-gray-900 group-hover:text-brand-green-600'}`}>
+                                <h3 className="font-serif text-2xl font-bold mb-3 text-[#2D6A4F]">
                                     Lightning Fast
                                 </h3>
-                                <p className={`text-sm leading-relaxed ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}>
+                                <p className="text-[15px] leading-relaxed text-gray-500 font-medium">
                                     Sub-second response times with optimized LLM routing and intelligent caching.
                                 </p>
                             </div>
@@ -139,18 +128,18 @@ const FeaturesSection = () => {
 
                     {/* Real-time Analytics */}
                     <SpotlightCard 
-                        className={`bento-card group relative overflow-hidden rounded-2xl border p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${theme === 'dark' ? 'bg-dark-card border-dark-accent/20 hover:border-dark-accent' : 'bg-white border-gray-200 hover:border-brand-green-400'}`}
-                        spotlightColor="rgba(46, 225, 199, 0.25)"
+                        className="bento-card group relative overflow-hidden rounded-[2rem] border p-8 transition-all duration-300 bg-white border-[#E6EFE6] hover:border-[#2D6A4F]/30 hover:shadow-[0_15px_40px_rgba(45,106,79,0.05)] hover:-translate-y-1"
+                        spotlightColor="rgba(30, 59, 50, 0.03)"
                     >
-                        <div className="flex items-start gap-4 relative z-10">
-                            <div className={`flex-shrink-0 w-12 h-12 rounded-xl border flex items-center justify-center transition-all duration-300 ${theme === 'dark' ? 'bg-dark-bg border-dark-accent/40 group-hover:bg-dark-accent group-hover:border-dark-accent' : 'bg-brand-green-100 border-brand-green-200 group-hover:bg-brand-green-500 group-hover:border-brand-green-500'}`}>
-                                <BarChart className={`transition-colors ${theme === 'dark' ? 'text-dark-accent group-hover:text-dark-text' : 'text-brand-green-600 group-hover:text-white'}`} size={24} />
+                        <div className="flex flex-col sm:flex-row items-start gap-5 relative z-10">
+                            <div className="flex-shrink-0 w-14 h-14 rounded-2xl border flex items-center justify-center transition-all duration-300 bg-brand-badge-bg border-[#c4e0d4]/50 group-hover:scale-110 shadow-sm">
+                                <BarChart className="text-[#2D6A4F]" size={26} strokeWidth={1.5} />
                             </div>
                             <div>
-                                <h3 className={`text-lg font-bold mb-2 transition-colors ${theme === 'dark' ? 'text-dark-text group-hover:text-dark-accent' : 'text-gray-900 group-hover:text-brand-green-600'}`}>
+                                <h3 className="font-serif text-2xl font-bold mb-3 text-[#2D6A4F]">
                                     Real-time Analytics
                                 </h3>
-                                <p className={`text-sm leading-relaxed ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}>
+                                <p className="text-[15px] leading-relaxed text-gray-500 font-medium">
                                     Track KPIs, conversation quality, and user satisfaction metrics live.
                                 </p>
                             </div>
@@ -159,24 +148,23 @@ const FeaturesSection = () => {
 
                     {/* Multi-agent Orchestration */}
                     <SpotlightCard 
-                        className={`bento-card group relative overflow-hidden rounded-2xl border p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${theme === 'dark' ? 'bg-dark-card border-dark-accent/20 hover:border-dark-accent' : 'bg-white border-gray-200 hover:border-brand-green-400'}`}
-                        spotlightColor="rgba(255, 170, 0, 0.2)"
+                        className="bento-card group relative overflow-hidden rounded-[2rem] border p-8 transition-all duration-300 bg-white border-[#E6EFE6] hover:border-[#2D6A4F]/30 hover:shadow-[0_15px_40px_rgba(45,106,79,0.05)] hover:-translate-y-1"
+                        spotlightColor="rgba(30, 59, 50, 0.03)"
                     >
-                        <div className="flex items-start gap-4 relative z-10">
-                            <div className={`flex-shrink-0 w-12 h-12 rounded-xl border flex items-center justify-center transition-all duration-300 ${theme === 'dark' ? 'bg-dark-bg border-dark-accent/40 group-hover:bg-dark-accent group-hover:border-dark-accent' : 'bg-brand-green-100 border-brand-green-200 group-hover:bg-brand-green-500 group-hover:border-brand-green-500'}`}>
-                                <Users className={`transition-colors ${theme === 'dark' ? 'text-dark-accent group-hover:text-dark-text' : 'text-brand-green-600 group-hover:text-white'}`} size={24} />
+                        <div className="flex flex-col sm:flex-row items-start gap-5 relative z-10">
+                            <div className="flex-shrink-0 w-14 h-14 rounded-2xl border flex items-center justify-center transition-all duration-300 bg-brand-badge-bg border-[#c4e0d4]/50 group-hover:scale-110 shadow-sm">
+                                <Users className="text-[#2D6A4F]" size={26} strokeWidth={1.5} />
                             </div>
                             <div>
-                                <h3 className={`text-lg font-bold mb-2 transition-colors ${theme === 'dark' ? 'text-dark-text group-hover:text-dark-accent' : 'text-gray-900 group-hover:text-brand-green-600'}`}>
+                                <h3 className="font-serif text-2xl font-bold mb-3 text-[#2D6A4F]">
                                     Multi-agent Orchestration
                                 </h3>
-                                <p className={`text-sm leading-relaxed ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}>
+                                <p className="text-[15px] leading-relaxed text-gray-500 font-medium">
                                     Deploy multiple agents across channels with unified analytics dashboard.
                                 </p>
                             </div>
                         </div>
                     </SpotlightCard>
-
                 </div>
             </div>
         </section>

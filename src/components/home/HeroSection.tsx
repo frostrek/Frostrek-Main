@@ -1,63 +1,146 @@
-"use client";
-import { useTheme } from "../../context/ThemeContext";
-import HeroFlowchart from "./HeroFlowchart";
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { Bot, Database, PhoneCall, Cpu, Network, Server } from 'lucide-react';
+import FlipText from '../ui/FlipText';
+
+const floatingIcons = [
+  { id: 1, top: '20%', left: '15%', icon: Bot, color: 'text-blue-500', bg: 'bg-blue-50/80', border: 'border-blue-100', shadow: 'shadow-blue-500/20', delay: 0 },
+  { id: 2, top: '25%', left: '80%', icon: Database, color: 'text-emerald-500', bg: 'bg-emerald-50/80', border: 'border-emerald-100', shadow: 'shadow-emerald-500/20', delay: 1 },
+  { id: 3, top: '45%', left: '10%', icon: Network, color: 'text-purple-500', bg: 'bg-purple-50/80', border: 'border-purple-100', shadow: 'shadow-purple-500/20', delay: 2 },
+  { id: 4, top: '65%', left: '85%', icon: PhoneCall, color: 'text-orange-500', bg: 'bg-orange-50/80', border: 'border-orange-100', shadow: 'shadow-orange-500/20', delay: 0.5 },
+  { id: 5, top: '75%', left: '20%', icon: Cpu, color: 'text-rose-500', bg: 'bg-rose-50/80', border: 'border-rose-100', shadow: 'shadow-rose-500/20', delay: 1.5 },
+  { id: 6, top: '85%', left: '70%', icon: Server, color: 'text-indigo-500', bg: 'bg-indigo-50/80', border: 'border-indigo-100', shadow: 'shadow-indigo-500/20', delay: 2.5 },
+];
+
+const typewriterContainer = {
+  hidden: { opacity: 1 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.04,
+    },
+  },
+};
+
+const typewriterCharacter = {
+  hidden: { opacity: 0, y: 10, filter: "blur(4px)" },
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] as any }
+  },
+};
+
+const textLines = [
+  "Support Workflows",
+  "Built to Scale",
+  "How Your Business Works"
+];
 
 const HeroSection = () => {
-    useTheme();
+  return (
+    <section className="relative w-full min-h-[95vh] flex flex-col items-center justify-center overflow-hidden bg-brand-light-bg text-[#1f3e30] pt-32 pb-20 font-sans">
+      {/* Background effect */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[70vw] h-[50vw] rounded-[100%] bg-gradient-to-r from-purple-50/40 via-red-50/40 to-blue-50/40 blur-[80px] opacity-70" />
+      </div>
 
-    return (
-        <section className={`relative flex flex-col items-center overflow-hidden pt-24 sm:pt-28 lg:pt-40 pb-10 transition-colors duration-300 bg-transparent`}>
-            {/* Decorative Glow Effect - Using specified #2EE1C7 color with breathing animation */}
-            <style>{`
-              @keyframes breathe-glow {
-                0%, 100% { transform: translate(-50%, -60%) scale(1); opacity: 0.4; }
-                50% { transform: translate(-50%, -60%) scale(1.1); opacity: 0.7; }
-              }
-              @keyframes breathe-glow-mid {
-                0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-                50% { transform: translate(-50%, -50%) scale(1.05); opacity: 0.8; }
-              }
-              @keyframes float {
-                0%, 100% { transform: translateY(0); }
-                50% { transform: translateY(-20px); }
-              }
-            `}</style>
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none z-0 overflow-visible">
-                {/* Outer ultra-wide glow */}
-                <div
-                    className="absolute top-0 left-1/2 w-[600px] md:w-[1200px] lg:w-[1600px] h-[400px] md:h-[600px] lg:h-[800px] rounded-full blur-[100px] md:blur-[140px] lg:blur-[180px] bg-[#2EE1C7]/20"
-                    style={{ animation: 'breathe-glow 6s ease-in-out infinite' }}
-                />
+      {/* Floating Icons */}
+      {floatingIcons.map((item) => (
+        <motion.div
+          key={item.id}
+          className={`absolute hidden md:flex items-center justify-center rounded-2xl shadow-lg w-14 h-14 lg:w-16 lg:h-16 border backdrop-blur-sm z-0 ${item.bg} ${item.border} ${item.shadow}`}
+          style={{ top: item.top, left: item.left }}
+          animate={{
+            y: [0, -20, 0],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: item.delay
+          }}
+        >
+          <item.icon className={`w-6 h-6 lg:w-7 lg:h-7 relative z-10 ${item.color}`} strokeWidth={1.5} />
+        </motion.div>
+      ))}
+
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 text-center flex flex-col items-center">
+        {/* Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="inline-flex items-center gap-2 px-5 py-1.5 rounded-full bg-brand-badge-bg text-brand-badge-text text-sm font-bold tracking-wide mb-8 border border-[#c4e0d4]/50"
+        >
+          <span className="text-lg leading-none">✨</span> AI WORKFLOWS THAT SCALE
+        </motion.div>
+
+        {/* Heading */}
+        <motion.h1
+          variants={typewriterContainer}
+          initial="hidden"
+          animate="visible"
+          className="font-serif text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] mb-6 leading-[1.1] tracking-[-0.01em]"
+        >
+          {textLines.map((line, lineIndex) => (
+            <div key={lineIndex} className="flex flex-wrap justify-center">
+              {line.split(" ").map((word, wordIndex) => (
+                <span key={wordIndex} className="whitespace-nowrap mr-[0.2em] last:mr-0">
+                  {word.split("").map((char, charIndex) => (
+                    <motion.span
+                      key={`${lineIndex}-${wordIndex}-${charIndex}`}
+                      variants={typewriterCharacter}
+                      className="inline-block"
+                    >
+                      {char}
+                    </motion.span>
+                  ))}
+                </span>
+              ))}
             </div>
-            <div className="w-full max-w-[1450px] mx-auto px-4 md:px-6 relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    {/* Left: Text Content */}
-                    <div className="order-2 lg:order-1">
-                        <HeroFlowchart />
-                    </div>
+          ))}
+        </motion.h1>
 
-                    {/* Right: Hero Image */}
-                    <div className="order-1 lg:order-2 relative flex justify-center items-center">
-                        <div className="relative w-full max-w-[600px]">
-                            {/* Inner glow behind image */}
-                            <div className="absolute inset-0 bg-[#2EE1C7]/20 rounded-full blur-[80px] pointer-events-none" />
-                            
-                            <img 
-                                src="/hero-image.png" 
-                                alt="Frostrek AI Hero" 
-                                className="relative z-10 w-full h-auto drop-shadow-[0_20px_50px_rgba(46,225,199,0.3)]"
-                                style={{ animation: 'float 6s ease-in-out infinite' }}
-                            />
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.5 }}
+          className="text-lg md:text-[1.3rem] text-gray-500 max-w-2xl mx-auto mb-10 leading-relaxed font-medium"
+        >
+          Deploy autonomous AI agents that handle complex<br className="hidden md:block" /> business processes and scale with your growth.
+        </motion.p>
 
-                            {/* Additional accent elements */}
-                            <div className="absolute -top-10 -right-10 w-32 h-32 bg-[#2EE1C7]/10 rounded-full blur-3xl" />
-                            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-[#2EE1C7]/15 rounded-full blur-3xl" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
+        {/* Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.7 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto"
+        >
+          <Link 
+            to="/schedule-demo"
+            className="group w-full sm:w-auto px-10 py-4 rounded-xl bg-[#2D6A4F] text-white font-medium tracking-wide hover:bg-[#1B4332] transition-all duration-300 flex items-center justify-center gap-3 shadow-lg shadow-[#2D6A4F]/10 active:translate-y-0.5"
+          >
+            <FlipText>
+              BOOK A DEMO <span className="text-xl font-light">→</span>
+            </FlipText>
+          </Link>
+          <Link 
+            to="/solutions"
+            className="group w-full sm:w-auto px-10 py-4 rounded-xl border-2 border-gray-100 bg-white text-[#2D6A4F] font-medium tracking-wide hover:border-[#2D6A4F] hover:bg-gray-50 transition-all duration-300 shadow-sm active:translate-y-0.5"
+          >
+            <FlipText>
+              EXPLORE SOLUTIONS
+            </FlipText>
+          </Link>
+        </motion.div>
+      </div>
+
+      <div className="absolute bottom-0 w-full h-[12vh] bg-gradient-to-t from-orange-600/90 via-red-500/50 to-transparent blur-3xl pointer-events-none -z-10" />
+    </section>
+  );
 };
 
 export default HeroSection;

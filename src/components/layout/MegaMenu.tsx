@@ -2,140 +2,167 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { cn } from '../../utils/cn';
-import { useTheme } from '../../context/ThemeContext';
 
 import {
-    Bot,
-    Mic,
-    MessageSquare,
-    Database,
-    BarChart,
-    ShoppingCart,
-    Headset,
-    Server,
-    TrendingUp,
-    Linkedin,
-    Users,
-    Trophy,
-    Factory
+    Bot, Mic, MessageSquare, Database, BarChart,
+    ShoppingCart, Headset, Server, TrendingUp,
+    Linkedin, Users, Trophy, Factory,
+    Mail, FileText, Share2, Globe, PenTool, Search, UserPlus, Brain, ArrowRight,
+    Sparkles
 } from 'lucide-react';
+import FlipText from '../ui/FlipText';
 
-// Icon mapping
 const iconMap: Record<string, React.FC<any>> = {
-    Bot,
-    Mic,
-    MessageSquare,
-    Database,
-    BarChart,
-    ShoppingCart,
-    Headset,
-    Server,
-    TrendingUp,
-    Linkedin,
-    Users,
-    Trophy,
-    Factory
+    Bot, Mic, MessageSquare, Database, BarChart,
+    ShoppingCart, Headset, Server, TrendingUp,
+    Linkedin, Users, Trophy, Factory,
+    Mail, FileText, Share2, Globe, PenTool, Search, UserPlus, Brain
 };
 
-interface SubItem {
-    name: string;
-    href: string;
-    desc: string;
-    icon?: string;
-}
-
-interface Section {
-    title: string;
-    items: SubItem[];
-}
-
-interface MegaMenuProps {
-    sections: Section[];
-    onClose?: () => void;
-}
+interface SubItem { name: string; href: string; desc: string; icon?: string; }
+interface Section { title: string; items: SubItem[]; }
+interface MegaMenuProps { sections: Section[]; onClose?: () => void; }
 
 const MegaMenu: React.FC<MegaMenuProps> = ({ sections, onClose }) => {
-    const { theme } = useTheme();
+    // Layout: 2 cols for ≤2 sections, 3 cols for 3+
+    const cols =
+        sections.length >= 3 ? 'grid-cols-3' :
+        sections.length === 2 ? 'grid-cols-2' :
+        'grid-cols-1';
 
     return (
         <motion.div
-            initial={{ opacity: 0, y: 10, scale: 0.98 }}
+            initial={{ opacity: 0, y: 12, scale: 0.99 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 10, scale: 0.98 }}
-            transition={{ duration: 0.2 }}
-            className={cn(
-                "absolute top-full left-1/2 -translate-x-1/2 mt-4 z-50 max-w-[90vw]",
-                sections.length > 1 ? "w-[720px]" : "w-[400px]"
-            )}
+            exit={{ opacity: 0, y: 12, scale: 0.99 }}
+            transition={{ type: "spring", damping: 25, stiffness: 300 }}
+            className="w-full relative group/menu"
         >
-            <div className={cn(
-                "backdrop-blur-xl border rounded-xl shadow-2xl overflow-hidden p-5 ring-1",
-                theme === 'dark'
-                    ? "bg-dark-card/95 border-dark-accent/30 ring-dark-accent/10"
-                    : "bg-white/90 border-white/20 ring-black/5"
-            )}>
-                <div
-                    className={cn(
-                        "grid gap-x-8 gap-y-6",
-                        sections.length > 1
-                            ? "grid-cols-1 md:grid-cols-2"
-                            : "grid-cols-1"
-                    )}>
-                    {sections.map((section, idx) => (
-                        <div key={idx} className="space-y-3">
-                            <h3 className="text-[10px] font-bold text-[#2EE1C7] uppercase tracking-wider flex items-center gap-2 mb-2">
-                                <span className="w-6 h-[2px] bg-[#2EE1C7] rounded-full"></span>
-                                {section.title}
-                            </h3>
-                            <div className="grid gap-2">
-                                {section.items.map((item, itemIdx) => {
-                                    const Icon = item.icon ? iconMap[item.icon] : Bot;
-                                    return (
-                                        <Link
-                                            key={itemIdx}
-                                            to={item.href}
-                                            onClick={onClose}
-                                            className={cn(
-                                                "group flex items-start gap-3 p-2 rounded-lg transition-all duration-200 border border-transparent",
-                                                theme === 'dark'
-                                                    ? "hover:bg-dark-bg hover:shadow-md hover:shadow-dark-accent/10 hover:border-dark-accent/30"
-                                                    : "hover:bg-[#FDFBF7] hover:shadow-md hover:shadow-[#2EE1C7]/10 hover:border-[#2EE1C7]"
-                                            )}
-                                        >
-                                            <div className={cn(
-                                                "p-2 rounded-full transition-colors duration-200 shadow-sm shrink-0",
-                                                theme === 'dark'
-                                                    ? "bg-dark-accent/20 text-dark-accent group-hover:bg-dark-accent group-hover:text-dark-bg"
-                                                    : "bg-[#2EE1C7]/20 text-[#2EE1C7] group-hover:bg-[#2EE1C7] group-hover:text-white"
-                                            )}>
-                                                <Icon size={18} />
-                                            </div>
-                                            <div>
-                                                <h4 className={cn(
-                                                    "font-bold text-sm transition-colors",
-                                                    theme === 'dark'
-                                                        ? "text-dark-text group-hover:text-dark-accent"
-                                                        : "text-gray-900 group-hover:text-[#2EE1C7]"
-                                                )}>
-                                                    {item.name}
-                                                </h4>
-                                                <p className={cn(
-                                                    "text-xs transition-colors mt-0.5 leading-snug",
-                                                    theme === 'dark'
-                                                        ? "text-dark-text-muted group-hover:text-dark-text/80"
-                                                        : "text-gray-500 group-hover:text-gray-600"
-                                                )}>
-                                                    {item.desc}
-                                                </p>
-                                            </div>
-                                        </Link>
-                                    );
-                                })}
-                            </div>
+            {/* Caret with subtle glow */}
+            <div className="flex justify-center -mb-px relative z-10">
+                <div className="w-3 h-3 rotate-45 bg-white border-l border-t border-gray-100 rounded-sm" />
+            </div>
+
+            <div 
+                className="bg-white border border-gray-100/60 rounded-[3rem] shadow-[0_40px_100px_rgba(0,0,0,0.08)] overflow-hidden flex flex-col ring-1 ring-black/[0.02]"
+                style={{ maxHeight: 'min(85vh, 850px)' }}
+            >
+                {/* Top decorative accent bar */}
+                <div className="h-1.5 w-full flex-shrink-0 bg-gradient-to-r from-transparent via-[#2D6A4F]/10 to-transparent opacity-40" />
+
+                {/* Custom Scrollable Content - Increased padding for "Elegance" */}
+                <div 
+                    className="p-10 md:p-12 overflow-y-auto flex-1 custom-scrollbar scroll-smooth overscroll-contain"
+                    onWheel={(e) => e.stopPropagation()}
+                >
+                    <div className={cn("grid gap-x-16 gap-y-12", cols)}>
+                        {sections.map((section, idx) => {
+                            const numberMatch = section.title.match(/^(\d+)\s+(.+)$/);
+                            const displayNum = numberMatch ? numberMatch[1] : `0${idx + 1}`;
+                            const displayTitle = numberMatch ? numberMatch[2] : section.title;
+
+                            return (
+                                <motion.div 
+                                    key={idx} 
+                                    className="space-y-8"
+                                    initial={{ opacity: 0, y: 15 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: idx * 0.08, duration: 0.5 }}
+                                >
+                                    {/* Section header with high-end typography */}
+                                    <div className="flex items-center gap-4 group/title">
+                                        <div className="flex items-center justify-center w-7 h-7 rounded-full bg-[#E8F5EE] text-[#2D6A4F] text-[11px] font-black font-serif shadow-sm group-hover/title:scale-110 group-hover/title:bg-[#2D6A4F] group-hover/title:text-white transition-all duration-500">
+                                            {displayNum}
+                                        </div>
+                                        <h3 className="text-[12px] font-bold text-[#2D6A4F]/70 uppercase tracking-[0.2em] font-body relative">
+                                            {displayTitle}
+                                            <span className="absolute -bottom-2 left-0 w-8 h-[2px] bg-[#2D6A4F]/20 transition-all duration-500 group-hover/title:w-full" />
+                                        </h3>
+                                    </div>
+
+                                    <div className="space-y-3">
+                                        {section.items.map((item, itemIdx) => {
+                                            const Icon = item.icon ? iconMap[item.icon] : Bot;
+                                            return (
+                                                <Link
+                                                    key={itemIdx}
+                                                    to={item.href}
+                                                    onClick={onClose}
+                                                    className="group flex items-center gap-5 p-4.5 rounded-[1.5rem] transition-all duration-500 hover:bg-[#F4FAF7] hover:translate-x-1 relative overflow-hidden active:scale-[0.98]"
+                                                >
+                                                    {/* Subtle icon container */}
+                                                    <div className="relative z-10 p-3.5 rounded-2xl bg-white shadow-sm border border-gray-100 text-[#2D6A4F] group-hover:bg-[#2D6A4F] group-hover:text-white group-hover:shadow-lg group-hover:shadow-[#2D6A4F]/20 transition-all duration-500 shrink-0">
+                                                        <Icon size={20} />
+                                                    </div>
+
+                                                    <div className="relative z-10 min-w-0">
+                                                        <div className="flex items-center gap-2">
+                                                            <h4 className="font-bold text-[15px] text-gray-900 group-hover:text-[#2D6A4F] transition-colors font-body">
+                                                                {item.name}
+                                                            </h4>
+                                                            <ArrowRight size={14} className="opacity-0 -translate-x-3 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 text-[#2D6A4F]" />
+                                                        </div>
+                                                        <p className="text-[13px] text-slate-500/80 mt-1 leading-relaxed font-body line-clamp-1 group-hover:text-slate-600 transition-colors">
+                                                            {item.desc}
+                                                        </p>
+                                                    </div>
+                                                </Link>
+                                            );
+                                        })}
+                                    </div>
+                                </motion.div>
+                            );
+                        })}
+                    </div>
+                </div>
+
+                {/* Premium White Footer */}
+                <div className="flex-shrink-0 px-12 py-7 bg-white border-t border-gray-100 flex items-center justify-between relative z-20">
+                    <div className="flex items-center gap-5">
+                        <div className="flex -space-x-3">
+                            {[1, 2, 3, 4].map((i) => (
+                                <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-[#E8F5EE] flex items-center justify-center text-[10px] text-[#2D6A4F] font-bold shadow-sm">
+                                    <Sparkles size={12} />
+                                </div>
+                            ))}
                         </div>
-                    ))}
+                        <span className="text-[14px] font-semibold text-slate-500 font-body flex items-center gap-2.5">
+                            <span className="relative flex h-2.5 w-2.5">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2D6A4F] opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#2D6A4F]"></span>
+                            </span>
+                            Expert AI Solutions ready to scale your enterprise
+                        </span>
+                    </div>
+                    
+                    <Link
+                        to="/schedule-demo"
+                        onClick={onClose}
+                        className="group flex items-center gap-2.5 px-7 py-3 rounded-full bg-[#2D6A4F] text-white text-[14px] font-medium hover:bg-[#1B4332] transition-all duration-500 shadow-xl shadow-[#2D6A4F]/15 active:translate-y-0.5 whitespace-nowrap"
+                    >
+                        <FlipText>
+                            Book Free Demo
+                            <ArrowRight size={16} className="group-hover:translate-x-1.5 transition-transform duration-500" />
+                        </FlipText>
+                    </Link>
                 </div>
             </div>
+
+            <style dangerouslySetInnerHTML={{ __html: `
+                .custom-scrollbar::-webkit-scrollbar {
+                    width: 5px;
+                }
+                .custom-scrollbar::-webkit-scrollbar-track {
+                    background: transparent;
+                }
+                .custom-scrollbar::-webkit-scrollbar-thumb {
+                    background: #E8F5EE;
+                    border-radius: 20px;
+                }
+                .custom-scrollbar:hover::-webkit-scrollbar-thumb {
+                    background: #C8E6DA;
+                }
+            `}} />
         </motion.div>
     );
 };

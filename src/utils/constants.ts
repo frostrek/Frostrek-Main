@@ -7,21 +7,27 @@ export const NAV_ITEMS = [
         href: '/products',
         megaMenu: [
             {
-                title: 'Core AI Agents',
+                title: '01 CORE AI AGENTS',
                 items: [
-                    { name: 'Frosty AI Agent', href: '/products/frosty-ai', desc: 'Advanced conversational AI for customer service.', icon: 'Bot' },
-                    { name: 'Voice AI Agent', href: '/products/voice-ai', desc: 'Human-like voice interactions for support and sales.', icon: 'Mic' },
-                    { name: 'WhatsApp Agents', href: '/products/whatsapp-agents', desc: 'Automated WhatsApp business communication.', icon: 'MessageSquare' },
+                    { name: 'AI Calling Agent', href: '/products/voice-ai', desc: 'Outbound & inbound voice AI for high-volume reminders and support.', icon: 'Mic' },
+                    { name: 'WhatsApp Bot', href: '/products/whatsapp-agents', desc: 'Automated conversational flows on WhatsApp Business for leads.', icon: 'MessageSquare' },
+                    { name: 'Website Chatbot (Frosty)', href: '/products/frosty-ai', desc: 'Embedded AI assistant trained on your docs for 24/7 support.', icon: 'Bot' },
+                    { name: 'Lead Generation Agent', href: '/products/lead-agent', desc: 'Scrapes and enriches leads automatically from multiple sources.', icon: 'Users' },
                 ],
             },
             {
-                title: 'Enterprise Tools',
+                title: '02 ENTERPRISE PLATFORMS',
                 items: [
-                    { name: 'PCC Marketplace', href: '/products/pcc-marketplace', desc: 'Web3 sports merchandise ecosystem.', icon: 'Trophy' },
-                    { name: 'SAF Manufacturing', href: '/products/saf-manufacturing', desc: 'Real-time factory intelligence platform.', icon: 'Factory' },
-                    { name: 'Hiyring', href: '/products/hiyring', desc: 'AI-powered autonomous video interviews.', icon: 'Users' },
-                    { name: 'LinkedIn Automation', href: '/products/linkedin-automation', desc: 'Scale your outreach with smart automation.', icon: 'Linkedin' },
-                    { name: 'ERPNext AI Modules', href: '/products/erpnext-ai', desc: 'Intelligent add-ons for your ERP system.', icon: 'Database' },
+                    { name: 'Manufacturing AI OS', href: '/products/frostrek-manufacturing-os', desc: 'Real-time factory intelligence and production optimization.', icon: 'Factory' },
+                    { name: 'Web3 Commerce Wallet', href: '/products/frostrek-web3-commerce', desc: 'Decentralized sports merchandise and secure NFT ecosystem.', icon: 'Trophy' },
+                    { name: 'CRM & ERP Automation', href: '/products/erpnext-ai', desc: 'Intelligent add-ons to streamline your existing workflows.', icon: 'Database' },
+                ],
+            },
+            {
+                title: '03 SMART AUTOMATION',
+                items: [
+                    { name: 'Invoice & Document AI', href: '/products/invoice-ai', desc: 'Extract and process data from invoices and contracts instantly.', icon: 'FileText' },
+                    { name: 'Workflow Builder', href: '/products/workflow-builder', desc: 'Connect 100s of apps in custom no-code automation flows.', icon: 'Share2' },
                 ],
             },
         ],
@@ -31,14 +37,19 @@ export const NAV_ITEMS = [
         href: '/solutions',
         megaMenu: [
             {
-                title: 'By Industry',
+                title: '01 SALES & COMMUNICATION',
                 items: [
-                    { name: 'AI for Sales', href: '/solutions/sales', desc: 'Boost conversion rates with AI sales assistants.', icon: 'TrendingUp' },
-                    { name: 'AI for Support', href: '/solutions/support', desc: '24/7 customer support automation.', icon: 'Headset' },
-                    { name: 'AI for eCommerce', href: '/solutions/ecommerce', desc: 'Personalized shopping experiences.', icon: 'ShoppingCart' },
-                    { name: 'AI for ERP', href: '/solutions/erp', desc: 'Streamline operations with intelligent ERP.', icon: 'Server' },
-                    { name: 'Manufacturing Intelligence', href: '/solutions/manufacturing', desc: 'Real-time factory optimization.', icon: 'Factory' },
-                    { name: 'Web3 Ecosystems', href: '/solutions/web3', desc: 'Next-gen decentralized commerce.', icon: 'Trophy' },
+                    { name: 'AI for Sales', href: '/solutions/sales', desc: 'Lead gen, CRM automation, and calling to close deals.', icon: 'TrendingUp' },
+                    { name: 'AI for Support', href: '/solutions/support', desc: '24/7 customer service across WhatsApp, chat & voice.', icon: 'Headset' },
+                    { name: 'Manufacturing Intelligence', href: '/solutions/manufacturing', desc: 'Real-time factory optimization and production AI.', icon: 'Factory' },
+                ],
+            },
+            {
+                title: '02 OPERATIONS & COMMERCE',
+                items: [
+                    { name: 'AI for ERP', href: '/solutions/erp', desc: 'Invoice AI, workflow builder, and internal knowledge bots.', icon: 'Server' },
+                    { name: 'AI for eCommerce', href: '/solutions/ecommerce', desc: 'Cart recovery, content generation, competitor tracking.', icon: 'ShoppingCart' },
+                    { name: 'Web3 Ecosystems', href: '/solutions/web3', desc: 'Next-gen decentralized commerce and NFT platforms.', icon: 'Trophy' },
                 ],
             },
         ],

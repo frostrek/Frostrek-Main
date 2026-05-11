@@ -1,20 +1,19 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
-    Bot, Mic, Database, Workflow, BarChart3,
+    Bot, Mic,
     ArrowRight, Sparkles, MessageCircle, Volume2,
-    Search, GitBranch, TrendingUp, CheckCircle2
+    CheckCircle2, Factory, Trophy
 } from 'lucide-react';
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { useTheme } from '../../context/ThemeContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
 interface SolutionDemo {
-    type: 'chat' | 'voice' | 'search' | 'workflow' | 'analytics';
+    type: 'chat' | 'voice' | 'manufacturing' | 'web3';
 }
 
 interface Solution {
@@ -31,6 +30,39 @@ interface Solution {
 
 const SOLUTIONS: Solution[] = [
     {
+        id: 'manufacturing-intelligence',
+        title: 'Manufacturing Intelligence',
+        tagline: 'Your factory. Finally, one screen.',
+        description: 'Connect every system on your production floor — ERP, WMS, PLCs, SCADA — into a single real-time intelligence platform. Built in 8 weeks. No new hardware. No million-dollar MES licence.',
+        icon: Factory,
+        demo: { type: 'manufacturing' },
+        features: [
+            '01 Disconnected systems: Unify ERP, WMS, and machine control',
+            '02 Blind cost per unit: Real-time cost calculations',
+            '03 Changeover losses: Eliminate 20-40+ hrs/wk of downtime',
+            '04 Quality catch: Automated real-time deviation alerts',
+            '05 Unstructured handovers: AI-driven shift briefings'
+        ],
+        link: '/products/frostrek-manufacturing-os',
+        gradient: 'from-[#2D6A4F] to-[#3D8B6E]'
+    },
+    {
+        id: 'frostrek-web3-commerce',
+        title: 'Frostrek Web3 Commerce',
+        tagline: 'Sports Merchandise Meets Blockchain',
+        description: 'A multi-tenant Web3 e-commerce ecosystem for global sports clubs. Powered by Circle programmable wallets, $TOKEN payments, and automated on-chain treasury settlement.',
+        icon: Trophy,
+        demo: { type: 'web3' },
+        features: [
+            'Circle programmable wallet integration',
+            'Frictionless $TOKEN crypto payments',
+            'Automated on-chain treasury settlement',
+            'Multi-tenant sports club storefronts'
+        ],
+        link: '/products/frostrek-web3-commerce',
+        gradient: 'from-[#2D6A4F] to-[#3D8B6E]'
+    },
+    {
         id: 'ai-agents',
         title: 'AI Agents',
         tagline: 'Intelligent Conversations',
@@ -44,7 +76,7 @@ const SOLUTIONS: Solution[] = [
             'Custom personality & brand voice'
         ],
         link: '/products/frosty-ai',
-        gradient: 'from-[#2EE1C7] to-[#1CB8A1]'
+        gradient: 'from-[#2D6A4F] to-[#3D8B6E]'
     },
     {
         id: 'voice-ai',
@@ -60,61 +92,11 @@ const SOLUTIONS: Solution[] = [
             'Real-time transcription & analytics'
         ],
         link: '/products/voice-ai',
-        gradient: 'from-[#2EE1C7] to-[#1CB8A1]'
-    },
-    {
-        id: 'rag-solutions',
-        title: 'RAG Solutions',
-        tagline: 'Enterprise Knowledge Access',
-        description: 'Transform your documents into an intelligent knowledge base. Our RAG (Retrieval Augmented Generation) solutions let your team and customers find answers instantly from any data source.',
-        icon: Database,
-        demo: { type: 'search' },
-        features: [
-            'Index PDFs, docs, databases & more',
-            'Semantic search with context',
-            'Citation & source tracking',
-            'Secure enterprise deployment'
-        ],
-        link: '/solutions/erp',
-        gradient: 'from-[#2EE1C7] to-[#1CB8A1]'
-    },
-    {
-        id: 'workflow-automation',
-        title: 'Workflow Automation',
-        tagline: 'End-to-End Process Intelligence',
-        description: 'Automate complex business processes with AI-powered workflows. Connect your existing tools, eliminate manual tasks, and scale operations without scaling headcount.',
-        icon: Workflow,
-        demo: { type: 'workflow' },
-        features: [
-            '500+ native integrations',
-            'Visual workflow builder',
-            'AI decision branching',
-            'Error handling & retry logic'
-        ],
-        link: '/solutions/sales',
-        gradient: 'from-[#2EE1C7] to-[#1CB8A1]'
-    },
-    {
-        id: 'data-intelligence',
-        title: 'Data Intelligence',
-        tagline: 'Actionable Insights',
-        description: 'Turn raw data into strategic decisions. Our AI analyzes patterns, predicts trends, and surfaces insights that drive business growth—all in real-time.',
-        icon: BarChart3,
-        demo: { type: 'analytics' },
-        features: [
-            'Real-time dashboard analytics',
-            'Predictive modeling & forecasting',
-            'Anomaly detection alerts',
-            'Custom report generation'
-        ],
-        link: '/solutions/ecommerce',
-        gradient: 'from-[#2EE1C7] to-[#1CB8A1]'
+        gradient: 'from-[#2D6A4F] to-[#3D8B6E]'
     }
 ];
 
-// Mini Demo Components
 const ChatDemo = () => {
-    const { theme } = useTheme();
     const messages = [
         { role: 'user', text: 'How can I track my order?' },
         { role: 'agent', text: 'I can help! Please share your order ID and I\'ll look that up.' },
@@ -122,12 +104,12 @@ const ChatDemo = () => {
     ];
 
     return (
-        <div className={`rounded-xl p-4 h-[200px] overflow-hidden border transition-colors ${theme === 'dark' ? 'bg-dark-bg border-dark-accent/30' : 'bg-[#f5ece4] border-gray-300'}`}>
-            <div className={`flex items-center gap-2 mb-3 pb-2 border-b ${theme === 'dark' ? 'border-dark-accent/20' : 'border-gray-300'}`}>
-                <div className="w-2 h-2 rounded-full bg-[#2EE1C7] animate-pulse" />
-                <span className={`text-xs ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}>Frosty AI Agent</span>
+        <div className="rounded-2xl p-5 h-[240px] overflow-hidden bg-brand-light-bg border border-[#E6EFE6]">
+            <div className="flex items-center gap-2 mb-4 pb-3 border-b border-[#E6EFE6]">
+                <div className="w-2.5 h-2.5 rounded-full bg-[#2D6A4F] animate-pulse" />
+                <span className="text-xs font-semibold text-gray-600">Frosty AI Agent</span>
             </div>
-            <div className="space-y-3">
+            <div className="space-y-4">
                 {messages.map((msg, i) => (
                     <div
                         key={i}
@@ -135,9 +117,9 @@ const ChatDemo = () => {
                         style={{ animationDelay: `${i * 1}s` }}
                     >
                         <div
-                            className={`max-w-[80%] px-3 py-2 rounded-xl text-xs animate-fade-in ${msg.role === 'user'
-                                ? 'bg-[#2EE1C7] text-white rounded-br-sm'
-                                : `${theme === 'dark' ? 'bg-dark-card text-dark-text border-dark-accent/20' : 'bg-white text-gray-700 border-gray-200'} rounded-bl-sm border`
+                            className={`max-w-[80%] px-4 py-2.5 rounded-2xl text-[13px] font-medium shadow-sm animate-fade-in ${msg.role === 'user'
+                                ? 'bg-[#2D6A4F] text-white rounded-br-sm'
+                                : 'bg-white text-gray-700 border border-gray-100 rounded-bl-sm'
                                 }`}
                             style={{ animationDelay: `${i * 0.8}s` }}
                         >
@@ -146,10 +128,10 @@ const ChatDemo = () => {
                     </div>
                 ))}
                 <div className="flex justify-start">
-                    <div className="flex gap-1 px-3 py-2">
-                        <span className={`w-1.5 h-1.5 rounded-full animate-bounce ${theme === 'dark' ? 'bg-dark-accent' : 'bg-gray-500'}`} style={{ animationDelay: '0s' }} />
-                        <span className={`w-1.5 h-1.5 rounded-full animate-bounce ${theme === 'dark' ? 'bg-dark-accent' : 'bg-gray-500'}`} style={{ animationDelay: '0.1s' }} />
-                        <span className={`w-1.5 h-1.5 rounded-full animate-bounce ${theme === 'dark' ? 'bg-dark-accent' : 'bg-gray-500'}`} style={{ animationDelay: '0.2s' }} />
+                    <div className="flex gap-1.5 px-3 py-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#2D6A4F] animate-bounce" style={{ animationDelay: '0s' }} />
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#2D6A4F] animate-bounce" style={{ animationDelay: '0.1s' }} />
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#2D6A4F] animate-bounce" style={{ animationDelay: '0.2s' }} />
                     </div>
                 </div>
             </div>
@@ -157,25 +139,22 @@ const ChatDemo = () => {
     );
 };
 
-// Memoized wave heights to prevent recalculation on every render
 const WAVE_HEIGHTS = [20, 32, 16, 28, 12, 24, 30, 18, 26, 14, 22, 20];
 
 const VoiceDemo = () => {
-    const { theme } = useTheme();
     return (
-        <div className={`rounded-xl p-4 h-[200px] border flex flex-col items-center justify-center transition-colors ${theme === 'dark' ? 'bg-dark-bg border-dark-accent/30' : 'bg-[#f5ece4] border-gray-300'}`}>
-            <div className="relative mb-4">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#2EE1C7] to-[#2EE1C7] flex items-center justify-center animate-pulse">
-                    <Volume2 className="w-8 h-8 text-white" />
+        <div className="rounded-2xl p-5 h-[240px] bg-brand-light-bg border border-[#E6EFE6] flex flex-col items-center justify-center">
+            <div className="relative mb-6">
+                <div className="w-20 h-20 rounded-full bg-[#2D6A4F] flex items-center justify-center animate-pulse shadow-lg shadow-[#2D6A4F]/20">
+                    <Volume2 className="w-10 h-10 text-white" />
                 </div>
-                {/* Single ping element instead of double for performance */}
-                <div className="absolute inset-0 w-16 h-16 rounded-full border-2 border-[#2EE1C7]/50 animate-ping" />
+                <div className="absolute inset-0 w-20 h-20 rounded-full border-2 border-[#2D6A4F]/40 animate-ping" />
             </div>
-            <div className="flex items-center gap-1 mb-2">
+            <div className="flex items-center gap-1.5 mb-3">
                 {WAVE_HEIGHTS.map((height, i) => (
                     <div
                         key={i}
-                        className="w-1 bg-gradient-to-t from-[#2EE1C7] to-[#2EE1C7] rounded-full animate-voice-wave"
+                        className="w-1.5 bg-[#2D6A4F] rounded-full animate-voice-wave"
                         style={{
                             height: `${height}px`,
                             animationDelay: `${i * 0.2}s`
@@ -183,191 +162,58 @@ const VoiceDemo = () => {
                     />
                 ))}
             </div>
-            <span className={`text-xs ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}>Voice AI responding...</span>
+            <span className="text-sm font-medium text-gray-500">Voice AI responding...</span>
         </div>
     );
 };
 
-const SearchDemo = () => {
-    const { theme } = useTheme();
-    const results = [
-        { title: 'Q3 Financial Report', match: '94%' },
-        { title: 'Employee Handbook', match: '87%' },
-        { title: 'Product Roadmap 2024', match: '72%' },
+const ManufacturingDemo = () => {
+    const industries = [
+        { name: 'Aquaculture & Feed', metric: 'Extruder optimisation' },
+        { name: 'Food & Beverage', metric: 'Line OEE, changeover logs' },
+        { name: 'Pharmaceuticals', metric: 'Batch traceability alerts' },
+        { name: 'Chemicals', metric: 'Reactor monitoring' },
     ];
-
+    
     return (
-        <div className={`rounded-xl p-2 h-[200px] border transition-colors ${theme === 'dark' ? 'bg-dark-bg border-dark-accent/30' : 'bg-[#f5ece4] border-gray-300'}`}>
-            <div className={`flex items-center gap-2 rounded-lg px-3 py-2 mb-3 border ${theme === 'dark' ? 'bg-dark-card border-dark-accent/20' : 'bg-white border-gray-200'}`}>
-                <Search className={`w-4 h-4 ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`} />
-                <span className={`text-sm ${theme === 'dark' ? 'text-dark-text' : 'text-gray-700'}`}>What were last quarter's revenue targets?</span>
-            </div>
-            <div className="space-y-2 border">
-                {results.map((result, i) => (
-                    <div
-                        key={i}
-                        className={`flex items-center justify-between rounded-lg px-3 py-2 animate-fade-in border ${theme === 'dark' ? 'bg-dark-card border-dark-accent/20' : 'bg-white border-gray-200'}`}
-                        style={{ animationDelay: `${i * 0.5}s` }}
-                    >
-                        <div className="flex items-center gap-2">
-                            <Database className="w-3 h-3 text-[#2EE1C7]" />
-                            <span className={`text-xs ${theme === 'dark' ? 'text-dark-text' : 'text-gray-700'}`}>{result.title}</span>
-                        </div>
-                        <span className="text-xs font-medium text-[#2EE1C7]">{result.match}</span>
-                    </div>
-                ))}
-            </div>
-        </div>
-    );
-};
-
-const WorkflowDemo = () => {
-    const { theme } = useTheme();
-    const steps = ['Trigger', 'Process', 'Validate', 'Output'];
-    const [isHovered, setIsHovered] = useState(false);
-    const containerRef = useRef(null);
-    const isInView = useInView(containerRef, { margin: "-20% 0px -20% 0px", once: true });
-    const [autoPlay, setAutoPlay] = useState(false);
-
-    useEffect(() => {
-        if (isInView) {
-            setAutoPlay(true);
-            const timer = setTimeout(() => setAutoPlay(false), 2400);
-            return () => clearTimeout(timer);
-        }
-    }, [isInView]);
-
-    const isActive = isHovered || autoPlay;
-
-    return (
-        <div
-            ref={containerRef}
-            className={`rounded-xl p-4 h-[200px] border flex items-center justify-center overflow-hidden relative transition-colors ${theme === 'dark' ? 'bg-dark-bg border-dark-accent/30' : 'bg-[#f5ece4] border-gray-300'}`}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-        >
-            <div className="flex items-center gap-1">
-                {steps.map((step, i) => (
-                    <div key={i} className="flex items-center">
-                        <motion.div
-                            className="relative flex flex-col items-center"
-                            initial={{ opacity: 1 }}
-                            animate={{
-                                scale: isActive ? [1, 1.1, 1] : 1,
-                                opacity: 1
-                            }}
-                            transition={{
-                                duration: 0.6,
-                                delay: i * 0.3,
-                                ease: "easeInOut"
-                            }}
-                        >
-                            <motion.div
-                                className={`w-12 h-12 rounded-lg flex items-center justify-center ${i === 0 ? 'bg-[#2EE1C7]' :
-                                    i === 3 ? 'bg-[#2EE1C7]' :
-                                        theme === 'dark' ? 'bg-dark-card' : 'bg-gray-300'
-                                    }`}
-                                animate={{
-                                    backgroundColor: isActive
-                                        ? (i === 0 ? ['#2EE1C7', theme === 'dark' ? '#1a1a1a' : '#d1d5db'] : i === 3 ? '#2EE1C7' : theme === 'dark' ? '#1a1a1a' : '#d1d5db')
-                                        : (i === 0 ? '#2EE1C7' : i === 3 ? '#2EE1C7' : theme === 'dark' ? '#1a1a1a' : '#d1d5db')
-                                }}
-                                transition={{
-                                    duration: 0.6,
-                                    times: i === 0 ? [0, 1] : undefined,
-                                    delay: i * 0.3,
-                                    ease: "easeInOut"
-                                }}
-                            >
-                                {i === 0 && <Sparkles className="w-5 h-5 text-white" />}
-                                {i === 1 && <GitBranch className={`w-5 h-5 ${theme === 'dark' ? 'text-dark-text' : 'text-white'}`} />}
-                                {i === 2 && <CheckCircle2 className={`w-5 h-5 ${theme === 'dark' ? 'text-dark-text' : 'text-white'}`} />}
-                                {i === 3 && <ArrowRight className="w-5 h-5 text-white" />}
-                            </motion.div>
-                            <span className={`text-[10px] mt-1 font-medium ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}>{step}</span>
-                        </motion.div>
-
-                        {i < steps.length - 1 && (
-                            <div className={`hidden md:block relative w-5 mx-1 h-0.5 overflow-hidden ${theme === 'dark' ? 'bg-dark-card' : 'bg-gray-300'}`}>
-                                <motion.div
-                                    className="absolute inset-0 bg-[#2EE1C7]"
-                                    initial={{ x: '-100%' }}
-                                    animate={{ x: isActive ? '0%' : '-100%' }}
-                                    transition={{
-                                        duration: 0.6,
-                                        delay: i * 0.3 + 0.2,
-                                        ease: "easeInOut"
-                                    }}
-                                />
-                            </div>
-                        )}
-                    </div>
-                ))}
-            </div>
-            {!isActive && (
-                <div className="absolute inset-0 flex items-center justify-center bg-black/5 backdrop-blur-[1px] opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                    <span className={`px-3 py-1 rounded-full text-xs font-medium shadow-sm ${theme === 'dark' ? 'bg-dark-card text-dark-text' : 'bg-white/90 text-gray-600'}`}>Hover to play</span>
+        <div className="rounded-2xl p-4 h-[240px] bg-brand-light-bg border border-[#E6EFE6] overflow-hidden flex flex-col relative">
+            <div className="flex items-center justify-between mb-3 bg-white p-3 rounded-xl border border-gray-100 shadow-sm z-10">
+                <div className="flex items-center gap-2">
+                    <div className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse" />
+                    <span className="text-xs font-bold text-gray-700">Factory Dashboard</span>
                 </div>
-            )}
+                <div className="flex gap-4">
+                    <div className="text-[11px] font-bold text-gray-500">OEE: <span className="text-[#2D6A4F]">87%</span></div>
+                    <div className="text-[11px] font-bold text-gray-500">Cost/Unit: <span className="text-[#2D6A4F]">$1.24</span></div>
+                </div>
+            </div>
+            
+            <div className="space-y-2 flex-1 relative z-10">
+                {industries.map((ind, i) => (
+                    <div key={i} className="flex items-center justify-between p-2.5 rounded-lg bg-white/80 border border-gray-100 backdrop-blur-sm shadow-sm animate-fade-in" style={{ animationDelay: `${i * 0.2}s` }}>
+                        <span className="text-xs font-bold text-[#2D6A4F]">{ind.name}</span>
+                        <span className="text-[11px] font-medium text-gray-500">{ind.metric}</span>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };
 
-const AnalyticsDemo = () => {
-    const { theme } = useTheme();
-    const bars = [35, 55, 45, 70, 60, 80, 75];
-    const [isHovered, setIsHovered] = useState(false);
-    const containerRef = useRef(null);
-    const isInView = useInView(containerRef, { margin: "-20% 0px -20% 0px", once: true });
-    const [autoPlay, setAutoPlay] = useState(false);
-
-    useEffect(() => {
-        if (isInView) {
-            setAutoPlay(true);
-            const timer = setTimeout(() => setAutoPlay(false), 2000);
-            return () => clearTimeout(timer);
-        }
-    }, [isInView]);
-
-    const isActive = isHovered || autoPlay;
-
+const Web3Demo = () => {
     return (
-        <div
-            ref={containerRef}
-            className={`rounded-xl p-4 h-[200px] border overflow-hidden relative transition-colors ${theme === 'dark' ? 'bg-dark-bg border-dark-accent/30' : 'bg-[#f5ece4] border-gray-300'}`}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-        >
-            <div className="flex items-center justify-between mb-3">
-                <span className={`text-xs ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}>Revenue Growth</span>
-                <motion.div
-                    className="flex items-center gap-1 text-[#2EE1C7]"
-                    animate={{ scale: isActive ? [1, 1.1, 1] : 1 }}
-                    transition={{ duration: 0.5, delay: 1 }}
-                >
-                    <TrendingUp className="w-3 h-3" />
-                    <span className="text-xs font-semibold">+24%</span>
-                </motion.div>
+        <div className="rounded-2xl p-5 h-[240px] bg-brand-light-bg border border-[#E6EFE6] flex flex-col items-center justify-center relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#20A88D]/10 to-transparent" />
+            <div className="w-16 h-16 rounded-2xl bg-white shadow-lg border border-[#E6EFE6] flex items-center justify-center mb-4 z-10 relative">
+                <Trophy className="w-8 h-8 text-[#20A88D]" />
+                <div className="absolute -top-1 -right-1 w-5 h-5 bg-[#2D6A4F] rounded-full flex items-center justify-center">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-white" />
+                </div>
             </div>
-            <div className="flex items-end justify-between gap-2 h-[120px] pt-4">
-                {bars.map((height, i) => (
-                    <motion.div
-                        key={i}
-                        className="flex-1 bg-gradient-to-t from-[#2EE1C7] to-[#2EE1C7] rounded-t-sm"
-                        initial={{ height: '0%' }}
-                        animate={{ height: isActive ? `${height}%` : '15%' }}
-                        transition={{
-                            duration: 1.2,
-                            delay: i * 0.15,
-                            ease: [0.34, 1.56, 0.64, 1]
-                        }}
-                    />
-                ))}
-            </div>
-            <div className="flex justify-between mt-2">
-                {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map((day) => (
-                    <span key={day} className={`text-[9px] flex-1 text-center ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}>{day}</span>
-                ))}
+            <div className="text-center z-10">
+                <div className="text-sm font-bold text-[#2D6A4F] mb-1">Payment Successful</div>
+                <div className="text-3xl font-black text-[#20A88D] font-mono tracking-tight mb-2">145.00 <span className="text-sm">TOKEN</span></div>
+                <div className="text-[11px] text-gray-500 bg-white px-3 py-1.5 rounded-lg shadow-sm border border-gray-100 inline-block font-medium">Tx: 0x8f...3a9b settled instantly</div>
             </div>
         </div>
     );
@@ -377,14 +223,12 @@ const DemoComponent = ({ type }: { type: SolutionDemo['type'] }) => {
     switch (type) {
         case 'chat': return <ChatDemo />;
         case 'voice': return <VoiceDemo />;
-        case 'search': return <SearchDemo />;
-        case 'workflow': return <WorkflowDemo />;
-        case 'analytics': return <AnalyticsDemo />;
+        case 'manufacturing': return <ManufacturingDemo />;
+        case 'web3': return <Web3Demo />;
     }
 };
 
 const AISolutionsShowcase = () => {
-    const { theme } = useTheme();
     const [activeIndex, setActiveIndex] = useState(0);
     const sectionRef = useRef<HTMLElement>(null);
     const headerRef = useRef<HTMLDivElement>(null);
@@ -395,84 +239,46 @@ const AISolutionsShowcase = () => {
 
     useGSAP(() => {
         const ctx = gsap.context(() => {
-            // Header animation
             if (headerRef.current) {
                 gsap.fromTo(headerRef.current.children,
                     { y: 50, opacity: 0, filter: 'blur(6px)' },
                     {
-                        y: 0,
-                        opacity: 1,
-                        filter: 'blur(0px)',
-                        duration: 0.8,
-                        stagger: 0.12,
-                        ease: 'power3.out',
-                        scrollTrigger: {
-                            trigger: headerRef.current,
-                            start: 'top 90%',
-                            toggleActions: 'play none none none'
-                        }
+                        y: 0, opacity: 1, filter: 'blur(0px)', duration: 0.8,
+                        stagger: 0.12, ease: 'power3.out',
+                        scrollTrigger: { trigger: headerRef.current, start: 'top 90%', toggleActions: 'play none none none' }
                     }
                 );
             }
-
-            // Tabs animation
             if (tabsRef.current) {
                 gsap.fromTo(tabsRef.current,
                     { x: -50, opacity: 0 },
                     {
-                        x: 0,
-                        opacity: 1,
-                        duration: 0.8,
-                        ease: 'power2.out',
-                        scrollTrigger: {
-                            trigger: tabsRef.current,
-                            start: 'top 85%',
-                            toggleActions: 'play none none none'
-                        }
+                        x: 0, opacity: 1, duration: 0.8, ease: 'power2.out',
+                        scrollTrigger: { trigger: tabsRef.current, start: 'top 85%', toggleActions: 'play none none none' }
                     }
                 );
             }
-
-            // Content panel animation
             if (contentRef.current) {
                 gsap.fromTo(contentRef.current,
                     { x: 50, opacity: 0 },
                     {
-                        x: 0,
-                        opacity: 1,
-                        duration: 0.8,
-                        ease: 'power2.out',
-                        scrollTrigger: {
-                            trigger: contentRef.current,
-                            start: 'top 85%',
-                            toggleActions: 'play none none none'
-                        }
+                        x: 0, opacity: 1, duration: 0.8, ease: 'power2.out',
+                        scrollTrigger: { trigger: contentRef.current, start: 'top 85%', toggleActions: 'play none none none' }
                     }
                 );
             }
-
         }, sectionRef);
-
         return () => ctx.revert();
     }, { scope: sectionRef });
 
-    // Animate content change
     const handleTabChange = (index: number) => {
         if (index === activeIndex) return;
-
         if (contentRef.current) {
             gsap.to(contentRef.current, {
-                opacity: 0,
-                x: 20,
-                duration: 0.2,
+                opacity: 0, x: 20, duration: 0.2,
                 onComplete: () => {
                     setActiveIndex(index);
-                    gsap.to(contentRef.current, {
-                        opacity: 1,
-                        x: 0,
-                        duration: 0.3,
-                        ease: 'power2.out'
-                    });
+                    gsap.to(contentRef.current, { opacity: 1, x: 0, duration: 0.3, ease: 'power2.out' });
                 }
             });
         } else {
@@ -481,145 +287,101 @@ const AISolutionsShowcase = () => {
     };
 
     return (
-        <section ref={sectionRef} className={`relative py-16 overflow-hidden transition-colors duration-300 ${theme === 'dark' ? 'bg-dark-bg' : 'bg-transparent'}`}>
-            {/* Decorative blur elements */}
-            <div className="absolute top-20 right-10 w-64 h-64 bg-[#2EE1C7]/30 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute bottom-20 left-10 w-48 h-48 bg-[#2EE1C7]/10 rounded-full blur-3xl pointer-events-none" />
-
-            <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <section ref={sectionRef} className="relative py-24 overflow-hidden bg-brand-light-bg font-sans">
+            <div className="absolute top-20 right-10 w-[400px] h-[400px] bg-brand-badge-bg/50 rounded-full blur-[100px] pointer-events-none" />
+            
+            <div className="max-w-[1400px] mx-auto px-4 md:px-6 relative z-10">
                 {/* Header */}
-                <div ref={headerRef} className="text-center mb-12">
-                    <div className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full border mb-3 ${theme === 'dark' ? 'bg-dark-card border-dark-accent/30' : 'bg-[#fdfbf7] border-[#2EE1C7]'}`}>
-                        <span className="relative flex h-2 w-2">
-                            <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${theme === 'dark' ? 'bg-dark-accent/60' : 'bg-[#2EE1C7]/60'}`} />
-                            <span className={`relative inline-flex rounded-full h-2 w-2 ${theme === 'dark' ? 'bg-dark-accent' : 'bg-[#2EE1C7]'}`} />
-                        </span>
-                        <span className={`text-xs font-semibold uppercase tracking-wider ${theme === 'dark' ? 'text-dark-accent' : 'text-[#2EE1C7]'}`}>
-                            AI Solutions
-                        </span>
-                    </div>
-                    <h2 className={`text-2xl md:text-4xl font-bold mb-3 ${theme === 'dark' ? 'text-dark-text' : 'text-gray-900'}`}>
-                        Our AI Business <span className={theme === 'dark' ? 'text-dark-accent' : 'text-[#2EE1C7]'}>Solutions</span>
+                <div ref={headerRef} className="text-center mb-16">
+                    <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-badge-bg text-brand-badge-text text-sm font-bold tracking-wide mb-6 border border-[#c4e0d4]/50"
+                    >
+                        <span className="text-lg leading-none">✨</span> AI SOLUTIONS
+                    </motion.div>
+                    
+                    <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] mb-6 leading-[1.15] tracking-[-0.01em]">
+                        Our AI Business Solutions
                     </h2>
-                    <p className={`text-base max-w-2xl mx-auto ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}>
+                    <p className="text-lg text-gray-500 max-w-2xl mx-auto font-medium">
                         AI Agents and agentic workflows that embed AI where the value is.
                     </p>
                 </div>
 
-                {/* Main Content */}
-                <div className="max-w-6xl mx-auto">
-                    {/* MOBILE VIEW - Horizontal Icons */}
+                <div className="max-w-7xl mx-auto">
+                    {/* MOBILE VIEW */}
                     <div className="lg:hidden mb-8">
-                        {/* Horizontal Icon Navigation - FIXED */}
                         <div
                             ref={tabsRef}
-                            className="flex justify-center gap-4 mb-6 overflow-x-auto p-2"
-                            style={{
-                                scrollbarWidth: 'none',
-                                msOverflowStyle: 'none',
-                            }}
+                            className="flex justify-start sm:justify-center gap-4 mb-8 overflow-x-auto p-2"
+                            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                         >
-                            <style>{`
-                                div::-webkit-scrollbar {
-                                    display: none;
-                                }
-                            `}</style>
                             {SOLUTIONS.map((solution, index) => {
                                 const Icon = solution.icon;
                                 const isActive = index === activeIndex;
-
                                 return (
                                     <button
                                         key={solution.id}
                                         onClick={() => handleTabChange(index)}
-                                        className={`flex-shrink-0 relative transition-all duration-300 ${isActive ? 'scale-110' : 'scale-100 active:scale-95'}`}
+                                        className={`flex-shrink-0 relative transition-all duration-300 ${isActive ? 'scale-110' : 'scale-100 hover:scale-105'}`}
                                     >
                                         <div
-                                            className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 shadow-md ${isActive
-                                                ? 'bg-gradient-to-br from-[#2EE1C7] to-[#2EE1C7] shadow-lg'
-                                                : `${theme === 'dark' ? 'bg-dark-accent/20 border border-dark-accent/40' : 'bg-[#2EE1C7]/30 border border-[#2EE1C7]/40'}`
+                                            className={`w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 shadow-sm border-2 ${isActive
+                                                ? 'bg-[#2D6A4F] border-[#2D6A4F] shadow-[#2D6A4F]/30'
+                                                : 'bg-white border-white'
                                                 }`}
                                         >
-                                            <Icon className={`w-6 h-6 transition-colors ${isActive ? 'text-black' : 'text-[#2EE1C7]'}`} />
+                                            <Icon className={`w-6 h-6 transition-colors ${isActive ? 'text-white' : 'text-[#2D6A4F]'}`} />
                                         </div>
-                                        {isActive && (
-                                            <motion.div
-                                                className="absolute inset-0 rounded-full border-2 border-[#2EE1C7]"
-                                                initial={{ scale: 1 }}
-                                                animate={{ scale: 1.25 }}
-                                                transition={{ duration: 0.5, repeat: Infinity }}
-                                                style={{ opacity: 0.4 }}
-                                            />
-                                        )}
                                     </button>
                                 );
                             })}
                         </div>
 
-                        {/* Active Solution Title */}
-                        <div className="text-center mb-4">
-                            <h3 className={`text-lg font-bold ${theme === 'dark' ? 'text-dark-text' : 'text-gray-900'}`}>
+                        <div className="text-center mb-6">
+                            <h3 className="font-serif text-2xl font-bold text-[#2D6A4F] mb-1">
                                 {activeSolution.title}
                             </h3>
-                            <p className={`text-sm ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}>
+                            <p className="text-sm font-medium text-gray-500">
                                 {activeSolution.tagline}
                             </p>
                         </div>
 
-                        {/* Mobile Content Panel */}
-                        <div ref={contentRef} className={`rounded-2xl border shadow-lg overflow-hidden ${theme === 'dark' ? 'bg-dark-card border-dark-accent/10' : 'bg-white border-gray-200'}`}>
-                            {/* Content Header */}
-                            <div className={`p-4 border-b ${theme === 'dark' ? 'border-dark-accent/10' : 'border-gray-100'}`}>
-                                <p className={`text-sm leading-relaxed ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}>
+                        <div ref={contentRef} className="rounded-3xl border border-[#E6EFE6] shadow-[0_20px_50px_rgba(45,106,79,0.05)] bg-white overflow-hidden">
+                            <div className="p-5 border-b border-[#E6EFE6]">
+                                <p className="text-sm leading-relaxed text-gray-600">
                                     {activeSolution.description}
                                 </p>
                             </div>
-
-                            {/* Demo */}
-                            <div className="p-4">
+                            <div className="p-5 bg-gray-50/50">
                                 <DemoComponent type={activeSolution.demo.type} />
                             </div>
-
-                            {/* Features */}
-                            <div className="px-4 pb-4 space-y-2">
+                            <div className="px-5 pb-5 pt-4 space-y-3 border-t border-[#E6EFE6]">
                                 {activeSolution.features.map((feature, i) => (
-                                    <div
-                                        key={i}
-                                        className="flex items-start gap-2 animate-fade-in"
-                                        style={{ animationDelay: `${i * 0.1}s` }}
-                                    >
-                                        <CheckCircle2 className="w-4 h-4 text-[#2EE1C7] mt-0.5 flex-shrink-0" />
-                                        <span className={`text-xs ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}>{feature}</span>
+                                    <div key={i} className="flex items-start gap-2">
+                                        <CheckCircle2 className="w-4 h-4 text-[#2D6A4F] mt-0.5 flex-shrink-0" />
+                                        <span className="text-sm font-medium text-gray-600">{feature}</span>
                                     </div>
                                 ))}
                             </div>
-
-                            {/* CTA */}
-                            <div className="px-4 pb-4 flex flex-col gap-2">
-                                <Link
-                                    to={activeSolution.link}
-                                    className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#2EE1C7] hover:bg-[#2EE1C7] text-black rounded-lg font-medium text-sm transition-all hover:shadow-lg"
-                                >
-                                    Learn More
-                                    <ArrowRight className="w-4 h-4" />
+                            <div className="px-5 pb-6 flex flex-col gap-3">
+                                <Link to={activeSolution.link} className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#2D6A4F] hover:bg-brand-badge-text text-white rounded-xl font-bold text-sm transition-all shadow-md">
+                                    Learn More <ArrowRight className="w-4 h-4" />
                                 </Link>
-                                <Link
-                                    to="/contact"
-                                    className={`inline-flex items-center justify-center gap-2 px-5 py-2.5 border rounded-lg font-medium text-sm transition-all ${theme === 'dark' ? 'border-dark-accent/50 text-dark-text hover:border-dark-accent hover:text-dark-accent' : 'border-gray-300 hover:border-[#2EE1C7] text-gray-700 hover:text-[#2EE1C7]'}`}
-                                >
-                                    <MessageCircle className="w-4 h-4" />
-                                    Book Demo
+                                <Link to="/contact" className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-[#2D6A4F] rounded-xl font-bold text-sm text-[#2D6A4F] hover:bg-[#Fcfcfc] transition-all">
+                                    <MessageCircle className="w-4 h-4" /> Book Demo
                                 </Link>
                             </div>
                         </div>
                     </div>
 
-                    {/* DESKTOP VIEW - Original Layout */}
-                    <div className="hidden lg:flex gap-8">
-
-                        {/* Left Panel - Tabs */}
-                        <div className="lg:w-1/3">
-                            <div className="space-y-2">
+                    {/* DESKTOP VIEW */}
+                    <div className="hidden lg:flex gap-10">
+                        {/* Left Panel */}
+                        <div className="lg:w-1/3 pt-2">
+                            <div className="space-y-3">
                                 {SOLUTIONS.map((solution, index) => {
                                     const Icon = solution.icon;
                                     const isActive = index === activeIndex;
@@ -628,101 +390,96 @@ const AISolutionsShowcase = () => {
                                         <button
                                             key={solution.id}
                                             onClick={() => handleTabChange(index)}
-                                            className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition-all duration-300 group ${isActive
-                                                ? 'bg-gradient-to-r from-[#2EE1C7] to-[#2EE1C7] text-black shadow-lg shadow-[#2EE1C7]/30'
-                                                : `${theme === 'dark' ? 'bg-dark-card border-none hover:bg-dark-card/80 text-dark-text' : 'bg-white hover:bg-[#FDFBF7] text-gray-700 border border-gray-200 hover:border-[#2EE1C7]'}`
+                                            className={`w-full flex items-center gap-4 px-5 py-4 rounded-2xl text-left transition-all duration-300 group border-2 ${isActive
+                                                ? 'bg-[#2D6A4F] border-[#2D6A4F] text-white shadow-xl shadow-[#2D6A4F]/10 scale-[1.02]'
+                                                : 'bg-white border-transparent hover:border-[#E6EFE6] text-gray-700 shadow-sm hover:shadow-md'
                                                 }`}
                                         >
-                                            <div className={`w-10 h-10 shrink-0 rounded-full flex items-center justify-center transition-all duration-300 ${isActive
-                                                ? 'bg-white/10'
-                                                : `${theme === 'dark' ? 'bg-dark-accent/20' : 'bg-[#2EE1C7]/30'}`
-                                                }`}>
-                                                <Icon className={`w-5 h-5 transition-colors ${isActive ? 'text-black' : 'text-[#2EE1C7]'}`} />
+                                            <div className={`w-12 h-12 shrink-0 rounded-xl flex items-center justify-center transition-all duration-300 ${isActive ? 'bg-white/10' : 'bg-[#F4F9F6]'}`}>
+                                                <Icon className={`w-6 h-6 transition-colors ${isActive ? 'text-white' : 'text-[#2D6A4F]'}`} />
                                             </div>
                                             <div className="flex-1">
-                                                <div className={`font-semibold text-sm ${isActive ? 'text-black' : theme === 'dark' ? 'text-dark-text' : 'text-gray-900'}`}>
+                                                <div className={`font-serif font-bold text-[17px] tracking-wide mb-1 ${isActive ? 'text-white' : 'text-[#2D6A4F]'}`}>
                                                     {solution.title}
                                                 </div>
-                                                <div className={`text-xs ${isActive ? 'text-black/70' : 'text-gray-500'}`}>
+                                                <div className={`text-[13px] font-medium ${isActive ? 'text-white/80' : 'text-gray-500'}`}>
                                                     {solution.tagline}
                                                 </div>
                                             </div>
                                             {isActive && (
-                                                <div className="w-1.5 h-8 bg-[#2EE1C7] rounded-full" />
+                                                <div className="w-1.5 h-8 bg-white/30 rounded-full" />
                                             )}
                                         </button>
                                     );
                                 })}
                             </div>
 
-                            {/* View Ecosystem Link */}
                             <Link
                                 to="/products"
-                                className={`mt-4 flex items-center gap-2 px-4 py-3 rounded-xl border border-dashed text-sm font-medium transition-all group ${theme === 'dark' ? 'border-dark-accent/30 text-dark-text-muted hover:border-dark-accent hover:text-dark-accent' : 'border-gray-300 text-gray-600 hover:border-[#2EE1C7] hover:text-[#2EE1C7]'}`}
+                                className="mt-8 flex items-center gap-3 px-5 py-4 rounded-2xl border-2 border-dashed border-[#c4e0d4] text-[#2D6A4F] hover:bg-white hover:border-[#2D6A4F]/30 transition-all group font-bold"
                             >
-                                <Sparkles className="w-4 h-4" />
-                                <span className="text-sm font-medium">View Full AI Ecosystem</span>
-                                <ArrowRight className="w-4 h-4 ml-auto transform group-hover:translate-x-1 transition-transform" />
+                                <Sparkles className="w-5 h-5 text-[#2D6A4F]" />
+                                <span>View Full AI Ecosystem</span>
+                                <ArrowRight className="w-5 h-5 ml-auto transform group-hover:translate-x-1 transition-transform" />
                             </Link>
                         </div>
 
-                        {/* Right Panel - Content */}
+                        {/* Right Panel */}
                         <div ref={contentRef} className="lg:w-2/3">
-                            <div className={`rounded-2xl border shadow-xl overflow-hidden ${theme === 'dark' ? 'bg-dark-card border-dark-accent/10' : 'bg-white border-gray-200'}`}>
-                                {/* Content Header */}
-                                <div className={`p-6 border-b ${theme === 'dark' ? 'border-white/5' : 'border-gray-100'}`}>
-                                    <div className="flex items-start gap-4">
-                                        <div className={`w-14 h-14 shrink-0 rounded-full bg-gradient-to-br ${activeSolution.gradient} flex items-center justify-center shadow-lg`}>
-                                            <activeSolution.icon className="w-7 h-7 text-white" />
+                            <div className="rounded-3xl border border-[#E6EFE6] shadow-[0_30px_60px_rgba(45,106,79,0.06)] bg-white overflow-hidden flex flex-col h-full">
+                                {/* Header */}
+                                <div className="p-8 border-b border-[#E6EFE6] bg-gradient-to-br from-white to-[#Fafdfb]">
+                                    <div className="flex items-start gap-5">
+                                        <div className="w-16 h-16 shrink-0 rounded-2xl bg-[#2D6A4F] flex items-center justify-center shadow-lg shadow-[#2D6A4F]/20">
+                                            <activeSolution.icon className="w-8 h-8 text-white" />
                                         </div>
                                         <div>
-                                            <h3 className={`text-xl font-bold mb-1 ${theme === 'dark' ? 'text-dark-text' : 'text-gray-900'}`}>
-                                                AI for <span className="text-[#2EE1C7]">{activeSolution.title}</span>
+                                            <h3 className="font-serif text-3xl font-bold mb-2 text-[#2D6A4F]">
+                                                {activeSolution.title}
                                             </h3>
-                                            <p className={`text-sm leading-relaxed ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}>
+                                            <p className="text-base text-gray-600 leading-relaxed font-medium">
                                                 {activeSolution.description}
                                             </p>
                                         </div>
                                     </div>
                                 </div>
 
-                                {/* Demo + Features */}
-                                <div className="p-6 grid md:grid-cols-2 gap-6">
-                                    {/* Demo Preview */}
-                                    <div>
-                                        <DemoComponent type={activeSolution.demo.type} />
-                                    </div>
-
-                                    {/* Features */}
-                                    <div className="space-y-3">
+                                {/* Body */}
+                                <div className="p-8 grid grid-cols-[1fr_1.1fr] gap-8 bg-white flex-1">
+                                    <div className="space-y-4 pt-2">
+                                        <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Key Features</h4>
                                         {activeSolution.features.map((feature, i) => (
                                             <div
                                                 key={i}
-                                                className="flex items-start gap-2 animate-fade-in"
+                                                className="flex items-start gap-3 animate-fade-in"
                                                 style={{ animationDelay: `${i * 0.1}s` }}
                                             >
-                                                <CheckCircle2 className="w-4 h-4 text-[#2EE1C7] mt-0.5 flex-shrink-0" />
-                                                <span className={`text-sm ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}>{feature}</span>
+                                                <div className="mt-0.5 bg-[#E6EFE6] rounded-full p-0.5 flex-shrink-0">
+                                                    <CheckCircle2 className="w-4 h-4 text-[#2D6A4F]" />
+                                                </div>
+                                                <span className="text-[15px] font-medium text-gray-700 leading-snug">{feature}</span>
                                             </div>
                                         ))}
                                     </div>
+                                    
+                                    <div className="flex flex-col justify-center">
+                                        <DemoComponent type={activeSolution.demo.type} />
+                                    </div>
                                 </div>
 
-                                {/* CTA */}
-                                <div className="px-6 pb-6 flex flex-wrap gap-3">
+                                {/* Footer CTA */}
+                                <div className="px-8 py-6 flex items-center gap-4 bg-gray-50/50 border-t border-[#E6EFE6]">
                                     <Link
                                         to={activeSolution.link}
-                                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#2EE1C7] hover:bg-[#2EE1C7] text-black rounded-lg font-medium text-sm transition-all hover:shadow-lg"
+                                        className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#2D6A4F] hover:bg-[#1E4D38] text-white rounded-xl font-bold transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
                                     >
-                                        Learn More
-                                        <ArrowRight className="w-4 h-4" />
+                                        Learn More <ArrowRight className="w-4 h-4" />
                                     </Link>
                                     <Link
                                         to="/contact"
-                                        className={`inline-flex items-center gap-2 px-5 py-2.5 border rounded-lg font-medium text-sm transition-all ${theme === 'dark' ? 'border-dark-accent/50 text-dark-text hover:border-dark-accent hover:text-dark-accent' : 'border-gray-300 hover:border-[#2EE1C7] text-gray-700 hover:text-[#2EE1C7]'}`}
+                                        className="inline-flex items-center gap-2 px-7 py-3.5 border-2 border-[#2D6A4F]/10 hover:border-[#2D6A4F] rounded-xl font-bold text-[#2D6A4F] hover:bg-white transition-all bg-white"
                                     >
-                                        <MessageCircle className="w-4 h-4" />
-                                        Book Demo
+                                        <MessageCircle className="w-4 h-4" /> Book Demo
                                     </Link>
                                 </div>
                             </div>

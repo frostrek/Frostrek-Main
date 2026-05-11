@@ -1,333 +1,333 @@
-"use client";
-
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
     Lightbulb,
-    Code2,
-    TestTube2,
-    Rocket,
+    Cpu,
+    ShieldAlert,
     TrendingUp,
-    type LucideIcon,
-} from "lucide-react";
+    Terminal,
+    Bot,
+    CheckCircle2,
+    Activity,
+    Sparkles
+} from 'lucide-react';
 
-interface ProcessNode {
+interface ProcessStep {
     id: string;
     label: string;
+    title: string;
     description: string;
-    icon: LucideIcon;
-    x: number;
-    y: number;
-    color: string;
+    bullets: string[];
+    icon: React.ComponentType<any>;
 }
 
-const PROCESS_NODES: ProcessNode[] = [
+const STEPS: ProcessStep[] = [
     {
-        id: "research",
-        label: "Research",
-        description: "Deep analysis",
-        icon: Lightbulb,
-        x: -30,
-        y: -30,
-        color: "#2EE1C7" // Teal
+        id: 'research',
+        label: 'PHASE 01',
+        title: 'Deep Research & Blueprinting',
+        description: 'We perform deep analysis of your operational workflows to identify custom agentic opportunities and draft the technical architecture blueprint.',
+        bullets: [
+            'Enterprise workflow mapping',
+            'SLA & accuracy requirement profiling',
+            'LLM model viability assessment',
+            'Custom data connector checklist'
+        ],
+        icon: Lightbulb
     },
     {
-        id: "develop",
-        label: "Development",
-        description: "Build robust AI",
-        icon: Code2,
-        x: 30,
-        y: -30,
-        color: "#2EE1C7" // Teal
+        id: 'architecture',
+        label: 'PHASE 02',
+        title: 'Multi-Agent System Architecture',
+        description: 'Our engineers design and assemble dedicated specialized agents (Voice, Chat, Backend, and RAG) that communicate natively with each other to complete workflows.',
+        bullets: [
+            'Defining agent-to-agent communication layers',
+            'Setting up isolated tools and action schemas',
+            'Connecting context retrieval databases',
+            'Configuring fallback safety guardrails'
+        ],
+        icon: Cpu
     },
     {
-        id: "test",
-        label: "Testing",
-        description: "Review quality",
-        icon: TestTube2,
-        x: 30,
-        y: 25,
-        color: "#2EE1C7" // Teal
+        id: 'validation',
+        label: 'PHASE 03',
+        title: 'Sandbox Validation & Safety Filters',
+        description: 'We deploy the system inside an enterprise-grade sandbox, putting the AI agents through thousands of automated high-load stress tests.',
+        bullets: [
+            'Prompt injection protection checks',
+            'Adversarial safety guardrail tuning',
+            'Accuracy benchmarking (goal: >98%)',
+            'Latency & load optimization'
+        ],
+        icon: ShieldAlert
     },
     {
-        id: "deploy",
-        label: "Deployment",
-        description: "Integration",
-        icon: Rocket,
-        x: -30,
-        y: 25,
-        color: "#2EE1C7" // Teal
-    },
+        id: 'scaling',
+        label: 'PHASE 04',
+        title: 'Production Scaling & Analytics',
+        description: 'We go live with automated auto-scaling cloud infrastructure, complete with real-time semantic monitoring dashboards and telemetry.',
+        bullets: [
+            'Auto-scaling Kubernetes deployment',
+            'Real-time semantic trace logs dashboard',
+            'Feedback loop integration',
+            'Continuous post-deploy training'
+        ],
+        icon: TrendingUp
+    }
 ];
 
 const InnovationProcess = () => {
-    const containerRef = useRef<HTMLDivElement>(null);
-    const [nodePositions, setNodePositions] = useState<Record<string, { x: number; y: number }>>({});
-    const [hoveredNode, setHoveredNode] = useState<string | null>(null);
-    const [draggedNode, setDraggedNode] = useState<string | null>(null);
-    const [floatingNodes, setFloatingNodes] = useState<Set<string>>(new Set());
-    const [isAnimated, setIsAnimated] = useState(false);
-    const dragStartRef = useRef<{ x: number; y: number; nodeX: number; nodeY: number } | null>(null);
-    const resetTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+    const [activeStep, setActiveStep] = useState<string>('research');
+    const currentStepIndex = STEPS.findIndex(s => s.id === activeStep);
+    const activeData = STEPS[currentStepIndex];
 
-    // Calculate target positions
-    const getTargetPositions = useCallback(() => {
-        const formation: Record<string, { x: number; y: number }> = {};
-        PROCESS_NODES.forEach((node) => {
-            formation[node.id] = { x: node.x, y: node.y };
-        });
-        return formation;
-    }, []);
+    // Auto rotate steps every 12 seconds unless hovered/interacted
+    const [paused, setPaused] = useState(false);
 
-    // Initialize with scattered positions, then animate to formation
     useEffect(() => {
-        const scattered: Record<string, { x: number; y: number }> = {};
-        PROCESS_NODES.forEach((node) => {
-            scattered[node.id] = {
-                x: (Math.random() - 0.5) * 120, // Reduced scatter range to keep visible
-                y: (Math.random() - 0.5) * 120,
-            };
-        });
-        setNodePositions(scattered);
-
-        const timer = setTimeout(() => {
-            setNodePositions(getTargetPositions());
-            setIsAnimated(true);
-        }, 500); // Slightly longer delay for "suffer" effect
-
-        return () => clearTimeout(timer);
-    }, [getTargetPositions]);
-
-    // Auto-reshuffle (reset) after interaction
-    const scheduleReset = useCallback(() => {
-        if (resetTimerRef.current) clearTimeout(resetTimerRef.current);
-        resetTimerRef.current = setTimeout(() => {
-            setNodePositions(getTargetPositions());
-            setFloatingNodes(new Set());
-        }, 3000); // 3 seconds auto-reset
-    }, [getTargetPositions]);
-
-    // Get node position
-    const getNodePos = useCallback((nodeId: string) => {
-        return nodePositions[nodeId] || { x: 0, y: 0 };
-    }, [nodePositions]);
-
-    // Handle pointer down (start drag)
-    const handlePointerDown = useCallback((e: React.PointerEvent, nodeId: string) => {
-        e.preventDefault();
-        e.stopPropagation();
-        e.currentTarget.setPointerCapture(e.pointerId);
-
-        if (resetTimerRef.current) clearTimeout(resetTimerRef.current);
-
-        const pos = getNodePos(nodeId);
-        dragStartRef.current = {
-            x: e.clientX,
-            y: e.clientY,
-            nodeX: pos.x,
-            nodeY: pos.y,
-        };
-        setDraggedNode(nodeId);
-    }, [getNodePos]);
-
-    // Handle pointer move (dragging)
-    const handlePointerMove = useCallback((e: React.PointerEvent) => {
-        if (!draggedNode || !containerRef.current) return;
-
-        const dragStart = dragStartRef.current;
-        if (!dragStart) return;
-
-        const rect = containerRef.current.getBoundingClientRect();
-        const deltaX = ((e.clientX - dragStart.x) / rect.width) * 100;
-        const deltaY = ((e.clientY - dragStart.y) / rect.height) * 100;
-
-        setNodePositions((prev) => ({
-            ...prev,
-            [draggedNode]: {
-                x: dragStart.nodeX + deltaX,
-                y: dragStart.nodeY + deltaY,
-            },
-        }));
-    }, [draggedNode]);
-
-    // Handle pointer up (end drag)
-    const handlePointerUp = useCallback((e: React.PointerEvent) => {
-        e.currentTarget.releasePointerCapture(e.pointerId);
-
-        if (draggedNode) {
-            setFloatingNodes((prev) => new Set([...prev, draggedNode]));
-            scheduleReset(); // Trigger auto-reset
-        }
-
-        setDraggedNode(null);
-        dragStartRef.current = null;
-    }, [draggedNode, scheduleReset]);
-
-    // Calculate SVG path from center to node
-    const getConnectionPath = useCallback((nodeId: string) => {
-        const pos = getNodePos(nodeId);
-        const centerX = 50;
-        const centerY = 50;
-        const nodeX = 50 + pos.x;
-        const nodeY = 50 + pos.y;
-
-        const midX = (centerX + nodeX) / 2;
-        const midY = (centerY + nodeY) / 2;
-        // Dynamic curvature based on distance
-        const dist = Math.sqrt(Math.pow(nodeX - centerX, 2) + Math.pow(nodeY - centerY, 2));
-        const curvature = Math.min(0.3, dist * 0.01);
-
-        const controlX = midX + (nodeY - centerY) * curvature;
-        const controlY = midY - (nodeX - centerX) * curvature;
-
-        return `M ${centerX} ${centerY} Q ${controlX} ${controlY} ${nodeX} ${nodeY}`;
-    }, [getNodePos]);
-
-    const isNodeFloating = (nodeId: string) => floatingNodes.has(nodeId);
+        if (paused) return;
+        const interval = setInterval(() => {
+            const nextIndex = (currentStepIndex + 1) % STEPS.length;
+            setActiveStep(STEPS[nextIndex].id);
+        }, 12000);
+        return () => clearInterval(interval);
+    }, [currentStepIndex, paused]);
 
     return (
-        <div
-            ref={containerRef}
-            className="relative w-full h-full min-h-[350px] md:min-h-[550px] select-none"
-            onPointerMove={handlePointerMove}
+        <div 
+            className="grid lg:grid-cols-12 gap-10 items-stretch max-w-7xl mx-auto text-left"
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
         >
-            {/* SVG Connection Lines */}
-            <svg
-                className="absolute inset-0 w-full h-full pointer-events-none"
-                viewBox="0 0 100 100"
-                preserveAspectRatio="none"
-            >
-                <defs>
-                    <linearGradient id="innovation-line-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#2EE1C7" stopOpacity="0.4" />
-                        <stop offset="50%" stopColor="#2EE1C7" stopOpacity="0.3" />
-                        <stop offset="100%" stopColor="#2EE1C7" stopOpacity="0.1" />
-                    </linearGradient>
-                    <linearGradient id="floating-line-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#2EE1C7" stopOpacity="0.6" />
-                        <stop offset="100%" stopColor="#2EE1C7" stopOpacity="0.2" />
-                    </linearGradient>
-                </defs>
-
-                {/* Connection lines */}
-                {PROCESS_NODES.map((node) => {
-                    const isActive = hoveredNode === node.id || draggedNode === node.id;
-                    const isFloating = isNodeFloating(node.id);
-
+            {/* Left side: Interactive Timeline Control */}
+            <div className="lg:col-span-5 flex flex-col justify-center space-y-4">
+                {STEPS.map((step) => {
+                    const isSelected = step.id === activeStep;
+                    const IconComponent = step.icon;
                     return (
-                        <path
-                            key={`line-${node.id}`}
-                            d={getConnectionPath(node.id)}
-                            fill="none"
-                            stroke={isActive ? node.color : isFloating ? "url(#floating-line-gradient)" : "url(#innovation-line-gradient)"}
-                            strokeWidth={isActive ? 0.6 : 0.4}
-                            strokeLinecap="round"
-                            strokeDasharray={isFloating && !isActive ? "3 3" : "none"}
-                            className="transition-all duration-700"
-                            style={{
-                                opacity: isActive ? 1 : isFloating ? 0.8 : 0.6,
-                                filter: isActive ? `drop-shadow(0 0 4px ${node.color})` : "none",
-                            }}
-                        />
-                    );
-                })}
-            </svg>
-
-            {/* Center Hub - Impact - PREMIUM DESIGN */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
-                <div
-                    className="relative bg-dark-card/90 backdrop-blur-xl rounded-full shadow-[0_0_50px_rgba(46,225,199,0.25)] p-4 sm:p-6 md:p-8 text-center border-4 border-[#2EE1C7]/10 group hover:scale-105 transition-transform duration-500"
-                >
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#2EE1C7]/10 to-[#2EE1C7]/5 rounded-full animate-pulse-slow"></div>
-                    <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-[#2EE1C7] mx-auto mb-1 sm:mb-2 relative z-10" />
-                    <div className="text-base sm:text-lg md:text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#2EE1C7] to-[#2EE1C7]/70 relative z-10">Impact</div>
-                    <div className="text-[9px] sm:text-[10px] md:text-xs text-gray-400 font-bold uppercase tracking-widest mt-1 relative z-10">Business Growth</div>
-                </div>
-            </div>
-
-            {/* Draggable Nodes - PREMIUM GLASSMORPHISM */}
-            {PROCESS_NODES.map((node, index) => {
-                const pos = getNodePos(node.id);
-                const Icon = node.icon;
-                const isDragging = draggedNode === node.id;
-                const isHovered = hoveredNode === node.id;
-                const isFloating = isNodeFloating(node.id);
-                const isActive = isDragging || isHovered;
-
-                return (
-                    <div
-                        key={node.id}
-                        className="absolute z-10 cursor-grab active:cursor-grabbing touch-none"
-                        style={{
-                            left: `calc(50% + ${pos.x}%)`,
-                            top: `calc(50% + ${pos.y}%)`,
-                            transform: `translate(-50%, -50%) scale(${isActive ? 1.15 : isFloating ? 1.05 : 1})`,
-                            transition: isDragging ? "none" : "all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)",
-                            transitionDelay: !isDragging && isAnimated ? `${index * 50}ms` : "0ms",
-                            zIndex: isDragging ? 30 : isHovered ? 25 : isFloating ? 15 : 10,
-                        }}
-                        onPointerDown={(e) => handlePointerDown(e, node.id)}
-                        onPointerUp={handlePointerUp}
-                        onPointerCancel={handlePointerUp}
-                        onMouseEnter={() => setHoveredNode(node.id)}
-                        onMouseLeave={() => setHoveredNode(null)}
-                    >
                         <div
-                            className={`
-                                relative overflow-hidden backdrop-blur-md rounded-2xl p-2.5 sm:p-3 md:p-4 flex flex-col items-center gap-1.5 sm:gap-2 min-w-[95px] sm:min-w-[110px] md:min-w-[140px]
-                                transition-all duration-300
-                                ${isActive
-                                    ? "bg-dark-card shadow-2xl ring-2 ring-offset-2 ring-transparent"
-                                    : isFloating
-                                        ? "bg-dark-card/90 shadow-xl border border-[#2EE1C7]/30"
-                                        : "bg-dark-card/80 shadow-xl border border-white/10 hover:bg-dark-card hover:shadow-2xl"
-                                }
-                            `}
-                            style={{
-                                boxShadow: isActive
-                                    ? `0 20px 60px -10px ${node.color}40`
-                                    : isFloating
-                                        ? `0 10px 30px -5px rgba(46, 225, 199, 0.2)`
-                                        : '0 10px 30px -5px rgba(0,0,0,0.05)',
-                                borderColor: isActive ? node.color : undefined
-                            }}
+                            key={step.id}
+                            onClick={() => setActiveStep(step.id)}
+                            className={`group relative p-5 rounded-2xl cursor-pointer border transition-all duration-300 flex items-start gap-4 ${
+                                isSelected
+                                    ? 'bg-white border-[#2D6A4F] shadow-[0_10px_30px_rgba(45,106,79,0.08)]'
+                                    : 'bg-white/40 border-gray-100 hover:border-[#2D6A4F]/30 hover:bg-white/80'
+                            }`}
                         >
-                            {/* Color highlight bar */}
-                            <div
-                                className="absolute top-0 left-0 right-0 h-1 opacity-80"
-                                style={{ backgroundColor: node.color }}
-                            />
-
-                            <div
-                                className="w-10 h-10 md:w-12 md:h-12 rounded-2xl flex items-center justify-center transition-colors duration-300 shadow-[inset_0_2px_4px_rgba(0,0,0,0.05)]"
-                                style={{
-                                    backgroundColor: isActive ? node.color : isFloating ? "rgba(46,225,199,0.15)" : `${node.color}10`,
-                                }}
-                            >
-                                <Icon
-                                    size={20}
-                                    style={{ color: isActive ? "#000000" : isFloating ? "#2EE1C7" : node.color }}
-                                    className="md:w-6 md:h-6 transition-colors duration-300"
+                            {/* Accent indicator line */}
+                            {isSelected && (
+                                <motion.div
+                                    layoutId="timeline-accent"
+                                    className="absolute left-0 top-0 bottom-0 w-1 bg-[#2D6A4F] rounded-l-2xl"
                                 />
+                            )}
+
+                            <div className={`p-3 rounded-xl transition-all duration-300 shrink-0 ${
+                                isSelected
+                                    ? 'bg-[#2D6A4F] text-white shadow-md'
+                                    : 'bg-gray-100 text-gray-400 group-hover:bg-[#E8F5EE] group-hover:text-[#2D6A4F]'
+                            }`}>
+                                <IconComponent size={20} />
                             </div>
 
-                            <div className="text-center">
-                                <span className="block text-sm md:text-base font-bold text-white mb-0.5">{node.label}</span>
-                                <span className={`text-[10px] md:text-xs text-gray-400 font-medium transition-opacity duration-300 ${isActive ? 'opacity-100' : 'opacity-70'}`}>
-                                    {isActive ? node.description : 'Drag to explore'}
+                            <div className="space-y-1">
+                                <span className={`text-[10px] font-bold tracking-widest font-body uppercase ${
+                                    isSelected ? 'text-[#2D6A4F]' : 'text-gray-400'
+                                }`}>
+                                    {step.label}
                                 </span>
+                                <h3 className={`font-serif text-lg font-bold transition-colors ${
+                                    isSelected ? 'text-gray-900' : 'text-gray-500 group-hover:text-gray-800'
+                                }`}>
+                                    {step.title}
+                                </h3>
                             </div>
                         </div>
-                    </div>
-                );
-            })}
+                    );
+                })}
+            </div>
 
-            {/* Refresh hint when nodes are floating */}
-            {floatingNodes.size > 0 && (
-                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-xs text-gray-400 bg-dark-card/90 backdrop-blur px-4 py-2 rounded-full border border-[#2EE1C7]/20 shadow-lg flex items-center gap-2 animate-fade-in">
-                    <span className="w-2 h-2 rounded-full bg-[#2EE1C7] animate-pulse"></span>
-                    Auto-aligning in 3s...
+            {/* Right side: Sandbox / Dynamic Calling Agents - White & Green Synced Theme */}
+            <div className="lg:col-span-7">
+                <div className="bg-white rounded-3xl border border-gray-150 p-6 sm:p-8 shadow-xl relative overflow-hidden h-full flex flex-col justify-between min-h-[440px]">
+                    {/* Background Soft Accents */}
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-[#E8F5EE]/30 rounded-full blur-3xl pointer-events-none" />
+                    <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#E8F5EE]/20 rounded-full blur-3xl pointer-events-none" />
+
+                    {/* Window Controls Header */}
+                    <div className="flex items-center justify-between border-b border-gray-100 pb-4 mb-6 flex-shrink-0 relative z-10">
+                        <div className="flex items-center gap-2">
+                            <div className="w-3 h-3 rounded-full bg-red-400" />
+                            <div className="w-3 h-3 rounded-full bg-yellow-400" />
+                            <div className="w-3 h-3 rounded-full bg-green-400" />
+                            <span className="text-xs text-gray-400 font-mono ml-2 flex items-center gap-1.5 font-bold">
+                                <Terminal size={12} className="text-[#2D6A4F]" /> frostrek-sandbox:~/{activeStep}
+                            </span>
+                        </div>
+                        <div className="flex items-center gap-2 px-2.5 py-1 rounded bg-[#E8F5EE] border border-[#2D6A4F]/20">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#2D6A4F] animate-pulse" />
+                            <span className="text-[10px] font-mono text-[#2D6A4F] font-bold uppercase tracking-wider">Active Stream</span>
+                        </div>
+                    </div>
+
+                    {/* Active Screen Area with AnimatePresence */}
+                    <div className="flex-1 flex flex-col justify-center relative z-10">
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={activeStep}
+                                initial={{ opacity: 0, y: 15 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -15 }}
+                                transition={{ duration: 0.35, ease: 'easeOut' }}
+                                className="space-y-6"
+                            >
+                                <div className="space-y-3">
+                                    <h4 className="font-serif text-xl sm:text-2xl text-gray-950 font-bold">
+                                        {activeData.title}
+                                    </h4>
+                                    <p className="text-gray-600 font-body text-sm leading-relaxed max-w-xl font-medium">
+                                        {activeData.description}
+                                    </p>
+                                </div>
+
+                                {/* Custom simulation content based on selected phase - Green & White theme */}
+                                <div className="bg-[#F4FAF7] border border-[#2D6A4F]/15 rounded-2xl p-4 sm:p-5 font-mono text-xs text-gray-800 relative shadow-sm">
+                                    
+                                    {activeStep === 'research' && (
+                                        <div className="space-y-3">
+                                            <div className="flex items-center justify-between border-b border-[#2D6A4F]/10 pb-2">
+                                                <span className="text-[#2D6A4F] font-bold">Research Blueprint Analysis</span>
+                                                <span className="text-[#2D6A4F] font-extrabold">ACCURACY TARGET: 99.5%</span>
+                                            </div>
+                                            <div className="space-y-2">
+                                                <div className="flex justify-between items-center text-[11px]">
+                                                    <span className="text-gray-600 font-semibold">📊 Data Readiness Score</span>
+                                                    <span className="text-[#2D6A4F] font-bold">94% (High)</span>
+                                                </div>
+                                                <div className="w-full bg-gray-200/80 h-1.5 rounded-full overflow-hidden">
+                                                    <motion.div initial={{ width: 0 }} animate={{ width: '94%' }} transition={{ duration: 1.2 }} className="bg-[#2D6A4F] h-full rounded-full" />
+                                                </div>
+                                                <div className="flex justify-between items-center text-[11px] pt-1 font-semibold">
+                                                    <span className="text-gray-600">🧠 LLM Parameter Viability</span>
+                                                    <span className="text-emerald-600 font-bold">Passed</span>
+                                                </div>
+                                                <div className="text-[10px] text-gray-600 bg-white p-2.5 rounded border border-[#2D6A4F]/10 shadow-sm leading-relaxed">
+                                                    $ frostrek-cli blueprint analyze --source=enterprise_logs
+                                                    <br />
+                                                    <span className="text-emerald-700 font-bold">✓ Found 1,402 structured pipeline patterns</span>
+                                                    <br />
+                                                    <span className="text-emerald-700 font-bold">✓ Created agent pipeline model blueprint</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {activeStep === 'architecture' && (
+                                        <div className="space-y-3">
+                                            <div className="flex items-center justify-between border-b border-[#2D6A4F]/10 pb-2">
+                                                <span className="text-[#2D6A4F] font-bold flex items-center gap-1.5"><Bot size={13} className="text-[#2D6A4F]" /> Calling Agents Simulator</span>
+                                                <span className="text-[#2D6A4F] flex items-center gap-1 animate-pulse font-bold">● Connected</span>
+                                            </div>
+                                            
+                                            <div className="space-y-2 font-mono text-[11px] leading-relaxed font-semibold">
+                                                <div className="flex items-start gap-2 text-blue-700">
+                                                    <span className="text-gray-400">[12:45:01]</span>
+                                                    <span><strong>VoiceAgent</strong> initialized, dispatching welcome script.</span>
+                                                </div>
+                                                <div className="flex items-start gap-2 text-amber-700 pl-3">
+                                                    <span className="text-gray-400">[12:45:03]</span>
+                                                    <span>↳ Calling <strong>RAGAgent</strong> for context query: "Billing anomaly"</span>
+                                                </div>
+                                                <div className="flex items-start gap-2 text-[#2D6A4F] pl-6">
+                                                    <span className="text-gray-400">[12:45:04]</span>
+                                                    <span>↳ <strong>RAGAgent</strong> returned context matching doc #7214</span>
+                                                </div>
+                                                <div className="flex items-start gap-2 text-blue-700 pl-3">
+                                                    <span className="text-gray-400">[12:45:05]</span>
+                                                    <span>↳ Synthesis complete. Streamed voice output at 82ms latency.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {activeStep === 'validation' && (
+                                        <div className="space-y-3">
+                                            <div className="flex items-center justify-between border-b border-[#2D6A4F]/10 pb-2">
+                                                <span className="text-red-700 font-bold flex items-center gap-1.5"><ShieldAlert size={13} /> Safety & Stress Benchmarks</span>
+                                                <span className="text-gray-400">Run ID: #982-STRESS</span>
+                                            </div>
+                                            <div className="grid grid-cols-2 gap-3 text-[11px] font-bold">
+                                                <div className="bg-white p-2.5 rounded border border-[#2D6A4F]/10 shadow-sm">
+                                                    <div className="text-gray-500 text-[10px] mb-0.5">Prompt Injection</div>
+                                                    <div className="text-emerald-600">100% BLOCKED</div>
+                                                </div>
+                                                <div className="bg-white p-2.5 rounded border border-[#2D6A4F]/10 shadow-sm">
+                                                    <div className="text-gray-500 text-[10px] mb-0.5">Latency Under Load</div>
+                                                    <div className="text-emerald-600">&lt;1.12s (P95)</div>
+                                                </div>
+                                                <div className="bg-white p-2.5 rounded border border-[#2D6A4F]/10 shadow-sm">
+                                                    <div className="text-gray-500 text-[10px] mb-0.5">PII Masking Filter</div>
+                                                    <div className="text-emerald-600">ACTIVE (100%)</div>
+                                                </div>
+                                                <div className="bg-white p-2.5 rounded border border-[#2D6A4F]/10 shadow-sm">
+                                                    <div className="text-gray-500 text-[10px] mb-0.5">Hallucination Index</div>
+                                                    <div className="text-emerald-600">&lt;0.02%</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {activeStep === 'scaling' && (
+                                        <div className="space-y-3">
+                                            <div className="flex items-center justify-between border-b border-[#2D6A4F]/10 pb-2">
+                                                <span className="text-[#2D6A4F] font-bold flex items-center gap-1.5"><Activity size={13} className="text-[#2D6A4F] animate-pulse" /> Telemetry Dashboard</span>
+                                                <span className="text-emerald-600 font-extrabold uppercase">SCALE READY</span>
+                                            </div>
+                                            <div className="space-y-2.5 font-mono text-[11px] font-semibold">
+                                                <div className="flex justify-between">
+                                                    <span className="text-gray-500">Total Active Agents Deployed</span>
+                                                    <span className="text-gray-900 font-extrabold">18,452</span>
+                                                </div>
+                                                <div className="flex justify-between">
+                                                    <span className="text-gray-500">Current Node Auto-Scaling CPU</span>
+                                                    <span className="text-[#2D6A4F] font-extrabold">14.2%</span>
+                                                </div>
+                                                <div className="flex justify-between">
+                                                    <span className="text-gray-500">Total Transactions Handled</span>
+                                                    <span className="text-gray-900 font-extrabold">1,824,015</span>
+                                                </div>
+                                                <div className="flex justify-between border-t border-gray-150 pt-1.5">
+                                                    <span className="text-gray-500">Platform Uptime Status</span>
+                                                    <span className="text-emerald-600 font-extrabold">99.998% UPTIME</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )}
+
+                                </div>
+
+                                {/* Custom bullet lists - Legible slate gray */}
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
+                                    {activeData.bullets.map((bullet, idx) => (
+                                        <div key={idx} className="flex items-start gap-2 text-xs text-gray-700 font-body font-bold">
+                                            <CheckCircle2 size={15} className="text-[#2D6A4F] shrink-0 mt-0.5" />
+                                            <span>{bullet}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </motion.div>
+                        </AnimatePresence>
+                    </div>
+
+                    {/* Interactive Sandbox Navigation Footer strip */}
+                    <div className="flex items-center justify-between border-t border-gray-100 pt-4 mt-6 flex-shrink-0 text-[10px] font-mono text-gray-400 font-bold relative z-10">
+                        <span>Click steps to simulate pipeline</span>
+                        <span className="flex items-center gap-1">
+                            <Sparkles size={11} className="text-[#2D6A4F]" /> Multi-Agent Playground v1.0
+                        </span>
+                    </div>
                 </div>
-            )}
+            </div>
         </div>
     );
 };

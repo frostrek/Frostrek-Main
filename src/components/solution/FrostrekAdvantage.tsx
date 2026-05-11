@@ -6,7 +6,6 @@ import {
     RotateCcw, Workflow,
     PartyPopper, Rocket, Star
 } from 'lucide-react';
-import { useTheme } from '../../context/ThemeContext';
 
 interface FrostrekAdvantageProps {
     features?: any[];
@@ -18,7 +17,7 @@ const WORKFLOW_STEPS = [
         title: 'Unstructured Data',
         subtitle: 'Raw inputs & documents',
         icon: Database,
-        color: '#2EE1C7',
+        color: '#2D6A4F',
         outcome: { title: 'Smart Data Lake', desc: 'Auto-categorized & searchable.', stat: '99.2%', statLabel: 'Accuracy' }
     },
     {
@@ -26,7 +25,7 @@ const WORKFLOW_STEPS = [
         title: 'Security Threats',
         subtitle: 'Anomalies & vulnerabilities',
         icon: Shield,
-        color: '#2EE1C7',
+        color: '#2D6A4F',
         outcome: { title: 'Threat Shield', desc: 'Real-time neutralization.', stat: '<500ms', statLabel: 'Response' }
     },
     {
@@ -34,17 +33,17 @@ const WORKFLOW_STEPS = [
         title: 'Global Traffic',
         subtitle: 'Network load & routing',
         icon: Globe,
-        color: '#2EE1C7',
+        color: '#2D6A4F',
         outcome: { title: 'Edge Optimization', desc: 'Intelligent load balancing.', stat: '40%', statLabel: 'Faster' }
     }
 ];
 
-// Floating Particle Component - Memoized random values for performance
+// Floating Particle Component - styled with matching green theme
 const FloatingParticle = ({ delay, size, duration }: { 
     delay: number; size: number; duration: number;
 }) => (
     <div
-        className="absolute rounded-full bg-[#2EE1C7]/30 animate-ping"
+        className="absolute rounded-full bg-[#2D6A4F]/25 animate-ping"
         style={{ 
             width: size, 
             height: size,
@@ -57,19 +56,16 @@ const FloatingParticle = ({ delay, size, duration }: {
     />
 );
 
-
-
-// Confetti Component - Reduced to 10 elements, memoized random values
-const CONFETTI_DATA = Array.from({ length: 10 }, (_, i) => ({
+const CONFETTI_DATA = Array.from({ length: 15 }, (_, i) => ({
     left: Math.random() * 100,
-    x: (Math.random() - 0.5) * 100,
+    x: (Math.random() - 0.5) * 120,
     rotate: 360 * (Math.random() > 0.5 ? 1 : -1),
-    duration: 2 + Math.random(),
-    color: ['#2EE1C7', '#2EE1C7', '#1aa891', '#22b8a5', '#5EEBD6'][i % 5],
+    duration: 1.8 + Math.random(),
+    color: ['#2D6A4F', '#34A853', '#1B4332', '#40916C', '#52B788'][i % 5],
 }));
 
 const Confetti = () => (
-    <div className="absolute inset-0 pointer-events-none overflow-hidden">
+    <div className="absolute inset-0 pointer-events-none overflow-hidden z-30">
         {CONFETTI_DATA.map((data, i) => (
             <motion.div
                 key={i}
@@ -80,19 +76,18 @@ const Confetti = () => (
                     backgroundColor: data.color,
                 }}
                 animate={{
-                    y: ['0%', '500%'],
+                    y: ['0%', '600%'],
                     x: [0, data.x],
                     rotate: [0, data.rotate],
                     opacity: [1, 0],
                 }}
-                transition={{ duration: data.duration, delay: i * 0.05, ease: 'easeOut' }}
+                transition={{ duration: data.duration, delay: i * 0.04, ease: 'easeOut' }}
             />
         ))}
     </div>
 );
 
-const FrostrekAdvantage = ({ features: _features }: FrostrekAdvantageProps) => {
-    const { theme } = useTheme();
+export const FrostrekAdvantage = ({ features: _features }: FrostrekAdvantageProps) => {
     const [processedIds, setProcessedIds] = useState<string[]>([]);
     const [processingId, setProcessingId] = useState<string | null>(null);
     const [showConfetti, setShowConfetti] = useState(false);
@@ -128,73 +123,74 @@ const FrostrekAdvantage = ({ features: _features }: FrostrekAdvantageProps) => {
     const isActive = processedIds.length > 0 || processingId;
 
     return (
-        <section className={`py-16 md:py-24 overflow-hidden ${theme === 'dark' ? 'bg-dark-bg' : 'bg-gradient-to-b from-[#FDFBF7] via-[#FAF6F3] to-[#FDFBF7]'}`}>
+        <section className="py-20 overflow-hidden bg-gradient-to-b from-white via-gray-50/30 to-white font-body">
             <div className="container mx-auto px-4 md:px-6">
 
                 {/* Header with Animated Badge */}
-                <div className="text-center mb-10 max-w-2xl mx-auto">
+                <div className="text-center mb-12 max-w-2xl mx-auto space-y-4">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         whileHover={{ scale: 1.05 }}
-                        className={`inline-flex items-center gap-2 px-4 py-2 rounded-full font-bold text-[11px] uppercase tracking-wider mb-4 cursor-default ${theme === 'dark' ? 'bg-gradient-to-r from-[#2EE1C7]/10 to-[#2EE1C7]/5 border border-[#2EE1C7]/20 text-[#2EE1C7]' : 'bg-gradient-to-r from-[#B07552]/10 to-[#8A5A35]/10 border border-[#B07552]/20 text-[#B07552]'}`}
+                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full font-bold text-[11px] uppercase tracking-wider bg-[#E8F5EE] border border-[#2D6A4F]/20 text-[#2D6A4F] cursor-default"
                     >
-                        <div className="animate-wiggle">
-                            <Workflow size={14} />
+                        <div className="animate-pulse">
+                            <Workflow size={13} />
                         </div>
-                        <span>Interactive Demo</span>
-                        <div className={`w-2 h-2 rounded-full animate-pulse ${theme === 'dark' ? 'bg-[#2EE1C7]' : 'bg-[#B07552]'}`} />
+                        <span>Interactive Sandbox</span>
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#2D6A4F]" />
                     </motion.div>
 
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className={`text-2xl md:text-4xl font-bold mb-3 ${theme === 'dark' ? 'text-dark-text' : 'text-[#2D241E]'}`}
+                        className="text-3xl md:text-5xl font-serif font-black text-gray-900 leading-tight"
                     >
-                        The Frostrek <span className={`bg-clip-text text-transparent bg-gradient-to-r ${theme === 'dark' ? 'from-[#2EE1C7] to-[#2EE1C7]/70' : 'from-[#B07552] to-[#8A5A35]'}`}>Advantage</span>
+                        The Frostrek <span className="text-[#2D6A4F]">Advantage</span>
                     </motion.h2>
 
+                    {/* FIXED: high-contrast text-slate-600 ensures descriptions are perfectly readable */}
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className={`text-sm md:text-base ${theme === 'dark' ? 'text-dark-text-muted' : 'text-[#5D5046]'}`}
+                        className="text-sm sm:text-base text-slate-600 font-medium font-body max-w-xl mx-auto"
                     >
                         Click any challenge card to watch our AI transform it into a solution ✨
                     </motion.p>
                 </div>
 
-                {/* Main Interface */}
+                {/* Main Interface Layout */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="relative max-w-7xl mx-auto"
+                    className="relative max-w-6xl mx-auto"
                 >
                     {showConfetti && <Confetti />}
 
-                    <div className={`rounded-2xl shadow-2xl overflow-hidden ${theme === 'dark' ? 'shadow-[#2EE1C7]/10 bg-dark-card border border-dark-accent/30' : 'shadow-[#B07552]/10 bg-white border border-[#E6D0C6]'}`}>
-                        <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px_1fr]">
+                    <div className="rounded-3xl border shadow-xl overflow-hidden bg-white border-[#2D6A4F]/15">
+                        <div className="grid grid-cols-1 lg:grid-cols-[1fr_240px_1fr]">
 
-                            {/* LEFT: Input Challenges */}
-                            <div className={`p-5 md:p-6 ${theme === 'dark' ? 'bg-dark-card' : 'bg-gradient-to-br from-[#FAF6F3] to-[#F5EDE6]'}`}>
-                                <div className="flex items-center gap-2 mb-5">
+                            {/* LEFT COLUMN: Input Challenges */}
+                            <div className="p-6 md:p-8 bg-[#FAFCFB] border-b lg:border-b-0 lg:border-r border-[#2D6A4F]/10">
+                                <div className="flex items-center gap-3 mb-6">
                                     <motion.div
-                                        className={`w-8 h-8 rounded-xl flex items-center justify-center shadow-lg ${theme === 'dark' ? 'bg-gradient-to-br from-[#2EE1C7] to-[#2EE1C7]/70' : 'bg-gradient-to-br from-[#B07552] to-[#8A5A35]'}`}
-                                        whileHover={{ rotate: 10 }}
+                                        className="w-10 h-10 rounded-xl flex items-center justify-center shadow-md bg-[#2D6A4F] text-white"
+                                        whileHover={{ rotate: 8 }}
                                     >
-                                        <Layers size={16} className="text-white" />
+                                        <Layers size={18} />
                                     </motion.div>
                                     <div>
-                                        <h3 className={`text-sm font-bold ${theme === 'dark' ? 'text-dark-text' : 'text-[#2D241E]'}`}>Challenges</h3>
-                                        <p className={`text-[10px] ${theme === 'dark' ? 'text-dark-text-muted' : 'text-[#8C7E72]'}`}>Click to process</p>
+                                        <h3 className="text-base font-serif font-bold text-gray-950 leading-tight">Challenges</h3>
+                                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Click to process</p>
                                     </div>
                                 </div>
 
-                                <div className="space-y-3">
+                                <div className="space-y-3.5">
                                     {WORKFLOW_STEPS.map((step, idx) => {
                                         const isProcessed = processedIds.includes(step.id);
                                         const isProcessing = processingId === step.id;
@@ -206,61 +202,50 @@ const FrostrekAdvantage = ({ features: _features }: FrostrekAdvantageProps) => {
                                                 disabled={isProcessed || !!processingId}
                                                 initial={{ opacity: 0, x: -30 }}
                                                 animate={{ opacity: 1, x: 0 }}
-                                                transition={{ delay: idx * 0.15, type: 'spring', stiffness: 200 }}
+                                                transition={{ delay: idx * 0.1, type: 'spring', stiffness: 200 }}
                                                 whileHover={!isProcessed && !processingId ? {
-                                                    scale: 1.03,
-                                                    x: 8,
-                                                    boxShadow: theme === 'dark' ? '0 10px 40px -10px rgba(46, 225, 199, 0.3)' : '0 10px 40px -10px rgba(176, 117, 82, 0.3)'
+                                                    scale: 1.02,
+                                                    x: 5,
+                                                    boxShadow: '0 8px 30px rgba(45, 106, 79, 0.06)'
                                                 } : {}}
-                                                whileTap={!isProcessed && !processingId ? { scale: 0.97 } : {}}
+                                                whileTap={!isProcessed && !processingId ? { scale: 0.98 } : {}}
                                                 className={`
-                                                    relative w-full p-4 rounded-xl border-2 text-left transition-all duration-300 overflow-hidden group
+                                                    relative w-full p-4.5 rounded-2xl border-2 text-left transition-all duration-300 overflow-hidden group
                                                     ${isProcessed
-                                                        ? theme === 'dark' ? 'bg-[#2EE1C7]/20 border-[#2EE1C7]' : 'bg-gradient-to-r from-green-50 to-emerald-50 border-green-300'
+                                                        ? 'bg-[#E8F5EE]/40 border-[#2D6A4F]'
                                                         : isProcessing
-                                                            ? theme === 'dark' ? 'bg-dark-accent/20 border-dark-accent shadow-lg' : 'bg-gradient-to-r from-[#B07552]/5 to-[#B07552]/10 border-[#B07552] shadow-lg'
-                                                            : theme === 'dark' ? 'bg-dark-bg border-dark-accent/30 hover:border-dark-accent cursor-pointer' : 'bg-white border-[#E6D0C6] hover:border-[#B07552] cursor-pointer'}
+                                                            ? 'bg-[#E8F5EE]/60 border-[#2D6A4F] shadow-md'
+                                                            : 'bg-white border-gray-150 hover:border-[#2D6A4F]/35 cursor-pointer'}
                                                 `}
                                             >
-                                                {/* Shimmer Effect on Hover */}
-                                                {!isProcessed && !isProcessing && (
-                                                    <motion.div
-                                                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-0 group-hover:opacity-100"
-                                                        initial={{ x: '-100%' }}
-                                                        whileHover={{ x: '100%' }}
-                                                        transition={{ duration: 0.6 }}
-                                                    />
-                                                )}
-
-                                                <div className="relative flex items-center gap-3">
+                                                <div className="relative flex items-center gap-3.5">
                                                     <motion.div
                                                         className={`
-                                                            w-11 h-11 rounded-xl flex items-center justify-center transition-all shadow-md
-                                                            ${isProcessed
-                                                                ? theme === 'dark' ? 'bg-gradient-to-br from-[#2EE1C7] to-[#2EE1C7]/70 text-black' : 'bg-gradient-to-br from-green-400 to-emerald-500 text-white'
-                                                                : isProcessing
-                                                                    ? theme === 'dark' ? 'bg-gradient-to-br from-[#2EE1C7] to-[#2EE1C7]/70 text-black' : 'bg-gradient-to-br from-[#B07552] to-[#8A5A35] text-white'
-                                                                    : theme === 'dark' ? 'bg-gradient-to-br from-[#2EE1C7]/10 to-[#2EE1C7]/20 text-[#2EE1C7] group-hover:from-[#2EE1C7] group-hover:to-[#2EE1C7]/70 group-hover:text-black' : 'bg-gradient-to-br from-[#B07552]/10 to-[#B07552]/20 text-[#B07552] group-hover:from-[#B07552] group-hover:to-[#8A5A35] group-hover:text-white'}
+                                                            w-11 h-11 rounded-xl flex items-center justify-center transition-all shadow-sm
+                                                            ${isProcessed || isProcessing
+                                                                ? 'bg-[#2D6A4F] text-white'
+                                                                : 'bg-[#E8F5EE] text-[#2D6A4F] group-hover:bg-[#2D6A4F] group-hover:text-white'}
                                                         `}
                                                         animate={isProcessing ? { rotate: [0, 5, -5, 0] } : {}}
                                                         transition={{ duration: 0.3, repeat: isProcessing ? Infinity : 0 }}
                                                     >
                                                         {isProcessing ? (
                                                             <div className="animate-spin">
-                                                                <Activity size={20} />
+                                                                <Activity size={18} />
                                                             </div>
                                                         ) : isProcessed ? (
-                                                            <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: 'spring' }}>
-                                                                <Check size={20} />
+                                                            <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }}>
+                                                                <Check size={18} />
                                                             </motion.div>
                                                         ) : (
-                                                            <step.icon size={20} />
+                                                            <step.icon size={18} />
                                                         )}
                                                     </motion.div>
 
                                                     <div className="flex-1 min-w-0">
-                                                        <h4 className={`font-bold text-sm ${theme === 'dark' ? 'text-dark-text' : 'text-[#2D241E]'}`}>{step.title}</h4>
-                                                        <p className={`text-[11px] ${theme === 'dark' ? 'text-dark-text-muted' : 'text-[#8C7E72]'}`}>{step.subtitle}</p>
+                                                        <h4 className="font-serif font-bold text-sm text-gray-900 leading-tight">{step.title}</h4>
+                                                        {/* FIXED: text-slate-500 prevents invisible subtitle */}
+                                                        <p className="text-xs text-slate-500 font-medium mt-0.5">{step.subtitle}</p>
                                                     </div>
                                                 </div>
                                             </motion.button>
@@ -268,139 +253,119 @@ const FrostrekAdvantage = ({ features: _features }: FrostrekAdvantageProps) => {
                                     })}
                                 </div>
 
-                                {/* Progress Bar */}
-                                <div className={`mt-5 pt-4 border-t ${theme === 'dark' ? 'border-[#2EE1C7]/20' : 'border-[#E6D0C6]/50'}`}>
-                                    <div className="flex items-center justify-between text-[11px] mb-2">
-                                        <span className={`font-medium ${theme === 'dark' ? 'text-gray-400' : 'text-[#5D5046]'}`}>{processedIds.length}/{WORKFLOW_STEPS.length} Complete</span>
+                                {/* Progress Bar block */}
+                                <div className="mt-6 pt-5 border-t border-gray-150/80">
+                                    <div className="flex items-center justify-between text-xs mb-2.5 font-bold text-slate-500">
+                                        <span>{processedIds.length}/{WORKFLOW_STEPS.length} Completed</span>
                                         {processedIds.length > 0 && (
                                             <motion.button
                                                 onClick={resetAll}
                                                 whileHover={{ scale: 1.05 }}
                                                 whileTap={{ scale: 0.95 }}
-                                                className={`flex items-center gap-1 font-medium hover:underline ${theme === 'dark' ? 'text-[#2EE1C7]' : 'text-[#B07552]'}`}
+                                                className="flex items-center gap-1 font-bold text-[#2D6A4F] hover:underline cursor-pointer"
                                             >
-                                                <RotateCcw size={12} /> Reset
+                                                <RotateCcw size={13} /> Reset
                                             </motion.button>
                                         )}
                                     </div>
-                                    <div className={`relative w-full h-2 rounded-full overflow-hidden ${theme === 'dark' ? 'bg-[#2EE1C7]/10' : 'bg-[#E6D0C6]/40'}`}>
+                                    <div className="relative w-full h-2 rounded-full overflow-hidden bg-gray-100">
                                         <motion.div
-                                            className={`absolute inset-y-0 left-0 rounded-full ${theme === 'dark' ? 'bg-gradient-to-r from-[#2EE1C7] to-[#2EE1C7]/70' : 'bg-gradient-to-r from-[#B07552] to-[#8A5A35]'}`}
+                                            className="absolute inset-y-0 left-0 rounded-full bg-[#2D6A4F]"
                                             initial={{ width: 0 }}
                                             animate={{ width: `${(processedIds.length / WORKFLOW_STEPS.length) * 100}%` }}
                                             transition={{ type: 'spring', stiffness: 100 }}
-                                        />
-                                        {/* Shimmer on progress bar */}
-                                        <div
-                                            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent animate-shimmer"
                                         />
                                     </div>
                                 </div>
                             </div>
 
-                            {/* CENTER: AI Core */}
-                            <div className={`relative flex items-center justify-center py-10 lg:py-0 border-y lg:border-y-0 lg:border-x ${theme === 'dark' ? 'bg-dark-card border-dark-accent/30' : 'bg-white border-[#E6D0C6]/30'}`}>
-                                {/* Floating Particles */}
+                            {/* CENTER COLUMN: AI Core Platform Node */}
+                            <div className="relative flex items-center justify-center py-12 lg:py-0 bg-white border-b lg:border-b-0 lg:border-r border-[#2D6A4F]/10">
+                                {/* Glowing particles */}
                                 {isActive && (
                                     <div className="absolute inset-0 flex items-center justify-center">
                                         {[...Array(6)].map((_, i) => (
                                             <FloatingParticle 
                                                 key={i} 
-                                                delay={i * 0.3} 
+                                                delay={i * 0.25} 
                                                 size={4 + (i % 3) * 2} 
-                                                duration={2 + (i % 3) * 0.5}
+                                                duration={1.8 + (i % 3) * 0.4}
                                             />
                                         ))}
                                     </div>
                                 )}
 
-                                {/* Core */}
+                                {/* Central Core Container */}
                                 <motion.div
                                     animate={{
-                                        scale: pulseCore ? [1, 1.08, 1] : 1,
+                                        scale: pulseCore ? [1, 1.05, 1] : 1,
                                         boxShadow: processingId
-                                            ? ['0 0 0px 0px rgba(46,225,199,0)', '0 0 60px 20px rgba(46,225,199,0.3)', '0 0 0px 0px rgba(46,225,199,0)']
+                                            ? ['0 0 0px rgba(45,106,79,0)', '0 0 40px rgba(45,106,79,0.25)', '0 0 0px rgba(45,106,79,0)']
                                             : allProcessed
-                                                ? '0 0 50px 15px rgba(46,225,199,0.2)'
-                                                : '0 15px 50px -15px rgba(0,0,0,0.15)'
+                                                ? '0 0 40px rgba(45,106,79,0.15)'
+                                                : '0 8px 30px rgba(0,0,0,0.03)'
                                     }}
                                     transition={{ duration: 0.8, repeat: pulseCore ? Infinity : 0 }}
                                     className={`
-                                        relative w-36 h-36 lg:w-40 lg:h-40 rounded-full flex items-center justify-center
+                                        relative w-36 h-36 lg:w-40 lg:h-40 rounded-full flex items-center justify-center border-4 transition-all duration-300
                                         ${allProcessed
-                                            ? theme === 'dark' ? 'bg-gradient-to-br from-[#2EE1C7]/20 to-[#2EE1C7]/10 border-2 border-[#2EE1C7]' : 'bg-gradient-to-br from-green-100 to-emerald-50 border-2 border-green-300'
-                                            : theme === 'dark' ? 'bg-gradient-to-br from-dark-card to-dark-bg border-2 border-dark-accent/50' : 'bg-gradient-to-br from-[#FAF6F3] to-white border-2 border-[#E6D0C6]'}
+                                            ? 'bg-white border-[#2D6A4F] shadow-lg'
+                                            : 'bg-white border-[#2D6A4F]/25 shadow-md'}
                                     `}
                                 >
-                                    {/* Spinner */}
+                                    {/* Spinner animation */}
                                     <AnimatePresence>
                                         {processingId && (
                                             <motion.div
                                                 initial={{ opacity: 0 }}
                                                 animate={{ opacity: 1 }}
                                                 exit={{ opacity: 0 }}
-                                                className="absolute inset-1"
+                                                className="absolute inset-1.5"
                                             >
-                                                <div
-                                                    className={`w-full h-full rounded-full border-[3px] border-transparent animate-spin ${theme === 'dark' ? 'border-t-[#2EE1C7] border-r-[#2EE1C7]/30' : 'border-t-[#B07552] border-r-[#B07552]/30'}`}
-                                                />
+                                                <div className="w-full h-full rounded-full border-[3px] border-transparent border-t-[#2D6A4F] border-r-[#2D6A4F]/30 animate-spin" />
                                             </motion.div>
                                         )}
                                     </AnimatePresence>
 
-                                    <div className="text-center z-10">
+                                    <div className="text-center z-10 p-2">
                                         <motion.div
                                             animate={{
-                                                scale: processingId ? [1, 1.15, 1] : allProcessed ? [1, 1.05, 1] : 1,
-                                                rotate: processingId ? [0, 5, -5, 0] : 0
+                                                scale: processingId ? [1, 1.1, 1] : allProcessed ? [1, 1.05, 1] : 1,
+                                                rotate: processingId ? [0, 3, -3, 0] : 0
                                             }}
                                             transition={{ duration: 0.5, repeat: (processingId || allProcessed) ? Infinity : 0 }}
-                                            className={`
-                                                w-14 h-14 mx-auto rounded-2xl flex items-center justify-center shadow-xl mb-2
-                                                ${allProcessed
-                                                    ? theme === 'dark' ? 'bg-gradient-to-br from-[#2EE1C7] to-[#2EE1C7]/70' : 'bg-gradient-to-br from-green-400 to-emerald-500'
-                                                    : theme === 'dark' ? 'bg-gradient-to-br from-[#2EE1C7] to-[#2EE1C7]/70' : 'bg-gradient-to-br from-[#B07552] to-[#8A5A35]'}
-                                            `}
+                                            className="w-12 h-12 mx-auto rounded-xl flex items-center justify-center shadow-md mb-1.5 bg-[#2D6A4F] text-white"
                                         >
                                             {allProcessed ? (
-                                                <PartyPopper className="text-white w-7 h-7" />
+                                                <PartyPopper className="w-6 h-6" />
                                             ) : processingId ? (
-                                                <Zap className="text-white w-7 h-7" />
+                                                <Zap className="w-6 h-6" />
                                             ) : (
-                                                <Sparkles className="text-white w-7 h-7" />
+                                                <Sparkles className="w-6 h-6 animate-pulse" />
                                             )}
                                         </motion.div>
 
-                                        <h4 className={`font-bold text-xs ${theme === 'dark' ? 'text-dark-text' : 'text-[#2D241E]'}`}>
+                                        <h4 className="font-serif font-bold text-xs text-gray-900">
                                             {allProcessed ? 'Complete!' : processingId ? 'Processing' : 'AI Core'}
                                         </h4>
 
                                         <motion.div
                                             className={`
-                                                mt-1.5 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[9px] font-bold border
-                                                ${processingId
-                                                    ? theme === 'dark' ? 'bg-[#2EE1C7]/10 text-[#2EE1C7] border-[#2EE1C7]/20' : 'bg-amber-50 text-amber-700 border-amber-200'
-                                                    : allProcessed
-                                                        ? theme === 'dark' ? 'bg-[#2EE1C7]/10 text-[#2EE1C7] border-[#2EE1C7]/20' : 'bg-green-50 text-green-700 border-green-200'
-                                                        : theme === 'dark' ? 'bg-dark-card text-gray-400 border-[#2EE1C7]/20' : 'bg-[#FAF6F3] text-[#8C7E72] border-[#E6D0C6]'}
+                                                mt-1.5 inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[9px] font-extrabold border
+                                                ${processingId || allProcessed
+                                                    ? 'bg-[#E8F5EE] text-[#2D6A4F] border-[#2D6A4F]/20'
+                                                    : 'bg-gray-50 text-slate-400 border-gray-200'}
                                             `}
                                         >
-                                            <motion.span
-                                                className={`w-1.5 h-1.5 rounded-full ${processingId ? (theme === 'dark' ? 'bg-[#2EE1C7]' : 'bg-amber-500') : allProcessed ? (theme === 'dark' ? 'bg-[#2EE1C7]' : 'bg-green-500') : (theme === 'dark' ? 'bg-[#2EE1C7]' : 'bg-[#B07552]')}`}
-                                                animate={processingId ? { scale: [1, 1.5, 1] } : {}}
-                                                transition={{ duration: 0.5, repeat: processingId ? Infinity : 0 }}
-                                            />
-                                            {processingId ? 'Working...' : allProcessed ? 'All Done!' : 'Ready'}
+                                            <span className={`w-1.5 h-1.5 rounded-full bg-[#2D6A4F] ${processingId ? 'animate-ping' : ''}`} />
+                                            {processingId ? 'Working...' : allProcessed ? 'Done!' : 'Ready'}
                                         </motion.div>
                                     </div>
 
                                     {/* Counter Badge */}
                                     <motion.div
-                                        className={`
-                                            absolute -top-1 -right-1 w-6 h-6 rounded-full flex items-center justify-center text-[11px] font-bold shadow-lg
-                                            ${allProcessed ? (theme === 'dark' ? 'bg-[#2EE1C7] text-black' : 'bg-green-500 text-white') : (theme === 'dark' ? 'bg-[#2EE1C7] text-black' : 'bg-[#B07552] text-white')}
-                                        `}
-                                        animate={{ scale: processedIds.length > 0 ? [1, 1.2, 1] : 1 }}
+                                        className="absolute -top-1 -right-1 w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-black shadow-md bg-[#2D6A4F] text-white"
+                                        animate={{ scale: processedIds.length > 0 ? [1, 1.15, 1] : 1 }}
                                         transition={{ duration: 0.3 }}
                                     >
                                         {processedIds.length}
@@ -408,22 +373,23 @@ const FrostrekAdvantage = ({ features: _features }: FrostrekAdvantageProps) => {
                                 </motion.div>
                             </div>
 
-                            {/* RIGHT: Outcomes */}
-                            <div className={`p-5 md:p-6 ${theme === 'dark' ? 'bg-dark-card' : 'bg-gradient-to-bl from-[#FAF6F3] to-[#F5EDE6]'}`}>
-                                <div className="flex items-center gap-2 mb-5">
+                            {/* RIGHT COLUMN: AI Outcomes */}
+                            <div className="p-6 md:p-8 bg-[#FAFCFB]">
+                                <div className="flex items-center gap-3 mb-6">
                                     <motion.div
-                                        className={`w-8 h-8 rounded-xl flex items-center justify-center shadow-lg ${theme === 'dark' ? 'bg-gradient-to-br from-[#2EE1C7] to-[#2EE1C7]/70' : 'bg-gradient-to-br from-green-400 to-emerald-500'}`}
-                                        whileHover={{ rotate: -10 }}
+                                        className="w-10 h-10 rounded-xl flex items-center justify-center shadow-md bg-[#2D6A4F] text-white"
+                                        whileHover={{ rotate: -8 }}
                                     >
-                                        <BarChart3 size={16} className="text-white" />
+                                        <BarChart3 size={18} />
                                     </motion.div>
                                     <div>
-                                        <h3 className={`text-sm font-bold ${theme === 'dark' ? 'text-dark-text' : 'text-[#2D241E]'}`}>AI Outcomes</h3>
-                                        <p className={`text-[10px] ${theme === 'dark' ? 'text-dark-text-muted' : 'text-[#8C7E72]'}`}>{processedIds.length} solutions generated</p>
+                                        <h3 className="text-base font-serif font-bold text-gray-950 leading-tight">AI Outcomes</h3>
+                                        {/* FIXED: high-contrast text-slate-500 */}
+                                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">{processedIds.length} generated</p>
                                     </div>
                                 </div>
 
-                                <div className="space-y-3 min-h-[220px]">
+                                <div className="space-y-3.5 min-h-[210px]">
                                     <AnimatePresence mode="popLayout">
                                         {processedIds.map((id, idx) => {
                                             const item = WORKFLOW_STEPS.find(s => s.id === id);
@@ -432,28 +398,24 @@ const FrostrekAdvantage = ({ features: _features }: FrostrekAdvantageProps) => {
                                             return (
                                                 <motion.div
                                                     key={id}
-                                                    initial={{ opacity: 0, x: 40, scale: 0.9, rotateY: -20 }}
-                                                    animate={{ opacity: 1, x: 0, scale: 1, rotateY: 0 }}
+                                                    initial={{ opacity: 0, x: 40, scale: 0.9 }}
+                                                    animate={{ opacity: 1, x: 0, scale: 1 }}
                                                     exit={{ opacity: 0, scale: 0.8 }}
                                                     transition={{ type: 'spring', stiffness: 300, damping: 25, delay: idx * 0.05 }}
-                                                    whileHover={{ scale: 1.02, y: -2 }}
-                                                    className={`p-4 rounded-xl border-2 shadow-md hover:shadow-lg transition-shadow ${theme === 'dark' ? 'bg-dark-bg border-[#2EE1C7]/50' : 'bg-white border-green-200'}`}
+                                                    whileHover={{ scale: 1.01, y: -2 }}
+                                                    className="p-4 rounded-2xl border-2 shadow-sm bg-white border-emerald-100 hover:border-[#2D6A4F]/25 hover:shadow-md transition-all duration-300"
                                                 >
                                                     <div className="flex items-start gap-3">
-                                                        <motion.div
-                                                            className={`w-10 h-10 rounded-xl flex items-center justify-center shadow-sm ${theme === 'dark' ? 'bg-[#2EE1C7]/10' : 'bg-gradient-to-br from-green-100 to-emerald-100'}`}
-                                                            initial={{ rotate: -180, scale: 0 }}
-                                                            animate={{ rotate: 0, scale: 1 }}
-                                                            transition={{ type: 'spring', delay: 0.2 }}
-                                                        >
-                                                            <Zap size={18} className={theme === 'dark' ? 'text-[#2EE1C7]' : 'text-green-600'} />
-                                                        </motion.div>
+                                                        <div className="w-9 h-9 rounded-xl flex items-center justify-center bg-[#E8F5EE] text-[#2D6A4F] shrink-0">
+                                                            <Zap size={16} />
+                                                        </div>
                                                         <div className="flex-1">
-                                                            <h4 className={`font-bold text-sm ${theme === 'dark' ? 'text-dark-text' : 'text-[#2D241E]'}`}>{item.outcome.title}</h4>
-                                                            <p className={`text-[11px] mt-0.5 ${theme === 'dark' ? 'text-dark-text-muted' : 'text-[#5D5046]'}`}>{item.outcome.desc}</p>
-                                                            <div className={`mt-2 inline-flex items-center gap-1 px-2 py-1 rounded-lg ${theme === 'dark' ? 'bg-gradient-to-r from-[#2EE1C7]/10 to-[#2EE1C7]/5 border border-[#2EE1C7]/20' : 'bg-gradient-to-r from-[#B07552]/10 to-[#B07552]/5 border border-[#B07552]/20'}`}>
-                                                                <span className={`text-sm font-bold ${theme === 'dark' ? 'text-[#2EE1C7]' : 'text-[#B07552]'}`}>{item.outcome.stat}</span>
-                                                                <span className={`text-[10px] ${theme === 'dark' ? 'text-gray-400' : 'text-[#8C7E72]'}`}>{item.outcome.statLabel}</span>
+                                                            <h4 className="font-serif font-bold text-sm text-gray-900 leading-tight">{item.outcome.title}</h4>
+                                                            {/* FIXED: high-contrast text-slate-500 */}
+                                                            <p className="text-xs text-slate-500 mt-1 leading-relaxed">{item.outcome.desc}</p>
+                                                            <div className="mt-2.5 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-lg bg-[#E8F5EE] border border-[#2D6A4F]/15">
+                                                                <span className="text-xs font-extrabold text-[#2D6A4F]">{item.outcome.stat}</span>
+                                                                <span className="text-[10px] text-slate-400 font-medium">{item.outcome.statLabel}</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -467,16 +429,15 @@ const FrostrekAdvantage = ({ features: _features }: FrostrekAdvantageProps) => {
                                         <motion.div
                                             initial={{ opacity: 0 }}
                                             animate={{ opacity: 1 }}
-                                            className={`h-[220px] flex items-center justify-center rounded-xl border-2 border-dashed ${theme === 'dark' ? 'border-dark-accent/50 bg-dark-bg/50' : 'border-[#E6D0C6] bg-white/30'}`}
+                                            className="h-[210px] flex items-center justify-center rounded-2xl border-2 border-dashed border-[#2D6A4F]/15 bg-white"
                                         >
-                                            <div className="text-center">
-                                                <div
-                                                    className={`w-12 h-12 rounded-full mx-auto mb-3 flex items-center justify-center animate-bounce-slow ${theme === 'dark' ? 'bg-gradient-to-br from-[#2EE1C7]/20 to-[#2EE1C7]/10' : 'bg-gradient-to-br from-[#E6D0C6]/50 to-[#E6D0C6]/30'}`}
-                                                >
-                                                    <Rocket className={`${theme === 'dark' ? 'text-[#2EE1C7]/50' : 'text-[#B07552]/50'}`} size={20} />
+                                            <div className="text-center p-4">
+                                                <div className="w-11 h-11 rounded-full mx-auto mb-3.5 flex items-center justify-center bg-[#E8F5EE] text-[#2D6A4F] animate-bounce">
+                                                    <Rocket size={18} />
                                                 </div>
-                                                <p className={`text-xs font-medium ${theme === 'dark' ? 'text-dark-text-muted' : 'text-[#8C7E72]'}`}>Ready to launch</p>
-                                                <p className={`text-[10px] mt-0.5 ${theme === 'dark' ? 'text-dark-text-muted/70' : 'text-[#A89A8E]'}`}>Click a challenge to begin</p>
+                                                {/* FIXED: high-contrast text-slate-600 & text-slate-400 */}
+                                                <p className="text-xs font-extrabold text-slate-600">Ready to launch</p>
+                                                <p className="text-[10px] mt-1 text-slate-400 font-medium">Click a challenge to begin</p>
                                             </div>
                                         </motion.div>
                                     )}
@@ -486,15 +447,13 @@ const FrostrekAdvantage = ({ features: _features }: FrostrekAdvantageProps) => {
                                         <motion.div
                                             initial={{ opacity: 0 }}
                                             animate={{ opacity: 1 }}
-                                            className={`h-[220px] flex items-center justify-center rounded-xl border-2 ${theme === 'dark' ? 'border-dark-accent/50 bg-dark-accent/10' : 'border-[#B07552]/30 bg-gradient-to-br from-[#B07552]/5 to-transparent'}`}
+                                            className="h-[210px] flex items-center justify-center rounded-2xl border bg-[#E8F5EE]/40 border-[#2D6A4F]/20"
                                         >
-                                            <div className="text-center">
-                                                <div
-                                                    className={`w-12 h-12 rounded-full mx-auto mb-3 flex items-center justify-center animate-spin ${theme === 'dark' ? 'bg-[#2EE1C7]/10' : 'bg-[#B07552]/10'}`}
-                                                >
-                                                    <Activity className={theme === 'dark' ? 'text-[#2EE1C7]' : 'text-[#B07552]'} size={20} />
+                                            <div className="text-center p-4">
+                                                <div className="w-10 h-10 rounded-full mx-auto mb-3 flex items-center justify-center bg-white shadow-sm">
+                                                    <Activity className="text-[#2D6A4F] animate-spin" size={18} />
                                                 </div>
-                                                <p className={`text-xs font-medium ${theme === 'dark' ? 'text-[#2EE1C7]' : 'text-[#B07552]'}`}>Generating solution...</p>
+                                                <p className="text-xs font-bold text-[#2D6A4F]">Generating solution...</p>
                                             </div>
                                         </motion.div>
                                     )}
@@ -503,12 +462,12 @@ const FrostrekAdvantage = ({ features: _features }: FrostrekAdvantageProps) => {
                         </div>
                     </div>
 
-                    {/* Bottom Stats */}
+                    {/* Bottom Stats Grid */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="mt-10 flex flex-wrap justify-center gap-6 md:gap-12"
+                        className="mt-12 flex flex-wrap justify-center gap-8 md:gap-16"
                     >
                         {[
                             { icon: Zap, label: 'Processing', value: '<50ms' },
@@ -517,15 +476,16 @@ const FrostrekAdvantage = ({ features: _features }: FrostrekAdvantageProps) => {
                         ].map((stat, i) => (
                             <motion.div
                                 key={i}
-                                className="text-center flex items-center gap-3"
+                                className="text-center flex items-center gap-3.5 group cursor-default"
                                 whileHover={{ scale: 1.05 }}
                             >
-                                <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${theme === 'dark' ? 'bg-[#2EE1C7]/20' : 'bg-[#B07552]/10'}`}>
-                                    <stat.icon size={18} className={theme === 'dark' ? 'text-[#2EE1C7]' : 'text-[#B07552]'} />
+                                <div className="w-11 h-11 rounded-xl flex items-center justify-center bg-[#E8F5EE] border border-[#2D6A4F]/10 group-hover:bg-[#2D6A4F] group-hover:text-white text-[#2D6A4F] transition-colors duration-300 shadow-sm">
+                                    <stat.icon size={18} />
                                 </div>
                                 <div className="text-left">
-                                    <p className={`text-lg md:text-xl font-bold ${theme === 'dark' ? 'text-dark-text' : 'text-[#2D241E]'}`}>{stat.value}</p>
-                                    <p className={`text-[10px] uppercase tracking-wider ${theme === 'dark' ? 'text-dark-text-muted' : 'text-[#8C7E72]'}`}>{stat.label}</p>
+                                    <p className="text-lg md:text-xl font-serif font-bold text-gray-950 leading-none mb-1">{stat.value}</p>
+                                    {/* FIXED: high-contrast text-slate-500 */}
+                                    <p className="text-[10px] font-extrabold uppercase tracking-widest text-slate-500 leading-none">{stat.label}</p>
                                 </div>
                             </motion.div>
                         ))}

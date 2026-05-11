@@ -6,7 +6,7 @@
 
 @layer base {
   body {
-    @apply bg-dark-bg text-dark-text font-body antialiased;
+    @apply bg-brand-light-bg text-[#2D6A4F] font-body antialiased;
   }
 
   h1,
@@ -31,7 +31,7 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #2EE1C7 0%, #1CB8A1 100%); /* brand teal gradient */
+    background: linear-gradient(180deg, #2D6A4F 0%, #3D8B6E 100%); /* brand teal gradient */
     border-radius: 5px;
   }
 

@@ -2,7 +2,6 @@ import { useState, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { TrendingUp, Headset, ShoppingCart, Server, ArrowRight, Sparkles, Play, ChevronRight } from 'lucide-react';
-import { useTheme } from '../../context/ThemeContext';
 
 interface Solution {
     id: string;
@@ -60,7 +59,6 @@ const SolutionCard = ({ solution, index, isActive, onClick }: {
     isActive: boolean;
     onClick: () => void;
 }) => {
-    const { theme } = useTheme();
     const IconComponent = solution.icon as any;
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
@@ -72,30 +70,17 @@ const SolutionCard = ({ solution, index, isActive, onClick }: {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: index * 0.1 }}
             onClick={onClick}
-            className={`
-                relative cursor-pointer group
-                ${isActive ? 'z-20' : 'z-10'}
-            `}
+            className={`relative cursor-pointer group ${isActive ? 'z-20' : 'z-10'}`}
         >
             {/* Card */}
             <motion.div
                 layout
-                className={`
-                    relative overflow-hidden rounded-2xl border transition-all duration-500
-                    ${theme === 'dark'
-                        ? `bg-dark-card border-dark-accent/20 ${isActive ? 'border-dark-accent shadow-2xl shadow-dark-accent/20' : 'hover:border-dark-accent/50'}`
-                        : `bg-white border-gray-200 ${isActive ? 'border-brand-green-600 shadow-2xl shadow-brand-green-600/15' : 'hover:border-brand-green-400/50 hover:shadow-xl'}`
-                    }
-                `}
+                className={`relative overflow-hidden rounded-2xl border transition-all duration-500 bg-white border-gray-150 ${
+                    isActive ? 'border-[#2D6A4F] shadow-2xl shadow-[#2D6A4F]/10' : 'hover:border-[#2D6A4F]/35 hover:shadow-xl'
+                }`}
             >
                 {/* Animated Background Gradient */}
-                <div className={`
-                    absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500
-                    ${theme === 'dark'
-                        ? 'bg-gradient-to-br from-dark-accent/5 to-transparent'
-                        : 'bg-gradient-to-br from-brand-green-500/5 to-transparent'
-                    }
-                `} />
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-[#E8F5EE]/40 to-transparent" />
 
                 {/* Active Indicator */}
                 <AnimatePresence>
@@ -104,7 +89,7 @@ const SolutionCard = ({ solution, index, isActive, onClick }: {
                             initial={{ scaleX: 0 }}
                             animate={{ scaleX: 1 }}
                             exit={{ scaleX: 0 }}
-                            className={`absolute top-0 left-0 w-full h-1 origin-left ${theme === 'dark' ? 'bg-dark-accent' : 'bg-brand-green-600'}`}
+                            className="absolute top-0 left-0 w-full h-1 origin-left bg-[#2D6A4F]"
                         />
                     )}
                 </AnimatePresence>
@@ -114,14 +99,7 @@ const SolutionCard = ({ solution, index, isActive, onClick }: {
                     <div className="flex items-start gap-4 mb-4">
                         {/* Icon with animated ring */}
                         <motion.div
-                            className={`
-                                relative w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0
-                                transition-all duration-300
-                                ${theme === 'dark'
-                                    ? 'bg-gradient-to-br from-dark-accent/20 to-dark-accent/5'
-                                    : 'bg-gradient-to-br from-brand-green-100 to-brand-green-50'
-                                }
-                            `}
+                            className="relative w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 transition-all duration-300 bg-[#E8F5EE] border border-[#2D6A4F]/10"
                             animate={isActive ? { scale: [1, 1.05, 1] } : {}}
                             transition={{ duration: 2, repeat: isActive ? Infinity : 0 }}
                         >
@@ -131,23 +109,18 @@ const SolutionCard = ({ solution, index, isActive, onClick }: {
                                     initial={{ scale: 1, opacity: 0.5 }}
                                     animate={{ scale: 1.5, opacity: 0 }}
                                     transition={{ duration: 1.5, repeat: Infinity }}
-                                    className={`absolute inset-0 rounded-2xl ${theme === 'dark' ? 'bg-dark-accent' : 'bg-brand-green-600'}`}
+                                    className="absolute inset-0 rounded-2xl bg-[#2D6A4F]"
                                 />
                             )}
-                            <IconComponent className={`w-7 h-7 relative z-10 ${theme === 'dark' ? 'text-dark-accent' : 'text-brand-green-600'}`} />
+                            <IconComponent className="w-7 h-7 relative z-10 text-[#2D6A4F]" />
                         </motion.div>
 
                         <div className="flex-1 min-w-0">
-                            <h4 className={`
-                                text-lg font-bold mb-1 transition-colors duration-300
-                                ${theme === 'dark'
-                                    ? `text-dark-text ${isActive ? 'text-dark-accent' : 'group-hover:text-dark-accent'}`
-                                    : `text-gray-900 ${isActive ? 'text-brand-green-700' : 'group-hover:text-brand-green-600'}`
-                                }
-                            `}>
+                            <h4 className={`text-lg font-serif font-bold mb-1 transition-colors duration-300 ${isActive ? 'text-[#2D6A4F]' : 'text-gray-900 group-hover:text-[#2D6A4F]'}`}>
                                 {solution.name}
                             </h4>
-                            <p className={`text-sm ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-500'}`}>
+                            {/* FIXED: high-contrast text-slate-500 prevents white-on-white text issues */}
+                            <p className="text-sm text-slate-500 font-medium font-body leading-relaxed">
                                 {solution.description}
                             </p>
                         </div>
@@ -155,12 +128,9 @@ const SolutionCard = ({ solution, index, isActive, onClick }: {
                         {/* Arrow indicator */}
                         <motion.div
                             animate={{ x: isActive ? 0 : -5, opacity: isActive ? 1 : 0 }}
-                            className={`
-                                w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0
-                                ${theme === 'dark' ? 'bg-dark-accent/20' : 'bg-brand-green-100'}
-                            `}
+                            className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 bg-[#E8F5EE]"
                         >
-                            <ChevronRight className={`w-4 h-4 ${theme === 'dark' ? 'text-dark-accent' : 'text-brand-green-600'}`} />
+                            <ChevronRight className="w-4 h-4 text-[#2D6A4F]" />
                         </motion.div>
                     </div>
 
@@ -174,8 +144,8 @@ const SolutionCard = ({ solution, index, isActive, onClick }: {
                                 transition={{ duration: 0.3 }}
                                 className="overflow-hidden"
                             >
-                                <div className={`pt-4 border-t ${theme === 'dark' ? 'border-dark-accent/20' : 'border-gray-100'}`}>
-                                    <p className={`text-sm mb-4 ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}>
+                                <div className="pt-4 border-t border-gray-100">
+                                    <p className="text-sm text-slate-600 font-medium mb-4 font-body leading-relaxed">
                                         {solution.shortDesc}
                                     </p>
 
@@ -187,13 +157,7 @@ const SolutionCard = ({ solution, index, isActive, onClick }: {
                                                 initial={{ opacity: 0, scale: 0.8 }}
                                                 animate={{ opacity: 1, scale: 1 }}
                                                 transition={{ delay: i * 0.1 }}
-                                                className={`
-                                                    px-3 py-1.5 rounded-full text-xs font-medium
-                                                    ${theme === 'dark'
-                                                        ? 'bg-dark-accent/10 text-dark-accent border border-dark-accent/20'
-                                                        : 'bg-brand-green-100 text-brand-green-700 border border-brand-green-200'
-                                                    }
-                                                `}
+                                                className="px-3 py-1.5 rounded-full text-xs font-semibold font-body bg-[#E8F5EE] text-[#2D6A4F] border border-[#2D6A4F]/15"
                                             >
                                                 {feature}
                                             </motion.span>
@@ -205,16 +169,9 @@ const SolutionCard = ({ solution, index, isActive, onClick }: {
                                         <motion.button
                                             whileHover={{ scale: 1.02 }}
                                             whileTap={{ scale: 0.98 }}
-                                            className={`
-                                                w-full py-3 px-6 rounded-xl font-semibold text-sm
-                                                flex items-center justify-center gap-2 transition-all duration-300
-                                                ${theme === 'dark'
-                                                    ? 'bg-dark-accent text-dark-bg hover:bg-dark-accent/90'
-                                                    : 'bg-brand-green-600 text-white hover:bg-brand-green-700'
-                                                }
-                                            `}
+                                            className="w-full py-3.5 px-6 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 transition-all duration-300 bg-[#2D6A4F] text-white hover:bg-[#1B4332] shadow-sm hover:shadow"
                                         >
-                                            <Play className="w-4 h-4" />
+                                            <Play className="w-3.5 h-3.5 fill-current" />
                                             Explore {solution.name.split(' ').slice(-1)[0]}
                                             <ArrowRight className="w-4 h-4" />
                                         </motion.button>
@@ -231,8 +188,6 @@ const SolutionCard = ({ solution, index, isActive, onClick }: {
 
 // Connection Line Between Cards
 const ConnectionLine = ({ isVisible }: { isVisible: boolean }) => {
-    const { theme } = useTheme();
-
     return (
         <motion.div
             className="hidden lg:flex items-center justify-center h-2 -my-1 relative z-0"
@@ -240,7 +195,7 @@ const ConnectionLine = ({ isVisible }: { isVisible: boolean }) => {
             animate={{ opacity: isVisible ? 1 : 0 }}
         >
             <motion.div
-                className={`w-0.5 h-full ${theme === 'dark' ? 'bg-dark-accent/30' : 'bg-brand-green-300/30'}`}
+                className="w-0.5 h-full bg-[#E8F5EE]"
                 initial={{ scaleY: 0 }}
                 animate={{ scaleY: isVisible ? 1 : 0 }}
                 transition={{ duration: 0.5 }}
@@ -248,7 +203,7 @@ const ConnectionLine = ({ isVisible }: { isVisible: boolean }) => {
             {/* Animated dot */}
             {isVisible && (
                 <motion.div
-                    className={`absolute w-2 h-2 rounded-full ${theme === 'dark' ? 'bg-dark-accent' : 'bg-brand-green-500'}`}
+                    className="absolute w-2 h-2 rounded-full bg-[#2D6A4F]"
                     initial={{ y: -20 }}
                     animate={{ y: 20 }}
                     transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
@@ -258,8 +213,7 @@ const ConnectionLine = ({ isVisible }: { isVisible: boolean }) => {
     );
 };
 
-const AllSolutionsSection = () => {
-    const { theme } = useTheme();
+export const AllSolutionsSection = () => {
     const [activeSolution, setActiveSolution] = useState<string | null>(null);
     const sectionRef = useRef(null);
     const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
@@ -267,11 +221,10 @@ const AllSolutionsSection = () => {
     return (
         <section
             ref={sectionRef}
-            className={`py-24 relative overflow-hidden transition-colors ${theme === 'dark' ? 'bg-dark-bg' : 'bg-gradient-to-b from-gray-50 to-white'}`}
+            className="py-24 relative overflow-hidden transition-colors bg-gradient-to-b from-gray-50/50 to-white font-body"
         >
             {/* Decorative Background */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
-                {/* Animated gradient orbs */}
                 <motion.div
                     animate={{
                         x: [0, 50, 0],
@@ -279,7 +232,7 @@ const AllSolutionsSection = () => {
                         scale: [1, 1.1, 1]
                     }}
                     transition={{ duration: 20, repeat: Infinity }}
-                    className={`absolute top-20 right-20 w-96 h-96 rounded-full blur-3xl ${theme === 'dark' ? 'bg-dark-accent/5' : 'bg-brand-green-500/5'}`}
+                    className="absolute top-20 right-20 w-96 h-96 rounded-full blur-3xl bg-[#E8F5EE]/40"
                 />
                 <motion.div
                     animate={{
@@ -288,7 +241,7 @@ const AllSolutionsSection = () => {
                         scale: [1, 1.15, 1]
                     }}
                     transition={{ duration: 25, repeat: Infinity }}
-                    className={`absolute bottom-40 left-10 w-80 h-80 rounded-full blur-3xl ${theme === 'dark' ? 'bg-dark-accent/5' : 'bg-teal-400/10'}`}
+                    className="absolute bottom-40 left-10 w-80 h-80 rounded-full blur-3xl bg-[#E8F5EE]/30"
                 />
             </div>
 
@@ -305,25 +258,20 @@ const AllSolutionsSection = () => {
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={isInView ? { opacity: 1, scale: 1 } : {}}
                         transition={{ delay: 0.2 }}
-                        className={`
-                            inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6
-                            ${theme === 'dark'
-                                ? 'bg-dark-accent/10 border border-dark-accent/20'
-                                : 'bg-brand-green-100 border border-brand-green-200'
-                            }
-                        `}
+                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6 bg-[#E8F5EE] border border-[#2D6A4F]/15"
                     >
-                        <Sparkles className={`w-4 h-4 ${theme === 'dark' ? 'text-dark-accent' : 'text-brand-green-600'}`} />
-                        <span className={`text-sm font-semibold ${theme === 'dark' ? 'text-dark-accent' : 'text-brand-green-700'}`}>
+                        <Sparkles className="w-4 h-4 text-[#2D6A4F]" />
+                        <span className="text-xs font-bold uppercase tracking-wider text-[#2D6A4F]">
                             Industry Solutions
                         </span>
                     </motion.div>
 
-                    <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-5 ${theme === 'dark' ? 'text-dark-text' : 'text-gray-900'}`}>
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-black mb-5 text-gray-900 leading-tight">
                         Explore Our{' '}
-                        <span className={theme === 'dark' ? 'text-dark-accent' : 'text-brand-green-600'}>AI Solutions</span>
+                        <span className="text-[#2D6A4F]">AI Solutions</span>
                     </h2>
-                    <p className={`max-w-2xl mx-auto text-base md:text-lg ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}>
+                    {/* FIXED: high-contrast text-slate-600 ensures subtitle text is perfectly visible */}
+                    <p className="max-w-2xl mx-auto text-base sm:text-lg text-slate-600 font-medium font-body leading-relaxed">
                         Click on any solution to explore how AI can transform your industry
                     </p>
                 </motion.div>
@@ -335,10 +283,10 @@ const AllSolutionsSection = () => {
                         initial={{ opacity: 0, x: -20 }}
                         animate={isInView ? { opacity: 1, x: 0 } : {}}
                         transition={{ delay: 0.3 }}
-                        className="flex items-center gap-3 mb-6"
+                        className="flex items-center gap-3 mb-8"
                     >
-                        <div className={`w-1.5 h-8 rounded-full ${theme === 'dark' ? 'bg-dark-accent' : 'bg-brand-green-600'}`} />
-                        <span className={`text-sm font-bold uppercase tracking-wider ${theme === 'dark' ? 'text-dark-accent' : 'text-brand-green-700'}`}>
+                        <div className="w-1.5 h-7 rounded-full bg-[#2D6A4F]" />
+                        <span className="text-xs font-black uppercase tracking-wider text-[#2D6A4F]">
                             By Industry
                         </span>
                     </motion.div>
@@ -382,34 +330,21 @@ const AllSolutionsSection = () => {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                                 transition={{ delay: 0.8 }}
-                                className={`
-                                    mt-6 p-6 rounded-2xl border-2 border-dashed
-                                    ${theme === 'dark'
-                                        ? 'border-dark-accent/30 bg-dark-accent/5'
-                                        : 'border-brand-green-300 bg-brand-green-50'
-                                    }
-                                `}
+                                className="mt-6 p-6 rounded-2xl border-2 border-dashed border-[#2D6A4F]/20 bg-[#E8F5EE]/10"
                             >
                                 <div className="text-center">
-                                    <h4 className={`font-bold mb-2 ${theme === 'dark' ? 'text-dark-text' : 'text-gray-900'}`}>
+                                    <h4 className="font-serif font-bold text-gray-900 mb-1.5 text-base">
                                         Don't See Your Industry?
                                     </h4>
-                                    <p className={`text-sm mb-4 ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}>
+                                    {/* FIXED: text-slate-500 prevents invisible description */}
+                                    <p className="text-xs text-slate-500 font-medium mb-4 leading-relaxed font-body">
                                         We build custom AI solutions for any business need.
                                     </p>
                                     <Link to="/contact">
                                         <motion.button
                                             whileHover={{ scale: 1.03 }}
                                             whileTap={{ scale: 0.97 }}
-                                            className={`
-                                                px-6 py-3 rounded-xl font-semibold text-sm
-                                                flex items-center justify-center gap-2 mx-auto
-                                                transition-all duration-300
-                                                ${theme === 'dark'
-                                                    ? 'bg-dark-accent/20 text-dark-accent border border-dark-accent/30 hover:bg-dark-accent/30'
-                                                    : 'bg-white text-brand-green-700 border border-brand-green-300 hover:bg-brand-green-100'
-                                                }
-                                            `}
+                                            className="px-6 py-2.5 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 mx-auto transition-all duration-300 bg-white border border-[#2D6A4F]/25 text-[#2D6A4F] hover:bg-[#E8F5EE] hover:border-[#2D6A4F]/40 shadow-sm"
                                         >
                                             Contact Us
                                             <ArrowRight className="w-4 h-4" />

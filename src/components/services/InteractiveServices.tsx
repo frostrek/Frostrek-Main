@@ -243,11 +243,11 @@ const InteractiveServicesWorkflow = () => {
     const selectedService = SERVICE_NODES.find(n => n.id === selectedNode);
 
     return (
-        <section className={`py-20 md:py-28 relative overflow-hidden transition-colors duration-500 ${isDark ? 'bg-dark-bg' : 'bg-gradient-to-b from-[#FDFBF7] via-[#FDF8F3] to-[#FDFBF7]'}`}>
+        <section className={`py-20 md:py-28 relative overflow-hidden transition-colors duration-500 ${isDark ? 'bg-brand-light-bg' : 'bg-gradient-to-b from-[#FDFBF7] via-[#FDF8F3] to-[#FDFBF7]'}`}>
             {/* Premium Background Effects */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
-                <div className={`absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full blur-[150px] opacity-30 ${isDark ? 'bg-dark-accent/10' : 'bg-[#E6D0C6]/50'}`} />
-                <div className={`absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full blur-[120px] opacity-20 ${isDark ? 'bg-dark-accent/10' : 'bg-[#B07552]/20'}`} />
+                <div className={`absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full blur-[150px] opacity-30 ${isDark ? 'bg-[#2D6A4F]/10' : 'bg-[#E6D0C6]/50'}`} />
+                <div className={`absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full blur-[120px] opacity-20 ${isDark ? 'bg-[#2D6A4F]/10' : 'bg-[#B07552]/20'}`} />
                 {/* Subtle grid */}
                 <div
                     className="absolute inset-0 opacity-[0.03]"
@@ -268,14 +268,14 @@ const InteractiveServicesWorkflow = () => {
                         transition={{ duration: 0.6 }}
                         className="inline-flex items-center gap-3 mb-5"
                     >
-                        <div className={`w-8 h-px ${isDark ? 'bg-dark-accent/50' : 'bg-[#B07552]/40'}`} />
-                        <div className={`flex items-center gap-2 px-4 py-1.5 rounded-full border ${isDark ? 'border-dark-accent/30 bg-dark-card' : 'border-[#E6D0C6] bg-white/80'}`}>
-                            <Zap className={`w-3.5 h-3.5 ${isDark ? 'text-dark-accent' : 'text-[#B07552]'}`} />
-                            <p className={`text-[10px] font-bold tracking-[0.2em] uppercase ${isDark ? 'text-dark-accent' : 'text-[#B07552]'}`}>
+                        <div className={`w-8 h-px ${isDark ? 'bg-[#2D6A4F]/50' : 'bg-[#B07552]/40'}`} />
+                        <div className={`flex items-center gap-2 px-4 py-1.5 rounded-full border ${isDark ? 'border-[#C8E6DA]/30 bg-white' : 'border-[#E6D0C6] bg-white/80'}`}>
+                            <Zap className={`w-3.5 h-3.5 ${isDark ? 'text-[#2D6A4F]' : 'text-[#B07552]'}`} />
+                            <p className={`text-[10px] font-bold tracking-[0.2em] uppercase ${isDark ? 'text-[#2D6A4F]' : 'text-[#B07552]'}`}>
                                 Interactive
                             </p>
                         </div>
-                        <div className={`w-8 h-px ${isDark ? 'bg-dark-accent/50' : 'bg-[#B07552]/40'}`} />
+                        <div className={`w-8 h-px ${isDark ? 'bg-[#2D6A4F]/50' : 'bg-[#B07552]/40'}`} />
                     </motion.div>
 
                     <motion.h2
@@ -283,7 +283,7 @@ const InteractiveServicesWorkflow = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.1 }}
-                        className={`text-4xl md:text-5xl lg:text-6xl font-serif font-medium tracking-tight mb-4 ${isDark ? 'text-dark-text' : 'text-[#3D2E24]'}`}
+                        className={`text-4xl md:text-5xl lg:text-6xl font-serif font-medium tracking-tight mb-4 ${isDark ? 'text-[#2D6A4F]' : 'text-[#3D2E24]'}`}
                     >
                         Our <span className="italic">Services</span>
                     </motion.h2>
@@ -307,7 +307,7 @@ const InteractiveServicesWorkflow = () => {
                     transition={{ duration: 0.8, delay: 0.3 }}
                     ref={containerRef}
                     className={`relative w-full max-w-4xl mx-auto aspect-[4/3] md:aspect-[16/10] rounded-3xl overflow-hidden
-                        ${isDark ? 'bg-dark-card' : 'bg-white'}
+                        ${isDark ? 'bg-white' : 'bg-white'}
                         shadow-2xl shadow-[#3D2E24]/10`}
                     style={{
                         border: `2px solid ${isDark ? 'rgba(245, 217, 200, 0.15)' : 'rgba(176, 117, 82, 0.15)'}`,
@@ -407,13 +407,13 @@ const InteractiveServicesWorkflow = () => {
                             }}
                         >
                             {/* Decorative corner accents */}
-                            <div className={`absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 rounded-tl-lg ${isDark ? 'border-dark-accent/40' : 'border-[#B07552]/30'}`} />
-                            <div className={`absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 rounded-tr-lg ${isDark ? 'border-dark-accent/40' : 'border-[#B07552]/30'}`} />
-                            <div className={`absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 rounded-bl-lg ${isDark ? 'border-dark-accent/40' : 'border-[#B07552]/30'}`} />
-                            <div className={`absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 rounded-br-lg ${isDark ? 'border-dark-accent/40' : 'border-[#B07552]/30'}`} />
+                            <div className={`absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 rounded-tl-lg ${isDark ? 'border-[#C8E6DA]/40' : 'border-[#B07552]/30'}`} />
+                            <div className={`absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 rounded-tr-lg ${isDark ? 'border-[#C8E6DA]/40' : 'border-[#B07552]/30'}`} />
+                            <div className={`absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 rounded-bl-lg ${isDark ? 'border-[#C8E6DA]/40' : 'border-[#B07552]/30'}`} />
+                            <div className={`absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 rounded-br-lg ${isDark ? 'border-[#C8E6DA]/40' : 'border-[#B07552]/30'}`} />
 
-                            <div className={`text-xl font-bold tracking-tight ${isDark ? 'text-dark-text' : 'text-[#3D2E24]'}`}>Frostrek</div>
-                            <div className={`text-[10px] font-bold uppercase tracking-[0.2em] mt-0.5 ${isDark ? 'text-dark-accent' : 'text-[#B07552]'}`}>AI Engine</div>
+                            <div className={`text-xl font-bold tracking-tight ${isDark ? 'text-[#2D6A4F]' : 'text-[#3D2E24]'}`}>Frostrek</div>
+                            <div className={`text-[10px] font-bold uppercase tracking-[0.2em] mt-0.5 ${isDark ? 'text-[#2D6A4F]' : 'text-[#B07552]'}`}>AI Engine</div>
                         </div>
                     </motion.div>
 
@@ -460,7 +460,7 @@ const InteractiveServicesWorkflow = () => {
                                     className={`rounded-xl px-4 py-2.5 flex items-center gap-3 whitespace-nowrap
                                         transition-all duration-400
                                         ${isDark
-                                            ? 'bg-dark-card'
+                                            ? 'bg-white'
                                             : 'bg-white'
                                         }`}
                                     style={{
@@ -492,7 +492,7 @@ const InteractiveServicesWorkflow = () => {
                                     </div>
 
                                     {/* Label */}
-                                    <span className={`text-sm font-semibold tracking-tight ${isDark ? 'text-dark-text' : 'text-[#3D2E24]'}`}>
+                                    <span className={`text-sm font-semibold tracking-tight ${isDark ? 'text-[#2D6A4F]' : 'text-[#3D2E24]'}`}>
                                         {node.shortLabel}
                                     </span>
                                 </div>
@@ -510,7 +510,7 @@ const InteractiveServicesWorkflow = () => {
                             exit={{ opacity: 0, y: 20, scale: 0.98 }}
                             transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
                             className={`max-w-xl mx-auto mt-10 rounded-2xl overflow-hidden
-                                ${isDark ? 'bg-dark-card' : 'bg-white'}
+                                ${isDark ? 'bg-white' : 'bg-white'}
                                 shadow-2xl`}
                             style={{
                                 border: `2px solid ${selectedService.color}30`,
@@ -555,13 +555,13 @@ const InteractiveServicesWorkflow = () => {
                                         <p className="text-2xl font-bold" style={{ color: selectedService.color }}>{selectedService.stat}</p>
                                         <p className={`text-[10px] uppercase tracking-wider ${isDark ? 'text-dark-text-muted' : 'text-[#8A7060]'}`}>{selectedService.statLabel}</p>
                                     </div>
-                                    <div className={`w-px h-10 ${isDark ? 'bg-dark-accent/20' : 'bg-[#E6D0C6]'}`} />
+                                    <div className={`w-px h-10 ${isDark ? 'bg-[#2D6A4F]/20' : 'bg-[#E6D0C6]'}`} />
                                     <div className="flex flex-wrap gap-2">
                                         {selectedService.features.map((feature) => (
                                             <span
                                                 key={feature}
                                                 className={`text-[11px] font-medium px-3 py-1.5 rounded-full
-                                                    ${isDark ? 'bg-dark-bg text-dark-text-muted' : 'bg-[#FDF8F3] text-[#8A7060]'}`}
+                                                    ${isDark ? 'bg-brand-light-bg text-dark-text-muted' : 'bg-[#FDF8F3] text-[#8A7060]'}`}
                                             >
                                                 {feature}
                                             </span>

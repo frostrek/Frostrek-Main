@@ -99,7 +99,7 @@ const ValueCard = ({
                 border-2 transition-all duration-500 ease-out
                 [backface-visibility:hidden] [transform-style:preserve-3d] will-change-transform
                 ${isDark
-                    ? `border-dark-accent/20 ${isActive ? 'border-dark-accent/60' : 'hover:border-dark-accent/40'}`
+                    ? `border-[#C8E6DA]/20 ${isActive ? 'border-[#C8E6DA]/60' : 'hover:border-[#C8E6DA]/40'}`
                     : `border-[#D4C4BC]/60 ${isActive ? 'border-[#B07552]/60 shadow-2xl' : 'hover:border-[#B07552]/40 shadow-xl hover:shadow-2xl'}`
                 }`}
         >
@@ -212,11 +212,11 @@ const InteractiveValues = () => {
     const isDark = theme === 'dark';
 
     return (
-        <section className={`py-24 md:py-28 relative overflow-hidden transition-colors duration-500 ${isDark ? 'bg-dark-bg' : 'bg-[#FDFBF7]'}`}>
+        <section className={`py-24 md:py-28 relative overflow-hidden transition-colors duration-500 ${isDark ? 'bg-brand-light-bg' : 'bg-[#FDFBF7]'}`}>
 
             {/* Ambient Glow */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
-                <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[50%] rounded-full blur-[80px] opacity-25 ${isDark ? 'bg-dark-accent/15' : 'bg-[#E6D0C6]/60'}`} />
+                <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[50%] rounded-full blur-[80px] opacity-25 ${isDark ? 'bg-[#2D6A4F]/15' : 'bg-[#E6D0C6]/60'}`} />
             </div>
 
             <div className="container mx-auto px-4 md:px-6 relative z-10">
@@ -227,7 +227,7 @@ const InteractiveValues = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
-                        className={`text-xs font-bold tracking-[0.25em] uppercase mb-4 ${isDark ? 'text-dark-accent' : 'text-[#B07552]'}`}
+                        className={`text-xs font-bold tracking-[0.25em] uppercase mb-4 ${isDark ? 'text-[#2D6A4F]' : 'text-[#B07552]'}`}
                     >
                         Our Foundation
                     </motion.p>
@@ -236,7 +236,7 @@ const InteractiveValues = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.08 }}
-                        className={`text-3xl md:text-5xl lg:text-6xl font-serif font-medium tracking-tight ${isDark ? 'text-dark-text' : 'text-[#3D2E24]'}`}
+                        className={`text-3xl md:text-5xl lg:text-6xl font-serif font-medium tracking-tight ${isDark ? 'text-[#2D6A4F]' : 'text-[#3D2E24]'}`}
                     >
                         The values we <span className="italic">live by.</span>
                     </motion.h2>

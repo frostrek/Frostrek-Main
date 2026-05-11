@@ -1,22 +1,18 @@
 import { useState } from 'react';
-import { Mail, Send, Check, Loader2, ArrowRight, MessageCircle, Phone, Globe } from 'lucide-react';
+import { Mail, Send, Check, Loader2, ArrowRight, MessageCircle, Phone, Globe, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useTheme } from '../context/ThemeContext';
-import CuteBackground from '../components/ui/CuteBackground';
 import SEO from '../components/seo/SEO';
-
 import emailjs from '@emailjs/browser';
+import FlipText from '../components/ui/FlipText';
 
 const ContactPage = () => {
-    const { theme } = useTheme();
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
         company: '',
         jobTitle: '',
         workEmail: '',
-        // country: '',
-        reachType: '',
+        reachType: 'Sales Enquiry',
         projectDetails: ''
     });
 
@@ -35,17 +31,11 @@ const ContactPage = () => {
             return false;
         }
 
-        // if (!formData.company.trim()) {
-        //     setError("Company name is required");
-        //     return false;
-        // }
-
         if (!formData.workEmail.trim()) {
             setError("Work email is required");
             return false;
         }
 
-        // Basic email format validation
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(formData.workEmail)) {
             setError("Please enter a valid email address");
@@ -58,15 +48,13 @@ const ContactPage = () => {
         }
 
         const wordCount = formData.projectDetails.trim().split(/\s+/).length;
-
-        if (wordCount < 5) {
-            setError("Project description must contain at least 5 words");
+        if (wordCount < 3) {
+            setError("Please provide a bit more detail regarding your enquiry");
             return false;
         }
 
         return true;
     };
-
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -79,7 +67,6 @@ const ContactPage = () => {
         setIsSubmitting(true);
 
         try {
-            // Prepare formatted message
             const fullName = `${formData.firstName} ${formData.lastName}`;
             const messageContent = `
 Name: ${fullName}
@@ -124,8 +111,7 @@ ${formData.projectDetails}
                 company: '',
                 jobTitle: '',
                 workEmail: '',
-                // country: '',
-                reachType: '',
+                reachType: 'Sales Enquiry',
                 projectDetails: ''
             });
             setTimeout(() => setIsSuccess(false), 5000);
@@ -142,99 +128,118 @@ ${formData.projectDetails}
     };
 
     return (
-        <div className={`min-h-screen pt-20 sm:pt-24 pb-12 relative ${theme === 'dark' ? 'bg-dark-bg text-white' : 'bg-gray-50 text-gray-900'}`}>
+        <div className="min-h-screen pt-24 pb-16 bg-gradient-to-b from-white via-[#FAFCFB] to-white relative font-body overflow-hidden">
             <SEO 
                 title="Contact Us | Frostrek" 
                 description="Get in touch with Frostrek to explore how AI can transform your business. We are here to help." 
                 path="/contact" 
             />
-            {theme !== 'dark' && <CuteBackground />}
+
+            {/* Decorative Background Elements */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                <div className="absolute top-1/4 left-[-10%] w-[500px] h-[500px] rounded-full blur-[120px] bg-[#E8F5EE]/40" />
+                <div className="absolute bottom-1/4 right-[-10%] w-[500px] h-[500px] rounded-full blur-[120px] bg-[#E8F5EE]/40" />
+                <div className="absolute inset-0 opacity-[0.015]"
+                    style={{
+                        backgroundImage: 'linear-gradient(#2d6a4f 1px, transparent 1px), linear-gradient(90deg, #2d6a4f 1px, transparent 1px)',
+                        backgroundSize: '40px 40px'
+                    }}
+                />
+            </div>
 
             <div className="container mx-auto px-4 lg:px-8 relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-24 min-h-[calc(100vh-180px)]">
-                    {/* Left Side: Info */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+                    
+                    {/* Left Side: Information & Branding */}
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6 }}
-                        className="space-y-8 pt-8 md:pt-12"
+                        className="space-y-8 lg:sticky lg:top-28"
                     >
                         <div>
-                            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 font-display tracking-tight">
+                            {/* Badge */}
+                            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full mb-6 bg-[#E8F5EE] border border-[#2D6A4F]/20 text-[#2D6A4F] font-bold text-[11px] uppercase tracking-wider">
+                                <Sparkles size={12} className="animate-pulse" />
+                                <span>Get In Touch</span>
+                            </div>
+
+                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-black tracking-tight text-gray-950 leading-tight">
                                 Let's Start a <br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2EE1C7] to-[#2EE1C7]">Conversation</span>
+                                <span className="text-[#2D6A4F]">Conversation</span>
                             </h1>
-                            <p className={`text-lg md:text-xl max-w-lg leading-relaxed ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
+                            <p className="text-base sm:text-lg text-slate-600 font-medium leading-relaxed max-w-lg mt-4">
                                 Have a project in mind or want to explore how AI can transform your business? We're here to help.
                             </p>
                         </div>
 
-                        {/* Contact Methods - Enhanced Design */}
-                        <div className="space-y-6">
-                            {/* GET IN TOUCH Section */}
-                            <div className={`p-8 rounded-2xl ${theme === 'dark' ? 'bg-dark-card border border-[#2EE1C7]/20' : 'bg-white shadow-xl border border-gray-100'}`}>
-                                <h3 className={`text-xs font-bold uppercase tracking-widest mb-6 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>
-                                    GET IN TOUCH
+                        {/* Contact Methods Container */}
+                        <div className="space-y-6 max-w-xl">
+                            {/* Call & Direct Contact Details */}
+                            <div className="p-8 rounded-3xl bg-white border border-[#2D6A4F]/10 shadow-xl shadow-gray-100/50 space-y-6">
+                                <h3 className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 font-body">
+                                    Direct Connect
                                 </h3>
-                                <div className="space-y-4">
-                                    {/* Call Us - Primary Featured Button */}
-                                    <a
-                                        href="tel:+916399999955"
-                                        className={`flex items-center justify-between gap-4 p-5 rounded-xl transition-all duration-300 group ${theme === 'dark' ? 'bg-[#2EE1C7] hover:bg-[#2EE1C7]' : 'bg-[#2EE1C7] hover:bg-[#2EE1C7]'} shadow-lg hover:shadow-xl transform hover:scale-[1.02]`}
-                                    >
-                                        <div className="flex items-center gap-4">
-                                            <div className="p-3 rounded-lg bg-white/20">
-                                                <Phone className="w-7 h-7 text-white" />
-                                            </div>
-                                            <div>
-                                                <h4 className="font-bold text-lg text-white">Call Us</h4>
-                                                <p className="font-semibold text-white/90 text-base">+91 6399999955</p>
-                                            </div>
+                                
+                                {/* CALL US Feature Card */}
+                                <a
+                                    href="tel:+916399999955"
+                                    className="flex items-center justify-between gap-4 p-5 rounded-2xl bg-[#2D6A4F] hover:bg-[#1B4332] text-white shadow-xl shadow-[#2D6A4F]/15 transition-all duration-300 transform hover:scale-[1.01] group"
+                                >
+                                    <div className="flex items-center gap-4">
+                                        <div className="p-3 rounded-xl bg-white/15">
+                                            <Phone className="w-6 h-6 text-white" />
                                         </div>
-                                        <ArrowRight className="w-6 h-6 text-white group-hover:translate-x-1 transition-transform" />
-                                    </a>
-
-                                    {/* Email & WhatsApp in Row */}
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                        <a
-                                            href="mailto:contact@frostrek.com"
-                                            className={`flex items-start gap-3 p-4 rounded-lg transition-all duration-300 group ${theme === 'dark' ? 'bg-white/5 hover:bg-white/10' : 'bg-gray-50 hover:bg-gray-100'}`}
-                                        >
-                                            <div className={`p-2 rounded-lg ${theme === 'dark' ? 'bg-white/10' : 'bg-white'}`}>
-                                                <Mail className={`w-5 h-5 ${theme === 'dark' ? 'text-[#2EE1C7]' : 'text-[#2EE1C7]'}`} />
-                                            </div>
-                                            <div className="min-w-0 flex-1">
-                                                <h4 className={`font-semibold text-sm mb-0.5 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>Email Us</h4>
-                                                <p className={`text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>contact@frostrek.com</p>
-                                            </div>
-                                        </a>
-                                        <a
-                                            href="https://wa.me/17574722491"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className={`flex items-start gap-3 p-4 rounded-lg transition-all duration-300 group ${theme === 'dark' ? 'bg-white/5 hover:bg-white/10' : 'bg-gray-50 hover:bg-gray-100'}`}
-                                        >
-                                            <div className={`p-2 rounded-lg ${theme === 'dark' ? 'bg-white/10' : 'bg-white'}`}>
-                                                <MessageCircle className={`w-5 h-5 ${theme === 'dark' ? 'text-[#2EE1C7]' : 'text-[#25D366]'}`} />
-                                            </div>
-                                            <div className="min-w-0 flex-1">
-                                                <h4 className={`font-semibold text-sm mb-0.5 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>WhatsApp (US)</h4>
-                                                <p className={`text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>+1 757 472 2491</p>
-                                            </div>
-                                        </a>
+                                        <div>
+                                            <h4 className="font-bold text-sm text-white/80 uppercase tracking-wider font-body leading-none mb-1">Call Us</h4>
+                                            <p className="font-serif font-black text-lg md:text-xl text-white tracking-wide">+91 6399999955</p>
+                                        </div>
                                     </div>
+                                    <div className="w-10 h-10 rounded-full flex items-center justify-center bg-white/10 group-hover:bg-white/20 transition-all">
+                                        <ArrowRight className="w-5 h-5 text-white group-hover:translate-x-1 transition-transform" />
+                                    </div>
+                                </a>
+
+                                {/* Row for Email and WhatsApp */}
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <a
+                                        href="mailto:contact@frostrek.com"
+                                        className="flex items-start gap-3.5 p-4 rounded-2xl bg-[#FAFCFB] border border-[#2D6A4F]/5 hover:border-[#2D6A4F]/25 hover:bg-white transition-all duration-300 group shadow-sm hover:shadow-md"
+                                    >
+                                        <div className="p-2.5 rounded-xl bg-[#E8F5EE] text-[#2D6A4F] transition-colors">
+                                            <Mail className="w-5 h-5" />
+                                        </div>
+                                        <div className="min-w-0 flex-1">
+                                            <h4 className="font-bold text-xs text-gray-950 mb-0.5 font-body uppercase tracking-wider">Email Us</h4>
+                                            <p className="text-sm text-slate-600 font-semibold truncate">contact@frostrek.com</p>
+                                        </div>
+                                    </a>
+                                    <a
+                                        href="https://wa.me/17574722491"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-start gap-3.5 p-4 rounded-2xl bg-[#FAFCFB] border border-[#2D6A4F]/5 hover:border-[#2D6A4F]/25 hover:bg-white transition-all duration-300 group shadow-sm hover:shadow-md"
+                                    >
+                                        <div className="p-2.5 rounded-xl bg-[#E8F5EE] text-[#2D6A4F]">
+                                            <MessageCircle className="w-5 h-5 text-[#2D6A4F]" />
+                                        </div>
+                                        <div className="min-w-0 flex-1">
+                                            <h4 className="font-bold text-xs text-gray-950 mb-0.5 font-body uppercase tracking-wider">WhatsApp (US)</h4>
+                                            <p className="text-sm text-slate-600 font-semibold truncate">+1 757 472 2491</p>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
 
                             {/* GLOBAL OFFICES Section */}
-                            <div className={`p-8 rounded-2xl ${theme === 'dark' ? 'bg-dark-card border border-[#2EE1C7]/20' : 'bg-white shadow-xl border border-gray-100'}`}>
-                                <div className="flex items-center justify-center gap-2 mb-6">
-                                    <Globe className={`w-5 h-5 ${theme === 'dark' ? 'text-[#2EE1C7]' : 'text-[#2EE1C7]'}`} />
-                                    <h3 className={`text-xs font-bold uppercase tracking-widest ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>
+                            <div className="p-8 rounded-3xl bg-white border border-[#2D6A4F]/10 shadow-xl shadow-gray-100/50">
+                                <div className="flex items-center gap-2 mb-6 border-b border-gray-150/50 pb-4">
+                                    <Globe className="w-4 h-4 text-[#2D6A4F]" />
+                                    <h3 className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 font-body">
                                         GLOBAL OFFICES
                                     </h3>
                                 </div>
-                                <div className="space-y-3">
+                                <div className="space-y-4">
                                     {[
                                         {
                                             title: 'India (HQ)',
@@ -260,38 +265,25 @@ ${formData.projectDetails}
                                             href={office.mapUrl}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className={`flex items-center justify-center gap-4 p-4 rounded-xl transition-all duration-300 cursor-pointer group hover:-translate-y-1 hover:shadow-lg border-2 ${theme === 'dark'
-                                                ? 'bg-white/5 border-transparent hover:bg-[#2EE1C7]/20 hover:border-[#2EE1C7]/40'
-                                                : 'bg-gray-50 border-transparent hover:bg-[#2EE1C7]/10 hover:border-[#2EE1C7]/30'
-                                                }`}
+                                            className="flex items-center gap-4 p-4 rounded-2xl border border-transparent bg-[#FAFCFB] hover:bg-white hover:border-[#2D6A4F]/20 hover:shadow-md transition-all duration-300 group"
                                         >
-                                            <div className="flex items-center gap-3 flex-1">
-                                                <div className="flex-1 min-w-0 text-center">
-                                                    <div className="flex items-center justify-center gap-2 mb-1">
-                                                        <h4 className={`font-bold text-base transition-colors ${theme === 'dark'
-                                                            ? 'text-white group-hover:text-[#2EE1C7]'
-                                                            : 'text-gray-900 group-hover:text-[#2EE1C7]'
-                                                            }`}>
-                                                            {office.title}
-                                                        </h4>
-                                                        {office.isHQ && (
-                                                            <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${theme === 'dark' ? 'bg-[#2EE1C7]/30 text-[#2EE1C7]' : 'bg-[#2EE1C7]/20 text-[#2EE1C7]'
-                                                                }`}>
-                                                                HQ
-                                                            </span>
-                                                        )}
-                                                    </div>
-                                                    <p className={`text-sm transition-colors ${theme === 'dark'
-                                                        ? 'text-gray-400 group-hover:text-[#2EE1C7]'
-                                                        : 'text-gray-600 group-hover:text-[#2EE1C7]'
-                                                        }`}>
-                                                        {office.address}
-                                                    </p>
+                                            <div className="flex-1 min-w-0">
+                                                <div className="flex items-center gap-2 mb-1">
+                                                    <h4 className="font-serif font-black text-sm text-gray-950 transition-colors group-hover:text-[#2D6A4F]">
+                                                        {office.title}
+                                                    </h4>
+                                                    {office.isHQ && (
+                                                        <span className="text-[9px] font-black px-2 py-0.5 rounded-full bg-[#E8F5EE] text-[#2D6A4F] border border-[#2D6A4F]/10">
+                                                            HQ
+                                                        </span>
+                                                    )}
                                                 </div>
+                                                <p className="text-xs text-slate-500 font-medium leading-relaxed">
+                                                    {office.address}
+                                                </p>
                                             </div>
-                                            <div className={`flex-shrink-0 opacity-0 group-hover:opacity-100 transition-all ${theme === 'dark' ? 'text-[#2EE1C7]' : 'text-[#2EE1C7]'
-                                                }`}>
-                                                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                            <div className="opacity-0 group-hover:opacity-100 transition-all text-[#2D6A4F]">
+                                                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                             </div>
                                         </a>
                                     ))}
@@ -300,61 +292,55 @@ ${formData.projectDetails}
                         </div>
                     </motion.div>
 
-                    {/* Right Side: Form */}
+                    {/* Right Side: Message Form */}
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
+                        initial={{ opacity: 0, scale: 0.96 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
                     >
-                        <div className={`p-5 md:p-6 rounded-2xl backdrop-blur-xl border shadow-2xl ${theme === 'dark'
-                            ? 'bg-dark-card border-[#2EE1C7]/20 shadow-[#2EE1C7]/5'
-                            : 'bg-[#FDFBF7]/90 border-[#2EE1C7]/50 shadow-xl'
-                            }`}>
-                            <h3 className="text-xl font-bold mb-3">Send us a message</h3>
-
+                        <div className="p-8 sm:p-10 rounded-3xl border shadow-2xl bg-white border-[#2D6A4F]/10 shadow-[#2D6A4F]/5">
+                            
                             {!isSuccess ? (
-                                <form onSubmit={handleSubmit} className="space-y-2">
+                                <form onSubmit={handleSubmit} className="space-y-6">
+                                    <div className="border-b border-gray-100 pb-4">
+                                        <h3 className="text-2xl font-serif font-black text-gray-950">Send Us a Message</h3>
+                                        <p className="text-xs text-slate-400 font-medium mt-1">Please fill in the form below and we'll connect shortly.</p>
+                                    </div>
 
-                                    {/* Row 1 */}
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                    {/* Name Row */}
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                                         <InputGroup
                                             label="First name*"
                                             name="firstName"
                                             value={formData.firstName}
                                             onChange={handleChange}
-                                            placeholder="First name"
-                                            theme={theme}
+                                            placeholder="John"
                                         />
-
                                         <InputGroup
                                             label="Last name*"
                                             name="lastName"
                                             value={formData.lastName}
                                             onChange={handleChange}
-                                            placeholder="Last name"
-                                            theme={theme}
+                                            placeholder="Doe"
                                         />
                                     </div>
 
-                                    {/* Row 2 */}
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                    {/* Company Details Row */}
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                                         <InputGroup
                                             label="Company name"
                                             name="company"
                                             value={formData.company}
                                             onChange={handleChange}
-                                            placeholder="Company name"
-                                            theme={theme}
+                                            placeholder="Acme Corp"
                                             required={false}
                                         />
-
                                         <InputGroup
                                             label="Job title"
                                             name="jobTitle"
                                             value={formData.jobTitle}
                                             onChange={handleChange}
-                                            placeholder="Job title"
-                                            theme={theme}
+                                            placeholder="Director of Operations"
                                             required={false}
                                         />
                                     </div>
@@ -366,130 +352,139 @@ ${formData.projectDetails}
                                         type="email"
                                         value={formData.workEmail}
                                         onChange={handleChange}
-                                        placeholder="Work email"
-                                        theme={theme}
+                                        placeholder="john.doe@company.com"
                                     />
 
-                                    {/* Country */}
-                                    {/* <InputGroup
-    label="Country*"
-    name="country"
-    value={formData.country}
-    onChange={handleChange}
-    placeholder="Country"
-    theme={theme}
-  /> */}
-
-                                    {/* Radio Options */}
-                                    <div className="">
-                                        <label className={`text-sm font-medium ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
+                                    {/* Enquiry Reach Selection */}
+                                    <div className="space-y-3">
+                                        <label className="text-xs font-bold uppercase tracking-wider text-slate-500 font-body">
                                             Who are you trying to reach?<span className="text-red-500">*</span>
                                         </label>
 
-                                        {["Sales Enquiry", "Project Enquiry", "Partnerships", "Support", "Careers", "General Enquiry", "Other"].map((option) => (
-                                            <label key={option} className="flex items-center gap-3 cursor-pointer">
-                                                <input
-                                                    type="radio"
-                                                    name="reachType"
-                                                    value={option}
-                                                    checked={formData.reachType === option}
-                                                    onChange={handleChange}
-                                                    required
-                                                    className="accent-[#2EE1C7]"
-                                                />
-                                                <span className={theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}>
-                                                    {option}
-                                                </span>
-                                            </label>
-                                        ))}
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                                            {[
+                                                "Sales Enquiry", 
+                                                "Project Enquiry", 
+                                                "Partnerships", 
+                                                "Support", 
+                                                "Careers", 
+                                                "Other"
+                                            ].map((option) => {
+                                                const isSelected = formData.reachType === option;
+                                                return (
+                                                    <label 
+                                                        key={option} 
+                                                        className={`
+                                                            flex items-center gap-3 p-3.5 rounded-2xl border-2 cursor-pointer transition-all duration-200
+                                                            ${isSelected 
+                                                                ? 'bg-[#E8F5EE]/40 border-[#2D6A4F] shadow-sm' 
+                                                                : 'bg-[#FAFCFB] border-gray-150 hover:border-[#2D6A4F]/25 hover:bg-white'}
+                                                        `}
+                                                    >
+                                                        <input
+                                                            type="radio"
+                                                            name="reachType"
+                                                            value={option}
+                                                            checked={isSelected}
+                                                            onChange={handleChange}
+                                                            className="sr-only"
+                                                        />
+                                                        <div className={`
+                                                            w-4 h-4 rounded-full border-2 flex items-center justify-center transition-colors
+                                                            ${isSelected ? 'border-[#2D6A4F]' : 'border-slate-300'}
+                                                        `}>
+                                                            {isSelected && <div className="w-1.5 h-1.5 rounded-full bg-[#2D6A4F]" />}
+                                                        </div>
+                                                        <span className={`text-xs font-semibold ${isSelected ? 'text-gray-950 font-bold' : 'text-slate-600'}`}>
+                                                            {option}
+                                                        </span>
+                                                    </label>
+                                                );
+                                            })}
+                                        </div>
                                     </div>
 
-                                    {/* Project Details */}
+                                    {/* Message Textarea */}
                                     <div className="space-y-2">
-                                        <label className={`text-sm font-medium ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
+                                        <label className="text-xs font-bold uppercase tracking-wider text-slate-500 font-body">
                                             Please provide details regarding your enquiry.<span className="text-red-500">*</span>
                                         </label>
-
                                         <textarea
                                             name="projectDetails"
                                             value={formData.projectDetails}
                                             onChange={handleChange}
-                                            rows={3}
+                                            rows={4}
                                             required
                                             placeholder="Tell us a bit more about what you're looking for..."
-                                            className={`w-full px-3 py-2 rounded-lg outline-none border transition-all duration-300 resize-none ${theme === 'dark'
-                                                ? 'bg-black/20 border-white/10 focus:border-[#2EE1C7] text-white placeholder-gray-500'
-                                                : 'bg-white/50 border-gray-200 focus:border-[#2EE1C7] text-gray-900 placeholder-gray-400'
-                                                }`}
+                                            className="w-full px-4 py-3.5 rounded-2xl outline-none border transition-all duration-300 resize-none text-sm bg-white border-gray-200 focus:border-[#2D6A4F] focus:ring-4 focus:ring-[#E8F5EE]/50 text-gray-900 placeholder-slate-400"
                                         />
                                     </div>
 
-                                    {/* Privacy Text */}
-                                    <p className={`text-xs ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'
-                                        }`}>
-                                        By submitting this form, your information will be processed in accordance with our Privacy Policy.
+                                    {/* Privacy Agreement Text */}
+                                    <p className="text-xs text-slate-400 leading-relaxed">
+                                        By submitting this form, your information will be processed securely and in strict accordance with our Privacy Policy.
                                     </p>
 
-                                    {/* Error */}
+                                    {/* Error Display */}
                                     {error && (
-                                        <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-red-500 text-sm text-center">
+                                        <motion.div 
+                                            initial={{ opacity: 0, y: 10 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            className="p-4 rounded-xl bg-red-50 border border-red-200 text-red-600 text-xs font-semibold"
+                                        >
                                             {error}
-                                        </div>
+                                        </motion.div>
                                     )}
 
                                     {/* Submit Button */}
                                     <button
                                         type="submit"
                                         disabled={isSubmitting}
-                                        className={`w-full py-2.5 rounded-lg font-semibold text-sm text-black shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-2 ${isSubmitting ? 'opacity-70 cursor-wait' : 'hover:shadow-xl'
-                                            }`}
-                                        style={{ background: 'linear-gradient(135deg, #2EE1C7 0%, #2EE1C7 100%)' }}
+                                        className="group w-full py-4 rounded-2xl font-medium text-sm text-white shadow-lg shadow-[#2D6A4F]/10 bg-[#2D6A4F] hover:bg-[#1B4332] transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed overflow-hidden"
                                     >
-                                        {isSubmitting ? (
-                                            <>
-                                                <Loader2 className="w-5 h-5 animate-spin" /> Sending...
-                                            </>
-                                        ) : (
-                                            <>
-                                                Send Message <Send className="w-5 h-5" />
-                                            </>
-                                        )}
+                                        <FlipText>
+                                            {isSubmitting ? (
+                                                <>
+                                                    <Loader2 className="w-4 h-4 animate-spin" /> Sending Message...
+                                                </>
+                                            ) : (
+                                                <>
+                                                    Send Message <Send className="w-4 h-4" />
+                                                </>
+                                            )}
+                                        </FlipText>
                                     </button>
 
                                 </form>
-
                             ) : (
                                 <motion.div
-                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    initial={{ opacity: 0, scale: 0.95 }}
                                     animate={{ opacity: 1, scale: 1 }}
-                                    className="py-12 flex flex-col items-center text-center space-y-4"
+                                    className="py-16 flex flex-col items-center text-center"
                                 >
-                                    <div className="w-20 h-20 rounded-full bg-[#2EE1C7]/10 flex items-center justify-center mb-4">
-                                        <Check className="w-10 h-10 text-[#2EE1C7]" />
+                                    <div className="w-20 h-20 rounded-full bg-[#E8F5EE] border border-[#2D6A4F]/20 flex items-center justify-center mb-6">
+                                        <Check className="w-9 h-9 text-[#2D6A4F]" />
                                     </div>
-                                    <h3 className="text-2xl font-bold">Message Sent!</h3>
-                                    <p className="text-gray-500 max-w-xs">
-                                        Thanks for reaching out. We'll get back to you within 24 hours.
+                                    <h3 className="text-2xl font-serif font-black text-gray-950">Message Sent!</h3>
+                                    <p className="text-slate-500 text-sm max-w-xs mt-2.5 font-medium">
+                                        Thanks for reaching out! We have received your inquiry and will get back to you within 24 hours.
                                     </p>
                                     <button
                                         onClick={() => setIsSuccess(false)}
-                                        className="mt-6 px-6 py-2 text-sm font-medium hover:text-[#2EE1C7] transition-colors flex items-center gap-1"
+                                        className="mt-8 px-6 py-2.5 rounded-xl text-xs font-bold bg-[#E8F5EE] border border-[#2D6A4F]/15 text-[#2D6A4F] hover:bg-[#2D6A4F] hover:text-white transition-all flex items-center gap-1.5 cursor-pointer"
                                     >
-                                        Send another <ArrowRight className="w-4 h-4" />
+                                        Send another message <ArrowRight className="w-3.5 h-3.5" />
                                     </button>
                                 </motion.div>
                             )}
                         </div>
                     </motion.div>
+
                 </div>
             </div>
         </div>
     );
 };
-
-
-
-
 
 const InputGroup = ({
     label,
@@ -498,11 +493,10 @@ const InputGroup = ({
     value,
     onChange,
     placeholder,
-    theme,
     required = true
 }: any) => (
     <div className="space-y-2">
-        <label className={`text-sm font-medium ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
+        <label className="text-xs font-bold uppercase tracking-wider text-slate-500 font-body">
             {typeof label === 'string' && label.endsWith('*') ? (
                 <>
                     {label.slice(0, -1)}<span className="text-red-500">*</span>
@@ -518,10 +512,7 @@ const InputGroup = ({
             onChange={onChange}
             required={required}
             placeholder={placeholder}
-            className={`w-full px-3 py-2 rounded-xl outline-none border transition-all duration-300 ${theme === 'dark'
-                ? 'bg-black/20 border-white/10 focus:border-[#2EE1C7] text-white placeholder-gray-500'
-                : 'bg-white/50 border-gray-200 focus:border-[#2EE1C7] text-gray-900 placeholder-gray-400'
-                }`}
+            className="w-full px-4 py-3.5 rounded-2xl outline-none border transition-all duration-300 text-sm bg-white border-gray-200 focus:border-[#2D6A4F] focus:ring-4 focus:ring-[#E8F5EE]/50 text-gray-900 placeholder-slate-400 font-medium"
         />
     </div>
 );

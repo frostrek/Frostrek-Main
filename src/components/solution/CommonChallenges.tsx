@@ -5,7 +5,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { Sparkles, Zap, CheckCircle2, MousePointer2 } from 'lucide-react';
 import type { Challenge } from '../../utils/solutionData';
-import { useTheme } from '../../context/ThemeContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,9 +19,9 @@ const IMAGES = [
 ];
 
 // Mobile Card Component
-const MobileCard = ({ challenge, index, total, theme }: { challenge: Challenge; index: number; total: number; theme: string }) => (
+const MobileCard = ({ challenge, index, total }: { challenge: Challenge; index: number; total: number }) => (
     <div className="flex-shrink-0 w-[85vw] snap-center">
-        <div className={`rounded-2xl border shadow-xl overflow-hidden ${theme === 'dark' ? 'bg-dark-card border-dark-accent/30' : 'bg-[#FDFBF7] border-[#B07552]/20'}`}>
+        <div className="rounded-2xl border shadow-xl overflow-hidden bg-white border-gray-150">
             <div className="relative h-40 overflow-hidden">
                 <img
                     src={IMAGES[index % IMAGES.length]}
@@ -30,34 +29,45 @@ const MobileCard = ({ challenge, index, total, theme }: { challenge: Challenge; 
                     className="w-full h-full object-cover"
                     loading="lazy"
                 />
-                <div className={`absolute inset-0 ${theme === 'dark' ? 'bg-gradient-to-b from-black/40 via-black/50 to-black/80' : 'bg-gradient-to-br from-[#B07552]/90 to-[#6E4629]/95'}`} />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/55 to-black/85" />
                 <div className="absolute inset-0 p-4 flex flex-col justify-between">
-                    <span className="self-start font-mono text-xs tracking-wider bg-white/10 px-3 py-1 rounded-full border border-white/20 text-white">
+                    <span className="self-start font-mono text-[10px] font-bold tracking-wider bg-white/15 px-3 py-1 rounded-full border border-white/20 text-white">
                         0{index + 1} / 0{total}
                     </span>
                     <div>
-                        <h3 className="text-xl font-bold text-white mb-1">{challenge.title}</h3>
-                        <p className="text-white/80 text-xs line-clamp-2">{challenge.description}</p>
+                        <h3 className="text-lg font-serif font-bold text-white mb-1 leading-tight">{challenge.title}</h3>
+                        <p className="text-white/80 text-xs font-body leading-relaxed line-clamp-2">{challenge.description}</p>
                     </div>
                 </div>
             </div>
-            <div className="p-4">
-                <div className="flex items-center gap-2 mb-3">
-                    <span className={`w-6 h-6 rounded-full text-white flex items-center justify-center ${theme === 'dark' ? 'bg-[#2EE1C7]' : 'bg-[#B07552]'}`}>
-                        <CheckCircle2 size={14} />
+            <div className="p-4 space-y-4">
+                <div className="flex items-center gap-2">
+                    <span className="w-6 h-6 rounded-full text-white flex items-center justify-center bg-[#2D6A4F]">
+                        <CheckCircle2 size={13} />
                     </span>
-                    <span className={`font-bold text-xs uppercase tracking-wide ${theme === 'dark' ? 'text-[#2EE1C7]' : 'text-[#B07552]'}`}>AI Solution</span>
+                    <span className="font-extrabold text-[10px] uppercase tracking-wider text-[#2D6A4F]">AI Solution</span>
                 </div>
-                <p className={`text-base font-light leading-snug mb-4 ${theme === 'dark' ? 'text-dark-text' : 'text-[#2D241E]'}`}>{challenge.solvedBy}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
+                {/* FIXED: high contrast description text */}
+                <p className="text-sm font-body font-medium text-slate-700 leading-relaxed">{challenge.solvedBy}</p>
+                <div className="flex flex-wrap gap-2">
                     {['AI-Powered', 'Secure', 'Real-time'].map((tag, i) => (
-                        <span key={i} className={`px-2 py-1 border rounded-md text-xs ${theme === 'dark' ? 'bg-dark-bg border-dark-accent/30 text-dark-text-muted' : 'bg-[#FAF6F3] border-[#E6D0C6] text-[#5D5046]'}`}>{tag}</span>
+                        <span key={i} className="px-2.5 py-1 border rounded-md text-[10px] font-bold bg-[#E8F5EE]/40 border-[#2D6A4F]/15 text-[#2D6A4F]">{tag}</span>
                     ))}
                 </div>
-                <div className={`flex justify-between py-3 border-t ${theme === 'dark' ? 'border-dark-accent/30' : 'border-[#E6D0C6]'}`}>
-                    <div className="text-center"><p className={`text-lg font-bold ${theme === 'dark' ? 'text-dark-accent' : 'text-[#B07552]'}`}>60%</p><p className={`text-[10px] ${theme === 'dark' ? 'text-dark-text-muted' : 'text-[#8C7E72]'}`}>Cost Cut</p></div>
-                    <div className="text-center"><p className={`text-lg font-bold ${theme === 'dark' ? 'text-dark-accent' : 'text-[#B07552]'}`}>24/7</p><p className={`text-[10px] ${theme === 'dark' ? 'text-dark-text-muted' : 'text-[#8C7E72]'}`}>Uptime</p></div>
-                    <div className="text-center"><p className={`text-lg font-bold ${theme === 'dark' ? 'text-dark-accent' : 'text-[#B07552]'}`}>&lt;1s</p><p className={`text-[10px] ${theme === 'dark' ? 'text-dark-text-muted' : 'text-[#8C7E72]'}`}>Response</p></div>
+                {/* FIXED: metrics styled with beautiful high contrast slate colors */}
+                <div className="flex justify-between py-3 border-t border-gray-100">
+                    <div className="text-center">
+                        <p className="text-base font-serif font-black text-[#2D6A4F]">60%</p>
+                        <p className="text-[9px] font-extrabold uppercase tracking-widest text-slate-400">Cost Cut</p>
+                    </div>
+                    <div className="text-center">
+                        <p className="text-base font-serif font-black text-[#2D6A4F]">24/7</p>
+                        <p className="text-[9px] font-extrabold uppercase tracking-widest text-slate-400">Uptime</p>
+                    </div>
+                    <div className="text-center">
+                        <p className="text-base font-serif font-black text-[#2D6A4F]">&lt;1s</p>
+                        <p className="text-[9px] font-extrabold uppercase tracking-widest text-slate-400">Response</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -65,46 +75,75 @@ const MobileCard = ({ challenge, index, total, theme }: { challenge: Challenge; 
 );
 
 // Desktop Card Component
-const DesktopCard = ({ challenge, index, total, theme }: { challenge: Challenge; index: number; total: number; theme: string }) => (
+const DesktopCard = ({ challenge, index, total }: { challenge: Challenge; index: number; total: number }) => (
     <div className="challenge-card absolute top-0 left-0 w-full h-full flex items-center justify-center p-4" style={{ zIndex: total - index }}>
-        <div className={`relative w-full max-w-5xl h-[70vh] rounded-2xl border shadow-2xl overflow-hidden flex flex-row group ${theme === 'dark' ? 'bg-dark-card border-dark-accent/30' : 'bg-[#FDFBF7] border-[#B07552]/20'}`}>
+        <div className="relative w-full max-w-5xl h-[70vh] rounded-3xl border shadow-2xl overflow-hidden flex flex-row bg-white border-[#2D6A4F]/10">
+            {/* Left side: Image backdrop */}
             <div className="relative h-full w-[42%] overflow-hidden text-white">
                 <div className="absolute inset-0">
                     <img src={IMAGES[index % IMAGES.length]} alt={challenge.title} className="w-full h-full object-cover" loading="lazy" />
-                    <div className={`absolute inset-0 ${theme === 'dark' ? 'bg-gradient-to-b from-black/30 via-black/50 to-black/75' : 'bg-gradient-to-br from-[#B07552]/95 to-[#6E4629]/95'}`} />
+                    <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-black/55 to-black/85" />
                 </div>
-                <div className="relative z-10 flex flex-col h-full p-6">
-                    <span className="self-start font-mono text-xs tracking-wider bg-white/10 px-3 py-1.5 rounded-full border border-white/20 mb-auto">0{index + 1} / 0{total}</span>
-                    <div className="mb-6">
-                        <h3 className="text-2xl lg:text-3xl font-bold leading-tight mb-3">{challenge.title}</h3>
-                        <div className="w-10 h-0.5 bg-white/50 rounded-full mb-3" />
-                        <p className="text-white/90 text-sm leading-relaxed">{challenge.description}</p>
+                <div className="relative z-10 flex flex-col h-full p-8 justify-between">
+                    <span className="self-start font-mono text-xs font-bold tracking-wider bg-white/10 px-3 py-1.5 rounded-full border border-white/20">0{index + 1} / 0{total}</span>
+                    <div className="mb-4">
+                        <h3 className="text-2xl lg:text-3xl font-serif font-black leading-tight mb-3.5">{challenge.title}</h3>
+                        <div className="w-10 h-1 bg-[#2D6A4F] rounded-full mb-4" />
+                        <p className="text-white/85 text-sm font-body leading-relaxed">{challenge.description}</p>
                     </div>
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/30 bg-white/10 text-xs font-semibold uppercase tracking-wider self-start">
-                        <Zap size={12} className={theme === 'dark' ? 'text-[#2EE1C7]' : 'text-[#E0CC94]'} /><span>Challenge</span>
+                    <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/20 bg-white/10 text-xs font-bold uppercase tracking-wider self-start">
+                        <Zap size={11} className="text-[#52B788]" /><span>Challenge</span>
                     </div>
                 </div>
             </div>
-            <div className={`relative h-full w-[58%] p-6 flex flex-col ${theme === 'dark' ? 'bg-dark-card' : 'bg-[#FDFBF7]'}`}>
-                <div className={`absolute inset-0 opacity-20 [background-size:20px_20px] ${theme === 'dark' ? 'bg-[radial-gradient(rgba(46,225,199,0.3)_1px,transparent_1px)]' : 'bg-[radial-gradient(#B07552_1px,transparent_1px)]'}`} />
-                <div className="relative z-10 flex-1 flex flex-col">
-                    <div className="flex items-center gap-2 mb-4">
-                        <span className={`w-8 h-8 rounded-full text-white flex items-center justify-center shadow-md ${theme === 'dark' ? 'bg-[#2EE1C7]' : 'bg-[#B07552]'}`}><CheckCircle2 size={16} /></span>
-                        <span className={`font-bold text-xs uppercase tracking-wide ${theme === 'dark' ? 'text-[#2EE1C7]' : 'text-[#B07552]'}`}>AI Solution</span>
+
+            {/* Right side: Detailed solution layout */}
+            <div className="relative h-full w-[58%] p-8 flex flex-col justify-between bg-white">
+                <div className="absolute inset-0 opacity-[0.05] pointer-events-none"
+                    style={{
+                        backgroundImage: 'radial-gradient(#2D6A4F 1px, transparent 1px)',
+                        backgroundSize: '20px 20px'
+                    }}
+                />
+                <div className="relative z-10 flex-1 flex flex-col justify-between">
+                    <div className="space-y-6">
+                        <div className="flex items-center gap-3">
+                            <span className="w-9 h-9 rounded-xl text-white flex items-center justify-center shadow-md bg-[#2D6A4F]">
+                                <CheckCircle2 size={18} />
+                            </span>
+                            <span className="font-extrabold text-xs uppercase tracking-wider text-[#2D6A4F]">AI Solution</span>
+                        </div>
+                        {/* FIXED: high contrast solvedBy summary */}
+                        <p className="text-xl lg:text-2xl font-serif font-bold leading-snug text-gray-950">{challenge.solvedBy}</p>
+                        
+                        <div className="grid grid-cols-2 gap-3">
+                            {[{ label: 'Instant Deploy', desc: 'Go live fast' }, { label: 'AI-Powered', desc: 'Smart automation' }, { label: 'Enterprise Secure', desc: 'SOC2 ready' }, { label: 'Real-time', desc: 'Live insights' }].map((tag, i) => (
+                                <div key={i} className="p-3.5 rounded-2xl border bg-[#FAFCFB] border-[#2D6A4F]/10 hover:border-[#2D6A4F]/25 transition-colors">
+                                    <div className="flex items-center gap-2 mb-1">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-[#2D6A4F]" />
+                                        <span className="font-serif font-bold text-xs text-gray-900">{tag.label}</span>
+                                    </div>
+                                    {/* FIXED: high contrast description text-slate-500 */}
+                                    <p className="text-[11px] pl-3.5 text-slate-500 font-medium leading-normal">{tag.desc}</p>
+                                </div>
+                            ))}
+                        </div>
                     </div>
-                    <p className={`text-xl lg:text-2xl font-light leading-snug mb-5 ${theme === 'dark' ? 'text-dark-text' : 'text-[#2D241E]'}`}>{challenge.solvedBy}</p>
-                    <div className="grid grid-cols-2 gap-2 mb-4">
-                        {[{ label: 'Instant Deploy', desc: 'Go live fast' }, { label: 'AI-Powered', desc: 'Smart automation' }, { label: 'Enterprise Secure', desc: 'SOC2 ready' }, { label: 'Real-time', desc: 'Live insights' }].map((tag, i) => (
-                            <div key={i} className={`p-2.5 rounded-lg border ${theme === 'dark' ? 'bg-dark-bg border-dark-accent/30' : 'bg-white border-[#E6D0C6]'}`}>
-                                <div className="flex items-center gap-1.5 mb-0.5"><div className={`w-1.5 h-1.5 rounded-full ${theme === 'dark' ? 'bg-dark-accent' : 'bg-[#B07552]'}`} /><span className={`font-semibold text-xs ${theme === 'dark' ? 'text-dark-text' : 'text-[#2D241E]'}`}>{tag.label}</span></div>
-                                <p className={`text-[10px] pl-3 ${theme === 'dark' ? 'text-dark-text-muted' : 'text-[#8C7E72]'}`}>{tag.desc}</p>
-                            </div>
-                        ))}
-                    </div>
-                    <div className={`flex gap-5 py-3 border-y mb-4 ${theme === 'dark' ? 'border-dark-accent/30' : 'border-[#E6D0C6]'}`}>
-                        <div><p className={`text-xl font-bold ${theme === 'dark' ? 'text-dark-accent' : 'text-[#B07552]'}`}>60%</p><p className={`text-[10px] ${theme === 'dark' ? 'text-dark-text-muted' : 'text-[#8C7E72]'}`}>Cost Cut</p></div>
-                        <div><p className={`text-xl font-bold ${theme === 'dark' ? 'text-dark-accent' : 'text-[#B07552]'}`}>24/7</p><p className={`text-[10px] ${theme === 'dark' ? 'text-dark-text-muted' : 'text-[#8C7E72]'}`}>Uptime</p></div>
-                        <div><p className={`text-xl font-bold ${theme === 'dark' ? 'text-dark-accent' : 'text-[#B07552]'}`}>&lt;1s</p><p className={`text-[10px] ${theme === 'dark' ? 'text-dark-text-muted' : 'text-[#8C7E72]'}`}>Response</p></div>
+
+                    {/* FIXED: stats metrics beautifully high contrast slate details */}
+                    <div className="flex gap-8 py-4 border-t border-gray-100">
+                        <div>
+                            <p className="text-2xl font-serif font-black text-[#2D6A4F]">60%</p>
+                            <p className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 mt-1">Cost Cut</p>
+                        </div>
+                        <div>
+                            <p className="text-2xl font-serif font-black text-[#2D6A4F]">24/7</p>
+                            <p className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 mt-1">Uptime</p>
+                        </div>
+                        <div>
+                            <p className="text-2xl font-serif font-black text-[#2D6A4F]">&lt;1s</p>
+                            <p className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 mt-1">Response</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -112,8 +151,7 @@ const DesktopCard = ({ challenge, index, total, theme }: { challenge: Challenge;
     </div>
 );
 
-const CommonChallenges = ({ challenges }: CommonChallengesProps) => {
-    const { theme } = useTheme();
+export const CommonChallenges = ({ challenges }: CommonChallengesProps) => {
     const location = useLocation();
     const container = useRef<HTMLDivElement>(null);
     const triggerRef = useRef<HTMLDivElement>(null);
@@ -133,7 +171,6 @@ const CommonChallenges = ({ challenges }: CommonChallengesProps) => {
                 scrollTriggerRef.current.kill();
                 scrollTriggerRef.current = null;
             }
-            // Kill all ScrollTriggers associated with this component
             ScrollTrigger.getAll().forEach(st => {
                 if (st.trigger === triggerRef.current) {
                     st.kill();
@@ -144,7 +181,6 @@ const CommonChallenges = ({ challenges }: CommonChallengesProps) => {
 
     // Force refresh ScrollTrigger on route change
     useEffect(() => {
-        // Small delay to ensure DOM is updated
         const timeout = setTimeout(() => {
             ScrollTrigger.refresh();
         }, 100);
@@ -154,7 +190,6 @@ const CommonChallenges = ({ challenges }: CommonChallengesProps) => {
 
     useGSAP(() => {
         if (isMobile || !triggerRef.current || !container.current || challenges.length === 0) {
-            // Kill any existing ScrollTrigger when going mobile
             if (scrollTriggerRef.current) {
                 scrollTriggerRef.current.kill();
                 scrollTriggerRef.current = null;
@@ -162,13 +197,11 @@ const CommonChallenges = ({ challenges }: CommonChallengesProps) => {
             return;
         }
 
-        // Kill any existing ScrollTrigger before creating a new one
         if (scrollTriggerRef.current) {
             scrollTriggerRef.current.kill();
             scrollTriggerRef.current = null;
         }
 
-        // Also kill any lingering ScrollTriggers on this trigger element
         ScrollTrigger.getAll().forEach(st => {
             if (st.trigger === triggerRef.current) {
                 st.kill();
@@ -179,18 +212,16 @@ const CommonChallenges = ({ challenges }: CommonChallengesProps) => {
         const count = cards.length;
         if (count === 0) return;
 
-        // Initialize all cards properly - first card on top with highest z-index
         cards.forEach((card, i) => {
             gsap.set(card, {
                 yPercent: 0,
                 scale: 1,
                 opacity: 1,
-                zIndex: count - i, // First card gets highest z-index
+                zIndex: count - i,
             });
         });
 
-        // Calculate proper scroll distance - each card transition needs enough scroll space
-        const scrollPerCard = window.innerHeight * 0.8; // 80vh per card transition
+        const scrollPerCard = window.innerHeight * 0.8;
         const totalScrollDistance = (count - 1) * scrollPerCard;
 
         const st = ScrollTrigger.create({
@@ -206,13 +237,11 @@ const CommonChallenges = ({ challenges }: CommonChallengesProps) => {
                 const progress = self.progress;
 
                 cards.forEach((card, i) => {
-                    if (i === count - 1) return; // Don't animate the last card, it stays as the final view
+                    if (i === count - 1) return;
 
-                    // Calculate when this card should start and finish animating
                     const cardStartProgress = i / (count - 1);
                     const cardEndProgress = (i + 1) / (count - 1);
 
-                    // Calculate local progress for this card (0 to 1)
                     let cardProgress = 0;
                     if (progress >= cardStartProgress && progress <= cardEndProgress) {
                         cardProgress = (progress - cardStartProgress) / (cardEndProgress - cardStartProgress);
@@ -220,12 +249,11 @@ const CommonChallenges = ({ challenges }: CommonChallengesProps) => {
                         cardProgress = 1;
                     }
 
-                    // Animate card: slide up, scale down slightly, and fade out
                     gsap.set(card, {
                         yPercent: -100 * cardProgress,
                         scale: 1 - (0.03 * cardProgress),
-                        opacity: 1 - cardProgress, // Fully fade out when animated away
-                        zIndex: count - i, // Maintain proper stacking order
+                        opacity: 1 - cardProgress,
+                        zIndex: count - i,
                     });
                 });
             }
@@ -236,45 +264,46 @@ const CommonChallenges = ({ challenges }: CommonChallengesProps) => {
     }, { scope: container, dependencies: [challenges, isMobile, location.pathname] });
 
     return (
-        <section ref={container} className={`relative ${theme === 'dark' ? 'bg-dark-bg' : 'bg-[#FDFBF7]'}`}>
-            {/* Intro */}
-            <div className="container mx-auto px-4 py-8 md:py-10 text-center">
-                <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full border font-bold text-[10px] md:text-xs uppercase tracking-widest mb-3 ${theme === 'dark' ? 'border-dark-accent/30 bg-dark-accent/10 text-dark-accent' : 'border-[#B07552]/30 bg-[#B07552]/5 text-[#B07552]'}`}>
+        <section ref={container} className="relative bg-gradient-to-b from-white to-gray-50/50 font-body py-16">
+            {/* Intro Header */}
+            <div className="container mx-auto px-4 py-8 text-center space-y-4">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#2D6A4F]/20 bg-[#E8F5EE] text-[#2D6A4F] font-bold text-[10px] uppercase tracking-wider">
                     <Sparkles size={12} /><span>The Solution Stack</span>
                 </div>
-                <h2 className={`text-2xl md:text-5xl font-bold mb-3 ${theme === 'dark' ? 'text-dark-text' : 'text-[#2D241E]'}`}>
-                    Problems, <span className={`text-transparent bg-clip-text bg-gradient-to-r ${theme === 'dark' ? 'from-[#2EE1C7] to-[#2EE1C7]/70' : 'from-[#B07552] to-[#8A5A35]'}`}>Solved.</span>
+                <h2 className="text-3xl md:text-5xl font-serif font-black text-gray-900 leading-tight">
+                    Problems, <span className="text-[#2D6A4F]">Solved.</span>
                 </h2>
-                <p className={`text-sm md:text-lg max-w-xl mx-auto mb-3 ${theme === 'dark' ? 'text-dark-text-muted' : 'text-[#5D5046]'}`}>
+                {/* FIXED: high contrast text-slate-600 ensures subtitle text is perfectly visible */}
+                <p className="text-sm sm:text-base text-slate-600 font-medium max-w-xl mx-auto leading-relaxed">
                     {isMobile ? 'Swipe to explore solutions.' : 'Scroll to explore how our AI tackles your challenges.'}
                 </p>
-                <div className={`animate-bounce ${isMobile ? 'hidden' : ''} ${theme === 'dark' ? 'text-[#2EE1C7]/50' : 'text-[#B07552]/50'}`}>
-                    <MousePointer2 size={20} className="mx-auto" />
+                <div className={`animate-bounce mt-3 ${isMobile ? 'hidden' : ''} text-[#2D6A4F]/40`}>
+                    <MousePointer2 size={18} className="mx-auto" />
                 </div>
             </div>
 
-            {/* Mobile: Swipe Carousel - Always rendered, hidden via CSS */}
+            {/* Mobile: Swipe Carousel */}
             <div className={`relative pb-8 ${isMobile ? '' : 'hidden'}`}>
                 <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory px-4 pb-4 scrollbar-hide">
                     {challenges.map((challenge, index) => (
-                        <MobileCard key={`mobile-${index}`} challenge={challenge} index={index} total={challenges.length} theme={theme} />
+                        <MobileCard key={`mobile-${index}`} challenge={challenge} index={index} total={challenges.length} />
                     ))}
                 </div>
             </div>
 
-            {/* Desktop: GSAP Stack - Always rendered, hidden via CSS */}
-            <div ref={triggerRef} className={`relative h-screen w-full ${isMobile ? 'hidden' : ''} ${theme === 'dark' ? 'bg-dark-bg' : 'bg-[#FDFBF7]'}`}>
+            {/* Desktop: GSAP Stack */}
+            <div ref={triggerRef} className={`relative h-screen w-full ${isMobile ? 'hidden' : ''} bg-[#FAFCFB]`}>
                 <div className="absolute inset-0 pointer-events-none">
-                    <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full blur-[100px] ${theme === 'dark' ? 'bg-dark-accent/10' : 'bg-[#B07552]/10'}`} />
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full blur-[100px] bg-[#2D6A4F]/5" />
                 </div>
                 <div className="relative w-full h-full max-w-7xl mx-auto">
                     {challenges.map((challenge, index) => (
-                        <DesktopCard key={`desktop-${index}`} challenge={challenge} index={index} total={challenges.length} theme={theme} />
+                        <DesktopCard key={`desktop-${index}`} challenge={challenge} index={index} total={challenges.length} />
                     ))}
                 </div>
             </div>
 
-            <div className={`h-8 md:h-[10vh] ${theme === 'dark' ? 'bg-dark-bg' : 'bg-[#FDFBF7]'}`} />
+            <div className="h-8 md:h-[10vh] bg-white" />
         </section>
     );
 };

@@ -30,8 +30,8 @@ export interface BlogPost {
 
 export const CASE_STUDIES: CaseStudy[] = [
     {
-        id: 'cs-pcc-marketplace',
-        title: 'PCC Marketplace – Web3 Sports Merchandise Platform',
+        id: 'cs-frostrek-web3-commerce',
+        title: 'Frostrek Web3 Commerce – Sports Merchandise Platform',
         category: 'Web3 / E-commerce',
         client: 'Global Sports Consortium',
         duration: '8 months',
@@ -48,8 +48,8 @@ export const CASE_STUDIES: CaseStudy[] = [
         icon: Trophy
     },
     {
-        id: 'cs-saf-manufacturing',
-        title: 'SAF Manufacturing – Intelligence Platform',
+        id: 'cs-frostrek-manufacturing-os',
+        title: 'Frostrek Manufacturing OS – Intelligence Platform',
         category: 'Enterprise AI / IoT',
         client: 'Leading Aquatic Feed Manufacturer',
         duration: '12 months',

@@ -79,7 +79,7 @@ export const EnhancedTimelineSection: React.FC<EnhancedTimelineSectionProps> = (
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className={`text-4xl md:text-5xl font-bold mb-6 ${theme === 'dark' ? 'text-dark-text' : 'text-gray-900'}`}
+                        className={`text-4xl md:text-5xl font-bold mb-6 ${theme === 'dark' ? 'text-[#2D6A4F]' : 'text-gray-900'}`}
                     >
                         Our Journey
                     </motion.h2>

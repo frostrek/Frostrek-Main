@@ -1,11 +1,9 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, MapPin, Users, ArrowRight, CheckCircle2, User } from 'lucide-react';
-import { useTheme } from '../../context/ThemeContext';
 import Button from '../ui/Button';
 
 const LinkedinOutreachDemo = () => {
-    const { theme } = useTheme();
     const [step, setStep] = useState<'input' | 'processing' | 'results'>('input');
     const [progress, setProgress] = useState(0);
     const [processText, setProcessText] = useState('Initializing...');
@@ -74,12 +72,9 @@ const LinkedinOutreachDemo = () => {
     };
 
     return (
-        <div className={`w-full rounded-3xl overflow-hidden border shadow-xl ${theme === 'dark'
-            ? 'bg-dark-card border-[#2EE1C7]/20 shadow-black/30'
-            : 'bg-white border-white/40 shadow-xl'
-            }`}>
+        <div className="w-full rounded-3xl overflow-hidden border shadow-lg bg-white border-[#2D6A4F]/10 font-body">
             {/* Content Area - Compact */}
-            <div className="p-5 md:p-6 min-h-[320px] flex flex-col justify-center">
+            <div className="p-5 md:p-6 min-h-[320px] flex flex-col justify-center bg-white">
                 <AnimatePresence mode="wait">
 
                     {/* STEP 1: INPUT */}
@@ -94,7 +89,7 @@ const LinkedinOutreachDemo = () => {
                         >
                             <div className="space-y-4">
                                 <div className="space-y-2">
-                                    <label className={`text-sm font-medium ml-1 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
+                                    <label className="text-sm font-bold text-gray-700 ml-1">
                                         Target Industry / Niche <span className="text-red-500">*</span>
                                     </label>
                                     <div className="relative">
@@ -105,17 +100,14 @@ const LinkedinOutreachDemo = () => {
                                             placeholder="e.g. Healthcare, SaaS, E-commerce"
                                             value={formData.niche}
                                             onChange={e => setFormData({ ...formData, niche: e.target.value })}
-                                            className={`w-full pl-10 pr-4 py-3 rounded-xl outline-none border transition-all ${theme === 'dark'
-                                                ? 'bg-black/20 border-white/10 focus:border-[#2EE1C7] text-white placeholder-gray-500'
-                                                : 'bg-gray-50 border-gray-200 focus:border-[#2EE1C7] text-gray-900'
-                                                }`}
+                                            className="w-full pl-10 pr-4 py-3 rounded-xl outline-none border border-gray-200 focus:border-[#2D6A4F] focus:ring-2 focus:ring-[#2D6A4F]/10 text-gray-900 bg-gray-50/50 font-bold placeholder-gray-400 transition-all text-sm"
                                         />
                                     </div>
                                 </div>
 
                                 <div className="grid grid-cols-2 gap-4">
                                     <div className="space-y-2">
-                                        <label className={`text-sm font-medium ml-1 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
+                                        <label className="text-sm font-bold text-gray-700 ml-1">
                                             Location <span className="text-red-500">*</span>
                                         </label>
                                         <div className="relative">
@@ -126,16 +118,13 @@ const LinkedinOutreachDemo = () => {
                                                 placeholder="City or Country"
                                                 value={formData.location}
                                                 onChange={e => setFormData({ ...formData, location: e.target.value })}
-                                                className={`w-full pl-10 pr-4 py-3 rounded-xl outline-none border transition-all ${theme === 'dark'
-                                                    ? 'bg-black/20 border-white/10 focus:border-[#2EE1C7] text-white placeholder-gray-500'
-                                                    : 'bg-gray-50 border-gray-200 focus:border-[#2EE1C7] text-gray-900'
-                                                    }`}
+                                                className="w-full pl-10 pr-4 py-3 rounded-xl outline-none border border-gray-200 focus:border-[#2D6A4F] focus:ring-2 focus:ring-[#2D6A4F]/10 text-gray-900 bg-gray-50/50 font-bold placeholder-gray-400 transition-all text-sm"
                                             />
                                         </div>
                                     </div>
 
                                     <div className="space-y-2">
-                                        <label className={`text-sm font-medium ml-1 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
+                                        <label className="text-sm font-bold text-gray-700 ml-1">
                                             Company Size <span className="text-red-500">*</span>
                                         </label>
                                         <div className="relative">
@@ -143,10 +132,7 @@ const LinkedinOutreachDemo = () => {
                                             <select
                                                 value={formData.size}
                                                 onChange={e => setFormData({ ...formData, size: e.target.value })}
-                                                className={`w-full pl-10 pr-4 py-3 rounded-xl outline-none border transition-all appearance-none cursor-pointer ${theme === 'dark'
-                                                    ? 'bg-black/20 border-white/10 focus:border-[#2EE1C7] text-white'
-                                                    : 'bg-gray-50 border-gray-200 focus:border-[#2EE1C7] text-gray-900'
-                                                    }`}
+                                                className="w-full pl-10 pr-4 py-3 rounded-xl outline-none border border-gray-200 focus:border-[#2D6A4F] focus:ring-2 focus:ring-[#2D6A4F]/10 text-gray-900 bg-gray-50/50 font-bold appearance-none cursor-pointer transition-all text-sm"
                                             >
                                                 <option value="" disabled>Select Size</option>
                                                 <option value="1-10">1-10 Employees</option>
@@ -162,9 +148,9 @@ const LinkedinOutreachDemo = () => {
 
                             <Button
                                 type="submit"
-                                className={`w-full py-4 text-base font-semibold text-black shadow-lg border-none ${theme === 'dark' ? 'bg-[#2EE1C7] hover:bg-white shadow-[#2EE1C7]/20' : 'bg-[#0077B5] hover:bg-[#006396] !text-white shadow-blue-500/20'}`}
+                                className="w-full py-4 text-sm font-extrabold uppercase tracking-widest text-white shadow-lg border-none bg-[#0077B5] hover:bg-[#006396] shadow-blue-500/10 cursor-pointer"
                             >
-                                Start Automation <ArrowRight className="w-5 h-5 ml-2" />
+                                Start Automation <ArrowRight className="w-5 h-5 ml-2 text-white" />
                             </Button>
                         </motion.form>
                     )}
@@ -183,13 +169,13 @@ const LinkedinOutreachDemo = () => {
                                     <circle
                                         cx="50" cy="50" r="45"
                                         fill="none"
-                                        stroke={theme === 'dark' ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)'}
+                                        stroke="rgba(0,0,0,0.06)"
                                         strokeWidth="8"
                                     />
                                     <motion.circle
                                         cx="50" cy="50" r="45"
                                         fill="none"
-                                        stroke={theme === 'dark' ? '#2EE1C7' : '#0077B5'}
+                                        stroke="#0077B5"
                                         strokeWidth="8"
                                         strokeLinecap="round"
                                         initial={{ pathLength: 0 }}
@@ -199,21 +185,20 @@ const LinkedinOutreachDemo = () => {
                                     />
                                 </svg>
                                 <div className="absolute inset-0 flex items-center justify-center">
-                                    <span className="text-xl font-bold font-mono">{progress}%</span>
+                                    <span className="text-xl font-bold font-mono text-gray-900">{progress}%</span>
                                 </div>
                             </div>
 
-                            <div className="space-y-2">
-                                <h4 className="text-lg font-semibold animate-pulse">Running Automation...</h4>
-                                <p className={`text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>
+                            <div className="space-y-1">
+                                <h4 className="text-lg font-serif font-extrabold text-gray-900 animate-pulse">Running Automation...</h4>
+                                <p className="text-sm text-slate-500 font-medium max-w-xs">
                                     {processText}
                                 </p>
                             </div>
 
                             <div className="space-y-2 w-full">
-                                {/* Console Logs Simulation */}
-                                <div className={`text-xs font-mono text-left p-3 rounded-lg w-full h-24 overflow-hidden space-y-1 ${theme === 'dark' ? 'bg-black/40 text-green-400' : 'bg-gray-900 text-green-400'
-                                    }`}>
+                                {/* Console Logs Simulation - Perfectly high-contrast styled console */}
+                                <div className="text-xs font-mono text-left p-3.5 rounded-2xl w-full h-24 overflow-hidden space-y-1 bg-[#F4FAF7] border border-emerald-100 text-emerald-800 font-bold">
                                     <p>{`> Initializing search module... [OK]`}</p>
                                     <p>{`> Target: ${formData.niche || 'Technology'}`}</p>
                                     {progress > 20 && <p className="animate-pulse">{`> Scraping company profiles...`}</p>}
@@ -234,62 +219,56 @@ const LinkedinOutreachDemo = () => {
                             className="w-full space-y-6"
                         >
                             <div className="flex items-center justify-between">
-                                <h3 className="text-xl font-bold flex items-center gap-2">
-                                    <CheckCircle2 className={`w-6 h-6 ${theme === 'dark' ? 'text-[#2EE1C7]' : 'text-green-500'}`} />
+                                <h3 className="text-lg sm:text-xl font-serif font-bold text-gray-900 flex items-center gap-2">
+                                    <CheckCircle2 className="w-6 h-6 text-emerald-600" />
                                     Leads Extracted
                                 </h3>
-                                <span className={`text-sm px-3 py-1 rounded-full ${theme === 'dark' ? 'bg-[#2EE1C7]/20 text-[#2EE1C7]' : 'bg-green-100 text-green-700'
-                                    }`}>
+                                <span className="text-xs font-bold px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100">
                                     3 Verified Matches
                                 </span>
                             </div>
 
-                            <div className="grid gap-4">
+                            <div className="grid gap-3.5">
                                 {dummyLeads.map((lead, i) => (
                                     <motion.div
                                         key={i}
                                         initial={{ opacity: 0, x: -20 }}
                                         animate={{ opacity: 1, x: 0 }}
                                         transition={{ delay: i * 0.1 }}
-                                        className={`p-4 rounded-xl border flex items-center justify-between group cursor-pointer transition-all ${theme === 'dark'
-                                            ? 'bg-dark-card border-[#2EE1C7]/20 hover:border-[#2EE1C7]/50 hover:bg-dark-card/80'
-                                            : 'bg-white border-gray-100 hover:border-[#0077B5]/50 hover:bg-gray-50 shadow-sm hover:shadow-md'
-                                            }`}
+                                        className="p-4 rounded-xl border flex items-center justify-between group cursor-pointer transition-all bg-white border-gray-150 hover:border-[#0077B5]/50 hover:bg-gray-50/50 shadow-sm"
                                     >
-                                        <div className="flex items-center gap-4">
-                                            <div className={`w-10 h-10 rounded-full flex items-center justify-center overflow-hidden ${theme === 'dark' ? 'bg-[#2EE1C7]/10' : 'bg-gradient-to-br from-gray-200 to-gray-400'}`}>
-                                                <User className={`w-6 h-6 ${theme === 'dark' ? 'text-[#2EE1C7]' : 'text-gray-600'}`} />
+                                        <div className="flex items-center gap-3.5">
+                                            <div className="w-10 h-10 rounded-full flex items-center justify-center overflow-hidden bg-blue-50 border border-blue-100">
+                                                <User className="w-5.5 h-5.5 text-[#0077B5]" />
                                             </div>
                                             <div>
-                                                <h4 className={`font-bold ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
+                                                {/* FIXED: text-gray-900 instead of text-white */}
+                                                <h4 className="font-bold text-gray-900 text-sm leading-tight group-hover:text-[#0077B5] transition-colors">
                                                     {lead.name}
                                                 </h4>
-                                                <p className={`text-xs ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>
-                                                    {lead.role} • {lead.company}
+                                                <p className="text-xs text-slate-500 font-medium mt-0.5">
+                                                    {lead.role} • <span className="text-slate-700 font-bold">{lead.company}</span>
                                                 </p>
                                             </div>
                                         </div>
 
-                                        <div className="flex items-center gap-4">
-                                            <div className={`hidden sm:flex items-center gap-1.5 text-xs ${theme === 'dark' ? 'text-gray-500' : 'text-gray-400'}`}>
-                                                <MapPin className="w-3 h-3" /> {lead.location}
+                                        <div className="flex items-center gap-3.5">
+                                            <div className="hidden sm:flex items-center gap-1.5 text-xs text-slate-500 font-bold">
+                                                <MapPin className="w-3 h-3 text-[#0077B5]" /> {lead.location}
                                             </div>
-                                            <ArrowRight className={`w-5 h-5 transition-transform group-hover:translate-x-1 ${theme === 'dark' ? 'text-gray-600 group-hover:text-[#2EE1C7]' : 'text-gray-300 group-hover:text-[#0077B5]'
-                                                }`} />
+                                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-[#0077B5] transition-all group-hover:translate-x-1" />
                                         </div>
                                     </motion.div>
                                 ))}
                             </div>
 
-                            <Button
+                            {/* FIXED: Reset Button has explicit, legible slate-700 text on hover/active states */}
+                            <button
                                 onClick={resetDemo}
-                                className={`w-full py-3 mt-4 border ${theme === 'dark'
-                                    ? 'bg-transparent border-[#2EE1C7]/30 hover:bg-[#2EE1C7]/10 text-white'
-                                    : 'bg-white border-gray-200 hover:bg-gray-50 text-gray-700'
-                                    }`}
+                                className="w-full py-3.5 mt-4 border border-gray-200 rounded-xl bg-gray-50 hover:bg-gray-100 text-gray-700 hover:text-gray-900 font-extrabold text-xs uppercase tracking-widest transition-all cursor-pointer"
                             >
                                 Start New Search
-                            </Button>
+                            </button>
                         </motion.div>
                     )}
                 </AnimatePresence>

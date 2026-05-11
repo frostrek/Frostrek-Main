@@ -1,8 +1,6 @@
-
 import { motion } from 'framer-motion';
 import { ChevronRight, Rocket } from 'lucide-react';
 import Button from '../ui/Button';
-import { useTheme } from '../../context/ThemeContext';
 import { useNavigate } from 'react-router-dom';
 
 const ProductHero = ({
@@ -17,11 +15,10 @@ const ProductHero = ({
     badge?: string,
     isCaseStudy?: boolean
 }) => {
-    const { theme } = useTheme();
     const navigate = useNavigate();
     
     return (
-        <section className="relative min-h-[90vh] flex items-center pt-32 pb-20 overflow-hidden bg-transparent">
+        <section className="relative min-h-[80vh] flex items-center pt-32 pb-20 overflow-hidden bg-transparent font-body z-10">
 
             {/* Content Container */}
             <div className="container mx-auto px-4 md:px-6 relative z-10 flex flex-col items-center text-center">
@@ -31,49 +28,49 @@ const ProductHero = ({
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
-                    className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full border backdrop-blur-md text-sm font-medium mb-8 shadow-sm ${theme === 'dark' ? 'bg-dark-card/50 border-dark-accent/30 text-dark-accent' : 'bg-brand-green-100/50 border-brand-green-200 text-brand-green-800'}`}
+                    className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border bg-[#E8F5EE] border-[#2D6A4F]/20 text-[#2D6A4F] text-sm font-bold mb-8 shadow-sm"
                 >
-                    <span className={`flex h-2 w-2 rounded-full animate-pulse ${theme === 'dark' ? 'bg-dark-accent' : 'bg-brand-green-600'}`} />
+                    <span className="flex h-2 w-2 rounded-full animate-pulse bg-[#2D6A4F]" />
                     {tagline}
                     {badge && (
                         <>
-                            <span className={`mx-1 text-xs ${theme === 'dark' ? 'text-dark-accent/40' : 'text-brand-green-400'}`}>·</span>
-                            <span className="font-bold">{badge}</span>
+                            <span className="mx-1 text-xs text-[#2D6A4F]/40">·</span>
+                            <span className="font-extrabold">{badge}</span>
                         </>
                     )}
-                    <ChevronRight className={`w-3 h-3 ml-1 ${theme === 'dark' ? 'text-dark-accent/50' : 'text-brand-green-600/50'}`} />
+                    <ChevronRight className="w-3 h-3 ml-1 text-[#2D6A4F]/60" />
                 </motion.div>
 
-                {/* Main Headline */}
+                {/* Main Headline - Playfair Display serif font */}
                 <motion.h1
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.1 }}
-                    className={`text-5xl md:text-7xl lg:text-8xl font-sans font-bold mb-8 tracking-tight max-w-5xl mx-auto leading-[1.1] ${theme === 'dark' ? 'text-dark-text' : 'text-brand-green-900'}`}
+                    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-black mb-8 tracking-tight max-w-5xl mx-auto leading-tight text-gray-900"
                 >
                     {isCaseStudy ? (
                         <>
                             A Real Product{' '}<br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow-600 via-brand-green-600 to-brand-green-800">
+                            <span className="text-[#2D6A4F]">
                                 We Built From Scratch
                             </span>
                         </>
                     ) : (
                         <>
                             AI-Powered Solutions for <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow-600 via-brand-green-600 to-brand-green-800">
+                            <span className="text-[#2D6A4F]">
                                 Every Kind of Industry
                             </span>
                         </>
                     )}
                 </motion.h1>
 
-                {/* Subtext */}
+                {/* Subtext - 100% visible and crisp */}
                 <motion.p
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    className={`text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed font-medium ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}
+                    className="text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed text-slate-600 font-medium"
                 >
                     {description}
                 </motion.p>
@@ -90,16 +87,16 @@ const ProductHero = ({
                             <Button
                                 size="lg"
                                 onClick={() => navigate('/contact')}
-                                className={`font-semibold rounded-full px-8 h-14 text-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center gap-2 ${theme === 'dark' ? 'bg-dark-accent text-dark-bg hover:bg-dark-accent/90' : 'bg-brand-green-600 text-white hover:bg-brand-green-700'}`}
+                                className="font-extrabold rounded-2xl px-8 h-14 text-base shadow-lg transition-all duration-300 flex items-center gap-2 bg-[#2D6A4F] text-white hover:bg-[#1B4332] hover:shadow-xl hover:shadow-[#2D6A4F]/25 cursor-pointer border-none"
                             >
-                                <Rocket className="w-5 h-5" />
+                                <Rocket className="w-5 h-5 text-white" />
                                 Build Something Like This
                             </Button>
                             <Button
                                 size="lg"
                                 variant="ghost"
                                 onClick={() => navigate('/schedule-demo')}
-                                className={`rounded-full px-8 h-14 text-lg border backdrop-blur-sm ${theme === 'dark' ? 'text-dark-text border-dark-accent/30 hover:bg-dark-card' : 'text-brand-green-800 hover:bg-brand-green-50 border-brand-green-200/50'}`}
+                                className="rounded-2xl px-8 h-14 text-base border bg-white border-gray-200 text-gray-700 hover:border-gray-400 hover:bg-gray-50 transition-all font-extrabold cursor-pointer"
                             >
                                 Schedule a Demo
                             </Button>
@@ -109,14 +106,14 @@ const ProductHero = ({
                             <Button
                                 size="lg"
                                 onClick={() => navigate('/schedule-demo')}
-                                className={`font-semibold rounded-full px-8 h-14 text-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ${theme === 'dark' ? 'bg-dark-accent text-dark-bg hover:bg-dark-accent/90' : 'bg-brand-green-600 text-white hover:bg-brand-green-700'}`}
+                                className="font-extrabold rounded-2xl px-8 h-14 text-base shadow-lg transition-all duration-300 bg-[#2D6A4F] text-white hover:bg-[#1B4332] hover:shadow-[#2D6A4F]/25 cursor-pointer border-none"
                             >
                                 Get Started
                             </Button>
                             <Button
                                 size="lg"
                                 variant="ghost"
-                                className={`rounded-full px-8 h-14 text-lg border backdrop-blur-sm ${theme === 'dark' ? 'text-dark-text border-dark-accent/30 hover:bg-dark-card' : 'text-brand-green-800 hover:bg-brand-green-50 border-brand-green-200/50'}`}
+                                className="rounded-2xl px-8 h-14 text-base border bg-white border-gray-200 text-gray-700 hover:border-gray-400 hover:bg-gray-50 transition-all font-extrabold cursor-pointer"
                             >
                                 14-days Free Trial
                             </Button>
@@ -125,8 +122,8 @@ const ProductHero = ({
                 </motion.div>
             </div>
 
-            {/* Soft fade at the bottom to transition to next section */}
-            <div className={`absolute bottom-0 left-0 right-0 h-24 pointer-events-none ${theme === 'dark' ? 'bg-gradient-to-t from-dark-card to-transparent' : 'bg-gradient-to-t from-brand-green-50 to-transparent'}`} />
+            {/* Soft fade at the bottom to transition smoothly to the next section */}
+            <div className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none bg-gradient-to-t from-white to-transparent" />
         </section>
     );
 };

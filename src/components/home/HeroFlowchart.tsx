@@ -40,7 +40,7 @@ const HeroFlowchart = () => {
   return (
     <div className="w-full flex flex-col items-center lg:items-start text-center lg:text-left z-30">
       {/* ── Heading ── */}
-      <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight transition-colors duration-300 ${theme === 'dark' ? 'text-dark-text' : 'text-primary'}`}>
+      <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight transition-colors duration-300 ${theme === 'dark' ? 'text-[#2D6A4F]' : 'text-primary'}`}>
         <div className="flex flex-row flex-wrap items-center justify-center lg:justify-start gap-x-3 md:gap-x-4 mb-2">
           <AnimatePresence mode="popLayout">
             <motion.span
@@ -49,7 +49,7 @@ const HeroFlowchart = () => {
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -30, opacity: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className={`whitespace-nowrap ${theme === 'dark' ? 'text-dark-accent' : 'text-[#2EE1C7]'}`}
+              className={`whitespace-nowrap ${theme === 'dark' ? 'text-[#2D6A4F]' : 'text-[#2D6A4F]'}`}
             >
               {ROTATING_TEXTS[index].part1}
             </motion.span>
@@ -65,7 +65,7 @@ const HeroFlowchart = () => {
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -30, opacity: 0 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-              className={`whitespace-nowrap ${theme === 'dark' ? 'text-dark-accent' : 'text-[#2EE1C7]'}`}
+              className={`whitespace-nowrap ${theme === 'dark' ? 'text-[#2D6A4F]' : 'text-[#2D6A4F]'}`}
             >
               {ROTATING_TEXTS[index].part2}
             </motion.span>
