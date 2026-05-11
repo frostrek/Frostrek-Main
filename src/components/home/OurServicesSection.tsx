@@ -30,7 +30,7 @@ const services: Service[] = [
     description:
       "Create custom-built AI systems designed to solve complex business problems with scalable, dependable, and efficient architectures.",
     icon: Brain,
-    image: "/images/services/ai-solutions.png",
+    image: "/images/services/tailored.png",
   },
   {
     title: "AI Agents & Autonomous Systems",
@@ -88,18 +88,12 @@ const ServiceCard = ({ service, index }: { service: Service; index: number }) =>
         spotlightColor="rgba(46, 225, 199, 0.15)"
       >
         {/* Image Wrapper */}
-        <div className="relative h-56 overflow-hidden">
+        <div className="relative h-56 overflow-hidden px-10 pt-6 flex items-center justify-center">
           <img
             src={service.image}
             alt={service.title}
-            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+            className="max-h-full max-w-full object-contain transition-transform duration-700 group-hover:scale-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent" />
-
-          {/* Icon Badge Overlay */}
-          <div className="absolute bottom-4 left-4 w-10 h-10 rounded-xl bg-black/60 backdrop-blur-md border border-[#2EE1C7]/30 flex items-center justify-center text-[#2EE1C7] group-hover:scale-110 transition-transform duration-300">
-            <Icon className="w-5 h-5" />
-          </div>
         </div>
 
         {/* Content */}
