@@ -32,7 +32,7 @@ const PlaceholderPage = ({ title }: { title: string }) => (
 // Loading component for page transitions
 const PageLoader = () => (
   <div className="flex items-center justify-center min-h-[60vh]">
-    <Loader2 className="w-10 h-10 animate-spin text-brand-green-500" />
+    <Loader2 className="w-10 h-10 animate-spin text-[#2D6A4F]" />
   </div>
 );
 
