@@ -167,7 +167,7 @@ ${formData.projectDetails}
 
                             <div className="flex flex-col">
                                 <div className="text-4xl md:text-5xl lg:text-6xl font-serif font-black tracking-tight text-gray-950 leading-tight">
-                                    <SplitTextReveal as="span" type="chars" stagger={0.03} once={false}>
+                                    <SplitTextReveal as="span" type="chars" stagger={0.03} once={false} trigger="load">
                                         Let's Start a Conversation
                                     </SplitTextReveal>
                                 </div>
@@ -179,6 +179,7 @@ ${formData.projectDetails}
                                 stagger={0.015}
                                 once={false}
                                 delay={0.6}
+                                trigger="load"
                             >
                                 Have a project in mind or want to explore how AI can transform your business? We're here to help.
                             </SplitTextReveal>

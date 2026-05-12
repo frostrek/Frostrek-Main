@@ -872,7 +872,7 @@ const About = () => {
 
                         <div className="flex flex-col items-center">
                             <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-gray-900 leading-[1.1] tracking-tight">
-                                <SplitTextReveal as="span" type="chars" stagger={0.03} once={false}>
+                                <SplitTextReveal as="span" type="chars" stagger={0.03} once={false} trigger="load">
                                     Revolutionizing AI with
                                 </SplitTextReveal>
                                 <br />

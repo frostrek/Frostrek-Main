@@ -9,9 +9,9 @@ interface FlipTextProps {
 }
 
 const FlipText: React.FC<FlipTextProps> = ({ children, className = '', hoverColor }) => {
-    const transition = {
+    const transition: any = {
         duration: 0.8,
-        ease: [0.16, 1, 0.3, 1],
+        ease: [0.16, 1, 0.3, 1], // Use a custom bezier for a more premium feel, avoids string typing issues
     };
 
     const childrenArray = React.Children.toArray(children);

@@ -30,17 +30,19 @@ const ResourcesHero = () => {
                         type="chars"
                         stagger={0.02}
                         once={false}
+                        trigger="load"
                     >
                         Insights & 
                     </SplitTextReveal>
                     {' '}
                     <SplitTextReveal
                         as="span"
-                        className="text-gray-950"
+                        className="text-transparent bg-clip-text bg-gradient-to-r from-[#2D6A4F] via-[#40916C] to-[#1B4332]"
                         type="chars"
                         stagger={0.02}
                         once={false}
                         delay={0.2}
+                        trigger="load"
                     >
                         Success Stories
                     </SplitTextReveal>
@@ -54,6 +56,7 @@ const ResourcesHero = () => {
                     stagger={0.015}
                     once={false}
                     delay={0.4}
+                    trigger="load"
                 >
                     Deep dives into how we help enterprises build production-ready AI systems through high-quality data operations and custom machine learning agents.
                 </SplitTextReveal>

@@ -50,7 +50,7 @@ const SplitTextReveal = ({
     // Split text into elements for fine-grained control
     const splitElements = useMemo(() => {
         if (type === 'words') {
-            return children.split(' ').map((word, i, arr) => (
+            return children.split(' ').map((word, i) => (
                 <span key={i} className="inline-block overflow-visible mr-[0.25em] last:mr-0">
                     <span className="split-item inline-block" style={{ opacity: 0 }}>
                         {word}

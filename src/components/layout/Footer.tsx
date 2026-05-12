@@ -1,8 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Linkedin, Instagram, Mail, Sparkles, MapPin } from 'lucide-react';
-import { motion } from 'framer-motion';
-import { cn } from '../../utils/cn';
 import { NAV_ITEMS, COMPANY_INFO } from '../../utils/constants';
 import FlipText from '../ui/FlipText';
 

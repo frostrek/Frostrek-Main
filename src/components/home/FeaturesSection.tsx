@@ -12,7 +12,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const FeaturesSection = () => {
     const sectionRef = useRef<HTMLElement>(null);
-    const headingRef = useRef<HTMLDivElement>(null);
     const gridRef = useRef<HTMLDivElement>(null);
 
     useGSAP(() => {

@@ -155,7 +155,6 @@ const WhatWeDoSection = () => {
     const sectionRef = useRef(null);
     const headingRef = useRef(null);
     const isInView = useInView(sectionRef, { once: true, margin: '-80px' });
-    const headingInView = useInView(headingRef, { once: true, margin: '-60px' });
 
     return (
         <section ref={sectionRef} className="bg-brand-light-bg py-24 md:py-32 px-4 overflow-hidden font-body">
