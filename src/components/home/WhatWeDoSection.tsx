@@ -146,7 +146,7 @@ const AIAgentDemo = () => {
 // ─── Cards data ───────────────────────────────────────────────────────────────
 const CARDS = [
     { icon: Factory, label: 'Manufacturing Intelligence', title: 'Frostrek Manufacturing OS', desc: 'Unify ERP, WMS, SCADA and PLC data into a single real-time intelligence hub. Live dashboards, AI cost analytics, and automated production scheduling.', href: '/products/frostrek-manufacturing-os', Demo: ManufacturingDemo },
-    { icon: Trophy, label: 'Web3 Commerce', title: 'Frostrek Web3 Commerce', desc: 'A multi-tenant Web3 e-commerce platform for global sports clubs. Circle programmable wallets, $TOKEN payments, and automated on-chain treasury settlement.', href: '/products/frostrek-web3-commerce', Demo: Web3Demo },
+    { icon: Trophy, label: 'Fintech & Custom Wallets', title: 'Fintech & Custom Wallets', desc: 'A centralized, closed-loop digital currency engineered specifically for sports fans and affiliated clubs. Functioning as a next-generation digital loyalty programme that bypasses gateway commissions.', href: '/products/frostrek-web3-commerce', Demo: Web3Demo },
     { icon: Bot, label: 'AI Agents', title: 'Frostrek AI Agents', desc: 'Deploy intelligent AI agents across voice, chat, and WhatsApp. Context-aware, sentiment-sensitive, resolving 80% of inquiries without human intervention.', href: '/products/frosty-ai', Demo: AIAgentDemo },
 ];
 

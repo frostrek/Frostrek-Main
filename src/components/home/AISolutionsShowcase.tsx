@@ -49,16 +49,16 @@ const SOLUTIONS: Solution[] = [
     },
     {
         id: 'frostrek-web3-commerce',
-        title: 'Frostrek Web3 Commerce',
-        tagline: 'Sports Merchandise Meets Blockchain',
-        description: 'A multi-tenant Web3 e-commerce ecosystem for global sports clubs. Powered by Circle programmable wallets, $TOKEN payments, and automated on-chain treasury settlement.',
+        title: 'Fintech & Custom Wallets',
+        tagline: 'Bypass commissions with closed-loop loyalty',
+        description: 'A centralized, closed-loop digital currency engineered specifically for sports fans and affiliated clubs. Functioning as a next-generation digital loyalty programme that bypasses traditional gateway commissions.',
         icon: Trophy,
         demo: { type: 'web3' },
         features: [
-            'Circle programmable wallet integration',
-            'Frictionless $TOKEN crypto payments',
-            'Automated on-chain treasury settlement',
-            'Multi-tenant sports club storefronts'
+            'Centralized, closed-loop digital fan currency',
+            'Bypass gateway transaction commissions completely',
+            'Next-generation digital loyalty program engine',
+            'Custom programmable wallets for sports merchandising'
         ],
         link: '/products/frostrek-web3-commerce',
         gradient: 'from-[#2D6A4F] to-[#3D8B6E]'

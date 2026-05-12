@@ -566,7 +566,7 @@ const Chatbot: React.FC = () => {
                 animate={{ 
                     scale: 1, 
                     opacity: 1,
-                    right: showPrompt && !isOpen ? 180 : 24
+                    right: showPrompt && !isOpen ? 120 : 24
                 }}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}

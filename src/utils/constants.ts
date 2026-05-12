@@ -19,7 +19,7 @@ export const NAV_ITEMS = [
                 title: '02 ENTERPRISE PLATFORMS',
                 items: [
                     { name: 'Manufacturing AI OS', href: '/products/frostrek-manufacturing-os', desc: 'Real-time factory intelligence and production optimization.', icon: 'Factory' },
-                    { name: 'Web3 Commerce Wallet', href: '/products/frostrek-web3-commerce', desc: 'Decentralized sports merchandise and secure NFT ecosystem.', icon: 'Trophy' },
+                    { name: 'Fintech & Custom Wallets', href: '/products/frostrek-web3-commerce', desc: 'Centralised fan loyalty currency that bypasses gateway commissions.', icon: 'Trophy' },
                     { name: 'CRM & ERP Automation', href: '/products/erpnext-ai', desc: 'Intelligent add-ons to streamline your existing workflows.', icon: 'Database' },
                 ],
             },
@@ -49,7 +49,7 @@ export const NAV_ITEMS = [
                 items: [
                     { name: 'AI for ERP', href: '/solutions/erp', desc: 'Invoice AI, workflow builder, and internal knowledge bots.', icon: 'Server' },
                     { name: 'AI for eCommerce', href: '/solutions/ecommerce', desc: 'Cart recovery, content generation, competitor tracking.', icon: 'ShoppingCart' },
-                    { name: 'Web3 Ecosystems', href: '/solutions/web3', desc: 'Next-gen decentralized commerce and NFT platforms.', icon: 'Trophy' },
+                    { name: 'Fintech & Custom Wallets', href: '/solutions/web3', desc: 'Centralised closed-loop digital loyalty currencies to bypass commissions.', icon: 'Trophy' },
                 ],
             },
         ],

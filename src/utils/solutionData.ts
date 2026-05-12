@@ -165,30 +165,30 @@ export const SOLUTION_DATA: Record<string, SolutionData> = {
     },
     '/solutions/web3': {
         id: 'web3',
-        title: 'Web3 Ecosystems',
-        subtitle: 'Bridging Web2 Commerce and Web3 Finance',
-        description: 'Launch enterprise-grade, multi-tenant decentralized marketplaces. Leverage programmable wallets and on-chain settlement for global, frictionless commerce.',
+        title: 'Fintech & Custom Wallets',
+        subtitle: 'Save Gateway Commissions with Closed-Loop Fan Currency',
+        description: 'A centralized, closed-loop digital currency engineered specifically for sports fans and affiliated clubs. Functioning as a next-generation digital loyalty programme that bypasses traditional payment processors to eliminate standard gateway commissions.',
         challenges: [
             {
-                title: 'Web3 UX Friction',
-                description: 'Crypto wallets and gas fees often scare away mainstream consumers.',
-                solvedBy: 'Abstracted wallet experiences provide a seamless Web2-like checkout for crypto payments.'
+                title: 'Gateway Commissions & Leakage',
+                description: 'Standard payment processing takes up to 3.5% of high-volume ticket and sports merchandise sales.',
+                solvedBy: 'A centralized, closed-loop digital fan currency that bypasses middleman processing gatekeepers entirely.'
             },
             {
-                title: 'Fragmented Settlements',
-                description: 'Global clubs and vendors struggle with complex, slow cross-border payments.',
-                solvedBy: 'Circle programmable wallets automate on-chain treasury and instant settlement.'
+                title: 'Wallet Onboarding Friction',
+                description: 'Traditional crypto wallets, seed phrases, and gas fees scare off mainstream sports fans.',
+                solvedBy: 'Custom programmable wallets provisioned automatically on fan sign-up with standard email login.'
             },
             {
-                title: 'Security & Custody',
-                description: 'Balancing decentralized finance with secure, enterprise-ready treasury management.',
-                solvedBy: 'Multi-sig and programmable custody ensure funds are handled with institutional-grade security.'
+                title: 'Loyalty Retention & Utility',
+                description: 'Legacy reward points lack immediate utility and fail to motivate fan engagement.',
+                solvedBy: 'Next-generation digital loyalty programme dynamics that grant tokens real purchasing power inside club storefronts.'
             },
         ],
         features: [
-            { title: 'Programmable Wallets', description: 'Automated on-chain settlement and treasury management.', icon: Shield },
-            { title: 'Multi-Tenant Architecture', description: 'One platform powering hundreds of custom-branded storefronts.', icon: Layout },
-            { title: 'On-Chain Transparency', description: 'Real-time, immutable transaction logging for audit-ready finance.', icon: Clock },
+            { title: 'Custom Fan Wallets', description: 'Provision secure closed-loop wallets instantly during sign-up to manage loyalty balances.', icon: Shield },
+            { title: '0% Gateway Commissions', description: 'Save millions by conducting high-volume checkout flows on-chain and keeping margins intact.', icon: Layout },
+            { title: 'Closed-Loop Sports Currency', description: 'Ensure fan spending remains entirely within the club and affiliated merchant ecosystem.', icon: Clock },
         ]
     },
     // Fallback

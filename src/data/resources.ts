@@ -31,14 +31,14 @@ export interface BlogPost {
 export const CASE_STUDIES: CaseStudy[] = [
     {
         id: 'cs-frostrek-web3-commerce',
-        title: 'Frostrek Web3 Commerce – Sports Merchandise Platform',
-        category: 'Web3 / E-commerce',
+        title: 'Fintech & Custom Wallets – Digital Loyalty & Commission Saver',
+        category: 'Fintech / E-commerce',
         client: 'Global Sports Consortium',
         duration: '8 months',
         team: '12 Full-stack Engineers | 3 Blockchain Devs',
-        description: 'A world-class, multi-tenant e-commerce ecosystem bridging Web3 finance and global sports merchandise.',
-        challenge: 'The client needed a platform that could handle multiple global sports club storefronts, settling entirely on-chain using Circle programmable wallets. It had to provide a premium UI/UX that abstracted away the complexities of crypto for everyday sports fans.',
-        solution: 'Frostrek architected a multi-tenant platform with a cinematic luxury UI. We integrated Circle programmable wallets for automated on-chain treasury settlement, ensuring secure and instant transactions. The architecture handles high-traffic merchandise drops across global fanbases seamlessly.',
+        description: 'A centralized, closed-loop digital currency and custom wallet ecosystem that eliminates transaction gateway commissions for sports fan merchandise.',
+        challenge: 'The client needed a loyalty and checkout platform that could handle multiple global sports club storefronts, settling securely using dedicated wallets, allowing fans to shop while completely bypassing credit card transaction processing commissions.',
+        solution: 'Frostrek architected a multi-tenant platform featuring centralized, closed-loop digital currency and custom programmable wallets. It operates as a next-generation loyalty scheme, allowing fans to carry custom digital loyalty wallets that bypass standard payment rails and save millions in gatekeeper commissions.',
         outcome: [
             'Deployed 15+ global club storefronts within the first quarter.',
             'Achieved $2M+ in seamless on-chain transaction volume.',

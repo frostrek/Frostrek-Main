@@ -48,12 +48,12 @@ const products: Product[] = [
     },
     {
         id: 'frostrek-web3-commerce',
-        name: 'Frostrek Web3 Commerce',
-        description: 'Web3 Sports Merchandise Platform.',
-        shortDesc: 'Bridging Web3 finance and the global sports merchandise market.',
+        name: 'Fintech & Custom Wallets',
+        description: 'Bypass commissions with closed-loop fan loyalty.',
+        shortDesc: 'A centralized, closed-loop digital currency engineered specifically for sports fans and affiliated clubs. Functioning as a next-generation digital loyalty programme that bypasses traditional gateway commissions.',
         icon: Trophy,
         href: '/products/frostrek-web3-commerce',
-        features: ['Multi-tenant Clubs', '$TOKEN Payments', 'On-chain Settlement'],
+        features: ['Commission Free', 'Custom Wallets', 'Fan Loyalty'],
         category: 'enterprise',
         liveBuild: true
     },

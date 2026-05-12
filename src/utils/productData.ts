@@ -59,12 +59,12 @@ export interface ProductData {
 export const PRODUCT_DATA: Record<string, ProductData> = {
     '/products/frostrek-web3-commerce': {
         id: 'frostrek-web3-commerce',
-        tagline: 'WEB3 SPORTS MERCHANDISE PLATFORM',
-        title: 'Frostrek Web3 Commerce',
-        subtitle: 'Where Sports Fandom Meets Blockchain Commerce',
+        tagline: 'FINTECH & CUSTOM WALLETS',
+        title: 'Fintech & Custom Wallets',
+        subtitle: 'Centralised digital currency & custom fan wallets to bypass commissions',
         description:
-            'A world-class, multi-tenant e-commerce ecosystem built for the next generation of sports fans. Global club storefronts powered by Circle programmable wallets, automated on-chain treasury settlement, and a cinematic luxury UI — bridging Web3 finance and the global sports merchandise market.',
-        badge: 'Blockchain · Sports · Web3',
+            'A centralized, closed-loop digital currency engineered specifically for sports fans and affiliated clubs. Functioning as a next-generation digital loyalty programme, it completely bypasses traditional payment processors to eliminate gateway commissions.',
+        badge: 'Fintech · Custom Wallets · Closed Loop',
         isCaseStudy: true,
         heroImage: '/pcc-hero.png',       // replace with your actual image path
         demoImage: '/pcc-dashboard.png',  // replace with your actual image path
@@ -161,14 +161,14 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
 
         benefits: [
             {
-                title: 'A Turnkey Web3 Commerce Engine for Sports Clubs',
+                title: 'A Turnkey Fintech & Wallet Engine for Sports Clubs',
                 description:
-                    'Clubs get a fully branded, revenue-generating merchandise store with zero blockchain complexity on their end. All wallet provisioning, token settlement, and transaction infrastructure is handled automatically.',
+                    'Clubs get a fully branded, commission-free digital loyalty currency with custom fan wallets. All wallet provisioning, token settlement, and closed-loop transactions are handled automatically to bypass standard payment gateways.',
             },
             {
                 title: 'Fan-First Onboarding — No Crypto Knowledge Required',
                 description:
-                    'Circle\'s programmable wallet abstracts away seed phrases, gas fees, and network complexity. Fans simply register, top up their $TOKEN balance, and shop — the blockchain layer is invisible.',
+                    'Circle\'s programmable wallet abstracts away seed phrases, gas fees, and network complexity. Fans simply register, top up their digital balance, and shop — the underlying blockchain layer is invisible.',
             },
             {
                 title: 'Extensible Ecosystem — Beyond Merchandise',
@@ -181,19 +181,19 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
             {
                 title: 'Sports Club Merchandise',
                 description:
-                    'Clubs onboard with a branded storefront, upload their product catalog, and start receiving $TOKEN settlements to their treasury wallet — no blockchain knowledge required.',
+                    'Clubs onboard with a branded storefront, upload their product catalog, and start receiving digital currency settlements to their treasury wallet — bypassing gatekeeper processing fees.',
                 icon: Trophy,
             },
             {
-                title: 'Fan Token Ecosystems',
+                title: 'Fan Token Economies',
                 description:
-                    'Sports organisations building fan token economies can use Frostrek Web3 Commerce as the primary utility layer — giving tokens real-world merchandise spending power.',
+                    'Sports organisations building fan token economies can use Frostrek as the primary utility layer — giving tokens real-world merchandise spending power and bypassing transaction commissions.',
                 icon: ShoppingBag,
             },
             {
-                title: 'Web3 Loyalty Programmes',
+                title: 'Next-Gen Loyalty Programmes',
                 description:
-                    'Tie merchandise purchases to on-chain reward mechanisms — points, badges, or token-back incentives — building loyalty loops that traditional e-commerce cannot replicate.',
+                    'Functioning as a next-generation digital loyalty programme, it ties fan purchases directly to closed-loop rewards, building loyalty loops that bypass third-party commission leaks.',
                 icon: BarChart3,
             },
         ],
