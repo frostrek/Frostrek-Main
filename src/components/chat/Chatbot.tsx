@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, useDragControls } from 'framer-motion';
-import { X, Send, Sparkles, Mic, Square, Paperclip, Trash2, Minus, MessageCircle, XCircle } from 'lucide-react';
+import { X, Send, Mic, Square, Paperclip, Trash2, Minus, MessageCircle, XCircle } from 'lucide-react';
 
 // Webhook URL
 const WEBHOOK_URL = 'https://n8n.frostrek.com/webhook/cac2fab9-d171-4d67-8587-9ac8d834f436';
