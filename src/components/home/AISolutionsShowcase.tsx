@@ -5,7 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
     Bot, Mic,
     ArrowRight, Sparkles, MessageCircle, Volume2,
-    CheckCircle2, Factory, Trophy
+    CheckCircle2, Factory, Trophy, LayoutDashboard
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -14,7 +14,7 @@ import SplitTextReveal from '../ui/SplitTextReveal';
 gsap.registerPlugin(ScrollTrigger);
 
 interface SolutionDemo {
-    type: 'chat' | 'voice' | 'manufacturing' | 'web3';
+    type: 'chat' | 'voice' | 'manufacturing' | 'web3' | 'multivendor';
 }
 
 interface Solution {
@@ -93,6 +93,23 @@ const SOLUTIONS: Solution[] = [
             'Real-time transcription & analytics'
         ],
         link: '/products/voice-ai',
+        gradient: 'from-[#2D6A4F] to-[#3D8B6E]'
+    },
+    {
+        id: 'multivendor-dashboard',
+        title: 'Multivendor Dashboard',
+        tagline: 'Track revenue, products & trends in one place.',
+        description: 'Consolidate multiple storefronts and marketplaces—Amazon, Shopify, WooCommerce, eBay—into a single automated AI command center. Track total e-commerce revenue, analyze product metrics, and forecast global market trends in real-time.',
+        icon: LayoutDashboard,
+        demo: { type: 'multivendor' },
+        features: [
+            'Unified monitoring for Amazon, Shopify, WooCommerce, & eBay',
+            'AI-powered demand forecasting & inventory alerts',
+            'Real-time revenue, order volume, and profit consolidation',
+            'E-commerce market trends & product margin analysis',
+            'Unified data stream for simplified e-commerce scaling'
+        ],
+        link: '/products/multivendor-dashboard',
         gradient: 'from-[#2D6A4F] to-[#3D8B6E]'
     }
 ];
@@ -220,12 +237,51 @@ const Web3Demo = () => {
     );
 };
 
+const MultivendorDemo = () => {
+    const marketplaces = [
+        { name: 'Amazon Store', revenue: '$18,450', trend: '+12.4%', color: '#FF9900' },
+        { name: 'Shopify Store', revenue: '$12,240', trend: '+8.2%', color: '#96BF48' },
+        { name: 'eBay Marketplace', revenue: '$4,150', trend: '+3.1%', color: '#0064D2' }
+    ];
+
+    return (
+        <div className="rounded-2xl p-4 h-[240px] bg-brand-light-bg border border-[#E6EFE6] overflow-hidden flex flex-col relative">
+            <div className="flex items-center justify-between mb-4 bg-white p-3 rounded-xl border border-gray-100 shadow-sm z-10">
+                <div className="flex items-center gap-2">
+                    <LayoutDashboard className="w-4 h-4 text-[#2D6A4F]" />
+                    <span className="text-xs font-bold text-gray-700">Consolidated Sales</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                    <span className="text-[11px] font-bold text-[#2D6A4F] bg-[#E8F5EE] px-2 py-0.5 rounded-full">+9.8%</span>
+                    <span className="text-xs font-black text-[#2D6A4F] font-mono">$34,840</span>
+                </div>
+            </div>
+
+            <div className="space-y-2 flex-1 relative z-10">
+                {marketplaces.map((m, i) => (
+                    <div key={i} className="flex items-center justify-between p-2 rounded-xl bg-white/80 border border-gray-100 backdrop-blur-sm shadow-sm animate-fade-in" style={{ animationDelay: `${i * 0.15}s` }}>
+                        <div className="flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: m.color }} />
+                            <span className="text-xs font-bold text-gray-800">{m.name}</span>
+                        </div>
+                        <div className="flex items-center gap-2.5">
+                            <span className="text-[11px] font-mono font-bold text-slate-700">{m.revenue}</span>
+                            <span className="text-[10px] font-bold text-green-600">{m.trend}</span>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
+
 const DemoComponent = ({ type }: { type: SolutionDemo['type'] }) => {
     switch (type) {
         case 'chat': return <ChatDemo />;
         case 'voice': return <VoiceDemo />;
         case 'manufacturing': return <ManufacturingDemo />;
         case 'web3': return <Web3Demo />;
+        case 'multivendor': return <MultivendorDemo />;
     }
 };
 

@@ -48,51 +48,51 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           className="inline-flex items-center gap-2 px-5 py-1.5 rounded-full bg-brand-badge-bg text-brand-badge-text text-sm font-bold tracking-wide mb-8 border border-[#c4e0d4]/50"
         >
-          <span className="text-lg leading-none">✨</span> AI WORKFLOWS THAT SCALE
+          <span className="text-lg leading-none"></span> AI WORKFLOWS THAT SCALE
         </motion.div>
 
         {/* Heading */}
         <div className="flex flex-col items-center">
-            <SplitTextReveal
-                as="h1"
-                className="font-serif text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-[1.1] tracking-[-0.01em] whitespace-nowrap"
-                trigger="load"
-                type="chars"
-                stagger={0.03}
-            >
-                Support Workflows
-            </SplitTextReveal>
-            <SplitTextReveal
-                as="h1"
-                className="font-serif text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-[1.1] tracking-[-0.01em] whitespace-nowrap"
-                trigger="load"
-                type="chars"
-                stagger={0.03}
-                delay={0.4}
-            >
-                Built to Scale
-            </SplitTextReveal>
-            <SplitTextReveal
-                as="h1"
-                className="font-serif text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] mb-6 leading-[1.1] tracking-[-0.01em] whitespace-nowrap"
-                trigger="load"
-                type="chars"
-                stagger={0.03}
-                delay={0.7}
-            >
-                How Your Business Works
-            </SplitTextReveal>
+          <SplitTextReveal
+            as="h1"
+            className="font-serif text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-[1.1] tracking-[-0.01em] whitespace-nowrap"
+            trigger="load"
+            type="chars"
+            stagger={0.03}
+          >
+            Intelligent agents
+          </SplitTextReveal>
+          <SplitTextReveal
+            as="h1"
+            className="font-serif text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-[1.1] tracking-[-0.01em] whitespace-nowrap"
+            trigger="load"
+            type="chars"
+            stagger={0.03}
+            delay={0.4}
+          >
+            that run your operations.
+          </SplitTextReveal>
+          <SplitTextReveal
+            as="h1"
+            className="font-serif text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] mb-6 leading-[1.1] tracking-[-0.01em] whitespace-nowrap"
+            trigger="load"
+            type="chars"
+            stagger={0.03}
+            delay={0.7}
+          >
+            Not just assist them.
+          </SplitTextReveal>
         </div>
 
         {/* Subtitle */}
         <SplitTextReveal
-            as="p"
-            className="text-lg md:text-[1.3rem] text-gray-500 max-w-2xl mx-auto mb-10 leading-relaxed font-medium"
-            type="words"
-            stagger={0.02}
-            delay={0.5}
+          as="p"
+          className="text-lg md:text-[1.3rem] text-gray-500 max-w-2xl mx-auto mb-10 leading-relaxed font-medium"
+          type="words"
+          stagger={0.02}
+          delay={0.5}
         >
-            Deploy autonomous AI agents that handle complex business processes and scale with your growth.
+          Frostrek deploys autonomous AI agents across manufacturing, support, and sales — connecting ERP, WMS, SCADA, and PLCs into a single real-time intelligence layer
         </SplitTextReveal>
 
         {/* Buttons */}
@@ -102,7 +102,7 @@ const HeroSection = () => {
           transition={{ delay: 1.7 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto"
         >
-          <Link 
+          <Link
             to="/schedule-demo"
             className="group w-full sm:w-auto px-10 py-4 rounded-xl bg-[#2D6A4F] text-white font-medium tracking-wide hover:bg-[#1B4332] transition-all duration-300 flex items-center justify-center gap-3 shadow-lg shadow-[#2D6A4F]/10 active:translate-y-0.5"
           >
@@ -110,7 +110,7 @@ const HeroSection = () => {
               BOOK A DEMO <span className="text-xl font-light">→</span>
             </FlipText>
           </Link>
-          <Link 
+          <Link
             to="/solutions"
             className="group w-full sm:w-auto px-10 py-4 rounded-xl border-2 border-gray-100 bg-white text-[#2D6A4F] font-medium tracking-wide hover:border-[#2D6A4F] hover:bg-gray-50 transition-all duration-300 shadow-sm active:translate-y-0.5"
           >
