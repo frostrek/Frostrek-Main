@@ -437,7 +437,17 @@ const Chatbot: React.FC = () => {
             }
         } catch (error) {
             console.error('Error sending message:', error);
-            setMessages(prev => [...prev, { type: 'bot', content: "Sorry, I'm having trouble connecting right now." }]);
+            setMessages(prev => {
+                if (prev.length > 0 && prev[prev.length - 1].type === 'bot' && !prev[prev.length - 1].content) {
+                    const updated = [...prev];
+                    updated[updated.length - 1] = {
+                        ...updated[updated.length - 1],
+                        content: "Sorry, I'm having trouble connecting right now."
+                    };
+                    return updated;
+                }
+                return [...prev, { type: 'bot', content: "Sorry, I'm having trouble connecting right now." }];
+            });
         } finally {
             setIsLoading(false);
             setSelectedFile(null);
