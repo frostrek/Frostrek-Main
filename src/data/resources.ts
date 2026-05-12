@@ -291,7 +291,7 @@ export const BLOG_POSTS: BlogPost[] = [
         author: 'Frostrek Team',
         category: 'Industry Trends',
         content: '...',
-        image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1000&auto=format&fit=crop'
+        image: 'Blog1.png'
     },
     {
         id: 'blog-rlhf-explained',
@@ -302,7 +302,7 @@ export const BLOG_POSTS: BlogPost[] = [
         author: 'AI Safety Team',
         category: 'Technical Deep Dive',
         content: '...',
-        image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1000&auto=format&fit=crop'
+        image: 'Blog2.png'
     },
     {
         id: 'blog-scaling-annotation',
@@ -313,7 +313,7 @@ export const BLOG_POSTS: BlogPost[] = [
         author: 'Operations Lead',
         category: 'Best Practices',
         content: '...',
-        image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop'
+        image: 'Blog3.png'
     },
     {
         id: 'blog-ai-ethics',
@@ -324,7 +324,7 @@ export const BLOG_POSTS: BlogPost[] = [
         author: 'Ethics Committee',
         category: 'best practices',
         content: '...',
-        image: 'https://images.unsplash.com/photo-1507146153580-69a1fe6d8aa1?q=80&w=1000&auto=format&fit=crop'
+        image: 'Blog4.png'
     },
     {
         id: 'blog-multimodal-trends',
@@ -335,7 +335,7 @@ export const BLOG_POSTS: BlogPost[] = [
         author: 'Research Team',
         category: 'industry trends',
         content: '...',
-        image: 'https://images.unsplash.com/photo-1617791160505-6f00504e3519?q=80&w=1000&auto=format&fit=crop'
+        image: 'Blog5.png'
     },
     {
         id: 'blog-voice-ai',
@@ -346,7 +346,7 @@ export const BLOG_POSTS: BlogPost[] = [
         author: 'Linguistics Lead',
         category: 'technical deep dive',
         content: '...',
-        image: 'https://images.unsplash.com/photo-1589254065878-42c9da997008?q=80&w=1000&auto=format&fit=crop'
+        image: 'Blog6.png'
     },
     {
         id: 'blog-data-security',

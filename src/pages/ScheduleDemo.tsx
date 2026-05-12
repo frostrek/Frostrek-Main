@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { MapPin, Clock, Calendar as CalendarIcon, Sparkles, ArrowRight, type LucideIcon } from 'lucide-react';
+import { motion } from 'framer-motion';
 import SEO from '../components/seo/SEO';
 import SplitTextReveal from '../components/ui/SplitTextReveal';
 
@@ -196,11 +197,14 @@ const ScheduleDemo = () => {
                             Let's Build Something
                         </SplitTextReveal>
                         <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2D6A4F] via-[#40916C] to-[#1B4332]">
-                            <SplitTextReveal as="span" type="chars" stagger={0.03} once={false} delay={0.3}>
-                                Amazing
-                            </SplitTextReveal>
-                        </span>
+                        <motion.span 
+                            initial={{ opacity: 0, y: 24 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.7, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                            className="text-transparent bg-clip-text bg-gradient-to-r from-[#2D6A4F] via-[#40916C] to-[#1B4332]"
+                        >
+                            Amazing
+                        </motion.span>
                     </div>
                 </div>
                 <SplitTextReveal

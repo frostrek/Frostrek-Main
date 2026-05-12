@@ -123,19 +123,73 @@ const ChatbotDemo: React.FC = () => {
             let response;
 
             if (textInput) {
-                const payload = {
-                    user_id: userId,
-                    session_id: sessionId,
-                    conversation_id: conversationId,
-                    message_id: messageId,
-                    message: textInput,
-                    type: 'text',
-                };
-                response = await fetch(WEBHOOK_URL, {
+                // Add an empty bot message placeholder for streaming
+                setMessages(prev => [...prev, { type: 'bot', content: '' }]);
+
+                const response = await fetch('https://bot.frostrek.com/bot-api/chat/stream', {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload),
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'x-api-key': 'frsty_dbd5f199b86c457db63723afcf9a523b'
+                    },
+                    body: JSON.stringify({
+                        message: textInput,
+                        session_id: `default--website--${sessionId}`,
+                        channel: 'website'
+                    }),
                 });
+
+                if (!response.ok) throw new Error('Network response was not ok');
+
+                const reader = response.body!.getReader();
+                const decoder = new TextDecoder("utf-8");
+                let buffer = "";
+
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) break;
+
+                    buffer += decoder.decode(value, { stream: true });
+                    const parts = buffer.split("\n\n");
+                    buffer = parts.pop() || "";
+
+                    for (const part of parts) {
+                        if (part.startsWith("data: ")) {
+                            const jsonStr = part.replace("data: ", "").trim();
+                            if (!jsonStr) continue;
+
+                            try {
+                                const data = JSON.parse(jsonStr);
+                                
+                                if (data.token) {
+                                    setMessages((prev) => {
+                                        const updated = [...prev];
+                                        const lastIdx = updated.length - 1;
+                                        updated[lastIdx] = {
+                                            ...updated[lastIdx],
+                                            content: updated[lastIdx].content + data.token,
+                                        };
+                                        return updated;
+                                    });
+                                }
+
+                                if (data.final && data.final.reply) {
+                                    setMessages((prev) => {
+                                        const updated = [...prev];
+                                        const lastIdx = updated.length - 1;
+                                        updated[lastIdx] = {
+                                            ...updated[lastIdx],
+                                            content: data.final.reply,
+                                        };
+                                        return updated;
+                                    });
+                                }
+                            } catch (e) {
+                                // ignore
+                            }
+                        }
+                    }
+                }
             } else if (audioBlob) {
                 const formData = new FormData();
                 formData.append('audio', audioBlob, 'voice-message.webm');
@@ -153,40 +207,42 @@ const ChatbotDemo: React.FC = () => {
                 return;
             }
 
-            if (!response.ok) throw new Error('Network response was not ok');
+            if (response && !response.ok) throw new Error('Network response was not ok');
 
-            const contentType = response.headers.get('content-type');
+            if (response) {
+                const contentType = response.headers.get('content-type');
 
-            if (contentType && contentType.includes('audio')) {
-                const audioBlob = await response.blob();
-                const audioUrl = URL.createObjectURL(audioBlob);
-                const audio = new Audio(audioUrl);
+                if (contentType && contentType.includes('audio')) {
+                    const audioBlob = await response.blob();
+                    const audioUrl = URL.createObjectURL(audioBlob);
+                    const audio = new Audio(audioUrl);
 
-                setMessages(prev => [...prev, { type: 'bot', content: '🎤 (Playing Audio Response...)' }]);
-                audio.play().catch(e => console.error("Audio play failed", e));
-            } else if (contentType && contentType.includes('image')) {
-                const imageBlob = await response.blob();
-                const imageUrl = URL.createObjectURL(imageBlob);
-                setMessages(prev => [...prev, { type: 'bot', content: 'Here is the generated image:', image: imageUrl }]);
-            } else {
-                const data = await response.json();
-
-                let botText = "I received your message.";
-                if (data.reply) botText = data.reply;
-                else if (data.output) botText = data.output;
-                else if (data.text) botText = data.text;
-                else if (data.message) botText = data.message;
-                else if (Array.isArray(data) && data[0]?.reply) botText = data[0].reply;
-                else if (Array.isArray(data) && data[0]?.output) botText = data[0].output;
-                else if (typeof data === 'string') botText = data;
-
-                if (data.audioUrl) {
-                    const audio = new Audio(data.audioUrl);
+                    setMessages(prev => [...prev, { type: 'bot', content: '🎤 (Playing Audio Response...)' }]);
                     audio.play().catch(e => console.error("Audio play failed", e));
-                    botText += " 🔊";
-                }
+                } else if (contentType && contentType.includes('image')) {
+                    const imageBlob = await response.blob();
+                    const imageUrl = URL.createObjectURL(imageBlob);
+                    setMessages(prev => [...prev, { type: 'bot', content: 'Here is the generated image:', image: imageUrl }]);
+                } else {
+                    const data = await response.json();
 
-                setMessages(prev => [...prev, { type: 'bot', content: botText }]);
+                    let botText = "I received your message.";
+                    if (data.reply) botText = data.reply;
+                    else if (data.output) botText = data.output;
+                    else if (data.text) botText = data.text;
+                    else if (data.message) botText = data.message;
+                    else if (Array.isArray(data) && data[0]?.reply) botText = data[0].reply;
+                    else if (Array.isArray(data) && data[0]?.output) botText = data[0].output;
+                    else if (typeof data === 'string') botText = data;
+
+                    if (data.audioUrl) {
+                        const audio = new Audio(data.audioUrl);
+                        audio.play().catch(e => console.error("Audio play failed", e));
+                        botText += " 🔊";
+                    }
+
+                    setMessages(prev => [...prev, { type: 'bot', content: botText }]);
+                }
             }
         } catch (error) {
             console.error('Error sending message:', error);
@@ -219,8 +275,8 @@ const ChatbotDemo: React.FC = () => {
         >
             {/* Header - Vibrant Brand Green */}
             <div className="p-4 text-white flex items-center gap-3 bg-gradient-to-r from-[#2D6A4F] to-[#1B4332]">
-                <div className="p-2 bg-white/15 rounded-xl backdrop-blur-sm shadow-inner">
-                    <MessageSquare className="w-5 h-5 text-white" />
+                <div className="w-9 h-9 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-md shadow-inner overflow-hidden">
+                    <img src="/noddy.png" alt="Noddy" className="w-7 h-7 object-contain translate-y-1" />
                 </div>
                 <div>
                     <h3 className="font-serif font-extrabold text-sm tracking-wide">Chat with Frosty</h3>
@@ -260,7 +316,7 @@ const ChatbotDemo: React.FC = () => {
                             {msg.type === 'user' ? (
                                 <span className="text-[9px] font-bold">You</span>
                             ) : (
-                                <Sparkles className="w-4 h-4 text-[#2D6A4F]" />
+                                <img src="/noddy.png" alt="Bot" className="w-5 h-5 object-contain translate-y-[2px]" />
                             )}
                         </div>
                         <div className={`p-3 rounded-2xl text-sm leading-relaxed whitespace-pre-wrap font-medium shadow-sm ${
@@ -268,7 +324,17 @@ const ChatbotDemo: React.FC = () => {
                                 ? 'bg-[#2D6A4F] text-white rounded-tr-none'
                                 : 'bg-white text-slate-800 border border-gray-100 rounded-tl-none'
                         }`}>
-                            {msg.content}
+                            {msg.content ? (
+                                <div className="whitespace-pre-wrap">{msg.content}</div>
+                            ) : (
+                                msg.type === 'bot' && isLoading && (
+                                    <div className="flex gap-1.5 h-5 items-center px-1">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-[#2D6A4F] animate-pulse" />
+                                        <div className="w-1.5 h-1.5 rounded-full bg-[#2D6A4F] animate-pulse" style={{ animationDelay: '0.2s' }} />
+                                        <div className="w-1.5 h-1.5 rounded-full bg-[#2D6A4F] animate-pulse" style={{ animationDelay: '0.4s' }} />
+                                    </div>
+                                )
+                            )}
                             {msg.image && (
                                 <div className="mt-2 rounded-lg overflow-hidden border border-gray-200">
                                     <img src={msg.image} alt="Generated" className="w-full h-auto" />
@@ -277,21 +343,6 @@ const ChatbotDemo: React.FC = () => {
                         </div>
                     </motion.div>
                 ))}
-
-                {isLoading && (
-                    <div className="flex gap-2 max-w-[85%]">
-                        <div className="w-7.5 h-7.5 rounded-full flex items-center justify-center flex-shrink-0 bg-white border border-gray-200">
-                            <Sparkles className="w-4 h-4 text-[#2D6A4F]" />
-                        </div>
-                        <div className="p-3 rounded-2xl rounded-tl-none shadow-sm flex items-center bg-white border border-gray-100">
-                            <div className="flex gap-1.5">
-                                <div className="w-1.5 h-1.5 rounded-full bg-[#2D6A4F] animate-pulse" />
-                                <div className="w-1.5 h-1.5 rounded-full bg-[#2D6A4F] animate-pulse" style={{ animationDelay: '0.2s' }} />
-                                <div className="w-1.5 h-1.5 rounded-full bg-[#2D6A4F] animate-pulse" style={{ animationDelay: '0.4s' }} />
-                            </div>
-                        </div>
-                    </div>
-                )}
                 <div ref={messagesEndRef} />
             </div>
 

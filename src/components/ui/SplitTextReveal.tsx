@@ -166,7 +166,7 @@ const SplitTextReveal = ({
     return (
         <Component
             ref={containerRef as any}
-            className={cn("split-text-reveal relative block", className)}
+            className={cn("split-text-reveal relative inline-block", className)}
         >
             {splitElements}
         </Component>

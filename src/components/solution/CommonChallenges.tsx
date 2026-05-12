@@ -13,60 +13,75 @@ interface CommonChallengesProps {
 }
 
 const IMAGES = [
-    "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800", // AI Brain/Technology
-    "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=800", // Business team working
-    "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800"  // Data analytics dashboard
+    "Solution1.png", // AI Brain/Technology
+    "Solution2.png", // Business team working
+    "Solution3.png"  // Data analytics dashboard
 ];
 
 // Mobile Card Component
 const MobileCard = ({ challenge, index, total }: { challenge: Challenge; index: number; total: number }) => (
     <div className="flex-shrink-0 w-[85vw] snap-center">
         <div className="rounded-2xl border shadow-xl overflow-hidden bg-white border-gray-150">
-            <div className="relative h-40 overflow-hidden">
-                <img
-                    src={IMAGES[index % IMAGES.length]}
-                    alt={challenge.title}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/55 to-black/85" />
-                <div className="absolute inset-0 p-4 flex flex-col justify-between">
-                    <span className="self-start font-mono text-[10px] font-bold tracking-wider bg-white/15 px-3 py-1 rounded-full border border-white/20 text-white">
+            {/* Image Banner without text overlay */}
+            <div className="relative h-48 overflow-hidden bg-[#08150F] border-b border-[#2D6A4F]/10">
+                <div className="absolute inset-0 flex items-center justify-center p-4">
+                    <img
+                        src={IMAGES[index % IMAGES.length]}
+                        alt={challenge.title}
+                        className="w-full h-full object-contain"
+                        loading="lazy"
+                    />
+                </div>
+                <div className="absolute top-3 left-3 z-10">
+                    <span className="font-mono text-[10px] font-bold tracking-wider bg-white/10 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20 text-white shadow-sm">
                         0{index + 1} / 0{total}
                     </span>
-                    <div>
-                        <h3 className="text-lg font-serif font-bold text-white mb-1 leading-tight">{challenge.title}</h3>
-                        <p className="text-white/80 text-xs font-body leading-relaxed line-clamp-2">{challenge.description}</p>
-                    </div>
                 </div>
             </div>
-            <div className="p-4 space-y-4">
-                <div className="flex items-center gap-2">
-                    <span className="w-6 h-6 rounded-full text-white flex items-center justify-center bg-[#2D6A4F]">
-                        <CheckCircle2 size={13} />
-                    </span>
-                    <span className="font-extrabold text-[10px] uppercase tracking-wider text-[#2D6A4F]">AI Solution</span>
+            
+            {/* Content Area */}
+            <div className="p-5 flex flex-col gap-4 bg-white">
+                {/* Challenge Section */}
+                <div>
+                    <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full border border-red-100 bg-red-50 text-[9px] font-bold uppercase tracking-wider text-red-600 mb-2">
+                        <Zap size={10} className="text-red-500" /><span>The Challenge</span>
+                    </div>
+                    <h3 className="text-xl font-serif font-bold leading-tight text-gray-900 mb-1.5">{challenge.title}</h3>
+                    <p className="text-slate-600 text-xs font-medium leading-relaxed">{challenge.description}</p>
                 </div>
-                {/* FIXED: high contrast description text */}
-                <p className="text-sm font-body font-medium text-slate-700 leading-relaxed">{challenge.solvedBy}</p>
-                <div className="flex flex-wrap gap-2">
-                    {['AI-Powered', 'Secure', 'Real-time'].map((tag, i) => (
-                        <span key={i} className="px-2.5 py-1 border rounded-md text-[10px] font-bold bg-[#E8F5EE]/40 border-[#2D6A4F]/15 text-[#2D6A4F]">{tag}</span>
-                    ))}
+                
+                <div className="w-full h-px bg-gradient-to-r from-gray-100 via-gray-200 to-transparent" />
+                
+                {/* Solution Section */}
+                <div className="space-y-3">
+                    <div className="flex items-center gap-2">
+                        <span className="w-6 h-6 rounded-full text-white flex items-center justify-center shadow-sm bg-[#2D6A4F]">
+                            <CheckCircle2 size={12} />
+                        </span>
+                        <span className="font-extrabold text-[10px] uppercase tracking-wider text-[#2D6A4F]">AI Solution</span>
+                    </div>
+                    <p className="text-sm font-serif font-bold text-gray-950 leading-snug">{challenge.solvedBy}</p>
+                    
+                    <div className="flex flex-wrap gap-2">
+                        {['AI-Powered', 'Secure', 'Real-time'].map((tag, i) => (
+                            <span key={i} className="px-2 py-1 border rounded-md text-[9px] font-bold bg-[#FAFCFB] border-[#2D6A4F]/15 text-[#2D6A4F]">{tag}</span>
+                        ))}
+                    </div>
                 </div>
-                {/* FIXED: metrics styled with beautiful high contrast slate colors */}
-                <div className="flex justify-between py-3 border-t border-gray-100">
+
+                {/* Stats */}
+                <div className="flex justify-between pt-3 mt-1 border-t border-gray-100">
                     <div className="text-center">
-                        <p className="text-base font-serif font-black text-[#2D6A4F]">60%</p>
-                        <p className="text-[9px] font-extrabold uppercase tracking-widest text-slate-400">Cost Cut</p>
+                        <p className="text-lg font-serif font-black text-[#2D6A4F]">60%</p>
+                        <p className="text-[8px] font-extrabold uppercase tracking-widest text-slate-400 mt-0.5">Cost Cut</p>
                     </div>
                     <div className="text-center">
-                        <p className="text-base font-serif font-black text-[#2D6A4F]">24/7</p>
-                        <p className="text-[9px] font-extrabold uppercase tracking-widest text-slate-400">Uptime</p>
+                        <p className="text-lg font-serif font-black text-[#2D6A4F]">24/7</p>
+                        <p className="text-[8px] font-extrabold uppercase tracking-widest text-slate-400 mt-0.5">Uptime</p>
                     </div>
                     <div className="text-center">
-                        <p className="text-base font-serif font-black text-[#2D6A4F]">&lt;1s</p>
-                        <p className="text-[9px] font-extrabold uppercase tracking-widest text-slate-400">Response</p>
+                        <p className="text-lg font-serif font-black text-[#2D6A4F]">&lt;1s</p>
+                        <p className="text-[8px] font-extrabold uppercase tracking-widest text-slate-400 mt-0.5">Response</p>
                     </div>
                 </div>
             </div>
@@ -78,71 +93,76 @@ const MobileCard = ({ challenge, index, total }: { challenge: Challenge; index: 
 const DesktopCard = ({ challenge, index, total }: { challenge: Challenge; index: number; total: number }) => (
     <div className="challenge-card absolute top-0 left-0 w-full h-full flex items-center justify-center p-4" style={{ zIndex: total - index }}>
         <div className="relative w-full max-w-5xl h-[70vh] rounded-3xl border shadow-2xl overflow-hidden flex flex-row bg-white border-[#2D6A4F]/10">
-            {/* Left side: Image backdrop */}
-            <div className="relative h-full w-[42%] overflow-hidden text-white">
-                <div className="absolute inset-0">
-                    <img src={IMAGES[index % IMAGES.length]} alt={challenge.title} className="w-full h-full object-cover" loading="lazy" />
-                    <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-black/55 to-black/85" />
+            {/* Left side: Image backdrop without text overlay */}
+            <div className="relative h-full w-[45%] overflow-hidden bg-[#08150F]">
+                <div className="absolute inset-0 flex items-center justify-center p-6">
+                    <img src={IMAGES[index % IMAGES.length]} alt={challenge.title} className="w-full h-full object-contain" loading="lazy" />
                 </div>
-                <div className="relative z-10 flex flex-col h-full p-8 justify-between">
-                    <span className="self-start font-mono text-xs font-bold tracking-wider bg-white/10 px-3 py-1.5 rounded-full border border-white/20">0{index + 1} / 0{total}</span>
-                    <div className="mb-4">
-                        <h3 className="text-2xl lg:text-3xl font-serif font-black leading-tight mb-3.5">{challenge.title}</h3>
-                        <div className="w-10 h-1 bg-[#2D6A4F] rounded-full mb-4" />
-                        <p className="text-white/85 text-sm font-body leading-relaxed">{challenge.description}</p>
-                    </div>
-                    <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/20 bg-white/10 text-xs font-bold uppercase tracking-wider self-start">
-                        <Zap size={11} className="text-[#52B788]" /><span>Challenge</span>
-                    </div>
+                {/* Just the index pill floating */}
+                <div className="absolute top-6 left-6 z-10">
+                    <span className="font-mono text-xs font-bold tracking-wider bg-white/10 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20 text-white shadow-sm">
+                        0{index + 1} / 0{total}
+                    </span>
                 </div>
             </div>
 
-            {/* Right side: Detailed solution layout */}
-            <div className="relative h-full w-[58%] p-8 flex flex-col justify-between bg-white">
-                <div className="absolute inset-0 opacity-[0.05] pointer-events-none"
+            {/* Right side: Detailed Challenge & Solution layout */}
+            <div className="relative h-full w-[55%] p-8 flex flex-col justify-between bg-white border-l border-gray-100">
+                <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
                     style={{
                         backgroundImage: 'radial-gradient(#2D6A4F 1px, transparent 1px)',
                         backgroundSize: '20px 20px'
                     }}
                 />
+                
                 <div className="relative z-10 flex-1 flex flex-col justify-between">
-                    <div className="space-y-6">
-                        <div className="flex items-center gap-3">
-                            <span className="w-9 h-9 rounded-xl text-white flex items-center justify-center shadow-md bg-[#2D6A4F]">
-                                <CheckCircle2 size={18} />
-                            </span>
-                            <span className="font-extrabold text-xs uppercase tracking-wider text-[#2D6A4F]">AI Solution</span>
+                    {/* Challenge Section */}
+                    <div>
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-red-100 bg-red-50 text-[10px] font-bold uppercase tracking-wider text-red-600 mb-4">
+                            <Zap size={12} className="text-red-500" /><span>The Challenge</span>
                         </div>
-                        {/* FIXED: high contrast solvedBy summary */}
-                        <p className="text-xl lg:text-2xl font-serif font-bold leading-snug text-gray-950">{challenge.solvedBy}</p>
-                        
-                        <div className="grid grid-cols-2 gap-3">
+                        <h3 className="text-2xl lg:text-3xl font-serif font-black leading-tight text-gray-900 mb-3">{challenge.title}</h3>
+                        <p className="text-slate-600 text-sm font-medium leading-relaxed max-w-lg mb-6">{challenge.description}</p>
+                    </div>
+
+                    <div className="w-full h-px bg-gradient-to-r from-gray-100 via-gray-200 to-transparent my-2" />
+
+                    {/* Solution Section */}
+                    <div className="space-y-5">
+                        <div className="flex items-center gap-3">
+                            <span className="w-8 h-8 rounded-xl text-white flex items-center justify-center shadow-md bg-[#2D6A4F]">
+                                <CheckCircle2 size={16} />
+                            </span>
+                            <span className="font-extrabold text-[11px] uppercase tracking-wider text-[#2D6A4F]">Our AI Solution</span>
+                        </div>
+                        <p className="text-lg lg:text-xl font-serif font-bold leading-snug text-gray-950">{challenge.solvedBy}</p>
+
+                        <div className="grid grid-cols-2 gap-3 mt-4">
                             {[{ label: 'Instant Deploy', desc: 'Go live fast' }, { label: 'AI-Powered', desc: 'Smart automation' }, { label: 'Enterprise Secure', desc: 'SOC2 ready' }, { label: 'Real-time', desc: 'Live insights' }].map((tag, i) => (
-                                <div key={i} className="p-3.5 rounded-2xl border bg-[#FAFCFB] border-[#2D6A4F]/10 hover:border-[#2D6A4F]/25 transition-colors">
+                                <div key={i} className="p-3 rounded-2xl border bg-[#FAFCFB] border-[#2D6A4F]/10 hover:border-[#2D6A4F]/25 transition-colors">
                                     <div className="flex items-center gap-2 mb-1">
                                         <div className="w-1.5 h-1.5 rounded-full bg-[#2D6A4F]" />
-                                        <span className="font-serif font-bold text-xs text-gray-900">{tag.label}</span>
+                                        <span className="font-serif font-bold text-[11px] text-gray-900">{tag.label}</span>
                                     </div>
-                                    {/* FIXED: high contrast description text-slate-500 */}
-                                    <p className="text-[11px] pl-3.5 text-slate-500 font-medium leading-normal">{tag.desc}</p>
+                                    <p className="text-[10px] pl-3.5 text-slate-500 font-medium leading-normal">{tag.desc}</p>
                                 </div>
                             ))}
                         </div>
                     </div>
 
-                    {/* FIXED: stats metrics beautifully high contrast slate details */}
-                    <div className="flex gap-8 py-4 border-t border-gray-100">
+                    {/* Stats */}
+                    <div className="flex gap-8 pt-4 mt-4 border-t border-gray-100">
                         <div>
-                            <p className="text-2xl font-serif font-black text-[#2D6A4F]">60%</p>
-                            <p className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 mt-1">Cost Cut</p>
+                            <p className="text-xl font-serif font-black text-[#2D6A4F]">60%</p>
+                            <p className="text-[9px] font-extrabold uppercase tracking-widest text-slate-400 mt-0.5">Cost Cut</p>
                         </div>
                         <div>
-                            <p className="text-2xl font-serif font-black text-[#2D6A4F]">24/7</p>
-                            <p className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 mt-1">Uptime</p>
+                            <p className="text-xl font-serif font-black text-[#2D6A4F]">24/7</p>
+                            <p className="text-[9px] font-extrabold uppercase tracking-widest text-slate-400 mt-0.5">Uptime</p>
                         </div>
                         <div>
-                            <p className="text-2xl font-serif font-black text-[#2D6A4F]">&lt;1s</p>
-                            <p className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 mt-1">Response</p>
+                            <p className="text-xl font-serif font-black text-[#2D6A4F]">&lt;1s</p>
+                            <p className="text-[9px] font-extrabold uppercase tracking-widest text-slate-400 mt-0.5">Response</p>
                         </div>
                     </div>
                 </div>

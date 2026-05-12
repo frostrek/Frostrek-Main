@@ -175,42 +175,28 @@ const WhatWeDoSection = () => {
                         <span className="text-[#2D6A4F] text-xs font-bold uppercase tracking-widest">What We Do</span>
                     </motion.div>
 
-                    {/* Line 1: "What We Do" */}
-                    <div className="mb-1">
-                        <SplitTextReveal
-                            as="h2"
-                            className="font-serif text-5xl md:text-6xl lg:text-7xl text-[#2D6A4F] leading-[1.08] tracking-[-0.02em] whitespace-nowrap"
-                            type="chars"
-                            stagger={0.03}
-                            once={false}
-                        >
-                            What We Do
-                        </SplitTextReveal>
-                    </div>
-
-                    {/* Line 2: "& How" */}
+                    {/* Line 1: "What We Do & How" */}
                     <div className="mb-2">
                         <SplitTextReveal
                             as="h2"
-                            className="font-serif text-5xl md:text-6xl lg:text-7xl text-[#2D6A4F] leading-[1.08] tracking-[-0.02em] whitespace-nowrap"
+                            className="font-serif text-5xl md:text-6xl lg:text-7xl text-[#2D6A4F] leading-[1.08] tracking-[-0.02em] whitespace-nowrap text-center"
                             type="chars"
                             stagger={0.03}
                             once={false}
-                            delay={0.2}
                         >
-                            & How
+                            What We Do & How
                         </SplitTextReveal>
                     </div>
 
-                    {/* Line 3: "We Transform" + curly arrow */}
-                    <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-5">
+                    {/* Line 2: "We Transform" + curly arrow */}
+                    <div className="flex flex-row items-center justify-center gap-4 md:gap-6">
                         <SplitTextReveal
-                            as="div"
-                            className="font-serif text-5xl md:text-6xl lg:text-7xl text-[#2D6A4F] leading-[1.08] tracking-[-0.02em] whitespace-nowrap"
-                            type="words"
-                            stagger={0.05}
+                            as="h2"
+                            className="font-serif text-5xl md:text-6xl lg:text-7xl text-[#2D6A4F] leading-[1.08] tracking-[-0.02em] whitespace-nowrap text-center"
+                            type="chars"
+                            stagger={0.03}
                             once={false}
-                            delay={0.4}
+                            delay={0.3}
                         >
                             We Transform
                         </SplitTextReveal>
@@ -220,10 +206,10 @@ const WhatWeDoSection = () => {
                             initial={{ opacity: 0, x: -20, rotate: -15 }}
                             whileInView={{ opacity: 1, x: 0, rotate: 0 }}
                             viewport={{ once: false }}
-                            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.8 }}
+                            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.7 }}
                             className="flex-shrink-0"
                         >
-                            <CurlyArrow className="w-20 h-12 md:w-32 md:h-20 text-[#3D8B6E]/70" />
+                            <CurlyArrow className="w-16 h-10 md:w-28 md:h-16 text-[#3D8B6E]/70" />
                         </motion.div>
                     </div>
 

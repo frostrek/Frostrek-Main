@@ -871,21 +871,20 @@ const About = () => {
                         </div>
 
                         <div className="flex flex-col items-center">
-                            <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-gray-900 leading-[1.1] tracking-tight">
+                            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-gray-900 leading-[1.05] tracking-tight flex flex-col items-center">
                                 <SplitTextReveal as="span" type="chars" stagger={0.03} once={false} trigger="load">
                                     Revolutionizing AI with
                                 </SplitTextReveal>
-                                <br />
-                                <span className="relative inline-block text-[#2D6A4F]">
+                                <span className="relative inline-block text-[#2D6A4F] mt-1">
                                     <TypewriterText texts={texts} />
                                     <motion.span
-                                        className="absolute -bottom-1.5 left-0 h-1 bg-gradient-to-r from-[#2D6A4F] to-[#2D6A4F]/40 rounded-full"
+                                        className="absolute -bottom-1 left-0 h-1 bg-gradient-to-r from-[#2D6A4F] to-[#2D6A4F]/40 rounded-full"
                                         initial={{ width: 0 }}
                                         animate={{ width: '100%' }}
                                         transition={{ delay: 0.5, duration: 0.8 }}
                                     />
                                 </span>
-                            </div>
+                            </h1>
                         </div>
 
                         <p className="text-base sm:text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed font-body font-medium">
@@ -1011,41 +1010,117 @@ const About = () => {
                             </motion.div>
                         </motion.div>
 
-                        {/* Right Image */}
+                        {/* Right Side - Premium Gallery Collage */}
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.96 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
+                            initial={{ opacity: 0, x: 40 }}
+                            whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.7 }}
+                            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                             className="relative"
                         >
-                            <div className="relative rounded-3xl overflow-hidden shadow-xl aspect-square sm:aspect-[4/3] border border-gray-100">
-                                <img
-                                    src="/campus-4.jpg"
-                                    alt="Frostrek Team Workspaces"
-                                    className="w-full h-full object-cover"
-                                    loading="lazy"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent"></div>
+                            {/* Background blurs for depth */}
+                            <div className="absolute -top-12 -right-12 w-64 h-64 bg-[#2D6A4F]/6 rounded-full blur-3xl -z-10" />
+                            <div className="absolute -bottom-12 -left-12 w-64 h-64 bg-[#2D6A4F]/5 rounded-full blur-3xl -z-10" />
 
-                                {/* Floating Logo Overlay */}
+                            {/* 4-Image Masonry Gallery — 2 CSS columns, natural image heights */}
+                            <div className="columns-2 gap-3 space-y-0">
+
+                                {/* Col 1, top */}
                                 <motion.div
-                                    className="absolute bottom-6 right-6"
-                                    initial={{ y: 15, opacity: 0 }}
-                                    whileInView={{ y: 0, opacity: 1 }}
-                                    transition={{ delay: 0.3 }}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.7, delay: 0.0, ease: [0.16, 1, 0.3, 1] }}
+                                    className="relative rounded-2xl overflow-hidden group shadow-lg mb-3 break-inside-avoid"
                                 >
-                                    <div className="bg-white/95 backdrop-blur-md px-4 py-2 rounded-xl shadow-lg border border-gray-100">
-                                        <div className="text-base font-serif font-bold text-gray-900">
-                                            Team <span className="text-[#2D6A4F]">Frostrek</span>
+                                    <img
+                                        src="/office1.png"
+                                        alt="Frostrek Office"
+                                        className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
+                                        loading="lazy"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                                    {/* Team Frostrek badge */}
+                                    <motion.div
+                                        className="absolute bottom-3.5 left-4"
+                                        initial={{ y: 10, opacity: 0 }}
+                                        whileInView={{ y: 0, opacity: 1 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: 0.55 }}
+                                    >
+                                        <div className="bg-white/90 backdrop-blur-md px-3.5 py-1.5 rounded-xl shadow-lg border border-white/50">
+                                            <span className="text-sm font-serif font-bold text-gray-900">
+                                                Team <span className="text-[#2D6A4F]">Frostrek</span>
+                                            </span>
                                         </div>
-                                    </div>
+                                    </motion.div>
+                                </motion.div>
+
+                                {/* Col 1, bottom */}
+                                <motion.div
+                                    initial={{ opacity: 0, x: -16 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                                    className="relative rounded-2xl overflow-hidden group shadow-md break-inside-avoid"
+                                >
+                                    <img
+                                        src="/office2.jpeg"
+                                        alt="Frostrek Workspace"
+                                        className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
+                                        loading="lazy"
+                                    />
+                                    <div className="absolute inset-0 bg-[#2D6A4F]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                </motion.div>
+
+                                {/* Col 2, top */}
+                                <motion.div
+                                    initial={{ opacity: 0, x: 16 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                                    className="relative rounded-2xl overflow-hidden group shadow-lg mb-3 break-inside-avoid"
+                                >
+                                    <img
+                                        src="/FrostrekTeam2.png"
+                                        alt="Frostrek Team"
+                                        className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
+                                        loading="lazy"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                </motion.div>
+
+                                {/* Col 2, bottom */}
+                                <motion.div
+                                    initial={{ opacity: 0, y: 16 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                                    className="relative rounded-2xl overflow-hidden group shadow-md break-inside-avoid"
+                                >
+                                    <img
+                                        src="/office5.jpeg"
+                                        alt="Frostrek Culture"
+                                        className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
+                                        loading="lazy"
+                                    />
+                                    <div className="absolute inset-0 bg-[#2D6A4F]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                 </motion.div>
                             </div>
 
-                            {/* Background blur overlays for depth */}
-                            <div className="absolute -top-12 -right-12 w-48 h-48 bg-[#2D6A4F]/5 rounded-full blur-3xl -z-10" />
-                            <div className="absolute -bottom-12 -left-12 w-48 h-48 bg-[#2D6A4F]/5 rounded-full blur-3xl -z-10" />
+
+                            {/* Decorative "Our People" floating chip */}
+                            <motion.div
+                                className="absolute -top-3 -right-3 z-10"
+                                initial={{ opacity: 0, scale: 0.8, rotate: -8 }}
+                                whileInView={{ opacity: 1, scale: 1, rotate: 6 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.6, duration: 0.5, type: 'spring', stiffness: 200 }}
+                            >
+                                <div className="bg-[#2D6A4F] text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full shadow-lg">
+                                    Our People ✦
+                                </div>
+                            </motion.div>
                         </motion.div>
                     </div>
                 </div>

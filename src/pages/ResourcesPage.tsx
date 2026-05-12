@@ -25,27 +25,25 @@ const ResourcesHero = () => {
 
                 {/* Title */}
                 <h1 className="text-5xl md:text-7xl font-serif font-black mb-6 tracking-tight text-gray-950 leading-tight">
-                    <SplitTextReveal
-                        as="span"
-                        type="chars"
-                        stagger={0.02}
-                        once={false}
-                        trigger="load"
-                    >
-                        Insights & 
-                    </SplitTextReveal>
-                    {' '}
-                    <SplitTextReveal
-                        as="span"
-                        className="text-transparent bg-clip-text bg-gradient-to-r from-[#2D6A4F] via-[#40916C] to-[#1B4332]"
-                        type="chars"
-                        stagger={0.02}
-                        once={false}
-                        delay={0.2}
-                        trigger="load"
-                    >
-                        Success Stories
-                    </SplitTextReveal>
+                    <span className="flex flex-wrap justify-center items-baseline gap-x-3">
+                        <SplitTextReveal
+                            as="span"
+                            type="chars"
+                            stagger={0.02}
+                            once={false}
+                            trigger="load"
+                        >
+                            Insights &amp;
+                        </SplitTextReveal>
+                        <motion.span
+                            initial={{ opacity: 0, y: 24 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.7, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                            className="text-transparent bg-clip-text bg-gradient-to-r from-[#2D6A4F] via-[#40916C] to-[#1B4332]"
+                        >
+                            Success Stories
+                        </motion.span>
+                    </span>
                 </h1>
 
                 {/* Subtitle */}
@@ -302,16 +300,17 @@ export const ResourcesPage = () => {
                                                                 </div>
                                                              </motion.div>
                                                         ))}
-                                                        {/* Floating count badge */}
-                                                        <motion.div
-                                                            initial={{ scale: 0 }}
-                                                            animate={{ scale: 1 }}
-                                                            transition={{ delay: 0.8, type: 'spring' }}
-                                                            className="absolute -top-3 -right-3 lg:right-2 w-14 h-14 rounded-full flex items-center justify-center shadow-xl bg-[#2D6A4F] text-white border-2 border-white"
-                                                        >
-                                                            <span className="text-lg font-bold leading-none">+{CASE_STUDIES.length - 6}</span>
-                                                        </motion.div>
                                                     </div>
+
+                                                    {/* Floating count badge — outside the clipping container */}
+                                                    <motion.div
+                                                        initial={{ scale: 0 }}
+                                                        animate={{ scale: 1 }}
+                                                        transition={{ delay: 0.8, type: 'spring', stiffness: 260, damping: 18 }}
+                                                        className="absolute -top-4 -right-4 w-14 h-14 rounded-full flex items-center justify-center shadow-xl bg-[#2D6A4F] text-white border-[3px] border-white z-20"
+                                                    >
+                                                        <span className="text-base font-extrabold leading-none tracking-tight">+{CASE_STUDIES.length - 6}</span>
+                                                    </motion.div>
                                                 </div>
 
                                                 {/* Center: Content details */}
@@ -397,7 +396,7 @@ export const ResourcesPage = () => {
 
                                                 {/* Left: Stacked Cards Preview */}
                                                 <div className="relative w-full lg:w-auto flex-shrink-0">
-                                                    <div className="relative h-44 w-full lg:w-80 flex items-center justify-center">
+                                                    <div className="relative h-44 w-full lg:w-80 flex items-center justify-center overflow-visible">
                                                         {[2, 1, 0].map((i) => (
                                                             <motion.div
                                                                 key={i}
@@ -421,16 +420,17 @@ export const ResourcesPage = () => {
                                                                 </div>
                                                             </motion.div>
                                                         ))}
-                                                        {/* Floating count badge */}
-                                                        <motion.div
-                                                            initial={{ scale: 0 }}
-                                                            animate={{ scale: 1 }}
-                                                            transition={{ delay: 0.8, type: 'spring' }}
-                                                            className="absolute -top-2 -right-2 lg:right-4 w-15 h-15 rounded-full flex items-center justify-center shadow-xl bg-[#2D6A4F] text-white"
-                                                        >
-                                                            <span className="text-xl font-black">+{BLOG_POSTS.length - 6}</span>
-                                                        </motion.div>
                                                     </div>
+
+                                                    {/* Floating count badge — outside clipping container */}
+                                                    <motion.div
+                                                        initial={{ scale: 0 }}
+                                                        animate={{ scale: 1 }}
+                                                        transition={{ delay: 0.8, type: 'spring', stiffness: 260, damping: 18 }}
+                                                        className="absolute -top-4 -right-4 w-14 h-14 rounded-full flex items-center justify-center shadow-xl bg-[#2D6A4F] text-white border-[3px] border-white z-20"
+                                                    >
+                                                        <span className="text-base font-extrabold leading-none tracking-tight">+{BLOG_POSTS.length - 6}</span>
+                                                    </motion.div>
                                                 </div>
 
                                                 {/* Center: Content details */}

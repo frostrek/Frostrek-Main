@@ -234,22 +234,76 @@ const Chatbot: React.FC = () => {
                     body: formData,
                 });
             } else {
-                // Text: application/json
-                const payload = {
-                    user_id: userId,
-                    session_id: sessionId,
-                    conversation_id: conversationId,
-                    message_id: messageId,
-                    message: textInput || '',
-                    type: 'text',
-                };
+                // Text: application/json - Using New Frostrek Bot API with Streaming
+                setMessages(prev => [...prev, { type: 'bot', content: '' }]);
 
-                console.log('Sending JSON payload:', payload);
-                response = await fetch(WEBHOOK_URL, {
+                const streamRes = await fetch('https://bot.frostrek.com/bot-api/chat/stream', {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload),
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'x-api-key': 'frsty_dbd5f199b86c457db63723afcf9a523b'
+                    },
+                    body: JSON.stringify({
+                        message: textInput || '',
+                        session_id: `default--website--${sessionId}`,
+                        channel: 'website'
+                    }),
                 });
+
+                if (!streamRes.ok) throw new Error('Network response was not ok');
+
+                const reader = streamRes.body!.getReader();
+                const decoder = new TextDecoder("utf-8");
+                let buffer = "";
+
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) break;
+
+                    buffer += decoder.decode(value, { stream: true });
+                    const parts = buffer.split("\n\n");
+                    buffer = parts.pop() || "";
+
+                    for (const part of parts) {
+                        if (part.startsWith("data: ")) {
+                            const jsonStr = part.replace("data: ", "").trim();
+                            if (!jsonStr) continue;
+
+                            try {
+                                const data = JSON.parse(jsonStr);
+                                
+                                if (data.token) {
+                                    setMessages((prev) => {
+                                        const updated = [...prev];
+                                        const lastIdx = updated.length - 1;
+                                        updated[lastIdx] = {
+                                            ...updated[lastIdx],
+                                            content: updated[lastIdx].content + data.token,
+                                        };
+                                        return updated;
+                                    });
+                                }
+
+                                if (data.final && data.final.reply) {
+                                    setMessages((prev) => {
+                                        const updated = [...prev];
+                                        const lastIdx = updated.length - 1;
+                                        updated[lastIdx] = {
+                                            ...updated[lastIdx],
+                                            content: data.final.reply,
+                                        };
+                                        return updated;
+                                    });
+                                }
+                            } catch (e) {
+                                // ignore
+                            }
+                        }
+                    }
+                }
+                
+                // Return early so we bypass the legacy webhook response parsing below
+                return;
             }
 
             if (!response.ok) {
@@ -571,8 +625,8 @@ const Chatbot: React.FC = () => {
                                 style={{ backgroundColor: COLORS.primary }} onPointerDown={(e) => dragControls.start(e)}
                             >
                                 <div className="flex items-center gap-3 pointer-events-none">
-                                    <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-md border border-white/30 shadow-inner">
-                                        <Sparkles className="w-5 h-5 text-white" />
+                                    <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-md border border-white/30 shadow-inner overflow-hidden">
+                                        <img src="/noddy.png" alt="Noddy" className="w-8 h-8 object-contain translate-y-1" />
                                     </div>
                                     <div>
                                         <h3 className="font-serif font-bold text-base tracking-tight">Frostrek Assistant</h3>
@@ -634,8 +688,8 @@ const Chatbot: React.FC = () => {
                                             transition={{ duration: 0.5 }}
                                             className="text-center px-6 py-6"
                                         >
-                                            <div className="w-20 h-20 bg-[#E8F5EE] rounded-3xl flex items-center justify-center mx-auto mb-6 rotate-3 shadow-lg shadow-[#2D6A4F]/10">
-                                                <Sparkles className="w-10 h-10 text-[#2D6A4F]" />
+                                            <div className="w-20 h-20 bg-[#E8F5EE] rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#2D6A4F]/10 overflow-hidden">
+                                                <img src="/noddy.png" alt="Frosty" className="w-16 h-16 object-contain translate-y-2" />
                                             </div>
                                             <h4 className="text-2xl font-serif font-black text-gray-950">
                                                 Hi, I'm Frosty 👋
@@ -669,7 +723,7 @@ const Chatbot: React.FC = () => {
                                             {msg.type === 'user' ? (
                                                 <span>You</span>
                                             ) : (
-                                                <Sparkles className="w-4 h-4 text-[#2D6A4F]" />
+                                                <img src="/noddy.png" alt="Bot" className="w-6 h-6 object-contain translate-y-[2px]" />
                                             )}
                                         </div>
                                         <div
@@ -678,7 +732,7 @@ const Chatbot: React.FC = () => {
                                                 backgroundColor: msg.type === 'user' ? COLORS.primary : undefined,
                                             }}
                                         >
-                                            {msg.content && (
+                                            {msg.content ? (
                                                 <div className="whitespace-pre-wrap">
                                                     {msg.content.split(/(https?:\/\/[^\s]+)/g).map((part, i) => {
                                                         if (part.match(/https?:\/\/[^\s]+/)) {
@@ -698,6 +752,14 @@ const Chatbot: React.FC = () => {
                                                         return part;
                                                     })}
                                                 </div>
+                                            ) : (
+                                                msg.type === 'bot' && isLoading && (
+                                                    <div className="flex gap-1 h-5 items-center">
+                                                        <span className="typing-dot"></span>
+                                                        <span className="typing-dot"></span>
+                                                        <span className="typing-dot"></span>
+                                                    </div>
+                                                )
                                             )}
                                             {msg.image && (
                                                 <div className="mt-2 rounded-lg overflow-hidden border border-gray-200">
@@ -727,26 +789,6 @@ const Chatbot: React.FC = () => {
                                         .typing-dot:nth-child(3) { animation-delay: 0.4s; }
                                     `}</style>
 
-                                {isLoading && (
-                                    <div className="flex gap-3 max-w-[85%]">
-                                        <div
-                                            className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 border"
-                                            style={{
-                                                backgroundColor: COLORS.accent + '20',
-                                                borderColor: COLORS.accent,
-                                            }}
-                                        >
-                                            <Sparkles className="w-4 h-4" style={{ color: COLORS.accent }} />
-                                        </div>
-                                        <div className="p-4 rounded-2xl rounded-bl-none shadow-sm border border-[#2D6A4F]/10 bg-white flex items-center">
-                                            <div className="flex gap-1">
-                                                <span className="typing-dot"></span>
-                                                <span className="typing-dot"></span>
-                                                <span className="typing-dot"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                )}
                                 <div ref={messagesEndRef} />
                             </div>
 
