@@ -1,7 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Linkedin, Instagram, Mail, Sparkles, MapPin } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { cn } from '../../utils/cn';
 import { NAV_ITEMS, COMPANY_INFO } from '../../utils/constants';
+import FlipText from '../ui/FlipText';
+
+
 
 const Footer = () => {
   const location = useLocation();
@@ -118,16 +123,16 @@ const Footer = () => {
             <div className="lg:col-span-3 space-y-6">
               <div className="space-y-4">
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-3 group">
-                  <Link to="/" className="flex items-center gap-3">
-                    <img 
-                      src="/logo.png" 
-                      alt="Frostrek Logo" 
-                      className="h-9 w-auto transition-transform group-hover:scale-110" 
-                    />
-                    <span className="text-[1.35rem] font-black font-serif tracking-tighter text-[#2D6A4F]">
-                      FROSTREK
-                    </span>
-                  </Link>
+                    <Link to="/" className="flex items-center gap-3">
+                      <img
+                        src="/logonew.png"
+                        alt="Frostrek Logo"
+                        className="h-9 w-auto transition-transform group-hover:scale-110"
+                      />
+                      <FlipText className="text-[1.35rem] font-black font-serif tracking-tighter text-[#2D6A4F]">
+                        FROSTREK
+                      </FlipText>
+                    </Link>
                   {/* ISO Badges */}
                   <div className="flex items-center gap-2">
                     <div className="iso-badge px-2.5 py-1 border rounded bg-white border-[#E6EFE6] text-[10px] font-bold tracking-wide text-[#2D6A4F] shadow-sm">
@@ -161,7 +166,9 @@ const Footer = () => {
                 <ul className="space-y-3">
                   {NAV_ITEMS.find(n => n.label === 'Products')?.megaMenu?.flatMap(s => s.items).slice(0, 5).map(item => (
                     <li key={item.name}>
-                      <Link to={item.href} className="footer-link text-[15px] font-medium text-gray-500 hover:text-[#2D6A4F]">{item.name}</Link>
+                      <Link to={item.href} className="footer-link text-[15px] font-medium text-gray-500 hover:text-[#2D6A4F] group">
+                        <FlipText>{item.name}</FlipText>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -173,11 +180,15 @@ const Footer = () => {
                 <ul className="space-y-3">
                   {NAV_ITEMS.find(n => n.label === 'Solutions')?.megaMenu?.flatMap(s => s.items).map(item => (
                     <li key={item.name}>
-                      <Link to={item.href} className="footer-link text-[15px] font-medium text-gray-500 hover:text-[#2D6A4F]">{item.name}</Link>
+                      <Link to={item.href} className="footer-link text-[15px] font-medium text-gray-500 hover:text-[#2D6A4F] group">
+                        <FlipText>{item.name}</FlipText>
+                      </Link>
                     </li>
                   ))}
                   <li>
-                    <a href="https://frostrek.com/" target="_blank" rel="noopener noreferrer" className="footer-link text-[15px] font-medium text-gray-500 hover:text-[#2D6A4F]">AI Training</a>
+                    <a href="https://frostrek.com/" target="_blank" rel="noopener noreferrer" className="footer-link text-[15px] font-medium text-gray-500 hover:text-[#2D6A4F] group">
+                      <FlipText>AI Training</FlipText>
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -186,11 +197,11 @@ const Footer = () => {
               <div className="space-y-4">
                 <h4 className="section-title font-bold mb-3 text-xs uppercase tracking-widest text-[#2D6A4F]">Company</h4>
                 <ul className="space-y-3">
-                  <li><Link to="/about" className="footer-link text-[15px] font-medium text-gray-500 hover:text-[#2D6A4F]">About Us</Link></li>
-                  <li><Link to="/experience" className="footer-link text-[15px] font-medium text-gray-500 hover:text-[#2D6A4F]">Experience</Link></li>
-                  <li><Link to="/resources" className="footer-link text-[15px] font-medium text-gray-500 hover:text-[#2D6A4F]">Resources</Link></li>
-                  <li><Link to="/schedule-demo" className="footer-link text-[15px] font-medium text-gray-500 hover:text-[#2D6A4F]">Schedule Demo</Link></li>
-                  <li><Link to="/contact" className="footer-link text-[15px] font-medium text-gray-500 hover:text-[#2D6A4F]">Contact</Link></li>
+                  <li><Link to="/about" className="footer-link text-[15px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>About Us</FlipText></Link></li>
+                  <li><Link to="/experience" className="footer-link text-[15px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>Experience</FlipText></Link></li>
+                  <li><Link to="/resources" className="footer-link text-[15px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>Resources</FlipText></Link></li>
+                  <li><Link to="/schedule-demo" className="footer-link text-[15px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>Schedule Demo</FlipText></Link></li>
+                  <li><Link to="/contact" className="footer-link text-[15px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>Contact</FlipText></Link></li>
                 </ul>
               </div>
 

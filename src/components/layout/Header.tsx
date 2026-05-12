@@ -8,6 +8,9 @@ import { cn } from '../../utils/cn';
 import MegaMenu from './MegaMenu';
 import { useTheme } from '../../context/ThemeContext';
 import { useLenis } from '../providers/SmoothScrollProvider';
+import FlipText from '../ui/FlipText';
+
+
 
 
 const Header = () => {
@@ -75,9 +78,9 @@ const Header = () => {
                             alt="Frostrek"
                             className="h-8 sm:h-9 w-auto object-contain transition-all duration-300 group-hover:scale-110"
                         />
-                        <span className="text-xl sm:text-2xl font-black font-serif tracking-tighter text-[#2D6A4F] transition-colors group-hover:text-[#1B4332]">
-                            FROSTREK
-                        </span>
+                        <FlipText className="text-xl sm:text-2xl font-black font-serif tracking-tighter text-[#2D6A4F]">
+                            Frostrek
+                        </FlipText>
                     </Link>
 
                     {/* 2. Desktop Nav (Center) */}
@@ -92,11 +95,11 @@ const Header = () => {
                                 <Link
                                     to={item.href}
                                     className={cn(
-                                        "flex items-center gap-1 text-[15px] font-medium transition-colors py-2 px-4 rounded-full relative z-10 text-gray-600 hover:text-[#2D6A4F]",
+                                        "flex items-center gap-1 text-[15px] font-medium transition-colors py-2 px-4 rounded-full relative z-10 text-gray-600 hover:text-[#2D6A4F] group",
                                         (location.pathname === item.href || activeMegaMenu === item.label) && "text-[#2D6A4F] font-bold"
                                     )}
                                 >
-                                    {item.label}
+                                    <FlipText>{item.label}</FlipText>
                                     {item.megaMenu && (
                                         <ChevronDown
                                             size={14}
@@ -186,7 +189,7 @@ const Header = () => {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -10 }}
                             transition={{ duration: 0.25, ease: "easeOut" }}
-                            className="fixed top-[84px] sm:top-[104px] left-3 right-3 sm:left-4 sm:right-4 z-[58] border shadow-2xl backdrop-blur-xl bg-white/97 border-[#C8E6DA] rounded-2xl overflow-hidden font-body"
+                            className="fixed top-[84px] sm:top-[104px] left-3 right-3 sm:left-4 sm:right-4 z-[58] border shadow-2xl backdrop-blur-xl bg-gradient-to-b from-[#FAFCFB] via-white to-[#FAFCFB] border-[#2D6A4F]/20 rounded-2xl overflow-hidden font-body"
                             onWheel={(e) => e.stopPropagation()}
                             onTouchMove={(e) => e.stopPropagation()}
                             style={{ overscrollBehavior: 'contain' }}
@@ -289,7 +292,7 @@ const Header = () => {
                                 >
                                     <Link to="/schedule-demo" onClick={() => setMobileMenuOpen(false)}>
                                         <Button className="w-full justify-center bg-[#2D6A4F] text-white font-bold rounded-xl py-3 text-base hover:bg-[#336B55] transition-colors">
-                                            Book a Demo
+                                            Book a demo
                                         </Button>
                                     </Link>
                                 </motion.div>

@@ -7,6 +7,7 @@ import CuteBackground from '../components/ui/CuteBackground';
 import CTASection from '../components/home/CTASection';
 import { useEffect } from 'react';
 import SEO from '../components/seo/SEO';
+import SplitTextReveal from '../components/ui/SplitTextReveal';
 
 const ExperiencePage = () => {
     useEffect(() => {
@@ -26,35 +27,43 @@ const ExperiencePage = () => {
             {/* Hero Section */}
             <section className="relative pt-32 pb-16 px-4 sm:px-6 lg:px-8 z-10">
                 <div className="max-w-7xl mx-auto text-center">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                        className="space-y-6"
-                    >
+                    <div className="space-y-6">
                         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border bg-[#E8F5EE] border-[#2D6A4F]/20 shadow-sm mx-auto">
                             <Sparkles className="w-4 h-4 text-[#2D6A4F]" />
                             <span className="text-sm font-semibold text-[#2D6A4F] font-body">Interactive Demo</span>
                         </div>
 
-                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-gray-900 tracking-tight">
-                            Experience{' '}
-                            <span className="relative inline-block text-[#2D6A4F]">
-                                AI in Action
-                                <motion.span
-                                    className="absolute -bottom-1.5 left-0 h-1 bg-gradient-to-r from-[#2D6A4F] to-[#2D6A4F]/40 rounded-full"
-                                    initial={{ width: 0 }}
-                                    animate={{ width: '100%' }}
-                                    transition={{ delay: 0.5, duration: 0.8 }}
-                                />
-                            </span>
-                        </h1>
+                        <div className="flex flex-col items-center">
+                            <div className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-gray-900 tracking-tight">
+                                <SplitTextReveal as="span" type="chars" stagger={0.03} once={false}>
+                                    Experience
+                                </SplitTextReveal>
+                                {' '}
+                                <span className="relative inline-block text-[#2D6A4F]">
+                                    <SplitTextReveal as="span" type="chars" stagger={0.03} once={false} delay={0.3}>
+                                        AI in Action
+                                    </SplitTextReveal>
+                                    <motion.span
+                                        className="absolute -bottom-1.5 left-0 h-1 bg-gradient-to-r from-[#2D6A4F] to-[#2D6A4F]/40 rounded-full"
+                                        initial={{ width: 0 }}
+                                        animate={{ width: '100%' }}
+                                        transition={{ delay: 0.5, duration: 0.8 }}
+                                    />
+                                </span>
+                            </div>
+                        </div>
 
-                        <p className="text-lg sm:text-xl max-w-2xl mx-auto text-slate-600 font-body font-medium leading-relaxed">
-                            Don't just read about our AI solutions — try them yourself.
-                            Test our voice AI and chatbot live, right here.
-                        </p>
-                    </motion.div>
+                        <SplitTextReveal
+                            as="p"
+                            className="text-lg sm:text-xl max-w-2xl mx-auto text-slate-600 font-body font-medium leading-relaxed"
+                            type="words"
+                            stagger={0.015}
+                            once={false}
+                            delay={0.6}
+                        >
+                            Don't just read about our AI solutions — try them yourself. Test our voice AI and chatbot live, right here.
+                        </SplitTextReveal>
+                    </div>
                 </div>
             </section>
 

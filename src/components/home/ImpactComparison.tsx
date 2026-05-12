@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { XCircle, CheckCircle2, ArrowRight } from 'lucide-react';
+import SplitTextReveal from '../ui/SplitTextReveal';
 
 // ─── Exact observe.ai arrow SVG ─────────────────────────────────────────────
 const CurlyArrow = ({ className = '' }: { className?: string }) => (
@@ -46,39 +47,57 @@ const ImpactComparison = () => {
                     <motion.div 
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false }}
                         className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-badge-bg text-brand-badge-text text-xs md:text-sm font-bold tracking-wide mb-6 border border-[#c4e0d4]/50"
                     >
                         <span className="text-base md:text-lg leading-none">📈</span> AI-DRIVEN OUTCOMES
                     </motion.div>
                     
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
-                        className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] mb-6 leading-[1.15] tracking-[-0.01em] flex items-center justify-center gap-3 flex-wrap"
-                    >
-                        AI-Driven Outcomes <span className="relative inline-block text-[#336B55]">We Deliver</span>
-                        <motion.span
-                            initial={{ opacity: 0, x: -16, rotate: -10 }}
-                            whileInView={{ opacity: 1, x: 0, rotate: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.45 }}
-                            className="inline-flex items-center"
+                    <div className="flex flex-col items-center justify-center mb-6">
+                        <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-5">
+                            <SplitTextReveal
+                                as="h2"
+                                className="font-serif text-3xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-[1.1] tracking-[-0.01em] whitespace-nowrap"
+                                type="chars"
+                                stagger={0.03}
+                                once={false}
+                            >
+                                AI-Driven Outcomes
+                            </SplitTextReveal>
+                            
+                            {/* Curly arrow — slides in from left after text */}
+                            <motion.div
+                                initial={{ opacity: 0, x: -20, rotate: -15 }}
+                                whileInView={{ opacity: 1, x: 0, rotate: 0 }}
+                                viewport={{ once: false }}
+                                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.8 }}
+                                className="flex-shrink-0 hidden md:block"
+                            >
+                                <CurlyArrow className="w-12 h-7 md:w-20 md:h-12 text-[#3D8B6E]/65" />
+                            </motion.div>
+                        </div>
+                        <SplitTextReveal
+                            as="h2"
+                            className="font-serif text-3xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-[1.1] tracking-[-0.01em] whitespace-nowrap"
+                            type="chars"
+                            stagger={0.03}
+                            once={false}
+                            delay={0.4}
                         >
-                            <CurlyArrow className="w-12 h-7 md:w-16 md:h-9 text-[#3D8B6E]/65" />
-                        </motion.span>
-                    </motion.div>
-                    <motion.p 
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
+                            We Deliver
+                        </SplitTextReveal>
+                    </div>
+
+                    <SplitTextReveal
+                        as="p"
                         className="text-base md:text-lg text-gray-500 max-w-2xl mx-auto font-medium"
+                        type="words"
+                        stagger={0.02}
+                        once={false}
+                        delay={0.3}
                     >
                         Stop relying on outdated workflows. Here is why enterprise leaders upgrade to Frostrek's AI ecosystem.
-                    </motion.p>
+                    </SplitTextReveal>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 md:gap-8">

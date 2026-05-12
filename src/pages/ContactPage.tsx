@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import SEO from '../components/seo/SEO';
 import emailjs from '@emailjs/browser';
 import FlipText from '../components/ui/FlipText';
+import SplitTextReveal from '../components/ui/SplitTextReveal';
 
 const ContactPage = () => {
     const [formData, setFormData] = useState({
@@ -164,13 +165,23 @@ ${formData.projectDetails}
                                 <span>Get In Touch</span>
                             </div>
 
-                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-black tracking-tight text-gray-950 leading-tight">
-                                Let's Start a <br />
-                                <span className="text-[#2D6A4F]">Conversation</span>
-                            </h1>
-                            <p className="text-base sm:text-lg text-slate-600 font-medium leading-relaxed max-w-lg mt-4">
+                            <div className="flex flex-col">
+                                <div className="text-4xl md:text-5xl lg:text-6xl font-serif font-black tracking-tight text-gray-950 leading-tight">
+                                    <SplitTextReveal as="span" type="chars" stagger={0.03} once={false}>
+                                        Let's Start a Conversation
+                                    </SplitTextReveal>
+                                </div>
+                            </div>
+                            <SplitTextReveal
+                                as="p"
+                                className="text-base sm:text-lg text-slate-600 font-medium leading-relaxed max-w-lg mt-4"
+                                type="words"
+                                stagger={0.015}
+                                once={false}
+                                delay={0.6}
+                            >
                                 Have a project in mind or want to explore how AI can transform your business? We're here to help.
-                            </p>
+                            </SplitTextReveal>
                         </div>
 
                         {/* Contact Methods Container */}

@@ -41,7 +41,7 @@ const Button = ({
             )}
             {...props}
         >
-            <FlipText>
+            <FlipText hoverColor={variant === 'primary' ? 'text-white' : 'text-[#2D6A4F]'}>
                 {children}
             </FlipText>
         </button>

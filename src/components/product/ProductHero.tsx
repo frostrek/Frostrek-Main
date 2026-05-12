@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { ChevronRight, Rocket } from 'lucide-react';
 import Button from '../ui/Button';
 import { useNavigate } from 'react-router-dom';
+import SplitTextReveal from '../ui/SplitTextReveal';
 
 const ProductHero = ({
     description,
@@ -42,38 +43,39 @@ const ProductHero = ({
                 </motion.div>
 
                 {/* Main Headline - Playfair Display serif font */}
-                <motion.h1
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.1 }}
-                    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-black mb-8 tracking-tight max-w-5xl mx-auto leading-tight text-gray-900"
-                >
-                    {isCaseStudy ? (
-                        <>
-                            A Real Product{' '}<br />
-                            <span className="text-[#2D6A4F]">
-                                We Built From Scratch
-                            </span>
-                        </>
-                    ) : (
-                        <>
-                            AI-Powered Solutions for <br />
-                            <span className="text-[#2D6A4F]">
-                                Every Kind of Industry
-                            </span>
-                        </>
-                    )}
-                </motion.h1>
+                {isCaseStudy ? (
+                    <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-black mb-8 tracking-tight max-w-5xl mx-auto leading-tight text-gray-900">
+                        <SplitTextReveal as="span" type="chars" stagger={0.02} once={false}>
+                            A Real Product
+                        </SplitTextReveal>
+                        <br />
+                        <SplitTextReveal as="span" className="text-[#2D6A4F]" type="chars" stagger={0.02} once={false} delay={0.3}>
+                            We Built From Scratch
+                        </SplitTextReveal>
+                    </div>
+                ) : (
+                    <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-black mb-8 tracking-tight max-w-5xl mx-auto leading-tight text-gray-900">
+                        <SplitTextReveal as="span" type="chars" stagger={0.02} once={false}>
+                            AI-Powered Solutions for
+                        </SplitTextReveal>
+                        <br />
+                        <SplitTextReveal as="span" className="text-[#2D6A4F]" type="chars" stagger={0.02} once={false} delay={0.3}>
+                            Every Kind of Industry
+                        </SplitTextReveal>
+                    </div>
+                )}
 
                 {/* Subtext - 100% visible and crisp */}
-                <motion.p
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
+                <SplitTextReveal
+                    as="p"
                     className="text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed text-slate-600 font-medium"
+                    type="words"
+                    stagger={0.015}
+                    once={false}
+                    delay={0.6}
                 >
                     {description}
-                </motion.p>
+                </SplitTextReveal>
 
                 {/* Buttons */}
                 <motion.div

@@ -1,6 +1,8 @@
-import { useRef, useEffect, useMemo } from 'react';
+import { useRef, useMemo } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+import { cn } from '../../utils/cn';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,44 +16,52 @@ interface SplitTextRevealProps {
     delay?: number;
     y?: number;
     blur?: boolean;
-    once?: boolean; // If true, animation only plays once
+    once?: boolean;
+    scrub?: boolean | number; // If true, animation is tied to scroll position
     trigger?: 'scroll' | 'load' | 'none';
-    threshold?: string; // ScrollTrigger start threshold
+    start?: string; // ScrollTrigger start threshold
+    end?: string; // ScrollTrigger end threshold
+    parallax?: number; // Optional parallax movement on scroll
 }
 
+/**
+ * SplitTextReveal - A premium text animation component using GSAP.
+ * Provides "god level" smooth reveal animations that react to scroll.
+ */
 const SplitTextReveal = ({
     children,
     className = '',
     as: Component = 'div',
     type = 'chars',
     stagger = 0.02,
-    duration = 0.6,
+    duration = 0.8,
     delay = 0,
-    y = 40,
+    y = 30,
     blur = true,
-    once = true,
+    once = false, // Default to false for "appear/disappear" behavior
+    scrub = false,
     trigger = 'scroll',
-    threshold = 'top 85%',
+    start = 'top 85%',
+    end = 'bottom 15%',
+    parallax = 0,
 }: SplitTextRevealProps) => {
     const containerRef = useRef<HTMLElement>(null);
-    const hasAnimated = useRef(false);
 
-    // Split text into elements
+    // Split text into elements for fine-grained control
     const splitElements = useMemo(() => {
         if (type === 'words') {
             return children.split(' ').map((word, i, arr) => (
-                <span key={i} className="inline-block overflow-hidden">
+                <span key={i} className="inline-block overflow-visible mr-[0.25em] last:mr-0">
                     <span className="split-item inline-block" style={{ opacity: 0 }}>
                         {word}
                     </span>
-                    {i < arr.length - 1 && <span>&nbsp;</span>}
                 </span>
             ));
         }
 
         if (type === 'lines') {
             return children.split('\n').map((line, i) => (
-                <span key={i} className="block overflow-hidden">
+                <span key={i} className="block overflow-hidden py-1">
                     <span className="split-item inline-block" style={{ opacity: 0 }}>
                         {line}
                     </span>
@@ -59,9 +69,9 @@ const SplitTextReveal = ({
             ));
         }
 
-        // Characters (default)
+        // Characters (default) - Most premium feel
         return children.split('').map((char, i) => (
-            <span key={i} className="inline-block overflow-hidden">
+            <span key={i} className="inline-block overflow-visible">
                 <span
                     className="split-item inline-block"
                     style={{
@@ -75,24 +85,21 @@ const SplitTextReveal = ({
         ));
     }, [children, type]);
 
-    useEffect(() => {
+    useGSAP(() => {
         const container = containerRef.current;
-        if (!container) return;
+        if (!container || trigger === 'none') return;
 
         const items = container.querySelectorAll('.split-item');
         if (!items.length) return;
 
-        // Set initial state
+        // ─── Initial State ───
         gsap.set(items, {
             y: y,
             opacity: 0,
-            filter: blur ? 'blur(8px)' : 'none',
+            filter: blur ? 'blur(10px)' : 'none',
         });
 
-        const animateIn = () => {
-            if (once && hasAnimated.current) return;
-            hasAnimated.current = true;
-
+        if (trigger === 'load') {
             gsap.to(items, {
                 y: 0,
                 opacity: 1,
@@ -100,32 +107,66 @@ const SplitTextReveal = ({
                 duration: duration,
                 stagger: stagger,
                 delay: delay,
-                ease: 'power3.out',
+                ease: 'expo.out',
             });
-        };
-
-        if (trigger === 'load') {
-            animateIn();
         } else if (trigger === 'scroll') {
-            ScrollTrigger.create({
-                trigger: container,
-                start: threshold,
-                onEnter: animateIn,
-                once: once,
-            });
-        }
+            if (scrub) {
+                // Scrubbing behavior (tied directly to scroll)
+                gsap.to(items, {
+                    scrollTrigger: {
+                        trigger: container,
+                        start: start,
+                        end: end,
+                        scrub: scrub === true ? 1 : scrub,
+                        markers: false,
+                    },
+                    y: 0,
+                    opacity: 1,
+                    filter: 'blur(0px)',
+                    stagger: stagger,
+                    ease: 'none',
+                });
+            } else {
+                // Reveal behavior with "appear and disappear" (toggleActions)
+                gsap.to(items, {
+                    scrollTrigger: {
+                        trigger: container,
+                        start: start,
+                        end: end,
+                        toggleActions: once 
+                            ? 'play none none none' 
+                            : 'play reverse play reverse', // Reverses on scroll out
+                        markers: false,
+                    },
+                    y: 0,
+                    opacity: 1,
+                    filter: 'blur(0px)',
+                    duration: duration,
+                    stagger: stagger,
+                    ease: 'expo.out',
+                });
+            }
 
-        return () => {
-            ScrollTrigger.getAll().forEach(st => {
-                if (st.trigger === container) st.kill();
-            });
-        };
-    }, [y, blur, duration, stagger, delay, once, trigger, threshold]);
+            // Optional Parallax Movement
+            if (parallax !== 0) {
+                gsap.to(container, {
+                    scrollTrigger: {
+                        trigger: container,
+                        start: 'top bottom',
+                        end: 'bottom top',
+                        scrub: true,
+                    },
+                    y: parallax,
+                    ease: 'none',
+                });
+            }
+        }
+    }, { dependencies: [children, y, blur, duration, stagger, delay, once, trigger, start, end, scrub, parallax], scope: containerRef });
 
     return (
         <Component
             ref={containerRef as any}
-            className={`split-text-reveal ${className}`}
+            className={cn("split-text-reveal relative block", className)}
         >
             {splitElements}
         </Component>

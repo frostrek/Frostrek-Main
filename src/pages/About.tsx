@@ -8,6 +8,7 @@ import CTASection from '../components/home/CTASection';
 import { useNavigate } from 'react-router-dom';
 import SEO from '../components/seo/SEO';
 import FlipText from '../components/ui/FlipText';
+import SplitTextReveal from '../components/ui/SplitTextReveal';
 
 const HEADLINE_WORDS = ['Accelerate', 'growth', 'at', 'the', 'new', 'speed', 'of', 'business'];
 
@@ -227,7 +228,7 @@ const MagneticButton = memo(({ children, className, onClick, variant = 'primary'
             onClick={onClick}
             className={`group relative overflow-hidden rounded-xl font-medium transition-all font-body ${baseStyles} ${className} px-6 py-3.5`}
         >
-            <FlipText>{children}</FlipText>
+            <FlipText hoverColor={variant === 'primary' ? 'text-white' : 'text-[#2D6A4F]'}>{children}</FlipText>
         </motion.button>
     );
 });
@@ -869,18 +870,23 @@ const About = () => {
                             <Bot size={13} className="inline" /> Calling Enterprise Agents Active
                         </div>
 
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-gray-900 leading-[1.1] tracking-tight">
-                            Revolutionizing AI with{' '}
-                            <span className="relative inline-block text-[#2D6A4F]">
-                                <TypewriterText texts={texts} />
-                                <motion.span
-                                    className="absolute -bottom-1.5 left-0 h-1 bg-gradient-to-r from-[#2D6A4F] to-[#2D6A4F]/40 rounded-full"
-                                    initial={{ width: 0 }}
-                                    animate={{ width: '100%' }}
-                                    transition={{ delay: 0.5, duration: 0.8 }}
-                                />
-                            </span>
-                        </h1>
+                        <div className="flex flex-col items-center">
+                            <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-gray-900 leading-[1.1] tracking-tight">
+                                <SplitTextReveal as="span" type="chars" stagger={0.03} once={false}>
+                                    Revolutionizing AI with
+                                </SplitTextReveal>
+                                <br />
+                                <span className="relative inline-block text-[#2D6A4F]">
+                                    <TypewriterText texts={texts} />
+                                    <motion.span
+                                        className="absolute -bottom-1.5 left-0 h-1 bg-gradient-to-r from-[#2D6A4F] to-[#2D6A4F]/40 rounded-full"
+                                        initial={{ width: 0 }}
+                                        animate={{ width: '100%' }}
+                                        transition={{ delay: 0.5, duration: 0.8 }}
+                                    />
+                                </span>
+                            </div>
+                        </div>
 
                         <p className="text-base sm:text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed font-body font-medium">
                             We specialize in custom enterprise AI training, multi-agent orchestrations, and full-stack software systems built to redefine human-to-AI operational capacity.
@@ -1049,14 +1055,15 @@ const About = () => {
             <section className="py-16 md:py-24 relative overflow-hidden z-10">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16 space-y-3">
-                        <motion.h2
-                            initial={{ opacity: 0, y: 15 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
+                        <SplitTextReveal
+                            as="h2"
                             className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-gray-950"
+                            type="chars"
+                            stagger={0.03}
+                            once={false}
                         >
                             Our Journey
-                        </motion.h2>
+                        </SplitTextReveal>
                         <motion.p
                             initial={{ opacity: 0, y: 15 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -1300,9 +1307,15 @@ const About = () => {
                         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold bg-[#E8F5EE] text-[#2D6A4F] border border-[#2D6A4F]/15 font-body uppercase tracking-wider">
                             <Globe size={13} /> Our Global Offices
                         </div>
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-gray-950">
+                        <SplitTextReveal
+                            as="h2"
+                            className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-gray-950"
+                            type="chars"
+                            stagger={0.03}
+                            once={false}
+                        >
                             Global Presence
-                        </h2>
+                        </SplitTextReveal>
                         <p className="text-slate-600 text-base sm:text-lg max-w-xl mx-auto font-body font-semibold">
                             Serving fast-growing enterprises across three global hubs.
                         </p>

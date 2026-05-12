@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import SplitTextReveal from '../ui/SplitTextReveal';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -29,14 +30,10 @@ const TrustedBySection = () => {
 
     useEffect(() => {
         const section = sectionRef.current;
-        const cards = cardRefs.current.filter(Boolean) as HTMLDivElement[];
-        if (!section || cards.length === 0) return;
+        if (!section) return;
 
         const ctx = gsap.context(() => {
-            gsap.fromTo('.trusted-title',
-                { opacity: 0, y: 30 },
-                { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', scrollTrigger: { trigger: section, start: 'top 80%' } }
-            );
+            // Marquee initialization or other logic can go here
         }, section);
 
         return () => ctx.revert();
@@ -49,13 +46,26 @@ const TrustedBySection = () => {
         >
             <div className="container mx-auto px-6 relative z-10">
                 {/* Title */}
-                <div className="trusted-title text-center mb-16">
-                    <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] mb-4 leading-[1.15] tracking-[-0.01em]">
-                        Trusted by <span className="text-[#336B55]">Industry Leaders</span>
-                    </h2>
-                    <p className="max-w-2xl mx-auto text-lg text-gray-500 font-medium">
+                <div className="text-center mb-16">
+                    <SplitTextReveal
+                        as="h2"
+                        className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] mb-4 leading-[1.15] tracking-[-0.01em]"
+                        type="chars"
+                        stagger={0.02}
+                        once={false}
+                    >
+                        Trusted by Industry Leaders
+                    </SplitTextReveal>
+                    <SplitTextReveal
+                        as="p"
+                        className="max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                        type="words"
+                        stagger={0.02}
+                        once={false}
+                        delay={0.3}
+                    >
                         Global enterprises choose Frostrek to power their most critical workflows.
-                    </p>
+                    </SplitTextReveal>
                 </div>
 
                 {/* Marquee */}

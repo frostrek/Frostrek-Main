@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Bot, Database, PhoneCall, Cpu, Network, Server } from 'lucide-react';
 import FlipText from '../ui/FlipText';
+import SplitTextReveal from '../ui/SplitTextReveal';
 
 const floatingIcons = [
   { id: 1, top: '20%', left: '15%', icon: Bot, color: 'text-blue-500', bg: 'bg-blue-50/80', border: 'border-blue-100', shadow: 'shadow-blue-500/20', delay: 0 },
@@ -10,32 +11,6 @@ const floatingIcons = [
   { id: 4, top: '65%', left: '85%', icon: PhoneCall, color: 'text-orange-500', bg: 'bg-orange-50/80', border: 'border-orange-100', shadow: 'shadow-orange-500/20', delay: 0.5 },
   { id: 5, top: '75%', left: '20%', icon: Cpu, color: 'text-rose-500', bg: 'bg-rose-50/80', border: 'border-rose-100', shadow: 'shadow-rose-500/20', delay: 1.5 },
   { id: 6, top: '85%', left: '70%', icon: Server, color: 'text-indigo-500', bg: 'bg-indigo-50/80', border: 'border-indigo-100', shadow: 'shadow-indigo-500/20', delay: 2.5 },
-];
-
-const typewriterContainer = {
-  hidden: { opacity: 1 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.04,
-    },
-  },
-};
-
-const typewriterCharacter = {
-  hidden: { opacity: 0, y: 10, filter: "blur(4px)" },
-  visible: {
-    opacity: 1,
-    y: 0,
-    filter: "blur(0px)",
-    transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] as any }
-  },
-};
-
-const textLines = [
-  "Support Workflows",
-  "Built to Scale",
-  "How Your Business Works"
 ];
 
 const HeroSection = () => {
@@ -77,40 +52,48 @@ const HeroSection = () => {
         </motion.div>
 
         {/* Heading */}
-        <motion.h1
-          variants={typewriterContainer}
-          initial="hidden"
-          animate="visible"
-          className="font-serif text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] mb-6 leading-[1.1] tracking-[-0.01em]"
-        >
-          {textLines.map((line, lineIndex) => (
-            <div key={lineIndex} className="flex flex-wrap justify-center">
-              {line.split(" ").map((word, wordIndex) => (
-                <span key={wordIndex} className="whitespace-nowrap mr-[0.2em] last:mr-0">
-                  {word.split("").map((char, charIndex) => (
-                    <motion.span
-                      key={`${lineIndex}-${wordIndex}-${charIndex}`}
-                      variants={typewriterCharacter}
-                      className="inline-block"
-                    >
-                      {char}
-                    </motion.span>
-                  ))}
-                </span>
-              ))}
-            </div>
-          ))}
-        </motion.h1>
+        <div className="flex flex-col items-center">
+            <SplitTextReveal
+                as="h1"
+                className="font-serif text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-[1.1] tracking-[-0.01em] whitespace-nowrap"
+                trigger="load"
+                type="chars"
+                stagger={0.03}
+            >
+                Support Workflows
+            </SplitTextReveal>
+            <SplitTextReveal
+                as="h1"
+                className="font-serif text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-[1.1] tracking-[-0.01em] whitespace-nowrap"
+                trigger="load"
+                type="chars"
+                stagger={0.03}
+                delay={0.4}
+            >
+                Built to Scale
+            </SplitTextReveal>
+            <SplitTextReveal
+                as="h1"
+                className="font-serif text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] mb-6 leading-[1.1] tracking-[-0.01em] whitespace-nowrap"
+                trigger="load"
+                type="chars"
+                stagger={0.03}
+                delay={0.7}
+            >
+                How Your Business Works
+            </SplitTextReveal>
+        </div>
 
         {/* Subtitle */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.5 }}
-          className="text-lg md:text-[1.3rem] text-gray-500 max-w-2xl mx-auto mb-10 leading-relaxed font-medium"
+        <SplitTextReveal
+            as="p"
+            className="text-lg md:text-[1.3rem] text-gray-500 max-w-2xl mx-auto mb-10 leading-relaxed font-medium"
+            type="words"
+            stagger={0.02}
+            delay={0.5}
         >
-          Deploy autonomous AI agents that handle complex<br className="hidden md:block" /> business processes and scale with your growth.
-        </motion.p>
+            Deploy autonomous AI agents that handle complex business processes and scale with your growth.
+        </SplitTextReveal>
 
         {/* Buttons */}
         <motion.div
@@ -123,7 +106,7 @@ const HeroSection = () => {
             to="/schedule-demo"
             className="group w-full sm:w-auto px-10 py-4 rounded-xl bg-[#2D6A4F] text-white font-medium tracking-wide hover:bg-[#1B4332] transition-all duration-300 flex items-center justify-center gap-3 shadow-lg shadow-[#2D6A4F]/10 active:translate-y-0.5"
           >
-            <FlipText>
+            <FlipText hoverColor="text-white">
               BOOK A DEMO <span className="text-xl font-light">→</span>
             </FlipText>
           </Link>

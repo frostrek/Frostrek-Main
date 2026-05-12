@@ -6,6 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
 import SpotlightCard from '../ui/SpotlightCard';
 import FlipText from '../ui/FlipText';
+import SplitTextReveal from '../ui/SplitTextReveal';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,22 +17,8 @@ const FeaturesSection = () => {
 
     useGSAP(() => {
         const ctx = gsap.context(() => {
-            gsap.fromTo(headingRef.current,
-                { y: 50, opacity: 0, filter: 'blur(8px)' },
-                {
-                    y: 0,
-                    opacity: 1,
-                    filter: 'blur(0px)',
-                    duration: 0.8,
-                    ease: 'power3.out',
-                    scrollTrigger: {
-                        trigger: headingRef.current,
-                        start: 'top 90%',
-                        toggleActions: 'play none none none'
-                    }
-                }
-            );
-
+            // Heading animations are now handled by SplitTextReveal
+            
             const cards = gridRef.current?.querySelectorAll('.bento-card');
             if (cards) {
                 gsap.fromTo(cards,
@@ -46,7 +33,7 @@ const FeaturesSection = () => {
                         scrollTrigger: {
                             trigger: gridRef.current,
                             start: 'top 85%',
-                            toggleActions: 'play none none none'
+                            toggleActions: 'play reverse play reverse'
                         }
                     }
                 );
@@ -59,13 +46,26 @@ const FeaturesSection = () => {
     return (
         <section ref={sectionRef} className="py-24 relative overflow-hidden bg-brand-light-bg font-sans">
             <div className="container mx-auto px-4 md:px-6 relative z-10 max-w-[1400px]">
-                <div ref={headingRef} className="text-center mb-16">
-                    <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] mb-4 leading-[1.15] tracking-[-0.01em]">
-                        Why Choose <span className="text-[#336B55]">Frostrek</span>
-                    </h2>
-                    <p className="max-w-2xl mx-auto text-lg text-gray-500 font-medium">
+                <div className="text-center mb-16">
+                    <SplitTextReveal
+                        as="h2"
+                        className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] mb-4 leading-[1.15] tracking-[-0.01em]"
+                        type="chars"
+                        stagger={0.02}
+                        once={false}
+                    >
+                        Why Choose Frostrek
+                    </SplitTextReveal>
+                    <SplitTextReveal
+                        as="p"
+                        className="max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                        type="words"
+                        stagger={0.02}
+                        once={false}
+                        delay={0.3}
+                    >
                         Everything you need to build, deploy, and scale AI agents in your organization.
-                    </p>
+                    </SplitTextReveal>
                 </div>
 
                 <div ref={gridRef} className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">

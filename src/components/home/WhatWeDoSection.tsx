@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Factory, Trophy, Bot, CheckCircle, ArrowRight, Mic, MessageSquare, Sparkles } from 'lucide-react';
+import SplitTextReveal from '../ui/SplitTextReveal';
 
 // ─── Observe.ai-style arrow SVG (exact paths from user) ─────────────────────
 const CurlyArrow = ({ className = '' }: { className?: string }) => (
@@ -166,7 +167,8 @@ const WhatWeDoSection = () => {
                     {/* Badge */}
                     <motion.div
                         initial={{ opacity: 0, y: 16 }}
-                        animate={headingInView ? { opacity: 1, y: 0 } : {}}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false }}
                         transition={{ duration: 0.5 }}
                         className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#C8E6DA] bg-[#F4FAF7] mb-8"
                     >
@@ -174,59 +176,68 @@ const WhatWeDoSection = () => {
                         <span className="text-[#2D6A4F] text-xs font-bold uppercase tracking-widest">What We Do</span>
                     </motion.div>
 
-                    {/* Line 1: "What We Do & How" */}
-                    <div className="overflow-hidden mb-1">
-                        <motion.div
-                            initial={{ y: '100%', opacity: 0 }}
-                            animate={headingInView ? { y: 0, opacity: 1 } : {}}
-                            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-                            className="font-serif text-5xl md:text-6xl lg:text-7xl text-[#2D6A4F] leading-[1.08] tracking-[-0.02em]"
+                    {/* Line 1: "What We Do" */}
+                    <div className="mb-1">
+                        <SplitTextReveal
+                            as="h2"
+                            className="font-serif text-5xl md:text-6xl lg:text-7xl text-[#2D6A4F] leading-[1.08] tracking-[-0.02em] whitespace-nowrap"
+                            type="chars"
+                            stagger={0.03}
+                            once={false}
                         >
-                            What We Do &amp; How
-                        </motion.div>
+                            What We Do
+                        </SplitTextReveal>
                     </div>
 
-                    {/* Line 2: "We Transform" + green accent + curly arrow */}
-                    <div className="overflow-visible flex items-center justify-center gap-3 md:gap-5">
-                        <div className="overflow-hidden">
-                            <motion.div
-                                initial={{ y: '100%', opacity: 0 }}
-                                animate={headingInView ? { y: 0, opacity: 1 } : {}}
-                                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.22 }}
-                                className="font-serif text-5xl md:text-6xl lg:text-7xl text-[#2D6A4F] leading-[1.08] tracking-[-0.02em]"
-                            >
-                                We{' '}
-                                <motion.span
-                                    initial={{ opacity: 0, x: -10 }}
-                                    animate={headingInView ? { opacity: 1, x: 0 } : {}}
-                                    transition={{ duration: 0.6, ease: 'easeOut', delay: 0.5 }}
-                                    className="italic text-[#3D8B6E]"
-                                >
-                                    Transform
-                                </motion.span>
-                            </motion.div>
-                        </div>
+                    {/* Line 2: "& How" */}
+                    <div className="mb-2">
+                        <SplitTextReveal
+                            as="h2"
+                            className="font-serif text-5xl md:text-6xl lg:text-7xl text-[#2D6A4F] leading-[1.08] tracking-[-0.02em] whitespace-nowrap"
+                            type="chars"
+                            stagger={0.03}
+                            once={false}
+                            delay={0.2}
+                        >
+                            & How
+                        </SplitTextReveal>
+                    </div>
+
+                    {/* Line 3: "We Transform" + curly arrow */}
+                    <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-5">
+                        <SplitTextReveal
+                            as="div"
+                            className="font-serif text-5xl md:text-6xl lg:text-7xl text-[#2D6A4F] leading-[1.08] tracking-[-0.02em] whitespace-nowrap"
+                            type="words"
+                            stagger={0.05}
+                            once={false}
+                            delay={0.4}
+                        >
+                            We Transform
+                        </SplitTextReveal>
 
                         {/* Curly arrow — slides in from left after text */}
                         <motion.div
                             initial={{ opacity: 0, x: -20, rotate: -15 }}
-                            animate={headingInView ? { opacity: 1, x: 0, rotate: 0 } : {}}
-                            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.7 }}
+                            whileInView={{ opacity: 1, x: 0, rotate: 0 }}
+                            viewport={{ once: false }}
+                            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.8 }}
                             className="flex-shrink-0"
                         >
-                            <CurlyArrow className="w-10 h-12 md:w-14 md:h-16 text-[#3D8B6E]/70" />
+                            <CurlyArrow className="w-20 h-12 md:w-32 md:h-20 text-[#3D8B6E]/70" />
                         </motion.div>
                     </div>
 
                     {/* Subtitle */}
-                    <motion.p
-                        initial={{ opacity: 0, y: 16 }}
-                        animate={headingInView ? { opacity: 1, y: 0 } : {}}
-                        transition={{ duration: 0.6, delay: 0.75 }}
+                    <SplitTextReveal
+                        as="p"
                         className="mt-6 max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                        type="words"
+                        stagger={0.02}
+                        once={false}
                     >
                         Three flagship platforms. One vision — replace manual chaos with real-time intelligence.
-                    </motion.p>
+                    </SplitTextReveal>
                 </div>
 
                 {/* ── 3-column card grid ── */}
@@ -269,10 +280,10 @@ const WhatWeDoSection = () => {
                     transition={{ duration: 0.6, delay: 0.6 }}
                     className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-px bg-gray-100 rounded-2xl overflow-hidden border border-gray-100"
                 >
-                    {[{ value: '8 wks', label: 'Avg. time to go live' }, { value: '4+', label: 'Systems unified' }, { value: '80%', label: 'Inquiries automated' }, { value: '10x', label: 'ROI potential' }].map(s => (
-                        <div key={s.label} className="bg-white px-6 py-5 text-center">
-                            <div className="font-serif text-2xl font-bold text-[#2D6A4F]">{s.value}</div>
-                            <div className="text-gray-400 text-xs mt-1 font-body">{s.label}</div>
+                    {[{ value: '8 wks', label: 'Avg. time to go live' }, { value: '4+', label: 'Systems unified' }, { value: '80%', label: 'Inquiries automated' }, { value: '10X', label: 'ROI potential' }].map(s => (
+                        <div key={s.label} className="bg-white px-6 py-10 md:py-12 text-center transition-all duration-300 hover:bg-gray-50/30">
+                            <div className="font-serif text-3xl md:text-4xl font-bold text-[#2D6A4F] mb-2">{s.value}</div>
+                            <div className="text-gray-600 text-sm md:text-base font-medium font-body leading-tight max-w-[140px] mx-auto">{s.label}</div>
                         </div>
                     ))}
                 </motion.div>

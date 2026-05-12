@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus, HelpCircle } from 'lucide-react';
 import FlipText from '../ui/FlipText';
+import SplitTextReveal from '../ui/SplitTextReveal';
 
 const FAQS = [
     {
@@ -35,16 +36,34 @@ const FAQSection = () => {
             <div className="container mx-auto px-4 md:px-6 relative z-10 max-w-[1400px]">
                 <div className="text-center max-w-3xl mx-auto mb-16">
                     <div className="flex items-center justify-center gap-2 mb-6">
-                        <span className="px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-brand-badge-bg border border-[#c4e0d4]/50 text-brand-badge-text">
+                        <motion.span 
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: false }}
+                            className="px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-brand-badge-bg border border-[#c4e0d4]/50 text-brand-badge-text"
+                        >
                             Common Queries
-                        </span>
+                        </motion.span>
                     </div>
-                    <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]">
-                        Frequently Asked <span className="text-[#336B55]">Questions</span>
-                    </h2>
-                    <p className="text-lg text-gray-500 font-medium">
+                    <SplitTextReveal
+                        as="h2"
+                        className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
+                        type="chars"
+                        stagger={0.02}
+                        once={false}
+                    >
+                        Frequently Asked Questions
+                    </SplitTextReveal>
+                    <SplitTextReveal
+                        as="p"
+                        className="text-lg text-gray-500 font-medium"
+                        type="words"
+                        stagger={0.02}
+                        once={false}
+                        delay={0.3}
+                    >
                         Everything you need to know about our process, security, and delivery.
-                    </p>
+                    </SplitTextReveal>
                 </div>
 
                 <div className="max-w-3xl mx-auto space-y-4">
@@ -53,8 +72,8 @@ const FAQSection = () => {
                             key={index}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            viewport={{ once: false }}
+                            transition={{ duration: 0.5, delay: (index % 5) * 0.1 }}
                             className={`rounded-2xl border transition-all duration-300 bg-white border-[#E6EFE6] ${
                                 activeIndex === index ? 'border-[#2D6A4F]/30 shadow-[0_10px_30px_rgba(45,106,79,0.06)]' : 'hover:border-[#2D6A4F]/20 hover:shadow-md'
                             }`}

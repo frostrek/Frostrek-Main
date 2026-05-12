@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { MapPin, Clock, Calendar as CalendarIcon, Sparkles, ArrowRight, type LucideIcon } from 'lucide-react';
 import SEO from '../components/seo/SEO';
+import SplitTextReveal from '../components/ui/SplitTextReveal';
 
 const CALENDLY_URL = 'https://calendly.com/akash-mittal-frostrek/30min';
 
@@ -189,15 +190,29 @@ const ScheduleDemo = () => {
                     <Sparkles size={12} className="animate-pulse" />
                     <span>Book Your Demo</span>
                 </div>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-black tracking-tight text-gray-950 leading-tight">
-                    Let's Build Something{' '}
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2D6A4F] via-[#40916C] to-[#1B4332]">
-                        Amazing
-                    </span>
-                </h1>
-                <p className="text-base sm:text-lg text-slate-600 font-medium leading-relaxed max-w-xl mx-auto mt-4">
+                <div className="flex flex-col items-center">
+                    <div className="text-4xl md:text-5xl lg:text-6xl font-serif font-black tracking-tight text-gray-950 leading-tight">
+                        <SplitTextReveal as="span" type="chars" stagger={0.03} once={false}>
+                            Let's Build Something
+                        </SplitTextReveal>
+                        <br />
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2D6A4F] via-[#40916C] to-[#1B4332]">
+                            <SplitTextReveal as="span" type="chars" stagger={0.03} once={false} delay={0.3}>
+                                Amazing
+                            </SplitTextReveal>
+                        </span>
+                    </div>
+                </div>
+                <SplitTextReveal
+                    as="p"
+                    className="text-base sm:text-lg text-slate-600 font-medium leading-relaxed max-w-xl mx-auto mt-4"
+                    type="words"
+                    stagger={0.015}
+                    once={false}
+                    delay={0.6}
+                >
                     Meet with our team to discover how Frostrek can transform your business with AI-powered enterprise systems and conversational agents.
-                </p>
+                </SplitTextReveal>
             </div>
 
             {/* Main content */}

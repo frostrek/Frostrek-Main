@@ -5,6 +5,8 @@ import { X, ArrowUpRight, Clock, Calendar, User } from 'lucide-react';
 import { CASE_STUDIES, BLOG_POSTS } from '../data/resources';
 import type { CaseStudy, BlogPost } from '../data/resources';
 import SEO from '../components/seo/SEO';
+import FlipText from '../components/ui/FlipText';
+import SplitTextReveal from '../components/ui/SplitTextReveal';
 
 const ResourcesHero = () => {
     return (
@@ -22,27 +24,39 @@ const ResourcesHero = () => {
                 </motion.div>
 
                 {/* Title */}
-                <motion.h1
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.1 }}
-                    className="text-5xl md:text-7xl font-serif font-black mb-6 tracking-tight text-gray-950 leading-tight"
-                >
-                    Insights &amp; <br />
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2D6A4F] via-[#40916C] to-[#1B4332]">
+                <h1 className="text-5xl md:text-7xl font-serif font-black mb-6 tracking-tight text-gray-950 leading-tight">
+                    <SplitTextReveal
+                        as="span"
+                        type="chars"
+                        stagger={0.02}
+                        once={false}
+                    >
+                        Insights & 
+                    </SplitTextReveal>
+                    {' '}
+                    <SplitTextReveal
+                        as="span"
+                        className="text-gray-950"
+                        type="chars"
+                        stagger={0.02}
+                        once={false}
+                        delay={0.2}
+                    >
                         Success Stories
-                    </span>
-                </motion.h1>
+                    </SplitTextReveal>
+                </h1>
 
                 {/* Subtitle */}
-                <motion.p
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
+                <SplitTextReveal
+                    as="p"
                     className="text-base sm:text-lg text-slate-600 font-medium max-w-2xl mx-auto leading-relaxed"
+                    type="words"
+                    stagger={0.015}
+                    once={false}
+                    delay={0.4}
                 >
                     Deep dives into how we help enterprises build production-ready AI systems through high-quality data operations and custom machine learning agents.
-                </motion.p>
+                </SplitTextReveal>
             </div>
 
             {/* Subtle Grid Background Overlay */}
@@ -79,7 +93,7 @@ const CaseStudyCard = ({ study, onClick }: { study: CaseStudy; onClick: () => vo
                     </span>
                 </div>
 
-                <h3 className="text-lg font-serif font-black text-gray-950 mb-3 group-hover:text-[#2D6A4F] transition-colors duration-200">
+                <h3 className="text-lg font-serif font-black text-gray-950 mb-3 group-hover:text-[#2D6A4F] transition-colors duration-200 line-clamp-2">
                     {study.title}
                 </h3>
 

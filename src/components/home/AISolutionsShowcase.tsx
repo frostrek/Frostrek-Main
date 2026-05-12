@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import SplitTextReveal from '../ui/SplitTextReveal';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -239,16 +240,7 @@ const AISolutionsShowcase = () => {
 
     useGSAP(() => {
         const ctx = gsap.context(() => {
-            if (headerRef.current) {
-                gsap.fromTo(headerRef.current.children,
-                    { y: 50, opacity: 0, filter: 'blur(6px)' },
-                    {
-                        y: 0, opacity: 1, filter: 'blur(0px)', duration: 0.8,
-                        stagger: 0.12, ease: 'power3.out',
-                        scrollTrigger: { trigger: headerRef.current, start: 'top 90%', toggleActions: 'play none none none' }
-                    }
-                );
-            }
+            // Content animations for header are now handled by SplitTextReveal
             if (tabsRef.current) {
                 gsap.fromTo(tabsRef.current,
                     { x: -50, opacity: 0 },
@@ -296,18 +288,43 @@ const AISolutionsShowcase = () => {
                     <motion.div 
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false }}
                         className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-badge-bg text-brand-badge-text text-sm font-bold tracking-wide mb-6 border border-[#c4e0d4]/50"
                     >
                         <span className="text-lg leading-none">✨</span> AI SOLUTIONS
                     </motion.div>
                     
-                    <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] mb-6 leading-[1.15] tracking-[-0.01em]">
-                        Our AI Business Solutions
-                    </h2>
-                    <p className="text-lg text-gray-500 max-w-2xl mx-auto font-medium">
+                    <div className="flex flex-col items-center">
+                        <SplitTextReveal
+                            as="h2"
+                            className="font-serif text-3xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-[1.1] tracking-[-0.01em] whitespace-nowrap"
+                            type="chars"
+                            stagger={0.03}
+                            once={false}
+                        >
+                            Our AI Business
+                        </SplitTextReveal>
+                        <SplitTextReveal
+                            as="h2"
+                            className="font-serif text-3xl md:text-5xl lg:text-6xl text-[#2D6A4F] mb-6 leading-[1.1] tracking-[-0.01em] whitespace-nowrap"
+                            type="chars"
+                            stagger={0.03}
+                            once={false}
+                            delay={0.3}
+                        >
+                            Solutions
+                        </SplitTextReveal>
+                    </div>
+                    <SplitTextReveal
+                        as="p"
+                        className="text-lg text-gray-500 max-w-2xl mx-auto font-medium"
+                        type="words"
+                        stagger={0.02}
+                        once={false}
+                        delay={0.3}
+                    >
                         AI Agents and agentic workflows that embed AI where the value is.
-                    </p>
+                    </SplitTextReveal>
                 </div>
 
                 <div className="max-w-7xl mx-auto">
