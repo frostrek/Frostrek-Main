@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, PhoneOff, Mic, MicOff, Volume2, Loader2, Sparkles } from 'lucide-react';
 
-const API_KEY = "frsty_dbd5f199b86c457db63723afcf9a523b";
+const API_KEY = import.meta.env.VITE_FROSTREK_BOT_API_KEY || "";
 
 interface VoiceCallWidgetProps {
     onCallStateChange?: (isActive: boolean) => void;

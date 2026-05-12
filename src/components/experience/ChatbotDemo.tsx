@@ -130,7 +130,7 @@ const ChatbotDemo: React.FC = () => {
                     method: 'POST',
                     headers: { 
                         'Content-Type': 'application/json',
-                        'x-api-key': 'frsty_dbd5f199b86c457db63723afcf9a523b'
+                        'x-api-key': import.meta.env.VITE_FROSTREK_BOT_API_KEY || ''
                     },
                     body: JSON.stringify({
                         message: textInput,
