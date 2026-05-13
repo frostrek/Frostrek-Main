@@ -121,16 +121,16 @@ const Footer = () => {
             <div className="lg:col-span-3 space-y-6">
               <div className="space-y-4">
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-3 group">
-                    <Link to="/" className="flex items-center gap-3">
-                      <img
-                        src="/logonew.png"
-                        alt="Frostrek Logo"
-                        className="h-9 w-auto transition-transform group-hover:scale-110"
-                      />
-                      <FlipText className="text-[1.35rem] font-black font-serif tracking-tighter text-[#2D6A4F]">
-                        FROSTREK
-                      </FlipText>
-                    </Link>
+                  <Link to="/" className="flex items-center gap-3">
+                    <img
+                      src="/logonew.png"
+                      alt="Frostrek Logo"
+                      className="h-9 w-auto transition-transform group-hover:scale-110"
+                    />
+                    <FlipText className="text-[1.35rem] font-black font-serif tracking-tighter text-[#2D6A4F]">
+                      frostrek.ai
+                    </FlipText>
+                  </Link>
                   {/* ISO Badges */}
                   <div className="flex items-center gap-2">
                     <div className="iso-badge px-2.5 py-1 border rounded bg-white border-[#E6EFE6] text-[10px] font-bold tracking-wide text-[#2D6A4F] shadow-sm">
