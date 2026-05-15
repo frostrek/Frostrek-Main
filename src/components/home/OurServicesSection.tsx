@@ -1,6 +1,5 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Users, BrainCircuit, Blocks, Bot, Server, Cog, Factory } from 'lucide-react';
 import SplitTextReveal from '../ui/SplitTextReveal';
 
 const SERVICES = [
@@ -8,43 +7,43 @@ const SERVICES = [
         id: 'talent',
         title: 'AI Talent Acquisition & Deployment',
         description: 'Identify and place experienced AI professionals who align precisely with your project goals, technical needs, and delivery schedules.',
-        icon: Users,
+        image: '/images/services/ai_talent.png',
     },
     {
         id: 'training',
         title: 'AI Model Training & Optimization',
         description: 'Improve AI model outcomes through expert-led training, fine-tuning, and real-world validation for consistent accuracy and impact.',
-        icon: BrainCircuit,
+        image: '/images/services/ai_training.png',
     },
     {
         id: 'development',
         title: 'Tailored AI Development Solutions',
         description: 'Create custom-built AI systems designed to solve complex business problems with scalable, dependable, and efficient architectures.',
-        icon: Blocks,
+        image: '/images/services/ai_tailored.png',
     },
     {
         id: 'agents',
         title: 'AI Agents & Autonomous Systems',
         description: 'Build intelligent AI agents capable of independent reasoning, decision-making, and task execution across operational workflows.',
-        icon: Bot,
+        image: '/images/services/ai_agents.png',
     },
     {
         id: 'platform',
         title: 'AI Platform Development',
         description: 'Build production-ready applications and platforms that seamlessly embed AI into everyday business operations.',
-        icon: Server,
+        image: '/images/services/ai_platform.png',
     },
     {
         id: 'automation',
         title: 'Workflow Automation & Integration',
         description: 'Integrate AI into organizational processes to automate workflows, enhance efficiency, and enable seamless coordination.',
-        icon: Cog,
+        image: '/images/services/ai_automation.png',
     },
     {
         id: 'manufacturing',
         title: 'Manufacturing Intelligence',
         description: 'Real-time visibility across your entire operation. AI scheduling that recovers lost production without replacing existing systems.',
-        icon: Factory,
+        image: '/images/services/ai_manufacturing.png',
     }
 ];
 
@@ -94,7 +93,6 @@ const OurServicesSection = () => {
                 {/* Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6">
                     {SERVICES.map((service, index) => {
-                        const Icon = service.icon;
                         const isBottomRow = index >= 4;
                         const lgCol = isBottomRow ? "lg:col-span-4" : "lg:col-span-3";
 
@@ -104,25 +102,34 @@ const OurServicesSection = () => {
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                                className={`group relative p-8 rounded-3xl bg-white border border-[#E6EFE6] hover:border-[#C8E6DA] hover:shadow-[0_20px_50px_rgba(45,106,79,0.08)] transition-all duration-500 flex flex-col h-full overflow-hidden md:col-span-1 ${lgCol}`}
+                                className={`group relative rounded-3xl bg-white border border-[#E6EFE6] shadow-[0_4px_20px_rgba(51,107,85,0.08)] hover:border-[#C8E6DA] hover:shadow-[0_12px_40px_rgba(51,107,85,0.2)] transition-all duration-500 flex flex-col h-full overflow-hidden md:col-span-1 ${lgCol}`}
                             >
-                                {/* Hover background effect */}
-                                <div className="absolute inset-0 bg-gradient-to-br from-[#F4FAF7] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                                <div className="relative z-10 flex flex-col h-full">
-                                    <div className="relative mb-8 self-start">
-                                        {/* Glow effect */}
-                                        <div className="absolute inset-0 bg-[#2D6A4F] blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-500 rounded-full" />
-                                        <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-[#E8F5EE] to-[#C8E6DA] border border-[#C8E6DA] flex items-center justify-center group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-500 shadow-inner">
-                                            <Icon className="w-8 h-8 text-[#2D6A4F]" />
-                                        </div>
-                                    </div>
 
-                                    <h3 className="font-serif text-[22px] font-bold text-[#2D6A4F] mb-4 leading-[1.3]">
+                                {/* Image with gradient overlay */}
+                                <div className="relative w-full h-44 overflow-hidden flex-shrink-0">
+                                    <img
+                                        src={service.image}
+                                        alt={service.title}
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                        loading="lazy"
+                                    />
+                                    {/* Gradient overlay: image fades into white card */}
+                                    <div
+                                        className="absolute inset-0 pointer-events-none"
+                                        style={{
+                                            background: 'linear-gradient(to bottom, transparent 0%, transparent 30%, rgba(255,255,255,0.4) 55%, rgba(255,255,255,0.85) 75%, #ffffff 100%)',
+                                        }}
+                                    />
+                                </div>
+
+                                {/* Text content */}
+                                <div className="relative z-10 flex flex-col flex-1 px-7 pb-7 pt-2">
+                                    <h3 className="font-serif text-[22px] font-bold text-[#2D6A4F] mb-3 leading-[1.3]">
                                         {service.title}
                                     </h3>
 
-                                    <p className="text-gray-500 text-[15px] leading-[1.6] font-medium mb-6 flex-1">
+                                    <p className="text-gray-500 text-[15px] leading-[1.6] font-medium flex-1">
                                         {service.description}
                                     </p>
                                 </div>

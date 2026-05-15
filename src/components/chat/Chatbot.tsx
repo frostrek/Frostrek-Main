@@ -475,10 +475,13 @@ const Chatbot: React.FC = () => {
                 .ai-copilot-chat {
                     touch-action: pan-y !important;
                     pointer-events: auto !important;
-                    font-family: 'Quicksand', sans-serif;
+                    font-family: 'Raleway', sans-serif;
                 }
                 .ai-copilot-button:hover {
                     background-color: ${COLORS.primaryDark} !important;
+                }
+                .ai-copilot-button-style {
+                    font-family: 'Raleway', sans-serif;
                 }
                 .ai-copilot-suggestion {
                     background-color: white;
@@ -490,7 +493,7 @@ const Chatbot: React.FC = () => {
                     font-weight: 600;
                     cursor: pointer;
                     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-                    font-family: 'Quicksand', sans-serif;
+                    font-family: 'Raleway', sans-serif;
                 }
                 .ai-copilot-suggestion:hover {
                     background-color: ${COLORS.primary};

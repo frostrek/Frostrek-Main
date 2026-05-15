@@ -74,7 +74,7 @@ export default {
             },
             fontFamily: {
                 sans: ['Raleway', 'system-ui', 'sans-serif'],
-                body: ['Quicksand', 'system-ui', 'sans-serif'],
+                body: ['Raleway', 'system-ui', 'sans-serif'],
                 serif: ['Playfair Display', 'serif'],
             },
 
