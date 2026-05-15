@@ -7,10 +7,8 @@ import {
     Bot, Mic, MessageSquare, Database, BarChart,
     ShoppingCart, Headset, Server, TrendingUp,
     Linkedin, Users, Trophy, Factory,
-    Mail, FileText, Share2, Globe, PenTool, Search, UserPlus, Brain, ArrowRight,
-    Sparkles
+    Mail, FileText, Share2, Globe, PenTool, Search, UserPlus, Brain, ArrowRight
 } from 'lucide-react';
-import FlipText from '../ui/FlipText';
 
 const iconMap: Record<string, React.FC<any>> = {
     Bot, Mic, MessageSquare, Database, BarChart,
