@@ -5,8 +5,6 @@ import { Plus, Minus, Rocket, ArrowRight, BadgeCheck } from 'lucide-react';
 import { PRODUCT_DATA } from '../utils/productData';
 import Card from '../components/ui/Card';
 import CuteBackground from '../components/ui/CuteBackground';
-import { ImpactMetrics } from '../components/product/ImpactMetrics';
-import { WorkflowBuilder } from '../components/product/WorkflowBuilder';
 import { CapabilitiesSystem } from '../components/product/CapabilitiesSystem';
 import ProductHero from '../components/product/ProductHero';
 import AllProductsSection from '../components/product/AllProductsSection';
@@ -82,45 +80,6 @@ const ProductPage = () => {
             {/* 2. All Products Section - Showcases all available products */}
             {location.pathname === '/products' && <AllProductsSection />}
 
-            {/* 2. Stats Section - "Turn Efficiency into Profit" */}
-            <section className="py-24 relative z-10 bg-gradient-to-b from-[#E8F5EE]/20 to-white border-t border-b border-[#2D6A4F]/10">
-                <div className="container mx-auto px-4 md:px-6">
-                    <div className="text-center mb-16 space-y-4">
-                        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E8F5EE] border border-[#2D6A4F]/20">
-                            <span className="text-xs font-extrabold uppercase tracking-widest text-[#2D6A4F]">Impact</span>
-                        </div>
-                        <h2 className="text-4xl md:text-5xl font-serif font-black text-gray-900 leading-tight">
-                            Turn Efficiency into Profit
-                        </h2>
-                        <p className="max-w-2xl mx-auto text-base sm:text-lg text-slate-600 font-medium">
-                            Real results from companies that switched to {product.title}.
-                        </p>
-                    </div>
-
-                    <div className="mt-12">
-                        <ImpactMetrics statistics={product.statistics || []} />
-                    </div>
-                </div>
-            </section>
-
-            {/* 3. Workflow / Process Section - SIMPLIFY YOUR WORKFLOW */}
-            <section className="py-24 relative overflow-hidden z-10 bg-white">
-                <div className="container mx-auto px-4 md:px-6 relative z-10">
-                    <div className="text-center mb-16 space-y-4">
-                        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E8F5EE] border border-[#2D6A4F]/20">
-                            <span className="text-xs font-extrabold uppercase tracking-widest text-[#2D6A4F]">Workflow</span>
-                        </div>
-                        <h2 className="text-4xl md:text-5xl font-serif font-black text-gray-900 leading-tight">
-                            Simplify Your Workflow
-                        </h2>
-                        <p className="max-w-2xl mx-auto text-base sm:text-lg text-slate-600 font-medium">
-                            From concept to execution, we streamline every step.
-                        </p>
-                    </div>
-
-                    <WorkflowBuilder steps={product.process || []} />
-                </div>
-            </section>
 
             {/* 4. Experience Zone / Capabilities */}
             <section className="py-24 overflow-hidden z-10 bg-[#F9FBFA]/80 border-t border-[#2D6A4F]/10">

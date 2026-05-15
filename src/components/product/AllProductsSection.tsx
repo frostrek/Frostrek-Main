@@ -101,11 +101,12 @@ const products: Product[] = [
 ];
 
 // Animated Product Card with Hover Expansions
-const ProductCard = ({ product, index, isActive, onClick }: {
+const ProductCard = ({ product, index, isActive, onMouseEnter, onMouseLeave }: {
     product: Product;
     index: number;
     isActive: boolean;
-    onClick: () => void;
+    onMouseEnter: () => void;
+    onMouseLeave: () => void;
 }) => {
     const IconComponent = product.icon as any;
     const ref = useRef(null);
@@ -117,7 +118,8 @@ const ProductCard = ({ product, index, isActive, onClick }: {
             initial={{ opacity: 0, y: 40 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            onClick={onClick}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
             className={`relative cursor-pointer group ${isActive ? 'z-20' : 'z-10'}`}
         >
             {/* Card */}
@@ -352,8 +354,9 @@ const AllProductsSection = () => {
                                     initial={{ opacity: 0, y: 40 }}
                                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                                     transition={{ duration: 0.6, delay: idx * 0.12 }}
-                                    onClick={() => setActiveProduct(isActive ? null : product.id)}
-                                    className="cursor-pointer group"
+                                    onMouseEnter={() => setActiveProduct(product.id)}
+                                    onMouseLeave={() => setActiveProduct(null)}
+                                    className={`relative cursor-pointer group ${isActive ? 'z-20' : 'z-10'}`}
                                 >
                                     {/* FIXED: pure white card with glowing emerald border instead of dark-black box */}
                                     <div className={`relative overflow-hidden rounded-2xl border-2 transition-all duration-500 bg-white ${
@@ -456,7 +459,8 @@ const AllProductsSection = () => {
                                 {coreProducts.map((product, idx) => (
                                     <div key={product.id}>
                                         <ProductCard product={product} index={idx} isActive={activeProduct === product.id}
-                                            onClick={() => setActiveProduct(activeProduct === product.id ? null : product.id)} />
+                                            onMouseEnter={() => setActiveProduct(product.id)}
+                                            onMouseLeave={() => setActiveProduct(null)} />
                                         {idx < coreProducts.length - 1 && <ConnectionLine isVisible={activeProduct === product.id} />}
                                     </div>
                                 ))}
@@ -473,7 +477,8 @@ const AllProductsSection = () => {
                                 {enterpriseProducts.map((product, idx) => (
                                     <div key={product.id}>
                                         <ProductCard product={product} index={idx + 3} isActive={activeProduct === product.id}
-                                            onClick={() => setActiveProduct(activeProduct === product.id ? null : product.id)} />
+                                            onMouseEnter={() => setActiveProduct(product.id)}
+                                            onMouseLeave={() => setActiveProduct(null)} />
                                         {idx < enterpriseProducts.length - 1 && <ConnectionLine isVisible={activeProduct === product.id} />}
                                     </div>
                                 ))}

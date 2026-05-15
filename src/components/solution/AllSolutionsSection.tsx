@@ -75,9 +75,8 @@ const SolutionCard = ({ solution, index, isActive, onClick }: {
             {/* Card */}
             <motion.div
                 layout
-                className={`relative overflow-hidden rounded-2xl border transition-all duration-500 bg-white border-gray-150 ${
-                    isActive ? 'border-[#2D6A4F] shadow-2xl shadow-[#2D6A4F]/10' : 'hover:border-[#2D6A4F]/35 hover:shadow-xl'
-                }`}
+                className={`relative overflow-hidden rounded-2xl border transition-all duration-500 bg-white border-gray-150 ${isActive ? 'border-[#2D6A4F] shadow-2xl shadow-[#2D6A4F]/10' : 'hover:border-[#2D6A4F]/35 hover:shadow-xl'
+                    }`}
             >
                 {/* Animated Background Gradient */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-[#E8F5EE]/40 to-transparent" />

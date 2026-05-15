@@ -17,6 +17,7 @@ const SolutionPage = lazy(() => import('./pages/SolutionPage'));
 const ExperiencePage = lazy(() => import('./pages/ExperiencePage'));
 const ResourcesPage = lazy(() => import('./pages/ResourcesPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
+const FrostyPage = lazy(() => import('./pages/FrostyPage'));
 
 // Lazy load Chatbot to improve LCP - defers 705KB GIF and JS bundle
 const Chatbot = lazy(() => import('./components/chat/Chatbot'));
@@ -50,6 +51,7 @@ function App() {
                   <Route path="/" element={<Home />} />
                   <Route path="/schedule-demo" element={<ScheduleDemo />} />
                   <Route path="/products/hiyring" element={<HiyringPage />} />
+                  <Route path="/products/frosty-ai" element={<FrostyPage />} />
                   <Route path="/products/*" element={<ProductPage />} />
                   <Route path="/solutions/*" element={<SolutionPage />} />
 

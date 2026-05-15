@@ -113,24 +113,24 @@ const Footer = () => {
       {/* Footer */}
       <footer
         ref={footerRef}
-        className={`border-t pt-16 pb-8 transition-colors duration-300 font-sans ${isVisible ? 'footer-revealed' : 'opacity-0'} bg-[#F8FAF9] border-[#E6EFE6]`}
+        className={`border-t pt-8 pb-4 transition-colors duration-300 font-sans ${isVisible ? 'footer-revealed' : 'opacity-0'} bg-[#F8FAF9] border-[#E6EFE6]`}
       >
         <div className="container mx-auto px-4 md:px-6 max-w-[1400px]">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 mb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 mb-6">
             {/* Brand & Info (Left - Uses 3/12 cols) */}
             <div className="lg:col-span-3 space-y-6">
               <div className="space-y-4">
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-3 group">
-                    <Link to="/" className="flex items-center gap-3">
-                      <img
-                        src="/logonew.png"
-                        alt="Frostrek Logo"
-                        className="h-9 w-auto transition-transform group-hover:scale-110"
-                      />
-                      <FlipText className="text-[1.35rem] font-black font-serif tracking-tighter text-[#2D6A4F]">
-                        FROSTREK
-                      </FlipText>
-                    </Link>
+                  <Link to="/" className="flex items-center gap-3">
+                    <img
+                      src="/logonew.png"
+                      alt="Frostrek Logo"
+                      className="h-9 w-auto transition-transform group-hover:scale-110"
+                    />
+                    <FlipText className="text-[1.35rem] font-black font-serif tracking-tighter text-[#2D6A4F]">
+                      FROSTREK
+                    </FlipText>
+                  </Link>
                   {/* ISO Badges */}
                   <div className="flex items-center gap-2">
                     <div className="iso-badge px-2.5 py-1 border rounded bg-white border-[#E6EFE6] text-[10px] font-bold tracking-wide text-[#2D6A4F] shadow-sm">
@@ -142,7 +142,7 @@ const Footer = () => {
                   </div>
                 </div>
 
-                <p className="text-[15px] leading-relaxed max-w-sm text-gray-500 font-medium">
+                <p className="text-[13px] leading-relaxed max-w-sm text-gray-500 font-medium">
                   Empowering industries through AI, automation, and innovation - one intelligent solution at a time.
                 </p>
               </div>
@@ -160,11 +160,11 @@ const Footer = () => {
             <div className="lg:col-span-9 grid grid-cols-2 md:grid-cols-4 gap-8">
               {/* Products */}
               <div className="space-y-4">
-                <h4 className="section-title font-bold mb-3 text-xs uppercase tracking-widest text-[#2D6A4F]">Products</h4>
-                <ul className="space-y-3">
+                <h4 className="section-title font-bold text-xs uppercase tracking-widest text-[#2D6A4F]">Products</h4>
+                <ul className="space-y-1.5">
                   {NAV_ITEMS.find(n => n.label === 'Products')?.megaMenu?.flatMap(s => s.items).slice(0, 5).map(item => (
                     <li key={item.name}>
-                      <Link to={item.href} className="footer-link text-[15px] font-medium text-gray-500 hover:text-[#2D6A4F] group">
+                      <Link to={item.href} className="footer-link text-[13px] font-medium text-gray-500 hover:text-[#2D6A4F] group">
                         <FlipText>{item.name}</FlipText>
                       </Link>
                     </li>
@@ -174,38 +174,33 @@ const Footer = () => {
 
               {/* Solutions */}
               <div className="space-y-4">
-                <h4 className="section-title font-bold mb-3 text-xs uppercase tracking-widest text-[#2D6A4F]">Solutions</h4>
-                <ul className="space-y-3">
+                <h4 className="section-title font-bold text-xs uppercase tracking-widest text-[#2D6A4F]">Solutions</h4>
+                <ul className="space-y-1.5">
                   {NAV_ITEMS.find(n => n.label === 'Solutions')?.megaMenu?.flatMap(s => s.items).map(item => (
                     <li key={item.name}>
-                      <Link to={item.href} className="footer-link text-[15px] font-medium text-gray-500 hover:text-[#2D6A4F] group">
+                      <Link to={item.href} className="footer-link text-[13px] font-medium text-gray-500 hover:text-[#2D6A4F] group">
                         <FlipText>{item.name}</FlipText>
                       </Link>
                     </li>
                   ))}
-                  <li>
-                    <a href="https://frostrek.com/" target="_blank" rel="noopener noreferrer" className="footer-link text-[15px] font-medium text-gray-500 hover:text-[#2D6A4F] group">
-                      <FlipText>AI Training</FlipText>
-                    </a>
-                  </li>
                 </ul>
               </div>
 
               {/* Company */}
               <div className="space-y-4">
-                <h4 className="section-title font-bold mb-3 text-xs uppercase tracking-widest text-[#2D6A4F]">Company</h4>
-                <ul className="space-y-3">
-                  <li><Link to="/about" className="footer-link text-[15px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>About Us</FlipText></Link></li>
-                  <li><Link to="/experience" className="footer-link text-[15px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>Experience</FlipText></Link></li>
-                  <li><Link to="/resources" className="footer-link text-[15px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>Resources</FlipText></Link></li>
-                  <li><Link to="/schedule-demo" className="footer-link text-[15px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>Schedule Demo</FlipText></Link></li>
-                  <li><Link to="/contact" className="footer-link text-[15px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>Contact</FlipText></Link></li>
+                <h4 className="section-title font-bold text-xs uppercase tracking-widest text-[#2D6A4F]">Company</h4>
+                <ul className="space-y-1.5">
+                  <li><Link to="/about" className="footer-link text-[13px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>About Us</FlipText></Link></li>
+                  <li><Link to="/experience" className="footer-link text-[13px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>Experience</FlipText></Link></li>
+                  <li><Link to="/resources" className="footer-link text-[13px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>Resources</FlipText></Link></li>
+                  <li><Link to="/schedule-demo" className="footer-link text-[13px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>Schedule Demo</FlipText></Link></li>
+                  <li><Link to="/contact" className="footer-link text-[13px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>Contact</FlipText></Link></li>
                 </ul>
               </div>
 
               {/* Connect (Map only) */}
               <div className="space-y-4">
-                <h4 className="font-bold mb-3 text-xs uppercase tracking-widest text-[#2D6A4F]">Location</h4>
+                <h4 className="font-bold text-xs uppercase tracking-widest text-[#2D6A4F]">Location</h4>
 
                 {/* Embedded Map */}
                 <div ref={locationRef} onClick={handleLocationClick} className="relative w-full h-40 md:h-48 rounded-2xl overflow-hidden shadow-sm border border-[#E6EFE6] bg-gray-50 hover:shadow-md cursor-pointer transition-all duration-300 group hover:border-[#2D6A4F]/20">
@@ -234,7 +229,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="text-center pt-8 border-t border-[#E6EFE6] text-sm font-medium text-gray-400">
+          <div className="text-center pt-4 border-t border-[#E6EFE6] text-sm font-medium text-gray-400">
             &copy; {currentYear} {COMPANY_INFO.name}. All rights reserved.
           </div>
         </div>
