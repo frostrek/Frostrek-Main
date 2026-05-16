@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ChevronRight, Activity, Zap, Rocket } from 'lucide-react';
+import { ChevronRight, Activity, Zap } from 'lucide-react';
 import Button from '../ui/Button';
 import SplitTextReveal from '../ui/SplitTextReveal';
 

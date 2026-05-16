@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 import SplitTextReveal from '../ui/SplitTextReveal';
 import { Sparkles } from 'lucide-react';
 
@@ -58,7 +58,7 @@ const SERVICES = [
 
 const OurServicesSection = () => {
     const sectionRef = useRef(null);
-    const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
+
 
     return (
         <section ref={sectionRef} className="relative py-32 overflow-hidden bg-white font-body">
