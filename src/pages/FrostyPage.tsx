@@ -107,11 +107,11 @@ const FrostyPage = () => {
             {/* 3. Omni-Channel Flow */}
             <OmniChannelFlow />
 
-            {/* 4. Smart Handover */}
-            <SmartHandover />
-
             {/* 4.5 How It Works */}
             <HowItWorks />
+
+            {/* 4. Smart Handover */}
+            <SmartHandover />
 
             {/* 5. ROI Widget */}
             <ROIWidget />
@@ -179,7 +179,7 @@ const FrostyPage = () => {
                                 once={false}
                             >
                                 Frequently Asked Questions
-                              </SplitTextReveal>
+                            </SplitTextReveal>
                         </div>
                         <div ref={faqRef} className="space-y-4">
                             {product.faq.map((item, idx) => (

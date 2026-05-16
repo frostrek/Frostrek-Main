@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
-import { XCircle, CheckCircle2, ArrowRight } from 'lucide-react';
+import { XCircle, CheckCircle2, ArrowRight, Sparkles } from 'lucide-react';
 import SplitTextReveal from '../ui/SplitTextReveal';
+
 
 // ─── Exact observe.ai arrow SVG ─────────────────────────────────────────────
 const CurlyArrow = ({ className = '' }: { className?: string }) => (
@@ -44,15 +45,16 @@ const ImpactComparison = () => {
         <section className="py-24 bg-brand-light-bg font-sans overflow-hidden border-y border-[#E6EFE6]/50">
             <div className="max-w-[1400px] mx-auto px-4 md:px-6">
                 <div className="text-center mb-20">
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: false }}
                         className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-badge-bg text-brand-badge-text text-xs md:text-sm font-bold tracking-wide mb-6 border border-[#c4e0d4]/50"
                     >
-                        <span className="text-base md:text-lg leading-none">📈</span> AI-DRIVEN OUTCOMES
+                        <Sparkles className="w-3.5 h-3.5 text-[#2D6A4F]" />
+                        <span className="text-[#2D6A4F] text-xs font-bold uppercase tracking-widest">AI-DRIVEN OUTCOMES</span>
                     </motion.div>
-                    
+
                     <div className="flex flex-col items-center justify-center mb-6">
                         <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-5">
                             <SplitTextReveal
@@ -64,7 +66,7 @@ const ImpactComparison = () => {
                             >
                                 AI-Driven Outcomes
                             </SplitTextReveal>
-                            
+
                             {/* Curly arrow — slides in from left after text */}
                             <motion.div
                                 initial={{ opacity: 0, x: -20, rotate: -15 }}
@@ -102,7 +104,7 @@ const ImpactComparison = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 md:gap-8">
                     {COMPARISONS.map((item, i) => (
-                        <motion.div 
+                        <motion.div
                             key={i}
                             initial={{ opacity: 0, y: 40 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -121,14 +123,14 @@ const ImpactComparison = () => {
                                     {item.before}
                                 </p>
                             </div>
-                            
+
                             {/* Middle Connector Pivot */}
                             <div className="h-0 relative z-10 flex justify-center">
                                 <div className="w-10 h-10 rounded-full bg-white border border-[#E6EFE6] shadow-[0_4px_10px_rgba(0,0,0,0.03)] flex items-center justify-center -translate-y-5 group-hover:rotate-90 group-hover:scale-110 transition-all duration-500">
                                     <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-[#20A88D] transition-colors" />
                                 </div>
                             </div>
-                            
+
                             {/* After Card */}
                             <div className="bg-[#2D6A4F] p-6 md:p-8 rounded-b-3xl border border-[#2D6A4F] relative overflow-hidden flex-1 min-h-[180px] shadow-lg shadow-[#2D6A4F]/10 transition-transform duration-500 group-hover:-translate-y-2">
                                 <div className="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full blur-[40px] -mr-12 -mt-12 group-hover:bg-white/10 transition-colors duration-500" />

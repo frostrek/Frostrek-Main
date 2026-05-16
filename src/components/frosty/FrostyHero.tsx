@@ -33,7 +33,7 @@ const FrostyHero = () => {
     }, { scope: sectionRef });
 
     return (
-        <section ref={sectionRef} className="relative min-h-[80vh] flex items-center pt-32 pb-20 overflow-hidden bg-transparent font-body z-10">
+        <section ref={sectionRef} className="relative min-h-[80vh] flex items-center pt-32 pb-20 overflow-hidden bg-[#F9FBFA]/50 font-body z-10">
 
             {/* Content Container */}
             <div className="container mx-auto px-4 md:px-6 relative z-10 flex flex-col items-center text-center">
@@ -84,17 +84,8 @@ const FrostyHero = () => {
                 >
                     <Button
                         size="lg"
-                        onClick={() => window.location.href = '/contact'}
-                        className="font-extrabold rounded-2xl px-8 h-14 text-base shadow-lg transition-all duration-300 flex items-center gap-2 bg-[#2D6A4F] text-white hover:bg-[#1B4332] hover:shadow-xl hover:shadow-[#2D6A4F]/25 cursor-pointer border-none"
-                    >
-                        <Rocket className="w-5 h-5 text-white" />
-                        Deploy in 5 Minutes
-                    </Button>
-                    <Button
-                        size="lg"
-                        variant="ghost"
                         onClick={() => window.location.href = '/schedule-demo'}
-                        className="rounded-2xl px-8 h-14 text-base border bg-white border-gray-200 text-gray-700 hover:border-gray-400 hover:bg-gray-50 transition-all font-extrabold cursor-pointer"
+                        className="font-extrabold rounded-2xl px-8 h-14 text-base shadow-lg transition-all duration-300 flex items-center gap-2 bg-[#2D6A4F] text-white hover:bg-[#1B4332] hover:shadow-xl hover:shadow-[#2D6A4F]/25 cursor-pointer border-none"
                     >
                         Schedule a Demo
                     </Button>
@@ -102,36 +93,36 @@ const FrostyHero = () => {
 
                 {/* Animated Dashboard Card */}
                 <div ref={dashboardRef} className="w-full max-w-4xl mx-auto opacity-0">
-                    <div className="relative rounded-[2rem] bg-white border border-[#E6EFE6] shadow-[0_20px_60px_rgba(45,106,79,0.08)] overflow-hidden">
+                    <div className="relative rounded-[2rem] bg-white border border-[#E6EFE6] shadow-[0_50px_120px_rgba(45,106,79,0.15)] overflow-hidden">
                         {/* Dashboard Header */}
                         <div className="h-12 bg-[#F4F9F6] border-b border-[#E6EFE6] flex items-center px-5 gap-2">
                             <div className="flex gap-1.5">
-                                <div className="w-3 h-3 rounded-full bg-red-300"></div>
-                                <div className="w-3 h-3 rounded-full bg-amber-300"></div>
-                                <div className="w-3 h-3 rounded-full bg-green-300"></div>
+                                <div className="w-3 h-3 rounded-full bg-[#FF5F57] shadow-inner"></div>
+                                <div className="w-3 h-3 rounded-full bg-[#FFBD2E] shadow-inner"></div>
+                                <div className="w-3 h-3 rounded-full bg-[#28C840] shadow-inner"></div>
                             </div>
-                            <div className="ml-4 px-3 py-1 bg-white border border-[#E6EFE6] rounded-md text-xs font-bold text-[#2D6A4F] flex items-center gap-2">
+                            <div className="ml-4 px-3 py-1 bg-white border border-[#E6EFE6] rounded-md text-[10px] font-bold text-[#2D6A4F] flex items-center gap-2 uppercase tracking-wider">
                                 <Activity className="w-3 h-3 text-[#2D6A4F]" /> Live Transcription
                             </div>
                         </div>
 
                         {/* Dashboard Body */}
-                        <div className="p-6 md:p-8 bg-white min-h-[260px] flex flex-col gap-4 font-body text-sm">
-                            <TranscriptionLine delay={0.5} speaker="User" text="I need help tracking my recent order." />
-                            <TranscriptionLine delay={1.8} speaker="Frosty AI" text="I can help with that! Can you provide your order number?" isAgent />
-                            <TranscriptionLine delay={3.5} speaker="User" text="Sure, it's ORD-99231-X." />
+                        <div className="p-6 md:p-10 bg-white min-h-[280px] flex flex-col gap-5 font-body text-sm">
+                            <TranscriptionLine delay={0.4} speaker="User" text="I need help tracking my recent order." />
+                            <TranscriptionLine delay={1.2} speaker="Frosty AI" text="I can help with that! Can you provide your order number?" isAgent />
+                            <TranscriptionLine delay={2.0} speaker="User" text="Sure, it's ORD-99231-X." />
 
                             {/* Analyzing State */}
                             <motion.div
-                                className="flex items-center gap-3 text-xs text-gray-400 mt-2"
+                                className="flex items-center gap-3 text-xs text-gray-400 mt-2 pl-1"
                                 initial={{ opacity: 0 }}
-                                animate={{ opacity: [0, 1, 0] }}
-                                transition={{ delay: 4.5, duration: 1.5, repeat: Infinity }}
+                                animate={{ opacity: [0, 1, 0.5, 1, 0] }}
+                                transition={{ delay: 2.8, duration: 1.2, repeat: Infinity }}
                             >
-                                <Zap className="w-4 h-4 text-[#2D6A4F]" /> Analyzing intent & fetching shipping data...
+                                <Zap className="w-4 h-4 text-[#2D6A4F] animate-pulse" /> Analyzing intent & fetching shipping data...
                             </motion.div>
 
-                            <TranscriptionLine delay={6.0} speaker="Frosty AI" text="Found it! Your order is currently out for delivery and will arrive by 4:00 PM today." isAgent />
+                            <TranscriptionLine delay={3.2} speaker="Frosty AI" text="Found it! Your order is currently out for delivery and will arrive by 4:00 PM today." isAgent />
                         </div>
                     </div>
                 </div>
@@ -146,16 +137,16 @@ const FrostyHero = () => {
 const TranscriptionLine = ({ delay, speaker, text, isAgent = false }: { delay: number, speaker: string, text: string, isAgent?: boolean }) => {
     return (
         <motion.div
-            className="flex flex-col gap-1"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay, duration: 0.4 }}
+            className={`flex flex-col gap-1.5 ${isAgent ? 'items-start' : 'items-start'}`}
+            initial={{ opacity: 0, y: 15, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ delay, duration: 0.5, ease: "easeOut" }}
         >
-            <span className={`text-xs font-bold ${isAgent ? 'text-[#2D6A4F]' : 'text-gray-400'}`}>
+            <span className={`text-[10px] font-black uppercase tracking-widest ml-1 ${isAgent ? 'text-[#2D6A4F]' : 'text-gray-400'}`}>
                 {speaker}
             </span>
-            <div className={`p-3 rounded-xl border ${isAgent ? 'bg-[#F4F9F6] border-[#E6EFE6] shadow-sm' : 'bg-gray-50 border-gray-100'}`}>
-                <span className="text-gray-600 font-medium">{text}</span>
+            <div className={`px-5 py-3.5 rounded-2xl border transition-all duration-300 ${isAgent ? 'bg-[#F4F9F6] border-[#2D6A4F]/10 text-[#2D6A4F] shadow-sm' : 'bg-gray-50/50 border-gray-100 text-gray-700'}`}>
+                <span className="font-medium leading-relaxed">{text}</span>
             </div>
         </motion.div>
     );

@@ -192,7 +192,7 @@ const ManufacturingDemo = () => {
         { name: 'Pharmaceuticals', metric: 'Batch traceability alerts' },
         { name: 'Chemicals', metric: 'Reactor monitoring' },
     ];
-    
+
     return (
         <div className="rounded-2xl p-4 h-[240px] bg-brand-light-bg border border-[#E6EFE6] overflow-hidden flex flex-col relative">
             <div className="flex items-center justify-between mb-3 bg-white p-3 rounded-xl border border-gray-100 shadow-sm z-10">
@@ -205,7 +205,7 @@ const ManufacturingDemo = () => {
                     <div className="text-[11px] font-bold text-gray-500">Cost/Unit: <span className="text-[#2D6A4F]">$1.24</span></div>
                 </div>
             </div>
-            
+
             <div className="space-y-2 flex-1 relative z-10">
                 {industries.map((ind, i) => (
                     <div key={i} className="flex items-center justify-between p-2.5 rounded-lg bg-white/80 border border-gray-100 backdrop-blur-sm shadow-sm animate-fade-in" style={{ animationDelay: `${i * 0.2}s` }}>
@@ -337,19 +337,20 @@ const AISolutionsShowcase = () => {
     return (
         <section ref={sectionRef} className="relative py-24 overflow-hidden bg-brand-light-bg font-sans">
             <div className="absolute top-20 right-10 w-[400px] h-[400px] bg-brand-badge-bg/50 rounded-full blur-[100px] pointer-events-none" />
-            
+
             <div className="max-w-[1400px] mx-auto px-4 md:px-6 relative z-10">
                 {/* Header */}
                 <div ref={headerRef} className="text-center mb-16">
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: false }}
                         className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-badge-bg text-brand-badge-text text-sm font-bold tracking-wide mb-6 border border-[#c4e0d4]/50"
                     >
-                        <span className="text-lg leading-none">✨</span> AI SOLUTIONS
+                        <Sparkles className="w-3.5 h-3.5 text-[#2D6A4F]" />
+                        <span className="text-[#2D6A4F] text-xs font-bold uppercase tracking-widest">AI Solutions</span>
                     </motion.div>
-                    
+
                     <div className="flex flex-col items-center">
                         <SplitTextReveal
                             as="h2"
@@ -534,7 +535,7 @@ const AISolutionsShowcase = () => {
                                             </div>
                                         ))}
                                     </div>
-                                    
+
                                     <div className="flex flex-col justify-center">
                                         <DemoComponent type={activeSolution.demo.type} />
                                     </div>

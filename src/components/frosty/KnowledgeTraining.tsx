@@ -85,8 +85,6 @@ const KnowledgeTraining = () => {
                 </div>
 
                 <div className="bg-white rounded-[2.5rem] shadow-[0_20px_60px_rgba(45,106,79,0.04)] border border-[#E6EFE6] p-6 md:p-10">
-                    <h3 className="text-xl font-serif font-bold text-center mb-8 text-[#2D6A4F]">Knowledge Ingestion & Training</h3>
-
                     {/* 3 Column Grid */}
                     <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
 
@@ -106,8 +104,7 @@ const KnowledgeTraining = () => {
                                 <p className="text-xs text-gray-500 text-center mb-6 flex-grow font-medium">Enter URLs to sync your site content and knowledge base in real-time.</p>
 
                                 <div className="space-y-3 w-full mt-auto">
-                                    <input type="text" placeholder="www.vedashi.com/faq" className="w-full text-sm border border-[#E6EFE6] rounded-xl px-3 py-2.5 bg-[#F4F9F6] focus:outline-none focus:ring-2 focus:ring-[#2D6A4F]/30 text-gray-600 font-medium" readOnly />
-                                    <button className="w-full bg-[#2D6A4F] text-white rounded-xl py-2.5 text-sm font-bold transition-colors hover:bg-[#1B4332]">Add Source</button>
+                                    <button className="w-full bg-[#2D6A4F] text-white rounded-xl py-2.5 text-sm font-bold transition-colors hover:bg-[#1B4332]">Source Added</button>
                                 </div>
                             </div>
                         </SpotlightCard>
@@ -128,9 +125,6 @@ const KnowledgeTraining = () => {
                                 <p className="text-xs text-gray-500 text-center mb-6 flex-grow font-medium">Upload PDFs, DOCXs, and other text documents.</p>
 
                                 <div className="space-y-3 w-full mt-auto">
-                                    <div className="w-full text-sm border border-dashed border-[#c4e0d4] rounded-xl px-3 py-2.5 bg-[#F4F9F6] text-gray-400 flex justify-between items-center font-medium">
-                                        File drop or zone.pdf <Upload className="w-4 h-4" />
-                                    </div>
                                     <button className="w-full bg-[#F4F9F6] text-[#2D6A4F] border border-[#E6EFE6] rounded-xl py-2.5 text-sm font-bold transition-colors hover:bg-[#E8F5EE]">Add Source</button>
                                 </div>
                             </div>
@@ -152,9 +146,6 @@ const KnowledgeTraining = () => {
                                 <p className="text-xs text-gray-500 text-center mb-6 flex-grow font-medium">Integrate with SQL databases and internal APIs.</p>
 
                                 <div className="space-y-3 w-full mt-auto">
-                                    <div className="w-full text-sm border border-[#E6EFE6] rounded-xl px-3 py-2.5 bg-[#F4F9F6] text-gray-400 flex justify-between items-center font-medium">
-                                        Integrate connection <Settings className="w-4 h-4" />
-                                    </div>
                                     <button className="w-full bg-[#F4F9F6] text-[#2D6A4F] border border-[#E6EFE6] rounded-xl py-2.5 text-sm font-bold transition-colors hover:bg-[#E8F5EE]">Add Source</button>
                                 </div>
                             </div>
