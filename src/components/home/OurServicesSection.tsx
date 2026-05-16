@@ -9,24 +9,28 @@ const SERVICES = [
         title: 'Custom Software Development',
         subtitle: 'Bring your ideas to life with stunning UI, seamless UX, and powerful performance—built for scale and everything in between.',
         description: 'Tailor-made tech to fit your business like a glove. We build the exact tools you need to grow smarter.',
+        image: '/images/custom_software_vibe.png',
         icon: <img src="/icons/custom dev.png" alt="Custom Software Development" className="w-10 h-10 object-contain" />,
         bgColor: 'bg-[#F0FDF4]', // Light Green
         textColor: 'text-black',
         borderColor: 'border-green-100',
         colSpan: 'md:col-span-2',
         rowSpan: 'row-span-1',
+        imagePos: 'right'
     },
     {
         id: 'agents',
         title: 'AI Agents & Autonomous Systems',
         subtitle: 'Leverage intelligent solutions that learn, adapt, and optimize. Smarter decisions, better outcomes.',
         description: 'Build intelligent AI agents capable of independent reasoning, decision-making, and task execution across operational workflows.',
+        image: '/images/ai_agents_white_collar.png',
         icon: <img src="/icons/ai.png" alt="AI Agents" className="w-10 h-10 object-contain" />,
         bgColor: 'bg-[#FFF7ED]', // Light Orange
         textColor: 'text-black',
         borderColor: 'border-orange-100',
         colSpan: 'md:col-span-1',
         rowSpan: 'md:row-span-2',
+        imagePos: 'bottom'
     },
     {
         id: 'automation',
@@ -97,30 +101,51 @@ const OurServicesSection = () => {
                             whileInView={{ opacity: 1, scale: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: index * 0.1 }}
-                            className={`${service.bgColor} ${service.colSpan} ${service.rowSpan} rounded-2xl border ${service.borderColor} p-8 md:p-10 flex flex-col relative overflow-hidden group hover:shadow-2xl hover:shadow-gray-200/50 transition-all duration-500`}
+                            className={`${service.bgColor} ${service.colSpan} ${service.rowSpan} rounded-3xl border ${service.borderColor} overflow-hidden group hover:shadow-2xl hover:shadow-gray-200/50 transition-all duration-500 flex flex-col`}
                         >
+                            <div className={`flex flex-col h-full ${service.imagePos === 'right' ? 'md:flex-row' : ''} ${service.imagePos === 'left' ? 'md:flex-row-reverse' : ''}`}>
 
-                            {/* Content */}
-                            <div className="relative z-10 flex flex-col h-full">
-                                <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-8 shadow-sm backdrop-blur-sm bg-white/50">
-                                    {service.icon}
+                                {/* Content Area */}
+                                <div className={`p-8 md:p-10 flex flex-col relative z-10 ${
+                                    service.imagePos === 'right' || service.imagePos === 'left' 
+                                        ? 'md:w-1/2 h-full' 
+                                        : 'w-full flex-grow basis-1/2'
+                                }`}>
+                                    <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-8 shadow-sm backdrop-blur-sm bg-white/50">
+                                        {service.icon}
+                                    </div>
+
+                                    <div>
+                                        <h3 className={`font-serif text-2xl md:text-3xl font-bold ${service.textColor} mb-4 leading-tight`}>
+                                            {service.title}
+                                        </h3>
+
+                                        <p className="text-gray-600 font-medium leading-relaxed max-w-prose">
+                                            {service.subtitle || service.description}
+                                        </p>
+                                    </div>
+
+                                    {/* Subtle Glass Highlight */}
+                                    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/20 to-transparent pointer-events-none" />
                                 </div>
 
-                                <div className={`max-w-${service.id === 'development' ? 'md' : 'full'}`}>
-                                    <h3 className={`font-serif text-2xl md:text-3xl font-bold ${service.textColor} mb-4 leading-tight`}>
-                                        {service.title}
-                                    </h3>
-
-                                    <p className="text-gray-600 font-medium mb-8 leading-relaxed max-w-prose">
-                                        {service.subtitle || service.description}
-                                    </p>
-                                </div>
-
-
+                                {/* Image Area */}
+                                {service.image && (
+                                    <div className={`relative overflow-hidden ${
+                                        service.imagePos === 'right' || service.imagePos === 'left' 
+                                            ? 'md:w-1/2 h-64 md:h-full' 
+                                            : 'w-full flex-grow basis-1/2 min-h-[300px]'
+                                    }`}>
+                                        <div className={`absolute inset-0 p-4 md:p-6 h-full w-full`}>
+                                            <img 
+                                                src={service.image} 
+                                                alt="" 
+                                                className="w-full h-full object-cover rounded-2xl shadow-lg transition-transform duration-700 group-hover:scale-105" 
+                                            />
+                                        </div>
+                                    </div>
+                                )}
                             </div>
-
-                            {/* Subtle Glass Highlight */}
-                            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/30 to-transparent pointer-events-none" />
                         </motion.div>
                     ))}
                 </div>
