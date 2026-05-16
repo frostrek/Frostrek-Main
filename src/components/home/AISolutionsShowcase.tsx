@@ -3,9 +3,8 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
-    Bot, Mic,
     ArrowRight, Sparkles, MessageCircle, Volume2,
-    CheckCircle2, Factory, Trophy, LayoutDashboard
+    CheckCircle2
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -27,6 +26,8 @@ interface Solution {
     features: string[];
     link: string;
     gradient: string;
+    tabColor: string;
+    tabColorHover: string;
 }
 
 const SOLUTIONS: Solution[] = [
@@ -35,7 +36,7 @@ const SOLUTIONS: Solution[] = [
         title: 'Manufacturing Intelligence',
         tagline: 'Your factory. Finally, one screen.',
         description: 'Connect every system on your production floor — ERP, WMS, PLCs, SCADA — into a single real-time intelligence platform. Built in 8 weeks. No new hardware. No million-dollar MES licence.',
-        icon: Factory,
+        icon: "/icons/manufacturing.png",
         demo: { type: 'manufacturing' },
         features: [
             '01 Disconnected systems: Unify ERP, WMS, and machine control',
@@ -45,14 +46,16 @@ const SOLUTIONS: Solution[] = [
             '05 Unstructured handovers: AI-driven shift briefings'
         ],
         link: '/products/frostrek-manufacturing-os',
-        gradient: 'from-[#2D6A4F] to-[#3D8B6E]'
+        gradient: 'from-[#2D6A4F] to-[#3D8B6E]',
+        tabColor: '#FFF7ED',
+        tabColorHover: '#FFEDD5'
     },
     {
         id: 'frostrek-web3-commerce',
         title: 'Fintech & Custom Wallets',
         tagline: 'Bypass commissions with closed-loop loyalty',
         description: 'A centralized, closed-loop digital currency engineered specifically for sports fans and affiliated clubs. Functioning as a next-generation digital loyalty programme that bypasses traditional gateway commissions.',
-        icon: Trophy,
+        icon: "/icons/fintech.png",
         demo: { type: 'web3' },
         features: [
             'Centralized, closed-loop digital fan currency',
@@ -61,14 +64,16 @@ const SOLUTIONS: Solution[] = [
             'Custom programmable wallets for sports merchandising'
         ],
         link: '/products/frostrek-web3-commerce',
-        gradient: 'from-[#2D6A4F] to-[#3D8B6E]'
+        gradient: 'from-[#2D6A4F] to-[#3D8B6E]',
+        tabColor: '#FFFBEB',
+        tabColorHover: '#FEF3C7'
     },
     {
         id: 'ai-agents',
         title: 'AI Agents',
         tagline: 'Intelligent Conversations',
         description: 'Deploy conversational AI agents that understand context, handle complex queries, and provide human-like support 24/7. From customer service to sales, our agents adapt to your business needs.',
-        icon: Bot,
+        icon: "/icons/ai agents.png",
         demo: { type: 'chat' },
         features: [
             'Natural language understanding with 98% accuracy',
@@ -77,14 +82,16 @@ const SOLUTIONS: Solution[] = [
             'Custom personality & brand voice'
         ],
         link: '/products/frosty-ai',
-        gradient: 'from-[#2D6A4F] to-[#3D8B6E]'
+        gradient: 'from-[#2D6A4F] to-[#3D8B6E]',
+        tabColor: '#FEF2F2',
+        tabColorHover: '#FEE2E2'
     },
     {
         id: 'voice-ai',
         title: 'Voice AI',
         tagline: 'Natural Voice Interactions',
         description: 'Low-latency voice bots that sound natural and respond instantly. Perfect for customer support calls, appointment scheduling, and interactive voice responses.',
-        icon: Mic,
+        icon: "/icons/Voice ai.png",
         demo: { type: 'voice' },
         features: [
             'Sub-200ms response latency',
@@ -93,14 +100,16 @@ const SOLUTIONS: Solution[] = [
             'Real-time transcription & analytics'
         ],
         link: '/products/voice-ai',
-        gradient: 'from-[#2D6A4F] to-[#3D8B6E]'
+        gradient: 'from-[#2D6A4F] to-[#3D8B6E]',
+        tabColor: '#F0FDF4',
+        tabColorHover: '#DCFCE7'
     },
     {
         id: 'multivendor-dashboard',
         title: 'Multivendor Dashboard',
         tagline: 'Track revenue, products & trends in one place.',
         description: 'Consolidate multiple storefronts and marketplaces—Amazon, Shopify, WooCommerce, eBay—into a single automated AI command center. Track total e-commerce revenue, analyze product metrics, and forecast global market trends in real-time.',
-        icon: LayoutDashboard,
+        icon: "/icons/multivendor.png",
         demo: { type: 'multivendor' },
         features: [
             'Unified monitoring for Amazon, Shopify, WooCommerce, & eBay',
@@ -110,7 +119,9 @@ const SOLUTIONS: Solution[] = [
             'Unified data stream for simplified e-commerce scaling'
         ],
         link: '/products/multivendor-dashboard',
-        gradient: 'from-[#2D6A4F] to-[#3D8B6E]'
+        gradient: 'from-[#2D6A4F] to-[#3D8B6E]',
+        tabColor: '#F0F9FF',
+        tabColorHover: '#E0F2FE'
     }
 ];
 
@@ -223,7 +234,7 @@ const Web3Demo = () => {
         <div className="rounded-2xl p-5 h-[240px] bg-brand-light-bg border border-[#E6EFE6] flex flex-col items-center justify-center relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-[#20A88D]/10 to-transparent" />
             <div className="w-16 h-16 rounded-2xl bg-white shadow-lg border border-[#E6EFE6] flex items-center justify-center mb-4 z-10 relative">
-                <Trophy className="w-8 h-8 text-[#20A88D]" />
+
                 <div className="absolute -top-1 -right-1 w-5 h-5 bg-[#2D6A4F] rounded-full flex items-center justify-center">
                     <CheckCircle2 className="w-3.5 h-3.5 text-white" />
                 </div>
@@ -248,7 +259,6 @@ const MultivendorDemo = () => {
         <div className="rounded-2xl p-4 h-[240px] bg-brand-light-bg border border-[#E6EFE6] overflow-hidden flex flex-col relative">
             <div className="flex items-center justify-between mb-4 bg-white p-3 rounded-xl border border-gray-100 shadow-sm z-10">
                 <div className="flex items-center gap-2">
-                    <LayoutDashboard className="w-4 h-4 text-[#2D6A4F]" />
                     <span className="text-xs font-bold text-gray-700">Consolidated Sales</span>
                 </div>
                 <div className="flex items-center gap-1.5">
@@ -287,6 +297,7 @@ const DemoComponent = ({ type }: { type: SolutionDemo['type'] }) => {
 
 const AISolutionsShowcase = () => {
     const [activeIndex, setActiveIndex] = useState(0);
+    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
     const sectionRef = useRef<HTMLElement>(null);
     const headerRef = useRef<HTMLDivElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
@@ -393,7 +404,6 @@ const AISolutionsShowcase = () => {
                             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                         >
                             {SOLUTIONS.map((solution, index) => {
-                                const Icon = solution.icon;
                                 const isActive = index === activeIndex;
                                 return (
                                     <button
@@ -402,12 +412,19 @@ const AISolutionsShowcase = () => {
                                         className={`flex-shrink-0 relative transition-all duration-300 ${isActive ? 'scale-110' : 'scale-100 hover:scale-105'}`}
                                     >
                                         <div
+                                            onMouseEnter={() => setHoveredIndex(index)}
+                                            onMouseLeave={() => setHoveredIndex(null)}
+                                            style={{ backgroundColor: isActive ? solution.tabColorHover : solution.tabColor }}
                                             className={`w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 shadow-sm border-2 ${isActive
-                                                ? 'bg-[#2D6A4F] border-[#2D6A4F] shadow-[#2D6A4F]/30'
-                                                : 'bg-white border-white'
+                                                ? 'border-[#2D6A4F] shadow-[#2D6A4F]/10'
+                                                : 'border-white'
                                                 }`}
                                         >
-                                            <Icon className={`w-6 h-6 transition-colors ${isActive ? 'text-white' : 'text-[#2D6A4F]'}`} />
+                                            <img
+                                                src={solution.icon}
+                                                alt={solution.title}
+                                                className="w-9 h-9 object-contain transition-all duration-300"
+                                            />
                                         </div>
                                     </button>
                                 );
@@ -441,10 +458,20 @@ const AISolutionsShowcase = () => {
                                 ))}
                             </div>
                             <div className="px-5 pb-6 flex flex-col gap-3">
-                                <Link to={activeSolution.link} className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#2D6A4F] hover:bg-brand-badge-text text-white rounded-xl font-bold text-sm transition-all shadow-md">
+                                <Link
+                                    to={activeSolution.link}
+                                    style={{ backgroundColor: activeSolution.tabColor }}
+                                    className="inline-flex items-center justify-center gap-2 px-6 py-3 text-gray-600 rounded-2xl font-bold text-sm transition-all shadow-sm hover:shadow-md border border-gray-200"
+                                >
                                     Learn More <ArrowRight className="w-4 h-4" />
                                 </Link>
-                                <Link to="/contact" className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-[#2D6A4F] rounded-xl font-bold text-sm text-[#2D6A4F] hover:bg-[#Fcfcfc] transition-all">
+                                <Link 
+                                    to="/contact" 
+                                    onMouseEnter={() => setHoveredIndex(-2)} 
+                                    onMouseLeave={() => setHoveredIndex(null)}
+                                    style={{ borderColor: hoveredIndex === -2 ? activeSolution.tabColorHover : '#E5E7EB' }}
+                                    className="inline-flex items-center justify-center gap-2 px-6 py-3 border rounded-xl font-bold text-sm text-gray-600 hover:bg-[#Fcfcfc] transition-all"
+                                >
                                     <MessageCircle className="w-4 h-4" /> Book Demo
                                 </Link>
                             </div>
@@ -457,31 +484,37 @@ const AISolutionsShowcase = () => {
                         <div className="lg:w-1/3 pt-2">
                             <div className="space-y-3">
                                 {SOLUTIONS.map((solution, index) => {
-                                    const Icon = solution.icon;
                                     const isActive = index === activeIndex;
 
                                     return (
                                         <button
                                             key={solution.id}
                                             onClick={() => handleTabChange(index)}
+                                            onMouseEnter={() => setHoveredIndex(index)}
+                                            onMouseLeave={() => setHoveredIndex(null)}
+                                            style={{ backgroundColor: isActive ? solution.tabColorHover : solution.tabColor }}
                                             className={`w-full flex items-center gap-4 px-5 py-4 rounded-2xl text-left transition-all duration-300 group border-2 ${isActive
-                                                ? 'bg-[#2D6A4F] border-[#2D6A4F] text-white shadow-xl shadow-[#2D6A4F]/10 scale-[1.02]'
-                                                : 'bg-white border-transparent hover:border-[#E6EFE6] text-gray-700 shadow-sm hover:shadow-md'
+                                                ? 'border-[#2D6A4F]/20 shadow-xl shadow-[#2D6A4F]/5 scale-[1.02]'
+                                                : 'border-transparent shadow-sm hover:shadow-md'
                                                 }`}
                                         >
-                                            <div className={`w-12 h-12 shrink-0 rounded-xl flex items-center justify-center transition-all duration-300 ${isActive ? 'bg-white/10' : 'bg-[#F4F9F6]'}`}>
-                                                <Icon className={`w-6 h-6 transition-colors ${isActive ? 'text-white' : 'text-[#2D6A4F]'}`} />
+                                            <div className={`w-12 h-12 shrink-0 rounded-xl flex items-center justify-center transition-all duration-300 ${isActive ? 'bg-white/40' : 'bg-[#F4F9F6]'}`}>
+                                                <img
+                                                    src={solution.icon}
+                                                    alt={solution.title}
+                                                    className="w-9 h-9 object-contain transition-all duration-300"
+                                                />
                                             </div>
                                             <div className="flex-1">
-                                                <div className={`font-serif font-bold text-[17px] tracking-wide mb-1 ${isActive ? 'text-white' : 'text-[#2D6A4F]'}`}>
+                                                <div className="font-serif font-bold text-[17px] tracking-wide mb-1">
                                                     {solution.title}
                                                 </div>
-                                                <div className={`text-[13px] font-medium ${isActive ? 'text-white/80' : 'text-gray-500'}`}>
+                                                <div className={`text-[13px] font-medium ${isActive ? 'text-gray-600' : 'text-gray-500'}`}>
                                                     {solution.tagline}
                                                 </div>
                                             </div>
                                             {isActive && (
-                                                <div className="w-1.5 h-8 bg-white/30 rounded-full" />
+                                                <div className="w-1.5 h-8 bg-[#2D6A4F]/20 rounded-full" />
                                             )}
                                         </button>
                                     );
@@ -504,11 +537,15 @@ const AISolutionsShowcase = () => {
                                 {/* Header */}
                                 <div className="p-8 border-b border-[#E6EFE6] bg-gradient-to-br from-white to-[#Fafdfb]">
                                     <div className="flex items-start gap-5">
-                                        <div className="w-16 h-16 shrink-0 rounded-2xl bg-[#2D6A4F] flex items-center justify-center shadow-lg shadow-[#2D6A4F]/20">
-                                            <activeSolution.icon className="w-8 h-8 text-white" />
+                                        <div className="w-16 h-16 shrink-0 rounded-2xl bg-[#F4F9F6] flex items-center justify-center shadow-lg shadow-[#2D6A4F]/20">
+                                            <img
+                                                src={activeSolution.icon}
+                                                alt={activeSolution.title}
+                                                className="w-12 h-12 object-contain"
+                                            />
                                         </div>
                                         <div>
-                                            <h3 className="font-serif text-3xl font-bold mb-2 text-[#2D6A4F]">
+                                            <h3 className="font-serif text-3xl font-bold mb-2">
                                                 {activeSolution.title}
                                             </h3>
                                             <p className="text-base text-gray-600 leading-relaxed font-medium">
@@ -545,13 +582,21 @@ const AISolutionsShowcase = () => {
                                 <div className="px-8 py-6 flex items-center gap-4 bg-gray-50/50 border-t border-[#E6EFE6]">
                                     <Link
                                         to={activeSolution.link}
-                                        className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#2D6A4F] hover:bg-[#1E4D38] text-white rounded-xl font-bold transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
+                                        style={{
+                                            backgroundColor: hoveredIndex === -1 ? activeSolution.tabColorHover : activeSolution.tabColor
+                                        }}
+                                        onMouseEnter={() => setHoveredIndex(-1)} // Use -1 to indicate footer button hover
+                                        onMouseLeave={() => setHoveredIndex(null)}
+                                        className="inline-flex items-center gap-2 px-7 py-3.5 text-gray-600 rounded-xl font-bold transition-all shadow-sm hover:shadow-md border border-gray-200"
                                     >
                                         Learn More <ArrowRight className="w-4 h-4" />
                                     </Link>
                                     <Link
                                         to="/contact"
-                                        className="inline-flex items-center gap-2 px-7 py-3.5 border-2 border-[#2D6A4F]/10 hover:border-[#2D6A4F] rounded-xl font-bold text-[#2D6A4F] hover:bg-white transition-all bg-white"
+                                        onMouseEnter={() => setHoveredIndex(-2)}
+                                        onMouseLeave={() => setHoveredIndex(null)}
+                                        style={{ borderColor: hoveredIndex === -2 ? activeSolution.tabColorHover : '#F3F4F6' }}
+                                        className="inline-flex items-center gap-2 px-7 py-3.5 border-2 rounded-xl font-bold text-gray-600 hover:bg-white transition-all bg-white"
                                     >
                                         <MessageCircle className="w-4 h-4" /> Book Demo
                                     </Link>
