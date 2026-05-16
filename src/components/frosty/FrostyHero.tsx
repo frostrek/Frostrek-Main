@@ -15,7 +15,7 @@ const FrostyHero = () => {
 
     useGSAP(() => {
         const ctx = gsap.context(() => {
-            // Dashboard entrance animation
+            // Dashboard entrance animations
             if (dashboardRef.current) {
                 gsap.fromTo(dashboardRef.current,
                     { opacity: 0, y: 60, scale: 0.95 },
