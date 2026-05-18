@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { Zap, Shield, Users, BarChart, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -58,8 +58,6 @@ const FeaturesSection = () => {
 
     useGSAP(() => {
         const ctx = gsap.context(() => {
-            // Heading animations are now handled by SplitTextReveal
-            
             const cards = gridRef.current?.querySelectorAll('.bento-card');
             if (cards) {
                 gsap.fromTo(cards,
@@ -123,36 +121,36 @@ const FeaturesSection = () => {
                 </div>
 
                 <div ref={gridRef} className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                    {/* Hero Card - Enterprise Security */}
+                    {/* Hero Card - Enterprise Security (Light Green Theme) */}
                     <SpotlightCard 
-                        className="bento-card lg:row-span-2 group relative overflow-hidden rounded-[2.5rem] border p-8 md:p-10 transition-all duration-500 bg-white border-[#E6EFE6] hover:border-[#2D6A4F]/30 hover:shadow-[0_20px_50px_rgba(45,106,79,0.06)]"
-                        spotlightColor="rgba(30, 59, 50, 0.03)"
+                        className="bento-card lg:row-span-2 group relative overflow-hidden rounded-[2.5rem] border p-8 md:p-10 transition-all duration-500 bg-[#F0FDF4] border-[#BBF7D0] hover:border-[#047857]/30 hover:shadow-[0_20px_50px_rgba(4,120,87,0.06)]"
+                        spotlightColor="rgba(4, 120, 87, 0.02)"
                     >
                         <div className="relative z-10">
-                            <div className="mb-8 inline-flex items-center justify-center w-20 h-20 rounded-[1.25rem] border bg-brand-badge-bg border-[#c4e0d4]/50 transition-all duration-300 group-hover:scale-110 shadow-sm">
-                                <Shield className="text-[#2D6A4F]" size={36} strokeWidth={1.5} />
+                            <div className="mb-8 inline-flex items-center justify-center w-20 h-20 rounded-[1.25rem] border bg-white border-[#BBF7D0]/60 transition-all duration-300 group-hover:scale-110 shadow-sm">
+                                <img src="/icons/shield.png" alt="Enterprise Security" className="w-11 h-11 object-contain" />
                             </div>
 
-                            <h3 className="font-serif text-3xl font-bold mb-4 text-[#2D6A4F]">
+                            <h3 className="font-serif text-3xl font-bold mb-4 text-[#047857]">
                                 Enterprise Security
                             </h3>
-                            <p className="mb-8 text-base leading-relaxed text-gray-500 font-medium">
+                            <p className="mb-8 text-base leading-relaxed text-gray-600 font-medium">
                                 Role-based access control, end-to-end data encryption, comprehensive audit logs, and compliance-ready infrastructure built-in.
                             </p>
 
                             <div className="flex flex-wrap gap-3 mb-10">
-                                <span className="inline-flex items-center gap-1.5 px-4 py-2 border rounded-full text-sm font-bold bg-[#F4F9F6] border-[#E6EFE6] text-[#2D6A4F] shadow-sm">
-                                    <CheckCircle2 size={16} className="text-[#336B55]" /> SOC 2 Compliant
+                                <span className="inline-flex items-center gap-1.5 px-4 py-2 border rounded-full text-sm font-bold bg-white border-[#BBF7D0] text-[#047857] shadow-sm">
+                                    <CheckCircle2 size={16} className="text-[#047857]" /> SOC 2 Compliant
                                 </span>
-                                <span className="inline-flex items-center gap-1.5 px-4 py-2 border rounded-full text-sm font-bold bg-[#F4F9F6] border-[#E6EFE6] text-[#2D6A4F] shadow-sm">
-                                    <CheckCircle2 size={16} className="text-[#336B55]" /> GDPR Ready
+                                <span className="inline-flex items-center gap-1.5 px-4 py-2 border rounded-full text-sm font-bold bg-white border-[#BBF7D0] text-[#047857] shadow-sm">
+                                    <CheckCircle2 size={16} className="text-[#047857]" /> GDPR Ready
                                 </span>
-                                <span className="inline-flex items-center gap-1.5 px-4 py-2 border rounded-full text-sm font-bold bg-[#F4F9F6] border-[#E6EFE6] text-[#2D6A4F] shadow-sm">
-                                    <CheckCircle2 size={16} className="text-[#336B55]" /> ISO 27001
+                                <span className="inline-flex items-center gap-1.5 px-4 py-2 border rounded-full text-sm font-bold bg-white border-[#BBF7D0] text-[#047857] shadow-sm">
+                                    <CheckCircle2 size={16} className="text-[#047857]" /> ISO 27001
                                 </span>
                             </div>
 
-                            <Link to="/contact" className="group inline-flex items-center gap-2 text-[15px] font-medium text-[#2D6A4F] hover:text-[#336B55] transition-colors">
+                            <Link to="/contact" className="group inline-flex items-center gap-2 text-[15px] font-medium text-[#047857] hover:text-[#065F46] transition-colors">
                                 <FlipText>
                                     Learn More <ArrowRight size={18} />
                                 </FlipText>
@@ -160,60 +158,60 @@ const FeaturesSection = () => {
                         </div>
                     </SpotlightCard>
 
-                    {/* Lightning Fast */}
+                    {/* Lightning Fast (Light Orange Theme) */}
                     <SpotlightCard 
-                        className="bento-card group relative overflow-hidden rounded-[2rem] border p-8 transition-all duration-300 bg-white border-[#E6EFE6] hover:border-[#2D6A4F]/30 hover:shadow-[0_15px_40px_rgba(45,106,79,0.05)] hover:-translate-y-1"
-                        spotlightColor="rgba(30, 59, 50, 0.03)"
+                        className="bento-card group relative overflow-hidden rounded-[2rem] border p-8 transition-all duration-300 bg-[#FFF7ED] border-[#FFEDD5] hover:border-[#F97316]/30 hover:shadow-[0_15px_40px_rgba(249,115,22,0.05)] hover:-translate-y-1"
+                        spotlightColor="rgba(249, 115, 22, 0.02)"
                     >
                         <div className="flex flex-col sm:flex-row items-start gap-5 relative z-10">
-                            <div className="flex-shrink-0 w-14 h-14 rounded-2xl border flex items-center justify-center transition-all duration-300 bg-brand-badge-bg border-[#c4e0d4]/50 group-hover:scale-110 shadow-sm">
-                                <Zap className="text-[#2D6A4F]" size={26} strokeWidth={1.5} />
+                            <div className="flex-shrink-0 w-14 h-14 rounded-2xl border flex items-center justify-center transition-all duration-300 bg-white border-[#FFEDD5]/60 group-hover:scale-110 shadow-sm">
+                                <img src="/icons/lightning.png" alt="Lightning Fast" className="w-8 h-8 object-contain" />
                             </div>
                             <div>
-                                <h3 className="font-serif text-2xl font-bold mb-3 text-[#2D6A4F]">
+                                <h3 className="font-serif text-2xl font-bold mb-3 text-[#C2410C]">
                                     Lightning Fast
                                 </h3>
-                                <p className="text-[15px] leading-relaxed text-gray-500 font-medium">
+                                <p className="text-[15px] leading-relaxed text-gray-600 font-medium">
                                     Sub-second response times with optimized LLM routing and intelligent caching.
                                 </p>
                             </div>
                         </div>
                     </SpotlightCard>
 
-                    {/* Real-time Analytics */}
+                    {/* Real-time Analytics (Light Sky Blue Theme) */}
                     <SpotlightCard 
-                        className="bento-card group relative overflow-hidden rounded-[2rem] border p-8 transition-all duration-300 bg-white border-[#E6EFE6] hover:border-[#2D6A4F]/30 hover:shadow-[0_15px_40px_rgba(45,106,79,0.05)] hover:-translate-y-1"
-                        spotlightColor="rgba(30, 59, 50, 0.03)"
+                        className="bento-card group relative overflow-hidden rounded-[2rem] border p-8 transition-all duration-300 bg-[#f0fbfeff] border-[#BAE6FD] hover:border-[#0EA5E9]/30 hover:shadow-[0_15px_40px_rgba(14,165,233,0.05)] hover:-translate-y-1"
+                        spotlightColor="rgba(14, 165, 233, 0.02)"
                     >
                         <div className="flex flex-col sm:flex-row items-start gap-5 relative z-10">
-                            <div className="flex-shrink-0 w-14 h-14 rounded-2xl border flex items-center justify-center transition-all duration-300 bg-brand-badge-bg border-[#c4e0d4]/50 group-hover:scale-110 shadow-sm">
-                                <BarChart className="text-[#2D6A4F]" size={26} strokeWidth={1.5} />
+                            <div className="flex-shrink-0 w-14 h-14 rounded-2xl border flex items-center justify-center transition-all duration-300 bg-white border-[#BAE6FD]/60 group-hover:scale-110 shadow-sm">
+                                <img src="/icons/data-analytics.png" alt="Real-time Analytics" className="w-8 h-8 object-contain" />
                             </div>
                             <div>
-                                <h3 className="font-serif text-2xl font-bold mb-3 text-[#2D6A4F]">
+                                <h3 className="font-serif text-2xl font-bold mb-3 text-[#0284C7]">
                                     Real-time Analytics
                                 </h3>
-                                <p className="text-[15px] leading-relaxed text-gray-500 font-medium">
+                                <p className="text-[15px] leading-relaxed text-gray-600 font-medium">
                                     Track KPIs, conversation quality, and user satisfaction metrics live.
                                 </p>
                             </div>
                         </div>
                     </SpotlightCard>
 
-                    {/* Multi-agent Orchestration */}
+                    {/* Multi-agent Orchestration (Light Yellow Theme) */}
                     <SpotlightCard 
-                        className="bento-card group relative overflow-hidden rounded-[2rem] border p-8 transition-all duration-300 bg-white border-[#E6EFE6] hover:border-[#2D6A4F]/30 hover:shadow-[0_15px_40px_rgba(45,106,79,0.05)] hover:-translate-y-1"
-                        spotlightColor="rgba(30, 59, 50, 0.03)"
+                        className="bento-card group relative overflow-hidden rounded-[2rem] border p-8 transition-all duration-300 bg-[#FFFBEB] border-[#FEF3C7] hover:border-[#F59E0B]/30 hover:shadow-[0_15px_40px_rgba(245,158,11,0.05)] hover:-translate-y-1"
+                        spotlightColor="rgba(245, 158, 11, 0.02)"
                     >
                         <div className="flex flex-col sm:flex-row items-start gap-5 relative z-10">
-                            <div className="flex-shrink-0 w-14 h-14 rounded-2xl border flex items-center justify-center transition-all duration-300 bg-brand-badge-bg border-[#c4e0d4]/50 group-hover:scale-110 shadow-sm">
-                                <Users className="text-[#2D6A4F]" size={26} strokeWidth={1.5} />
+                            <div className="flex-shrink-0 w-14 h-14 rounded-2xl border flex items-center justify-center transition-all duration-300 bg-white border-[#FEF3C7]/60 group-hover:scale-110 shadow-sm">
+                                <img src="/icons/multivendor.png" alt="Multi-agent Orchestration" className="w-8 h-8 object-contain" />
                             </div>
                             <div>
-                                <h3 className="font-serif text-2xl font-bold mb-3 text-[#2D6A4F]">
+                                <h3 className="font-serif text-2xl font-bold mb-3 text-[#B45309]">
                                     Multi-agent Orchestration
                                 </h3>
-                                <p className="text-[15px] leading-relaxed text-gray-500 font-medium">
+                                <p className="text-[15px] leading-relaxed text-gray-600 font-medium">
                                     Deploy multiple agents across channels with unified analytics dashboard.
                                 </p>
                             </div>
