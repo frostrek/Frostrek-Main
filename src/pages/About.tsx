@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform, useMotionValue, AnimatePresence } from 'framer-motion';
-import { Target, Award, Zap, Shield, Globe, ArrowRight, Code, Brain, Cpu, Database, Layers, Sparkles, CheckCircle2, Trophy, Star, BadgeCheck, Lock, ShieldCheck, Linkedin, Twitter, Cloud, ChevronDown, Bot, PhoneCall, type LucideIcon } from 'lucide-react';
+import { Award, Shield, Globe, ArrowRight, Code, Brain, Sparkles, CheckCircle2, Trophy, Star, BadgeCheck, Lock, ShieldCheck, Linkedin, Twitter, Cloud, ChevronDown, Bot, PhoneCall, type LucideIcon } from 'lucide-react';
 import CuteBackground from '../components/ui/CuteBackground';
 import { useRef, useState, useEffect, useMemo, memo } from 'react';
 import { TIMELINE_DATA } from '../utils/aboutData';
@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import SEO from '../components/seo/SEO';
 import FlipText from '../components/ui/FlipText';
 import SplitTextReveal from '../components/ui/SplitTextReveal';
+import { cn } from '../utils/cn';
 
 const HEADLINE_WORDS = ['Accelerate', 'growth', 'at', 'the', 'new', 'speed', 'of', 'business'];
 
@@ -234,9 +235,13 @@ const MagneticButton = memo(({ children, className, onClick, variant = 'primary'
 });
 
 // ============ 3D TILT CARD ============
-const TiltCard = memo(({ children, className }: {
+const TiltCard = memo(({ children, className, hoverBg = 'bg-white', hoverBorder = 'border-gray-100', normalBorder = 'border-gray-100', glowColor = '#2D6A4F' }: {
     children: React.ReactNode;
     className?: string;
+    hoverBg?: string;
+    hoverBorder?: string;
+    normalBorder?: string;
+    glowColor?: string;
 }) => {
     const ref = useRef<HTMLDivElement>(null);
     const [hover, setHover] = useState(false);
@@ -254,6 +259,17 @@ const TiltCard = memo(({ children, className }: {
 
     const reset = () => { rotateX.set(0); rotateY.set(0); setHover(false); };
 
+    const getGlowRgba = (color: string) => {
+        switch (color) {
+            case '#F97316':
+            case '#EA580C': return 'rgba(249, 115, 22, 0.08)';
+            case '#0284C7': return 'rgba(2, 132, 199, 0.08)';
+            case '#E11D48': return 'rgba(225, 29, 72, 0.08)';
+            case '#2D6A4F':
+            default: return 'rgba(45, 106, 79, 0.08)';
+        }
+    };
+
     return (
         <motion.div
             ref={ref}
@@ -264,16 +280,17 @@ const TiltCard = memo(({ children, className }: {
             className={`relative cursor-pointer ${className}`}
             animate={{
                 y: hover ? -6 : 0,
-                boxShadow: hover ? `0 20px 40px -15px rgba(45,106,79,0.15)` : '0 4px 20px -5px rgba(0,0,0,0.05)'
+                boxShadow: hover ? `0 20px 40px -15px ${getGlowRgba(glowColor)}` : '0 4px 20px -5px rgba(0,0,0,0.05)'
             }}
             transition={{ type: 'spring', stiffness: 300, damping: 20 }}
         >
-            <motion.div
-                className={`absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-[#2D6A4F] via-[#2D6A4F]/60 to-[#2D6A4F]`}
-                animate={{ opacity: hover ? 0.7 : 0 }}
-                transition={{ duration: 0.2 }}
-            />
-            <div className="relative bg-white rounded-2xl h-full border border-gray-100" style={{ transform: 'translateZ(10px)' }}>
+            <div 
+                className={cn(
+                    "relative rounded-2xl h-full border transition-all duration-300",
+                    hover ? `${hoverBg} ${hoverBorder}` : `bg-white ${normalBorder}`
+                )}
+                style={{ transform: 'translateZ(10px)' }}
+            >
                 {children}
             </div>
         </motion.div>
@@ -409,8 +426,25 @@ const CheckItem = memo(({ text, delay }: { text: string; delay: number }) => (
 ));
 
 // ============ TECH STACK ICON ============
-const TechIcon = memo(({ icon: Icon, label, delay }: { icon: LucideIcon; label: string; delay: number }) => {
+const TechIcon = memo(({
+    icon,
+    label,
+    hoverBg,
+    hoverBorder,
+    hoverText,
+    delay,
+    isGlow = false
+}: {
+    icon: string;
+    label: string;
+    hoverBg: string;
+    hoverBorder: string;
+    hoverText: string;
+    delay: number;
+    isGlow?: boolean
+}) => {
     const [hover, setHover] = useState(false);
+    const active = hover || isGlow;
 
     return (
         <motion.div
@@ -421,24 +455,24 @@ const TechIcon = memo(({ icon: Icon, label, delay }: { icon: LucideIcon; label: 
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
         >
-            <motion.div
-                className="w-16 h-16 bg-white rounded-2xl border border-gray-200 flex items-center justify-center shadow-md cursor-pointer"
-                animate={{
-                    y: hover ? -6 : 0,
-                    borderColor: hover ? '#2D6A4F' : 'rgba(229,231,235,1)',
-                    boxShadow: hover ? '0 15px 30px -10px rgba(45,106,79,0.15)' : '0 4px 15px -5px rgba(0,0,0,0.04)'
-                }}
-                transition={{ type: 'spring', stiffness: 300 }}
+            <div
+                className={cn(
+                    "w-16 h-16 rounded-2xl border flex items-center justify-center shadow-md cursor-pointer transition-all duration-300 transform-gpu",
+                    active
+                        ? `${hoverBg} ${hoverBorder} -translate-y-1.5 shadow-[0_15px_30px_-10px_rgba(0,0,0,0.08)]`
+                        : "bg-white border-gray-200 shadow-sm"
+                )}
             >
-                <Icon className="w-7 h-7 text-[#2D6A4F]" />
-            </motion.div>
+                <img src={icon} alt={label} className="w-8 h-8 object-contain" />
+            </div>
             <AnimatePresence>
-                {hover && (
+                {active && (
                     <motion.span
                         initial={{ opacity: 0, y: -5 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -5 }}
-                        className="absolute -bottom-6 text-[11px] font-semibold text-[#2D6A4F] whitespace-nowrap font-body"
+                        transition={{ duration: 0.2 }}
+                        className={cn("absolute -bottom-6 text-[11px] font-bold whitespace-nowrap font-body", hoverText)}
                     >
                         {label}
                     </motion.span>
@@ -734,6 +768,17 @@ const About = () => {
 
     const [flippedCard, setFlippedCard] = useState<number | null>(null);
     const [activeImageIndex, setActiveImageIndex] = useState<number>(0);
+    const [activeTechIndex, setActiveTechIndex] = useState<number>(0);
+    const [isHoveringTech, setIsHoveringTech] = useState<boolean>(false);
+
+    useEffect(() => {
+        if (isHoveringTech) return;
+        const interval = setInterval(() => {
+            setActiveTechIndex((prev) => (prev + 1) % 6);
+        }, 2500);
+        return () => clearInterval(interval);
+    }, [isHoveringTech]);
+
     const dotsRef = useRef<(HTMLDivElement | null)[]>([]);
 
     useEffect(() => {
@@ -763,10 +808,54 @@ const About = () => {
     const texts = useMemo(() => ['Intelligent Systems', 'Agentic AI', 'Machine Learning', 'Neural Networks'], []);
 
     const values = useMemo(() => [
-        { icon: Zap, title: 'Innovation', desc: 'Cutting-edge AI solutions', color: 'brand-green' as const },
-        { icon: Award, title: 'Excellence', desc: 'ISO certified quality', color: 'brand-yellow' as const },
-        { icon: Shield, title: 'Trust', desc: 'Enterprise security', color: 'brand-green' as const },
-        { icon: Target, title: 'Collaboration', desc: 'Partnership focused', color: 'brand-yellow' as const },
+        { 
+            icon: '/icons/innovation.png', 
+            title: 'Innovation', 
+            desc: 'Cutting-edge AI solutions', 
+            glowColor: '#0284C7', 
+            hoverBg: 'bg-[#F0F9FF]', 
+            hoverBorder: 'border-[#0284C7]/40',
+            normalBorder: 'border-[#0284C7]/15',
+            iconBg: 'bg-[#E0F2FE]',
+            iconBorder: 'border-[#BAE6FD]',
+            iconColor: 'text-[#0284C7]'
+        },
+        { 
+            icon: '/icons/lightning.png', 
+            title: 'Excellence', 
+            desc: 'ISO certified quality', 
+            glowColor: '#2D6A4F', 
+            hoverBg: 'bg-[#F0FDF4]', 
+            hoverBorder: 'border-[#2D6A4F]/40',
+            normalBorder: 'border-[#2D6A4F]/15',
+            iconBg: 'bg-[#E8F5EE]',
+            iconBorder: 'border-[#C8E6DA]',
+            iconColor: 'text-[#2D6A4F]'
+        },
+        { 
+            icon: '/icons/shield.png', 
+            title: 'Trust', 
+            desc: 'Enterprise security', 
+            glowColor: '#E11D48', 
+            hoverBg: 'bg-[#FFF1F2]', 
+            hoverBorder: 'border-[#E11D48]/40',
+            normalBorder: 'border-[#E11D48]/15',
+            iconBg: 'bg-[#FFF1F2]',
+            iconBorder: 'border-[#FFE4E6]',
+            iconColor: 'text-[#E11D48]'
+        },
+        { 
+            icon: '/icons/collaboration.png', 
+            title: 'Collaboration', 
+            desc: 'Partnership focused', 
+            glowColor: '#F97316', 
+            hoverBg: 'bg-[#FFF7ED]', 
+            hoverBorder: 'border-[#F97316]/40',
+            normalBorder: 'border-[#F97316]/15',
+            iconBg: 'bg-[#FFF7ED]',
+            iconBorder: 'border-[#FFEDD5]',
+            iconColor: 'text-[#F97316]'
+        },
     ], []);
 
     const features = useMemo(() => [
@@ -776,7 +865,16 @@ const About = () => {
             desc: 'World-class AI research team with proven track record in enterprise AI deployments. Our experts bring decades of experience ensuring robust solutions.',
             stat: '5000+ Sessions',
             details: 'Former researchers from Google, Meta, and DeepMind with 15+ years in AI/ML. Successfully deployed solutions serving millions worldwide.',
-            highlights: ['PhD-level researchers', '200+ published papers', 'Enterprise solutions']
+            highlights: ['PhD-level researchers', '200+ published papers', 'Enterprise solutions'],
+            normalBorder: 'border-[#0284C7]/15',
+            hoverBorder: 'hover:border-[#0284C7]/40',
+            hoverBg: 'hover:bg-[#F0F9FF]',
+            iconBg: 'bg-[#E0F2FE]',
+            iconBorder: 'border-[#BAE6FD]',
+            textColor: 'text-[#0284C7]',
+            bulletBg: 'bg-[#0284C7]',
+            hoverText: 'hover:text-[#0284C7]',
+            hoverShadow: 'hover:shadow-[0_20px_40px_-15px_rgba(2,132,199,0.08)]'
         },
         {
             num: '02',
@@ -784,7 +882,16 @@ const About = () => {
             desc: 'Pushing technology boundaries with cutting-edge research in LLMs and autonomous agents. We invest heavily in R&D to deliver next-gen AI capabilities.',
             stat: 'Cutting-Edge',
             details: 'We invest 30% of resources in R&D, staying ahead with latest advancements in LLMs, autonomous agents, and neural networks.',
-            highlights: ['Latest LLM technology', 'Real-time processing', 'Custom model training']
+            highlights: ['Latest LLM technology', 'Real-time processing', 'Custom model training'],
+            normalBorder: 'border-[#2D6A4F]/15',
+            hoverBorder: 'hover:border-[#2D6A4F]/40',
+            hoverBg: 'hover:bg-[#F0FDF4]',
+            iconBg: 'bg-[#E8F5EE]',
+            iconBorder: 'border-[#C8E6DA]',
+            textColor: 'text-[#2D6A4F]',
+            bulletBg: 'bg-[#2D6A4F]',
+            hoverText: 'hover:text-[#2D6A4F]',
+            hoverShadow: 'hover:shadow-[0_20px_40px_-15px_rgba(45,106,79,0.08)]'
         },
         {
             num: '03',
@@ -792,7 +899,16 @@ const About = () => {
             desc: 'Your success is our priority with dedicated support and customized solutions. We deliver tailored AI systems that integrate seamlessly with workflows.',
             stat: 'Tailored',
             details: 'Every solution customized to your unique needs. Dedicated support ensures 99.9% uptime with 24/7 monitoring and assistance.',
-            highlights: ['24/7 dedicated support', '99.9% uptime SLA', 'Custom integrations']
+            highlights: ['24/7 dedicated support', '99.9% uptime SLA', 'Custom integrations'],
+            normalBorder: 'border-[#E11D48]/15',
+            hoverBorder: 'hover:border-[#E11D48]/40',
+            hoverBg: 'hover:bg-[#FFF1F2]',
+            iconBg: 'bg-[#FFF1F2]',
+            iconBorder: 'border-[#FFE4E6]',
+            textColor: 'text-[#E11D48]',
+            bulletBg: 'bg-[#E11D48]',
+            hoverText: 'hover:text-[#E11D48]',
+            hoverShadow: 'hover:shadow-[0_20px_40px_-15px_rgba(225,29,72,0.08)]'
         },
         {
             num: '04',
@@ -800,7 +916,16 @@ const About = () => {
             desc: 'Scale without limits on cloud-native infrastructure handling billions of requests. Battle-tested architecture ensures zero downtime and automatic scaling.',
             stat: 'Enterprise',
             details: 'Cloud-native architecture handling billions of requests. Infrastructure scales automatically to meet growing demands with zero downtime.',
-            highlights: ['Auto-scaling infrastructure', 'Billions of requests', 'Zero-downtime deploys']
+            highlights: ['Auto-scaling infrastructure', 'Billions of requests', 'Zero-downtime deploys'],
+            normalBorder: 'border-[#EA580C]/15',
+            hoverBorder: 'hover:border-[#EA580C]/40',
+            hoverBg: 'hover:bg-[#FFF7ED]',
+            iconBg: 'bg-[#FFF7ED]',
+            iconBorder: 'border-[#FFEDD5]',
+            textColor: 'text-[#EA580C]',
+            bulletBg: 'bg-[#EA580C]',
+            hoverText: 'hover:text-[#EA580C]',
+            hoverShadow: 'hover:shadow-[0_20px_40px_-15px_rgba(234,88,12,0.08)]'
         },
     ], []);
 
@@ -838,12 +963,48 @@ const About = () => {
     ], []);
 
     const tech = useMemo(() => [
-        { icon: Brain, label: 'AI/ML' },
-        { icon: Code, label: 'Development' },
-        { icon: Cpu, label: 'Processing' },
-        { icon: Database, label: 'Big Data' },
-        { icon: Layers, label: 'Architecture' },
-        { icon: Sparkles, label: 'Innovation' },
+        {
+            icon: '/icons/machine-learning.png',
+            label: 'AI/ML',
+            hoverBg: 'bg-[#F0FDF4]',
+            hoverBorder: 'border-[#2D6A4F]/40',
+            hoverText: 'text-[#2D6A4F]'
+        },
+        {
+            icon: '/icons/custom dev.png',
+            label: 'Development',
+            hoverBg: 'bg-[#FFF7ED]',
+            hoverBorder: 'border-[#EA580C]/40',
+            hoverText: 'text-[#EA580C]'
+        },
+        {
+            icon: '/icons/lightning.png',
+            label: 'Processing',
+            hoverBg: 'bg-[#f0fbfeff]',
+            hoverBorder: 'border-[#0284C7]/40',
+            hoverText: 'text-[#0284C7]'
+        },
+        {
+            icon: '/icons/data-analytics.png',
+            label: 'Big Data',
+            hoverBg: 'bg-[#FDF2F8]',
+            hoverBorder: 'border-[#DB2777]/40',
+            hoverText: 'text-[#DB2777]'
+        },
+        {
+            icon: '/icons/architecture.png',
+            label: 'Architecture',
+            hoverBg: 'bg-[#FEF3C7]',
+            hoverBorder: 'border-[#D97706]/40',
+            hoverText: 'text-[#D97706]'
+        },
+        {
+            icon: '/icons/innovation.png',
+            label: 'Innovation',
+            hoverBg: 'bg-[#F0FDFA]',
+            hoverBorder: 'border-[#0D9488]/40',
+            hoverText: 'text-[#0D9488]'
+        },
     ], []);
 
     return (
@@ -871,7 +1032,7 @@ const About = () => {
                         </div>
 
                         <div className="flex flex-col items-center">
-                            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-gray-900 leading-[1.05] tracking-tight flex flex-col items-center">
+                            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif text-[#2D6A4F] leading-[1.05] tracking-tight flex flex-col items-center">
                                 <SplitTextReveal as="span" type="chars" stagger={0.03} once={false} trigger="load">
                                     Revolutionizing AI with
                                 </SplitTextReveal>
@@ -913,7 +1074,26 @@ const About = () => {
             <section className="relative py-6 z-10">
                 <div className="container mx-auto px-4">
                     <div className="flex flex-wrap justify-center gap-6 sm:gap-10">
-                        {tech.map((t, i) => <TechIcon key={i} icon={t.icon} label={t.label} delay={i * 0.08} />)}
+                        {tech.map((t, i) => (
+                            <div
+                                key={i}
+                                onMouseEnter={() => {
+                                    setIsHoveringTech(true);
+                                    setActiveTechIndex(i);
+                                }}
+                                onMouseLeave={() => setIsHoveringTech(false)}
+                            >
+                                <TechIcon
+                                    icon={t.icon}
+                                    label={t.label}
+                                    hoverBg={t.hoverBg}
+                                    hoverBorder={t.hoverBorder}
+                                    hoverText={t.hoverText}
+                                    delay={i * 0.08}
+                                    isGlow={activeTechIndex === i}
+                                />
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
@@ -928,15 +1108,15 @@ const About = () => {
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
                             {[
-                                { value: 5000, suffix: '+', label: 'Training Sessions' },
-                                { value: 200, suffix: '+', label: 'AI Specialists' },
-                                { value: 99, suffix: '%', label: 'Accuracy Rate' },
-                                { value: 50, suffix: '+', label: 'Enterprise Clients' },
+                                { value: 5000, suffix: '+', label: 'Training Sessions', textColor: 'text-[#0284C7]', glowColor: '#0284C7', hoverBg: 'bg-[#F0F9FF]', hoverBorder: 'border-[#0284C7]/40', normalBorder: 'border-[#0284C7]/15' },
+                                { value: 200, suffix: '+', label: 'AI Specialists', textColor: 'text-[#2D6A4F]', glowColor: '#2D6A4F', hoverBg: 'bg-[#F0FDF4]', hoverBorder: 'border-[#2D6A4F]/40', normalBorder: 'border-[#2D6A4F]/15' },
+                                { value: 99, suffix: '%', label: 'Accuracy Rate', textColor: 'text-[#E11D48]', glowColor: '#E11D48', hoverBg: 'bg-[#FFF1F2]', hoverBorder: 'border-[#E11D48]/40', normalBorder: 'border-[#E11D48]/15' },
+                                { value: 50, suffix: '+', label: 'Enterprise Clients', textColor: 'text-[#EA580C]', glowColor: '#EA580C', hoverBg: 'bg-[#FFF7ED]', hoverBorder: 'border-[#EA580C]/40', normalBorder: 'border-[#EA580C]/15' },
                             ].map((s, i) => (
                                 <motion.div key={i} variants={fadeUp}>
-                                    <TiltCard>
+                                    <TiltCard hoverBg={s.hoverBg} hoverBorder={s.hoverBorder} normalBorder={s.normalBorder} glowColor={s.glowColor}>
                                         <div className="p-6 text-center space-y-1 font-body">
-                                            <div className="text-3xl md:text-4xl font-serif font-bold text-[#2D6A4F]">
+                                            <div className={cn("text-3xl md:text-4xl font-serif font-bold transition-colors duration-300", s.textColor)}>
                                                 <Counter value={s.value} suffix={s.suffix} />
                                             </div>
                                             <div className="text-sm font-semibold text-slate-500">{s.label}</div>
@@ -964,7 +1144,7 @@ const About = () => {
                             }}
                             className="space-y-6"
                         >
-                            <h2 className="text-4xl md:text-5xl font-serif font-bold leading-[1.1] text-gray-950">
+                            <h2 className="text-4xl md:text-5xl font-serif leading-[1.1] text-[#2D6A4F]">
                                 {HEADLINE_WORDS.map((word, i) => (
                                     <span key={i} className="inline-block whitespace-pre">
                                         <motion.span
@@ -983,7 +1163,7 @@ const About = () => {
 
                             <motion.p
                                 variants={{ hidden: { opacity: 0, y: 15 }, visible: { opacity: 1, y: 0 } }}
-                                className="text-lg md:text-xl leading-relaxed font-body font-semibold text-slate-800"
+                                className="text-sm sm:text-base leading-relaxed font-body font-medium text-slate-600"
                             >
                                 We partner with leading organizations to build next-generation agentic solutions, automating complex workflows with unmatched speed, accuracy, and security filters.
                             </motion.p>
@@ -1132,7 +1312,7 @@ const About = () => {
                     <div className="text-center mb-16 space-y-3">
                         <SplitTextReveal
                             as="h2"
-                            className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-gray-950"
+                            className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#2D6A4F]"
                             type="chars"
                             stagger={0.03}
                             once={false}
@@ -1195,7 +1375,7 @@ const About = () => {
                                                     </span>
                                                     <item.icon className="w-4 h-4 text-[#2D6A4F]" />
                                                 </div>
-                                                <h3 className="text-xl font-serif font-bold text-gray-900">{item.title}</h3>
+                                                <h3 className="text-xl font-serif font-semibold text-gray-900">{item.title}</h3>
                                                 <p className="text-slate-600 text-sm leading-relaxed font-body font-medium">
                                                     {item.description}
                                                 </p>
@@ -1239,7 +1419,7 @@ const About = () => {
                         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#E8F5EE] text-[#2D6A4F] border border-[#2D6A4F]/15 font-body uppercase tracking-wider">
                             <Sparkles size={12} /> Execution Strategy
                         </div>
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-gray-950">
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#2D6A4F]">
                             Our Innovation Engine
                         </h2>
                         <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto font-body font-medium">
@@ -1255,23 +1435,27 @@ const About = () => {
             <section className="py-16 md:py-24 relative z-10 bg-white">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16 space-y-2">
-                        <h2 className="text-3xl sm:text-4xl font-serif font-bold text-gray-900">Core Values</h2>
+                        <h2 className="text-3xl sm:text-4xl font-serif text-[#2D6A4F]">Core Values</h2>
                         <p className="text-slate-600 font-body font-semibold">The foundations powering our platform</p>
                     </div>
 
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
                         {values.map((v, i) => (
                             <motion.div key={i} variants={fadeUp}>
-                                <TiltCard>
+                                <TiltCard className="group" hoverBg={v.hoverBg} hoverBorder={v.hoverBorder} normalBorder={v.normalBorder} glowColor={v.glowColor}>
                                     <div className="p-6 text-center space-y-4">
                                         <motion.div
-                                            className="w-12 h-12 rounded-2xl flex items-center justify-center mx-auto bg-gradient-to-br from-[#2D6A4F] to-[#2D6A4F]/70 shadow-md"
+                                            className={cn("w-12 h-12 rounded-2xl flex items-center justify-center mx-auto border shadow-sm transition-all duration-300", v.iconBg, v.iconBorder)}
                                             whileHover={{ rotate: 8, scale: 1.05 }}
                                         >
-                                            <v.icon className="w-5 h-5 text-white" />
+                                            <img
+                                                src={v.icon}
+                                                alt={v.title}
+                                                className="w-6 h-6 object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                                            />
                                         </motion.div>
                                         <div className="space-y-1 font-body">
-                                            <h3 className="font-serif font-bold text-gray-900 text-lg">{v.title}</h3>
+                                            <h3 className="font-serif font-semibold text-gray-900 text-lg">{v.title}</h3>
                                             <p className="text-slate-500 text-xs sm:text-sm font-medium leading-relaxed">{v.desc}</p>
                                         </div>
                                     </div>
@@ -1286,7 +1470,7 @@ const About = () => {
             <section className="py-16 md:py-24 relative z-10 bg-gray-50/40 border-t border-gray-100">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16 space-y-2">
-                        <h2 className="text-3xl sm:text-4xl font-serif font-bold text-gray-900">Why Frostrek?</h2>
+                        <h2 className="text-3xl sm:text-4xl font-serif text-[#2D6A4F]">Why Frostrek?</h2>
                         <p className="text-slate-600 font-body font-semibold">Our unique platform advantages</p>
                     </div>
 
@@ -1306,7 +1490,13 @@ const About = () => {
                                     >
                                         {/* Front Side */}
                                         <div
-                                            className="absolute inset-0 w-full h-full rounded-2xl shadow-md border border-gray-100 bg-white p-6 pb-8 flex flex-col justify-between overflow-hidden"
+                                            className={cn(
+                                                "absolute inset-0 w-full h-full rounded-2xl shadow-md border bg-white p-6 pb-8 flex flex-col justify-between overflow-hidden transition-all duration-300",
+                                                f.normalBorder,
+                                                f.hoverBg,
+                                                f.hoverBorder,
+                                                f.hoverShadow
+                                            )}
                                             style={{
                                                 backfaceVisibility: 'hidden',
                                                 WebkitBackfaceVisibility: 'hidden'
@@ -1314,12 +1504,12 @@ const About = () => {
                                         >
                                             <div className="space-y-4">
                                                 <div className="flex items-start gap-4">
-                                                    <div className="w-12 h-12 rounded-xl bg-[#E8F5EE] border border-[#2D6A4F]/20 flex items-center justify-center font-serif font-bold text-[#2D6A4F] text-lg shrink-0">
+                                                    <div className={cn("w-12 h-12 rounded-xl flex items-center justify-center font-serif font-bold text-lg shrink-0 border transition-all duration-300", f.iconBg, f.iconBorder, f.textColor)}>
                                                         {f.num}
                                                     </div>
                                                     <div className="space-y-1">
                                                         <h3 className="font-serif font-bold text-base text-gray-900 leading-tight">{f.title}</h3>
-                                                        <div className="h-1 w-10 bg-[#2D6A4F] rounded-full" />
+                                                        <div className={cn("h-1 w-10 rounded-full transition-colors duration-300", f.bulletBg)} />
                                                     </div>
                                                 </div>
                                                 <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-body font-medium">
@@ -1328,10 +1518,10 @@ const About = () => {
                                             </div>
 
                                             <div className="flex items-center justify-between border-t border-gray-50 pt-4 font-body">
-                                                <span className="text-xs font-bold text-[#2D6A4F]">
+                                                <span className={cn("text-xs font-bold transition-colors duration-300", f.textColor)}>
                                                     {f.stat}
                                                 </span>
-                                                <span className="text-xs font-bold text-gray-400 flex items-center gap-1 hover:text-[#2D6A4F]">
+                                                <span className={cn("text-xs font-bold text-gray-400 flex items-center gap-1 transition-all duration-300", f.hoverText)}>
                                                     Flip for details ↻
                                                 </span>
                                             </div>
@@ -1339,7 +1529,13 @@ const About = () => {
 
                                         {/* Back Side - Fixed Text Contrast (Light bg, dark text) */}
                                         <div
-                                            className="absolute inset-0 w-full h-full rounded-2xl shadow-md border border-[#2D6A4F]/30 bg-white p-6 flex flex-col justify-between overflow-hidden"
+                                            className={cn(
+                                                "absolute inset-0 w-full h-full rounded-2xl shadow-md border p-6 flex flex-col justify-between overflow-hidden bg-white transition-all duration-300",
+                                                f.normalBorder,
+                                                f.hoverBg,
+                                                f.hoverBorder,
+                                                f.hoverShadow
+                                            )}
                                             style={{
                                                 backfaceVisibility: 'hidden',
                                                 WebkitBackfaceVisibility: 'hidden',
@@ -1349,7 +1545,7 @@ const About = () => {
                                             <div className="space-y-3">
                                                 <div className="flex items-center justify-between border-b border-gray-100 pb-2">
                                                     <h3 className="font-serif font-bold text-sm sm:text-base text-gray-900">{f.title}</h3>
-                                                    <span className="text-sm font-bold text-[#2D6A4F]">{f.num}</span>
+                                                    <span className={cn("text-sm font-bold transition-colors duration-300", f.textColor)}>{f.num}</span>
                                                 </div>
                                                 <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-body font-medium">
                                                     {f.details}
@@ -1357,13 +1553,13 @@ const About = () => {
                                                 <div className="space-y-1.5 pt-1">
                                                     {f.highlights.map((highlight, idx) => (
                                                         <div key={idx} className="flex items-center gap-2">
-                                                            <CheckCircle2 size={13} className="text-[#2D6A4F] shrink-0" />
+                                                            <CheckCircle2 size={13} className={cn("shrink-0 transition-colors duration-300", f.textColor)} />
                                                             <span className="text-xs text-gray-700 font-body font-semibold">{highlight}</span>
                                                         </div>
                                                     ))}
                                                 </div>
                                             </div>
-                                            <div className="text-center text-[11px] font-bold text-[#2D6A4F] pt-2 border-t border-gray-100 font-body">
+                                            <div className={cn("text-center text-[11px] font-bold pt-2 border-t border-gray-100 font-body transition-colors duration-300", f.textColor)}>
                                                 Click to flip back ↻
                                             </div>
                                         </div>
@@ -1379,19 +1575,13 @@ const About = () => {
             <section className="py-16 md:py-24 relative overflow-hidden z-10 bg-white">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16 space-y-3">
-                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold bg-[#E8F5EE] text-[#2D6A4F] border border-[#2D6A4F]/15 font-body uppercase tracking-wider">
-                            <Globe size={13} /> Our Global Offices
+                        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#E8F5EE] text-[#2D6A4F] border border-[#2D6A4F]/15 font-body uppercase tracking-wider font-semibold">
+                            <Globe size={12} /> Global Presence
                         </div>
-                        <SplitTextReveal
-                            as="h2"
-                            className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-gray-950"
-                            type="chars"
-                            stagger={0.03}
-                            once={false}
-                        >
-                            Global Presence
-                        </SplitTextReveal>
-                        <p className="text-slate-600 text-base sm:text-lg max-w-xl mx-auto font-body font-semibold">
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#2D6A4F]">
+                            Our Global Offices
+                        </h2>
+                        <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto font-body font-medium">
                             Serving fast-growing enterprises across three global hubs.
                         </p>
                     </div>

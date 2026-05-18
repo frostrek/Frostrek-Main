@@ -128,7 +128,7 @@ const Footer = () => {
                       className="h-9 w-auto transition-transform group-hover:scale-110"
                     />
                     <FlipText className="text-[1.35rem] font-black font-serif tracking-tighter text-[#2D6A4F]">
-                      FROSTREK
+                      frostrek.ai
                     </FlipText>
                   </Link>
                   {/* ISO Badges */}
