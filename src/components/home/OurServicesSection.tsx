@@ -48,7 +48,7 @@ const SERVICES = [
         id: 'training',
         title: 'AI Model Training',
         description: 'Improve AI model outcomes through expert-led training, fine-tuning, and real-world validation for consistent accuracy.',
-        icon: <img src="/icons/ai1.png" alt="AI Model Training" className="w-10 h-10 object-contain" />,
+        icon: <img src="/icons/machine-learning.png" alt="AI Model Training" className="w-10 h-10 object-contain" />,
         bgColor: 'bg-[#FFFBEB]', // Light Yellow
         textColor: 'text-black',
         borderColor: 'border-amber-100',
