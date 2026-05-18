@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Bot, Mic, MessageSquare, Linkedin, Database, ArrowRight, Sparkles, Play, ChevronRight, Users, Trophy, Factory } from 'lucide-react';
+import { Bot, Mic, MessageSquare, Linkedin, ArrowRight, Sparkles, Play, ChevronRight, Users, Trophy, Factory } from 'lucide-react';
 
 interface Product {
     id: string;
@@ -86,16 +86,6 @@ const products: Product[] = [
         icon: Users,
         href: '/products/hiyring',
         features: ['AI Video Interviews', 'Instant Screening', 'Bias Reduction'],
-        category: 'enterprise'
-    },
-    {
-        id: 'erpnext',
-        name: 'ERPNext AI Modules',
-        description: 'Intelligent add-ons for your ERP system.',
-        shortDesc: 'Reduce operational costs by 60%.',
-        icon: Database,
-        href: '/products/erpnext-ai',
-        features: ['Auto Processing', 'Predictions', 'Reports'],
         category: 'enterprise'
     }
 ];
