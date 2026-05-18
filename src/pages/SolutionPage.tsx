@@ -65,6 +65,7 @@ const SolutionPage = () => {
                 description={solution.description} 
                 path={location.pathname} 
                 schema={schemas}
+                keywords={solution.keywords || "enterprise AI solutions USA, production-ready AI UK, bespoke AI agents India"}
             />
             {/* Hero Section */}
             <section className="relative overflow-hidden pt-24 pb-32 bg-gradient-to-b from-white via-[#FAFCFB] to-white">

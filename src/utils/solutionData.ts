@@ -20,6 +20,7 @@ export interface SolutionData {
     heroImage?: string;
     challenges: Challenge[];
     features: SolutionFeature[];
+    keywords?: string;
 }
 
 export const SOLUTION_DATA: Record<string, SolutionData> = {
@@ -28,6 +29,7 @@ export const SOLUTION_DATA: Record<string, SolutionData> = {
         title: 'AI for Sales',
         subtitle: 'Close More Deals, Faster',
         description: 'Supercharge your sales team with AI-driven insights, automated outreach, and intelligent lead scoring. Focus on selling, not administrative work.',
+        keywords: 'AI sales automation software USA, automated outbound sales agents India, predictive lead scoring AI, AI coaching for sales teams',
         challenges: [
             {
                 title: 'Low Conversion Rates',
@@ -56,6 +58,7 @@ export const SOLUTION_DATA: Record<string, SolutionData> = {
         title: 'AI for Support',
         subtitle: '24/7 World-Class Service',
         description: 'Provide instant, accurate support to your customers around the clock. Reduce ticket volume and improve CSAT scores with intelligent automation.',
+        keywords: 'autonomous customer service AI agents, automated helpdesk triage AI UK, multilingual AI support bots, AI knowledge base resolution',
         challenges: [
             {
                 title: 'High Wait Times',
@@ -84,6 +87,7 @@ export const SOLUTION_DATA: Record<string, SolutionData> = {
         title: 'AI for eCommerce',
         subtitle: 'Personalize Every Shopping Journey',
         description: 'Turn visitors into loyal customers with hyper-personalized recommendations, visual search, and intelligent inventory management.',
+        keywords: 'AI product recommendation engine, ecommerce visual search AI, WhatsApp cart recovery bots, predictive inventory AI retail',
         challenges: [
             {
                 title: 'Cart Abandonment',
@@ -112,6 +116,7 @@ export const SOLUTION_DATA: Record<string, SolutionData> = {
         title: 'AI for ERP',
         subtitle: 'Intelligent Enterprise Operations',
         description: 'Modernize your legacy ERP with AI. Automate complex workflows, reconcile finances instantly, and predict supply chain disruptions.',
+        keywords: 'AI ERP automation software, automated financial reconciliation AI, predictive supply chain analytics, enterprise workflow mining',
         challenges: [
             {
                 title: 'Data Silos',
@@ -140,6 +145,7 @@ export const SOLUTION_DATA: Record<string, SolutionData> = {
         title: 'Manufacturing Intelligence',
         subtitle: 'Precision, Prediction, Profit',
         description: 'Unify factory telemetry, ERP data, and AI scheduling into a single pane of glass. Recover lost production and optimize resource allocation in real-time.',
+        keywords: 'manufacturing telemetry AI integration, AI production scheduling engine, real-time factory floor analytics, predictive maintenance AI',
         challenges: [
             {
                 title: 'Disconnected Legacy Systems',
@@ -168,6 +174,7 @@ export const SOLUTION_DATA: Record<string, SolutionData> = {
         title: 'Fintech & Custom Wallets',
         subtitle: 'Save Gateway Commissions with Closed-Loop Fan Currency',
         description: 'A centralized, closed-loop digital currency engineered specifically for sports fans and affiliated clubs. Functioning as a next-generation digital loyalty programme that bypasses traditional payment processors to eliminate standard gateway commissions.',
+        keywords: 'closed-loop digital fan currency wallets, zero gateway commission sports crypto wallets, custom web3 loyalty programs UK, sports club fintech solutions',
         challenges: [
             {
                 title: 'Gateway Commissions & Leakage',
@@ -197,6 +204,7 @@ export const SOLUTION_DATA: Record<string, SolutionData> = {
         title: 'Enterprise AI Solutions',
         subtitle: 'Transform Your Business',
         description: 'Leverage the power of artificial intelligence to solve your most critical business challenges. Scalable, secure, and custom-tailored to your needs.',
+        keywords: 'custom enterprise AI solutions USA, bespoke AI agent development India, secure scalable AI architecture UK, enterprise digital transformation AI',
         challenges: [
             {
                 title: 'Operational Efficiency',

@@ -54,6 +54,7 @@ export interface ProductData {
     benefits: ProductBenefit[];
     useCases: UseCase[];
     faq: FAQItem[];
+    keywords?: string;
 }
 
 export const PRODUCT_DATA: Record<string, ProductData> = {
@@ -65,6 +66,7 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
         description:
             'A centralized, closed-loop digital currency engineered specifically for sports fans and affiliated clubs. Functioning as a next-generation digital loyalty programme, it completely bypasses traditional payment processors to eliminate gateway commissions.',
         badge: 'Fintech · Custom Wallets · Closed Loop',
+        keywords: 'closed-loop digital fan currency wallets USA, zero gateway commission sports crypto wallets UK, custom web3 loyalty programs India, sports club fintech solutions globally',
         isCaseStudy: true,
         heroImage: '/pcc-hero.png',       // replace with your actual image path
         demoImage: '/pcc-dashboard.png',  // replace with your actual image path
@@ -234,6 +236,7 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
         description:
             'Our flagship manufacturing platform that unifies disconnected factory systems (ERP, WMS, SCADA) into a single intelligence hub. Built from the ground up to deliver live sensor dashboards, automated cost analytics, and an AI-driven production scheduler capable of recovering massive production losses.',
         badge: 'Enterprise Platform',
+        keywords: 'manufacturing telemetry AI integration USA, AI production scheduling engine UK, real-time factory floor analytics India, predictive maintenance AI globally',
         isCaseStudy: true,
         heroImage: '/saf-hero.png',        // replace with your actual image path
         demoImage: '/saf-dashboard.png',   // replace with your actual image path
@@ -401,6 +404,7 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
         subtitle: 'Intelligent Conversations, Infinite Scale',
         description: 'Empower your support team with a next-gen AI agent that understands context, sentiment, and intent. Resolve up to 80% of inquiries instantly without human intervention.',
         badge: 'Top Rated Support AI',
+        keywords: 'enterprise customer support AI bots USA, automated ticket triage system UK, multilingual conversational AI agents India, custom knowledge base chatbots globally',
         heroImage: '/agent1.png',
         demoImage: '/optimized/chatbot-rafiki.webp',
         statistics: [
@@ -442,6 +446,7 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
         subtitle: 'Human-like Voice Interactions at Scale',
         description: 'Create better customer experiences with less effort. Deploy low-latency voice AI agents that handle inbound support and outbound sales calls with natural, human-like fluidity.',
         badge: 'Low Latency Voice',
+        keywords: 'low-latency voice AI agents USA, human-like outbound sales AI UK, automated inbound voice support India, compliant AI debt collection bots globally',
         heroImage: '/optimized/frostrek_VA.webp',
         demoImage: '/vn1.png',
         statistics: [
@@ -483,6 +488,7 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
         subtitle: 'Turn Conversations into Revenue',
         description: 'Unlock the power of the world\'s most popular messaging app. Automate notifications, support, and sales directly in WhatsApp with official API integration.',
         badge: 'Meta Business Partner',
+        keywords: 'WhatsApp API automation India, automated WhatsApp sales funnels UK, meta verified business bots USA, WhatsApp cart recovery AI globally',
         heroImage: '/wp1.png', // Placeholder
         demoImage: '/wp2.png',
         statistics: [
@@ -524,6 +530,7 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
         subtitle: 'Scalable Intelligence for Business',
         description: 'Leverage our full suite of AI tools to modernize your entire operation. From ERP automation to predictive analytics, we build the future of your business.',
         badge: 'Enterprise Grade',
+        keywords: 'scalable enterprise AI suite USA, full-stack AI digital transformation UK, bespoke predictive analytics India, enterprise AI development globally',
         heroImage: '/enterprise_ai_suite.png',
         statistics: [
             {

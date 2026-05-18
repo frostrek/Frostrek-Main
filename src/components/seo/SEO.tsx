@@ -7,6 +7,7 @@ interface SEOProps {
   name?: string;
   type?: string;
   schema?: string | string[];
+  keywords?: string;
 }
 
 export default function SEO({ 
@@ -15,7 +16,8 @@ export default function SEO({
   path, 
   name = "Frostrek AI", 
   type = "website",
-  schema
+  schema,
+  keywords
 }: SEOProps) {
   const url = `https://www.frostrek.ai${path}`;
   const image = "https://www.frostrek.ai/logo.png";
@@ -63,6 +65,7 @@ export default function SEO({
       {/* Standard metadata tags */}
       <title>{title}</title>
       <meta name="description" content={description} />
+      {keywords && <meta name="keywords" content={keywords} />}
       
       {/* Canonical Link */}
       <link rel="canonical" href={url} />

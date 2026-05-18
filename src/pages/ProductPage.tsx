@@ -64,6 +64,7 @@ const ProductPage = () => {
                 description={product.description} 
                 path={location.pathname} 
                 schema={schemas}
+                keywords={product.keywords || "production-ready AI products USA, enterprise AI solutions UK, bespoke AI technology India"}
             />
             {/* Cute Background and Visual Accent */}
             <CuteBackground />
