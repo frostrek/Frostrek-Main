@@ -133,7 +133,7 @@ const ChatDemo = () => {
     ];
 
     return (
-        <div className="rounded-2xl p-5 h-[240px] overflow-hidden bg-brand-light-bg border border-[#E6EFE6]">
+        <div className="rounded-2xl p-5 h-[240px] overflow-hidden bg-gradient-to-r from-[#FEF2F2] to-transparent border border-[#E6EFE6]">
             <div className="flex items-center gap-2 mb-4 pb-3 border-b border-[#E6EFE6]">
                 <div className="w-2.5 h-2.5 rounded-full bg-[#2D6A4F] animate-pulse" />
                 <span className="text-xs font-semibold text-gray-600">Frosty AI Agent</span>
@@ -147,7 +147,7 @@ const ChatDemo = () => {
                     >
                         <div
                             className={`max-w-[80%] px-4 py-2.5 rounded-2xl text-[13px] font-medium shadow-sm animate-fade-in ${msg.role === 'user'
-                                ? 'bg-[#2D6A4F] text-white rounded-br-sm'
+                                ? 'bg-[#FEE2E2] text-gray-700 rounded-br-sm'
                                 : 'bg-white text-gray-700 border border-gray-100 rounded-bl-sm'
                                 }`}
                             style={{ animationDelay: `${i * 0.8}s` }}
@@ -172,14 +172,15 @@ const WAVE_HEIGHTS = [20, 32, 16, 28, 12, 24, 30, 18, 26, 14, 22, 20];
 
 const VoiceDemo = () => {
     return (
-        <div className="rounded-2xl p-5 h-[240px] bg-brand-light-bg border border-[#E6EFE6] flex flex-col items-center justify-center">
-            <div className="relative mb-6">
+        <div className="rounded-2xl p-5 h-[240px] bg-gradient-to-r from-[#F0FDF4] to-transparent border border-[#E6EFE6] flex flex-col items-center justify-center relative overflow-hidden">
+            <div className="absolute inset-0" />
+            <div className="relative mb-6 z-10">
                 <div className="w-20 h-20 rounded-full bg-[#2D6A4F] flex items-center justify-center animate-pulse shadow-lg shadow-[#2D6A4F]/20">
                     <Volume2 className="w-10 h-10 text-white" />
                 </div>
                 <div className="absolute inset-0 w-20 h-20 rounded-full border-2 border-[#2D6A4F]/40 animate-ping" />
             </div>
-            <div className="flex items-center gap-1.5 mb-3">
+            <div className="flex items-center gap-1.5 mb-3 z-10 relative">
                 {WAVE_HEIGHTS.map((height, i) => (
                     <div
                         key={i}
@@ -191,7 +192,7 @@ const VoiceDemo = () => {
                     />
                 ))}
             </div>
-            <span className="text-sm font-medium text-gray-500">Voice AI responding...</span>
+            <span className="text-sm font-medium text-gray-500 z-10 relative">Voice AI responding...</span>
         </div>
     );
 };
@@ -205,7 +206,7 @@ const ManufacturingDemo = () => {
     ];
 
     return (
-        <div className="rounded-2xl p-4 h-[240px] bg-brand-light-bg border border-[#E6EFE6] overflow-hidden flex flex-col relative">
+        <div className="rounded-2xl p-4 h-[240px] bg-gradient-to-r from-[#FFF7ED] to-transparent border border-[#E6EFE6] overflow-hidden flex flex-col relative">
             <div className="flex items-center justify-between mb-3 bg-white p-3 rounded-xl border border-gray-100 shadow-sm z-10">
                 <div className="flex items-center gap-2">
                     <div className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse" />
@@ -220,7 +221,7 @@ const ManufacturingDemo = () => {
             <div className="space-y-2 flex-1 relative z-10">
                 {industries.map((ind, i) => (
                     <div key={i} className="flex items-center justify-between p-2.5 rounded-lg bg-white/80 border border-gray-100 backdrop-blur-sm shadow-sm animate-fade-in" style={{ animationDelay: `${i * 0.2}s` }}>
-                        <span className="text-xs font-bold text-[#2D6A4F]">{ind.name}</span>
+                        <span className="text-xs font-bold text-gray-700">{ind.name}</span>
                         <span className="text-[11px] font-medium text-gray-500">{ind.metric}</span>
                     </div>
                 ))}
@@ -232,16 +233,16 @@ const ManufacturingDemo = () => {
 const Web3Demo = () => {
     return (
         <div className="rounded-2xl p-5 h-[240px] bg-brand-light-bg border border-[#E6EFE6] flex flex-col items-center justify-center relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#20A88D]/10 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#FFFBEB] to-transparent" />
             <div className="w-16 h-16 rounded-2xl bg-white shadow-lg border border-[#E6EFE6] flex items-center justify-center mb-4 z-10 relative">
-
+                <img src="/icons/payment-success.png" alt="Payment Success" className="w-10 h-10 object-contain" />
                 <div className="absolute -top-1 -right-1 w-5 h-5 bg-[#2D6A4F] rounded-full flex items-center justify-center">
                     <CheckCircle2 className="w-3.5 h-3.5 text-white" />
                 </div>
             </div>
             <div className="text-center z-10">
-                <div className="text-sm font-bold text-[#2D6A4F] mb-1">Payment Successful</div>
-                <div className="text-3xl font-black text-[#20A88D] font-mono tracking-tight mb-2">145.00 <span className="text-sm">TOKEN</span></div>
+                <div className="text-sm font-bold text-black mb-1">Payment Successful</div>
+                <div className="text-3xl font-black font-mono tracking-tight mb-2">145.00 <span className="text-sm">TOKEN</span></div>
                 <div className="text-[11px] text-gray-500 bg-white px-3 py-1.5 rounded-lg shadow-sm border border-gray-100 inline-block font-medium">Tx: 0x8f...3a9b settled instantly</div>
             </div>
         </div>
@@ -256,7 +257,7 @@ const MultivendorDemo = () => {
     ];
 
     return (
-        <div className="rounded-2xl p-4 h-[240px] bg-brand-light-bg border border-[#E6EFE6] overflow-hidden flex flex-col relative">
+        <div className="rounded-2xl p-4 h-[240px] bg-gradient-to-r from-[#F0F9FF] to-transparent border border-[#E6EFE6] overflow-hidden flex flex-col relative">
             <div className="flex items-center justify-between mb-4 bg-white p-3 rounded-xl border border-gray-100 shadow-sm z-10">
                 <div className="flex items-center gap-2">
                     <span className="text-xs font-bold text-gray-700">Consolidated Sales</span>
@@ -465,9 +466,9 @@ const AISolutionsShowcase = () => {
                                 >
                                     Learn More <ArrowRight className="w-4 h-4" />
                                 </Link>
-                                <Link 
-                                    to="/contact" 
-                                    onMouseEnter={() => setHoveredIndex(-2)} 
+                                <Link
+                                    to="/contact"
+                                    onMouseEnter={() => setHoveredIndex(-2)}
                                     onMouseLeave={() => setHoveredIndex(null)}
                                     style={{ borderColor: hoveredIndex === -2 ? activeSolution.tabColorHover : '#E5E7EB' }}
                                     className="inline-flex items-center justify-center gap-2 px-6 py-3 border rounded-xl font-bold text-sm text-gray-600 hover:bg-[#Fcfcfc] transition-all"
