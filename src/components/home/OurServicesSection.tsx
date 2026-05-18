@@ -116,7 +116,7 @@ const OurServicesSection = () => {
                                     </div>
 
                                     <div>
-                                        <h3 className={`font-serif text-2xl md:text-3xl font-bold ${service.textColor} mb-4 leading-tight`}>
+                                        <h3 className={`font-serif text-2xl md:text-3xl font-semibold ${service.textColor} mb-4 leading-tight`}>
                                             {service.title}
                                         </h3>
 
