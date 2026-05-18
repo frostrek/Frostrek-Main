@@ -16,7 +16,7 @@ const organizationSchema = JSON.stringify({
   "name": "Frostrek AI",
   "url": "https://www.frostrek.ai",
   "logo": "https://www.frostrek.ai/logo.png",
-  "description": "AI-powered enterprise solutions including conversational AI agents, automation, and AI copilots.",
+  "description": "Frostrek AI builds conversational AI agents, AI-powered video interview platforms (Hiyring), and enterprise workflow automation. 50+ specialists with 5+ years of production AI deployment, serving startups to enterprises globally from Gurugram, India.",
   "foundingDate": "2019",
   "founder": {
     "@type": "Person",
@@ -67,7 +67,7 @@ const organizationSchema = JSON.stringify({
 const websiteSchema = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "Frostrek",
+  "name": "Frostrek AI",
   "url": "https://www.frostrek.ai",
   "potentialAction": {
     "@type": "SearchAction",
@@ -157,7 +157,7 @@ const Home = () => {
     <div className="min-h-screen relative bg-brand-light-bg">
       <SEO
         title="Frostrek AI | Conversational AI Agents & Workflow Automation | Gurugram, India"
-        description="Frostrek AI delivers enterprise-grade conversational AI agents, workflow automation, and custom LLM solutions. Based in Gurugram, India."
+        description="Frostrek AI builds conversational AI agents, AI-powered video interview platforms, and enterprise workflow automation. 50+ specialists, 5+ years delivery, serving startups to enterprises globally from Gurugram, India."
         path="/"
         schema={[organizationSchema, websiteSchema, faqSchema, localBusinessSchema, personSchema]}
       />

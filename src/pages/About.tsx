@@ -849,8 +849,8 @@ const About = () => {
     return (
         <div ref={ref} className="min-h-screen relative overflow-hidden bg-white text-gray-900">
             <SEO
-                title="About Us | Frostrek - Pioneering Enterprise AI"
-                description="Learn about Frostrek's mission to make enterprise-grade AI accessible, our team of experts, and our commitment to security and innovation."
+                title="About Us | Frostrek AI - Pioneering Enterprise AI"
+                description="Learn about Frostrek AI's mission to make enterprise-grade AI accessible, our team of experts in India, USA, and UK, and our commitment to security and innovation."
                 path="/about"
             />
             <CuteBackground />

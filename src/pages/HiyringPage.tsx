@@ -55,8 +55,8 @@ const HiyringPage = () => {
     return (
         <div className={`relative min-h-screen transition-colors duration-300 ${theme === 'dark' ? 'bg-brand-light-bg' : ''}`}>
             <SEO 
-                title="Hiyring | Autonomous AI Video Interviews | Frostrek" 
-                description="Hiyring streamlines your hiring process with autonomous AI video interviews. Screen thousands of candidates in minutes, not weeks, with scientifically focused assessments." 
+                title="Hiyring | Autonomous AI Video Interviews | Frostrek AI" 
+                description="Hiyring by Frostrek AI streamlines your hiring process with autonomous video interviews. Screen thousands of candidates in minutes with scientifically focused assessments." 
                 path={location.pathname} 
             />
             {theme !== 'dark' && <CuteBackground />}

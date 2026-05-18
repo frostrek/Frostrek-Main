@@ -201,8 +201,8 @@ export const ResourcesPage = () => {
     return (
         <div className="relative min-h-screen pb-24 bg-gradient-to-b from-white via-white to-[#FAFCFB] font-body">
             <SEO 
-                title="Resources | Frostrek - AI Insights & Success Stories" 
-                description="Deep dives into how we help enterprises build production-ready AI systems through high-quality data operations and case studies." 
+                title="Resources | Frostrek AI - Insights & Success Stories" 
+                description="Deep dives into how Frostrek AI helps enterprises build production-ready AI systems through high-quality data operations and citable case studies." 
                 path="/resources" 
             />
 

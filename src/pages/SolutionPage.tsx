@@ -61,7 +61,7 @@ const SolutionPage = () => {
     return (
         <div className={`pt-20 ${theme === 'dark' ? 'bg-brand-light-bg' : ''}`}>
             <SEO 
-                title={`${solution.title} | Frostrek Solutions`} 
+                title={`${solution.title} | Frostrek AI Solutions`} 
                 description={solution.description} 
                 path={location.pathname} 
                 schema={schemas}

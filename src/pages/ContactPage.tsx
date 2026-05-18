@@ -131,8 +131,8 @@ ${formData.projectDetails}
     return (
         <div className="min-h-screen pt-24 pb-16 bg-gradient-to-b from-white via-[#FAFCFB] to-white relative font-body overflow-hidden">
             <SEO 
-                title="Contact Us | Frostrek" 
-                description="Get in touch with Frostrek to explore how AI can transform your business. We are here to help." 
+                title="Contact Us | Frostrek AI" 
+                description="Get in touch with the Frostrek AI team in Gurugram to explore how production-grade AI can transform your enterprise operations." 
                 path="/contact" 
             />
 

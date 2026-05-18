@@ -90,7 +90,7 @@ const FrostyPage = () => {
     return (
         <div className="relative min-h-screen bg-white text-[#2D6A4F] font-body">
             <SEO
-                title={`${product.title} | Frostrek Enterprise AI`}
+                title={`${product.title} | Frostrek AI Enterprise Solutions`}
                 description={product.description}
                 path="/products/frosty-ai"
                 schema={faqSchema ? [faqSchema] : []}

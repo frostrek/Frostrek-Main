@@ -60,7 +60,7 @@ const ProductPage = () => {
     return (
         <div className="relative min-h-screen bg-white text-gray-900 font-body">
             <SEO 
-                title={`${product.title} | Frostrek Enterprise AI`} 
+                title={`${product.title} | Frostrek AI Enterprise Solutions`} 
                 description={product.description} 
                 path={location.pathname} 
                 schema={schemas}
