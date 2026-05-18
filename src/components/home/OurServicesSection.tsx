@@ -88,7 +88,7 @@ const OurServicesSection = () => {
                         </SplitTextReveal>
                     </div>
                     <p className="text-lg text-gray-500 max-w-2xl mx-auto font-medium">
-                        Cutting-edge AI services engineered for scale, reliability, and real-world impact.
+                        From conversational AI agents to full-stack development — 50+ engineers delivering production-ready systems in 4-8 weeks.
                     </p>
                 </div>
 

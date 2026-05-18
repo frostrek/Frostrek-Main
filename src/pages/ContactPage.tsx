@@ -84,7 +84,7 @@ ${formData.projectDetails}
                 'service_jia14ic',
                 'template_hygc11p',
                 {
-                    to_email: 'contact@frostrek.com',
+                    to_email: 'contact@frostrek.ai',
                     from_name: fullName,
                     user_name: fullName,
                     name: fullName,
@@ -206,6 +206,7 @@ ${formData.projectDetails}
                                             <h4 className="font-bold text-sm text-white/80 uppercase tracking-wider font-body leading-none mb-1">Call Us</h4>
                                             <p className="font-serif font-black text-lg md:text-xl text-white tracking-wide">+91 6399999955</p>
                                         </div>
+
                                     </div>
                                     <div className="w-10 h-10 rounded-full flex items-center justify-center bg-white/10 group-hover:bg-white/20 transition-all">
                                         <ArrowRight className="w-5 h-5 text-white group-hover:translate-x-1 transition-transform" />
@@ -215,7 +216,7 @@ ${formData.projectDetails}
                                 {/* Row for Email and WhatsApp */}
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <a
-                                        href="mailto:contact@frostrek.com"
+                                        href="mailto:contact@frostrek.ai"
                                         className="flex items-start gap-3.5 p-4 rounded-2xl bg-[#FAFCFB] border border-[#2D6A4F]/5 hover:border-[#2D6A4F]/25 hover:bg-white transition-all duration-300 group shadow-sm hover:shadow-md"
                                     >
                                         <div className="p-2.5 rounded-xl bg-[#E8F5EE] text-[#2D6A4F] transition-colors">
@@ -223,7 +224,7 @@ ${formData.projectDetails}
                                         </div>
                                         <div className="min-w-0 flex-1">
                                             <h4 className="font-bold text-xs text-gray-950 mb-0.5 font-body uppercase tracking-wider">Email Us</h4>
-                                            <p className="text-sm text-slate-600 font-semibold truncate">contact@frostrek.com</p>
+                                            <p className="text-sm text-slate-600 font-semibold truncate">contact@frostrek.ai</p>
                                         </div>
                                     </a>
                                     <a
@@ -255,8 +256,8 @@ ${formData.projectDetails}
                                     {[
                                         {
                                             title: 'India (HQ)',
-                                            address: '4th Floor, Unit No. 455, JMD Empire, Sector 62, Gurgaon',
-                                            mapUrl: 'https://www.google.com/maps/search/?api=1&query=4th+Floor+Unit+No+455+JMD+Empire+Sector+62+Gurgaon+India',
+                                            address: '4th Floor, Unit No. 455, JMD Empire, Sector 62, Gurugram',
+                                            mapUrl: 'https://www.google.com/maps/search/?api=1&query=4th+Floor+Unit+No+455+JMD+Empire+Sector+62+Gurugram+India',
                                             isHQ: true
                                         },
                                         {

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ArrowUpRight, Clock, Calendar, User } from 'lucide-react';
 import { CASE_STUDIES, BLOG_POSTS } from '../data/resources';
@@ -112,11 +112,11 @@ const CaseStudyCard = ({ study, onClick }: { study: CaseStudy; onClick: () => vo
     );
 };
 
-const BlogCard = ({ post, onClick }: { post: BlogPost; onClick: () => void }) => {
+const BlogCard = ({ post }: { post: BlogPost }) => {
     return (
+        <Link to={`/resources/blog/${post.slug}`}>
         <motion.div
             whileHover={{ y: -6, transition: { duration: 0.2 } }}
-            onClick={onClick}
             className="group cursor-pointer h-full"
         >
             <div className="rounded-3xl border shadow-xl bg-white border-[#2D6A4F]/10 hover:border-[#2D6A4F]/25 hover:shadow-2xl hover:shadow-[#2D6A4F]/5 shadow-gray-100/50 transition-all duration-300 overflow-hidden flex flex-col h-full">
@@ -159,6 +159,7 @@ const BlogCard = ({ post, onClick }: { post: BlogPost; onClick: () => void }) =>
                 </div>
             </div>
         </motion.div>
+        </Link>
     );
 };
 
@@ -371,7 +372,6 @@ export const ResourcesPage = () => {
                                     <div key={post.id}>
                                         <BlogCard
                                             post={post}
-                                            onClick={() => setSelectedBlog(post)}
                                         />
                                     </div>
                                 ))}

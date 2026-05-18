@@ -13,10 +13,19 @@ import SEO from '../components/seo/SEO';
 const organizationSchema = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "Frostrek",
+  "name": "Frostrek AI",
   "url": "https://www.frostrek.ai",
   "logo": "https://www.frostrek.ai/logo.png",
   "description": "AI-powered enterprise solutions including conversational AI agents, automation, and AI copilots.",
+  "foundingDate": "2019",
+  "founder": {
+    "@type": "Person",
+    "name": "Akash Mittal"
+  },
+  "numberOfEmployees": {
+    "@type": "QuantitativeValue",
+    "value": "50"
+  },
   "sameAs": [
     "https://www.linkedin.com/company/frostrek",
     "https://twitter.com/frostrek"
@@ -114,14 +123,43 @@ const faqSchema = JSON.stringify({
   ]
 });
 
+const localBusinessSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Frostrek AI",
+  "image": "https://www.frostrek.ai/logo.png",
+  "url": "https://www.frostrek.ai",
+  "telephone": "+916399999955",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "4th Floor, Jmd Empire, 455, Golf Course Ext Rd, Sector 62",
+    "addressLocality": "Gurugram",
+    "addressRegion": "Haryana",
+    "postalCode": "122102",
+    "addressCountry": "IN"
+  }
+});
+
+const personSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Akash Mittal",
+  "jobTitle": "Founder & CEO",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Frostrek AI"
+  },
+  "url": "https://www.linkedin.com/in/akash-mittal/"
+});
+
 const Home = () => {
   return (
     <div className="min-h-screen relative bg-brand-light-bg">
       <SEO
-        title="Frostrek | AI-Powered Enterprise Solutions & Conversational AI Agents"
-        description="Transform your business with Frostrek's cutting-edge AI solutions. Explore conversational AI agents, intelligent automation, and enterprise-grade AI copilots that enhance productivity and streamline workflows."
+        title="Frostrek AI | Conversational AI Agents & Workflow Automation | Gurugram, India"
+        description="Frostrek AI delivers enterprise-grade conversational AI agents, workflow automation, and custom LLM solutions. Based in Gurugram, India."
         path="/"
-        schema={[organizationSchema, websiteSchema, faqSchema]}
+        schema={[organizationSchema, websiteSchema, faqSchema, localBusinessSchema, personSchema]}
       />
       <HeroSection />
       {/* Our Services Section */}

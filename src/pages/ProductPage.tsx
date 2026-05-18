@@ -41,7 +41,7 @@ const ProductPage = () => {
 
     if (!product) return null;
 
-    const faqSchema = product.faq ? JSON.stringify({
+    const faqSchema = product.faq && product.faq.length > 0 ? JSON.stringify({
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": product.faq.map(q => ({

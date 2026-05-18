@@ -812,8 +812,8 @@ const About = () => {
             flagImg: 'https://flagcdn.com/w40/in.png',
             image: '/CompanyOffice.webp',
             companyName: 'India Office',
-            address: '4th Floor, Unit No. 455 JMD Empire, Sector 62, Gurgaon',
-            mapUrl: 'https://www.google.com/maps/search/?api=1&query=4th Floor, Unit No. 455 JMD Empire, Sector 62, Gurgaon'
+            address: '4th Floor, Unit No. 455 JMD Empire, Sector 62, Gurugram',
+            mapUrl: 'https://www.google.com/maps/search/?api=1&query=4th Floor, Unit No. 455 JMD Empire, Sector 62, Gurugram'
         },
         {
             name: 'USA',
