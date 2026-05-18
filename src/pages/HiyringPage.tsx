@@ -57,7 +57,8 @@ const HiyringPage = () => {
             <SEO 
                 title="Hiyring | Autonomous AI Video Interviews | Frostrek AI" 
                 description="Hiyring by Frostrek AI streamlines your hiring process with autonomous video interviews. Screen thousands of candidates in minutes with scientifically focused assessments." 
-                path={location.pathname} 
+                path={location.pathname}
+                keywords="autonomous AI video interview screening software, automated candidate assessment platform, AI recruitment software India, enterprise AI hiring tool"
             />
             {theme !== 'dark' && <CuteBackground />}
 

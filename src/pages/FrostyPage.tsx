@@ -94,6 +94,7 @@ const FrostyPage = () => {
                 description={product.description}
                 path="/products/frosty-ai"
                 schema={faqSchema ? [faqSchema] : []}
+                keywords="enterprise customer support AI bots, automated ticket triage system, multilingual conversational AI agents, custom knowledge base chatbots"
             />
 
             <CuteBackground />
