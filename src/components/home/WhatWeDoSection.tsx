@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Factory, Trophy, Bot, CheckCircle, ArrowRight, Mic, MessageSquare, Sparkles } from 'lucide-react';
+import { CheckCircle, ArrowRight, Mic, MessageSquare, Sparkles } from 'lucide-react';
 import SplitTextReveal from '../ui/SplitTextReveal';
 
 // ─── Observe.ai-style arrow SVG (exact paths from user) ─────────────────────
@@ -93,16 +93,33 @@ const ManufacturingDemo = () => {
 const Web3Demo = () => {
     const [phase, setPhase] = useState(0);
     useEffect(() => { const t = setInterval(() => setPhase(v => (v + 1) % 4), 1600); return () => clearInterval(t); }, []);
-    const clubs = [{ name: 'Real Madrid', emoji: '👑' }, { name: 'FC Barcelona', emoji: '🔵🔴' }, { name: 'Man City', emoji: '🩵' }];
+    const clubs = [
+        { name: 'Real Madrid', logo: '/icons/real-madrid.png' },
+        { name: 'FC Barcelona', logo: '/icons/barcelona.png' },
+        { name: 'Man City', logo: '/icons/manchester-city.png' }
+    ];
     const steps = [{ label: 'Wallet provisioned', done: true }, { label: 'Cart validated', done: phase >= 1 }, { label: 'On-chain settlement', done: phase >= 2 }, { label: 'Treasury updated', done: phase >= 3 }];
     return (
         <div className="w-full font-body text-xs select-none space-y-3">
             <div className="bg-[#F4FAF7] border border-[#C8E6DA] rounded-xl px-4 py-3 flex items-center justify-between">
                 <div><div className="text-gray-400 text-[10px] uppercase tracking-widest mb-1">Wallet Balance</div><div className="text-[#2D6A4F] font-bold text-base">1,450 <span className="text-xs text-gray-400">$TOKEN</span></div></div>
-                <div className="w-9 h-9 rounded-full bg-[#E8F5EE] border border-[#C8E6DA] flex items-center justify-center"><Trophy className="w-4 h-4 text-[#2D6A4F]" /></div>
+                <div className="w-9 h-9 rounded-full bg-[#E8F5EE] border border-[#C8E6DA] flex items-center justify-center">
+                    <img src="/icons/fintech.png" alt="Fintech" className="w-5 h-5 object-contain" />
+                </div>
             </div>
             <div className="flex gap-2">
-                {clubs.map((c, i) => (<div key={c.name} className={`flex-1 border rounded-xl p-2 text-center transition-all duration-500 ${i === phase % 3 ? 'border-[#2D6A4F]/40 bg-[#F4FAF7]' : 'border-gray-100 bg-white'}`}><div className="text-sm">{c.emoji}</div><div className="text-gray-500 text-[9px] mt-0.5 truncate">{c.name}</div></div>))}
+                {clubs.map((c, i) => (
+                    <div
+                        key={c.name}
+                        className={`flex-1 border rounded-xl p-2 text-center transition-all duration-500 flex flex-col items-center justify-center ${i === phase % 3 ? 'border-[#2D6A4F]/40 bg-[#F4FAF7]' : 'border-gray-100 bg-white'
+                            }`}
+                    >
+                        <div className="h-6 w-6 flex items-center justify-center">
+                            <img src={c.logo} alt={c.name} className="h-6 w-6 object-contain" />
+                        </div>
+                        <div className="text-gray-500 text-[9px] mt-1.5 truncate w-full">{c.name}</div>
+                    </div>
+                ))}
             </div>
             <div className="bg-white border border-gray-100 rounded-xl px-4 py-3 space-y-2 shadow-sm">
                 {steps.map(s => (<div key={s.label} className="flex items-center gap-2"><div className={`w-3.5 h-3.5 rounded-full flex items-center justify-center transition-all duration-500 flex-shrink-0 ${s.done ? 'bg-[#2D6A4F]' : 'bg-gray-100'}`}>{s.done && <CheckCircle className="w-2.5 h-2.5 text-white" />}</div><span className={`text-[10px] transition-colors duration-300 ${s.done ? 'text-gray-700' : 'text-gray-300'}`}>{s.label}</span></div>))}
@@ -129,7 +146,9 @@ const AIAgentDemo = () => {
     return (
         <div className="w-full font-body text-xs select-none space-y-2">
             <div className="flex items-center gap-2 bg-[#F4FAF7] border border-[#C8E6DA] rounded-xl px-3 py-2 mb-3">
-                <div className="w-7 h-7 rounded-full bg-[#E8F5EE] border border-[#C8E6DA] flex items-center justify-center"><Bot className="w-3.5 h-3.5 text-[#2D6A4F]" /></div>
+                <div className="w-7 h-7 rounded-full bg-[#E8F5EE] border border-[#C8E6DA] flex items-center justify-center">
+                    <img src="/icons/ai agents.png" alt="AI Agent" className="w-4 h-4 object-contain" />
+                </div>
                 <div><div className="text-gray-800 text-[10px] font-semibold">Frosty AI Agent</div><div className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-[#2D6A4F] animate-pulse" /><span className="text-[#2D6A4F] text-[9px]">Online</span></div></div>
                 <div className="ml-auto flex gap-1.5"><Mic className="w-3.5 h-3.5 text-gray-300" /><MessageSquare className="w-3.5 h-3.5 text-gray-300" /></div>
             </div>
@@ -145,9 +164,9 @@ const AIAgentDemo = () => {
 
 // ─── Cards data ───────────────────────────────────────────────────────────────
 const CARDS = [
-    { icon: Factory, label: 'Manufacturing Intelligence', title: 'Frostrek Manufacturing OS', desc: 'Unify ERP, WMS, SCADA and PLC data into a single real-time intelligence hub. Live dashboards, AI cost analytics, and automated production scheduling.', href: '/products/frostrek-manufacturing-os', Demo: ManufacturingDemo },
-    { icon: Trophy, label: 'Fintech & Custom Wallets', title: 'Fintech & Custom Wallets', desc: 'A centralized, closed-loop digital currency engineered specifically for sports fans and affiliated clubs. Functioning as a next-generation digital loyalty programme that bypasses gateway commissions.', href: '/products/frostrek-web3-commerce', Demo: Web3Demo },
-    { icon: Bot, label: 'AI Agents', title: 'Frostrek AI Agents', desc: 'Deploy intelligent AI agents across voice, chat, and WhatsApp. Context-aware, sentiment-sensitive, resolving 80% of inquiries without human intervention.', href: '/products/frosty-ai', Demo: AIAgentDemo },
+    { icon: "/icons/manufacturing.png", label: 'Manufacturing Intelligence', title: 'Frostrek Manufacturing OS', desc: 'Unify ERP, WMS, SCADA and PLC data into a single real-time intelligence hub. Live dashboards, AI cost analytics, and automated production scheduling.', href: '/products/frostrek-manufacturing-os', Demo: ManufacturingDemo },
+    { icon: "/icons/fintech.png", label: 'Fintech & Custom Wallets', title: 'Fintech & Custom Wallets', desc: 'A centralized, closed-loop digital currency engineered specifically for sports fans and affiliated clubs. Functioning as a next-generation digital loyalty programme that bypasses gateway commissions.', href: '/products/frostrek-web3-commerce', Demo: Web3Demo },
+    { icon: "/icons/ai agents.png", label: 'AI Agents', title: 'Frostrek AI Agents', desc: 'Deploy intelligent AI agents across voice, chat, and WhatsApp. Context-aware, sentiment-sensitive, resolving 80% of inquiries without human intervention.', href: '/products/frosty-ai', Demo: AIAgentDemo },
 ];
 
 // ─── Main Section ─────────────────────────────────────────────────────────────
@@ -228,7 +247,6 @@ const WhatWeDoSection = () => {
                 {/* ── 3-column card grid ── */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {CARDS.map((card, i) => {
-                        const Icon = card.icon;
                         const Demo = card.Demo;
                         return (
                             <motion.div
@@ -242,15 +260,15 @@ const WhatWeDoSection = () => {
                                 <div>
                                     <div className="flex items-center gap-2 mb-4">
                                         <div className="w-9 h-9 rounded-xl bg-[#E8F5EE] border border-[#C8E6DA] flex items-center justify-center">
-                                            <Icon style={{ width: 18, height: 18 }} className="text-[#2D6A4F]" />
+                                            <img src={card.icon} alt={card.label} className="w-5 h-5 object-contain" />
                                         </div>
-                                        <span className="text-[#3D8B6E] text-[10px] font-bold uppercase tracking-widest">{card.label}</span>
+                                        <span className="text-gray-600 text-[10px] font-bold uppercase tracking-widest">{card.label}</span>
                                     </div>
-                                    <h3 className="font-serif text-xl font-bold text-[#2D6A4F] mb-2 leading-snug">{card.title}</h3>
+                                    <h3 className="font-serif text-xl font-bold text-black mb-2 leading-snug">{card.title}</h3>
                                     <p className="text-gray-500 text-sm leading-relaxed">{card.desc}</p>
                                 </div>
                                 <div className="flex-1"><Demo /></div>
-                                <Link to={card.href} className="inline-flex items-center gap-2 text-[#2D6A4F] text-sm font-bold group/link hover:gap-3 transition-all duration-300">
+                                <Link to={card.href} className="inline-flex items-center gap-2 text-gray-600 text-sm font-bold group/link hover:gap-3 transition-all duration-300">
                                     Explore platform <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
                                 </Link>
                             </motion.div>
