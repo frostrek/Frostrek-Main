@@ -13,7 +13,7 @@ export default function SEO({
   title, 
   description, 
   path, 
-  name = "Frostrek", 
+  name = "Frostrek AI", 
   type = "website",
   schema
 }: SEOProps) {

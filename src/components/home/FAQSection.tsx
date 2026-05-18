@@ -114,19 +114,28 @@ const FAQSection = () => {
                     ))}
                 </div>
 
-                {/* Still have questions CTA */}
                 <div className="mt-16 text-center">
                     <p className="mb-6 text-[15px] font-bold text-gray-400 uppercase tracking-wide">
                         Still have questions? We're here to help.
                     </p>
-                    <Link 
-                        to="/contact" 
-                        className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl font-medium text-sm bg-white border-2 border-gray-200 text-gray-700 transition-all hover:border-[#2D6A4F] hover:bg-gray-50"
-                    >
-                        <FlipText>
-                            <HelpCircle size={18} /> Contact Support
-                        </FlipText>
-                    </Link>
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <Link 
+                            to="/faq" 
+                            className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl font-medium text-sm bg-[#2D6A4F] text-white transition-all hover:bg-[#1B4332] shadow-lg shadow-[#2D6A4F]/10"
+                        >
+                            <FlipText hoverColor="text-white">
+                                View All FAQs →
+                            </FlipText>
+                        </Link>
+                        <Link 
+                            to="/contact" 
+                            className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl font-medium text-sm bg-white border-2 border-gray-200 text-gray-700 transition-all hover:border-[#2D6A4F] hover:bg-gray-50"
+                        >
+                            <FlipText>
+                                <HelpCircle size={18} /> Contact Support
+                            </FlipText>
+                        </Link>
+                    </div>
                 </div>
             </div>
         </section>

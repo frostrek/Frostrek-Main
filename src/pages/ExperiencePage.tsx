@@ -17,8 +17,8 @@ const ExperiencePage = () => {
     return (
         <div className="min-h-screen relative overflow-hidden bg-white text-gray-900">
             <SEO 
-                title="Experience AI in Action | Frostrek" 
-                description="Try our AI solutions yourself. Test our voice AI, chatbot, and LinkedIn outreach tools live." 
+                title="Experience AI in Action | Frostrek AI" 
+                description="Try Frostrek AI solutions yourself. Test our autonomous voice agents, enterprise chatbots, and smart outreach tools live." 
                 path="/experience" 
             />
             {/* Background */}

@@ -1,11 +1,11 @@
 {
-    "name": "Frostrek",
-    "short_name": "Frostrek",
-    "description": "AI-Powered Enterprise Solutions & Conversational AI Agents",
+    "name": "Frostrek AI",
+    "short_name": "Frostrek AI",
+    "description": "Enterprise AI Agents, Workflow Automation & Custom LLM Solutions",
     "start_url": "/",
     "display": "standalone",
-    "background_color": "#FDFBF7",
-    "theme_color": "#B07552",
+    "background_color": "#F4FAF7",
+    "theme_color": "#2D6A4F",
     "orientation": "portrait-primary",
     "icons": [
         {

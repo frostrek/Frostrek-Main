@@ -124,7 +124,7 @@ const Footer = () => {
                   <Link to="/" className="flex items-center gap-3">
                     <img
                       src="/logonew.png"
-                      alt="Frostrek Logo"
+                      alt="Frostrek AI Logo"
                       className="h-9 w-auto transition-transform group-hover:scale-110"
                     />
                     <FlipText className="text-[1.35rem] font-black font-serif tracking-tighter text-[#2D6A4F]">
@@ -152,7 +152,7 @@ const Footer = () => {
                 <a href={COMPANY_INFO.socials.linkedin} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white border border-[#E6EFE6] text-[#2D6A4F] hover:bg-[#2D6A4F] hover:border-[#2D6A4F] hover:text-white shadow-sm hover:shadow-md hover:-translate-y-1"><Linkedin size={18} /></a>
                 <a href={COMPANY_INFO.socials.instagram} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white border border-[#E6EFE6] text-[#2D6A4F] hover:bg-[#2D6A4F] hover:border-[#2D6A4F] hover:text-white shadow-sm hover:shadow-md hover:-translate-y-1"><Instagram size={18} /></a>
                 <a href="https://wa.me/17574722491" target="_blank" rel="noopener noreferrer" className="group w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white border border-[#E6EFE6] text-[#2D6A4F] hover:bg-[#2D6A4F] hover:border-[#2D6A4F] hover:text-white shadow-sm hover:shadow-md hover:-translate-y-1"><img src="/whatsapp.png" alt="WhatsApp" className="w-5 h-5 object-contain transition-all group-hover:brightness-0 group-hover:invert" /></a>
-                <a href="mailto:contact@frostrek.com" className="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white border border-[#E6EFE6] text-[#2D6A4F] hover:bg-[#2D6A4F] hover:border-[#2D6A4F] hover:text-white shadow-sm hover:shadow-md hover:-translate-y-1"><Mail size={18} /></a>
+                <a href="mailto:contact@frostrek.ai" className="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white border border-[#E6EFE6] text-[#2D6A4F] hover:bg-[#2D6A4F] hover:border-[#2D6A4F] hover:text-white shadow-sm hover:shadow-md hover:-translate-y-1"><Mail size={18} /></a>
               </div>
             </div>
 
@@ -183,6 +183,7 @@ const Footer = () => {
                       </Link>
                     </li>
                   ))}
+
                 </ul>
               </div>
 

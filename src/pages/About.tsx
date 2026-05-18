@@ -812,8 +812,8 @@ const About = () => {
             flagImg: 'https://flagcdn.com/w40/in.png',
             image: '/CompanyOffice.webp',
             companyName: 'India Office',
-            address: '4th Floor, Unit No. 455 JMD Empire, Sector 62, Gurgaon',
-            mapUrl: 'https://www.google.com/maps/search/?api=1&query=4th Floor, Unit No. 455 JMD Empire, Sector 62, Gurgaon'
+            address: '4th Floor, Unit No. 455 JMD Empire, Sector 62, Gurugram',
+            mapUrl: 'https://www.google.com/maps/search/?api=1&query=4th Floor, Unit No. 455 JMD Empire, Sector 62, Gurugram'
         },
         {
             name: 'USA',
@@ -849,8 +849,8 @@ const About = () => {
     return (
         <div ref={ref} className="min-h-screen relative overflow-hidden bg-white text-gray-900">
             <SEO
-                title="About Us | Frostrek - Pioneering Enterprise AI"
-                description="Learn about Frostrek's mission to make enterprise-grade AI accessible, our team of experts, and our commitment to security and innovation."
+                title="About Us | Frostrek AI - Pioneering Enterprise AI"
+                description="Learn about Frostrek AI's mission to make enterprise-grade AI accessible, our team of experts in India, USA, and UK, and our commitment to security and innovation."
                 path="/about"
             />
             <CuteBackground />

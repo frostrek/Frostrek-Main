@@ -168,8 +168,8 @@ const ScheduleDemo = () => {
     return (
         <div className="min-h-screen pt-24 pb-16 bg-gradient-to-b from-white via-[#FAFCFB] to-white relative font-body overflow-hidden">
             <SEO
-                title="Schedule a Demo | Frostrek"
-                description="Meet with our team to discover how Frostrek can transform your business with AI-powered automation."
+                title="Schedule a Demo | Frostrek AI"
+                description="Meet with our team of 50+ specialists in Gurugram, India, to discover how Frostrek AI can transform your business with production-ready AI automation."
                 path="/schedule-demo"
             />
 

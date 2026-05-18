@@ -75,7 +75,7 @@ const Header = () => {
                     <Link to="/" className="flex items-center gap-2.5 group min-w-[120px] sm:min-w-[140px] shrink-0">
                         <img
                             src="/logonew.png"
-                            alt="Frostrek"
+                            alt="Frostrek AI"
                             className="h-8 sm:h-9 w-auto object-contain transition-all duration-300 group-hover:scale-110"
                         />
                         <FlipText className="text-xl sm:text-2xl font-black font-serif tracking-tighter text-[#2D6A4F]">

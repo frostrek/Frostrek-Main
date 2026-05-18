@@ -18,6 +18,8 @@ const ExperiencePage = lazy(() => import('./pages/ExperiencePage'));
 const ResourcesPage = lazy(() => import('./pages/ResourcesPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
 const FrostyPage = lazy(() => import('./pages/FrostyPage'));
+const BlogPostPage = lazy(() => import('./pages/BlogPostPage'));
+const FAQPage = lazy(() => import('./pages/FAQPage'));
 
 // Lazy load Chatbot to improve LCP - defers 705KB GIF and JS bundle
 const Chatbot = lazy(() => import('./components/chat/Chatbot'));
@@ -55,11 +57,13 @@ function App() {
                   <Route path="/products/*" element={<ProductPage />} />
                   <Route path="/solutions/*" element={<SolutionPage />} />
 
+                  <Route path="/resources/blog/:slug" element={<BlogPostPage />} />
                   <Route path="/resources" element={<ResourcesPage />} />
                   <Route path="/about" element={<About />} />
                   <Route path="/experience" element={<ExperiencePage />} />
                   <Route path="/careers" element={<PlaceholderPage title="Careers" />} />
                   <Route path="/contact" element={<ContactPage />} />
+                  <Route path="/faq" element={<FAQPage />} />
                   <Route path="*" element={<PlaceholderPage title="Page Not Found" />} />
                 </Routes>
               </Suspense>

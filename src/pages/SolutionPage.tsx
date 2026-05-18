@@ -42,7 +42,7 @@ const SolutionPage = () => {
     if (!solution) return null;
 
     // Optional FAQ schema if solution has FAQs
-    const faqSchema = (solution as any).faq ? JSON.stringify({
+    const faqSchema = (solution as any).faq && (solution as any).faq.length > 0 ? JSON.stringify({
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": (solution as any).faq.map((q: any) => ({
@@ -61,7 +61,7 @@ const SolutionPage = () => {
     return (
         <div className={`pt-20 ${theme === 'dark' ? 'bg-brand-light-bg' : ''}`}>
             <SEO 
-                title={`${solution.title} | Frostrek Solutions`} 
+                title={`${solution.title} | Frostrek AI Solutions`} 
                 description={solution.description} 
                 path={location.pathname} 
                 schema={schemas}

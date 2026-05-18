@@ -18,6 +18,7 @@ export interface CaseStudy {
 
 export interface BlogPost {
     id: string;
+    slug: string;
     title: string;
     excerpt: string;
     date: string;
@@ -284,101 +285,440 @@ export const CASE_STUDIES: CaseStudy[] = [
 export const BLOG_POSTS: BlogPost[] = [
     {
         id: 'blog-future-data-ops',
+        slug: 'future-of-data-operations-agentic-ai',
         title: 'The Future of Data Operations in the Era of Agentic AI',
-        excerpt: 'As AI models evolve from chat-based assistants to autonomous agents, the data infrastructure powering them must fundamentally change. Here’s what the next generation of Data Ops looks like.',
+        excerpt: 'As AI models evolve from chat-based assistants to autonomous agents, the data infrastructure powering them must fundamentally change. Here\'s what the next generation of Data Ops looks like.',
         date: 'Oct 12, 2025',
         readTime: '5 min read',
         author: 'Frostrek Team',
         category: 'Industry Trends',
-        content: '...',
+        content: `## The Shift from Passive AI to Autonomous Agents
+
+The AI industry is undergoing a fundamental transformation. We are moving from models that respond to prompts — chatbots, summarizers, classifiers — to **agentic AI systems** that can reason, plan, and execute multi-step workflows independently.
+
+This shift has profound implications for data operations. The datasets that powered GPT-era models are no longer sufficient. Agentic AI requires:
+
+- **Real-time data pipelines** that feed live context into decision loops
+- **Multi-modal training data** spanning text, voice, video, and structured databases
+- **Human-in-the-loop validation** at every critical decision checkpoint
+
+### What Changes in Data Ops?
+
+Traditional data operations followed a linear pipeline: collect → clean → label → train → deploy. Agentic AI breaks this model entirely.
+
+**1. Data Must Be Contextual, Not Static**
+An autonomous agent scheduling factory maintenance doesn't just need labeled images of machine parts. It needs real-time sensor telemetry, historical maintenance logs, weather forecasts, and supply chain data — all unified into a single context window.
+
+At Frostrek AI, we've built exactly this kind of unified data layer for manufacturing clients. Our Manufacturing OS ingests data from ERP, WMS, SCADA, and PLC systems simultaneously, creating a real-time intelligence hub that agents can query.
+
+**2. Quality Thresholds Must Be Production-Grade**
+When an AI agent is making autonomous decisions — approving purchase orders, rescheduling production runs, escalating customer complaints — the cost of a data error is not a bad benchmark score. It's a real financial loss.
+
+This is why Frostrek maintains a 95%+ sustained quality accuracy across all data operations, verified through multi-layer QA frameworks with dedicated leads and project managers.
+
+**3. The Feedback Loop Becomes Continuous**
+In the agentic paradigm, data operations never "finish." The agent's actions generate new data, which must be captured, validated, and fed back into the training pipeline. This creates a continuous improvement cycle that requires always-on data infrastructure.
+
+### The Frostrek Approach
+
+We've operationalized this vision across multiple enterprise deployments:
+
+- **40+ enterprise clients** across India, USA, and the UK
+- **50+ engineers** delivering production-ready systems in 4-8 weeks
+- **24/7 managed data operations** with shift-based coverage for global time zones
+
+The era of static datasets is over. The companies that win in the agentic AI race will be those with the most robust, real-time, continuously improving data operations infrastructure.
+
+---
+
+*Frostrek AI is an enterprise AI company headquartered in Gurugram, India, specializing in conversational AI agents, workflow automation, and custom LLM solutions.*`,
         image: 'Blog1.png'
     },
     {
         id: 'blog-rlhf-explained',
+        slug: 'rlhf-critical-enterprise-model-safety',
         title: 'Why RLHF is Critical for Enterprise Model Safety',
         excerpt: 'Reinforcement Learning from Human Feedback (RLHF) isn\'t just a buzzword—it\'s the safety valve for deploying LLMs in enterprise environments. We break down the process and its impact.',
         date: 'Sep 28, 2025',
         readTime: '6 min read',
         author: 'AI Safety Team',
         category: 'Technical Deep Dive',
-        content: '...',
+        content: `## Understanding RLHF: Beyond the Buzzword
+
+Reinforcement Learning from Human Feedback (RLHF) is the process that transformed raw language models into the helpful, harmless assistants we interact with today. But in enterprise environments, the stakes are dramatically higher than consumer chatbots.
+
+When a model is deployed to handle customer complaints, process insurance claims, or advise on medical procedures, a single hallucinated response can result in regulatory violations, financial losses, or worse.
+
+### How RLHF Works in Practice
+
+The RLHF pipeline consists of three critical phases:
+
+**Phase 1: Supervised Fine-Tuning (SFT)**
+Domain experts create "golden" response datasets — ideal answers that represent exactly how the model should respond in specific scenarios. At Frostrek, our SFT teams include 80+ labelers and 4 subject matter experts working across coding (Python/Java), mathematical reasoning, and multilingual content.
+
+**Phase 2: Reward Model Training**
+Human evaluators rank multiple model outputs from best to worst. These rankings train a separate "reward model" that learns to predict human preferences. This is where the nuance happens — the difference between a response that's technically correct and one that's genuinely helpful.
+
+**Phase 3: Policy Optimization**
+The language model is then fine-tuned using the reward model as a guide, learning to generate responses that maximize the learned human preference signal.
+
+### Why Enterprises Need Custom RLHF
+
+Off-the-shelf models are aligned for general helpfulness. But enterprises need alignment for their specific domain:
+
+- A **financial services** company needs responses that comply with regulatory disclosure requirements
+- A **healthcare** provider needs responses that never provide unsolicited medical advice
+- A **manufacturing** firm needs responses that correctly reference internal SOPs and safety protocols
+
+Frostrek has delivered custom RLHF programs for frontier LLM training teams, evaluating hundreds of thousands of model-generated responses and significantly reducing verbosity and hallucination issues.
+
+### The Enterprise Safety Checklist
+
+Before deploying any LLM in production, we recommend:
+
+1. **Domain-specific SFT** with golden datasets from your actual use cases
+2. **Custom reward modeling** trained on your organization's quality standards
+3. **Red-team testing** with adversarial prompts specific to your industry
+4. **Continuous monitoring** with human-in-the-loop escalation for edge cases
+
+The cost of RLHF is a fraction of the cost of a single compliance violation. For enterprises serious about AI deployment, it's not optional — it's essential.
+
+---
+
+*Frostrek AI provides enterprise-grade AI safety and alignment services, including RLHF pipelines, SFT dataset creation, and continuous model monitoring. Contact us at contact@frostrek.ai.*`,
         image: 'Blog2.png'
     },
     {
         id: 'blog-scaling-annotation',
+        slug: 'scaling-annotation-teams-without-losing-quality',
         title: 'Scaling Annotation Teams Without Losing Quality',
         excerpt: 'The classic dilemma: Speed vs. Accuracy. Discover the frameworks and governance models Frostrek uses to maintain 95%+ quality accuracy while scaling teams by 300%.',
         date: 'Aug 15, 2025',
         readTime: '4 min read',
         author: 'Operations Lead',
         category: 'Best Practices',
-        content: '...',
+        content: `## The Scaling Paradox in AI Data Operations
+
+Every AI company faces the same challenge: you need more labeled data, faster. But every time you scale your annotation team, quality drops. It's a paradox that has killed more AI projects than bad algorithms ever have.
+
+At Frostrek, we've scaled annotation teams from 10 to 85+ people while maintaining 95%+ sustained quality accuracy. Here's how.
+
+### The Three Pillars of Quality-at-Scale
+
+**1. Hierarchical QA Architecture**
+We don't use a flat structure. Every annotation team operates within a pyramid:
+- **Annotators** (the execution layer) — handle volume
+- **QA Specialists** (the validation layer) — audit every batch
+- **Team Leads** (the governance layer) — manage escalations and set standards
+- **Project Managers** (the client layer) — ensure SLA compliance
+
+For our largest program (85 annotators, 15 QAs, 4 leads), this structure reduced rework rates by 30% compared to flat team models.
+
+**2. Accelerated Onboarding Protocols**
+When a client needs 60 annotators deployed in 3 weeks (which happened with our Urgent High-Volume Data Delivery program), you can't afford a 2-week training cycle.
+
+Our rapid onboarding protocol includes:
+- Pre-built training modules for each annotation type (bounding boxes, polygons, NER, etc.)
+- Calibration exercises where new annotators must match expert labels within 5% accuracy
+- Graduated complexity — new annotators start with simple tasks and progress to edge cases
+
+**3. Continuous Performance Monitoring**
+We track individual annotator accuracy daily, not weekly. Any annotator dropping below threshold gets immediate coaching, not a quarterly review.
+
+### Real Results
+
+- **400,000+ labeled data points** delivered in 6 weeks with 93%+ first-pass acceptance
+- **1.2M labeled frames** for autonomous driving with <6% rejection rate
+- **2x team scaling** within 3 weeks with zero productivity loss
+
+The secret isn't hiring better annotators — it's building better systems around them.
+
+---
+
+*Frostrek AI operates managed AI data teams across India, serving global clients in autonomous driving, e-commerce, healthcare, and generative AI.*`,
         image: 'Blog3.png'
     },
     {
         id: 'blog-ai-ethics',
+        slug: 'navigating-ai-ethics-data-collection',
         title: 'Navigating AI Ethics in Data Collection',
         excerpt: 'Ethical considerations are paramount in modern AI. We explore how to build diverse, unbiased datasets while respecting user privacy and consent.',
         date: 'Jul 22, 2025',
         readTime: '5 min read',
         author: 'Ethics Committee',
-        category: 'best practices',
-        content: '...',
+        category: 'Best Practices',
+        content: `## Building Ethical AI Starts with Ethical Data
+
+The most sophisticated AI model is only as ethical as the data it was trained on. At Frostrek AI, we've developed comprehensive frameworks for ethical data collection that balance the need for diverse, representative datasets with rigorous privacy and consent standards.
+
+### The Consent-First Framework
+
+Every data collection project at Frostrek begins with contributor consent. Our field data collection program — which deploys 60+ collectors managed by 8 supervisors — handles all contributor onboarding and consent forms before a single data point is captured.
+
+This isn't just good ethics — it's good business. Datasets collected without proper consent are legal liabilities waiting to happen, especially under frameworks like GDPR and India's DPDP Act.
+
+### Diversity by Design
+
+AI models trained on homogeneous data fail in the real world. Our data collection protocols mandate:
+
+- **Demographic diversity** in speech data — covering age groups, genders, and regional dialects
+- **Environmental diversity** in image/video data — varied lighting, weather, and geographic contexts
+- **Linguistic diversity** in text data — multiple languages and register levels
+
+We've successfully collected high-quality speech data covering various accents across India, enabling our clients' voice AI models to perform reliably across the country's linguistic landscape.
+
+### Privacy-Preserving Annotation
+
+When annotating sensitive data (medical images, financial documents, personal communications), we implement:
+
+- **Data isolation** — annotators only see the specific elements they need to label
+- **Access logging** — complete audit trail of who accessed what data and when
+- **Retention limits** — data is purged from annotation environments after delivery
+
+Ethical AI isn't a cost center — it's the foundation of trustworthy, deployable AI systems.
+
+---
+
+*Frostrek AI is ISO-compliant and implements enterprise-grade data security protocols across all operations.*`,
         image: 'Blog4.png'
     },
     {
         id: 'blog-multimodal-trends',
+        slug: 'rise-of-multimodal-ai-models',
         title: 'The Rise of Multimodal AI Models',
         excerpt: 'Text is no longer enough. The next wave of AI models processes video, audio, and text simultaneously. Here is what that means for your data strategy.',
         date: 'Jun 10, 2025',
         readTime: '7 min read',
         author: 'Research Team',
-        category: 'industry trends',
-        content: '...',
+        category: 'Industry Trends',
+        content: `## Beyond Text: The Multimodal Revolution
+
+The AI industry is rapidly moving beyond text-only models. GPT-4V, Gemini, and Claude can now process images, audio, and video alongside text. This multimodal capability is transforming what's possible — but it's also transforming what's required from data operations teams.
+
+### What Multimodal Means for Data Teams
+
+Training a multimodal model doesn't just mean collecting more data types. It means ensuring **cross-modal alignment** — the model must understand that a photo of a car, the word "car," and the sound of an engine all refer to the same concept.
+
+This requires annotation workflows that span modalities:
+
+- **Image + Text**: Detailed captions that go beyond "a photo of a dog" to describe spatial relationships, emotions, and context
+- **Video + Audio**: Temporal alignment between visual events and their corresponding sounds
+- **Document + Structure**: OCR that preserves not just text but layout, tables, and hierarchical relationships
+
+### The Frostrek Multimodal Pipeline
+
+At Frostrek, we've built cross-trained specialist teams that can handle multiple annotation modalities under a single delivery model. Our experience spans:
+
+- **Computer Vision**: 2D/3D object detection, semantic segmentation, lane annotation for autonomous driving
+- **NLP/Speech**: Multilingual transcription and translation across 12+ languages
+- **Generative AI**: RLHF evaluation and SFT dataset creation for frontier LLMs
+
+The companies that invest in multimodal data infrastructure today will lead the AI market tomorrow.
+
+---
+
+*Frostrek AI delivers production-ready multimodal data operations for enterprise AI companies worldwide.*`,
         image: 'Blog5.png'
     },
     {
         id: 'blog-voice-ai',
+        slug: 'optimizing-voice-ai-regional-dialects',
         title: 'Optimizing Voice AI for Regional Dialects',
         excerpt: 'Global deployment means understanding local nuances. How we tackle the challenge of collecting and annotating for under-represented languages.',
         date: 'May 05, 2025',
         readTime: '4 min read',
         author: 'Linguistics Lead',
-        category: 'technical deep dive',
-        content: '...',
+        category: 'Technical Deep Dive',
+        content: `## The Dialect Challenge in Voice AI
+
+Voice AI systems trained on standard English or Hindi fail spectacularly when deployed in regions with strong dialectal variation. A voice bot that works perfectly in Delhi may be unusable in rural Rajasthan — not because of technology limitations, but because of data gaps.
+
+### Why Standard Datasets Fall Short
+
+Most publicly available speech datasets are recorded in controlled studio environments by speakers using standardized pronunciation. Real-world voice interactions are messy:
+
+- Background noise from factories, traffic, or crowded offices
+- Code-switching between languages mid-sentence
+- Regional vocabulary that doesn't exist in standard dictionaries
+- Accent variations that change vowel sounds dramatically
+
+### Frostrek's Field Collection Approach
+
+Our voice data collection methodology addresses these gaps directly. We deploy field collectors across diverse environments to capture:
+
+- **Natural speech patterns** in real conversational contexts
+- **Environmental acoustics** from the actual deployment environments
+- **Demographic coverage** across age groups, genders, and education levels
+
+For our Global Transcription & Translation program, 30 transcription specialists and 12 native translators processed 50,000+ minutes of content across 12+ languages, achieving 98%+ accuracy.
+
+### Building Voice AI That Actually Works
+
+The key insight: voice AI quality is determined by data quality, not model architecture. Investing in diverse, field-collected voice data yields 10x better real-world performance than fine-tuning on cleaned studio recordings.
+
+Frostrek AI builds voice bots with sub-200ms response times that handle real accents, real noise, and real conversations.
+
+---
+
+*Frostrek AI's conversational voice AI agents are deployed across customer support, automated booking, and inbound dispatch systems.*`,
         image: 'Blog6.png'
     },
     {
         id: 'blog-data-security',
+        slug: 'enterprise-grade-data-security-protocols',
         title: 'Enterprise-Grade Data Security Protocols',
         excerpt: 'Security cannot be an afterthought. A look at our ISO 27001 certified workflows and how we protect sensitive client data during annotation.',
         date: 'Apr 18, 2025',
         readTime: '6 min read',
         author: 'Security Officer',
-        category: 'services',
-        content: '...',
+        category: 'Services',
+        content: `## Security as a First Principle
+
+In enterprise AI operations, data security isn't a feature — it's a prerequisite. When clients entrust us with proprietary training data, customer records, or sensitive operational information, the security framework around that data must be airtight.
+
+### Frostrek's Security Architecture
+
+Our security infrastructure operates on three layers:
+
+**1. Physical Security**
+- Dedicated, access-controlled annotation facilities
+- No personal devices allowed in secure work zones
+- CCTV monitoring with 90-day retention
+
+**2. Digital Security**
+- Enterprise-grade encryption at rest and in transit
+- Role-based access controls with principle of least privilege
+- Complete audit logging of all data access events
+- Automated data purging after project completion
+
+**3. Operational Security**
+- Background checks for all annotation staff
+- NDAs and confidentiality agreements as employment prerequisites
+- Regular security awareness training
+- Incident response protocols with defined escalation paths
+
+### Compliance Framework
+
+Frostrek maintains compliance with:
+- **ISO 27001** information security management standards
+- **GDPR** data protection requirements for European clients
+- **SOC 2 Type II** controls for enterprise trust
+- **India's DPDP Act** for domestic data processing
+
+### Why This Matters for AI
+
+A data breach in an AI training pipeline doesn't just expose current data — it potentially compromises the model itself. Models trained on leaked data face legal challenges, and the competitive advantage of proprietary training data is lost permanently.
+
+Security is the foundation that makes everything else possible.
+
+---
+
+*Contact Frostrek AI at contact@frostrek.ai to learn about our enterprise security protocols.*`,
         image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1000&auto=format&fit=crop'
     },
     {
         id: 'blog-human-in-the-loop',
+        slug: 'enduring-role-human-in-the-loop',
         title: 'The Enduring Role of Human-in-the-Loop',
         excerpt: 'Even as models get smarter, human oversight remains critical. We discuss why HITL is the key to handling edge cases and ensuring reliability.',
         date: 'Mar 30, 2025',
         readTime: '5 min read',
         author: 'Frostrek Team',
-        category: 'industry trends',
-        content: '...',
+        category: 'Industry Trends',
+        content: `## Why Humans Still Matter in the AI Pipeline
+
+There's a persistent myth in the AI industry: as models get smarter, human involvement becomes unnecessary. The reality is exactly the opposite. As AI systems are deployed in higher-stakes environments, human oversight becomes more critical, not less.
+
+### The Edge Case Problem
+
+AI models excel at handling the 80% of cases that look like their training data. But the remaining 20% — the edge cases, the ambiguous inputs, the novel scenarios — is where real-world value is created or destroyed.
+
+In autonomous driving, that 20% includes:
+- Unusual road configurations
+- Extreme weather conditions
+- Unexpected pedestrian behavior
+- Construction zones with temporary signage
+
+In customer service AI, it includes:
+- Emotionally charged complaints
+- Multi-issue tickets requiring judgment calls
+- Regulatory-sensitive requests
+- Cultural context that varies by region
+
+### Frostrek's HITL Framework
+
+We implement Human-in-the-Loop at three levels:
+
+**1. Training Time HITL** — Human experts create, validate, and correct training data
+**2. Inference Time HITL** — Humans review and approve high-stakes model decisions before execution
+**3. Feedback Loop HITL** — Humans evaluate model outputs to drive continuous improvement
+
+Our managed workforce programs maintain 95%+ sustained quality accuracy over 9+ months of continuous operation, precisely because human oversight is built into every stage.
+
+### The Business Case
+
+Companies that skip HITL save on short-term labor costs but pay exponentially more in:
+- Model failures that damage customer trust
+- Compliance violations from unchecked automated decisions
+- Retraining costs when models drift without human feedback
+
+Human-in-the-loop isn't a cost — it's insurance.
+
+---
+
+*Frostrek AI operates 24/7 managed AI workforces with dedicated HITL frameworks across India.*`,
         image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=1000&auto=format&fit=crop'
     },
     {
         id: 'blog-medical-ai',
+        slug: 'accelerating-medical-ai-precision-data',
         title: 'Accelerating Medical AI with Precision Data',
         excerpt: 'In healthcare, accuracy is life-saving. How expert annotation teams are powering the next generation of diagnostic tools.',
         date: 'Feb 14, 2025',
         readTime: '8 min read',
         author: 'Healthcare Lead',
-        category: 'industry trends',
-        content: '...',
+        category: 'Industry Trends',
+        content: `## When Data Quality is Literally Life-Saving
+
+Medical AI is one of the fastest-growing segments of the AI industry. From radiology assistants that detect tumors to pathology tools that classify tissue samples, AI is transforming healthcare diagnostics. But the data requirements are unlike any other domain.
+
+### The Precision Imperative
+
+In medical AI, annotation errors don't just degrade model performance — they can lead to misdiagnoses. A false negative on a cancer screening means a patient doesn't receive timely treatment. A false positive means unnecessary invasive procedures and psychological distress.
+
+This demands:
+- **Expert annotators** with medical domain knowledge
+- **Multi-layer consensus** where multiple experts must agree on each label
+- **Regulatory compliance** with HIPAA, FDA guidelines, and local medical data laws
+- **Audit trails** that can withstand regulatory scrutiny
+
+### Building Medical AI Datasets
+
+The medical AI data pipeline differs from standard computer vision in several critical ways:
+
+**1. Small Data, High Stakes**
+Unlike autonomous driving (where you might have millions of images), medical datasets are often small — hundreds or thousands of samples. Every single label must be perfect.
+
+**2. Expert Scarcity**
+You can't hire general annotators for medical data. You need radiologists for imaging, pathologists for tissue samples, and clinicians for clinical notes. These experts are expensive and in short supply.
+
+**3. Privacy by Default**
+Medical data is among the most heavily regulated in the world. De-identification, secure annotation environments, and strict access controls are non-negotiable.
+
+### The Frostrek Healthcare Practice
+
+Frostrek AI has developed specialized workflows for medical AI that balance the need for expert-quality annotations with the practical constraints of budget and timeline. Our approach:
+
+- Domain-trained annotation teams supervised by medical SMEs
+- Secure, isolated annotation environments with full audit logging
+- Multi-round consensus workflows with inter-annotator agreement metrics
+- Compliance-first data handling aligned with global healthcare regulations
+
+The future of healthcare is AI-assisted — but only if the data powering those AI systems meets the same standard of care we expect from human clinicians.
+
+---
+
+*Frostrek AI provides precision data operations for medical AI, computer vision, and NLP applications. Headquartered in Gurugram, India.*`,
         image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1000&auto=format&fit=crop'
     }
 ];

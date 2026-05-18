@@ -195,7 +195,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           className="inline-flex items-center gap-2 px-5 py-1.5 rounded-full bg-brand-badge-bg text-brand-badge-text text-sm font-bold tracking-wide mb-8 border border-[#c4e0d4]/50"
         >
-          <span className="text-lg leading-none"></span> AI WORKFLOWS THAT SCALE
+          <span className="text-lg leading-none"></span> ENTERPRISE AI · GURUGRAM, INDIA
         </motion.div>
 
         {/* Heading */}
@@ -239,7 +239,7 @@ const HeroSection = () => {
           stagger={0.02}
           delay={0.5}
         >
-          Frostrek deploys autonomous AI agents across manufacturing, support, and sales — connecting ERP, WMS, SCADA, and PLCs into a single real-time intelligence layer
+          Frostrek AI deploys autonomous AI agents across manufacturing, support, and sales — serving 40+ enterprise clients across India, USA, and the UK with sub-200ms response times.
         </SplitTextReveal>
 
         {/* Buttons */}
