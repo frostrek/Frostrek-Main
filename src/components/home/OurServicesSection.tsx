@@ -32,12 +32,13 @@ const SERVICES = [
         rowSpan: 'md:row-span-2',
         imagePos: 'bottom'
     },
+    // #FE#f0fbfeff
     {
         id: 'automation',
         title: 'Web Development',
         description: 'Fast. Responsive. Scalable. We craft websites that not only look amazing but work beautifully on every device.',
         icon: <img src="/icons/Web Develop.png" alt="Web Development" className="w-10 h-10 object-contain" />,
-        bgColor: 'bg-[#FEF2F2]', // Light Pink/Red
+        bgColor: 'bg-[#f0fbfeff]', // Light Pink/Red
         textColor: 'text-black',
         borderColor: 'border-pink-100',
         colSpan: 'md:col-span-1',
@@ -106,11 +107,10 @@ const OurServicesSection = () => {
                             <div className={`flex flex-col h-full ${service.imagePos === 'right' ? 'md:flex-row' : ''} ${service.imagePos === 'left' ? 'md:flex-row-reverse' : ''}`}>
 
                                 {/* Content Area */}
-                                <div className={`p-8 md:p-10 flex flex-col relative z-10 ${
-                                    service.imagePos === 'right' || service.imagePos === 'left' 
-                                        ? 'md:w-1/2 h-full' 
-                                        : 'w-full flex-grow basis-1/2'
-                                }`}>
+                                <div className={`p-8 md:p-10 flex flex-col relative z-10 ${service.imagePos === 'right' || service.imagePos === 'left'
+                                    ? 'md:w-1/2 h-full'
+                                    : 'w-full flex-grow basis-1/2'
+                                    }`}>
                                     <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-8 shadow-sm backdrop-blur-sm bg-white/50">
                                         {service.icon}
                                     </div>
@@ -131,16 +131,15 @@ const OurServicesSection = () => {
 
                                 {/* Image Area */}
                                 {service.image && (
-                                    <div className={`relative overflow-hidden ${
-                                        service.imagePos === 'right' || service.imagePos === 'left' 
-                                            ? 'md:w-1/2 h-64 md:h-full' 
-                                            : 'w-full flex-grow basis-1/2 min-h-[300px]'
-                                    }`}>
+                                    <div className={`relative overflow-hidden ${service.imagePos === 'right' || service.imagePos === 'left'
+                                        ? 'md:w-1/2 h-64 md:h-full'
+                                        : 'w-full flex-grow basis-1/2 min-h-[300px]'
+                                        }`}>
                                         <div className={`absolute inset-0 p-4 md:p-6 h-full w-full`}>
-                                            <img 
-                                                src={service.image} 
-                                                alt="" 
-                                                className="w-full h-full object-cover rounded-2xl shadow-lg transition-transform duration-700 group-hover:scale-105" 
+                                            <img
+                                                src={service.image}
+                                                alt=""
+                                                className="w-full h-full object-cover rounded-2xl shadow-lg transition-transform duration-700 group-hover:scale-105"
                                             />
                                         </div>
                                     </div>
