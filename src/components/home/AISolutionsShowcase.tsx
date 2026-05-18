@@ -39,11 +39,11 @@ const SOLUTIONS: Solution[] = [
         icon: "/icons/manufacturing.png",
         demo: { type: 'manufacturing' },
         features: [
-            '01 Disconnected systems: Unify ERP, WMS, and machine control',
-            '02 Blind cost per unit: Real-time cost calculations',
-            '03 Changeover losses: Eliminate 20-40+ hrs/wk of downtime',
-            '04 Quality catch: Automated real-time deviation alerts',
-            '05 Unstructured handovers: AI-driven shift briefings'
+            'Disconnected systems: Unify ERP, WMS, and machine control',
+            'Blind cost per unit: Real-time cost calculations',
+            'Changeover losses: Eliminate 20-40+ hrs/wk of downtime',
+            'Quality catch: Automated real-time deviation alerts',
+            'Unstructured handovers: AI-driven shift briefings'
         ],
         link: '/products/frostrek-manufacturing-os',
         gradient: 'from-[#2D6A4F] to-[#3D8B6E]',
@@ -424,7 +424,7 @@ const AISolutionsShowcase = () => {
                                             <img
                                                 src={solution.icon}
                                                 alt={solution.title}
-                                                className="w-9 h-9 object-contain transition-all duration-300"
+                                                className="w-7 h-7 object-contain transition-all duration-300"
                                             />
                                         </div>
                                     </button>
@@ -503,7 +503,7 @@ const AISolutionsShowcase = () => {
                                                 <img
                                                     src={solution.icon}
                                                     alt={solution.title}
-                                                    className="w-9 h-9 object-contain transition-all duration-300"
+                                                    className="w-7 h-7 object-contain transition-all duration-300"
                                                 />
                                             </div>
                                             <div className="flex-1">
@@ -542,7 +542,7 @@ const AISolutionsShowcase = () => {
                                             <img
                                                 src={activeSolution.icon}
                                                 alt={activeSolution.title}
-                                                className="w-12 h-12 object-contain"
+                                                className="w-10 h-10 object-contain"
                                             />
                                         </div>
                                         <div>

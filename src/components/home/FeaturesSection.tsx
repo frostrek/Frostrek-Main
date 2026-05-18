@@ -122,8 +122,8 @@ const FeaturesSection = () => {
 
                 <div ref={gridRef} className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
                     {/* Hero Card - Enterprise Security (Light Green Theme) */}
-                    <SpotlightCard 
-                        className="bento-card lg:row-span-2 group relative overflow-hidden rounded-[2.5rem] border p-8 md:p-10 transition-all duration-500 bg-[#F0FDF4] border-[#BBF7D0] hover:border-[#047857]/30 hover:shadow-[0_20px_50px_rgba(4,120,87,0.06)]"
+                    <SpotlightCard
+                        className="bento-card lg:row-span-2 group relative overflow-hidden rounded-[2.5rem] border p-8 md:p-10 transition-all duration-500 bg-white border-[#BBF7D0] hover:border-[#047857]/30 hover:shadow-[0_20px_50px_rgba(4,120,87,0.06)]"
                         spotlightColor="rgba(4, 120, 87, 0.02)"
                     >
                         <div className="relative z-10">
@@ -159,8 +159,8 @@ const FeaturesSection = () => {
                     </SpotlightCard>
 
                     {/* Lightning Fast (Light Orange Theme) */}
-                    <SpotlightCard 
-                        className="bento-card group relative overflow-hidden rounded-[2rem] border p-8 transition-all duration-300 bg-[#FFF7ED] border-[#FFEDD5] hover:border-[#F97316]/30 hover:shadow-[0_15px_40px_rgba(249,115,22,0.05)] hover:-translate-y-1"
+                    <SpotlightCard
+                        className="bento-card group relative overflow-hidden rounded-[2rem] border p-8 transition-all duration-300 bg-white border-[#FFEDD5] hover:border-[#F97316]/30 hover:shadow-[0_15px_40px_rgba(249,115,22,0.05)] hover:-translate-y-1"
                         spotlightColor="rgba(249, 115, 22, 0.02)"
                     >
                         <div className="flex flex-col sm:flex-row items-start gap-5 relative z-10">
@@ -179,8 +179,8 @@ const FeaturesSection = () => {
                     </SpotlightCard>
 
                     {/* Real-time Analytics (Light Sky Blue Theme) */}
-                    <SpotlightCard 
-                        className="bento-card group relative overflow-hidden rounded-[2rem] border p-8 transition-all duration-300 bg-[#f0fbfeff] border-[#BAE6FD] hover:border-[#0EA5E9]/30 hover:shadow-[0_15px_40px_rgba(14,165,233,0.05)] hover:-translate-y-1"
+                    <SpotlightCard
+                        className="bento-card group relative overflow-hidden rounded-[2rem] border p-8 transition-all duration-300 bg-white border-[#BAE6FD] hover:border-[#0EA5E9]/30 hover:shadow-[0_15px_40px_rgba(14,165,233,0.05)] hover:-translate-y-1"
                         spotlightColor="rgba(14, 165, 233, 0.02)"
                     >
                         <div className="flex flex-col sm:flex-row items-start gap-5 relative z-10">
@@ -199,8 +199,8 @@ const FeaturesSection = () => {
                     </SpotlightCard>
 
                     {/* Multi-agent Orchestration (Light Yellow Theme) */}
-                    <SpotlightCard 
-                        className="bento-card group relative overflow-hidden rounded-[2rem] border p-8 transition-all duration-300 bg-[#FFFBEB] border-[#FEF3C7] hover:border-[#F59E0B]/30 hover:shadow-[0_15px_40px_rgba(245,158,11,0.05)] hover:-translate-y-1"
+                    <SpotlightCard
+                        className="bento-card group relative overflow-hidden rounded-[2rem] border p-8 transition-all duration-300 bg-white border-[#FEF3C7] hover:border-[#F59E0B]/30 hover:shadow-[0_15px_40px_rgba(245,158,11,0.05)] hover:-translate-y-1"
                         spotlightColor="rgba(245, 158, 11, 0.02)"
                     >
                         <div className="flex flex-col sm:flex-row items-start gap-5 relative z-10">

@@ -1,4 +1,5 @@
 import { useEffect, useRef, createContext, useContext } from 'react';
+import { useLocation } from 'react-router-dom';
 import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -18,6 +19,7 @@ const LenisContext = createContext<Lenis | null>(null);
  */
 const SmoothScrollProvider = ({ children }: SmoothScrollProviderProps) => {
     const lenisRef = useRef<Lenis | null>(null);
+    const location = useLocation();
 
     useEffect(() => {
         // Initialize Lenis with optimized settings
@@ -47,20 +49,19 @@ const SmoothScrollProvider = ({ children }: SmoothScrollProviderProps) => {
 
         gsap.ticker.lagSmoothing(0);
 
-        // Handle route changes - scroll to top instantly
-        const handleRouteChange = () => {
-            lenis.scrollTo(0, { immediate: true });
-        };
-
-        window.addEventListener('popstate', handleRouteChange);
-
         return () => {
             gsap.ticker.remove(rafHandler); // Now removes correct reference
-            window.removeEventListener('popstate', handleRouteChange);
             lenis.destroy();
             lenisRef.current = null;
         };
     }, []);
+
+    // Scroll to top instantly on every route change
+    useEffect(() => {
+        if (lenisRef.current) {
+            lenisRef.current.scrollTo(0, { immediate: true });
+        }
+    }, [location.pathname]);
 
     return (
         <LenisContext.Provider value={lenisRef.current}>
