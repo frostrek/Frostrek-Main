@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Bot, Database, PhoneCall, Cpu, Wallet, LayoutDashboard, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import FlipText from '../ui/FlipText';
 import SplitTextReveal from '../ui/SplitTextReveal';
 
@@ -23,15 +23,15 @@ interface FloatingIconItem {
 }
 
 const floatingIcons: FloatingIconItem[] = [
-  { 
-    id: 1, 
-    top: '20%', 
-    left: '15%', 
-    icon: Bot, 
-    color: 'text-blue-500', 
-    bg: 'bg-blue-50/80', 
-    border: 'border-blue-100', 
-    shadow: 'shadow-blue-500/20', 
+  {
+    id: 1,
+    top: '20%',
+    left: '15%',
+    icon: "/icons/machine-learning.png",
+    color: 'text-blue-500',
+    bg: 'bg-blue-50/80',
+    border: 'border-blue-100',
+    shadow: 'shadow-blue-500/20',
     delay: 0,
     title: "Conversational AI Agents",
     tagline: "Intelligent support & sales",
@@ -39,15 +39,15 @@ const floatingIcons: FloatingIconItem[] = [
     badge: "98% Accuracy",
     link: "/products/frosty-ai"
   },
-  { 
-    id: 2, 
-    top: '25%', 
-    left: '80%', 
-    icon: Database, 
-    color: 'text-emerald-500', 
-    bg: 'bg-emerald-50/80', 
-    border: 'border-emerald-100', 
-    shadow: 'shadow-emerald-500/20', 
+  {
+    id: 2,
+    top: '25%',
+    left: '80%',
+    icon: "/icons/ai.png",
+    color: 'text-emerald-500',
+    bg: 'bg-emerald-50/80',
+    border: 'border-emerald-100',
+    shadow: 'shadow-emerald-500/20',
     delay: 1,
     title: "Enterprise Integrations",
     tagline: "Automate system pipelines",
@@ -55,15 +55,15 @@ const floatingIcons: FloatingIconItem[] = [
     badge: "Low Latency",
     link: "/solutions"
   },
-  { 
-    id: 3, 
-    top: '45%', 
-    left: '10%', 
-    icon: Wallet, 
-    color: 'text-purple-500', 
-    bg: 'bg-purple-50/80', 
-    border: 'border-purple-100', 
-    shadow: 'shadow-purple-500/20', 
+  {
+    id: 3,
+    top: '45%',
+    left: '10%',
+    icon: "/icons/wallet.png",
+    color: 'text-purple-500',
+    bg: 'bg-purple-50/80',
+    border: 'border-purple-100',
+    shadow: 'shadow-purple-500/20',
     delay: 2,
     title: "Fintech & Custom Wallets",
     tagline: "Save commissions with closed-loop loyalty",
@@ -71,15 +71,15 @@ const floatingIcons: FloatingIconItem[] = [
     badge: "Save Commissions",
     link: "/products/frostrek-web3-commerce"
   },
-  { 
-    id: 4, 
-    top: '65%', 
-    left: '85%', 
-    icon: PhoneCall, 
-    color: 'text-orange-500', 
-    bg: 'bg-orange-50/80', 
-    border: 'border-orange-100', 
-    shadow: 'shadow-orange-500/20', 
+  {
+    id: 4,
+    top: '65%',
+    left: '85%',
+    icon: "/icons/Voice ai.png",
+    color: 'text-orange-500',
+    bg: 'bg-orange-50/80',
+    border: 'border-orange-100',
+    shadow: 'shadow-orange-500/20',
     delay: 0.5,
     title: "Conversational Voice AI",
     tagline: "Sub-200ms spoken responses",
@@ -87,15 +87,15 @@ const floatingIcons: FloatingIconItem[] = [
     badge: "Natural Voice",
     link: "/products/voice-ai"
   },
-  { 
-    id: 5, 
-    top: '75%', 
-    left: '20%', 
-    icon: Cpu, 
-    color: 'text-rose-500', 
-    bg: 'bg-rose-50/80', 
-    border: 'border-rose-100', 
-    shadow: 'shadow-rose-500/20', 
+  {
+    id: 5,
+    top: '75%',
+    left: '20%',
+    icon: "/icons/manufacturing.png",
+    color: 'text-rose-500',
+    bg: 'bg-rose-50/80',
+    border: 'border-rose-100',
+    shadow: 'shadow-rose-500/20',
     delay: 1.5,
     title: "Manufacturing Intelligence",
     tagline: "Unified factory floor screen",
@@ -103,15 +103,15 @@ const floatingIcons: FloatingIconItem[] = [
     badge: "Manufacturing",
     link: "/products/frostrek-manufacturing-os"
   },
-  { 
-    id: 6, 
-    top: '85%', 
-    left: '70%', 
-    icon: LayoutDashboard, 
-    color: 'text-indigo-500', 
-    bg: 'bg-indigo-50/80', 
-    border: 'border-indigo-100', 
-    shadow: 'shadow-indigo-500/20', 
+  {
+    id: 6,
+    top: '85%',
+    left: '70%',
+    icon: "/icons/multivendor.png",
+    color: 'text-indigo-500',
+    bg: 'bg-indigo-50/80',
+    border: 'border-indigo-100',
+    shadow: 'shadow-indigo-500/20',
     delay: 2.5,
     title: "Multivendor Dashboard",
     tagline: "Unified e-commerce panel",
@@ -139,7 +139,7 @@ const HeroSection = () => {
         return (
           <motion.div
             key={item.id}
-            className={`absolute hidden md:flex items-center justify-center rounded-2xl shadow-lg w-14 h-14 lg:w-16 lg:h-16 border backdrop-blur-sm z-30 cursor-pointer ${item.bg} ${item.border} ${item.shadow}`}
+            className={`absolute hidden md:flex items-center justify-center rounded-2xl shadow-lg w-14 h-14 lg:w-16 lg:h-16 border backdrop-blur-sm cursor-pointer transition-all duration-300 ${item.bg} ${item.border} ${item.shadow} ${isHovered ? 'z-50' : 'z-30'}`}
             style={{ top: item.top, left: item.left }}
             onMouseEnter={() => setHoveredId(item.id)}
             onMouseLeave={() => setHoveredId(null)}
@@ -147,12 +147,12 @@ const HeroSection = () => {
               y: isHovered ? -10 : [0, -20, 0],
             }}
             transition={{
-              y: isHovered 
+              y: isHovered
                 ? { duration: 0.2, ease: "easeOut" }
                 : { duration: 5, repeat: Infinity, ease: "easeInOut", delay: item.delay }
             }}
           >
-            <item.icon className={`w-6 h-6 lg:w-7 lg:h-7 relative z-10 ${item.color}`} strokeWidth={1.5} />
+            <img src={item.icon} alt={item.title} className="w-8 h-8 lg:w-9 lg:h-9 relative z-10 object-contain" />
 
             {/* Premium Solution Tooltip */}
             <AnimatePresence>
