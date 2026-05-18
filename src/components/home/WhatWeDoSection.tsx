@@ -60,17 +60,17 @@ const ManufacturingDemo = () => {
     ];
     return (
         <div className="w-full text-xs select-none font-body">
-            <div className="bg-[#F4FAF7] border border-[#C8E6DA] rounded-xl px-4 py-2.5 mb-3 flex items-center justify-between">
+            <div className="bg-[#F0F9FF] border border-[#BAE6FD] rounded-xl px-4 py-2.5 mb-3 flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-[#2D6A4F] animate-pulse" />
-                    <span className="text-[#2D6A4F]/60 text-[10px] uppercase tracking-widest font-semibold">Live Factory Dashboard</span>
+                    <span className="w-2 h-2 rounded-full bg-[#0EA5E9] animate-pulse" />
+                    <span className="text-gray-400 text-[10px] uppercase tracking-widest font-semibold">Live Factory Dashboard</span>
                 </div>
                 <span className="text-gray-400 text-[10px]">30s refresh</span>
             </div>
             <div className="grid grid-cols-3 gap-2 mb-3">
                 {metrics.map(m => (
                     <div key={m.label} className="bg-white border border-gray-100 rounded-xl p-3 text-center shadow-sm">
-                        <div className="text-[#2D6A4F] font-bold text-sm">{m.value}</div>
+                        <div className="text-[#0EA5E9] font-bold text-sm">{m.value}</div>
                         <div className="text-gray-400 text-[10px] mt-0.5">{m.label}</div>
                     </div>
                 ))}
@@ -78,7 +78,7 @@ const ManufacturingDemo = () => {
             <div className="space-y-2">
                 <AnimatePresence mode="popLayout">
                     {[alerts[tick], alerts[(tick + 1) % 4]].map((a, i) => (
-                        <motion.div key={a.id} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.4, delay: i * 0.1 }} className="flex items-center gap-3 bg-[#F4FAF7] border border-[#C8E6DA] rounded-xl px-3 py-2.5">
+                        <motion.div key={a.id} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.4, delay: i * 0.1 }} className="flex items-center gap-3 bg-[#F0F9FF] border border-[#BAE6FD] rounded-xl px-3 py-2.5">
                             <span>{a.icon}</span>
                             <span className="text-gray-600 text-[11px] leading-tight">{a.text}</span>
                         </motion.div>
@@ -145,18 +145,18 @@ const AIAgentDemo = () => {
     }, []);
     return (
         <div className="w-full font-body text-xs select-none space-y-2">
-            <div className="flex items-center gap-2 bg-[#F4FAF7] border border-[#C8E6DA] rounded-xl px-3 py-2 mb-3">
-                <div className="w-7 h-7 rounded-full bg-[#E8F5EE] border border-[#C8E6DA] flex items-center justify-center">
+            <div className="flex items-center gap-2 bg-[#FFF1F2] border border-[#FFE4E6] rounded-xl px-3 py-2 mb-3">
+                <div className="w-7 h-7 rounded-full bg-[#FFF1F2] border border-[#FFE4E6] flex items-center justify-center">
                     <img src="/icons/ai agents.png" alt="AI Agent" className="w-4 h-4 object-contain" />
                 </div>
-                <div><div className="text-gray-800 text-[10px] font-semibold">Frosty AI Agent</div><div className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-[#2D6A4F] animate-pulse" /><span className="text-[#2D6A4F] text-[9px]">Online</span></div></div>
+                <div><div className="text-gray-800 text-[10px] font-semibold">Frosty AI Agent</div><div className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-[#FB7185] animate-pulse" /><span className="text-[#FB7185] text-[9px]">Online</span></div></div>
                 <div className="ml-auto flex gap-1.5"><Mic className="w-3.5 h-3.5 text-gray-300" /><MessageSquare className="w-3.5 h-3.5 text-gray-300" /></div>
             </div>
             <div className="space-y-2 min-h-[140px]">
                 <AnimatePresence>
-                    {msgs.map(m => (<motion.div key={m.id} initial={{ opacity: 0, y: 8, scale: 0.95 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 0.3 }} className={`flex ${m.who === 'user' ? 'justify-end' : 'justify-start'}`}><div className={`max-w-[80%] px-3 py-2 rounded-2xl text-[11px] leading-snug ${m.who === 'user' ? 'bg-gray-100 text-gray-700 rounded-br-sm' : 'bg-[#E8F5EE] border border-[#C8E6DA] text-[#2D6A4F] rounded-bl-sm'}`}>{m.text}</div></motion.div>))}
+                    {msgs.map(m => (<motion.div key={m.id} initial={{ opacity: 0, y: 8, scale: 0.95 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 0.3 }} className={`flex ${m.who === 'user' ? 'justify-end' : 'justify-start'}`}><div className={`max-w-[80%] px-3 py-2 rounded-2xl text-[11px] leading-snug ${m.who === 'user' ? 'bg-gray-100 text-gray-700 rounded-br-sm' : 'bg-[#FFF1F2] border border-[#FFE4E6] text-gray-800 rounded-bl-sm'}`}>{m.text}</div></motion.div>))}
                 </AnimatePresence>
-                {typing && (<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex justify-start"><div className="bg-[#E8F5EE] border border-[#C8E6DA] rounded-2xl rounded-bl-sm px-3 py-2 flex gap-1 items-center">{[0, 0.15, 0.3].map((d, i) => (<span key={i} className="w-1.5 h-1.5 rounded-full bg-[#2D6A4F] animate-bounce" style={{ animationDelay: `${d}s` }} />))}</div></motion.div>)}
+                {typing && (<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex justify-start"><div className="bg-[#FFF1F2] border border-[#FFE4E6] rounded-2xl rounded-bl-sm px-3 py-2 flex gap-1 items-center">{[0, 0.15, 0.3].map((d, i) => (<span key={i} className="w-1.5 h-1.5 rounded-full bg-[#FB7185] animate-bounce" style={{ animationDelay: `${d}s` }} />))}</div></motion.div>)}
             </div>
         </div>
     );
@@ -254,12 +254,30 @@ const WhatWeDoSection = () => {
                                 initial={{ opacity: 0, y: 40 }}
                                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                                 transition={{ duration: 0.6, delay: 0.1 + i * 0.15 }}
-                                className="group relative rounded-3xl border border-gray-100 bg-white p-7 flex flex-col gap-5 hover:border-[#C8E6DA] hover:shadow-[0_20px_50px_rgba(45,106,79,0.07)] transition-all duration-500"
+                                className={`group relative rounded-3xl border border-gray-100 bg-white p-7 flex flex-col gap-5 transition-all duration-500 ${
+                                    i === 0
+                                        ? 'hover:border-[#BAE6FD] hover:shadow-[0_20px_50px_rgba(14,165,233,0.07)]'
+                                        : i === 2
+                                        ? 'hover:border-[#FFE4E6] hover:shadow-[0_20px_50px_rgba(244,63,94,0.05)]'
+                                        : 'hover:border-[#C8E6DA] hover:shadow-[0_20px_50px_rgba(45,106,79,0.07)]'
+                                }`}
                             >
-                                <div className="absolute top-0 left-8 right-8 h-0.5 bg-gradient-to-r from-transparent via-[#2D6A4F]/25 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                <div className={`absolute top-0 left-8 right-8 h-0.5 bg-gradient-to-r from-transparent to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${
+                                    i === 0
+                                        ? 'via-[#0EA5E9]/25'
+                                        : i === 2
+                                        ? 'via-[#FB7185]/20'
+                                        : 'via-[#2D6A4F]/25'
+                                }`} />
                                 <div>
                                     <div className="flex items-center gap-2 mb-4">
-                                        <div className="w-9 h-9 rounded-xl bg-[#E8F5EE] border border-[#C8E6DA] flex items-center justify-center">
+                                        <div className={`w-9 h-9 rounded-xl flex items-center justify-center border transition-all duration-300 ${
+                                            i === 0
+                                                ? 'bg-[#E0F2FE] border-[#BAE6FD]'
+                                                : i === 2
+                                                ? 'bg-[#FFF1F2] border-[#FFE4E6]'
+                                                : 'bg-[#E8F5EE] border-[#C8E6DA]'
+                                        }`}>
                                             <img src={card.icon} alt={card.label} className="w-5 h-5 object-contain" />
                                         </div>
                                         <span className="text-gray-600 text-[10px] font-bold uppercase tracking-widest">{card.label}</span>
