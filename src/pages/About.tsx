@@ -284,7 +284,7 @@ const TiltCard = memo(({ children, className, hoverBg = 'bg-white', hoverBorder 
             }}
             transition={{ type: 'spring', stiffness: 300, damping: 20 }}
         >
-            <div 
+            <div
                 className={cn(
                     "relative rounded-2xl h-full border transition-all duration-300",
                     hover ? `${hoverBg} ${hoverBorder}` : `bg-white ${normalBorder}`
@@ -808,48 +808,48 @@ const About = () => {
     const texts = useMemo(() => ['Intelligent Systems', 'Agentic AI', 'Machine Learning', 'Neural Networks'], []);
 
     const values = useMemo(() => [
-        { 
-            icon: '/icons/innovation.png', 
-            title: 'Innovation', 
-            desc: 'Cutting-edge AI solutions', 
-            glowColor: '#0284C7', 
-            hoverBg: 'bg-[#F0F9FF]', 
+        {
+            icon: '/icons/innovation.png',
+            title: 'Innovation',
+            desc: 'Cutting-edge AI solutions',
+            glowColor: '#0284C7',
+            hoverBg: 'bg-[#F0F9FF]',
             hoverBorder: 'border-[#0284C7]/40',
             normalBorder: 'border-[#0284C7]/15',
             iconBg: 'bg-[#E0F2FE]',
             iconBorder: 'border-[#BAE6FD]',
             iconColor: 'text-[#0284C7]'
         },
-        { 
-            icon: '/icons/lightning.png', 
-            title: 'Excellence', 
-            desc: 'ISO certified quality', 
-            glowColor: '#2D6A4F', 
-            hoverBg: 'bg-[#F0FDF4]', 
+        {
+            icon: '/icons/lightning.png',
+            title: 'Excellence',
+            desc: 'ISO certified quality',
+            glowColor: '#2D6A4F',
+            hoverBg: 'bg-[#F0FDF4]',
             hoverBorder: 'border-[#2D6A4F]/40',
             normalBorder: 'border-[#2D6A4F]/15',
             iconBg: 'bg-[#E8F5EE]',
             iconBorder: 'border-[#C8E6DA]',
             iconColor: 'text-[#2D6A4F]'
         },
-        { 
-            icon: '/icons/shield.png', 
-            title: 'Trust', 
-            desc: 'Enterprise security', 
-            glowColor: '#E11D48', 
-            hoverBg: 'bg-[#FFF1F2]', 
+        {
+            icon: '/icons/shield.png',
+            title: 'Trust',
+            desc: 'Enterprise security',
+            glowColor: '#E11D48',
+            hoverBg: 'bg-[#FFF1F2]',
             hoverBorder: 'border-[#E11D48]/40',
             normalBorder: 'border-[#E11D48]/15',
             iconBg: 'bg-[#FFF1F2]',
             iconBorder: 'border-[#FFE4E6]',
             iconColor: 'text-[#E11D48]'
         },
-        { 
-            icon: '/icons/collaboration.png', 
-            title: 'Collaboration', 
-            desc: 'Partnership focused', 
-            glowColor: '#F97316', 
-            hoverBg: 'bg-[#FFF7ED]', 
+        {
+            icon: '/icons/collaboration.png',
+            title: 'Collaboration',
+            desc: 'Partnership focused',
+            glowColor: '#F97316',
+            hoverBg: 'bg-[#FFF7ED]',
             hoverBorder: 'border-[#F97316]/40',
             normalBorder: 'border-[#F97316]/15',
             iconBg: 'bg-[#FFF7ED]',
@@ -1634,7 +1634,7 @@ const About = () => {
                                                     {o.name}
                                                 </span>
                                             </div>
-                                            <h3 className="text-xl font-serif font-bold text-gray-900">{o.city}</h3>
+                                            <h3 className="text-xl font-serif font-semibold text-gray-900">{o.city}</h3>
                                             <p className="text-xs sm:text-sm text-gray-500 font-body font-medium">{o.country}</p>
                                         </div>
 

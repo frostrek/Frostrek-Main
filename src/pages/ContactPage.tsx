@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Mail, Send, Check, Loader2, ArrowRight, MessageCircle, Phone, Globe, Sparkles } from 'lucide-react';
+import { Send, Check, Loader2, ArrowRight, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 import SEO from '../components/seo/SEO';
 import emailjs from '@emailjs/browser';
@@ -130,10 +130,10 @@ ${formData.projectDetails}
 
     return (
         <div className="min-h-screen pt-24 pb-16 bg-gradient-to-b from-white via-[#FAFCFB] to-white relative font-body overflow-hidden">
-            <SEO 
-                title="Contact Us | Frostrek AI" 
-                description="Get in touch with the Frostrek AI team in Gurugram to explore how production-grade AI can transform your enterprise operations." 
-                path="/contact" 
+            <SEO
+                title="Contact Us | Frostrek AI"
+                description="Get in touch with the Frostrek AI team in Gurugram to explore how production-grade AI can transform your enterprise operations."
+                path="/contact"
             />
 
             {/* Decorative Background Elements */}
@@ -150,7 +150,7 @@ ${formData.projectDetails}
 
             <div className="container mx-auto px-4 lg:px-8 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-                    
+
                     {/* Left Side: Information & Branding */}
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
@@ -166,11 +166,11 @@ ${formData.projectDetails}
                             </div>
 
                             <div className="flex flex-col">
-                                <div className="text-4xl md:text-5xl lg:text-6xl font-serif font-black tracking-tight text-gray-950 leading-tight">
+                                <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-[#2D6A4F] leading-[1.1] tracking-[-0.01em]">
                                     <SplitTextReveal as="span" type="chars" stagger={0.03} once={false} trigger="load">
                                         Let's Start a Conversation
                                     </SplitTextReveal>
-                                </div>
+                                </h1>
                             </div>
                             <SplitTextReveal
                                 as="p"
@@ -189,27 +189,26 @@ ${formData.projectDetails}
                         <div className="space-y-6 max-w-xl">
                             {/* Call & Direct Contact Details */}
                             <div className="p-8 rounded-3xl bg-white border border-[#2D6A4F]/10 shadow-xl shadow-gray-100/50 space-y-6">
-                                <h3 className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 font-body">
-                                    Direct Connect
-                                </h3>
-                                
+                                <div className="border-b border-gray-100 pb-4">
+                                    <h3 className="text-2xl font-serif font-semibold text-gray-900">Direct Connect</h3>
+                                </div>
+
                                 {/* CALL US Feature Card */}
                                 <a
                                     href="tel:+916399999955"
-                                    className="flex items-center justify-between gap-4 p-5 rounded-2xl bg-[#2D6A4F] hover:bg-[#1B4332] text-white shadow-xl shadow-[#2D6A4F]/15 transition-all duration-300 transform hover:scale-[1.01] group"
+                                    className="flex items-center justify-between gap-4 p-5 rounded-2xl bg-[#FFF7ED] border border-[#FFEDD5] hover:border-[#EA580C]/35 text-gray-900 shadow-lg shadow-orange-100/30 transition-all duration-300 transform hover:scale-[1.01] group"
                                 >
                                     <div className="flex items-center gap-4">
-                                        <div className="p-3 rounded-xl bg-white/15">
-                                            <Phone className="w-6 h-6 text-white" />
+                                        <div className="p-3 rounded-xl bg-white/40 border border-white/60 flex items-center justify-center shadow-sm backdrop-blur-[2px] transition-all duration-300 group-hover:scale-110">
+                                            <img src="/icons/phone-call.png" alt="Phone" className="w-6 h-6 object-contain" />
                                         </div>
                                         <div>
-                                            <h4 className="font-bold text-sm text-white/80 uppercase tracking-wider font-body leading-none mb-1">Call Us</h4>
-                                            <p className="font-serif font-black text-lg md:text-xl text-white tracking-wide">+91 6399999955</p>
+                                            <h4 className="font-bold text-xs text-[#EA580C] uppercase tracking-wider font-body leading-none mb-1">Call Us</h4>
+                                            <p className="font-serif font-bold text-lg md:text-xl text-gray-900 tracking-wide">+91 6399999955</p>
                                         </div>
-
                                     </div>
-                                    <div className="w-10 h-10 rounded-full flex items-center justify-center bg-white/10 group-hover:bg-white/20 transition-all">
-                                        <ArrowRight className="w-5 h-5 text-white group-hover:translate-x-1 transition-transform" />
+                                    <div className="w-10 h-10 rounded-full flex items-center justify-center bg-[#EA580C]/10 group-hover:bg-[#EA580C]/20 transition-all">
+                                        <ArrowRight className="w-5 h-5 text-[#EA580C] group-hover:translate-x-1 transition-transform" />
                                     </div>
                                 </a>
 
@@ -217,28 +216,38 @@ ${formData.projectDetails}
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <a
                                         href="mailto:contact@frostrek.ai"
-                                        className="flex items-start gap-3.5 p-4 rounded-2xl bg-[#FAFCFB] border border-[#2D6A4F]/5 hover:border-[#2D6A4F]/25 hover:bg-white transition-all duration-300 group shadow-sm hover:shadow-md"
+                                        className="flex items-center justify-between gap-3 p-4 rounded-2xl bg-[#F0F9FF] border border-[#E0F2FE] hover:border-[#0284C7]/35 hover:bg-[#F0F9FF]/80 transition-all duration-300 group shadow-sm hover:shadow-md"
                                     >
-                                        <div className="p-2.5 rounded-xl bg-[#E8F5EE] text-[#2D6A4F] transition-colors">
-                                            <Mail className="w-5 h-5" />
+                                        <div className="flex items-center gap-3 min-w-0 flex-1">
+                                            <div className="p-2.5 rounded-xl bg-white/40 border border-white/60 flex items-center justify-center shadow-sm backdrop-blur-[2px] transition-all duration-300 group-hover:scale-110 flex-shrink-0">
+                                                <img src="/icons/email.png" alt="Email" className="w-5 h-5 object-contain" />
+                                            </div>
+                                            <div className="min-w-0 flex-1">
+                                                <h4 className="font-bold text-xs text-[#0284C7] mb-0.5 font-body uppercase tracking-wider">Email Us</h4>
+                                                <p className="text-sm text-slate-700 font-semibold truncate">contact@frostrek.ai</p>
+                                            </div>
                                         </div>
-                                        <div className="min-w-0 flex-1">
-                                            <h4 className="font-bold text-xs text-gray-950 mb-0.5 font-body uppercase tracking-wider">Email Us</h4>
-                                            <p className="text-sm text-slate-600 font-semibold truncate">contact@frostrek.ai</p>
+                                        <div className="w-7 h-7 rounded-full flex items-center justify-center bg-[#0284C7]/10 group-hover:bg-[#0284C7]/20 transition-all flex-shrink-0">
+                                            <ArrowRight className="w-3.5 h-3.5 text-[#0284C7] group-hover:translate-x-0.5 transition-transform" />
                                         </div>
                                     </a>
                                     <a
                                         href="https://wa.me/17574722491"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex items-start gap-3.5 p-4 rounded-2xl bg-[#FAFCFB] border border-[#2D6A4F]/5 hover:border-[#2D6A4F]/25 hover:bg-white transition-all duration-300 group shadow-sm hover:shadow-md"
+                                        className="flex items-center justify-between gap-3 p-4 rounded-2xl bg-[#F0FDF4] border border-[#E8F5EE] hover:border-[#2D6A4F]/35 hover:bg-[#F0FDF4]/80 transition-all duration-300 group shadow-sm hover:shadow-md"
                                     >
-                                        <div className="p-2.5 rounded-xl bg-[#E8F5EE] text-[#2D6A4F]">
-                                            <MessageCircle className="w-5 h-5 text-[#2D6A4F]" />
+                                        <div className="flex items-center gap-3 min-w-0 flex-1">
+                                            <div className="p-2.5 rounded-xl bg-white/40 border border-white/60 flex items-center justify-center shadow-sm backdrop-blur-[2px] transition-all duration-300 group-hover:scale-110 flex-shrink-0">
+                                                <img src="/icons/chat.png" alt="Chat" className="w-5 h-5 object-contain" />
+                                            </div>
+                                            <div className="min-w-0 flex-1">
+                                                <h4 className="font-bold text-xs text-[#2D6A4F] mb-0.5 font-body uppercase tracking-wider">WhatsApp (US)</h4>
+                                                <p className="text-sm text-slate-700 font-semibold truncate">+1 757 472 2491</p>
+                                            </div>
                                         </div>
-                                        <div className="min-w-0 flex-1">
-                                            <h4 className="font-bold text-xs text-gray-950 mb-0.5 font-body uppercase tracking-wider">WhatsApp (US)</h4>
-                                            <p className="text-sm text-slate-600 font-semibold truncate">+1 757 472 2491</p>
+                                        <div className="w-7 h-7 rounded-full flex items-center justify-center bg-[#2D6A4F]/10 group-hover:bg-[#2D6A4F]/20 transition-all flex-shrink-0">
+                                            <ArrowRight className="w-3.5 h-3.5 text-[#2D6A4F] group-hover:translate-x-0.5 transition-transform" />
                                         </div>
                                     </a>
                                 </div>
@@ -246,10 +255,9 @@ ${formData.projectDetails}
 
                             {/* GLOBAL OFFICES Section */}
                             <div className="p-8 rounded-3xl bg-white border border-[#2D6A4F]/10 shadow-xl shadow-gray-100/50">
-                                <div className="flex items-center gap-2 mb-6 border-b border-gray-150/50 pb-4">
-                                    <Globe className="w-4 h-4 text-[#2D6A4F]" />
-                                    <h3 className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 font-body">
-                                        GLOBAL OFFICES
+                                <div className="flex items-center gap-2 mb-6 border-b border-gray-100 pb-4">
+                                    <h3 className="text-2xl font-serif font-semibold text-gray-900">
+                                        Global Offices
                                     </h3>
                                 </div>
                                 <div className="space-y-4">
@@ -258,19 +266,29 @@ ${formData.projectDetails}
                                             title: 'India (HQ)',
                                             address: '4th Floor, Unit No. 455, JMD Empire, Sector 62, Gurugram',
                                             mapUrl: 'https://www.google.com/maps/search/?api=1&query=4th+Floor+Unit+No+455+JMD+Empire+Sector+62+Gurugram+India',
-                                            isHQ: true
+                                            isHQ: true,
+                                            bgClass: 'bg-white border-[#BBF7D0] hover:border-[#2D6A4F]/35 hover:shadow-[0_15px_30px_rgba(45,106,79,0.04)]',
+                                            accentText: 'text-[#2D6A4F]',
+                                            arrowText: 'text-[#2D6A4F]',
+                                            hqBadgeBg: 'bg-[#E8F5EE] text-[#2D6A4F] border-[#2D6A4F]/10'
                                         },
                                         {
                                             title: 'USA',
                                             address: '701 Tillery Street Unit 12-3227, Austin, Texas 78702, United States',
                                             mapUrl: 'https://www.google.com/maps/search/?api=1&query=701+Tillery+Street+Unit+12-3227+Austin+Texas+78702+United+States',
-                                            isHQ: false
+                                            isHQ: false,
+                                            bgClass: 'bg-white border-[#BAE6FD] hover:border-[#0284C7]/35 hover:shadow-[0_15px_30px_rgba(2,132,199,0.04)]',
+                                            accentText: 'text-[#0284C7]',
+                                            arrowText: 'text-[#0284C7]'
                                         },
                                         {
                                             title: 'UK',
                                             address: '24–26 Arcadia Avenue, Fin009/8701, London, United Kingdom, N3 2JU',
                                             mapUrl: 'https://www.google.com/maps/search/?api=1&query=24-26+Arcadia+Avenue+London+N3+2JU+United+Kingdom',
-                                            isHQ: false
+                                            isHQ: false,
+                                            bgClass: 'bg-white border-[#FECDD3] hover:border-[#E11D48]/35 hover:shadow-[0_15px_30px_rgba(225,29,72,0.04)]',
+                                            accentText: 'text-[#E11D48]',
+                                            arrowText: 'text-[#E11D48]'
                                         },
                                     ].map((office, i) => (
                                         <a
@@ -278,15 +296,15 @@ ${formData.projectDetails}
                                             href={office.mapUrl}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="flex items-center gap-4 p-4 rounded-2xl border border-transparent bg-[#FAFCFB] hover:bg-white hover:border-[#2D6A4F]/20 hover:shadow-md transition-all duration-300 group"
+                                            className={`flex items-center gap-4 p-4 rounded-2xl border ${office.bgClass} transition-all duration-300 group`}
                                         >
                                             <div className="flex-1 min-w-0">
                                                 <div className="flex items-center gap-2 mb-1">
-                                                    <h4 className="font-serif font-black text-sm text-gray-950 transition-colors group-hover:text-[#2D6A4F]">
+                                                    <h4 className={`font-serif font-bold text-base tracking-tight ${office.accentText} transition-colors`}>
                                                         {office.title}
                                                     </h4>
                                                     {office.isHQ && (
-                                                        <span className="text-[9px] font-black px-2 py-0.5 rounded-full bg-[#E8F5EE] text-[#2D6A4F] border border-[#2D6A4F]/10">
+                                                        <span className={`text-[9px] font-black px-2 py-0.5 rounded-full ${office.hqBadgeBg} border`}>
                                                             HQ
                                                         </span>
                                                     )}
@@ -295,7 +313,7 @@ ${formData.projectDetails}
                                                     {office.address}
                                                 </p>
                                             </div>
-                                            <div className="opacity-0 group-hover:opacity-100 transition-all text-[#2D6A4F]">
+                                            <div className={`opacity-0 group-hover:opacity-100 transition-all ${office.arrowText}`}>
                                                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                             </div>
                                         </a>
@@ -312,12 +330,12 @@ ${formData.projectDetails}
                         transition={{ duration: 0.6, delay: 0.2 }}
                     >
                         <div className="p-8 sm:p-10 rounded-3xl border shadow-2xl bg-white border-[#2D6A4F]/10 shadow-[#2D6A4F]/5">
-                            
+
                             {!isSuccess ? (
                                 <form onSubmit={handleSubmit} className="space-y-6">
                                     <div className="border-b border-gray-100 pb-4">
-                                        <h3 className="text-2xl font-serif font-black text-gray-950">Send Us a Message</h3>
-                                        <p className="text-xs text-slate-400 font-medium mt-1">Please fill in the form below and we'll connect shortly.</p>
+                                        <h3 className="text-2xl font-serif font-semibold text-gray-900">Send Us a Message</h3>
+                                        <p className="text-xs text-slate-500 font-medium mt-1">Please fill in the form below and we'll connect shortly.</p>
                                     </div>
 
                                     {/* Name Row */}
@@ -376,40 +394,40 @@ ${formData.projectDetails}
 
                                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                                             {[
-                                                "Sales Enquiry", 
-                                                "Project Enquiry", 
-                                                "Partnerships", 
-                                                "Support", 
-                                                "Careers", 
-                                                "Other"
+                                                { label: "Sales Enquiry", activeClass: "bg-[#F0FDF4]/50 border-[#2D6A4F] shadow-sm", defaultBorder: "border-[#2D6A4F]/15", hoverClass: "hover:border-[#2D6A4F]/35 hover:bg-[#F0FDF4]/10", dotClass: "border-[#2D6A4F]", innerDotClass: "bg-[#2D6A4F]" },
+                                                { label: "Project Enquiry", activeClass: "bg-[#F0F9FF]/50 border-[#0284C7] shadow-sm", defaultBorder: "border-[#0284C7]/15", hoverClass: "hover:border-[#0284C7]/35 hover:bg-[#F0F9FF]/10", dotClass: "border-[#0284C7]", innerDotClass: "bg-[#0284C7]" },
+                                                { label: "Partnerships", activeClass: "bg-[#FFF7ED]/50 border-[#EA580C] shadow-sm", defaultBorder: "border-[#EA580C]/15", hoverClass: "hover:border-[#EA580C]/35 hover:bg-[#FFF7ED]/10", dotClass: "border-[#EA580C]", innerDotClass: "bg-[#EA580C]" },
+                                                { label: "Support", activeClass: "bg-[#FFF5F5]/50 border-[#E11D48] shadow-sm", defaultBorder: "border-[#E11D48]/15", hoverClass: "hover:border-[#E11D48]/35 hover:bg-[#FFF5F5]/10", dotClass: "border-[#E11D48]", innerDotClass: "bg-[#E11D48]" },
+                                                { label: "Careers", activeClass: "bg-[#F5F3FF]/50 border-[#6366F1] shadow-sm", defaultBorder: "border-[#6366F1]/15", hoverClass: "hover:border-[#6366F1]/35 hover:bg-[#F5F3FF]/10", dotClass: "border-[#6366F1]", innerDotClass: "bg-[#6366F1]" },
+                                                { label: "Other", activeClass: "bg-[#F0FDFA]/50 border-[#0D9488] shadow-sm", defaultBorder: "border-[#0D9488]/15", hoverClass: "hover:border-[#0D9488]/35 hover:bg-[#F0FDFA]/10", dotClass: "border-[#0D9488]", innerDotClass: "bg-[#0D9488]" }
                                             ].map((option) => {
-                                                const isSelected = formData.reachType === option;
+                                                const isSelected = formData.reachType === option.label;
                                                 return (
-                                                    <label 
-                                                        key={option} 
+                                                    <label
+                                                        key={option.label}
                                                         className={`
-                                                            flex items-center gap-3 p-3.5 rounded-2xl border-2 cursor-pointer transition-all duration-200
-                                                            ${isSelected 
-                                                                ? 'bg-[#E8F5EE]/40 border-[#2D6A4F] shadow-sm' 
-                                                                : 'bg-[#FAFCFB] border-gray-150 hover:border-[#2D6A4F]/25 hover:bg-white'}
+                                                            flex items-center gap-3 p-3.5 rounded-2xl border-2 cursor-pointer transition-all duration-300
+                                                            ${isSelected
+                                                                ? option.activeClass
+                                                                : `bg-[#FAFCFB] ${option.defaultBorder} ${option.hoverClass}`}
                                                         `}
                                                     >
                                                         <input
                                                             type="radio"
                                                             name="reachType"
-                                                            value={option}
+                                                            value={option.label}
                                                             checked={isSelected}
                                                             onChange={handleChange}
                                                             className="sr-only"
                                                         />
                                                         <div className={`
                                                             w-4 h-4 rounded-full border-2 flex items-center justify-center transition-colors
-                                                            ${isSelected ? 'border-[#2D6A4F]' : 'border-slate-300'}
+                                                            ${isSelected ? option.dotClass : 'border-slate-300'}
                                                         `}>
-                                                            {isSelected && <div className="w-1.5 h-1.5 rounded-full bg-[#2D6A4F]" />}
+                                                            {isSelected && <div className={`w-1.5 h-1.5 rounded-full ${option.innerDotClass}`} />}
                                                         </div>
                                                         <span className={`text-xs font-semibold ${isSelected ? 'text-gray-950 font-bold' : 'text-slate-600'}`}>
-                                                            {option}
+                                                            {option.label}
                                                         </span>
                                                     </label>
                                                 );
@@ -440,7 +458,7 @@ ${formData.projectDetails}
 
                                     {/* Error Display */}
                                     {error && (
-                                        <motion.div 
+                                        <motion.div
                                             initial={{ opacity: 0, y: 10 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             className="p-4 rounded-xl bg-red-50 border border-red-200 text-red-600 text-xs font-semibold"
@@ -478,7 +496,7 @@ ${formData.projectDetails}
                                     <div className="w-20 h-20 rounded-full bg-[#E8F5EE] border border-[#2D6A4F]/20 flex items-center justify-center mb-6">
                                         <Check className="w-9 h-9 text-[#2D6A4F]" />
                                     </div>
-                                    <h3 className="text-2xl font-serif font-black text-gray-950">Message Sent!</h3>
+                                    <h3 className="text-2xl font-serif font-bold text-gray-900">Message Sent!</h3>
                                     <p className="text-slate-500 text-sm max-w-xs mt-2.5 font-medium">
                                         Thanks for reaching out! We have received your inquiry and will get back to you within 24 hours.
                                     </p>

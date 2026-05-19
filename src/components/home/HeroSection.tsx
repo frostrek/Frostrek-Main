@@ -239,7 +239,7 @@ const HeroSection = () => {
           stagger={0.02}
           delay={0.5}
         >
-          Frostrek AI deploys autonomous AI agents across manufacturing, support, and sales — serving 40+ enterprise clients across India, USA, and the UK with sub-200ms response times.
+          Frostrek AI deploys autonomous AI agents across manufacturing, support, and sales - serving 40+ enterprise clients across India, USA, and the UK with sub-200ms response times.
         </SplitTextReveal>
 
         {/* Buttons */}

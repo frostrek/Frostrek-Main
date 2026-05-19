@@ -686,7 +686,14 @@ const Chatbot: React.FC = () => {
                                 }}
 
                                 onWheel={(e) => {
-                                    e.stopPropagation();
+                                    const el = messagesEndRef.current?.parentElement;
+                                    if (!el) return;
+                                    const { scrollTop, scrollHeight, clientHeight } = el;
+                                    const atTop = scrollTop === 0 && e.deltaY < 0;
+                                    const atBottom = scrollTop + clientHeight >= scrollHeight - 1 && e.deltaY > 0;
+                                    if (!atTop && !atBottom) {
+                                        e.stopPropagation();
+                                    }
                                 }}
 
                                 onTouchMove={(e) => {

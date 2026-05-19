@@ -8,7 +8,7 @@ import {
     ShoppingCart, Headset, Server, TrendingUp,
     Linkedin, Users, Trophy, Factory,
     Mail, FileText, Share2, Globe, PenTool, Search, UserPlus, Brain, ArrowRight,
-    Shield, ShoppingBag
+    Shield, ShoppingBag, Layers
 } from 'lucide-react';
 
 const iconMap: Record<string, React.FC<any>> = {
@@ -16,7 +16,7 @@ const iconMap: Record<string, React.FC<any>> = {
     ShoppingCart, Headset, Server, TrendingUp,
     Linkedin, Users, Trophy, Factory,
     Mail, FileText, Share2, Globe, PenTool, Search, UserPlus, Brain,
-    Shield, ShoppingBag
+    Shield, ShoppingBag, Layers
 };
 
 interface SubItem { name: string; href: string; desc: string; icon?: string; }
