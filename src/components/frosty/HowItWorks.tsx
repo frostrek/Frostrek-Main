@@ -26,7 +26,7 @@ const steps = [
     {
         num: '03',
         title: 'Convert at scale',
-        desc: 'Frosty works around the clock — capturing leads, scheduling meetings, and closing deals while you sleep.',
+        desc: 'Frosty works around the clock - capturing leads, scheduling meetings, and closing deals while you sleep.',
         icon: Rocket,
         features: ['24/7 lead capture', 'Auto meeting booking', 'Real-time analytics']
     }

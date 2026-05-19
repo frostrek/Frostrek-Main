@@ -347,13 +347,13 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
                 step: '01',
                 title: 'Connect All Sources',
                 description:
-                    'Read-only integrations to Syspro ERP (SQL), Fusion WMS (REST API), CFAM Allen Bradley PLC (EtherNet/IP), and Famsun SCADA (MQTT) — zero changes to the factory firewall.',
+                    'Read-only integrations to Syspro ERP (SQL), Fusion WMS (REST API), CFAM Allen Bradley PLC (EtherNet/IP), and Famsun SCADA (MQTT) - zero changes to the factory firewall.',
             },
             {
                 step: '02',
                 title: 'Unify & Visualise',
                 description:
-                    'A cloud-hosted FastAPI + TimescaleDB backend streams all data to a Next.js real-time dashboard accessible on any device — including from outside the factory.',
+                    'A cloud-hosted FastAPI + TimescaleDB backend streams all data to a Next.js real-time dashboard accessible on any device - including from outside the factory.',
             },
             {
                 step: '03',
@@ -367,25 +367,25 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
             {
                 title: 'Real-Time Factory Dashboard',
                 description:
-                    'Live extruder telemetry, equipment status, sales orders, and warehouse job cards in a single unified view — accessible from any device, anywhere.',
+                    'Live extruder telemetry, equipment status, sales orders, and warehouse job cards in a single unified view - accessible from any device, anywhere.',
                 icon: Eye,
             },
             {
                 title: 'Digital Shift Handover',
                 description:
-                    'Structured digital handover forms replace WhatsApp voice notes and drop cards — every shift, every team, every quality reading captured and searchable.',
+                    'Structured digital handover forms replace WhatsApp voice notes and drop cards - every shift, every team, every quality reading captured and searchable.',
                 icon: Clock,
             },
             {
                 title: 'Live Cost Per KG Engine',
                 description:
-                    'Real-time production cost per product calculated from raw material consumption (Syspro BOM), energy watt readings (CFAM PLC), and labour costs — updating every batch.',
+                    'Real-time production cost per product calculated from raw material consumption (Syspro BOM), energy watt readings (CFAM PLC), and labour costs - updating every batch.',
                 icon: DollarSign,
             },
             {
                 title: 'Automated Sensor Alerting',
                 description:
-                    'Configurable threshold alerts per product per sensor. Critical alerts fire to WhatsApp (Twilio) and email within 60 seconds — before quality fails, not after.',
+                    'Configurable threshold alerts per product per sensor. Critical alerts fire to WhatsApp (Twilio) and email within 60 seconds - before quality fails, not after.',
                 icon: Radio,
             },
             {
@@ -397,7 +397,7 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
             {
                 title: 'Load-Shedding Resilient',
                 description:
-                    'Every data point is buffered to a local SQLite store before cloud push. On power return, the agent auto-replays all buffered data with zero gaps — even after a 6-hour outage.',
+                    'Every data point is buffered to a local SQLite store before cloud push. On power return, the agent auto-replays all buffered data with zero gaps - even after a 6-hour outage.',
                 icon: ShieldCheck,
             },
         ],
@@ -406,7 +406,7 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
             {
                 title: 'Zero New Hardware Required',
                 description:
-                    'The entire platform runs on one existing factory Windows PC and a cloud server. No PLC modifications, no new sensors, no firewall changes — pure software intelligence layered on top of existing systems.',
+                    'The entire platform runs on one existing factory Windows PC and a cloud server. No PLC modifications, no new sensors, no firewall changes - pure software intelligence layered on top of existing systems.',
             },
             {
                 title: 'Full Visibility From Anywhere',
@@ -416,7 +416,7 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
             {
                 title: 'Recovering 25+ Tonnes Per Week',
                 description:
-                    'Twenty changeovers per week at 1–2 hours each equals up to 42 tonnes of lost production. The AI scheduler recovers half of that with zero capital investment — purely through smarter sequencing.',
+                    'Twenty changeovers per week at 1–2 hours each equals up to 42 tonnes of lost production. The AI scheduler recovers half of that with zero capital investment - purely through smarter sequencing.',
             },
         ],
 
@@ -424,19 +424,19 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
             {
                 title: 'Aquatic Feed Manufacturing',
                 description:
-                    'Tilapia, trout, abalone, catfish, koi, and pet food — all product lines unified on one platform with per-product cost tracking and alert thresholds.',
+                    'Tilapia, trout, abalone, catfish, koi, and pet food - all product lines unified on one platform with per-product cost tracking and alert thresholds.',
                 icon: Factory,
             },
             {
                 title: 'Multi-Shift Operations',
                 description:
-                    'Four rotating shift teams. Digital handovers, quality capture, and shift performance reporting — structured, searchable, and never lost in a WhatsApp group.',
+                    'Four rotating shift teams. Digital handovers, quality capture, and shift performance reporting - structured, searchable, and never lost in a WhatsApp group.',
                 icon: Clock,
             },
             {
                 title: 'ERP + Factory Floor Integration',
                 description:
-                    'Sales orders from Syspro, warehouse movements from Fusion WMS, and live PLC sensor data — joined and displayed together for the first time.',
+                    'Sales orders from Syspro, warehouse movements from Fusion WMS, and live PLC sensor data - joined and displayed together for the first time.',
                 icon: Cpu,
             },
         ],
@@ -445,7 +445,7 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
             {
                 question: 'Does this require changes to existing factory systems?',
                 answer:
-                    'No. Every integration is read-only. The factory firewall requires zero changes. Data flows outbound only — from the factory to the cloud. Existing systems are never modified.',
+                    'No. Every integration is read-only. The factory firewall requires zero changes. Data flows outbound only - from the factory to the cloud. Existing systems are never modified.',
             },
             {
                 question: 'How does it handle South African load-shedding?',
@@ -455,7 +455,7 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
             {
                 question: 'How long does Phase 1 take to deploy?',
                 answer:
-                    'Phase 1 — the full real-time dashboard and digital shift handover — is delivered in 6 to 8 weeks. All four data sources are connected within the first four weeks.',
+                    'Phase 1 - the full real-time dashboard and digital shift handover - is delivered in 6 to 8 weeks. All four data sources are connected within the first four weeks.',
             },
             {
                 question: 'What does the AI scheduler actually do?',
@@ -465,7 +465,7 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
             {
                 question: 'Is this only for aquatic feed manufacturers?',
                 answer:
-                    'No. The architecture — connecting ERP, WMS, PLCs, and SCADA into a unified intelligence platform — applies to any 24/7 process manufacturer running disconnected systems. Feed mills, food processing, chemicals, plastics, and similar operations are all candidates.',
+                    'No. The architecture - connecting ERP, WMS, PLCs, and SCADA into a unified intelligence platform - applies to any 24/7 process manufacturer running disconnected systems. Feed mills, food processing, chemicals, plastics, and similar operations are all candidates.',
             },
         ],
     },

@@ -12,22 +12,22 @@ import CTASection from '../components/home/CTASection';
 import SEO from '../components/seo/SEO';
 
 const softwareSchema = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Frostrek AI Platform",
-  "applicationCategory": "BusinessApplication",
-  "operatingSystem": "Web",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD",
-    "description": "Contact for enterprise pricing"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.8",
-    "ratingCount": "150"
-  }
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Frostrek AI Platform",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Contact for enterprise pricing"
+    },
+    "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "150"
+    }
 });
 
 const ProductPage = () => {
@@ -66,16 +66,16 @@ const ProductPage = () => {
     if (!product) return null;
 
     const faqSchema = product.faq && product.faq.length > 0 ? JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": product.faq.map(q => ({
-        "@type": "Question",
-        "name": q.question,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": q.answer
-        }
-      }))
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": product.faq.map(q => ({
+            "@type": "Question",
+            "name": q.question,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": q.answer
+            }
+        }))
     }) : null;
 
     const schemas = [softwareSchema];
@@ -83,10 +83,10 @@ const ProductPage = () => {
 
     return (
         <div className="relative min-h-screen bg-white text-gray-900 font-body">
-            <SEO 
-                title={`${product.title} | Frostrek AI Enterprise Solutions`} 
-                description={product.description} 
-                path={location.pathname} 
+            <SEO
+                title={`${product.title} | Frostrek AI Enterprise Solutions`}
+                description={product.description}
+                path={location.pathname}
                 schema={schemas}
                 keywords={product.keywords || "production-ready AI products USA, enterprise AI solutions UK, bespoke AI technology India"}
             />

@@ -53,10 +53,10 @@ const ManufacturingDemo = () => {
     }, []);
     const metrics = [{ label: 'OEE', value: '87%' }, { label: 'Cost/Unit', value: '$1.24' }, { label: 'Uptime', value: '99.2%' }];
     const alerts = [
-        { id: 0, text: 'Extruder 3 — temp spike detected', icon: '⚡' },
+        { id: 0, text: 'Extruder 3 - temp spike detected', icon: '⚡' },
         { id: 1, text: 'Changeover optimised · saved 1.4h', icon: '✅' },
         { id: 2, text: 'Batch cost updated · $1.24/kg', icon: '📊' },
-        { id: 3, text: 'Shift handover logged — Team B', icon: '📋' },
+        { id: 3, text: 'Shift handover logged - Team B', icon: '📋' },
     ];
     return (
         <div className="w-full text-xs select-none font-body">
@@ -240,7 +240,7 @@ const WhatWeDoSection = () => {
                         stagger={0.02}
                         once={false}
                     >
-                        Three flagship platforms. One vision — replace manual chaos with real-time intelligence.
+                        Three flagship platforms. One vision - replace manual chaos with real-time intelligence.
                     </SplitTextReveal>
                 </div>
 

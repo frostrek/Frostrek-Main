@@ -5,12 +5,12 @@ import { Sparkles } from 'lucide-react';
 
 const PRODUCTS = [
     {
-        id: 'development',
-        title: 'Custom Software Development',
-        subtitle: 'Bring your ideas to life with stunning UI, seamless UX, and powerful performance—built for scale and everything in between.',
-        description: 'Tailor-made tech to fit your business like a glove. We build the exact tools you need to grow smarter.',
+        id: 'Vedashi',
+        title: 'Vedashi Ecommerce',
+        subtitle: 'An global Ecommerce platform empowering Indian Ayurvedic and Wellness brands and startups to scale globally without the complexities of international expansion.',
+        description: 'An end-to-end tech and logistics platform that helps Indian wellness, food, and beauty brands go global effortlessly.',
         image: '/images/custom_software_vibe.png',
-        icon: <img src="/icons/custom dev.png" alt="Custom Software Development" className="w-10 h-10 object-contain" />,
+        icon: <img src="/products/vedashi-logo.png" alt="Vedashi" className="w-12 h-12 object-contain" />,
         bgColor: 'bg-[#F0FDF4]', // Light Green
         textColor: 'text-black',
         borderColor: 'border-green-100',
@@ -19,9 +19,9 @@ const PRODUCTS = [
         imagePos: 'right'
     },
     {
-        id: 'agents',
-        title: 'AI Agents & Autonomous Systems',
-        subtitle: 'Leverage intelligent solutions that learn, adapt, and optimize. Smarter decisions, better outcomes.',
+        id: 'VettEdge',
+        title: 'VettEdge',
+        subtitle: 'Standalone AI-powered financial due diligence, valuation, and investment memo platform - the first product shipped by Frostrek AI on the path to FundOS, the AI operating system for fund managers.',
         description: 'Build intelligent AI agents capable of independent reasoning, decision-making, and task execution across operational workflows.',
         image: '/images/ai_agents_white_collar.png',
         icon: <img src="/icons/ai.png" alt="AI Agents" className="w-10 h-10 object-contain" />,
@@ -34,10 +34,10 @@ const PRODUCTS = [
     },
     // #FE#f0fbfeff
     {
-        id: 'automation',
-        title: 'Web Development',
-        description: 'Fast. Responsive. Scalable. We craft websites that not only look amazing but work beautifully on every device.',
-        icon: <img src="/icons/Web Develop.png" alt="Web Development" className="w-10 h-10 object-contain" />,
+        id: 'Hiyring',
+        title: 'Hiyring',
+        description: 'Platform that streamlines hiring process with autonomous AI video interviews. Screen thousands of candidates in minutes, with scientifically focused assessments.',
+        icon: <img src="/products/hiyring-logo.png" alt="Hiyring" className="w-12 h-12 object-contain p-0" />,
         bgColor: 'bg-[#f0fbfeff]', // Light Pink/Red
         textColor: 'text-black',
         borderColor: 'border-pink-100',
@@ -45,9 +45,9 @@ const PRODUCTS = [
         rowSpan: 'row-span-1',
     },
     {
-        id: 'training',
-        title: 'AI Model Training',
-        description: 'Improve AI model outcomes through expert-led training, fine-tuning, and real-world validation for consistent accuracy.',
+        id: 'Frosty',
+        title: 'Website Chatbot (FROSTY) ',
+        description: 'Connect your data streams, automate customer journeys. Our easy to plug chatbot is here to handle the heavy lifting while your team focuses on closing.',
         icon: <img src="/icons/machine-learning.png" alt="AI Model Training" className="w-10 h-10 object-contain" />,
         bgColor: 'bg-[#FFFBEB]', // Light Yellow
         textColor: 'text-black',
@@ -88,7 +88,7 @@ const OurProductsSection = () => {
                         </SplitTextReveal>
                     </div>
                     <p className="text-lg text-gray-500 max-w-2xl mx-auto font-medium">
-                        From conversational AI agents to full-stack development — 50+ engineers delivering production-ready systems in 4-8 weeks.
+                        From conversational AI agents to full-stack development - 50+ engineers delivering production-ready systems in 4-8 weeks.
                     </p>
                 </div>
 
@@ -110,7 +110,7 @@ const OurProductsSection = () => {
                                     ? 'md:w-1/2 h-full'
                                     : 'w-full flex-grow basis-1/2'
                                     }`}>
-                                    <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-8 shadow-sm backdrop-blur-sm bg-white/50">
+                                    <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-8 shadow-md bg-white border border-gray-100/50">
                                         {product.icon}
                                     </div>
 

@@ -660,7 +660,7 @@ export const ResourcesPage = () => {
                                             or novel customer experiences, the impact is profound.
                                         </p>
                                         <p>
-                                            As we continue to push the boundaries of what's possible, keeping a pulse on these developments is not just beneficial—it's essential
+                                            As we continue to push the boundaries of what's possible, keeping a pulse on these developments is not just beneficial-it's essential
                                             for long-term viability and growth.
                                         </p>
                                     </div>

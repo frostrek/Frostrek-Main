@@ -180,7 +180,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         duration: '5 months',
         team: '60 Collectors | 8 Supervisors',
         description: 'Diverse mobile-based image, video, and audio data collection across varied environments.',
-        challenge: 'The client needed real-world datasets that reflected diverse lighting, accents, and acoustics—data that cannot be scraped from the web. Privacy and consent compliance were critical blockers.',
+        challenge: 'The client needed real-world datasets that reflected diverse lighting, accents, and acoustics-data that cannot be scraped from the web. Privacy and consent compliance were critical blockers.',
         solution: 'We deployed 60 field data collectors managed by 8 supervisors. The scope included mobile-based image/video capture, speech recording across demographics, and handwritten document collection for OCR. We handled all contributor onboarding and consent forms.',
         outcome: [
             'Collected diverse datasets across multiple environments and demographics.',
@@ -294,7 +294,7 @@ export const BLOG_POSTS: BlogPost[] = [
         category: 'Industry Trends',
         content: `## The Shift from Passive AI to Autonomous Agents
 
-The AI industry is undergoing a fundamental transformation. We are moving from models that respond to prompts — chatbots, summarizers, classifiers — to **agentic AI systems** that can reason, plan, and execute multi-step workflows independently.
+The AI industry is undergoing a fundamental transformation. We are moving from models that respond to prompts - chatbots, summarizers, classifiers - to **agentic AI systems** that can reason, plan, and execute multi-step workflows independently.
 
 This shift has profound implications for data operations. The datasets that powered GPT-era models are no longer sufficient. Agentic AI requires:
 
@@ -307,12 +307,12 @@ This shift has profound implications for data operations. The datasets that powe
 Traditional data operations followed a linear pipeline: collect → clean → label → train → deploy. Agentic AI breaks this model entirely.
 
 **1. Data Must Be Contextual, Not Static**
-An autonomous agent scheduling factory maintenance doesn't just need labeled images of machine parts. It needs real-time sensor telemetry, historical maintenance logs, weather forecasts, and supply chain data — all unified into a single context window.
+An autonomous agent scheduling factory maintenance doesn't just need labeled images of machine parts. It needs real-time sensor telemetry, historical maintenance logs, weather forecasts, and supply chain data - all unified into a single context window.
 
 At Frostrek AI, we've built exactly this kind of unified data layer for manufacturing clients. Our Manufacturing OS ingests data from ERP, WMS, SCADA, and PLC systems simultaneously, creating a real-time intelligence hub that agents can query.
 
 **2. Quality Thresholds Must Be Production-Grade**
-When an AI agent is making autonomous decisions — approving purchase orders, rescheduling production runs, escalating customer complaints — the cost of a data error is not a bad benchmark score. It's a real financial loss.
+When an AI agent is making autonomous decisions - approving purchase orders, rescheduling production runs, escalating customer complaints - the cost of a data error is not a bad benchmark score. It's a real financial loss.
 
 This is why Frostrek maintains a 95%+ sustained quality accuracy across all data operations, verified through multi-layer QA frameworks with dedicated leads and project managers.
 
@@ -338,7 +338,7 @@ The era of static datasets is over. The companies that win in the agentic AI rac
         id: 'blog-rlhf-explained',
         slug: 'rlhf-critical-enterprise-model-safety',
         title: 'Why RLHF is Critical for Enterprise Model Safety',
-        excerpt: 'Reinforcement Learning from Human Feedback (RLHF) isn\'t just a buzzword—it\'s the safety valve for deploying LLMs in enterprise environments. We break down the process and its impact.',
+        excerpt: 'Reinforcement Learning from Human Feedback (RLHF) isn\'t just a buzzword-it\'s the safety valve for deploying LLMs in enterprise environments. We break down the process and its impact.',
         date: 'Sep 28, 2025',
         readTime: '6 min read',
         author: 'AI Safety Team',
@@ -354,10 +354,10 @@ When a model is deployed to handle customer complaints, process insurance claims
 The RLHF pipeline consists of three critical phases:
 
 **Phase 1: Supervised Fine-Tuning (SFT)**
-Domain experts create "golden" response datasets — ideal answers that represent exactly how the model should respond in specific scenarios. At Frostrek, our SFT teams include 80+ labelers and 4 subject matter experts working across coding (Python/Java), mathematical reasoning, and multilingual content.
+Domain experts create "golden" response datasets - ideal answers that represent exactly how the model should respond in specific scenarios. At Frostrek, our SFT teams include 80+ labelers and 4 subject matter experts working across coding (Python/Java), mathematical reasoning, and multilingual content.
 
 **Phase 2: Reward Model Training**
-Human evaluators rank multiple model outputs from best to worst. These rankings train a separate "reward model" that learns to predict human preferences. This is where the nuance happens — the difference between a response that's technically correct and one that's genuinely helpful.
+Human evaluators rank multiple model outputs from best to worst. These rankings train a separate "reward model" that learns to predict human preferences. This is where the nuance happens - the difference between a response that's technically correct and one that's genuinely helpful.
 
 **Phase 3: Policy Optimization**
 The language model is then fine-tuned using the reward model as a guide, learning to generate responses that maximize the learned human preference signal.
@@ -381,7 +381,7 @@ Before deploying any LLM in production, we recommend:
 3. **Red-team testing** with adversarial prompts specific to your industry
 4. **Continuous monitoring** with human-in-the-loop escalation for edge cases
 
-The cost of RLHF is a fraction of the cost of a single compliance violation. For enterprises serious about AI deployment, it's not optional — it's essential.
+The cost of RLHF is a fraction of the cost of a single compliance violation. For enterprises serious about AI deployment, it's not optional - it's essential.
 
 ---
 
@@ -407,10 +407,10 @@ At Frostrek, we've scaled annotation teams from 10 to 85+ people while maintaini
 
 **1. Hierarchical QA Architecture**
 We don't use a flat structure. Every annotation team operates within a pyramid:
-- **Annotators** (the execution layer) — handle volume
-- **QA Specialists** (the validation layer) — audit every batch
-- **Team Leads** (the governance layer) — manage escalations and set standards
-- **Project Managers** (the client layer) — ensure SLA compliance
+- **Annotators** (the execution layer)- handle volume
+- **QA Specialists** (the validation layer) - audit every batch
+- **Team Leads** (the governance layer) - manage escalations and set standards
+- **Project Managers** (the client layer) - ensure SLA compliance
 
 For our largest program (85 annotators, 15 QAs, 4 leads), this structure reduced rework rates by 30% compared to flat team models.
 
@@ -420,7 +420,7 @@ When a client needs 60 annotators deployed in 3 weeks (which happened with our U
 Our rapid onboarding protocol includes:
 - Pre-built training modules for each annotation type (bounding boxes, polygons, NER, etc.)
 - Calibration exercises where new annotators must match expert labels within 5% accuracy
-- Graduated complexity — new annotators start with simple tasks and progress to edge cases
+- Graduated complexity - new annotators start with simple tasks and progress to edge cases
 
 **3. Continuous Performance Monitoring**
 We track individual annotator accuracy daily, not weekly. Any annotator dropping below threshold gets immediate coaching, not a quarterly review.
@@ -431,7 +431,7 @@ We track individual annotator accuracy daily, not weekly. Any annotator dropping
 - **1.2M labeled frames** for autonomous driving with <6% rejection rate
 - **2x team scaling** within 3 weeks with zero productivity loss
 
-The secret isn't hiring better annotators — it's building better systems around them.
+The secret isn't hiring better annotators - it's building better systems around them.
 
 ---
 
@@ -453,17 +453,17 @@ The most sophisticated AI model is only as ethical as the data it was trained on
 
 ### The Consent-First Framework
 
-Every data collection project at Frostrek begins with contributor consent. Our field data collection program — which deploys 60+ collectors managed by 8 supervisors — handles all contributor onboarding and consent forms before a single data point is captured.
+Every data collection project at Frostrek begins with contributor consent. Our field data collection program - which deploys 60+ collectors managed by 8 supervisors - handles all contributor onboarding and consent forms before a single data point is captured.
 
-This isn't just good ethics — it's good business. Datasets collected without proper consent are legal liabilities waiting to happen, especially under frameworks like GDPR and India's DPDP Act.
+This isn't just good ethics - it's good business. Datasets collected without proper consent are legal liabilities waiting to happen, especially under frameworks like GDPR and India's DPDP Act.
 
 ### Diversity by Design
 
 AI models trained on homogeneous data fail in the real world. Our data collection protocols mandate:
 
-- **Demographic diversity** in speech data — covering age groups, genders, and regional dialects
-- **Environmental diversity** in image/video data — varied lighting, weather, and geographic contexts
-- **Linguistic diversity** in text data — multiple languages and register levels
+- **Demographic diversity** in speech data - covering age groups, genders, and regional dialects
+- **Environmental diversity** in image/video data - varied lighting, weather, and geographic contexts
+- **Linguistic diversity** in text data - multiple languages and register levels
 
 We've successfully collected high-quality speech data covering various accents across India, enabling our clients' voice AI models to perform reliably across the country's linguistic landscape.
 
@@ -471,11 +471,11 @@ We've successfully collected high-quality speech data covering various accents a
 
 When annotating sensitive data (medical images, financial documents, personal communications), we implement:
 
-- **Data isolation** — annotators only see the specific elements they need to label
-- **Access logging** — complete audit trail of who accessed what data and when
-- **Retention limits** — data is purged from annotation environments after delivery
+- **Data isolation** - annotators only see the specific elements they need to label
+- **Access logging** - complete audit trail of who accessed what data and when
+- **Retention limits** - data is purged from annotation environments after delivery
 
-Ethical AI isn't a cost center — it's the foundation of trustworthy, deployable AI systems.
+Ethical AI isn't a cost center - it's the foundation of trustworthy, deployable AI systems.
 
 ---
 
@@ -493,11 +493,11 @@ Ethical AI isn't a cost center — it's the foundation of trustworthy, deployabl
         category: 'Industry Trends',
         content: `## Beyond Text: The Multimodal Revolution
 
-The AI industry is rapidly moving beyond text-only models. GPT-4V, Gemini, and Claude can now process images, audio, and video alongside text. This multimodal capability is transforming what's possible — but it's also transforming what's required from data operations teams.
+The AI industry is rapidly moving beyond text-only models. GPT-4V, Gemini, and Claude can now process images, audio, and video alongside text. This multimodal capability is transforming what's possible - but it's also transforming what's required from data operations teams.
 
 ### What Multimodal Means for Data Teams
 
-Training a multimodal model doesn't just mean collecting more data types. It means ensuring **cross-modal alignment** — the model must understand that a photo of a car, the word "car," and the sound of an engine all refer to the same concept.
+Training a multimodal model doesn't just mean collecting more data types. It means ensuring **cross-modal alignment** - the model must understand that a photo of a car, the word "car," and the sound of an engine all refer to the same concept.
 
 This requires annotation workflows that span modalities:
 
@@ -531,7 +531,7 @@ The companies that invest in multimodal data infrastructure today will lead the 
         category: 'Technical Deep Dive',
         content: `## The Dialect Challenge in Voice AI
 
-Voice AI systems trained on standard English or Hindi fail spectacularly when deployed in regions with strong dialectal variation. A voice bot that works perfectly in Delhi may be unusable in rural Rajasthan — not because of technology limitations, but because of data gaps.
+Voice AI systems trained on standard English or Hindi fail spectacularly when deployed in regions with strong dialectal variation. A voice bot that works perfectly in Delhi may be unusable in rural Rajasthan - not because of technology limitations, but because of data gaps.
 
 ### Why Standard Datasets Fall Short
 
@@ -574,7 +574,7 @@ Frostrek AI builds voice bots with sub-200ms response times that handle real acc
         category: 'Services',
         content: `## Security as a First Principle
 
-In enterprise AI operations, data security isn't a feature — it's a prerequisite. When clients entrust us with proprietary training data, customer records, or sensitive operational information, the security framework around that data must be airtight.
+In enterprise AI operations, data security isn't a feature - it's a prerequisite. When clients entrust us with proprietary training data, customer records, or sensitive operational information, the security framework around that data must be airtight.
 
 ### Frostrek's Security Architecture
 
@@ -607,7 +607,7 @@ Frostrek maintains compliance with:
 
 ### Why This Matters for AI
 
-A data breach in an AI training pipeline doesn't just expose current data — it potentially compromises the model itself. Models trained on leaked data face legal challenges, and the competitive advantage of proprietary training data is lost permanently.
+A data breach in an AI training pipeline doesn't just expose current data - it potentially compromises the model itself. Models trained on leaked data face legal challenges, and the competitive advantage of proprietary training data is lost permanently.
 
 Security is the foundation that makes everything else possible.
 
@@ -631,7 +631,7 @@ There's a persistent myth in the AI industry: as models get smarter, human invol
 
 ### The Edge Case Problem
 
-AI models excel at handling the 80% of cases that look like their training data. But the remaining 20% — the edge cases, the ambiguous inputs, the novel scenarios — is where real-world value is created or destroyed.
+AI models excel at handling the 80% of cases that look like their training data. But the remaining 20% - the edge cases, the ambiguous inputs, the novel scenarios - is where real-world value is created or destroyed.
 
 In autonomous driving, that 20% includes:
 - Unusual road configurations
@@ -649,9 +649,9 @@ In customer service AI, it includes:
 
 We implement Human-in-the-Loop at three levels:
 
-**1. Training Time HITL** — Human experts create, validate, and correct training data
-**2. Inference Time HITL** — Humans review and approve high-stakes model decisions before execution
-**3. Feedback Loop HITL** — Humans evaluate model outputs to drive continuous improvement
+**1. Training Time HITL** - Human experts create, validate, and correct training data
+**2. Inference Time HITL** - Humans review and approve high-stakes model decisions before execution
+**3. Feedback Loop HITL** - Humans evaluate model outputs to drive continuous improvement
 
 Our managed workforce programs maintain 95%+ sustained quality accuracy over 9+ months of continuous operation, precisely because human oversight is built into every stage.
 
@@ -662,7 +662,7 @@ Companies that skip HITL save on short-term labor costs but pay exponentially mo
 - Compliance violations from unchecked automated decisions
 - Retraining costs when models drift without human feedback
 
-Human-in-the-loop isn't a cost — it's insurance.
+Human-in-the-loop isn't a cost - it's insurance.
 
 ---
 
@@ -684,7 +684,7 @@ Medical AI is one of the fastest-growing segments of the AI industry. From radio
 
 ### The Precision Imperative
 
-In medical AI, annotation errors don't just degrade model performance — they can lead to misdiagnoses. A false negative on a cancer screening means a patient doesn't receive timely treatment. A false positive means unnecessary invasive procedures and psychological distress.
+In medical AI, annotation errors don't just degrade model performance - they can lead to misdiagnoses. A false negative on a cancer screening means a patient doesn't receive timely treatment. A false positive means unnecessary invasive procedures and psychological distress.
 
 This demands:
 - **Expert annotators** with medical domain knowledge
@@ -697,7 +697,7 @@ This demands:
 The medical AI data pipeline differs from standard computer vision in several critical ways:
 
 **1. Small Data, High Stakes**
-Unlike autonomous driving (where you might have millions of images), medical datasets are often small — hundreds or thousands of samples. Every single label must be perfect.
+Unlike autonomous driving (where you might have millions of images), medical datasets are often small - hundreds or thousands of samples. Every single label must be perfect.
 
 **2. Expert Scarcity**
 You can't hire general annotators for medical data. You need radiologists for imaging, pathologists for tissue samples, and clinicians for clinical notes. These experts are expensive and in short supply.
@@ -714,7 +714,7 @@ Frostrek AI has developed specialized workflows for medical AI that balance the 
 - Multi-round consensus workflows with inter-annotator agreement metrics
 - Compliance-first data handling aligned with global healthcare regulations
 
-The future of healthcare is AI-assisted — but only if the data powering those AI systems meets the same standard of care we expect from human clinicians.
+The future of healthcare is AI-assisted - but only if the data powering those AI systems meets the same standard of care we expect from human clinicians.
 
 ---
 

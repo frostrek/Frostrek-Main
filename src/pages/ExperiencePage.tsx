@@ -61,7 +61,7 @@ const ExperiencePage = () => {
                             once={false}
                             delay={0.6}
                         >
-                            Don't just read about our AI solutions — try them yourself. Test our voice AI and chatbot live, right here.
+                            Don't just read about our AI solutions - try them yourself. Test our voice AI and chatbot live, right here.
                         </SplitTextReveal>
                     </div>
                 </div>

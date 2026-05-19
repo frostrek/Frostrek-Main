@@ -35,7 +35,7 @@ const SOLUTIONS: Solution[] = [
         id: 'manufacturing-intelligence',
         title: 'Manufacturing Intelligence',
         tagline: 'Your factory. Finally, one screen.',
-        description: 'Connect every system on your production floor — ERP, WMS, PLCs, SCADA — into a single real-time intelligence platform. Built in 8 weeks. No new hardware. No million-dollar MES licence.',
+        description: 'Connect every system on your production floor - ERP, WMS, PLCs, SCADA - into a single real-time intelligence platform. Built in 8 weeks. No new hardware. No million-dollar MES licence.',
         icon: "/icons/manufacturing.png",
         demo: { type: 'manufacturing' },
         features: [
@@ -108,7 +108,7 @@ const SOLUTIONS: Solution[] = [
         id: 'multivendor-dashboard',
         title: 'Multivendor Dashboard',
         tagline: 'Track revenue, products & trends in one place.',
-        description: 'Consolidate multiple storefronts and marketplaces—Amazon, Shopify, WooCommerce, eBay—into a single automated AI command center. Track total e-commerce revenue, analyze product metrics, and forecast global market trends in real-time.',
+        description: 'Consolidate multiple storefronts and marketplaces-Amazon, Shopify, WooCommerce, eBay-into a single automated AI command center. Track total e-commerce revenue, analyze product metrics, and forecast global market trends in real-time.',
         icon: "/icons/multivendor.png",
         demo: { type: 'multivendor' },
         features: [

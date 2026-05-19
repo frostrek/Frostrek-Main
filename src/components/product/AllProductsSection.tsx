@@ -340,7 +340,7 @@ const AllProductsSection = () => {
                     >
                         <div className="w-1.5 h-8 rounded-full bg-[#2D6A4F]" />
                         <span className="text-sm font-extrabold uppercase tracking-wider text-[#2D6A4F]">
-                            Featured Builds — Deployed by Frostrek
+                            Featured Builds - Deployed by Frostrek
                         </span>
                     </motion.div>
 
