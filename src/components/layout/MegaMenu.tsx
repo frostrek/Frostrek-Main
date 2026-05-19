@@ -7,14 +7,16 @@ import {
     Bot, Mic, MessageSquare, Database, BarChart,
     ShoppingCart, Headset, Server, TrendingUp,
     Linkedin, Users, Trophy, Factory,
-    Mail, FileText, Share2, Globe, PenTool, Search, UserPlus, Brain, ArrowRight
+    Mail, FileText, Share2, Globe, PenTool, Search, UserPlus, Brain, ArrowRight,
+    Shield, ShoppingBag
 } from 'lucide-react';
 
 const iconMap: Record<string, React.FC<any>> = {
     Bot, Mic, MessageSquare, Database, BarChart,
     ShoppingCart, Headset, Server, TrendingUp,
     Linkedin, Users, Trophy, Factory,
-    Mail, FileText, Share2, Globe, PenTool, Search, UserPlus, Brain
+    Mail, FileText, Share2, Globe, PenTool, Search, UserPlus, Brain,
+    Shield, ShoppingBag
 };
 
 interface SubItem { name: string; href: string; desc: string; icon?: string; }

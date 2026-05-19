@@ -1,5 +1,5 @@
 import {
-    Bot, Mic, Share2, ShoppingCart, Headset, BarChart, Server, Globe, Smartphone, Zap, Shield, Users, Clock, Phone, FileText, Activity, Podcast, Calendar, DollarSign, Filter, Eye, MousePointerClick, Send, CheckCircle, Truck, RefreshCw, Settings, Factory, Brain, ShieldCheck, Cpu, Radio, Database, TrendingUp, ShoppingBag, Wallet, BarChart3, Trophy, Layers
+    Bot, Mic, Share2, ShoppingCart, Headset, BarChart, Server, Globe, Smartphone, Zap, Shield, Users, Clock, Phone, FileText, Activity, Podcast, Calendar, DollarSign, Filter, Eye, MousePointerClick, Send, CheckCircle, Truck, RefreshCw, Settings, Factory, Brain, ShieldCheck, Cpu, Radio, Database, TrendingUp, ShoppingBag, Layers, MessageSquare
 } from 'lucide-react';
 
 export interface ProductStatistic {
@@ -58,173 +58,245 @@ export interface ProductData {
 }
 
 export const PRODUCT_DATA: Record<string, ProductData> = {
-    '/products/frostrek-web3-commerce': {
-        id: 'frostrek-web3-commerce',
-        tagline: 'FINTECH & CUSTOM WALLETS',
-        title: 'Fintech & Custom Wallets',
-        subtitle: 'Centralised digital currency & custom fan wallets to bypass commissions',
-        description:
-            'A centralized, closed-loop digital currency engineered specifically for sports fans and affiliated clubs. Functioning as a next-generation digital loyalty programme, it completely bypasses traditional payment processors to eliminate gateway commissions.',
-        badge: 'Fintech · Custom Wallets · Closed Loop',
-        keywords: 'closed-loop digital fan currency wallets USA, zero gateway commission sports crypto wallets UK, custom web3 loyalty programs India, sports club fintech solutions globally',
+    '/products/vettedge': {
+        id: 'vettedge',
+        tagline: 'AI FINANCE & UNDERWRITING',
+        title: 'VettEdge',
+        subtitle: 'Intelligent Investment Vetting & Credit Underwriting',
+        description: 'An enterprise-grade financial vetting and credit underwriting platform powered by autonomous AI agents. Accelerate due diligence, automate compliance checks, and minimize risk in real-time.',
+        badge: 'Fintech · Underwriting · Compliance',
+        keywords: 'autonomous credit underwriting AI, investment vetting platform, automated financial due diligence, AI finance compliance software',
         isCaseStudy: true,
-        heroImage: '/pcc-hero.png',       // replace with your actual image path
-        demoImage: '/pcc-dashboard.png',  // replace with your actual image path
+        heroImage: '/saf-hero.png',
+        demoImage: '/saf-dashboard.png',
 
         statistics: [
             {
-                value: 'Multi',
-                label: 'Tenant Club Storefronts',
-                icon: Layers,
-                breakdown: [
-                    { value: 20, label: 'Real Madrid' },
-                    { value: 20, label: 'FC Barcelona' },
-                    { value: 20, label: 'PSG' },
-                    { value: 20, label: 'Man City' },
-                    { value: 20, label: 'More clubs' },
-                ],
+                value: '99.2%',
+                label: 'Underwriting Accuracy',
+                icon: ShieldCheck,
             },
             {
-                value: '$TOKEN',
-                label: 'Native Token Payments',
-                icon: Zap,
+                value: '15 mins',
+                label: 'Avg. Vetting Time',
+                icon: Clock,
             },
             {
-                value: 'Auto',
-                label: 'Treasury Settlement',
-                icon: Cpu,
+                value: '70%',
+                label: 'Operational Savings',
+                icon: DollarSign,
             },
             {
-                value: 'Polygon',
-                label: 'Amoy Blockchain Network',
-                icon: Globe,
+                value: 'Zero',
+                label: 'Compliance Breaches',
+                icon: Shield,
             },
         ],
 
         process: [
             {
                 step: '01',
-                title: 'Connect & Provision',
-                description:
-                    'Users register, receive a Circle-provisioned Programmable Wallet on the Polygon Amoy network, and top up their $TOKEN balance — all within the platform, no external wallet required.',
+                title: 'Ingest & Parse',
+                description: 'AI parsing engines ingest tax returns, bank statements, and legal corporate filings instantly, extracting structured financial variables.',
             },
             {
                 step: '02',
-                title: 'Shop by Club',
-                description:
-                    'Browse fully branded, themeable storefronts for global clubs. Each club store features curated product catalogs, cinematic GSAP-animated showcases, and real-time $TOKEN pricing.',
+                title: 'Analyze & Verify',
+                description: 'Autonomous agents cross-reference credit bureaus, fraud registers, and internal rulesets to run advanced credit scoring models.',
             },
             {
                 step: '03',
-                title: 'Checkout & Settle On-Chain',
-                description:
-                    'Smart checkout validates the user\'s $TOKEN balance, groups cart items by club, and triggers an automated backend minting process that settles payment directly to each club\'s blockchain treasury address.',
+                title: 'Decide & Comply',
+                description: 'Generate auditing-compliant vetting reports and underwriting decisions, ready for human officer sign-off in minutes.',
             },
         ],
 
         features: [
             {
-                title: 'Cinematic Club Storefronts',
-                description:
-                    'Fully themeable, multi-tenant storefronts with club-specific branding, color palettes, and product catalogs. GSAP-powered animations and glassmorphic UI components deliver a premium luxury experience.',
-                icon: Trophy,
-            },
-            {
-                title: 'Circle Programmable Wallets',
-                description:
-                    'Seamless Web3 onboarding via Circle\'s infrastructure. Users manage $TOKEN balances, view Polygon transaction history, and top up instantly — all without ever leaving the platform.',
-                icon: Wallet,
-            },
-            {
-                title: 'Automated Blockchain Treasury',
-                description:
-                    'Every completed purchase triggers a backend minting process that settles payment directly to the respective club\'s on-chain treasury address on the Polygon Amoy network. Zero manual intervention.',
+                title: 'Automated Underwriting',
+                description: 'State-of-the-art underwriting engines execute sophisticated risk evaluation algorithms based on thousands of data points.',
                 icon: Cpu,
             },
             {
-                title: 'Smart Multi-Club Checkout',
-                description:
-                    'Cart items are grouped by club tenant, $TOKEN balance is validated in real time, and shipping data is securely managed — all in a single, seamless checkout flow.',
-                icon: ShoppingCart,
+                title: 'Smart Document Parsing',
+                description: 'Extract structured balance sheets, P&Ls, and tax data from unformatted PDF bank statements and tax filings with 99.9% accuracy.',
+                icon: FileText,
             },
             {
-                title: 'Fan Dashboard',
-                description:
-                    'Comprehensive user profiles with order tracking, live wallet widgets showing $TOKEN balance and recent transactions, and quick-access links to gaming and betting modules within the ecosystem.',
-                icon: Users,
+                title: 'Anti-Fraud Auditing',
+                description: 'Real-time checking against global financial watchlist, AML records, and entity registers to identify risk vectors.',
+                icon: ShieldCheck,
             },
             {
-                title: 'Supabase RLS Security',
-                description:
-                    'Row-Level Security on every database table ensures users can only access their own data. JWT authentication with scoped API access throughout the Express backend.',
+                title: 'Continuous Compliance',
+                description: 'Adherence to regional underwriting regulations and finance audits with self-documenting decision trails.',
                 icon: Shield,
+            },
+            {
+                title: 'Executive Summary Builder',
+                description: 'Generate human-readable financial analysis briefs summarizing credit risks and positive indicators instantly.',
+                icon: Brain,
             },
         ],
 
         benefits: [
             {
-                title: 'A Turnkey Fintech & Wallet Engine for Sports Clubs',
-                description:
-                    'Clubs get a fully branded, commission-free digital loyalty currency with custom fan wallets. All wallet provisioning, token settlement, and closed-loop transactions are handled automatically to bypass standard payment gateways.',
+                title: 'Audit-Ready Traceability',
+                description: 'Every recommendation made by VettEdge is fully traced back to source document clauses and metrics, allowing seamless human review and verification.',
             },
             {
-                title: 'Fan-First Onboarding — No Crypto Knowledge Required',
-                description:
-                    'Circle\'s programmable wallet abstracts away seed phrases, gas fees, and network complexity. Fans simply register, top up their digital balance, and shop — the underlying blockchain layer is invisible.',
-            },
-            {
-                title: 'Extensible Ecosystem — Beyond Merchandise',
-                description:
-                    'The token infrastructure extends into gaming and betting modules within the same ecosystem. The marketplace is one node in a broader fan engagement and monetisation platform.',
+                title: 'Accelerate Deal Flow',
+                description: 'Slash transaction cycles from weeks to minutes, allowing your investment and underwriting teams to focus on high-value structuring rather than repetitive data entry.',
             },
         ],
 
         useCases: [
             {
-                title: 'Sports Club Merchandise',
-                description:
-                    'Clubs onboard with a branded storefront, upload their product catalog, and start receiving digital currency settlements to their treasury wallet — bypassing gatekeeper processing fees.',
-                icon: Trophy,
+                title: 'Commercial Banks',
+                description: 'Drastically cut business loan approval time from weeks to minutes while maintaining absolute risk accuracy.',
+                icon: DollarSign,
             },
             {
-                title: 'Fan Token Economies',
-                description:
-                    'Sports organisations building fan token economies can use Frostrek as the primary utility layer — giving tokens real-world merchandise spending power and bypassing transaction commissions.',
-                icon: ShoppingBag,
+                title: 'Venture Capital & PE',
+                description: 'Perform high-throughput due diligence on potential portfolio investments, verifying claims in seconds.',
+                icon: TrendingUp,
             },
             {
-                title: 'Next-Gen Loyalty Programmes',
-                description:
-                    'Functioning as a next-generation digital loyalty programme, it ties fan purchases directly to closed-loop rewards, building loyalty loops that bypass third-party commission leaks.',
-                icon: BarChart3,
+                title: 'Micro-Lenders',
+                description: 'Deploy micro-credit assessment at scale, unlocking fast capital for small businesses.',
+                icon: Zap,
             },
         ],
 
         faq: [
             {
-                question: 'Does a sports club need any blockchain expertise to join?',
-                answer:
-                    'None. The club provides their branding, product catalog, and a treasury wallet address. Frostrek handles all integration, wallet provisioning, and on-chain settlement infrastructure.',
+                question: 'Is VettEdge compliant with global banking regulations?',
+                answer: 'Yes. VettEdge is engineered to follow strict audit trails and complies with major financial standards including GDPR and local credit regulations. Every decision is fully explained with traceable data steps.',
             },
             {
-                question: 'How do fans acquire $TOKEN tokens?',
-                answer:
-                    'Fans top up directly within the platform via the Circle wallet integration. The on-ramp process is abstracted — users interact with a familiar top-up flow, not a crypto exchange.',
+                question: 'Can it parse scanned paper documents?',
+                answer: 'Absolutely. We utilize advanced OCR alongside deep learning models to parse hand-signed applications and poorly scanned documents with industry-leading precision.',
+            },
+        ],
+    },
+    '/products/vedashi-ecommerce': {
+        id: 'vedashi-ecommerce',
+        tagline: 'AI E-COMMERCE PLATFORM',
+        title: 'Vedashi Ecommerce',
+        subtitle: 'Cinematic Hyper-Personalized Shopping Ecosystem',
+        description: 'A high-performance enterprise e-commerce platform built to drive conversions through hyper-personalization, intelligent product recommendations, WhatsApp cart recovery, and GSAP-powered premium layouts.',
+        badge: 'E-Commerce · Personalization · Conversions',
+        keywords: 'hyper-personalized ecommerce AI platform, bespoke retail recommendation engine, WhatsApp shopping cart recovery, premium GSAP online storefronts',
+        isCaseStudy: true,
+        heroImage: '/pcc-hero.png',
+        demoImage: '/pcc-dashboard.png',
+
+        statistics: [
+            {
+                value: '3.5x',
+                label: 'Conversion Lift',
+                icon: TrendingUp,
             },
             {
-                question: 'Why Polygon Amoy?',
-                answer:
-                    'Polygon offers near-zero transaction fees and fast finality — critical for a merchandise platform where high-frequency, low-value transactions need to settle economically. Polygon Amoy is the current testnet; mainnet deployment follows the same architecture.',
+                value: '45%',
+                label: 'Cart Recovery Rate',
+                icon: RefreshCw,
             },
             {
-                question: 'Can additional clubs be added without rebuilding the platform?',
-                answer:
-                    'Yes. The multi-tenant architecture means a new club store is provisioned through configuration — branding, color palette, product catalog, and treasury address — with no code changes required.',
+                value: '99.9%',
+                label: 'Uptime Architecture',
+                icon: Server,
             },
             {
-                question: 'Is this only for football clubs?',
-                answer:
-                    'No. The platform is sport-agnostic. Any club or team with a merchandise catalog and a fan base can be onboarded — football, basketball, cricket, esports, or any other sport.',
+                value: 'Sub-1s',
+                label: 'Load Response Time',
+                icon: Zap,
+            },
+        ],
+
+        process: [
+            {
+                step: '01',
+                title: 'Hyper-Personalization',
+                description: 'Analyze customer behavior patterns and real-time browsing context to dynamically adjust layout and product rankings.',
+            },
+            {
+                step: '02',
+                title: 'Engage & Convert',
+                description: 'Present personalized recommendations, visual search options, and seamless checkout flows to reduce purchase friction.',
+            },
+            {
+                step: '03',
+                title: 'Re-Engage Automatically',
+                description: 'Deploy automated cart-recovery sequences via WhatsApp or email to capture lost revenue with tailored promotional offers.',
+            },
+        ],
+
+        features: [
+            {
+                title: 'Personalized Recommendations',
+                description: 'Recommend target products based on high-affinity matching models, past purchases, and contextual shopping search history.',
+                icon: ShoppingBag,
+            },
+            {
+                title: 'Cinematic Storefronts',
+                description: 'Deliver ultra-premium brand experiences with fast loading, glassmorphism designs, and smooth scroll animations.',
+                icon: Layers,
+            },
+            {
+                title: 'WhatsApp Cart Recovery',
+                description: 'Re-engage shoppers who left items in their carts using interactive WhatsApp bots with one-click purchase links.',
+                icon: MessageSquare,
+            },
+            {
+                title: 'Dynamic Pricing & Offers',
+                description: 'Adjust prices and launch custom discounts in real-time based on demand, seasonal trends, and competitor behavior.',
+                icon: DollarSign,
+            },
+            {
+                title: 'Predictive Inventory',
+                description: 'Forecast retail inventory needs to optimize warehousing costs and prevent stockouts or overstocks.',
+                icon: Database,
+            },
+        ],
+
+        benefits: [
+            {
+                title: 'Unparalleled User Engagement',
+                description: 'Turn passive visitors into loyal customers by tailoring every visual element, recommendation, and discount directly to their real-time interests.',
+            },
+            {
+                title: 'Recover Lost Revenue',
+                description: 'Re-engage cart abandoners instantly in their favorite chat apps where open rates are 98%, bypassing email inbox noise to recapture revenue.',
+            },
+        ],
+
+        useCases: [
+            {
+                title: 'D2C Brands',
+                description: 'Scale online storefronts to handle high-frequency campaigns with personalized landing page experiences.',
+                icon: ShoppingBag,
+            },
+            {
+                title: 'Multi-Brand Retail',
+                description: 'Integrate complex product catalogs and manage personalized discovery for millions of unique visitors.',
+                icon: Layers,
+            },
+            {
+                title: 'Global E-Commerce',
+                description: 'Deploy multi-currency and multi-language shopping systems that operate seamlessly around the globe.',
+                icon: Globe,
+            },
+        ],
+
+        faq: [
+            {
+                question: 'Does Vedashi Ecommerce support integration with third-party logistics?',
+                answer: 'Yes, Vedashi Ecommerce comes with pre-built APIs to connect with top logistics networks, WMS systems, and ERP backends.',
+            },
+            {
+                question: 'How does the WhatsApp recovery feature work?',
+                answer: 'When a customer abandons their cart, a secure webhook triggers a personalized message on WhatsApp. The shopper can complete the purchase via a one-click magic link.',
             },
         ],
     },

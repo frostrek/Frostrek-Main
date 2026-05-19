@@ -1,5 +1,5 @@
 import HeroSection from '../components/home/HeroSection';
-import OurServicesSection from '../components/home/OurServicesSection';
+import OurProductsSection from '../components/home/OurProductsSection';
 import AISolutionsShowcase from '../components/home/AISolutionsShowcase';
 import WhatWeDoSection from '../components/home/WhatWeDoSection';
 import ImpactComparison from '../components/home/ImpactComparison';
@@ -163,8 +163,8 @@ const Home = () => {
         schema={[organizationSchema, websiteSchema, faqSchema, localBusinessSchema, personSchema]}
       />
       <HeroSection />
-      {/* Our Services Section */}
-      <OurServicesSection />
+      {/* Our Products Section */}
+      <OurProductsSection />
       {/* 2. Our two flagship AI solutions */}
       <AISolutionsShowcase />
       {/* 3. What We Do & How We Transform */}

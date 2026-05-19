@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Bot, Mic, MessageSquare, Linkedin, ArrowRight, Sparkles, Play, ChevronRight, Users, Trophy, Factory } from 'lucide-react';
+import { Bot, Mic, MessageSquare, Linkedin, ArrowRight, Sparkles, Play, ChevronRight, Users, Shield, ShoppingBag, Factory } from 'lucide-react';
 
 interface Product {
     id: string;
@@ -47,13 +47,13 @@ const products: Product[] = [
         category: 'core'
     },
     {
-        id: 'frostrek-web3-commerce',
-        name: 'Fintech & Custom Wallets',
-        description: 'Bypass commissions with closed-loop fan loyalty.',
-        shortDesc: 'A centralized, closed-loop digital currency engineered specifically for sports fans and affiliated clubs. Functioning as a next-generation digital loyalty programme that bypasses traditional gateway commissions.',
-        icon: Trophy,
-        href: '/products/frostrek-web3-commerce',
-        features: ['Commission Free', 'Custom Wallets', 'Fan Loyalty'],
+        id: 'vettedge',
+        name: 'VettEdge',
+        description: 'Autonomous financial vetting and credit underwriting agent.',
+        shortDesc: 'Streamline due diligence and risk assessment with autonomous AI underwriting and financial compliance tracking.',
+        icon: Shield,
+        href: '/products/vettedge',
+        features: ['Risk Assessment', 'Automated Compliance', 'Credit Underwriting'],
         category: 'enterprise',
         liveBuild: true
     },
@@ -67,6 +67,16 @@ const products: Product[] = [
         features: ['Live Telemetry', 'AI Scheduling', 'Cost Intelligence'],
         category: 'enterprise',
         liveBuild: true
+    },
+    {
+        id: 'vedashi-ecommerce',
+        name: 'Vedashi Ecommerce',
+        description: 'Bespoke hyper-personalized digital commerce experiences.',
+        shortDesc: 'Scale online storefronts with intelligent retail recommendations and automated WhatsApp cart recovery flows.',
+        icon: ShoppingBag,
+        href: '/products/vedashi-ecommerce',
+        features: ['Product Recs', 'WhatsApp Recovery', 'Cinematic Layouts'],
+        category: 'enterprise'
     },
     {
         id: 'linkedin',

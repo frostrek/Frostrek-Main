@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import SplitTextReveal from '../ui/SplitTextReveal';
 import { Sparkles } from 'lucide-react';
 
-const SERVICES = [
+const PRODUCTS = [
     {
         id: 'development',
         title: 'Custom Software Development',
@@ -57,9 +57,8 @@ const SERVICES = [
     },
 ];
 
-const OurServicesSection = () => {
+const OurProductsSection = () => {
     const sectionRef = useRef(null);
-
 
     return (
         <section ref={sectionRef} className="relative py-32 overflow-hidden bg-white font-body">
@@ -74,7 +73,7 @@ const OurServicesSection = () => {
                         className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#E8F5EE] border border-[#2D6A4F]/10 text-[#2D6A4F] text-xs font-bold uppercase tracking-widest mb-6"
                     >
                         <Sparkles className="w-4 h-4" />
-                        Services
+                        Products
                     </motion.div>
 
                     <div className="flex flex-col items-center mb-6">
@@ -85,7 +84,7 @@ const OurServicesSection = () => {
                             stagger={0.03}
                             once={false}
                         >
-                            Our Services
+                            Our Products
                         </SplitTextReveal>
                     </div>
                     <p className="text-lg text-gray-500 max-w-2xl mx-auto font-medium">
@@ -95,33 +94,33 @@ const OurServicesSection = () => {
 
                 {/* Jumbled Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-fr">
-                    {SERVICES.map((service, index) => (
+                    {PRODUCTS.map((product, index) => (
                         <motion.div
-                            key={service.id}
+                            key={product.id}
                             initial={{ opacity: 0, scale: 0.95, y: 20 }}
                             whileInView={{ opacity: 1, scale: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: index * 0.1 }}
-                            className={`${service.bgColor} ${service.colSpan} ${service.rowSpan} rounded-3xl border ${service.borderColor} overflow-hidden group hover:shadow-2xl hover:shadow-gray-200/50 transition-all duration-500 flex flex-col`}
+                            className={`${product.bgColor} ${product.colSpan} ${product.rowSpan} rounded-3xl border ${product.borderColor} overflow-hidden group hover:shadow-2xl hover:shadow-gray-200/50 transition-all duration-500 flex flex-col`}
                         >
-                            <div className={`flex flex-col h-full ${service.imagePos === 'right' ? 'md:flex-row' : ''} ${service.imagePos === 'left' ? 'md:flex-row-reverse' : ''}`}>
+                            <div className={`flex flex-col h-full ${product.imagePos === 'right' ? 'md:flex-row' : ''} ${product.imagePos === 'left' ? 'md:flex-row-reverse' : ''}`}>
 
                                 {/* Content Area */}
-                                <div className={`p-8 md:p-10 flex flex-col relative z-10 ${service.imagePos === 'right' || service.imagePos === 'left'
+                                <div className={`p-8 md:p-10 flex flex-col relative z-10 ${product.imagePos === 'right' || product.imagePos === 'left'
                                     ? 'md:w-1/2 h-full'
                                     : 'w-full flex-grow basis-1/2'
                                     }`}>
                                     <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-8 shadow-sm backdrop-blur-sm bg-white/50">
-                                        {service.icon}
+                                        {product.icon}
                                     </div>
 
                                     <div>
-                                        <h3 className={`font-serif text-2xl md:text-3xl font-semibold ${service.textColor} mb-4 leading-tight`}>
-                                            {service.title}
+                                        <h3 className={`font-serif text-2xl md:text-3xl font-semibold ${product.textColor} mb-4 leading-tight`}>
+                                            {product.title}
                                         </h3>
 
                                         <p className="text-gray-600 font-medium leading-relaxed max-w-prose">
-                                            {service.subtitle || service.description}
+                                            {product.subtitle || product.description}
                                         </p>
                                     </div>
 
@@ -130,14 +129,14 @@ const OurServicesSection = () => {
                                 </div>
 
                                 {/* Image Area */}
-                                {service.image && (
-                                    <div className={`relative overflow-hidden ${service.imagePos === 'right' || service.imagePos === 'left'
+                                {product.image && (
+                                    <div className={`relative overflow-hidden ${product.imagePos === 'right' || product.imagePos === 'left'
                                         ? 'md:w-1/2 h-64 md:h-full'
                                         : 'w-full flex-grow basis-1/2 min-h-[300px]'
                                         }`}>
                                         <div className={`absolute inset-0 p-4 md:p-6 h-full w-full`}>
                                             <img
-                                                src={service.image}
+                                                src={product.image}
                                                 alt=""
                                                 className="w-full h-full object-cover rounded-2xl shadow-lg transition-transform duration-700 group-hover:scale-105"
                                             />
@@ -153,5 +152,4 @@ const OurServicesSection = () => {
     );
 };
 
-export default OurServicesSection;
-
+export default OurProductsSection;

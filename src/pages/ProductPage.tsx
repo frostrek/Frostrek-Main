@@ -32,13 +32,37 @@ const softwareSchema = JSON.stringify({
 
 const ProductPage = () => {
     const location = useLocation();
-    const product = PRODUCT_DATA[location.pathname] || PRODUCT_DATA['generic'];
     const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [location.pathname]);
 
+    const isValidProductPath = [
+        '/products/voice-ai',
+        '/products/whatsapp-agents',
+        '/products/frostrek-manufacturing-os',
+        '/products/linkedin-automation',
+        '/products/vettedge',
+        '/products/vedashi-ecommerce'
+    ].includes(location.pathname);
+
+    if (!isValidProductPath) {
+        return (
+            <div className="min-h-screen pt-36 pb-20 px-4 container mx-auto text-center flex flex-col items-center justify-center bg-white text-gray-900">
+                <CuteBackground />
+                <h1 className="text-4xl sm:text-5xl font-serif text-[#2D6A4F] font-black mb-6">Page Not Found</h1>
+                <p className="text-gray-600 max-w-xl mx-auto font-body text-base sm:text-lg mb-8 leading-relaxed">
+                    The product page you are trying to view does not exist or has been permanently removed from our active offerings.
+                </p>
+                <Link to="/" className="inline-flex items-center gap-2 px-8 py-4 bg-[#2D6A4F] text-white rounded-xl font-bold font-body shadow-md hover:shadow-xl transition-all scale-100 hover:scale-105 active:scale-95 duration-200">
+                    Back to Home Page
+                </Link>
+            </div>
+        );
+    }
+
+    const product = PRODUCT_DATA[location.pathname];
     if (!product) return null;
 
     const faqSchema = product.faq && product.faq.length > 0 ? JSON.stringify({
