@@ -24,35 +24,6 @@ export interface SolutionData {
 }
 
 export const SOLUTION_DATA: Record<string, SolutionData> = {
-    '/solutions/sales': {
-        id: 'sales',
-        title: 'AI for Sales',
-        subtitle: 'Close More Deals, Faster',
-        description: 'Supercharge your sales team with AI-driven insights, automated outreach, and intelligent lead scoring. Focus on selling, not administrative work.',
-        keywords: 'AI sales automation software USA, automated outbound sales agents India, predictive lead scoring AI, AI coaching for sales teams',
-        challenges: [
-            {
-                title: 'Low Conversion Rates',
-                description: 'Leads falling through the cracks due to slow follow-ups.',
-                solvedBy: 'AI agents engage leads instantly, 24/7, increasing conversion by up to 40%.'
-            },
-            {
-                title: 'Manual Data Entry',
-                description: 'Hours wasted updating CRM instead of talking to prospects.',
-                solvedBy: 'Sync emails, calls, and notes to your CRM automatically. Zero manual entry.'
-            },
-            {
-                title: 'Gut-Feel Forecasting',
-                description: 'Inaccurate revenue predictions based on intuition rather than data.',
-                solvedBy: 'Predictive models analyze interactions to forecast revenue with 95% accuracy.'
-            },
-        ],
-        features: [
-            { title: 'Automated Outreach', description: 'Personalized email and social sequences at scale.', icon: TrendingUp },
-            { title: 'Predictive Lead Scoring', description: 'Prioritize leads most likely to convert using historical data.', icon: Zap },
-            { title: 'Sales Coaching', description: 'Real-time analysis of sales calls to improve pitch and objection handling.', icon: Users },
-        ]
-    },
     '/solutions/manufacturing': {
         id: 'manufacturing',
         title: 'Manufacturing Intelligence',

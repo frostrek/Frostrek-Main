@@ -32,7 +32,6 @@ export const NAV_ITEMS = [
             {
                 title: '01 SALES & COMMUNICATION',
                 items: [
-                    { name: 'AI for Sales', href: '/solutions/sales', desc: 'Voice AI calling, WhatsApp bots, and messaging to close deals.', icon: 'TrendingUp' },
                     { name: 'Manufacturing Intelligence', href: '/solutions/manufacturing', desc: 'Real-time factory optimization and production AI.', icon: 'Factory' },
                     { name: 'AI Agents', href: '/products/frosty-ai', desc: 'Intelligent conversational AI agents for 24/7 automated support.', icon: 'Bot' },
                     { name: 'Voice AI', href: '/products/voice-ai', desc: 'Natural voice interactions with sub-200ms processing latency.', icon: 'Mic' },

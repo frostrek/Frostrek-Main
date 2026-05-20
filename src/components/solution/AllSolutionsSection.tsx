@@ -13,17 +13,7 @@ interface Solution {
     features: string[];
 }
 
-const solutions: Solution[] = [
-    {
-        id: 'sales',
-        name: 'AI for Sales',
-        description: 'Boost conversion rates with AI sales assistants.',
-        shortDesc: 'Automate lead qualification and follow-ups to close more deals.',
-        icon: TrendingUp,
-        href: '/solutions/sales',
-        features: ['Lead Scoring', 'Auto Follow-up', 'Pipeline Analytics'],
-    }
-];
+const solutions: Solution[] = [];
 
 // Animated Solution Card with Hover Expansion
 const SolutionCard = ({ solution, index, isActive, onClick }: {
