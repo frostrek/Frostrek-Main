@@ -20,6 +20,9 @@ const ResourcesPage = lazy(() => import('./pages/ResourcesPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
 const FrostyPage = lazy(() => import('./pages/FrostyPage'));
 const VettEdgePage = lazy(() => import('./pages/VettEdgePage'));
+const ManufacturingOSPage = lazy(() => import('./pages/ManufacturingOSPage'));
+const AICallingAgentPage = lazy(() => import('./pages/AICallingAgentPage'));
+const WhatsappBotPage = lazy(() => import('./pages/WhatsappBotPage'));
 const BlogPostPage = lazy(() => import('./pages/BlogPostPage'));
 const FAQPage = lazy(() => import('./pages/FAQPage'));
 
@@ -58,6 +61,9 @@ function App() {
                   <Route path="/products/vedashi-ecommerce" element={<VedashiPage />} />
                   <Route path="/products/frosty-ai" element={<FrostyPage />} />
                   <Route path="/products/vettedge" element={<VettEdgePage />} />
+                  <Route path="/products/frostrek-manufacturing-os" element={<ManufacturingOSPage />} />
+                  <Route path="/products/ai-calling-agent" element={<AICallingAgentPage />} />
+                  <Route path="/products/whatsapp-bot" element={<WhatsappBotPage />} />
                   <Route path="/products/*" element={<ProductPage />} />
                   <Route path="/solutions/*" element={<SolutionPage />} />
 

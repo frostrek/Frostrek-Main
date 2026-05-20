@@ -1,4 +1,4 @@
-import { TrendingUp, Users, Server, Zap, Shield, Clock, Layout } from 'lucide-react';
+import { TrendingUp, Server, Zap, Shield, Clock, Layout } from 'lucide-react';
 
 export interface Challenge {
     title: string;

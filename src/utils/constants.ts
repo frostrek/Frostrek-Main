@@ -9,8 +9,8 @@ export const NAV_ITEMS = [
             {
                 title: '01 CORE AI AGENTS',
                 items: [
-                    { name: 'AI Calling Agent', href: '/products/voice-ai', desc: 'Outbound & inbound voice AI for high-volume reminders and support.', icon: 'Mic' },
-                    { name: 'WhatsApp Bot', href: '/products/whatsapp-agents', desc: 'Automated conversational flows on WhatsApp Business for leads.', icon: 'MessageSquare' },
+                    { name: 'AI Calling Agent', href: '/products/ai-calling-agent', desc: 'Outbound & inbound voice AI for high-volume reminders and support.', icon: 'Mic' },
+                    { name: 'WhatsApp Bot', href: '/products/whatsapp-bot', desc: 'Automated conversational flows on WhatsApp Business for leads.', icon: 'MessageSquare' },
                     { name: 'Website Chatbot (Frosty)', href: '/products/frosty-ai', desc: 'Embedded AI assistant trained on your docs for 24/7 support.', icon: 'Bot' },
                 ],
             },
@@ -34,7 +34,7 @@ export const NAV_ITEMS = [
                 items: [
                     { name: 'Manufacturing Intelligence', href: '/solutions/manufacturing', desc: 'Real-time factory optimization and production AI.', icon: 'Factory' },
                     { name: 'AI Agents', href: '/products/frosty-ai', desc: 'Intelligent conversational AI agents for 24/7 automated support.', icon: 'Bot' },
-                    { name: 'Voice AI', href: '/products/voice-ai', desc: 'Natural voice interactions with sub-200ms processing latency.', icon: 'Mic' },
+                    { name: 'Voice AI', href: '/products/ai-calling-agent', desc: 'Natural voice interactions with sub-200ms processing latency.', icon: 'Mic' },
                 ],
             },
             {

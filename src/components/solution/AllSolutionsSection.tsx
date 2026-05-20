@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { TrendingUp, ArrowRight, Sparkles, Play, ChevronRight } from 'lucide-react';
+import { ArrowRight, Sparkles, Play, ChevronRight } from 'lucide-react';
 
 interface Solution {
     id: string;
