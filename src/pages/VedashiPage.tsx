@@ -68,12 +68,14 @@ const FEATURES = [
     { title: 'CDN-Backed Media', description: 'Fast product image delivery via CloudFront for a smooth user experience.', icon: '/icons/image-gallery.png', bgColor: 'bg-[#FFF1F2]', border: 'border-[#FECDD3]', hoverBorder: 'hover:border-[#E11D48]/30', hoverShadow: 'hover:shadow-[0_15px_40px_rgba(225,29,72,0.05)]', headingColor: 'text-[#E11D48]', iconBorder: 'border-[#FECDD3]/60', spotlight: 'rgba(225, 29, 72, 0.02)' },
 ];
 
-const TECH_STACK = [
-    { category: 'Frontend', items: ['Next.js', 'Tailwind CSS'] },
-    { category: 'Backend', items: ['Node.js', 'Express'] },
-    { category: 'Cloud & Storage', items: ['AWS S3', 'CloudFront CDN'] },
-    { category: 'Auth', items: ['JWT'] },
-    { category: 'Deployment', items: ['Render'] },
+const TECH_STACK_MARQUEE = [
+    { category: 'Frontend', name: 'Next.js', image: '/techstack/Next.js.svg' },
+    { category: 'Frontend', name: 'Tailwind CSS', image: '/techstack/Tailwind CSS.svg' },
+    { category: 'Backend', name: 'Node.js', image: '/techstack/Node.js.svg' },
+    { category: 'Backend', name: 'Express', image: '/techstack/Express.svg' },
+    { category: 'Cloud & Storage', name: 'AWS S3', image: '/techstack/AWS.svg' },
+    { category: 'Auth', name: 'JWT', image: 'https://cdn.worldvectorlogo.com/logos/jwt-3.svg' },
+    { category: 'Deployment', name: 'AWS', image: '/techstack/AWS.svg' },
 ];
 
 /* ──────────────────── COMPONENT ──────────────────── */
@@ -138,7 +140,7 @@ const VedashiPage = () => {
             <CuteBackground />
 
             {/* ═══════ SECTION 1 — HERO ═══════ */}
-            <section className="relative min-h-[80vh] flex items-center pt-32 pb-20 overflow-hidden bg-[#F9FBFA]/50 font-body z-10">
+            <section className="relative min-h-screen flex items-center pt-28 pb-20 overflow-hidden bg-[#F9FBFA]/50 font-body z-10">
                 <div className="container mx-auto px-4 md:px-6 relative z-10 flex flex-col items-center text-center">
                     {/* Tag */}
                     <motion.div
@@ -177,7 +179,7 @@ const VedashiPage = () => {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.3 }}
-                        className="flex flex-col sm:flex-row items-center gap-4 mb-20"
+                        className="flex flex-col sm:flex-row items-center gap-4"
                     >
                         <a
                             href="https://vedashi.com/in"
@@ -403,19 +405,20 @@ const VedashiPage = () => {
                             </SplitTextReveal>
                         </div>
                     </div>
-                    <div ref={techRef} className="flex flex-wrap justify-center gap-4">
-                        {TECH_STACK.map((group) =>
-                            group.items.map((item) => (
-                                <div
-                                    key={item}
-                                    className="tech-badge inline-flex items-center gap-2.5 px-5 py-3 rounded-2xl border bg-white border-[#E6EFE6] shadow-sm hover:shadow-md hover:border-[#2D6A4F]/20 transition-all duration-300"
-                                >
-                                    <span className="text-xs font-bold uppercase tracking-widest text-[#2D6A4F]/50">{group.category}</span>
-                                    <span className="w-px h-4 bg-[#E6EFE6]" />
-                                    <span className="font-bold text-sm text-gray-800">{item}</span>
+                </div>
+
+                <div ref={techRef} className="relative w-full overflow-hidden py-8 group">
+                    <div className="flex animate-[marquee_40s_linear_infinite] w-max group-hover:[animation-play-state:paused]">
+                        {[...TECH_STACK_MARQUEE, ...TECH_STACK_MARQUEE].map((tech, i) => (
+                            <div key={i} className="flex flex-col items-center justify-center w-48 gap-6 mx-8">
+                                <div className="h-16 w-full flex items-center justify-center px-4">
+                                    <img src={tech.image} alt={tech.name} className="max-h-full max-w-full object-contain transition-all duration-300 drop-shadow-sm hover:scale-105" />
                                 </div>
-                            ))
-                        )}
+                                <div className="flex flex-col items-center">
+                                    <span className="text-[11px] font-bold uppercase tracking-widest text-black">{tech.category}</span>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
