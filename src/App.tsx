@@ -19,6 +19,7 @@ const ExperiencePage = lazy(() => import('./pages/ExperiencePage'));
 const ResourcesPage = lazy(() => import('./pages/ResourcesPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
 const FrostyPage = lazy(() => import('./pages/FrostyPage'));
+const VettEdgePage = lazy(() => import('./pages/VettEdgePage'));
 const BlogPostPage = lazy(() => import('./pages/BlogPostPage'));
 const FAQPage = lazy(() => import('./pages/FAQPage'));
 
@@ -56,6 +57,7 @@ function App() {
                   <Route path="/products/hiyring" element={<HiyringPage />} />
                   <Route path="/products/vedashi-ecommerce" element={<VedashiPage />} />
                   <Route path="/products/frosty-ai" element={<FrostyPage />} />
+                  <Route path="/products/vettedge" element={<VettEdgePage />} />
                   <Route path="/products/*" element={<ProductPage />} />
                   <Route path="/solutions/*" element={<SolutionPage />} />
 
