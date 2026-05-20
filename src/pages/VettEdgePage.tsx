@@ -229,7 +229,7 @@ const TECH_STACK_MARQUEE = [
 
 ];
 
-/* ──────────────────── COMPONENT ──────────────────── */
+/* ──────────────────── COMPONENTs ──────────────────── */
 
 const VettEdgePage = () => {
     const problemsRef = useRef<HTMLDivElement>(null);
