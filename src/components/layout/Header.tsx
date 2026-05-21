@@ -139,7 +139,7 @@ const Header = () => {
                             </div>
                         </Link>
 
-                        {/* Mobile Menu Toggle */}
+                        {/* Mobile Menu Toggles */}
                         <button
                             className={cn(
                                 "xl:hidden p-1 sm:p-2 rounded-lg transition-colors flex-shrink-0",
