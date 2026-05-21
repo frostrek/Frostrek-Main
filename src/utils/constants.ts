@@ -40,7 +40,7 @@ export const NAV_ITEMS = [
             {
                 title: '02 OPERATIONS & COMMERCE',
                 items: [
-                    { name: 'Fintech & Custom Wallets', href: '/solutions/web3', desc: 'Centralised closed-loop digital loyalty currencies to bypass commissions.', icon: 'Trophy' },
+                    { name: 'Fintech & Custom Wallets', href: '/solutions/fintech-custom-wallets', desc: 'Centralised closed-loop digital loyalty currencies to bypass commissions.', icon: 'Trophy' },
                     { name: 'Multivendor Dashboard', href: '/products/multivendor-dashboard', desc: 'Consolidated automated command center for all your e-commerce channels.', icon: 'Layers' },
                 ],
             },

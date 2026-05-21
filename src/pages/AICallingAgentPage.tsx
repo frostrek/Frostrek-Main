@@ -308,7 +308,7 @@ const AICallingAgentPage = () => {
                             </SplitTextReveal>
                             {' '}
                             <SplitTextReveal as="span" type="chars" stagger={0.02} once={false}>
-                                — Conversations That Convert, Around the Clock
+                                Conversations That Convert, Around the Clock
                             </SplitTextReveal>
                         </div>
 

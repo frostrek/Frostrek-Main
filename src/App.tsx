@@ -25,6 +25,7 @@ const AICallingAgentPage = lazy(() => import('./pages/AICallingAgentPage'));
 const WhatsappBotPage = lazy(() => import('./pages/WhatsappBotPage'));
 const BlogPostPage = lazy(() => import('./pages/BlogPostPage'));
 const FAQPage = lazy(() => import('./pages/FAQPage'));
+const FintechWalletsPage = lazy(() => import('./pages/FintechWalletsPage'));
 
 // Lazy load Chatbot to improve LCP - defers 705KB GIF and JS bundle
 const Chatbot = lazy(() => import('./components/chat/Chatbot'));
@@ -65,6 +66,7 @@ function App() {
                   <Route path="/products/ai-calling-agent" element={<AICallingAgentPage />} />
                   <Route path="/products/whatsapp-bot" element={<WhatsappBotPage />} />
                   <Route path="/products/*" element={<ProductPage />} />
+                  <Route path="/solutions/fintech-custom-wallets" element={<FintechWalletsPage />} />
                   <Route path="/solutions/*" element={<SolutionPage />} />
 
                   <Route path="/resources/blog/:slug" element={<BlogPostPage />} />

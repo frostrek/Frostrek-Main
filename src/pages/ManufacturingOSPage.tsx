@@ -309,7 +309,7 @@ const ManufacturingOSPage = () => {
                         <div className="order-1 lg:order-2 relative w-full">
                             <div className="relative overflow-hidden group rounded-[2.2rem]">
                                 <img
-                                    src="/products/WhatWeBuilt.png"
+                                    src="/products/manufacturing-home.png"
                                     alt="Manufacturing AI OS Dashboard"
                                     className="w-full h-auto rounded-[2.2rem] transition-transform duration-700 ease-out group-hover:scale-[1.02] shadow-[0_20px_50px_rgba(45,106,79,0.08)]"
                                     onError={(e) => { (e.target as HTMLImageElement).src = '/products/WhatWeBuilt.png'; }}
