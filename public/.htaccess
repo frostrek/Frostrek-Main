@@ -1,18 +1,27 @@
+# ═══════════════════════════════════════════
+# Frostrek AI — Hostinger Production .htaccess
+# ═══════════════════════════════════════════
+
 # Enable Rewrite Engine
 RewriteEngine On
 
-# Force HTTPS (uncomment if your Hostinger has SSL)
-# RewriteCond %{HTTPS} off
-# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# ── 1. Force HTTPS (Hostinger SSL) ──────────────────────────────
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# Handle SPA Routing - Redirect all requests to index.html
+# ── 2. Canonical: force www ─────────────────────────────────────
+# Prevents duplicate content penalty (www vs non-www)
+RewriteCond %{HTTP_HOST} ^frostrek\.ai [NC]
+RewriteRule ^(.*)$ https://www.frostrek.ai/$1 [L,R=301]
+
+# ── 3. SPA Routing — serve index.html for all React routes ──────
 RewriteBase /
 RewriteRule ^index\.html$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.html [L]
 
-# Set correct MIME types
+# ── 4. MIME Types ───────────────────────────────────────────────
 <IfModule mod_mime.c>
     AddType application/javascript .js
     AddType application/json .json
@@ -21,47 +30,67 @@ RewriteRule . /index.html [L]
     AddType image/svg+xml .svg
     AddType application/font-woff2 .woff2
     AddType font/woff2 .woff2
+    AddType text/plain .txt
+    AddType application/xml .xml
 </IfModule>
 
-# Enable Gzip Compression
+# ── 5. Gzip Compression ─────────────────────────────────────────
 <IfModule mod_deflate.c>
-    AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+    AddOutputFilterByType DEFLATE text/html text/css text/plain application/javascript application/json application/xml image/svg+xml
 </IfModule>
 
-# Browser Caching
+# ── 6. Browser Caching ──────────────────────────────────────────
 <IfModule mod_expires.c>
     ExpiresActive On
-    
-    # Images
+
+    # Images — long-lived (content-hashed filenames)
     ExpiresByType image/webp "access plus 1 year"
     ExpiresByType image/png "access plus 1 year"
     ExpiresByType image/jpg "access plus 1 year"
     ExpiresByType image/jpeg "access plus 1 year"
     ExpiresByType image/gif "access plus 1 year"
     ExpiresByType image/svg+xml "access plus 1 year"
-    
-    # CSS and JavaScript
+
+    # CSS and JavaScript — long-lived (Vite adds content hashes)
     ExpiresByType text/css "access plus 1 year"
     ExpiresByType application/javascript "access plus 1 year"
-    
+
     # Fonts
     ExpiresByType font/woff2 "access plus 1 year"
     ExpiresByType application/font-woff2 "access plus 1 year"
-    
-    # HTML
+
+    # HTML — never cache (always fresh)
     ExpiresByType text/html "access plus 0 seconds"
+
+    # SEO/GEO files — short cache so crawlers pick up updates quickly
+    ExpiresByType text/plain "access plus 1 day"
+    ExpiresByType application/xml "access plus 1 day"
+    ExpiresByType application/json "access plus 1 day"
 </IfModule>
 
-# Security Headers
+# ── 7. Security & SEO Headers ───────────────────────────────────
 <IfModule mod_headers.c>
+    # Security
     Header set X-Content-Type-Options "nosniff"
     Header set X-Frame-Options "SAMEORIGIN"
     Header set X-XSS-Protection "1; mode=block"
     Header set Referrer-Policy "strict-origin-when-cross-origin"
+
+    # SEO: correct content-type for crawler files
+    <FilesMatch "sitemap\.xml$">
+        Header set Content-Type "application/xml; charset=utf-8"
+    </FilesMatch>
+    <FilesMatch "robots\.txt$">
+        Header set Content-Type "text/plain; charset=utf-8"
+    </FilesMatch>
+    <FilesMatch "llms\.txt$">
+        Header set Content-Type "text/plain; charset=utf-8"
+    </FilesMatch>
 </IfModule>
 
-# Prevent directory listing
+# ── 8. Directory listing off ────────────────────────────────────
 Options -Indexes
 
-# Custom 404 Error Page
+# ── 9. Custom error pages (SPA handles 404 itself) ──────────────
 ErrorDocument 404 /index.html
+

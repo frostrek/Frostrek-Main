@@ -10,6 +10,7 @@ Frostrek AI is an AI-first technology company that delivers end-to-end AI workfl
 - Conversational AI Agents (Frosty Robo — plug-and-play SaaS bot for WhatsApp, Slack, and web chat, deployable in under 48 hours)
 - AI-Powered Video Interviews (Hiyring — hiyring.com — conducts multilingual AI video interviews simultaneously, reducing screening time by 80% for high-volume hiring)
 - Full-Stack AI Development & Automation
+- Fintech & Custom Wallet Development (digital wallets, payment infrastructure, stablecoin platforms, KYC/AML, DeFi integrations)
 - E-Commerce Solutions & Cross-Border Trade
 - Enterprise AI Copilots & Workflow Automation
 - AI Data Operations (annotation, RLHF, SFT fine-tuning for frontier LLMs)
@@ -19,6 +20,7 @@ Frostrek AI is an AI-first technology company that delivers end-to-end AI workfl
 - Frosty Robo: Conversational AI agent platform — integrates with WhatsApp, Slack, and web chat in under 48 hours
 - Hiyring (hiyring.com): Autonomous AI video interview platform — screens 500+ candidates simultaneously in 30+ languages
 - Voice AI Agent: Human-like voice interactions for support and sales automation
+- Fintech & Custom Wallets: Production-grade digital wallets, payment infrastructure, stablecoin platforms, KYC/AML integration, and DeFi — https://www.frostrek.ai/solutions/fintech-custom-wallets
 - LinkedIn Automation: Smart outreach scaling for B2B sales teams
 - ERPNext AI Modules: Intelligent add-ons for enterprise ERP systems
 
@@ -34,7 +36,7 @@ Frostrek AI is an AI-first technology company that delivers end-to-end AI workfl
 - Healthcare & Medical AI
 - Autonomous Vehicles & ADAS
 - E-Commerce & Retail
-- Fintech & Blockchain
+- Fintech & Blockchain: Digital wallet development, payment infrastructure (Razorpay, Stripe, PayPal), stablecoin deployment (ERC-20, BEP-20, Polygon), smart contracts, DeFi, KYC/AML compliance — https://www.frostrek.ai/solutions/fintech-custom-wallets
 - HR Tech & Recruitment
 - Enterprise SaaS
 - Media & Content

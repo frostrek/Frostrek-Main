@@ -289,8 +289,84 @@ const FintechWalletsPage = () => {
             <SEO
                 title="Fintech & Custom Wallets | Development Services | Frostrek AI"
                 description="Frostrek builds production-grade digital wallets, payment infrastructure, and stablecoin platforms. Engineered for real money, real compliance, and real users."
-                keywords="fintech development, custom wallet development, digital wallet, payment infrastructure, stablecoin, blockchain integration, DeFi, KYC AML, frostrek fintech"
+                keywords="fintech development company India, custom digital wallet development, payment infrastructure development, stablecoin development ERC-20 BEP-20 Polygon, blockchain integration services, DeFi protocol integration, KYC AML compliance integration, Web3 wallet development, crypto payment gateway, Razorpay Stripe PayPal integration, smart contract development"
                 path="/solutions/fintech-custom-wallets"
+                schema={[
+                    JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Service",
+                        "name": "Fintech & Custom Wallet Development",
+                        "description": "Frostrek AI builds production-grade digital wallets, payment infrastructure, stablecoin platforms, and DeFi integrations — engineered for real money, real compliance, and real users.",
+                        "provider": {
+                            "@type": "Organization",
+                            "name": "Frostrek AI",
+                            "url": "https://www.frostrek.ai",
+                            "logo": "https://www.frostrek.ai/logonew.png",
+                            "address": {
+                                "@type": "PostalAddress",
+                                "streetAddress": "4th Floor, Unit No. 455, JMD Empire, Sector 62",
+                                "addressLocality": "Gurugram",
+                                "addressRegion": "Haryana",
+                                "postalCode": "122102",
+                                "addressCountry": "IN"
+                            },
+                            "contactPoint": {
+                                "@type": "ContactPoint",
+                                "email": "contact@frostrek.ai",
+                                "contactType": "sales"
+                            }
+                        },
+                        "serviceType": ["Digital Wallet Development", "Payment Infrastructure", "Stablecoin Development", "Blockchain Integration", "DeFi Integration", "KYC/AML Compliance", "Smart Contract Development"],
+                        "areaServed": ["IN", "US", "GB", "AE", "SG"],
+                        "url": "https://www.frostrek.ai/solutions/fintech-custom-wallets"
+                    }),
+                    JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "FAQPage",
+                        "mainEntity": [
+                            {
+                                "@type": "Question",
+                                "name": "What fintech solutions does Frostrek build?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Frostrek builds digital wallets (web & mobile), payment infrastructure with Razorpay, Stripe and PayPal integrations, custom stablecoin platforms (ERC-20, BEP-20, Polygon), DeFi protocol integrations, and rewards & loyalty platforms — all with KYC/AML compliance built in."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "Can Frostrek build a custom digital wallet with crypto support?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Yes. Frostrek engineers multi-currency wallets with fiat-to-crypto on-ramps, Web3 wallet embedding (MetaMask, WalletConnect), transaction ledgers, and secure user authentication — for both consumer and B2B use cases."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "Does Frostrek handle KYC and AML compliance integration?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Yes. Frostrek integrates leading KYC/AML providers including Sumsub, Onfido, and Jumio into payment and wallet platforms, ensuring regulatory compliance from Day 1."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "What blockchain networks does Frostrek develop on?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Frostrek develops on Ethereum, Polygon, Binance Smart Chain (BSC), and Solana. Services include smart contract development & auditing, stablecoin deployment, NFT minting, gas optimization, and multi-sig custody architecture."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "How long does it take to build a fintech platform with Frostrek?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Frostrek follows a 4-step process: Discovery & Scoping → Architecture & Design → Build & Integrate → Launch & Support. Timeline depends on scope, but most MVP fintech platforms ship within 8–16 weeks."
+                                }
+                            }
+                        ]
+                    })
+                ]}
             />
             <CuteBackground />
 
