@@ -328,7 +328,6 @@ export default function VoiceAIPage() {
     const useCasesRef = useRef<HTMLDivElement>(null);
     const industriesRef = useRef<HTMLDivElement>(null);
     const techRef = useRef<HTMLDivElement>(null);
-    const ctaRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         window.scrollTo(0, 0);
