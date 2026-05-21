@@ -125,7 +125,7 @@ const HeroSection = () => {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   return (
-    <section className="relative w-full min-h-[95vh] flex flex-col items-center justify-center overflow-hidden bg-brand-light-bg text-[#1f3e30] pt-32 pb-20 font-sans">
+    <section className="relative w-full min-h-[85vh] md:min-h-[95vh] flex flex-col items-center justify-center overflow-hidden bg-brand-light-bg text-[#1f3e30] pt-24 md:pt-32 pb-16 md:pb-20 font-sans">
       {/* Background effect */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[70vw] h-[50vw] rounded-[100%] bg-gradient-to-r from-purple-50/40 via-red-50/40 to-blue-50/40 blur-[80px] opacity-70" />
@@ -202,7 +202,7 @@ const HeroSection = () => {
         <div className="flex flex-col items-center">
           <SplitTextReveal
             as="h1"
-            className="font-serif text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-[1.1] tracking-[-0.01em] whitespace-nowrap"
+            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-[1.1] tracking-[-0.01em]"
             trigger="load"
             type="chars"
             stagger={0.03}
@@ -211,7 +211,7 @@ const HeroSection = () => {
           </SplitTextReveal>
           <SplitTextReveal
             as="h1"
-            className="font-serif text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-[1.1] tracking-[-0.01em] whitespace-nowrap"
+            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-[1.1] tracking-[-0.01em]"
             trigger="load"
             type="chars"
             stagger={0.03}
@@ -221,7 +221,7 @@ const HeroSection = () => {
           </SplitTextReveal>
           <SplitTextReveal
             as="h1"
-            className="font-serif text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] mb-6 leading-[1.1] tracking-[-0.01em] whitespace-nowrap"
+            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] mb-6 leading-[1.1] tracking-[-0.01em]"
             trigger="load"
             type="chars"
             stagger={0.03}

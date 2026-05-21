@@ -45,7 +45,7 @@ const SOLUTIONS: Solution[] = [
             'Quality catch: Automated real-time deviation alerts',
             'Unstructured handovers: AI-driven shift briefings'
         ],
-        link: '/products/frostrek-manufacturing-os',
+        link: '/solutions/manufacturing-intelligence',
         gradient: 'from-[#2D6A4F] to-[#3D8B6E]',
         tabColor: '#FFF7ED',
         tabColorHover: '#FFEDD5'
@@ -63,7 +63,7 @@ const SOLUTIONS: Solution[] = [
             'Next-generation digital loyalty program engine',
             'Custom programmable wallets for sports merchandising'
         ],
-        link: '/products/frostrek-web3-commerce',
+        link: '/solutions/fintech-custom-wallets',
         gradient: 'from-[#2D6A4F] to-[#3D8B6E]',
         tabColor: '#FFFBEB',
         tabColorHover: '#FEF3C7'
@@ -81,7 +81,7 @@ const SOLUTIONS: Solution[] = [
             'Seamless handoff to human agents',
             'Custom personality & brand voice'
         ],
-        link: '/products/frosty-ai',
+        link: '/solutions/ai-agents',
         gradient: 'from-[#2D6A4F] to-[#3D8B6E]',
         tabColor: '#FEF2F2',
         tabColorHover: '#FEE2E2'
@@ -99,7 +99,7 @@ const SOLUTIONS: Solution[] = [
             'Multi-language support',
             'Real-time transcription & analytics'
         ],
-        link: '/products/voice-ai',
+        link: '/solutions/voice-ai',
         gradient: 'from-[#2D6A4F] to-[#3D8B6E]',
         tabColor: '#F0FDF4',
         tabColorHover: '#DCFCE7'
@@ -118,7 +118,7 @@ const SOLUTIONS: Solution[] = [
             'E-commerce market trends & product margin analysis',
             'Unified data stream for simplified e-commerce scaling'
         ],
-        link: '/products/multivendor-dashboard',
+        link: '/solutions/multivendor-dashboard',
         gradient: 'from-[#2D6A4F] to-[#3D8B6E]',
         tabColor: '#F0F9FF',
         tabColorHover: '#E0F2FE'
@@ -347,12 +347,12 @@ const AISolutionsShowcase = () => {
     };
 
     return (
-        <section ref={sectionRef} className="relative py-24 overflow-hidden bg-brand-light-bg font-sans">
+        <section ref={sectionRef} className="relative py-16 md:py-24 overflow-hidden bg-brand-light-bg font-sans">
             <div className="absolute top-20 right-10 w-[400px] h-[400px] bg-brand-badge-bg/50 rounded-full blur-[100px] pointer-events-none" />
 
             <div className="max-w-[1400px] mx-auto px-4 md:px-6 relative z-10">
                 {/* Header */}
-                <div ref={headerRef} className="text-center mb-16">
+                <div ref={headerRef} className="text-center mb-10 md:mb-16">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -366,7 +366,7 @@ const AISolutionsShowcase = () => {
                     <div className="flex flex-col items-center">
                         <SplitTextReveal
                             as="h2"
-                            className="font-serif text-3xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-[1.1] tracking-[-0.01em] whitespace-nowrap"
+                            className="font-serif text-3xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-[1.1] tracking-[-0.01em]"
                             type="chars"
                             stagger={0.03}
                             once={false}
@@ -375,7 +375,7 @@ const AISolutionsShowcase = () => {
                         </SplitTextReveal>
                         <SplitTextReveal
                             as="h2"
-                            className="font-serif text-3xl md:text-5xl lg:text-6xl text-[#2D6A4F] mb-6 leading-[1.1] tracking-[-0.01em] whitespace-nowrap"
+                            className="font-serif text-3xl md:text-5xl lg:text-6xl text-[#2D6A4F] mb-6 leading-[1.1] tracking-[-0.01em]"
                             type="chars"
                             stagger={0.03}
                             once={false}

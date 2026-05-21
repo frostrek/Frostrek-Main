@@ -88,7 +88,7 @@ const TrustedBySection = () => {
         >
             <div className="container mx-auto px-6 relative z-10">
                 {/* Title */}
-                <div className="text-center mb-16">
+                <div className="text-center mb-10 md:mb-16">
                     <div className="flex flex-row items-center justify-center gap-4 md:gap-6 mb-4">
                         {/* Curly arrow — slides in from right after text, flipped to be on left */}
                         <motion.div
@@ -96,7 +96,7 @@ const TrustedBySection = () => {
                             whileInView={{ opacity: 1, x: 0, rotate: 0 }}
                             viewport={{ once: false }}
                             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
-                            className="flex-shrink-0"
+                            className="flex-shrink-0 hidden sm:block"
                         >
                             <CurlyArrow flip className="w-12 h-7 md:w-16 md:h-10 text-[#3D8B6E]/65" />
                         </motion.div>

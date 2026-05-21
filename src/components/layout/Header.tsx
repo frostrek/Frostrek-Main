@@ -123,26 +123,34 @@ const Header = () => {
                         ))}
                     </nav>
 
-                    {/* 3. CTAs (Right) */}
-                    <div className="hidden xl:flex items-center justify-end gap-3 min-w-[160px] shrink-0">
-                        <Link to="/schedule-demo">
+                    {/* 3. CTAs & Mobile Toggle (Right) */}
+                    <div className="flex items-center justify-end gap-2 sm:gap-3 xl:min-w-[160px] shrink-0">
+                        {/* Desktop CTA */}
+                        <Link to="/schedule-demo" className="hidden xl:block">
                             <Button size="sm" className="px-6 py-2.5 text-sm rounded-full font-medium border-none shadow-sm whitespace-nowrap bg-[#336B55] text-white hover:bg-[#1a2d24] transition-colors">
                                 Book a demo
                             </Button>
                         </Link>
-                    </div>
 
-                    {/* Mobile Menu Toggle */}
-                    <button
-                        className={cn(
-                            "xl:hidden p-2 rounded-lg transition-colors flex-shrink-0 ml-2",
-                            theme === 'dark' ? "text-[#2D6A4F]" : "text-primary"
-                        )}
-                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                        aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-                    >
-                        {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                    </button>
+                        {/* Mobile Pill CTA */}
+                        <Link to="/schedule-demo" className="flex xl:hidden items-center">
+                            <div className="px-3 py-2 sm:px-4 sm:py-2 text-[12px] sm:text-xs font-bold uppercase tracking-wider rounded-full bg-[#2D6A4F] text-white shadow-sm whitespace-nowrap flex items-center justify-center transition-all active:scale-95">
+                                Book a demo
+                            </div>
+                        </Link>
+
+                        {/* Mobile Menu Toggle */}
+                        <button
+                            className={cn(
+                                "xl:hidden p-1 sm:p-2 rounded-lg transition-colors flex-shrink-0",
+                                theme === 'dark' ? "text-[#2D6A4F]" : "text-primary"
+                            )}
+                            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+                        >
+                            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                        </button>
+                    </div>
                 </div>
 
             </header>

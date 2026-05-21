@@ -1,8 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 import { Link } from 'react-router-dom';
 import { CheckCircle, ArrowRight, Mic, MessageSquare, Sparkles } from 'lucide-react';
 import SplitTextReveal from '../ui/SplitTextReveal';
+
+gsap.registerPlugin(ScrollTrigger);
 
 // ─── Observe.ai-style arrow SVG (exact paths from user) ─────────────────────
 const CurlyArrow = ({ className = '' }: { className?: string }) => (
@@ -173,14 +178,49 @@ const CARDS = [
 const WhatWeDoSection = () => {
     const sectionRef = useRef(null);
     const headingRef = useRef(null);
+    const pinRef = useRef<HTMLDivElement>(null);
+    const scrollWrapperRef = useRef<HTMLDivElement>(null);
     const isInView = useInView(sectionRef, { once: true, margin: '-80px' });
+
+    useGSAP(() => {
+        let mm = gsap.matchMedia();
+
+        mm.add("(max-width: 767px)", () => {
+            if (pinRef.current && scrollWrapperRef.current) {
+                const cards = scrollWrapperRef.current.children;
+                if (cards.length > 0) {
+                    const cardWidth = (cards[0] as HTMLElement).offsetWidth;
+                    const gap = 20; // gap-5 = 20px
+                    // Scroll distance needed to align the last card to the left edge
+                    const scrollAmount = (cardWidth + gap) * (cards.length - 1);
+                    
+                    if (scrollAmount > 0) {
+                        gsap.to(scrollWrapperRef.current, {
+                            x: -scrollAmount,
+                            ease: "none",
+                            scrollTrigger: {
+                                trigger: pinRef.current,
+                                start: "top 15%", 
+                                end: () => `+=${scrollAmount}`,
+                                scrub: 1,
+                                pin: true,
+                                anticipatePin: 1
+                            }
+                        });
+                    }
+                }
+            }
+        });
+
+        return () => mm.revert();
+    }, { scope: sectionRef });
 
     return (
         <section ref={sectionRef} className="bg-brand-light-bg py-24 md:py-32 px-4 overflow-hidden font-body">
             <div className="max-w-7xl mx-auto">
 
                 {/* ── Heading block — observe.ai style with curly arrow ── */}
-                <div ref={headingRef} className="text-center mb-16">
+                <div ref={headingRef} className="text-center mb-10 md:mb-16">
 
                     {/* Badge */}
                     <motion.div
@@ -198,7 +238,7 @@ const WhatWeDoSection = () => {
                     <div className="mb-2">
                         <SplitTextReveal
                             as="h2"
-                            className="font-serif text-5xl md:text-6xl lg:text-7xl text-[#2D6A4F] leading-[1.08] tracking-[-0.02em] whitespace-nowrap text-center"
+                            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-[#2D6A4F] leading-[1.08] tracking-[-0.02em] text-center"
                             type="chars"
                             stagger={0.03}
                             once={false}
@@ -211,7 +251,7 @@ const WhatWeDoSection = () => {
                     <div className="flex flex-row items-center justify-center gap-4 md:gap-6">
                         <SplitTextReveal
                             as="h2"
-                            className="font-serif text-5xl md:text-6xl lg:text-7xl text-[#2D6A4F] leading-[1.08] tracking-[-0.02em] whitespace-nowrap text-center"
+                            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-[#2D6A4F] leading-[1.08] tracking-[-0.02em] text-center"
                             type="chars"
                             stagger={0.03}
                             once={false}
@@ -245,13 +285,15 @@ const WhatWeDoSection = () => {
                 </div>
 
                 {/* ── 3-column card grid ── */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {CARDS.map((card, i) => {
-                        const Demo = card.Demo;
-                        return (
-                            <motion.div
-                                key={card.label}
-                                initial={{ opacity: 0, y: 40 }}
+                <div ref={pinRef} className="md:!overflow-visible overflow-hidden -mx-4 md:mx-0">
+                    <div className="px-4 md:px-0">
+                        <div ref={scrollWrapperRef} className="flex md:grid md:grid-cols-3 gap-5 md:gap-6 w-max md:w-auto">
+                            {CARDS.map((card, i) => {
+                                const Demo = card.Demo;
+                                return (
+                                    <div key={card.label} className="w-[85vw] sm:w-[60vw] md:w-auto shrink-0 flex">
+                                        <motion.div
+                                            initial={{ opacity: 0, y: 40 }}
                                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                                 transition={{ duration: 0.6, delay: 0.1 + i * 0.15 }}
                                 className={`group relative rounded-3xl border border-gray-100 bg-white p-7 flex flex-col gap-5 transition-all duration-500 ${
@@ -289,22 +331,25 @@ const WhatWeDoSection = () => {
                                 <Link to={card.href} className="inline-flex items-center gap-2 text-gray-600 text-sm font-bold group/link hover:gap-3 transition-all duration-300">
                                     Explore platform <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
                                 </Link>
-                            </motion.div>
-                        );
-                    })}
+                                    </motion.div>
+                                </div>
+                            );
+                        })}
+                    </div>
                 </div>
+            </div>
 
                 {/* ── Stats bar ── */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.6, delay: 0.6 }}
-                    className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-px bg-gray-100 rounded-2xl overflow-hidden border border-gray-100"
+                    className="mt-14 grid grid-cols-4 gap-px bg-gray-100 rounded-xl md:rounded-2xl overflow-hidden border border-gray-100"
                 >
                     {[{ value: '8 wks', label: 'Avg. time to go live' }, { value: '4+', label: 'Systems unified' }, { value: '80%', label: 'Inquiries automated' }, { value: '10X', label: 'ROI potential' }].map(s => (
-                        <div key={s.label} className="bg-white px-6 py-10 md:py-12 text-center transition-all duration-300 hover:bg-gray-50/30">
-                            <div className="font-serif text-3xl md:text-4xl font-bold text-[#2D6A4F] mb-2">{s.value}</div>
-                            <div className="text-gray-600 text-sm md:text-base font-medium font-body leading-tight max-w-[140px] mx-auto">{s.label}</div>
+                        <div key={s.label} className="bg-white px-2 py-6 sm:px-4 sm:py-8 md:px-6 md:py-12 text-center transition-all duration-300 hover:bg-gray-50/30 flex flex-col justify-center">
+                            <div className="font-serif text-[1.1rem] sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#2D6A4F] mb-1 md:mb-2">{s.value}</div>
+                            <div className="text-gray-600 text-[9px] sm:text-xs md:text-sm lg:text-base font-medium font-body leading-[1.2] md:leading-tight max-w-[70px] sm:max-w-[100px] md:max-w-[140px] mx-auto">{s.label}</div>
                         </div>
                     ))}
                 </motion.div>

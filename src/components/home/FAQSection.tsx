@@ -122,7 +122,7 @@ const FAQSection = () => {
     return (
         <section className="py-24 relative overflow-hidden bg-brand-light-bg font-sans">
             <div className="container mx-auto px-4 md:px-6 relative z-10 max-w-[1400px]">
-                <div className="text-center max-w-3xl mx-auto mb-16">
+                <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16">
                     <div className="flex items-center justify-center gap-2 mb-6">
                         <motion.span 
                             initial={{ opacity: 0, y: 10 }}
@@ -178,7 +178,7 @@ const FAQSection = () => {
                                         <span className={`flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold border transition-colors duration-300 ${theme.badgeBg} ${theme.badgeText} ${theme.badgeBorder}`}>
                                             0{index + 1}
                                         </span>
-                                        <span className={`text-base md:text-[1.1rem] font-bold transition-colors duration-300 ${
+                                        <span className={`text-sm sm:text-base md:text-[1.1rem] font-bold transition-colors duration-300 ${
                                             isActive ? theme.activeQuestionText : theme.questionText
                                         }`}>
                                             {faq.question}
