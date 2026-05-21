@@ -30,18 +30,18 @@ export const NAV_ITEMS = [
         href: '/solutions',
         megaMenu: [
             {
-                title: '01 SALES & COMMUNICATION',
+                title: '01 INTELLIGENT AUTOMATION',
                 items: [
-                    { name: 'Manufacturing Intelligence', href: '/solutions/manufacturing', desc: 'Real-time factory optimization and production AI.', icon: 'Factory' },
-                    { name: 'AI Agents', href: '/products/frosty-ai', desc: 'Intelligent conversational AI agents for 24/7 automated support.', icon: 'Bot' },
-                    { name: 'Voice AI', href: '/products/ai-calling-agent', desc: 'Natural voice interactions with sub-200ms processing latency.', icon: 'Mic' },
+                    { name: 'AI Agents', href: '/solutions/ai-agents', desc: 'Intelligent, autonomous AI agents built for your business workflows.', icon: 'Bot' },
+                    { name: 'Manufacturing Intelligence', href: '/solutions/manufacturing-intelligence', desc: 'Real-time factory optimization and production AI.', icon: 'Factory' },
+                    { name: 'Voice AI', href: '/solutions/voice-ai', desc: 'Custom Voice AI systems for high-volume inbound and outbound calls.', icon: 'Mic' },
                 ],
             },
             {
-                title: '02 OPERATIONS & COMMERCE',
+                title: '02 DIGITAL INFRASTRUCTURE',
                 items: [
                     { name: 'Fintech & Custom Wallets', href: '/solutions/fintech-custom-wallets', desc: 'Centralised closed-loop digital loyalty currencies to bypass commissions.', icon: 'Trophy' },
-                    { name: 'Multivendor Dashboard', href: '/products/multivendor-dashboard', desc: 'Consolidated automated command center for all your e-commerce channels.', icon: 'Layers' },
+                    { name: 'Multivendor Dashboard', href: '/solutions/multivendor-dashboard', desc: 'Consolidated automated command center for all your e-commerce channels.', icon: 'Layers' },
                 ],
             },
         ],

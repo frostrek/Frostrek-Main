@@ -26,7 +26,10 @@ const WhatsappBotPage = lazy(() => import('./pages/WhatsappBotPage'));
 const BlogPostPage = lazy(() => import('./pages/BlogPostPage'));
 const FAQPage = lazy(() => import('./pages/FAQPage'));
 const FintechWalletsPage = lazy(() => import('./pages/FintechWalletsPage'));
-
+const MultivendorDashboardPage = lazy(() => import('./pages/MultivendorDashboardPage'));
+const ManufacturingIntelligencePage = lazy(() => import('./pages/ManufacturingIntelligencePage'));
+const AIAgentsPage = lazy(() => import('./pages/AIAgentsPage'));
+const VoiceAIPage = lazy(() => import('./pages/VoiceAIPage'));
 // Lazy load Chatbot to improve LCP - defers 705KB GIF and JS bundle
 const Chatbot = lazy(() => import('./components/chat/Chatbot'));
 
@@ -67,6 +70,10 @@ function App() {
                   <Route path="/products/whatsapp-bot" element={<WhatsappBotPage />} />
                   <Route path="/products/*" element={<ProductPage />} />
                   <Route path="/solutions/fintech-custom-wallets" element={<FintechWalletsPage />} />
+                  <Route path="/solutions/multivendor-dashboard" element={<MultivendorDashboardPage />} />
+                  <Route path="/solutions/manufacturing-intelligence" element={<ManufacturingIntelligencePage />} />
+                  <Route path="/solutions/ai-agents" element={<AIAgentsPage />} />
+                  <Route path="/solutions/voice-ai" element={<VoiceAIPage />} />
                   <Route path="/solutions/*" element={<SolutionPage />} />
 
                   <Route path="/resources/blog/:slug" element={<BlogPostPage />} />

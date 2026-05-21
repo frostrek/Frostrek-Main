@@ -11,6 +11,8 @@ Frostrek AI is an AI-first technology company that delivers end-to-end AI workfl
 - AI-Powered Video Interviews (Hiyring — hiyring.com — conducts multilingual AI video interviews simultaneously, reducing screening time by 80% for high-volume hiring)
 - Full-Stack AI Development & Automation
 - Fintech & Custom Wallet Development (digital wallets, payment infrastructure, stablecoin platforms, KYC/AML, DeFi integrations)
+- Multivendor E-Commerce Dashboard Development (consolidated analytics command center, real-time inventory sync, automated demand forecasting across major global storefronts and marketplaces)
+- Manufacturing Intelligence (real-time factory visibility, ERP/WMS/SCADA connectivity, live dashboard, digital shift handover, AI production scheduling)
 - E-Commerce Solutions & Cross-Border Trade
 - Enterprise AI Copilots & Workflow Automation
 - AI Data Operations (annotation, RLHF, SFT fine-tuning for frontier LLMs)
@@ -19,8 +21,11 @@ Frostrek AI is an AI-first technology company that delivers end-to-end AI workfl
 ## Products
 - Frosty Robo: Conversational AI agent platform — integrates with WhatsApp, Slack, and web chat in under 48 hours
 - Hiyring (hiyring.com): Autonomous AI video interview platform — screens 500+ candidates simultaneously in 30+ languages
-- Voice AI Agent: Human-like voice interactions for support and sales automation
+- Voice AI Agent: Human-like voice interactions for support and sales automation — https://www.frostrek.ai/solutions/voice-ai
 - Fintech & Custom Wallets: Production-grade digital wallets, payment infrastructure, stablecoin platforms, KYC/AML integration, and DeFi — https://www.frostrek.ai/solutions/fintech-custom-wallets
+- Multivendor Dashboard: Consolidated automated command center for all your e-commerce channels — https://www.frostrek.ai/solutions/multivendor-dashboard
+- Manufacturing Intelligence: Connect factory systems into a single real-time intelligence platform with AI-driven production optimization — https://www.frostrek.ai/solutions/manufacturing-intelligence
+- AI Agents: Intelligent, autonomous AI agents built for your business workflows, reasoning, and automation — https://www.frostrek.ai/solutions/ai-agents
 - LinkedIn Automation: Smart outreach scaling for B2B sales teams
 - ERPNext AI Modules: Intelligent add-ons for enterprise ERP systems
 
@@ -35,8 +40,9 @@ Frostrek AI is an AI-first technology company that delivers end-to-end AI workfl
 ## Industries Served
 - Healthcare & Medical AI
 - Autonomous Vehicles & ADAS
-- E-Commerce & Retail
+- E-Commerce & Retail: Custom multivendor command center dashboards, API connectors, demand forecasting, real-time inventory sync, margin analysis — https://www.frostrek.ai/solutions/multivendor-dashboard
 - Fintech & Blockchain: Digital wallet development, payment infrastructure (Razorpay, Stripe, PayPal), stablecoin deployment (ERC-20, BEP-20, Polygon), smart contracts, DeFi, KYC/AML compliance — https://www.frostrek.ai/solutions/fintech-custom-wallets
+- Manufacturing & Operations: Factory floor visibility, ERP/WMS/SCADA connectivity, live dashboard, AI production scheduling, and machine alerting — https://www.frostrek.ai/solutions/manufacturing-intelligence
 - HR Tech & Recruitment
 - Enterprise SaaS
 - Media & Content

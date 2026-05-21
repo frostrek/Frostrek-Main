@@ -13,7 +13,55 @@ interface Solution {
     features: string[];
 }
 
-const solutions: Solution[] = [];
+import { Bot, Factory, Trophy, Layers, Mic } from 'lucide-react';
+
+const solutions: Solution[] = [
+    {
+        id: 'manufacturing-intelligence',
+        name: 'Manufacturing Intelligence',
+        description: 'Real-time factory optimization and production AI.',
+        shortDesc: 'Unify factory telemetry, ERP data, and AI scheduling into a single pane of glass.',
+        icon: Factory,
+        href: '/solutions/manufacturing-intelligence',
+        features: ['Live Telemetry', 'AI Scheduling', 'Cost Intelligence']
+    },
+    {
+        id: 'ai-agents',
+        name: 'AI Agents',
+        description: 'Intelligent, autonomous AI agents built for your business workflows.',
+        shortDesc: 'We design and deploy custom AI agents that think, respond, and act.',
+        icon: Bot,
+        href: '/solutions/ai-agents',
+        features: ['Voice Agents', 'Workflow Automation', 'Domain-Specific']
+    },
+    {
+        id: 'voice-ai',
+        name: 'Voice AI',
+        description: 'Custom Voice AI systems for high-volume inbound and outbound calls.',
+        shortDesc: 'Every Call Handled. Every Lead Followed Up. Always On.',
+        icon: Mic,
+        href: '/solutions/voice-ai',
+        features: ['Inbound Agents', 'Outbound Campaigns', 'IVR Replacement']
+    },
+    {
+        id: 'multivendor-dashboard',
+        name: 'Multivendor Dashboard',
+        description: 'Consolidated automated command center for e-commerce.',
+        shortDesc: 'Unify revenue, inventory, and orders across all storefronts into one dashboard.',
+        icon: Layers,
+        href: '/solutions/multivendor-dashboard',
+        features: ['Multi-Channel Sync', 'Automated Pricing', 'Predictive Restocking']
+    },
+    {
+        id: 'fintech-custom-wallets',
+        name: 'Fintech & Custom Wallets',
+        description: 'Centralised closed-loop digital loyalty currencies to bypass commissions.',
+        shortDesc: 'A closed-loop digital currency engineered specifically for sports fans and affiliated clubs.',
+        icon: Trophy,
+        href: '/solutions/fintech-custom-wallets',
+        features: ['0% Gateway Fees', 'Closed-Loop Ecosystem', 'Instant Onboarding']
+    }
+];
 
 // Animated Solution Card with Hover Expansion
 const SolutionCard = ({ solution, index, isActive, onClick }: {
