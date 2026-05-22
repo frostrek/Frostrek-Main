@@ -306,7 +306,7 @@ const VettEdgePage = () => {
             <CuteBackground />
 
             {/* ═══════ SECTION 1 — HERO ═══════ */}
-            <section className="relative min-h-screen flex items-center pt-28 pb-20 overflow-hidden bg-[#F9FBFA]/50 font-body z-10">
+            <section className="relative min-h-screen flex items-center pt-24 md:pt-32 pb-16 md:pb-20 overflow-hidden bg-[#F9FBFA]/50 font-body z-10">
                 <div className="container mx-auto px-4 md:px-6 relative z-10 flex flex-col items-center text-center">
                     {/* Tag */}
                     <motion.div
@@ -368,17 +368,17 @@ const VettEdgePage = () => {
             </section>
 
             {/* ═══════ SECTION 2 — PRODUCT OVERVIEW ═══════ */}
-            <section id="overview" className="py-24 bg-brand-light-bg relative z-10 overflow-hidden">
+            <section id="overview" className="py-16 lg:py-24 bg-brand-light-bg relative z-10 overflow-hidden">
                 <div className="container mx-auto px-4 md:px-6 max-w-7xl">
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                         {/* Left Side: Text */}
-                        <div className="lg:col-span-5 flex flex-col justify-center text-left">
+                        <div className="lg:col-span-5 flex flex-col justify-center text-center lg:text-left">
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: false }}
                                 transition={{ duration: 0.6 }}
-                                className="inline-flex self-start items-center gap-2 px-4 py-2 rounded-full bg-[#E8F5EE] border border-[#2D6A4F]/10 text-[#2D6A4F] text-xs font-bold uppercase tracking-widest mb-6"
+                                className="inline-flex self-center lg:self-start items-center gap-2 px-4 py-2 rounded-full bg-[#E8F5EE] border border-[#2D6A4F]/10 text-[#2D6A4F] text-xs font-bold uppercase tracking-widest mb-6"
                             >
                                 Product Overview
                             </motion.div>
@@ -403,12 +403,12 @@ const VettEdgePage = () => {
                         </div>
 
                         {/* Right Side: Dashboard Visual */}
-                        <div className="lg:col-span-7 relative w-full">
-                            <div className="relative overflow-hidden group rounded-[2.2rem]">
+                        <div className="lg:col-span-7 relative w-full mt-8 lg:mt-0">
+                            <div className="relative overflow-hidden group rounded-3xl lg:rounded-[2.2rem]">
                                 <img
                                     src="/products/vettedge-home.png"
                                     alt="VettEdge AI Financial Due Diligence Platform"
-                                    className="w-full h-auto rounded-[2.2rem] transition-transform duration-700 ease-out group-hover:scale-[1.02] shadow-[0_20px_50px_rgba(29,78,216,0.08)]"
+                                    className="w-full h-auto rounded-3xl lg:rounded-[2.2rem] transition-transform duration-700 ease-out group-hover:scale-[1.02] shadow-[0_20px_50px_rgba(29,78,216,0.08)]"
                                     onError={(e) => { (e.target as HTMLImageElement).src = '/products/WhatWeBuilt.png'; }}
                                 />
                             </div>
@@ -418,7 +418,7 @@ const VettEdgePage = () => {
             </section>
 
             {/* ═══════ SECTION 3 — THE PROBLEM WE SOLVED ═══════ */}
-            <section className="py-24 bg-white relative z-10 overflow-hidden">
+            <section className="py-16 lg:py-24 bg-white relative z-10 overflow-hidden">
                 <div className="container mx-auto px-4 md:px-6 max-w-7xl">
                     <div className="text-center mb-16">
                         <SplitTextReveal
@@ -439,23 +439,23 @@ const VettEdgePage = () => {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                         {/* Left: Problem Cards */}
                         <div className="lg:col-span-5 flex flex-col justify-center">
-                            <div ref={problemsRef} className="flex flex-col gap-6">
+                            <div ref={problemsRef} className="flex flex-col gap-3 md:gap-6">
                                 {PROBLEMS.map((problem) => (
                                     <SpotlightCard
                                         key={problem.title}
-                                        className={`problem-card group relative overflow-hidden rounded-xl border p-6 transition-all duration-300 ${problem.bgColor} ${problem.border} ${problem.hoverShadow} hover:-translate-y-1`}
+                                        className={`problem-card group relative overflow-hidden rounded-xl border p-4 md:p-6 transition-all duration-300 ${problem.bgColor} ${problem.border} ${problem.hoverShadow} hover:-translate-y-1`}
                                         spotlightColor={problem.spotlight}
                                     >
-                                        <div className="relative z-10 flex gap-5 items-center">
-                                            <div className={`w-16 h-16 rounded-2xl border flex items-center justify-center flex-shrink-0 bg-white/40 ${problem.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
-                                                <img src={problem.icon} alt={problem.title} className="w-9 h-9 object-contain" />
+                                        <div className="relative z-10 flex gap-3 md:gap-5 items-center">
+                                            <div className={`w-11 h-11 md:w-16 md:h-16 rounded-xl md:rounded-2xl border flex items-center justify-center flex-shrink-0 bg-white/40 ${problem.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
+                                                <img src={problem.icon} alt={problem.title} className="w-5 h-5 md:w-9 md:h-9 object-contain" />
                                             </div>
                                             <div className="flex-1">
-                                                <h3 className="font-serif text-xl font-bold mb-1.5 text-black">{problem.title}</h3>
-                                                <p className="text-sm leading-relaxed text-gray-600 font-medium">{problem.description}</p>
+                                                <h3 className="font-serif text-[15px] md:text-xl font-bold mb-0.5 md:mb-1.5 text-black leading-tight">{problem.title}</h3>
+                                                <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600 font-medium">{problem.description}</p>
                                             </div>
                                         </div>
                                     </SpotlightCard>
@@ -464,12 +464,12 @@ const VettEdgePage = () => {
                         </div>
 
                         {/* Right: Illustration */}
-                        <div className="lg:col-span-7 relative w-full">
-                            <div className="relative overflow-hidden group rounded-[2.2rem]">
+                        <div className="lg:col-span-7 relative w-full mt-8 lg:mt-0">
+                            <div className="relative overflow-hidden group rounded-3xl lg:rounded-[2.2rem]">
                                 <img
                                     src="/products/ProblemSolved.png"
                                     alt="Problems Solved by VettEdge"
-                                    className="w-full h-auto rounded-[2.2rem] transition-transform duration-700 ease-out group-hover:scale-[1.02] shadow-[0_20px_50px_rgba(45,106,79,0.06)]"
+                                    className="w-full h-auto rounded-3xl lg:rounded-[2.2rem] transition-transform duration-700 ease-out group-hover:scale-[1.02] shadow-[0_20px_50px_rgba(45,106,79,0.06)]"
                                 />
                             </div>
                         </div>
@@ -478,7 +478,7 @@ const VettEdgePage = () => {
             </section>
 
             {/* ═══════ SECTION 4 — WHAT WE BUILT ═══════ */}
-            <section className="py-24 bg-brand-light-bg relative z-10 overflow-hidden">
+            <section className="py-16 lg:py-24 bg-brand-light-bg relative z-10 overflow-hidden">
                 <div className="container mx-auto px-4 md:px-6 max-w-7xl">
                     <div className="text-center mb-16">
                         <SplitTextReveal
@@ -499,34 +499,34 @@ const VettEdgePage = () => {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                         {/* Left: Illustration */}
-                        <div className="lg:col-span-7 order-2 lg:order-1 relative w-full">
-                            <div className="relative overflow-hidden group rounded-[2.2rem]">
+                        <div className="lg:col-span-7 order-2 lg:order-1 relative w-full mt-8 lg:mt-0">
+                            <div className="relative overflow-hidden group rounded-3xl lg:rounded-[2.2rem]">
                                 <img
                                     src="/products/WhatWeBuilt.png"
                                     alt="What VettEdge Built"
-                                    className="w-full h-auto rounded-[2.2rem] transition-transform duration-700 ease-out group-hover:scale-[1.02] shadow-[0_20px_50px_rgba(45,106,79,0.06)]"
+                                    className="w-full h-auto rounded-3xl lg:rounded-[2.2rem] transition-transform duration-700 ease-out group-hover:scale-[1.02] shadow-[0_20px_50px_rgba(45,106,79,0.06)]"
                                 />
                             </div>
                         </div>
 
                         {/* Right: Feature Cards */}
                         <div className="lg:col-span-5 order-1 lg:order-2 flex flex-col justify-center">
-                            <div ref={featuresRef} className="flex flex-col gap-4">
+                            <div ref={featuresRef} className="flex flex-col gap-3 md:gap-4">
                                 {FEATURES.map((feature) => (
                                     <SpotlightCard
                                         key={feature.title}
-                                        className={`feature-card group relative overflow-hidden rounded-xl border p-6 transition-all duration-300 ${feature.bgColor} ${feature.border} ${feature.hoverShadow} hover:-translate-y-1`}
+                                        className={`feature-card group relative overflow-hidden rounded-xl border p-4 md:p-6 transition-all duration-300 ${feature.bgColor} ${feature.border} ${feature.hoverShadow} hover:-translate-y-1`}
                                         spotlightColor={feature.spotlight}
                                     >
-                                        <div className="relative z-10 flex gap-5 items-center">
-                                            <div className={`w-16 h-16 rounded-2xl border flex items-center justify-center flex-shrink-0 bg-white/40 ${feature.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
-                                                <img src={feature.icon} alt={feature.title} className="w-9 h-9 object-contain" />
+                                        <div className="relative z-10 flex gap-3 md:gap-5 items-center">
+                                            <div className={`w-11 h-11 md:w-16 md:h-16 rounded-xl md:rounded-2xl border flex items-center justify-center flex-shrink-0 bg-white/40 ${feature.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
+                                                <img src={feature.icon} alt={feature.title} className="w-5 h-5 md:w-9 md:h-9 object-contain" />
                                             </div>
                                             <div className="flex-1">
-                                                <h3 className="font-serif text-xl font-bold mb-1.5 text-black">{feature.title}</h3>
-                                                <p className="text-sm leading-relaxed text-gray-600 font-medium">{feature.description}</p>
+                                                <h3 className="font-serif text-[15px] md:text-xl font-bold mb-0.5 md:mb-1.5 text-black leading-tight">{feature.title}</h3>
+                                                <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600 font-medium">{feature.description}</p>
                                             </div>
                                         </div>
                                     </SpotlightCard>
@@ -538,7 +538,7 @@ const VettEdgePage = () => {
             </section>
 
             {/* ═══════ SECTION 5 — THREE AGENTS ═══════ */}
-            <section className="py-24 bg-white relative z-10 overflow-hidden">
+            <section className="py-16 lg:py-24 bg-white relative z-10 overflow-hidden">
                 <div className="container mx-auto px-4 md:px-6 max-w-7xl">
                     <div className="text-center mb-16">
                         <SplitTextReveal
@@ -577,34 +577,34 @@ const VettEdgePage = () => {
                         </div>
                     </div>
 
-                    <div ref={agentsRef} className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div ref={agentsRef} className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-8">
                         {AGENTS.map((agent) => (
                             <SpotlightCard
                                 key={agent.tag}
-                                className={`agent-card group relative overflow-hidden rounded-[2rem] border p-8 transition-all duration-300 ${agent.bgColor} ${agent.border} ${agent.hoverShadow} hover:-translate-y-2`}
+                                className={`agent-card group relative overflow-hidden rounded-3xl md:rounded-[2rem] border p-5 md:p-8 transition-all duration-300 ${agent.bgColor} ${agent.border} ${agent.hoverShadow} hover:-translate-y-2`}
                                 spotlightColor={agent.spotlight}
                             >
                                 <div className="relative z-10 flex flex-col h-full">
                                     {/* Tag */}
-                                    <span className={`self-start text-[10px] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full border mb-5 ${agent.tagBg} ${agent.tagText} ${agent.tagBorder}`}>
+                                    <span className={`self-start text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] px-2 py-0.5 md:px-3 md:py-1 rounded-full border mb-2 md:mb-5 ${agent.tagBg} ${agent.tagText} ${agent.tagBorder}`}>
                                         {agent.tag}
                                     </span>
 
                                     {/* Icon */}
-                                    <div className={`w-14 h-14 rounded-2xl border flex items-center justify-center mb-5 bg-white/50 ${agent.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
-                                        <img src={agent.icon} alt={agent.title} className="w-8 h-8 object-contain" />
+                                    <div className={`w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl border flex items-center justify-center mb-2 md:mb-5 bg-white/50 ${agent.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
+                                        <img src={agent.icon} alt={agent.title} className="w-6 h-6 md:w-8 md:h-8 object-contain" />
                                     </div>
 
                                     {/* Title */}
-                                    <h3 className={`font-serif text-2xl font-bold mb-3 ${agent.headingColor}`}>{agent.title}</h3>
+                                    <h3 className={`font-serif text-[17px] md:text-2xl font-bold mb-1.5 md:mb-3 leading-tight ${agent.headingColor}`}>{agent.title}</h3>
 
                                     {/* Body */}
-                                    <p className="text-sm leading-relaxed text-gray-600 font-medium flex-1 mb-6">{agent.description}</p>
+                                    <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600 font-medium flex-1 mb-3 md:mb-6">{agent.description}</p>
 
                                     {/* For */}
-                                    <div className="border-t border-current/10 pt-4 mt-auto" style={{ borderColor: 'rgba(0,0,0,0.08)' }}>
-                                        <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">For</p>
-                                        <p className={`text-sm font-semibold ${agent.headingColor}`}>{agent.forAudience}</p>
+                                    <div className="border-t border-current/10 pt-3 md:pt-4 mt-auto" style={{ borderColor: 'rgba(0,0,0,0.08)' }}>
+                                        <p className="text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">For</p>
+                                        <p className={`text-xs md:text-sm font-semibold ${agent.headingColor}`}>{agent.forAudience}</p>
                                     </div>
                                 </div>
                             </SpotlightCard>
@@ -614,12 +614,12 @@ const VettEdgePage = () => {
             </section>
 
             {/* ═══════ SECTION 6 — WHO IT'S FOR ═══════ */}
-            <section className="py-24 bg-brand-light-bg relative z-10 overflow-hidden">
+            <section className="py-16 lg:py-24 bg-brand-light-bg relative z-10 overflow-hidden">
                 <div className="container mx-auto px-4 md:px-6 max-w-7xl">
                     <div className="text-center mb-16">
                         <SplitTextReveal
                             as="h2"
-                            className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
+                            className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
                             type="chars" stagger={0.02} once={false}
                         >
                             Built for Financial Professionals
@@ -635,19 +635,21 @@ const VettEdgePage = () => {
                         </div>
                     </div>
 
-                    <div ref={audienceRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div ref={audienceRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
                         {AUDIENCE.map((tile) => (
                             <SpotlightCard
                                 key={tile.title}
-                                className={`audience-tile group relative overflow-hidden rounded-[1.5rem] border p-6 transition-all duration-300 ${tile.bgColor} ${tile.border} hover:shadow-[0_15px_40px_rgba(0,0,0,0.06)] hover:-translate-y-1`}
+                                className={`audience-tile group relative overflow-hidden rounded-[1.25rem] md:rounded-[1.5rem] border p-4 md:p-6 transition-all duration-300 ${tile.bgColor} ${tile.border} hover:shadow-[0_15px_40px_rgba(0,0,0,0.06)] hover:-translate-y-1`}
                                 spotlightColor={tile.spotlight}
                             >
-                                <div className="relative z-10">
-                                    <div className={`w-12 h-12 rounded-xl border flex items-center justify-center mb-4 bg-white/50 ${tile.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
-                                        <img src={tile.icon} alt={tile.title} className="w-7 h-7 object-contain" />
+                                <div className="relative z-10 flex flex-row md:flex-col items-center md:items-start gap-4 md:gap-0 text-left">
+                                    <div className={`w-12 h-12 md:w-12 md:h-12 rounded-xl border flex items-center justify-center shrink-0 mb-0 md:mb-4 bg-white/50 ${tile.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
+                                        <img src={tile.icon} alt={tile.title} className="w-6 h-6 md:w-7 md:h-7 object-contain" />
                                     </div>
-                                    <h3 className={`font-serif text-lg font-bold mb-2 ${tile.headingColor}`}>{tile.title}</h3>
-                                    <p className="text-sm leading-relaxed text-gray-600 font-medium">{tile.description}</p>
+                                    <div className="flex-1">
+                                        <h3 className={`font-serif text-[15px] md:text-lg font-bold mb-1 md:mb-2 leading-tight ${tile.headingColor}`}>{tile.title}</h3>
+                                        <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600 font-medium">{tile.description}</p>
+                                    </div>
                                 </div>
                             </SpotlightCard>
                         ))}
@@ -656,7 +658,7 @@ const VettEdgePage = () => {
             </section>
 
             {/* ═══════ SECTION 7 — TECH STACK ═══════ */}
-            <section className="py-24 bg-white relative z-10 overflow-hidden">
+            <section className="py-16 lg:py-24 bg-white relative z-10 overflow-hidden">
                 <div className="container mx-auto px-4 md:px-6 max-w-4xl">
                     <div className="text-center mb-16">
                         <SplitTextReveal
@@ -672,12 +674,13 @@ const VettEdgePage = () => {
                 <div ref={techRef} className="relative w-full overflow-hidden py-8 group">
                     <div className="flex animate-[marquee_40s_linear_infinite] w-max group-hover:[animation-play-state:paused]">
                         {[...TECH_STACK_MARQUEE, ...TECH_STACK_MARQUEE].map((tech, i) => (
-                            <div key={i} className="flex flex-col items-center justify-center w-48 gap-6 mx-8">
-                                <div className="h-16 w-full flex items-center justify-center px-4">
+                            <div key={i} className="flex flex-col items-center justify-center w-24 md:w-48 gap-3 md:gap-6 mx-3 md:mx-8 tech-badge">
+                                <div className="h-10 md:h-16 w-full flex items-center justify-center px-2 md:px-4">
                                     <img src={tech.image} alt={tech.name} className="max-h-full max-w-full object-contain transition-all duration-300 drop-shadow-sm hover:scale-105" />
                                 </div>
-                                <div className="flex flex-col items-center">
-                                    <span className="text-[11px] font-bold uppercase tracking-widest text-black">{tech.category}</span>
+                                <div className="flex flex-col items-center text-center">
+                                    <span className="text-[9px] md:text-[11px] font-bold uppercase tracking-widest text-black mb-1">{tech.category}</span>
+                                    <span className="text-[10px] md:text-xs font-medium text-gray-500">{tech.name}</span>
                                 </div>
                             </div>
                         ))}
@@ -686,13 +689,13 @@ const VettEdgePage = () => {
             </section>
 
             {/* ═══════ SECTION 8 — CTA BANNER ═══════ */}
-            <section className="py-24 relative overflow-hidden bg-brand-light-bg font-sans">
+            <section className="py-16 lg:py-24 relative overflow-hidden bg-brand-light-bg font-sans">
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-brand-badge-bg/80 rounded-full blur-[120px]" />
                     <div className="absolute bottom-0 right-0 w-[400px] h-[300px] bg-blue-50/60 rounded-full blur-[100px]" />
                 </div>
                 <div className="container mx-auto px-4 md:px-6 relative z-10 text-center max-w-[1400px]">
-                    <div className="max-w-4xl mx-auto bg-white p-10 md:p-16 rounded-[3rem] border border-[#E6EFE6] shadow-[0_20px_60px_rgba(45,106,79,0.04)]">
+                    <div className="max-w-4xl mx-auto bg-white p-8 sm:p-10 md:p-16 rounded-[2rem] md:rounded-[3rem] border border-[#E6EFE6] shadow-[0_20px_60px_rgba(45,106,79,0.04)]">
                         <div className="flex flex-col items-center">
                             <SplitTextReveal
                                 as="h2"

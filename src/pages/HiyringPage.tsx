@@ -190,7 +190,7 @@ const HiyringPage = () => {
             <CuteBackground />
 
             {/* ═══════ SECTION 1 — HERO ═══════ */}
-            <section className="relative min-h-screen flex items-center pt-28 pb-20 overflow-hidden bg-[#F9FBFA]/50 font-body z-10">
+            <section className="relative min-h-screen flex items-center pt-24 md:pt-32 pb-16 md:pb-20 overflow-hidden bg-[#F9FBFA]/50 font-body z-10">
                 <div className="container mx-auto px-4 md:px-6 relative z-10 flex flex-col items-center text-center">
                     {/* Tag */}
                     <motion.div
@@ -251,17 +251,17 @@ const HiyringPage = () => {
             </section>
 
             {/* ═══════ SECTION 2 — PRODUCT OVERVIEW ═══════ */}
-            <section id="overview" className="py-24 bg-brand-light-bg relative z-10 overflow-hidden">
+            <section id="overview" className="py-16 lg:py-24 bg-brand-light-bg relative z-10 overflow-hidden">
                 <div className="container mx-auto px-4 md:px-6 max-w-7xl">
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                         {/* Left Side: Text Content */}
-                        <div className="lg:col-span-5 flex flex-col justify-center text-left">
+                        <div className="lg:col-span-5 flex flex-col justify-center text-center lg:text-left">
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: false }}
                                 transition={{ duration: 0.6 }}
-                                className="inline-flex self-start items-center gap-2 px-4 py-2 rounded-full bg-[#E8F5EE] border border-[#2D6A4F]/10 text-[#2D6A4F] text-xs font-bold uppercase tracking-widest mb-6"
+                                className="inline-flex self-center lg:self-start items-center gap-2 px-4 py-2 rounded-full bg-[#E8F5EE] border border-[#2D6A4F]/10 text-[#2D6A4F] text-xs font-bold uppercase tracking-widest mb-6"
                             >
                                 Product Overview
                             </motion.div>
@@ -294,12 +294,12 @@ const HiyringPage = () => {
                         </div>
 
                         {/* Right Side: Image Showcase */}
-                        <div className="lg:col-span-7 relative w-full">
-                            <div className="relative overflow-hidden group rounded-[2.2rem]">
+                        <div className="lg:col-span-7 relative w-full mt-8 lg:mt-0">
+                            <div className="relative overflow-hidden group rounded-3xl lg:rounded-[2.2rem]">
                                 <img
                                     src="/products/hiyring-home.png"
                                     alt="Hiyring Platform Screenshot"
-                                    className="w-full h-auto rounded-[2.2rem] transition-transform duration-700 ease-out group-hover:scale-[1.02] shadow-[0_20px_50px_rgba(45,106,79,0.06)]"
+                                    className="w-full h-auto rounded-3xl lg:rounded-[2.2rem] transition-transform duration-700 ease-out group-hover:scale-[1.02] shadow-[0_20px_50px_rgba(45,106,79,0.06)]"
                                     onError={(e) => { (e.target as HTMLImageElement).src = '/products/hiyring-home.png' }}
                                 />
                             </div>
@@ -309,7 +309,7 @@ const HiyringPage = () => {
             </section>
 
             {/* ═══════ SECTION 2.5 — PROCESS ═══════ */}
-            <section className="py-24 bg-white relative z-10 overflow-hidden">
+            <section className="py-16 lg:py-24 bg-white relative z-10 overflow-hidden">
                 <div className="container mx-auto px-4 md:px-6 max-w-7xl">
                     <div className="text-center mb-20">
                         <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-[1.15] tracking-[-0.01em]">
@@ -349,7 +349,7 @@ const HiyringPage = () => {
                         </div>
                     </div>
 
-                    <div ref={processRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+                    <div ref={processRef} className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 relative">
                         {/* Connecting Line (Desktop Only) */}
                         <div className="hidden lg:block absolute top-12 left-[12.5%] right-[12.5%] h-[1px] bg-gradient-to-r from-transparent via-[#FF5722]/40 to-transparent border-t border-dashed border-[#FF5722]/50 -z-10" />
 
@@ -357,16 +357,16 @@ const HiyringPage = () => {
                             return (
                                 <div key={step.step} className="process-step flex flex-col items-center text-center relative group">
                                     {/* Icon Circle */}
-                                    <div className={`w-24 h-24 rounded-full ${step.iconBg} border ${step.iconBorder} flex items-center justify-center mb-6 shadow-sm transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-md relative z-10`}>
-                                        <img src={step.icon} alt={step.title} className="w-10 h-10 object-contain opacity-80" />
+                                    <div className={`w-16 h-16 md:w-24 md:h-24 rounded-full ${step.iconBg} border ${step.iconBorder} flex items-center justify-center mb-4 md:mb-6 shadow-sm transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-md relative z-10`}>
+                                        <img src={step.icon} alt={step.title} className="w-8 h-8 md:w-10 md:h-10 object-contain opacity-80" />
                                     </div>
 
                                     {/* Text Content */}
-                                    <h3 className={`font-serif text-xl font-bold mb-3 ${step.headingColor}`}>{step.title}</h3>
-                                    <p className="text-sm leading-relaxed text-gray-500 font-medium px-2 mb-6 h-20">{step.description}</p>
+                                    <h3 className={`font-serif text-[15px] sm:text-lg md:text-xl font-bold mb-2 md:mb-3 ${step.headingColor}`}>{step.title}</h3>
+                                    <p className="text-[13px] sm:text-sm leading-relaxed text-gray-500 font-medium px-1 sm:px-2 mb-4 md:mb-6 min-h-[5rem] md:h-20">{step.description}</p>
 
                                     {/* Step Number */}
-                                    <div className="w-8 h-8 rounded-full border border-[#FF5722]/30 flex items-center justify-center text-[#FF5722] text-sm font-bold bg-[#FF5722]/5 mt-auto shadow-sm">
+                                    <div className="w-7 h-7 md:w-8 md:h-8 rounded-full border border-[#FF5722]/30 flex items-center justify-center text-[#FF5722] text-xs md:text-sm font-bold bg-[#FF5722]/5 mt-auto shadow-sm">
                                         {step.step}
                                     </div>
                                 </div>
@@ -377,7 +377,7 @@ const HiyringPage = () => {
             </section>
 
             {/* ═══════ SECTION 3 — THE PROBLEM WE SOLVED ═══════ */}
-            <section className="py-24 bg-brand-light-bg relative z-10 overflow-hidden">
+            <section className="py-16 lg:py-24 bg-brand-light-bg relative z-10 overflow-hidden">
                 <div className="container mx-auto px-4 md:px-6 max-w-7xl">
                     <div className="text-center mb-16">
                         <SplitTextReveal
@@ -398,21 +398,21 @@ const HiyringPage = () => {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                         {/* Left Side: Problem Cards */}
                         <div className="lg:col-span-5 flex flex-col justify-center">
-                            <div ref={problemsRef} className="flex flex-col gap-6">
+                            <div ref={problemsRef} className="flex flex-col gap-3 md:gap-6">
                                 {PROBLEMS.map((problem) => (
                                     <SpotlightCard
                                         key={problem.title}
-                                        className={`problem-card group relative overflow-hidden rounded-xl border p-6 transition-all duration-300 ${problem.bgColor} ${problem.border} ${problem.hoverShadow} hover:-translate-y-1`}
+                                        className={`problem-card group relative overflow-hidden rounded-xl border p-4 md:p-6 transition-all duration-300 ${problem.bgColor} ${problem.border} ${problem.hoverShadow} hover:-translate-y-1`}
                                         spotlightColor={problem.spotlight}
                                     >
-                                        <div className="relative z-10 flex gap-5 items-center justify-between">
-                                            <div className="flex gap-5 items-center flex-1">
-                                                <div className={`w-16 h-16 rounded-2xl border flex items-center justify-center flex-shrink-0 bg-white/40 ${problem.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
+                                        <div className="relative z-10 flex gap-3 md:gap-5 items-center justify-between">
+                                            <div className="flex gap-3 md:gap-5 items-center flex-1">
+                                                <div className={`w-11 h-11 md:w-16 md:h-16 rounded-xl md:rounded-2xl border flex items-center justify-center flex-shrink-0 bg-white/40 ${problem.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
                                                     {typeof problem.icon === 'string' ? (
-                                                        <img src={problem.icon} alt={problem.title} className="w-9 h-9 object-contain" />
+                                                        <img src={problem.icon} alt={problem.title} className="w-5 h-5 md:w-9 md:h-9 object-contain" />
                                                     ) : (
                                                         (() => {
                                                             const IconComponent = problem.icon as React.ComponentType<any>;
@@ -421,8 +421,8 @@ const HiyringPage = () => {
                                                     )}
                                                 </div>
                                                 <div className="flex-1">
-                                                    <h3 className={`font-serif text-xl font-bold mb-1.5 text-black`}>{problem.title}</h3>
-                                                    <p className="text-sm leading-relaxed text-gray-600 font-medium">{problem.description}</p>
+                                                    <h3 className={`font-serif text-[15px] md:text-xl font-bold mb-0.5 md:mb-1.5 text-black leading-tight`}>{problem.title}</h3>
+                                                    <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600 font-medium">{problem.description}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -432,12 +432,12 @@ const HiyringPage = () => {
                         </div>
 
                         {/* Right Side: Image Showcase */}
-                        <div className="lg:col-span-7 relative w-full">
-                            <div className="relative overflow-hidden group rounded-[2.2rem]">
+                        <div className="lg:col-span-7 relative w-full mt-8 lg:mt-0">
+                            <div className="relative overflow-hidden group rounded-3xl lg:rounded-[2.2rem]">
                                 <img
                                     src="/products/ProblemSolved.png"
                                     alt="Problems Solved"
-                                    className="w-full h-auto rounded-[2.2rem] transition-transform duration-700 ease-out group-hover:scale-[1.02] shadow-[0_20px_50px_rgba(45,106,79,0.06)]"
+                                    className="w-full h-auto rounded-3xl lg:rounded-[2.2rem] transition-transform duration-700 ease-out group-hover:scale-[1.02] shadow-[0_20px_50px_rgba(45,106,79,0.06)]"
                                 />
                             </div>
                         </div>
@@ -448,7 +448,7 @@ const HiyringPage = () => {
 
 
             {/* ═══════ SECTION 4 — WHAT WE BUILT ═══════ */}
-            <section className="py-24 bg-white relative z-10 overflow-hidden">
+            <section className="py-16 lg:py-24 bg-white relative z-10 overflow-hidden">
                 <div className="container mx-auto px-4 md:px-6 max-w-7xl">
                     <div className="text-center mb-16">
                         <SplitTextReveal
@@ -469,31 +469,31 @@ const HiyringPage = () => {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                         {/* Left Side: Image Showcase */}
-                        <div className="lg:col-span-7 order-2 lg:order-1 relative w-full">
-                            <div className="relative overflow-hidden group rounded-[2.2rem]">
+                        <div className="lg:col-span-7 order-2 lg:order-1 relative w-full mt-8 lg:mt-0">
+                            <div className="relative overflow-hidden group rounded-3xl lg:rounded-[2.2rem]">
                                 <img
                                     src="/products/WhatWeBuilt.png"
                                     alt="E-commerce Solutions Built by Frostrek"
-                                    className="w-full h-auto rounded-[2.2rem] transition-transform duration-700 ease-out group-hover:scale-[1.02] shadow-[0_20px_50px_rgba(45,106,79,0.06)]"
+                                    className="w-full h-auto rounded-3xl lg:rounded-[2.2rem] transition-transform duration-700 ease-out group-hover:scale-[1.02] shadow-[0_20px_50px_rgba(45,106,79,0.06)]"
                                 />
                             </div>
                         </div>
 
                         {/* Right Side: Feature Cards */}
                         <div className="lg:col-span-5 order-1 lg:order-2 flex flex-col justify-center">
-                            <div ref={featuresRef} className="flex flex-col gap-4">
+                            <div ref={featuresRef} className="flex flex-col gap-3 md:gap-4">
                                 {FEATURES.map((feature) => (
                                     <SpotlightCard
                                         key={feature.title}
-                                        className={`feature-card group relative overflow-hidden rounded-xl border p-6 transition-all duration-300 ${feature.bgColor} ${feature.border} ${feature.hoverShadow} hover:-translate-y-1`}
+                                        className={`feature-card group relative overflow-hidden rounded-xl border p-4 md:p-6 transition-all duration-300 ${feature.bgColor} ${feature.border} ${feature.hoverShadow} hover:-translate-y-1`}
                                         spotlightColor={feature.spotlight}
                                     >
-                                        <div className="relative z-10 flex gap-5 items-center">
-                                            <div className={`w-16 h-16 rounded-2xl border flex items-center justify-center flex-shrink-0 bg-white/40 ${feature.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
+                                        <div className="relative z-10 flex gap-3 md:gap-5 items-center">
+                                            <div className={`w-11 h-11 md:w-16 md:h-16 rounded-xl md:rounded-2xl border flex items-center justify-center flex-shrink-0 bg-white/40 ${feature.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
                                                 {typeof feature.icon === 'string' ? (
-                                                    <img src={feature.icon} alt={feature.title} className="w-9 h-9 object-contain" />
+                                                    <img src={feature.icon} alt={feature.title} className="w-5 h-5 md:w-9 md:h-9 object-contain" />
                                                 ) : (
                                                     (() => {
                                                         const IconComponent = feature.icon as React.ComponentType<any>;
@@ -502,8 +502,8 @@ const HiyringPage = () => {
                                                 )}
                                             </div>
                                             <div className="flex-1">
-                                                <h3 className="font-serif text-xl font-bold mb-1.5 text-black">{feature.title}</h3>
-                                                <p className="text-sm leading-relaxed text-gray-600 font-medium">{feature.description}</p>
+                                                <h3 className="font-serif text-[15px] md:text-xl font-bold mb-0.5 md:mb-1.5 text-black leading-tight">{feature.title}</h3>
+                                                <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600 font-medium">{feature.description}</p>
                                             </div>
                                         </div>
                                     </SpotlightCard>
@@ -515,7 +515,7 @@ const HiyringPage = () => {
             </section>
 
             {/* ═══════ SECTION 5 — TECH STACK ═══════ */}
-            <section className="py-24 bg-brand-light-bg relative z-10 overflow-hidden">
+            <section className="py-16 lg:py-24 bg-brand-light-bg relative z-10 overflow-hidden">
                 <div className="container mx-auto px-4 md:px-6 max-w-4xl">
                     <div className="text-center mb-16">
                         <SplitTextReveal
@@ -531,12 +531,12 @@ const HiyringPage = () => {
                 <div ref={techRef} className="relative w-full overflow-hidden py-8 group">
                     <div className="flex animate-[marquee_40s_linear_infinite] w-max group-hover:[animation-play-state:paused]">
                         {[...TECH_STACK_MARQUEE, ...TECH_STACK_MARQUEE].map((tech, i) => (
-                            <div key={i} className="flex flex-col items-center justify-center w-48 gap-6 mx-8">
-                                <div className="h-16 w-full flex items-center justify-center px-4">
+                            <div key={i} className="flex flex-col items-center justify-center w-24 md:w-48 gap-3 md:gap-6 mx-3 md:mx-8">
+                                <div className="h-10 md:h-16 w-full flex items-center justify-center px-2 md:px-4">
                                     <img src={tech.image} alt={tech.name} className="max-h-full max-w-full object-contain transition-all duration-300 drop-shadow-sm hover:scale-105" />
                                 </div>
                                 <div className="flex flex-col items-center">
-                                    <span className="text-[11px] font-bold uppercase tracking-widest text-black">{tech.category}</span>
+                                    <span className="text-[9px] md:text-[11px] font-bold uppercase tracking-widest text-black">{tech.category}</span>
                                 </div>
                             </div>
                         ))}
@@ -545,13 +545,13 @@ const HiyringPage = () => {
             </section>
 
             {/* ═══════ SECTION 6 — CTA BANNER ═══════ */}
-            <section className="py-24 relative overflow-hidden bg-brand-light-bg font-sans">
+            <section className="py-16 lg:py-24 relative overflow-hidden bg-brand-light-bg font-sans">
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-brand-badge-bg/80 rounded-full blur-[120px]" />
                     <div className="absolute bottom-0 right-0 w-[400px] h-[300px] bg-orange-50/60 rounded-full blur-[100px]" />
                 </div>
                 <div className="container mx-auto px-4 md:px-6 relative z-10 text-center max-w-[1400px]">
-                    <div className="max-w-4xl mx-auto bg-white p-10 md:p-16 rounded-[3rem] border border-[#E6EFE6] shadow-[0_20px_60px_rgba(45,106,79,0.04)]">
+                    <div className="max-w-4xl mx-auto bg-white p-8 sm:p-10 md:p-16 rounded-[2rem] md:rounded-[3rem] border border-[#E6EFE6] shadow-[0_20px_60px_rgba(45,106,79,0.04)]">
                         <div className="flex flex-col items-center">
                             <SplitTextReveal
                                 as="h2"
