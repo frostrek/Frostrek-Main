@@ -78,7 +78,7 @@ const Header = () => {
                             alt="Frostrek AI"
                             className="h-8 sm:h-9 w-auto object-contain transition-all duration-300 group-hover:scale-110"
                         />
-                        <FlipText className="text-xl sm:text-2xl font-black font-serif tracking-tighter text-[#2D6A4F]">
+                        <FlipText className="text-xl sm:text-2xl font-black font-sans font-bold text-[#2D6A4F]">
                             frostrek.ai
                         </FlipText>
                     </Link>

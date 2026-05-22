@@ -1106,7 +1106,7 @@ const About = () => {
                             Pioneering enterprise AI software built for compliance, scale, and high-performance outcomes.
                         </motion.p>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
                             {[
                                 { value: 5000, suffix: '+', label: 'Training Sessions', textColor: 'text-[#0284C7]', glowColor: '#0284C7', hoverBg: 'bg-[#F0F9FF]', hoverBorder: 'border-[#0284C7]/40', normalBorder: 'border-[#0284C7]/15' },
                                 { value: 200, suffix: '+', label: 'AI Specialists', textColor: 'text-[#2D6A4F]', glowColor: '#2D6A4F', hoverBg: 'bg-[#F0FDF4]', hoverBorder: 'border-[#2D6A4F]/40', normalBorder: 'border-[#2D6A4F]/15' },
@@ -1132,7 +1132,7 @@ const About = () => {
             {/* ===== PURPOSE / GROWTH SECTION ===== */}
             <section className="py-16 md:py-24 overflow-hidden relative z-10">
                 <div className="container mx-auto px-4">
-                    <div className="grid lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
+                    <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center max-w-7xl mx-auto">
                         {/* Left Content */}
                         <motion.div
                             initial="hidden"
@@ -1291,7 +1291,7 @@ const About = () => {
 
                             {/* Decorative "Our People" floating chip */}
                             <motion.div
-                                className="absolute -top-3 -right-3 z-10"
+                                className="absolute -top-3 -right-3 z-10 hidden sm:block"
                                 initial={{ opacity: 0, scale: 0.8, rotate: -8 }}
                                 whileInView={{ opacity: 1, scale: 1, rotate: 6 }}
                                 viewport={{ once: true }}
@@ -1307,9 +1307,9 @@ const About = () => {
             </section>
 
             {/* ===== TIMELINE SECTION ===== */}
-            <section className="py-16 md:py-24 relative overflow-hidden z-10">
+            <section className="py-10 md:py-24 relative overflow-hidden z-10">
                 <div className="container mx-auto px-4">
-                    <div className="text-center mb-16 space-y-3">
+                    <div className="text-center mb-10 md:mb-16 space-y-2 md:space-y-3">
                         <SplitTextReveal
                             as="h2"
                             className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#2D6A4F]"
@@ -1344,7 +1344,7 @@ const About = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, margin: "-40px" }}
                                     transition={{ delay: i * 0.08, duration: 0.5 }}
-                                    className={`relative flex items-center gap-8 mb-16 last:mb-0 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
+                                    className={`relative flex items-center gap-3 md:gap-8 mb-8 md:mb-16 last:mb-0 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
                                 >
                                     {/* Timeline Dot */}
                                     <div
@@ -1363,20 +1363,20 @@ const About = () => {
                                     </div>
 
                                     {/* Content Card with perfect contrast */}
-                                    <div className={`ml-12 md:ml-0 md:w-1/2 ${i % 2 === 0 ? 'md:pr-12 text-left md:text-right' : 'md:pl-12 text-left'}`}>
+                                    <div className={`ml-10 md:ml-0 md:w-1/2 ${i % 2 === 0 ? 'md:pr-12 text-left md:text-right' : 'md:pl-12 text-left'}`}>
                                         <motion.div
-                                            className="bg-white rounded-2xl border border-gray-100 shadow-md p-6 cursor-pointer"
+                                            className="bg-white rounded-xl md:rounded-2xl border border-gray-100 shadow-md p-4 md:p-6 cursor-pointer"
                                             whileHover={{ y: -3, boxShadow: '0 12px 30px rgba(45,106,79,0.08)' }}
                                         >
-                                            <div className={`flex flex-col gap-2 ${i % 2 === 0 ? 'md:items-end' : 'md:items-start'}`}>
+                                            <div className={`flex flex-col gap-1.5 md:gap-2 ${i % 2 === 0 ? 'md:items-end' : 'md:items-start'}`}>
                                                 <div className="flex items-center gap-2 mb-1">
                                                     <span className="px-3 py-0.5 rounded-full text-xs font-bold bg-[#E8F5EE] border border-[#2D6A4F]/20 text-[#2D6A4F] font-body">
                                                         {item.year}
                                                     </span>
                                                     <item.icon className="w-4 h-4 text-[#2D6A4F]" />
                                                 </div>
-                                                <h3 className="text-xl font-serif font-semibold text-gray-900">{item.title}</h3>
-                                                <p className="text-slate-600 text-sm leading-relaxed font-body font-medium">
+                                                <h3 className="text-base md:text-xl font-serif font-semibold text-gray-900">{item.title}</h3>
+                                                <p className="text-slate-600 text-xs md:text-sm leading-relaxed font-body font-medium">
                                                     {item.description}
                                                 </p>
                                             </div>
@@ -1439,7 +1439,7 @@ const About = () => {
                         <p className="text-slate-600 font-body font-semibold">The foundations powering our platform</p>
                     </div>
 
-                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-5xl mx-auto">
                         {values.map((v, i) => (
                             <motion.div key={i} variants={fadeUp}>
                                 <TiltCard className="group" hoverBg={v.hoverBg} hoverBorder={v.hoverBorder} normalBorder={v.normalBorder} glowColor={v.glowColor}>
@@ -1474,9 +1474,9 @@ const About = () => {
                         <p className="text-slate-600 font-body font-semibold">Our unique platform advantages</p>
                     </div>
 
-                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto">
                         {features.map((f, i) => (
-                            <motion.div key={i} variants={fadeUp} className="perspective-1000" style={{ height: '280px' }}>
+                            <motion.div key={i} variants={fadeUp} className="perspective-1000 h-[300px] sm:h-[280px]">
                                 <div
                                     className="relative w-full h-full cursor-pointer"
                                     style={{ transformStyle: 'preserve-3d' }}
@@ -1587,7 +1587,7 @@ const About = () => {
                     </div>
 
                     <div className="max-w-[1200px] mx-auto">
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
                             {offices.map((o, i) => (
                                 <motion.div
                                     key={i}
@@ -1595,7 +1595,7 @@ const About = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: i * 0.08 }}
-                                    className="group bg-white rounded-2xl border border-gray-100 shadow-md overflow-hidden flex flex-col justify-between h-[450px]"
+                                    className="group bg-white rounded-2xl border border-gray-100 shadow-md overflow-hidden flex flex-col justify-between h-[400px] sm:h-[450px]"
                                 >
                                     {/* Image block with hover directions */}
                                     <div className="h-[60%] overflow-hidden relative group">

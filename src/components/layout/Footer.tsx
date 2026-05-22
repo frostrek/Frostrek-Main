@@ -127,7 +127,7 @@ const Footer = () => {
                       alt="Frostrek AI Logo"
                       className="h-9 w-auto transition-transform group-hover:scale-110"
                     />
-                    <FlipText className="text-[1.35rem] font-black font-serif tracking-tighter text-[#2D6A4F]">
+                    <FlipText className="text-[1.35rem] font-black font-sans font-bold text-[#2D6A4F]">
                       frostrek.ai
                     </FlipText>
                   </Link>

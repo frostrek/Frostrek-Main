@@ -167,41 +167,41 @@ const InnovationProcess = () => {
 
     return (
         <div 
-            className="grid lg:grid-cols-12 gap-10 items-stretch max-w-7xl mx-auto text-left"
+            className="grid lg:grid-cols-12 gap-6 lg:gap-10 items-stretch max-w-7xl mx-auto text-left"
             onMouseEnter={() => setPaused(true)}
             onMouseLeave={() => setPaused(false)}
         >
             {/* Left side: Interactive Timeline Control */}
-            <div className="lg:col-span-5 flex flex-col justify-center space-y-4">
+            <div className="lg:col-span-5 flex lg:flex-col justify-start lg:justify-center gap-3 lg:gap-0 lg:space-y-4 overflow-x-auto pb-2 lg:pb-0 snap-x snap-mandatory scrollbar-hide">
                 {STEPS.map((step) => {
                     const isSelected = step.id === activeStep;
                     return (
                         <div
                             key={step.id}
                             onClick={() => setActiveStep(step.id)}
-                            className={`group relative p-5 rounded-2xl cursor-pointer border-2 transition-all duration-300 flex items-center gap-4 ${
+                            className={`group relative p-3 lg:p-5 rounded-2xl cursor-pointer border-2 transition-all duration-300 flex items-center gap-3 lg:gap-4 min-w-[200px] lg:min-w-0 snap-start shrink-0 lg:shrink ${
                                 isSelected
                                     ? `${step.tabColorActive} ${step.activeBorder} ${step.shadow} scale-[1.02]`
                                     : `${step.tabColor} border-transparent shadow-sm hover:shadow-md hover:${step.tabColorActive}`
                             }`}
                         >
-                            <div className="w-12 h-12 rounded-xl transition-all duration-300 shrink-0 flex items-center justify-center border bg-white border-white shadow-sm shadow-black/5 group-hover:shadow-md">
+                            <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-xl transition-all duration-300 shrink-0 flex items-center justify-center border bg-white border-white shadow-sm shadow-black/5 group-hover:shadow-md">
                                 <img
                                     src={step.icon}
                                     alt={step.title}
-                                    className={`w-7 h-7 object-contain transition-all duration-300 ${
+                                    className={`w-6 h-6 lg:w-7 lg:h-7 object-contain transition-all duration-300 ${
                                         isSelected ? 'opacity-100 scale-105' : 'opacity-70 group-hover:opacity-100'
                                     }`}
                                 />
                             </div>
 
-                            <div className="space-y-1 flex-1">
+                            <div className="space-y-0.5 lg:space-y-1 flex-1 min-w-0">
                                 <span className={`text-[10px] font-bold tracking-widest font-body uppercase transition-colors duration-300 ${
                                     isSelected ? step.textColor : 'text-gray-400'
                                 }`}>
                                     {step.label}
                                 </span>
-                                <h3 className={`font-serif text-lg font-bold transition-colors duration-300 ${
+                                <h3 className={`font-serif text-sm lg:text-lg font-bold transition-colors duration-300 leading-tight ${
                                     isSelected ? 'text-gray-950 font-black' : 'text-gray-600 group-hover:text-gray-800'
                                 }`}>
                                     {step.title}
@@ -214,7 +214,7 @@ const InnovationProcess = () => {
 
             {/* Right side: Sandbox / Dynamic Calling Agents - Dynamic Gradient Theme */}
             <div className="lg:col-span-7">
-                <div className={`rounded-3xl border border-gray-150 p-6 sm:p-8 shadow-xl relative overflow-hidden h-full flex flex-col justify-between min-h-[440px] transition-all duration-500 ${activeData.rightBgGradient}`}>
+                <div className={`rounded-3xl border border-gray-150 p-4 sm:p-6 lg:p-8 shadow-xl relative overflow-hidden h-full flex flex-col justify-between min-h-[360px] lg:min-h-[440px] transition-all duration-500 ${activeData.rightBgGradient}`}>
                     {/* Background Soft Accents */}
                     <div className="absolute top-0 right-0 w-64 h-64 bg-white/40 rounded-full blur-3xl pointer-events-none" />
                     <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/20 rounded-full blur-3xl pointer-events-none" />
@@ -321,7 +321,7 @@ const InnovationProcess = () => {
                                                 <span className="text-red-700 font-bold flex items-center gap-1.5"><ShieldAlert size={13} /> Safety & Stress Benchmarks</span>
                                                 <span className="text-gray-400">Run ID: #982-STRESS</span>
                                             </div>
-                                            <div className="grid grid-cols-2 gap-3 text-[11px] font-bold">
+                                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-[11px] font-bold">
                                                 <div className={`bg-white p-2.5 rounded border shadow-sm ${activeData.simBorder}`}>
                                                     <div className="text-gray-500 text-[10px] mb-0.5">Prompt Injection</div>
                                                     <div className="text-emerald-600">100% BLOCKED</div>
@@ -385,7 +385,7 @@ const InnovationProcess = () => {
                     </div>
 
                     {/* Interactive Sandbox Navigation Footer strip */}
-                    <div className="flex items-center justify-between border-t border-gray-100 pt-4 mt-6 flex-shrink-0 text-[10px] font-mono text-gray-400 font-bold relative z-10">
+                    <div className="flex items-center justify-between flex-wrap gap-2 border-t border-gray-100 pt-4 mt-6 flex-shrink-0 text-[10px] font-mono text-gray-400 font-bold relative z-10">
                         <span>Click steps to simulate pipeline</span>
                         <span className="flex items-center gap-1">
                             <Sparkles size={11} className={activeData.simTitleColor} /> Multi-Agent Playground v1.0
