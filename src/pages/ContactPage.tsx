@@ -149,7 +149,7 @@ ${formData.projectDetails}
             </div>
 
             <div className="container mx-auto px-4 lg:px-8 relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-start">
 
                     {/* Left Side: Information & Branding */}
                     <motion.div
@@ -166,7 +166,7 @@ ${formData.projectDetails}
                             </div>
 
                             <div className="flex flex-col">
-                                <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-[#2D6A4F] leading-[1.1] tracking-[-0.01em]">
+                                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-[#2D6A4F] leading-[1.1] tracking-[-0.01em]">
                                     <SplitTextReveal as="span" type="chars" stagger={0.03} once={false} trigger="load">
                                         Let's Start a Conversation
                                     </SplitTextReveal>
@@ -188,73 +188,60 @@ ${formData.projectDetails}
                         {/* Contact Methods Container */}
                         <div className="space-y-6 max-w-xl">
                             {/* Call & Direct Contact Details */}
-                            <div className="p-8 rounded-3xl bg-white border border-[#2D6A4F]/10 shadow-xl shadow-gray-100/50 space-y-6">
+                            <div className="p-5 sm:p-8 rounded-3xl bg-white border border-[#2D6A4F]/10 shadow-xl shadow-gray-100/50 space-y-6">
                                 <div className="border-b border-gray-100 pb-4">
                                     <h3 className="text-2xl font-serif font-semibold text-gray-900">Direct Connect</h3>
                                 </div>
 
-                                {/* CALL US Feature Card */}
-                                <a
-                                    href="tel:+916399999955"
-                                    className="flex items-center justify-between gap-4 p-5 rounded-2xl bg-[#FFF7ED] border border-[#FFEDD5] hover:border-[#EA580C]/35 text-gray-900 shadow-lg shadow-orange-100/30 transition-all duration-300 transform hover:scale-[1.01] group"
-                                >
-                                    <div className="flex items-center gap-4">
-                                        <div className="p-3 rounded-xl bg-white/40 border border-white/60 flex items-center justify-center shadow-sm backdrop-blur-[2px] transition-all duration-300 group-hover:scale-110">
-                                            <img src="/icons/phone-call.png" alt="Phone" className="w-6 h-6 object-contain" />
-                                        </div>
-                                        <div>
-                                            <h4 className="font-bold text-xs text-[#EA580C] uppercase tracking-wider font-body leading-none mb-1">Call Us</h4>
-                                            <p className="font-serif font-bold text-lg md:text-xl text-gray-900 tracking-wide">+91 6399999955</p>
-                                        </div>
-                                    </div>
-                                    <div className="w-10 h-10 rounded-full flex items-center justify-center bg-[#EA580C]/10 group-hover:bg-[#EA580C]/20 transition-all">
-                                        <ArrowRight className="w-5 h-5 text-[#EA580C] group-hover:translate-x-1 transition-transform" />
-                                    </div>
-                                </a>
-
-                                {/* Row for Email and WhatsApp */}
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div className="grid grid-cols-3 gap-2 sm:gap-4">
+                                    {/* CALL US */}
                                     <a
-                                        href="mailto:contact@frostrek.ai"
-                                        className="flex items-center justify-between gap-3 p-4 rounded-2xl bg-[#F0F9FF] border border-[#E0F2FE] hover:border-[#0284C7]/35 hover:bg-[#F0F9FF]/80 transition-all duration-300 group shadow-sm hover:shadow-md"
+                                        href="tel:+916399999955"
+                                        className="flex flex-col items-center justify-center text-center gap-2 sm:gap-3 p-3 sm:p-5 rounded-2xl bg-[#FFF7ED] border border-[#FFEDD5] hover:border-[#EA580C]/35 shadow-sm hover:shadow-md transition-all duration-300 group"
                                     >
-                                        <div className="flex items-center gap-3 min-w-0 flex-1">
-                                            <div className="p-2.5 rounded-xl bg-white/40 border border-white/60 flex items-center justify-center shadow-sm backdrop-blur-[2px] transition-all duration-300 group-hover:scale-110 flex-shrink-0">
-                                                <img src="/icons/email.png" alt="Email" className="w-5 h-5 object-contain" />
-                                            </div>
-                                            <div className="min-w-0 flex-1">
-                                                <h4 className="font-bold text-xs text-[#0284C7] mb-0.5 font-body uppercase tracking-wider">Email Us</h4>
-                                                <p className="text-sm text-slate-700 font-semibold truncate">contact@frostrek.ai</p>
-                                            </div>
+                                        <div className="p-2 sm:p-3 rounded-xl bg-white/40 border border-white/60 flex items-center justify-center shadow-sm backdrop-blur-[2px] transition-all duration-300 group-hover:scale-110">
+                                            <img src="/icons/phone-call.png" alt="Phone" className="w-5 h-5 sm:w-6 sm:h-6 object-contain" />
                                         </div>
-                                        <div className="w-7 h-7 rounded-full flex items-center justify-center bg-[#0284C7]/10 group-hover:bg-[#0284C7]/20 transition-all flex-shrink-0">
-                                            <ArrowRight className="w-3.5 h-3.5 text-[#0284C7] group-hover:translate-x-0.5 transition-transform" />
+                                        <div className="w-full">
+                                            <h4 className="font-bold text-[9px] sm:text-xs text-[#EA580C] uppercase tracking-wider font-body leading-none mb-1 sm:mb-1.5 truncate">Call Us</h4>
+                                            <p className="font-serif font-bold text-[10px] sm:text-sm md:text-base text-gray-900 tracking-wide w-full truncate">+91 6399999955</p>
                                         </div>
                                     </a>
+
+                                    {/* EMAIL US */}
+                                    <a
+                                        href="mailto:contact@frostrek.ai"
+                                        className="flex flex-col items-center justify-center text-center gap-2 sm:gap-3 p-3 sm:p-5 rounded-2xl bg-[#F0F9FF] border border-[#E0F2FE] hover:border-[#0284C7]/35 shadow-sm hover:shadow-md transition-all duration-300 group"
+                                    >
+                                        <div className="p-2 sm:p-3 rounded-xl bg-white/40 border border-white/60 flex items-center justify-center shadow-sm backdrop-blur-[2px] transition-all duration-300 group-hover:scale-110">
+                                            <img src="/icons/email.png" alt="Email" className="w-5 h-5 sm:w-6 sm:h-6 object-contain" />
+                                        </div>
+                                        <div className="w-full">
+                                            <h4 className="font-bold text-[9px] sm:text-xs text-[#0284C7] uppercase tracking-wider font-body leading-none mb-1 sm:mb-1.5 truncate">Email Us</h4>
+                                            <p className="font-serif font-bold text-[10px] sm:text-sm md:text-base text-gray-900 tracking-wide w-full truncate">contact@frostrek.ai</p>
+                                        </div>
+                                    </a>
+
+                                    {/* WHATSAPP */}
                                     <a
                                         href="https://wa.me/17574722491"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex items-center justify-between gap-3 p-4 rounded-2xl bg-[#F0FDF4] border border-[#E8F5EE] hover:border-[#2D6A4F]/35 hover:bg-[#F0FDF4]/80 transition-all duration-300 group shadow-sm hover:shadow-md"
+                                        className="flex flex-col items-center justify-center text-center gap-2 sm:gap-3 p-3 sm:p-5 rounded-2xl bg-[#F0FDF4] border border-[#E8F5EE] hover:border-[#2D6A4F]/35 shadow-sm hover:shadow-md transition-all duration-300 group"
                                     >
-                                        <div className="flex items-center gap-3 min-w-0 flex-1">
-                                            <div className="p-2.5 rounded-xl bg-white/40 border border-white/60 flex items-center justify-center shadow-sm backdrop-blur-[2px] transition-all duration-300 group-hover:scale-110 flex-shrink-0">
-                                                <img src="/icons/chat.png" alt="Chat" className="w-5 h-5 object-contain" />
-                                            </div>
-                                            <div className="min-w-0 flex-1">
-                                                <h4 className="font-bold text-xs text-[#2D6A4F] mb-0.5 font-body uppercase tracking-wider">WhatsApp (US)</h4>
-                                                <p className="text-sm text-slate-700 font-semibold truncate">+1 757 472 2491</p>
-                                            </div>
+                                        <div className="p-2 sm:p-3 rounded-xl bg-white/40 border border-white/60 flex items-center justify-center shadow-sm backdrop-blur-[2px] transition-all duration-300 group-hover:scale-110">
+                                            <img src="/icons/chat.png" alt="Chat" className="w-5 h-5 sm:w-6 sm:h-6 object-contain" />
                                         </div>
-                                        <div className="w-7 h-7 rounded-full flex items-center justify-center bg-[#2D6A4F]/10 group-hover:bg-[#2D6A4F]/20 transition-all flex-shrink-0">
-                                            <ArrowRight className="w-3.5 h-3.5 text-[#2D6A4F] group-hover:translate-x-0.5 transition-transform" />
+                                        <div className="w-full">
+                                            <h4 className="font-bold text-[9px] sm:text-xs text-[#2D6A4F] uppercase tracking-wider font-body leading-none mb-1 sm:mb-1.5 truncate">WhatsApp</h4>
+                                            <p className="font-serif font-bold text-[10px] sm:text-sm md:text-base text-gray-900 tracking-wide w-full truncate">+1 757 472 2491</p>
                                         </div>
                                     </a>
                                 </div>
                             </div>
 
                             {/* GLOBAL OFFICES Section */}
-                            <div className="p-8 rounded-3xl bg-white border border-[#2D6A4F]/10 shadow-xl shadow-gray-100/50">
+                            <div className="p-5 sm:p-8 rounded-3xl bg-white border border-[#2D6A4F]/10 shadow-xl shadow-gray-100/50">
                                 <div className="flex items-center gap-2 mb-6 border-b border-gray-100 pb-4">
                                     <h3 className="text-2xl font-serif font-semibold text-gray-900">
                                         Global Offices
@@ -313,7 +300,7 @@ ${formData.projectDetails}
                                                     {office.address}
                                                 </p>
                                             </div>
-                                            <div className={`opacity-0 group-hover:opacity-100 transition-all ${office.arrowText}`}>
+                                            <div className={`opacity-0 group-hover:opacity-100 transition-all shrink-0 ${office.arrowText}`}>
                                                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                             </div>
                                         </a>
@@ -329,7 +316,7 @@ ${formData.projectDetails}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
                     >
-                        <div className="p-8 sm:p-10 rounded-3xl border shadow-2xl bg-white border-[#2D6A4F]/10 shadow-[#2D6A4F]/5">
+                        <div className="p-5 sm:p-8 md:p-10 rounded-3xl border shadow-2xl bg-white border-[#2D6A4F]/10 shadow-[#2D6A4F]/5">
 
                             {!isSuccess ? (
                                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -339,7 +326,7 @@ ${formData.projectDetails}
                                     </div>
 
                                     {/* Name Row */}
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                    <div className="grid grid-cols-2 gap-4 sm:gap-5">
                                         <InputGroup
                                             label="First name*"
                                             name="firstName"
@@ -357,7 +344,7 @@ ${formData.projectDetails}
                                     </div>
 
                                     {/* Company Details Row */}
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                    <div className="grid grid-cols-2 gap-4 sm:gap-5">
                                         <InputGroup
                                             label="Company name"
                                             name="company"
@@ -392,7 +379,7 @@ ${formData.projectDetails}
                                             Who are you trying to reach?<span className="text-red-500">*</span>
                                         </label>
 
-                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                                        <div className="grid grid-cols-2 gap-3.5">
                                             {[
                                                 { label: "Sales Enquiry", activeClass: "bg-[#F0F9FF]/50 border-[#0284C7] shadow-sm", defaultBorder: "border-[#0284C7]/15", hoverClass: "hover:border-[#0284C7]/35 hover:bg-[#F0F9FF]/10", dotClass: "border-[#0284C7]", innerDotClass: "bg-[#0284C7]" },
                                                 { label: "Project Enquiry", activeClass: "bg-[#F0FDF4]/50 border-[#2D6A4F] shadow-sm", defaultBorder: "border-[#2D6A4F]/15", hoverClass: "hover:border-[#2D6A4F]/35 hover:bg-[#F0FDF4]/10", dotClass: "border-[#2D6A4F]", innerDotClass: "bg-[#2D6A4F]" },
@@ -406,7 +393,7 @@ ${formData.projectDetails}
                                                     <label
                                                         key={option.label}
                                                         className={`
-                                                            flex items-center gap-3 p-3.5 rounded-2xl border-2 cursor-pointer transition-all duration-300
+                                                            flex items-center gap-2 sm:gap-3 p-3 sm:p-3.5 rounded-2xl border-2 cursor-pointer transition-all duration-300
                                                             ${isSelected
                                                                 ? option.activeClass
                                                                 : `bg-[#FAFCFB] ${option.defaultBorder} ${option.hoverClass}`}
