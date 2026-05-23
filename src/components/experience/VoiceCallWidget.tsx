@@ -1,8 +1,12 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, PhoneOff, Mic, MicOff, Volume2, Loader2, Sparkles } from 'lucide-react';
-
-const API_KEY = import.meta.env.VITE_FROSTREK_BOT_API_KEY || "";
+import {
+    FROSTY_API_KEY,
+    getTenantId,
+    getVoiceCallWsUrl,
+    getWebsiteSessionId,
+} from '../../utils/frostyApi';
 
 interface VoiceCallWidgetProps {
     onCallStateChange?: (isActive: boolean) => void;
@@ -20,7 +24,7 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
 
     // Ref to track call active state for async callbacks
     const isCallActiveRef = useRef(false);
-    const tenantIdRef = useRef<string>("default");
+    const tenantIdRef = useRef<string>('default');
 
     // Audio recording refs
     const callWsRef = useRef<WebSocket | null>(null);
@@ -42,22 +46,8 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
     }, []);
 
     const ensureTenantContext = async () => {
-        if (tenantIdRef.current && tenantIdRef.current !== "default") return;
-        try {
-            const res = await fetch(`https://bot.frostrek.com/bot-api/tenant/bot-config`, {
-                headers: {
-                    "x-api-key": API_KEY,
-                },
-            });
-            if (!res.ok) return;
-            const data = await res.json();
-            const tenantId = String(data?.tenant_id || data?.tenant?.tenant_id || "").trim();
-            if (tenantId) {
-                tenantIdRef.current = tenantId;
-            }
-        } catch {
-            // keep fallback
-        }
+        const tenantId = await getTenantId();
+        tenantIdRef.current = tenantId;
     };
 
     const generateSessionId = () => {
@@ -69,9 +59,8 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
         return sid;
     };
 
-    const getBridgedSessionId = (sid: string) => {
-        return `${tenantIdRef.current}--website--${sid}`;
-    };
+    const getBridgedSessionId = (sid: string) =>
+        getWebsiteSessionId(tenantIdRef.current, sid);
 
     // Audio level visualization
     const updateAudioLevel = useCallback(() => {
@@ -160,8 +149,14 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
 
     // Start the voice call
     const startCall = async () => {
+        if (!FROSTY_API_KEY) {
+            setAiResponse('Voice agent is not configured. Please set VITE_FROSTREK_BOT_API_KEY.');
+            return;
+        }
+
         try {
             setCallStatus('connecting');
+            setIsLoading(true);
             setAiResponse('');
             setTranscript('');
 
@@ -181,16 +176,15 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
             onCallStateChange?.(true);
 
             await ensureTenantContext();
-            
+
             const sid = getBridgedSessionId(generateSessionId());
-            const wsUrl = `wss://bot.frostrek.com/bot-api/ws/voice-call/${encodeURIComponent(sid)}`;
-            const ws = new WebSocket(wsUrl);
+            const ws = new WebSocket(getVoiceCallWsUrl(sid));
             callWsRef.current = ws;
 
-            ws.binaryType = "arraybuffer";
+            ws.binaryType = 'arraybuffer';
 
             ws.onopen = () => {
-                ws.send(JSON.stringify({ api_key: API_KEY }));
+                ws.send(JSON.stringify({ api_key: FROSTY_API_KEY }));
             };
 
             ws.onmessage = async (event) => {
@@ -230,9 +224,10 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
                         case "audio_end":
                             _playCallAudio();
                             break;
-                        case "error":
-                            console.error("[CALL] Server error:", msg.message);
-                            setAiResponse("Sorry, I'm having trouble connecting. Please try again.");
+                        case 'error':
+                            console.error('[CALL] Server error:', msg.message);
+                            setAiResponse(msg.message || "Sorry, I'm having trouble connecting. Please try again.");
+                            setIsLoading(false);
                             endCall();
                             break;
                     }
@@ -248,13 +243,16 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
             };
 
             ws.onerror = () => {
-                console.error("[CALL] WebSocket error");
+                console.error('[CALL] WebSocket error');
+                setAiResponse("Connection failed. Please try again.");
+                setIsLoading(false);
                 endCall();
             };
 
         } catch (error) {
-            console.error('🎤 Error starting call:', error);
+            console.error('Error starting call:', error);
             setCallStatus('idle');
+            setIsLoading(false);
             alert('Cannot access microphone. Please check permissions.');
         }
     };

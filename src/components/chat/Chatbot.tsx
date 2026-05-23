@@ -1,8 +1,15 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, useDragControls } from 'framer-motion';
 import { X, Send, Mic, Square, Paperclip, Trash2, Minus, MessageCircle, XCircle } from 'lucide-react';
+import {
+    buildVoiceFormData,
+    getTenantId,
+    getWebsiteSessionId,
+    playTtsStream,
+    postChatStream,
+} from '../../utils/frostyApi';
 
-// Webhook URL
+// Legacy webhook for image uploads only
 const WEBHOOK_URL = 'https://n8n.frostrek.com/webhook/cac2fab9-d171-4d67-8587-9ac8d834f436';
 
 // --- ID Helpers ---
@@ -204,20 +211,40 @@ const Chatbot: React.FC = () => {
             const messageId = crypto.randomUUID();
 
             if (audioBlob) {
-                // Voice: multipart/form-data
-                const formData = new FormData();
-                formData.append('audio', audioBlob, 'voice-message.webm');
-                formData.append('user_id', userId);
-                formData.append('session_id', sessionId);
-                formData.append('conversation_id', conversationId);
-                formData.append('message_id', messageId);
-                formData.append('message', '[Voice message]');
-                formData.append('type', 'voice');
+                const tenantId = await getTenantId();
+                const bridgedSession = getWebsiteSessionId(tenantId, sessionId);
+                setMessages(prev => [...prev, { type: 'bot', content: '' }]);
 
-                response = await fetch(WEBHOOK_URL, {
-                    method: 'POST',
-                    body: formData,
-                });
+                const reply = await postChatStream(
+                    buildVoiceFormData(audioBlob, bridgedSession),
+                    {
+                        onToken: (token) => {
+                            setMessages((prev) => {
+                                const updated = [...prev];
+                                const lastIdx = updated.length - 1;
+                                updated[lastIdx] = {
+                                    ...updated[lastIdx],
+                                    content: updated[lastIdx].content + token,
+                                };
+                                return updated;
+                            });
+                        },
+                        onFinal: (finalReply) => {
+                            setMessages((prev) => {
+                                const updated = [...prev];
+                                const lastIdx = updated.length - 1;
+                                updated[lastIdx] = {
+                                    ...updated[lastIdx],
+                                    content: finalReply,
+                                };
+                                return updated;
+                            });
+                        },
+                    }
+                );
+
+                if (reply) await playTtsStream(reply);
+                return;
             } else if (selectedFile) {
                 // Image: multipart/form-data
                 const formData = new FormData();
@@ -234,75 +261,40 @@ const Chatbot: React.FC = () => {
                     body: formData,
                 });
             } else {
-                // Text: application/json - Using New Frostrek Bot API with Streaming
+                const tenantId = await getTenantId();
                 setMessages(prev => [...prev, { type: 'bot', content: '' }]);
 
-                const streamRes = await fetch('https://bot.frostrek.com/bot-api/chat/stream', {
-                    method: 'POST',
-                    headers: { 
-                        'Content-Type': 'application/json',
-                        'x-api-key': import.meta.env.VITE_FROSTREK_BOT_API_KEY || ''
-                    },
-                    body: JSON.stringify({
+                await postChatStream(
+                    {
                         message: textInput || '',
-                        session_id: `default--website--${sessionId}`,
-                        channel: 'website'
-                    }),
-                });
-
-                if (!streamRes.ok) throw new Error('Network response was not ok');
-
-                const reader = streamRes.body!.getReader();
-                const decoder = new TextDecoder("utf-8");
-                let buffer = "";
-
-                while (true) {
-                    const { done, value } = await reader.read();
-                    if (done) break;
-
-                    buffer += decoder.decode(value, { stream: true });
-                    const parts = buffer.split("\n\n");
-                    buffer = parts.pop() || "";
-
-                    for (const part of parts) {
-                        if (part.startsWith("data: ")) {
-                            const jsonStr = part.replace("data: ", "").trim();
-                            if (!jsonStr) continue;
-
-                            try {
-                                const data = JSON.parse(jsonStr);
-                                
-                                if (data.token) {
-                                    setMessages((prev) => {
-                                        const updated = [...prev];
-                                        const lastIdx = updated.length - 1;
-                                        updated[lastIdx] = {
-                                            ...updated[lastIdx],
-                                            content: updated[lastIdx].content + data.token,
-                                        };
-                                        return updated;
-                                    });
-                                }
-
-                                if (data.final && data.final.reply) {
-                                    setMessages((prev) => {
-                                        const updated = [...prev];
-                                        const lastIdx = updated.length - 1;
-                                        updated[lastIdx] = {
-                                            ...updated[lastIdx],
-                                            content: data.final.reply,
-                                        };
-                                        return updated;
-                                    });
-                                }
-                            } catch (e) {
-                                // ignore
-                            }
-                        }
+                        session_id: getWebsiteSessionId(tenantId, sessionId),
+                        channel: 'website',
+                    },
+                    {
+                        onToken: (token) => {
+                            setMessages((prev) => {
+                                const updated = [...prev];
+                                const lastIdx = updated.length - 1;
+                                updated[lastIdx] = {
+                                    ...updated[lastIdx],
+                                    content: updated[lastIdx].content + token,
+                                };
+                                return updated;
+                            });
+                        },
+                        onFinal: (finalReply) => {
+                            setMessages((prev) => {
+                                const updated = [...prev];
+                                const lastIdx = updated.length - 1;
+                                updated[lastIdx] = {
+                                    ...updated[lastIdx],
+                                    content: finalReply,
+                                };
+                                return updated;
+                            });
+                        },
                     }
-                }
-                
-                // Return early so we bypass the legacy webhook response parsing below
+                );
                 return;
             }
 

@@ -1,18 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Send, Mic, Square } from 'lucide-react';
-
-const WEBHOOK_URL = 'https://n8n.frostrek.com/webhook/cac2fab9-d171-4d67-8587-9ac8d834f436';
-
-// --- ID Helpers ---
-function getOrCreateUserId(): string {
-    let userId = localStorage.getItem('user_id');
-    if (!userId) {
-        userId = 'UID-' + crypto.randomUUID();
-        localStorage.setItem('user_id', userId);
-    }
-    return userId;
-}
+import {
+    buildVoiceFormData,
+    getTenantId,
+    getWebsiteSessionId,
+    playTtsStream,
+    postChatStream,
+} from '../../utils/frostyApi';
 
 function getOrCreateSessionId(): string {
     let sessionId = sessionStorage.getItem('session_id');
@@ -36,10 +31,7 @@ const ChatbotDemo: React.FC = () => {
     ]);
     const [isLoading, setIsLoading] = useState(false);
 
-    // Persistent IDs
-    const [userId] = useState<string>(() => getOrCreateUserId());
     const [sessionId] = useState<string>(() => getOrCreateSessionId());
-    const [conversationId] = useState<string>(() => crypto.randomUUID());
 
     // Audio Recording State
     const [isRecording, setIsRecording] = useState(false);
@@ -119,130 +111,77 @@ const ChatbotDemo: React.FC = () => {
         }
 
         try {
-            const messageId = crypto.randomUUID();
-            let response;
+            const tenantId = await getTenantId();
+            const bridgedSession = getWebsiteSessionId(tenantId, sessionId);
 
             if (textInput) {
-                // Add an empty bot message placeholder for streaming
                 setMessages(prev => [...prev, { type: 'bot', content: '' }]);
 
-                const response = await fetch('https://bot.frostrek.com/bot-api/chat/stream', {
-                    method: 'POST',
-                    headers: { 
-                        'Content-Type': 'application/json',
-                        'x-api-key': import.meta.env.VITE_FROSTREK_BOT_API_KEY || ''
-                    },
-                    body: JSON.stringify({
+                await postChatStream(
+                    {
                         message: textInput,
-                        session_id: `default--website--${sessionId}`,
-                        channel: 'website'
-                    }),
-                });
-
-                if (!response.ok) throw new Error('Network response was not ok');
-
-                const reader = response.body!.getReader();
-                const decoder = new TextDecoder("utf-8");
-                let buffer = "";
-
-                while (true) {
-                    const { done, value } = await reader.read();
-                    if (done) break;
-
-                    buffer += decoder.decode(value, { stream: true });
-                    const parts = buffer.split("\n\n");
-                    buffer = parts.pop() || "";
-
-                    for (const part of parts) {
-                        if (part.startsWith("data: ")) {
-                            const jsonStr = part.replace("data: ", "").trim();
-                            if (!jsonStr) continue;
-
-                            try {
-                                const data = JSON.parse(jsonStr);
-                                
-                                if (data.token) {
-                                    setMessages((prev) => {
-                                        const updated = [...prev];
-                                        const lastIdx = updated.length - 1;
-                                        updated[lastIdx] = {
-                                            ...updated[lastIdx],
-                                            content: updated[lastIdx].content + data.token,
-                                        };
-                                        return updated;
-                                    });
-                                }
-
-                                if (data.final && data.final.reply) {
-                                    setMessages((prev) => {
-                                        const updated = [...prev];
-                                        const lastIdx = updated.length - 1;
-                                        updated[lastIdx] = {
-                                            ...updated[lastIdx],
-                                            content: data.final.reply,
-                                        };
-                                        return updated;
-                                    });
-                                }
-                            } catch (e) {
-                                // ignore
-                            }
-                        }
+                        session_id: bridgedSession,
+                        channel: 'website',
+                    },
+                    {
+                        onToken: (token) => {
+                            setMessages((prev) => {
+                                const updated = [...prev];
+                                const lastIdx = updated.length - 1;
+                                updated[lastIdx] = {
+                                    ...updated[lastIdx],
+                                    content: updated[lastIdx].content + token,
+                                };
+                                return updated;
+                            });
+                        },
+                        onFinal: (finalReply) => {
+                            setMessages((prev) => {
+                                const updated = [...prev];
+                                const lastIdx = updated.length - 1;
+                                updated[lastIdx] = {
+                                    ...updated[lastIdx],
+                                    content: finalReply,
+                                };
+                                return updated;
+                            });
+                        },
                     }
-                }
+                );
             } else if (audioBlob) {
-                const formData = new FormData();
-                formData.append('audio', audioBlob, 'voice-message.webm');
-                formData.append('user_id', userId);
-                formData.append('session_id', sessionId);
-                formData.append('conversation_id', conversationId);
-                formData.append('message_id', messageId);
-                formData.append('message', '[Voice message]');
-                formData.append('type', 'voice');
-                response = await fetch(WEBHOOK_URL, {
-                    method: 'POST',
-                    body: formData,
-                });
+                setMessages(prev => [...prev, { type: 'bot', content: '' }]);
+
+                const reply = await postChatStream(
+                    buildVoiceFormData(audioBlob, bridgedSession),
+                    {
+                        onToken: (token) => {
+                            setMessages((prev) => {
+                                const updated = [...prev];
+                                const lastIdx = updated.length - 1;
+                                updated[lastIdx] = {
+                                    ...updated[lastIdx],
+                                    content: updated[lastIdx].content + token,
+                                };
+                                return updated;
+                            });
+                        },
+                        onFinal: (finalReply) => {
+                            setMessages((prev) => {
+                                const updated = [...prev];
+                                const lastIdx = updated.length - 1;
+                                updated[lastIdx] = {
+                                    ...updated[lastIdx],
+                                    content: finalReply,
+                                };
+                                return updated;
+                            });
+                        },
+                    }
+                );
+
+                if (reply) await playTtsStream(reply);
             } else {
                 return;
-            }
-
-            if (response && !response.ok) throw new Error('Network response was not ok');
-
-            if (response) {
-                const contentType = response.headers.get('content-type');
-
-                if (contentType && contentType.includes('audio')) {
-                    const audioBlob = await response.blob();
-                    const audioUrl = URL.createObjectURL(audioBlob);
-                    const audio = new Audio(audioUrl);
-
-                    setMessages(prev => [...prev, { type: 'bot', content: '🎤 (Playing Audio Response...)' }]);
-                    audio.play().catch(e => console.error("Audio play failed", e));
-                } else if (contentType && contentType.includes('image')) {
-                    const imageBlob = await response.blob();
-                    const imageUrl = URL.createObjectURL(imageBlob);
-                    setMessages(prev => [...prev, { type: 'bot', content: 'Here is the generated image:', image: imageUrl }]);
-                } else {
-                    const data = await response.json();
-
-                    let botText = "I received your message.";
-                    if (data.reply) botText = data.reply;
-                    else if (data.output) botText = data.output;
-                    else if (data.text) botText = data.text;
-                    else if (data.message) botText = data.message;
-                    else if (Array.isArray(data) && data[0]?.reply) botText = data[0].reply;
-                    else if (Array.isArray(data) && data[0]?.output) botText = data[0].output;
-                    else if (typeof data === 'string') botText = data;
-
-                    if (data.audioUrl) {
-                        const audio = new Audio(data.audioUrl);
-                        audio.play().catch(e => console.error("Audio play failed", e));
-                        botText += " 🔊";
-                    }
-
-                    setMessages(prev => [...prev, { type: 'bot', content: botText }]);
-                }
             }
         } catch (error) {
             console.error('Error sending message:', error);
