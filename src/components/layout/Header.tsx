@@ -65,12 +65,17 @@ const Header = () => {
     return (
         <>
             <header className={cn(
-                "fixed left-1/2 -translate-x-1/2 z-[60] transition-all duration-500 backdrop-blur-xl rounded-full border w-[92%] sm:w-[95%] max-w-7xl",
-                isScrolled
-                    ? "top-3 sm:top-4 h-14 sm:h-16 bg-white/80 border-gray-200 shadow-md"
-                    : "top-4 sm:top-6 h-16 sm:h-20 bg-transparent border-transparent"
+                "fixed left-1/2 -translate-x-1/2 z-[60] transition-[height,background-color,box-shadow,top,width] duration-500 backdrop-blur-xl border w-[92%] sm:w-[95%] max-w-7xl overflow-hidden flex flex-col",
+                mobileMenuOpen 
+                    ? "top-3 sm:top-4 bg-white/95 border-gray-200 shadow-2xl rounded-[1.75rem] sm:rounded-[2rem]"
+                    : isScrolled
+                        ? "top-3 sm:top-4 bg-white/80 border-gray-200 shadow-md rounded-[1.75rem] sm:rounded-[2rem]"
+                        : "top-4 sm:top-6 bg-transparent border-transparent rounded-[1.75rem] sm:rounded-[2rem]"
             )}>
-                <div className="h-full flex items-center justify-between px-4 sm:px-5 md:px-6">
+                <div className={cn(
+                    "flex items-center justify-between px-4 sm:px-5 md:px-6 w-full shrink-0 transition-all duration-500",
+                    isScrolled || mobileMenuOpen ? "h-14 sm:h-16" : "h-16 sm:h-20"
+                )}>
                     {/* 1. Logo (Left) */}
                     <Link to="/" className="flex items-center gap-2.5 group min-w-[120px] sm:min-w-[140px] shrink-0">
                         <img
@@ -158,57 +163,17 @@ const Header = () => {
                         </button>
                     </div>
                 </div>
-
-            </header>
-
-            {/* ── Mega menu panels: rendered OUTSIDE <header> so fixed positioning is relative to true viewport ── */}
-            {/* CSS spec: transform on a parent creates a new containing block, breaking fixed children */}
-            <AnimatePresence>
-                {NAV_ITEMS.map((item) => {
-                    if (!item.megaMenu || activeMegaMenu !== item.label) return null;
-                    return (
-                        <div
-                            key={`mega-${item.label}`}
-                            onMouseEnter={() => setActiveMegaMenu(item.label)}
-                            onMouseLeave={() => setActiveMegaMenu(null)}
-                            className={cn(
-                                "fixed left-1/2 -translate-x-1/2 z-[70] pt-2 max-w-[95vw]",
-                                isScrolled ? "top-[60px] sm:top-[68px]" : "top-[72px] sm:top-[88px]",
-                                item.label === 'Products' ? 'w-[1140px]' : 'w-[720px]'
-                            )}
-                        >
-                            <MegaMenu sections={item.megaMenu} onClose={() => setActiveMegaMenu(null)} />
-                        </div>
-                    );
-                })}
-            </AnimatePresence>
-
-            {/* Mobile Menu - Rendered outside header as fixed overlay */}
-            <AnimatePresence>
-                {mobileMenuOpen && (
-                    <>
-                        {/* Dark backdrop overlay - covers entire screen */}
+                {/* Mobile Menu Content (Expands like a shutter) */}
+                <AnimatePresence>
+                    {mobileMenuOpen && (
                         <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 0.2 }}
-                            className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[55]"
-                            onClick={() => setMobileMenuOpen(false)}
-                        />
-
-                        {/* Menu panel - fixed below header */}
-                        <motion.div
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -10 }}
-                            transition={{ duration: 0.25, ease: "easeOut" }}
-                            className="fixed top-[84px] sm:top-[104px] left-3 right-3 sm:left-4 sm:right-4 z-[58] border shadow-2xl backdrop-blur-xl bg-gradient-to-b from-[#FAFCFB] via-white to-[#FAFCFB] border-[#2D6A4F]/20 rounded-2xl overflow-hidden font-body"
-                            onWheel={(e) => e.stopPropagation()}
-                            onTouchMove={(e) => e.stopPropagation()}
-                            style={{ overscrollBehavior: 'contain' }}
+                            initial={{ height: 0 }}
+                            animate={{ height: "auto" }}
+                            exit={{ height: 0 }}
+                            transition={{ duration: 0.4, ease: [0.25, 1, 0.5, 1] }}
+                            className="w-full"
                         >
-                            <div className="px-5 py-5 sm:px-6 sm:py-6 flex flex-col gap-0.5 max-h-[calc(100vh-100px)] overflow-y-auto" style={{ overscrollBehavior: 'contain', WebkitOverflowScrolling: 'touch' }}>
+                            <div className="scrollbar-minimal px-5 pb-5 sm:px-6 sm:pb-6 pt-2 flex flex-col gap-0.5 max-h-[calc(100dvh-120px)] overflow-y-auto border-t border-[#2D6A4F]/10 pointer-events-auto" style={{ overscrollBehavior: 'contain', WebkitOverflowScrolling: 'touch' }}>
                                 {NAV_ITEMS.map((item, index) => (
                                     <motion.div
                                         key={item.label}
@@ -307,24 +272,48 @@ const Header = () => {
                                         )}
                                     </motion.div>
                                 ))}
-                                <motion.div
-                                    className="mt-3 pt-3 border-t border-[#C8E6DA]"
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.3, duration: 0.2 }}
-                                >
-                                    <Link to="/schedule-demo" onClick={() => setMobileMenuOpen(false)}>
-                                        <Button className="w-full justify-center bg-[#2D6A4F] text-white font-bold rounded-xl py-3 text-base hover:bg-[#336B55] transition-colors">
-                                            Book a demo
-                                        </Button>
-                                    </Link>
-                                </motion.div>
                             </div>
                         </motion.div>
-                    </>
+                    )}
+                </AnimatePresence>
+            </header>
+
+            {/* ── Mega menu panels: rendered OUTSIDE <header> so fixed positioning is relative to true viewport ── */}
+            {/* CSS spec: transform on a parent creates a new containing block, breaking fixed children */}
+            <AnimatePresence>
+                {NAV_ITEMS.map((item) => {
+                    if (!item.megaMenu || activeMegaMenu !== item.label) return null;
+                    return (
+                        <div
+                            key={`mega-${item.label}`}
+                            onMouseEnter={() => setActiveMegaMenu(item.label)}
+                            onMouseLeave={() => setActiveMegaMenu(null)}
+                            className={cn(
+                                "fixed left-1/2 -translate-x-1/2 z-[70] pt-2 max-w-[95vw]",
+                                isScrolled ? "top-[60px] sm:top-[68px]" : "top-[72px] sm:top-[88px]",
+                                item.label === 'Products' ? 'w-[1140px]' : 'w-[720px]'
+                            )}
+                        >
+                            <MegaMenu sections={item.megaMenu} onClose={() => setActiveMegaMenu(null)} />
+                        </div>
+                    );
+                })}
+            </AnimatePresence>
+            {/* Mobile Menu Backdrop */}
+            <AnimatePresence>
+                {mobileMenuOpen && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="fixed inset-0 bg-black/40 backdrop-blur-[2px] z-[55]"
+                        onClick={() => setMobileMenuOpen(false)}
+                    />
                 )}
             </AnimatePresence>
-        </>
+
+                    </>
     );
 };
 
