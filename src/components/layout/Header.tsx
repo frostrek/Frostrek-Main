@@ -93,7 +93,13 @@ const Header = () => {
                                 onMouseLeave={() => item.megaMenu && setActiveMegaMenu(null)}
                             >
                                 <Link
-                                    to={item.href}
+                                    to={item.megaMenu ? "#" : item.href}
+                                    onClick={(e) => {
+                                        if (item.megaMenu) {
+                                            e.preventDefault();
+                                            setActiveMegaMenu(activeMegaMenu === item.label ? null : item.label);
+                                        }
+                                    }}
                                     className={cn(
                                         "flex items-center gap-1 text-[15px] font-medium transition-colors py-2 px-4 rounded-full relative z-10 text-gray-600 hover:text-[#2D6A4F] group",
                                         (location.pathname === item.href || activeMegaMenu === item.label) && "text-[#2D6A4F] font-bold"
@@ -109,7 +115,7 @@ const Header = () => {
                                             )}
                                         />
                                     )}
-                                    {location.pathname === item.href && (
+                                    {location.pathname === item.href && !item.megaMenu && (
                                         <motion.div
                                             layoutId="navbar-active"
                                             className="absolute inset-0 rounded-full -z-10 bg-gray-100"
@@ -215,14 +221,23 @@ const Header = () => {
                                             <div>
                                                 <div className="flex items-center">
                                                     <Link
-                                                        to={item.href}
+                                                        to="#"
                                                         className={cn(
                                                             "font-medium flex-1 py-3 px-3 rounded-xl transition-all duration-200 text-base font-body",
                                                             location.pathname === item.href
                                                                 ? "text-[#2D6A4F] bg-[#E8F5EE]"
                                                                 : "text-gray-700 hover:text-[#2D6A4F] hover:bg-[#F4FAF7]"
                                                         )}
-                                                        onClick={() => setMobileMenuOpen(false)}
+                                                        onClick={(e) => {
+                                                            if (item.megaMenu) {
+                                                                e.preventDefault();
+                                                                setExpandedMobileItem(
+                                                                    expandedMobileItem === item.label ? null : item.label
+                                                                );
+                                                            } else {
+                                                                setMobileMenuOpen(false);
+                                                            }
+                                                        }}
                                                     >
                                                         {item.label}
                                                     </Link>

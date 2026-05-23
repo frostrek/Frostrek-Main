@@ -339,7 +339,7 @@ const MultivendorDashboardPage = () => {
             <CuteBackground />
 
             {/* ═══════ SECTION 1 — HERO ═══════ */}
-            <section className="relative pt-40 pb-20 md:pt-48 md:pb-32 overflow-hidden flex flex-col justify-center min-h-[90vh]">
+            <section className="relative pt-28 pb-16 md:pt-48 md:pb-32 overflow-hidden flex flex-col justify-center min-h-[90vh]">
                 {/* Ambient blobs */}
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#E8F5EE] rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3 opacity-60" />
@@ -404,7 +404,7 @@ const MultivendorDashboardPage = () => {
             </section>
 
             {/* ═══════ SECTION 2 — THE MULTI-CHANNEL CHALLENGE (Split-view) ═══════ */}
-            <section ref={challengeRef} className="py-24 bg-brand-light-bg relative z-10 overflow-hidden border-t border-b border-[#2D6A4F]/5">
+            <section ref={challengeRef} className="py-16 lg:py-24 bg-brand-light-bg relative z-10 overflow-hidden border-t border-b border-[#2D6A4F]/5">
                 <div className="container mx-auto px-4 md:px-6 max-w-7xl">
                     <div className="text-center mb-16">
                         <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]">
@@ -415,18 +415,18 @@ const MultivendorDashboardPage = () => {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                         {/* Left Side: 4 Problem Points */}
                         <div className="space-y-6">
                             {PROBLEM_POINTS.map((pt, idx) => {
                                 return (
-                                    <div key={idx} className={`challenge-item flex items-center gap-5 p-6 border rounded-[1.5rem] shadow-sm hover:shadow-md transition-all duration-300 ${pt.bgColor} ${pt.borderColor}`}>
-                                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 border ${pt.iconBorder} ${pt.iconBg}`}>
-                                            <img src={pt.icon} alt={pt.title} className="w-6 h-6 object-contain" />
+                                    <div key={idx} className={`challenge-item flex items-center gap-3 md:gap-5 p-4 md:p-6 border rounded-[1.25rem] md:rounded-[1.5rem] shadow-sm hover:shadow-md transition-all duration-300 ${pt.bgColor} ${pt.borderColor}`}>
+                                        <div className={`w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl flex items-center justify-center flex-shrink-0 border ${pt.iconBorder} ${pt.iconBg}`}>
+                                            <img src={pt.icon} alt={pt.title} className="w-5 h-5 md:w-6 md:h-6 object-contain" />
                                         </div>
                                         <div>
-                                            <h3 className={`font-serif text-lg font-bold mb-1 ${pt.headingColor}`}>{pt.title}</h3>
-                                            <p className="text-gray-600 text-sm leading-relaxed font-medium">{pt.description}</p>
+                                            <h3 className={`font-serif text-[15px] md:text-lg font-bold mb-1 ${pt.headingColor}`}>{pt.title}</h3>
+                                            <p className="text-gray-600 text-[12px] md:text-sm leading-snug md:leading-relaxed font-medium">{pt.description}</p>
                                         </div>
                                     </div>
                                 );
@@ -463,9 +463,9 @@ const MultivendorDashboardPage = () => {
             </section>
 
             {/* ═══════ SECTION 3 — WHAT WE BUILD ═══════ */}
-            <section ref={buildRef} className="py-24 bg-white relative z-10 overflow-hidden">
+            <section ref={buildRef} className="py-16 lg:py-24 bg-white relative z-10 overflow-hidden">
                 <div className="container mx-auto px-4 md:px-6 max-w-7xl">
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                         {/* Left Column: Descriptive Content */}
                         <div className="lg:col-span-5 space-y-6">
                             <h2 className="build-el font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]">
@@ -575,7 +575,7 @@ const MultivendorDashboardPage = () => {
             </section>
 
             {/* ═══════ SECTION 4 — KEY CAPABILITIES ═══════ */}
-            <section ref={capabilitiesRef} className="py-24 bg-brand-light-bg relative z-10 overflow-hidden border-t border-b border-[#2D6A4F]/5">
+            <section ref={capabilitiesRef} className="py-16 lg:py-24 bg-brand-light-bg relative z-10 overflow-hidden border-t border-b border-[#2D6A4F]/5">
                 <div className="container mx-auto px-4 md:px-6 max-w-7xl">
                     <div className="text-center mb-16">
                         <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]">
@@ -586,21 +586,21 @@ const MultivendorDashboardPage = () => {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
                         {CAPABILITIES.map((cap) => {
                             return (
                                 <SpotlightCard
                                     key={cap.title}
-                                    className={`cap-card group relative overflow-hidden rounded-[1.5rem] border p-8 transition-all duration-300 ${cap.bgColor} ${cap.border} ${cap.hoverShadow} hover:-translate-y-1`}
+                                    className={`cap-card group relative overflow-hidden rounded-[1.25rem] md:rounded-[1.5rem] border p-4 md:p-8 transition-all duration-300 ${cap.bgColor} ${cap.border} ${cap.hoverShadow} hover:-translate-y-1`}
                                     spotlightColor={cap.spotlight}
                                 >
-                                    <div className="relative z-10 flex gap-5 items-start">
-                                        <div className={`w-14 h-14 rounded-2xl border flex items-center justify-center flex-shrink-0 bg-white/40 ${cap.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
-                                            <img src={cap.icon} alt={cap.title} className="w-6 h-6 object-contain" />
+                                    <div className="relative z-10 flex gap-3 md:gap-5 items-start">
+                                        <div className={`w-9 h-9 md:w-14 md:h-14 rounded-lg md:rounded-2xl border flex items-center justify-center flex-shrink-0 bg-white/40 ${cap.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
+                                            <img src={cap.icon} alt={cap.title} className="w-4 h-4 md:w-6 md:h-6 object-contain" />
                                         </div>
                                         <div className="flex-1">
-                                            <h3 className={`font-serif text-lg font-bold mb-2 ${cap.headingColor}`}>{cap.title}</h3>
-                                            <p className="text-gray-600 text-sm leading-relaxed font-medium">{cap.description}</p>
+                                            <h3 className={`font-serif text-[14px] md:text-lg font-bold mb-1 md:mb-2 ${cap.headingColor}`}>{cap.title}</h3>
+                                            <p className="text-gray-600 text-[11px] md:text-sm leading-snug md:leading-relaxed font-medium">{cap.description}</p>
                                         </div>
                                     </div>
                                 </SpotlightCard>
@@ -611,7 +611,7 @@ const MultivendorDashboardPage = () => {
             </section>
 
             {/* ═══════ SECTION 5 — WHO IT'S FOR ═══════ */}
-            <section ref={audienceRef} className="py-24 bg-white relative z-10 overflow-hidden">
+            <section ref={audienceRef} className="py-16 lg:py-24 bg-white relative z-10 overflow-hidden">
                 <div className="container mx-auto px-4 md:px-6 max-w-7xl">
                     <div className="text-center mb-16">
                         <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]">
@@ -622,20 +622,20 @@ const MultivendorDashboardPage = () => {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
                         {AUDIENCE_CARDS.map((aud) => {
                             return (
                                 <SpotlightCard
                                     key={aud.title}
-                                    className={`audience-card group relative overflow-hidden rounded-[1.5rem] border p-8 transition-all duration-300 ${aud.bgColor} ${aud.border} ${aud.hoverShadow} hover:-translate-y-1`}
+                                    className={`audience-card group relative overflow-hidden rounded-[1.25rem] md:rounded-[1.5rem] border p-4 md:p-8 transition-all duration-300 ${aud.bgColor} ${aud.border} ${aud.hoverShadow} hover:-translate-y-1`}
                                     spotlightColor={aud.spotlight}
                                 >
                                     <div className="relative z-10">
-                                        <div className={`w-12 h-12 rounded-xl border flex items-center justify-center mb-5 bg-white/40 ${aud.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
-                                            <img src={aud.icon} alt={aud.title} className="w-5 h-5 object-contain" />
+                                        <div className={`w-8 h-8 md:w-12 md:h-12 rounded-lg md:rounded-xl border flex items-center justify-center mb-2 md:mb-5 bg-white/40 ${aud.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
+                                            <img src={aud.icon} alt={aud.title} className="w-3.5 h-3.5 md:w-5 md:h-5 object-contain" />
                                         </div>
-                                        <h3 className={`font-serif text-lg font-bold mb-2 ${aud.headingColor}`}>{aud.title}</h3>
-                                        <p className="text-gray-600 text-xs leading-relaxed font-medium">{aud.description}</p>
+                                        <h3 className={`font-serif text-[13px] md:text-lg font-bold mb-1 md:mb-2 ${aud.headingColor}`}>{aud.title}</h3>
+                                        <p className="text-gray-600 text-[10px] md:text-xs leading-snug md:leading-relaxed font-medium">{aud.description}</p>
                                     </div>
                                 </SpotlightCard>
                             );
@@ -645,7 +645,7 @@ const MultivendorDashboardPage = () => {
             </section>
 
             {/* ═══════ SECTION 6 — TECH STACK ═══════ */}
-            <section className="py-24 bg-brand-light-bg relative z-10 overflow-hidden border-t border-b border-[#2D6A4F]/5">
+            <section className="py-16 lg:py-24 bg-brand-light-bg relative z-10 overflow-hidden border-t border-b border-[#2D6A4F]/5">
                 <div className="container mx-auto px-4 md:px-6 max-w-7xl">
                     <div className="text-center mb-16">
                         <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]">
@@ -665,8 +665,8 @@ const MultivendorDashboardPage = () => {
 
                     <div className="flex animate-[marquee_40s_linear_infinite] w-max group-hover:[animation-play-state:paused]">
                         {[...TECH_STACK_MARQUEE, ...TECH_STACK_MARQUEE].map((tech, i) => (
-                            <div key={i} className="flex flex-col items-center justify-center w-48 gap-6 mx-8">
-                                <div className="h-16 w-full flex items-center justify-center px-4">
+                            <div key={i} className="flex flex-col items-center justify-center w-24 md:w-48 gap-3 md:gap-6 mx-3 md:mx-8">
+                                <div className="h-10 md:h-16 w-full flex items-center justify-center px-2 md:px-4">
                                     <img
                                         src={tech.image}
                                         alt={tech.name}
@@ -674,9 +674,9 @@ const MultivendorDashboardPage = () => {
                                         onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
                                     />
                                 </div>
-                                <div className="flex flex-col items-center">
-                                    <span className="text-[11px] font-bold uppercase tracking-widest text-[#2D6A4F]/60">{tech.category}</span>
-                                    <span className="text-xs font-semibold text-gray-700 mt-1">{tech.name}</span>
+                                <div className="flex flex-col items-center text-center">
+                                    <span className="text-[9px] md:text-[11px] font-bold uppercase tracking-widest text-[#2D6A4F]/60 mb-1">{tech.category}</span>
+                                    <span className="text-[10px] md:text-xs font-semibold text-gray-700">{tech.name}</span>
                                 </div>
                             </div>
                         ))}
@@ -685,13 +685,13 @@ const MultivendorDashboardPage = () => {
             </section>
 
             {/* ═══════ SECTION 7 — CLOSING CTA ═══════ */}
-            <section ref={ctaRef} className="py-24 relative overflow-hidden bg-white font-sans">
+            <section ref={ctaRef} className="py-16 lg:py-24 relative overflow-hidden bg-white font-sans">
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-brand-badge-bg/80 rounded-full blur-[120px]" />
                     <div className="absolute bottom-0 right-0 w-[400px] h-[300px] bg-[#E8F5EE]/60 rounded-full blur-[100px]" />
                 </div>
                 <div className="container mx-auto px-4 md:px-6 relative z-10 text-center max-w-[1400px]">
-                    <div className="max-w-4xl mx-auto bg-white p-10 md:p-16 rounded-[3rem] border border-[#E6EFE6] shadow-[0_20px_60px_rgba(45,106,79,0.04)]">
+                    <div className="max-w-4xl mx-auto bg-white p-8 sm:p-10 md:p-16 rounded-[2rem] md:rounded-[3rem] border border-[#E6EFE6] shadow-[0_20px_60px_rgba(45,106,79,0.04)]">
                         <div className="flex flex-col items-center">
                             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]">
                                 Ready to Consolidate Your

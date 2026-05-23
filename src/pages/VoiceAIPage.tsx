@@ -126,7 +126,7 @@ const KEY_CAPABILITIES = [
     {
         title: 'Dynamic Conversation Flows',
         description: 'Conversations are not scripted trees. The agent reasons through each response dynamically — handling unexpected turns, topic switches, objections, and emotional callers without breaking down.',
-        icon: '/icons/workflow.png',
+        icon: '/icons/dashboard.png',
         bgColor: 'bg-[#F0FDF4]',
         border: 'border-[#BBF7D0]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(34,197,94,0.07)]',
@@ -228,7 +228,7 @@ const USE_CASES = [
     {
         title: 'Appointment Booking & Reminders',
         description: 'Inbound booking agents handle scheduling in real time. Outbound reminder agents reduce no-show rates with confirmation calls 24 hours before. Integrated directly with your calendar system.',
-        icon: '/icons/calendar.png',
+        icon: '/icons/advisors.png',
         bgColor: 'bg-[#FFFBEB]',
         border: 'border-[#FEF3C7]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(245,158,11,0.07)]',
@@ -297,7 +297,7 @@ const INDUSTRIES = [
     {
         title: 'Telecom & SaaS',
         description: 'Churn prevention calls, upsell campaigns, renewal reminders, onboarding check-ins, and support escalation handling — at the call volumes that telecoms and SaaS businesses actually operate at.',
-        icon: '/icons/server.png',
+        icon: '/icons/phone-call.png',
         bgColor: 'bg-[#FFFBEB]',
         border: 'border-[#FEF3C7]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(245,158,11,0.07)]',
@@ -405,7 +405,7 @@ export default function VoiceAIPage() {
             <CuteBackground />
 
             {/* ═══════ SECTION 1 — HERO ═══════ */}
-            <section ref={heroRef} className="relative pt-20 pb-24 md:pt-32 md:pb-32 overflow-hidden flex items-center justify-center min-h-[85vh]">
+            <section ref={heroRef} className="relative pt-24 pb-16 md:pt-32 md:pb-20 overflow-hidden flex items-center justify-center min-h-[85vh]">
                 <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-brand-badge-bg/40 rounded-full blur-[100px] opacity-60 animate-pulse pointer-events-none" />
                 <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-[#E8F5EE]/60 rounded-full blur-[120px] opacity-60 pointer-events-none" />
 
@@ -458,29 +458,29 @@ export default function VoiceAIPage() {
             </section>
 
             {/* ═══════ SECTION 2 — THE PROBLEM ═══════ */}
-            <section ref={problemRef} className="py-24 bg-white relative z-10 overflow-hidden border-t border-[#2D6A4F]/5">
+            <section ref={problemRef} className="py-16 lg:py-24 bg-white relative z-10 overflow-hidden border-t border-[#2D6A4F]/5">
                 <div className="container mx-auto px-4 md:px-6 max-w-7xl">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                        <div className="space-y-6">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                        <div className="space-y-4 md:space-y-6">
                             <h2 className="problem-item font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]">
                                 The Problem With Human-Only Voice Operations
                             </h2>
 
-                            <div className="flex flex-col gap-6 pt-4">
+                            <div className="flex flex-col gap-4 md:gap-6 pt-2 md:pt-4">
                                 {PROBLEMS.map((problem) => (
                                     <SpotlightCard
                                         key={problem.title}
-                                        className={`problem-item group relative overflow-hidden rounded-xl border p-6 transition-all duration-300 ${problem.bgColor} ${problem.border} ${problem.hoverShadow} hover:-translate-y-1`}
+                                        className={`problem-item group relative overflow-hidden rounded-xl md:rounded-2xl border p-4 md:p-6 transition-all duration-300 ${problem.bgColor} ${problem.border} ${problem.hoverShadow} hover:-translate-y-1`}
                                         spotlightColor={problem.spotlight}
                                     >
-                                        <div className="relative z-10 flex gap-5 items-center justify-between">
-                                            <div className="flex gap-5 items-center flex-1">
-                                                <div className={`w-16 h-16 rounded-2xl border flex items-center justify-center flex-shrink-0 bg-white/40 ${problem.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
-                                                    <img src={problem.icon} alt={problem.title} className="w-9 h-9 object-contain" />
+                                        <div className="relative z-10 flex gap-3 md:gap-5 items-center justify-between">
+                                            <div className="flex gap-3 md:gap-5 items-center flex-1">
+                                                <div className={`w-10 h-10 md:w-16 md:h-16 rounded-xl md:rounded-2xl border flex items-center justify-center flex-shrink-0 bg-white/40 ${problem.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
+                                                    <img src={problem.icon} alt={problem.title} className="w-5 h-5 md:w-9 md:h-9 object-contain" />
                                                 </div>
                                                 <div className="flex-1">
-                                                    <h3 className={`font-serif text-xl font-bold mb-1.5 text-black`}>{problem.title}</h3>
-                                                    <p className="text-sm leading-relaxed text-gray-600 font-medium">{problem.description}</p>
+                                                    <h3 className={`font-serif text-[15px] md:text-xl font-bold mb-1 md:mb-1.5 text-black`}>{problem.title}</h3>
+                                                    <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600 font-medium">{problem.description}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -525,7 +525,7 @@ export default function VoiceAIPage() {
             </section>
 
             {/* ═══════ SECTION 3 — WHAT WE BUILD ═══════ */}
-            <section ref={buildRef} className="py-24 bg-brand-light-bg relative z-10 overflow-hidden border-t border-[#2D6A4F]/5">
+            <section ref={buildRef} className="py-16 lg:py-24 bg-brand-light-bg relative z-10 overflow-hidden border-t border-[#2D6A4F]/5">
                 <div className="container mx-auto px-4 md:px-6 max-w-7xl">
                     <div className="text-center mb-16">
                         <SplitTextReveal
@@ -546,20 +546,20 @@ export default function VoiceAIPage() {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6">
                         {WHAT_WE_BUILD.map((agent) => (
                             <SpotlightCard
                                 key={agent.title}
-                                className={`build-card group relative overflow-hidden rounded-[1.5rem] border p-8 transition-all duration-300 ${agent.bgColor} ${agent.border} ${agent.hoverShadow} hover:-translate-y-1`}
+                                className={`build-card group relative overflow-hidden rounded-[1.25rem] md:rounded-[1.5rem] border p-4 md:p-8 transition-all duration-300 ${agent.bgColor} ${agent.border} ${agent.hoverShadow} hover:-translate-y-1`}
                                 spotlightColor={agent.spotlight}
                             >
-                                <div className="relative z-10 flex gap-5 items-start">
-                                    <div className={`w-14 h-14 rounded-2xl border flex items-center justify-center flex-shrink-0 bg-white/40 ${agent.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
-                                        <img src={agent.icon} alt={agent.title} className="w-6 h-6 object-contain" />
+                                <div className="relative z-10 flex gap-3 md:gap-5 items-start">
+                                    <div className={`w-9 h-9 md:w-14 md:h-14 rounded-lg md:rounded-2xl border flex items-center justify-center flex-shrink-0 bg-white/40 ${agent.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
+                                        <img src={agent.icon} alt={agent.title} className="w-4 h-4 md:w-6 md:h-6 object-contain" />
                                     </div>
                                     <div className="flex-1">
-                                        <h3 className={`font-serif text-xl font-bold mb-3 ${agent.headingColor}`}>{agent.title}</h3>
-                                        <p className="text-gray-600 text-sm leading-relaxed font-medium">{agent.description}</p>
+                                        <h3 className={`font-serif text-[14px] md:text-xl font-bold mb-1 md:mb-3 ${agent.headingColor}`}>{agent.title}</h3>
+                                        <p className="text-gray-600 text-[11px] md:text-sm leading-snug md:leading-relaxed font-medium">{agent.description}</p>
                                     </div>
                                 </div>
                             </SpotlightCard>
@@ -570,7 +570,7 @@ export default function VoiceAIPage() {
 
 
             {/* ═══════ SECTION 5 — KEY CAPABILITIES ═══════ */}
-            <section ref={capabilitiesRef} className="py-24 bg-white relative z-10 overflow-hidden">
+            <section ref={capabilitiesRef} className="py-16 lg:py-24 bg-white relative z-10 overflow-hidden">
                 <div className="container mx-auto px-4 md:px-6 max-w-7xl">
                     <div className="text-center mb-16">
                         <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]">
@@ -581,19 +581,19 @@ export default function VoiceAIPage() {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
                         {KEY_CAPABILITIES.map((cap) => (
                             <SpotlightCard
                                 key={cap.title}
-                                className={`cap-card group relative overflow-hidden rounded-[1.5rem] border p-8 transition-all duration-300 ${cap.bgColor} ${cap.border} ${cap.hoverShadow} hover:-translate-y-1`}
+                                className={`cap-card group relative overflow-hidden rounded-[1.25rem] md:rounded-[1.5rem] border p-4 md:p-8 transition-all duration-300 ${cap.bgColor} ${cap.border} ${cap.hoverShadow} hover:-translate-y-1`}
                                 spotlightColor={cap.spotlight}
                             >
                                 <div className="relative z-10">
-                                    <div className={`w-12 h-12 rounded-xl border flex items-center justify-center mb-5 bg-white/40 ${cap.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
-                                        <img src={cap.icon} alt={cap.title} className="w-5 h-5 object-contain" />
+                                    <div className={`w-8 h-8 md:w-12 md:h-12 rounded-lg md:rounded-xl border flex items-center justify-center mb-2 md:mb-5 bg-white/40 ${cap.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
+                                        <img src={cap.icon} alt={cap.title} className="w-3.5 h-3.5 md:w-5 md:h-5 object-contain" />
                                     </div>
-                                    <h3 className={`font-serif text-lg font-bold mb-2 ${cap.headingColor}`}>{cap.title}</h3>
-                                    <p className="text-gray-600 text-xs leading-relaxed font-medium">{cap.description}</p>
+                                    <h3 className={`font-serif text-[13px] md:text-lg font-bold mb-1 md:mb-2 ${cap.headingColor}`}>{cap.title}</h3>
+                                    <p className="text-gray-600 text-[10px] md:text-xs leading-snug md:leading-relaxed font-medium">{cap.description}</p>
                                 </div>
                             </SpotlightCard>
                         ))}
@@ -602,7 +602,7 @@ export default function VoiceAIPage() {
             </section>
 
             {/* ═══════ SECTION 6 — USE CASES BY FUNCTION ═══════ */}
-            <section ref={useCasesRef} className="py-24 bg-brand-light-bg relative z-10 overflow-hidden border-t border-[#2D6A4F]/5">
+            <section ref={useCasesRef} className="py-16 lg:py-24 bg-brand-light-bg relative z-10 overflow-hidden border-t border-[#2D6A4F]/5">
                 <div className="container mx-auto px-4 md:px-6 max-w-7xl">
                     <div className="text-center mb-16">
                         <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]">
@@ -613,19 +613,19 @@ export default function VoiceAIPage() {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
                         {USE_CASES.map((useCase) => (
                             <SpotlightCard
                                 key={useCase.title}
-                                className={`case-card group relative overflow-hidden rounded-[1.5rem] border p-8 transition-all duration-300 ${useCase.bgColor} ${useCase.border} ${useCase.hoverShadow} hover:-translate-y-1`}
+                                className={`case-card group relative overflow-hidden rounded-[1.25rem] md:rounded-[1.5rem] border p-4 md:p-8 transition-all duration-300 ${useCase.bgColor} ${useCase.border} ${useCase.hoverShadow} hover:-translate-y-1`}
                                 spotlightColor={useCase.spotlight}
                             >
                                 <div className="relative z-10">
-                                    <div className={`w-12 h-12 rounded-xl border flex items-center justify-center mb-5 bg-white/40 ${useCase.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
-                                        <img src={useCase.icon} alt={useCase.title} className="w-5 h-5 object-contain" />
+                                    <div className={`w-8 h-8 md:w-12 md:h-12 rounded-lg md:rounded-xl border flex items-center justify-center mb-2 md:mb-5 bg-white/40 ${useCase.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
+                                        <img src={useCase.icon} alt={useCase.title} className="w-3.5 h-3.5 md:w-5 md:h-5 object-contain" />
                                     </div>
-                                    <h3 className={`font-serif text-xl font-bold mb-3 ${useCase.headingColor}`}>{useCase.title}</h3>
-                                    <p className="text-gray-600 text-sm leading-relaxed font-medium">{useCase.description}</p>
+                                    <h3 className={`font-serif text-[13px] md:text-xl font-bold mb-1 md:mb-3 ${useCase.headingColor}`}>{useCase.title}</h3>
+                                    <p className="text-gray-600 text-[10px] md:text-sm leading-snug md:leading-relaxed font-medium">{useCase.description}</p>
                                 </div>
                             </SpotlightCard>
                         ))}
@@ -634,7 +634,7 @@ export default function VoiceAIPage() {
             </section>
 
             {/* ═══════ SECTION 7 — INDUSTRIES WE SERVE ═══════ */}
-            <section ref={industriesRef} className="py-24 bg-white relative z-10 overflow-hidden">
+            <section ref={industriesRef} className="py-16 lg:py-24 bg-white relative z-10 overflow-hidden">
                 <div className="container mx-auto px-4 md:px-6 max-w-7xl">
                     <div className="text-center mb-16">
                         <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]">
@@ -645,19 +645,19 @@ export default function VoiceAIPage() {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
                         {INDUSTRIES.map((industry) => (
                             <SpotlightCard
                                 key={industry.title}
-                                className={`ind-card group relative overflow-hidden rounded-[1.5rem] border p-8 transition-all duration-300 ${industry.bgColor} ${industry.border} ${industry.hoverShadow} hover:-translate-y-1`}
+                                className={`ind-card group relative overflow-hidden rounded-[1.25rem] md:rounded-[1.5rem] border p-4 md:p-8 transition-all duration-300 ${industry.bgColor} ${industry.border} ${industry.hoverShadow} hover:-translate-y-1`}
                                 spotlightColor={industry.spotlight}
                             >
                                 <div className="relative z-10">
-                                    <div className={`w-12 h-12 rounded-xl border flex items-center justify-center mb-5 bg-white/40 ${industry.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
-                                        <img src={industry.icon} alt={industry.title} className="w-5 h-5 object-contain" />
+                                    <div className={`w-8 h-8 md:w-12 md:h-12 rounded-lg md:rounded-xl border flex items-center justify-center mb-2 md:mb-5 bg-white/40 ${industry.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
+                                        <img src={industry.icon} alt={industry.title} className="w-3.5 h-3.5 md:w-5 md:h-5 object-contain" />
                                     </div>
-                                    <h3 className={`font-serif text-xl font-bold mb-3 ${industry.headingColor}`}>{industry.title}</h3>
-                                    <p className="text-gray-600 text-sm leading-relaxed font-medium">{industry.description}</p>
+                                    <h3 className={`font-serif text-[13px] md:text-xl font-bold mb-1 md:mb-3 ${industry.headingColor}`}>{industry.title}</h3>
+                                    <p className="text-gray-600 text-[10px] md:text-sm leading-snug md:leading-relaxed font-medium">{industry.description}</p>
                                 </div>
                             </SpotlightCard>
                         ))}
@@ -667,7 +667,7 @@ export default function VoiceAIPage() {
 
 
             {/* ═══════ SECTION 9 — TECH STACK ═══════ */}
-            <section className="py-24 bg-brand-light-bg relative z-10 overflow-hidden border-t border-b border-[#2D6A4F]/5">
+            <section className="py-16 lg:py-24 bg-brand-light-bg relative z-10 overflow-hidden border-t border-b border-[#2D6A4F]/5">
                 <div className="container mx-auto px-4 md:px-6 max-w-7xl">
                     <div className="text-center mb-16">
                         <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]">
@@ -687,8 +687,8 @@ export default function VoiceAIPage() {
 
                     <div className="flex animate-[marquee_40s_linear_infinite] w-max group-hover:[animation-play-state:paused]">
                         {[...TECH_STACK_MARQUEE, ...TECH_STACK_MARQUEE].map((tech, i) => (
-                            <div key={i} className="flex flex-col items-center justify-center w-48 gap-6 mx-8">
-                                <div className="h-16 w-full flex items-center justify-center px-4">
+                            <div key={i} className="flex flex-col items-center justify-center w-24 md:w-48 gap-3 md:gap-6 mx-3 md:mx-8">
+                                <div className="h-10 md:h-16 w-full flex items-center justify-center px-2 md:px-4">
                                     <img
                                         src={tech.image}
                                         alt={tech.name}
@@ -696,9 +696,9 @@ export default function VoiceAIPage() {
                                         onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
                                     />
                                 </div>
-                                <div className="flex flex-col items-center">
-                                    <span className="text-[11px] font-bold uppercase tracking-widest text-[#2D6A4F]/60">{tech.category}</span>
-                                    <span className="text-xs font-semibold text-gray-700 mt-1">{tech.name}</span>
+                                <div className="flex flex-col items-center text-center">
+                                    <span className="text-[9px] md:text-[11px] font-bold uppercase tracking-widest text-[#2D6A4F]/60 mb-1">{tech.category}</span>
+                                    <span className="text-[10px] md:text-xs font-semibold text-gray-700">{tech.name}</span>
                                 </div>
                             </div>
                         ))}
@@ -707,13 +707,13 @@ export default function VoiceAIPage() {
             </section>
 
             {/* ═══════ SECTION 10 — CLOSING CTA ═══════ */}
-            <section className="py-24 relative overflow-hidden bg-white font-sans">
+            <section className="py-16 lg:py-24 relative overflow-hidden bg-white font-sans">
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-brand-badge-bg/80 rounded-full blur-[120px]" />
                     <div className="absolute bottom-0 right-0 w-[400px] h-[300px] bg-[#E8F5EE]/60 rounded-full blur-[100px]" />
                 </div>
                 <div className="container mx-auto px-4 md:px-6 relative z-10 text-center max-w-[1400px]">
-                    <div className="max-w-4xl mx-auto bg-white p-10 md:p-16 rounded-[3rem] border border-[#E6EFE6] shadow-[0_20px_60px_rgba(45,106,79,0.04)]">
+                    <div className="max-w-4xl mx-auto bg-white p-8 sm:p-10 md:p-16 rounded-[2rem] md:rounded-[3rem] border border-[#E6EFE6] shadow-[0_20px_60px_rgba(45,106,79,0.04)]">
                         <div className="flex flex-col items-center">
                             <SplitTextReveal
                                 as="h2"

@@ -371,7 +371,7 @@ const FintechWalletsPage = () => {
             <CuteBackground />
 
             {/* ═══════ SECTION 1 — HERO ═══════ */}
-            <section className="relative pt-40 pb-20 md:pt-48 md:pb-32 overflow-hidden flex flex-col justify-center min-h-[90vh]">
+            <section className="relative pt-28 pb-16 md:pt-48 md:pb-32 overflow-hidden flex flex-col justify-center min-h-[90vh]">
                 {/* Ambient blobs */}
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#E8F5EE] rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3 opacity-60" />
@@ -436,7 +436,7 @@ const FintechWalletsPage = () => {
             </section>
 
             {/* ═══════ SECTION 2 — WHAT WE BUILD ═══════ */}
-            <section className="py-24 bg-brand-light-bg relative z-10 overflow-hidden">
+            <section className="py-16 lg:py-24 bg-brand-light-bg relative z-10 overflow-hidden">
                 <div className="container mx-auto px-4 md:px-6 max-w-7xl">
                     <div className="text-center mb-16">
                         <SplitTextReveal
@@ -457,20 +457,20 @@ const FintechWalletsPage = () => {
                         </div>
                     </div>
 
-                    <div ref={buildRef} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div ref={buildRef} className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6">
                         {WHAT_WE_BUILD.map((item) => (
                             <SpotlightCard
                                 key={item.title}
-                                className={`build-card group relative overflow-hidden rounded-[1.5rem] border p-8 transition-all duration-300 ${item.bgColor} ${item.border} ${item.hoverShadow} hover:-translate-y-1`}
+                                className={`build-card group relative overflow-hidden rounded-[1.25rem] md:rounded-[1.5rem] border p-4 md:p-8 transition-all duration-300 ${item.bgColor} ${item.border} ${item.hoverShadow} hover:-translate-y-1`}
                                 spotlightColor={item.spotlight}
                             >
-                                <div className="relative z-10 flex gap-5 items-start">
-                                    <div className={`w-16 h-16 rounded-2xl border flex items-center justify-center flex-shrink-0 bg-white/40 ${item.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
-                                        <img src={item.icon} alt={item.title} className="w-9 h-9 object-contain" />
+                                <div className="relative z-10 flex gap-3 md:gap-5 items-start">
+                                    <div className={`w-10 h-10 md:w-16 md:h-16 rounded-lg md:rounded-2xl border flex items-center justify-center flex-shrink-0 bg-white/40 ${item.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
+                                        <img src={item.icon} alt={item.title} className="w-5 h-5 md:w-9 md:h-9 object-contain" />
                                     </div>
                                     <div className="flex-1">
-                                        <h3 className={`font-serif text-xl font-bold mb-2 ${item.headingColor}`}>{item.title}</h3>
-                                        <p className="text-sm leading-relaxed text-gray-600 font-medium">{item.description}</p>
+                                        <h3 className={`font-serif text-[15px] md:text-xl font-bold mb-1 md:mb-2 ${item.headingColor}`}>{item.title}</h3>
+                                        <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600 font-medium">{item.description}</p>
                                     </div>
                                 </div>
                             </SpotlightCard>
@@ -480,7 +480,7 @@ const FintechWalletsPage = () => {
             </section>
 
             {/* ═══════ SECTION 3 — OUR FINTECH CAPABILITIES (Split-view) ═══════ */}
-            <section className="py-24 bg-white relative z-10 overflow-hidden">
+            <section className="py-16 lg:py-24 bg-white relative z-10 overflow-hidden">
                 <div className="container mx-auto px-4 md:px-6 max-w-7xl">
                     <div className="text-center mb-16">
                         <SplitTextReveal
@@ -502,38 +502,38 @@ const FintechWalletsPage = () => {
                     </div>
 
                     {/* Split view: two checklist columns */}
-                    <div ref={capabilitiesRef} className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div ref={capabilitiesRef} className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8">
                         {/* Left column — Wallet & Payments */}
-                        <div className="bg-[#F0F9FF] border border-[#BAE6FD] rounded-[2rem] p-8 md:p-10">
-                            <div className="flex items-center gap-3 mb-8">
-                                <div className="w-12 h-12 rounded-2xl bg-[#0284C7]/10 border border-[#BAE6FD] flex items-center justify-center">
-                                    <img src="/icons/credit-card.png" alt="Wallet & Payments" className="w-6 h-6 object-contain" />
+                        <div className="bg-[#F0F9FF] border border-[#BAE6FD] rounded-[1.25rem] md:rounded-[2rem] p-4 md:p-10">
+                            <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-8">
+                                <div className="w-9 h-9 md:w-12 md:h-12 rounded-lg md:rounded-2xl bg-[#0284C7]/10 border border-[#BAE6FD] flex items-center justify-center">
+                                    <img src="/icons/credit-card.png" alt="Wallet & Payments" className="w-4 h-4 md:w-6 md:h-6 object-contain" />
                                 </div>
-                                <h3 className="font-serif text-xl font-bold text-[#0284C7]">Wallet & Payments</h3>
+                                <h3 className="font-serif text-[15px] md:text-xl font-bold text-[#0284C7]">Wallet & Payments</h3>
                             </div>
-                            <ul className="space-y-4">
+                            <ul className="space-y-2.5 md:space-y-4">
                                 {CAPABILITIES_LEFT.map((item) => (
-                                    <li key={item} className="cap-item flex items-start gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#0284C7] flex-shrink-0 mt-0.5" strokeWidth={2} />
-                                        <span className="text-gray-700 font-medium text-sm leading-relaxed">{item}</span>
+                                    <li key={item} className="cap-item flex items-start gap-2 md:gap-3">
+                                        <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-[#0284C7] flex-shrink-0 mt-0.5" strokeWidth={2} />
+                                        <span className="text-gray-700 font-medium text-[12px] md:text-sm leading-snug md:leading-relaxed">{item}</span>
                                     </li>
                                 ))}
                             </ul>
                         </div>
 
                         {/* Right column — Blockchain & Tokenization */}
-                        <div className="bg-[#F0FDF4] border border-[#BBF7D0] rounded-[2rem] p-8 md:p-10">
-                            <div className="flex items-center gap-3 mb-8">
-                                <div className="w-12 h-12 rounded-2xl bg-[#166534]/10 border border-[#BBF7D0] flex items-center justify-center">
-                                    <img src="/icons/blockchain.png" alt="Blockchain" className="w-6 h-6 object-contain" />
+                        <div className="bg-[#F0FDF4] border border-[#BBF7D0] rounded-[1.25rem] md:rounded-[2rem] p-4 md:p-10">
+                            <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-8">
+                                <div className="w-9 h-9 md:w-12 md:h-12 rounded-lg md:rounded-2xl bg-[#166534]/10 border border-[#BBF7D0] flex items-center justify-center">
+                                    <img src="/icons/blockchain.png" alt="Blockchain" className="w-4 h-4 md:w-6 md:h-6 object-contain" />
                                 </div>
-                                <h3 className="font-serif text-xl font-bold text-[#166534]">Blockchain & Tokenization</h3>
+                                <h3 className="font-serif text-[15px] md:text-xl font-bold text-[#166534]">Blockchain & Tokenization</h3>
                             </div>
-                            <ul className="space-y-4">
+                            <ul className="space-y-2.5 md:space-y-4">
                                 {CAPABILITIES_RIGHT.map((item) => (
-                                    <li key={item} className="cap-item flex items-start gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#166534] flex-shrink-0 mt-0.5" strokeWidth={2} />
-                                        <span className="text-gray-700 font-medium text-sm leading-relaxed">{item}</span>
+                                    <li key={item} className="cap-item flex items-start gap-2 md:gap-3">
+                                        <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-[#166534] flex-shrink-0 mt-0.5" strokeWidth={2} />
+                                        <span className="text-gray-700 font-medium text-[12px] md:text-sm leading-snug md:leading-relaxed">{item}</span>
                                     </li>
                                 ))}
                             </ul>
@@ -543,7 +543,7 @@ const FintechWalletsPage = () => {
             </section>
 
             {/* ═══════ SECTION 4 — INDUSTRIES WE SERVE ═══════ */}
-            <section className="py-24 bg-brand-light-bg relative z-10 overflow-hidden">
+            <section className="py-16 lg:py-24 bg-brand-light-bg relative z-10 overflow-hidden">
                 <div className="container mx-auto px-4 md:px-6 max-w-7xl">
                     <div className="text-center mb-16">
                         <SplitTextReveal
@@ -564,19 +564,19 @@ const FintechWalletsPage = () => {
                         </div>
                     </div>
 
-                    <div ref={industriesRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div ref={industriesRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
                         {INDUSTRIES.map((ind) => (
                             <SpotlightCard
                                 key={ind.title}
-                                className={`industry-tile group relative overflow-hidden rounded-[1.5rem] border p-8 transition-all duration-300 ${ind.bgColor} ${ind.border} ${ind.hoverShadow} ${ind.hoverBorder} hover:-translate-y-1`}
+                                className={`industry-tile group relative overflow-hidden rounded-[1.25rem] md:rounded-[1.5rem] border p-4 md:p-8 transition-all duration-300 ${ind.bgColor} ${ind.border} ${ind.hoverShadow} ${ind.hoverBorder} hover:-translate-y-1`}
                                 spotlightColor={ind.spotlight}
                             >
                                 <div className="relative z-10">
-                                    <div className={`w-14 h-14 rounded-2xl border flex items-center justify-center mb-5 bg-white/40 ${ind.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
-                                        <img src={ind.icon} alt={ind.title} className="w-7 h-7 object-contain" />
+                                    <div className={`w-9 h-9 md:w-14 md:h-14 rounded-lg md:rounded-2xl border flex items-center justify-center mb-2 md:mb-5 bg-white/40 ${ind.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
+                                        <img src={ind.icon} alt={ind.title} className="w-4 h-4 md:w-7 md:h-7 object-contain" />
                                     </div>
-                                    <h3 className={`font-serif text-xl font-bold mb-2 ${ind.headingColor}`}>{ind.title}</h3>
-                                    <p className="text-gray-600 text-sm leading-relaxed font-medium">{ind.description}</p>
+                                    <h3 className={`font-serif text-[14px] md:text-xl font-bold mb-1 md:mb-2 ${ind.headingColor}`}>{ind.title}</h3>
+                                    <p className="text-gray-600 text-[11px] md:text-sm leading-snug md:leading-relaxed font-medium">{ind.description}</p>
                                 </div>
                             </SpotlightCard>
                         ))}
@@ -585,7 +585,7 @@ const FintechWalletsPage = () => {
             </section>
 
             {/* ═══════ SECTION 5 — HOW WE WORK ═══════ */}
-            <section className="py-24 bg-white relative z-10 overflow-hidden">
+            <section className="py-16 lg:py-24 bg-white relative z-10 overflow-hidden">
                 <div className="container mx-auto px-4 md:px-6 max-w-7xl">
                     <div className="text-center mb-20">
                         <SplitTextReveal
@@ -606,20 +606,20 @@ const FintechWalletsPage = () => {
                         </div>
                     </div>
 
-                    <div ref={processRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+                    <div ref={processRef} className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 relative">
                         {/* Connecting dashed line (desktop) */}
                         <div className="hidden lg:block absolute top-12 left-[12.5%] right-[12.5%] h-[1px] -z-10 border-t border-dashed border-[#2D6A4F]/30" />
 
                         {HOW_WE_WORK.map((step) => (
                             <div key={step.step} className="process-step flex flex-col items-center text-center relative group">
                                 {/* Icon circle */}
-                                <div className={`w-24 h-24 rounded-full ${step.iconBg} border ${step.iconBorder} flex items-center justify-center mb-6 shadow-sm transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-md relative z-10`}>
-                                    <img src={step.icon} alt={step.title} className="w-10 h-10 object-contain opacity-80" />
+                                <div className={`w-14 h-14 md:w-24 md:h-24 rounded-full ${step.iconBg} border ${step.iconBorder} flex items-center justify-center mb-3 md:mb-6 shadow-sm transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-md relative z-10`}>
+                                    <img src={step.icon} alt={step.title} className="w-6 h-6 md:w-10 md:h-10 object-contain opacity-80" />
                                 </div>
-                                <h3 className={`font-serif text-xl font-bold mb-3 ${step.headingColor}`}>{step.title}</h3>
-                                <p className="text-sm leading-relaxed text-gray-500 font-medium px-2 mb-6 min-h-[80px]">{step.description}</p>
+                                <h3 className={`font-serif text-[14px] md:text-xl font-bold mb-1.5 md:mb-3 ${step.headingColor}`}>{step.title}</h3>
+                                <p className="text-[11px] md:text-sm leading-snug md:leading-relaxed text-gray-500 font-medium px-1 md:px-2 mb-3 md:mb-6 min-h-[5rem] md:min-h-[80px]">{step.description}</p>
                                 {/* Step number badge */}
-                                <div className="w-8 h-8 rounded-full border border-[#2D6A4F]/30 flex items-center justify-center text-[#2D6A4F] text-sm font-bold bg-[#2D6A4F]/5 mt-auto shadow-sm">
+                                <div className="w-6 h-6 md:w-8 md:h-8 rounded-full border border-[#2D6A4F]/30 flex items-center justify-center text-[#2D6A4F] text-xs md:text-sm font-bold bg-[#2D6A4F]/5 mt-auto shadow-sm">
                                     {step.step}
                                 </div>
                             </div>
@@ -629,7 +629,7 @@ const FintechWalletsPage = () => {
             </section>
 
             {/* ═══════ SECTION 6 — TECH STACK & INTEGRATIONS (Marquee) ═══════ */}
-            <section className="py-24 bg-brand-light-bg relative z-10 overflow-hidden">
+            <section className="py-16 lg:py-24 bg-brand-light-bg relative z-10 overflow-hidden">
                 <div className="container mx-auto px-4 md:px-6 max-w-4xl">
                     <div className="text-center mb-16">
                         <SplitTextReveal
@@ -659,8 +659,8 @@ const FintechWalletsPage = () => {
 
                     <div className="flex animate-[marquee_40s_linear_infinite] w-max group-hover:[animation-play-state:paused]">
                         {[...TECH_STACK_MARQUEE, ...TECH_STACK_MARQUEE].map((tech, i) => (
-                            <div key={i} className="flex flex-col items-center justify-center w-48 gap-6 mx-8">
-                                <div className="h-16 w-full flex items-center justify-center px-4">
+                            <div key={i} className="flex flex-col items-center justify-center w-24 md:w-48 gap-3 md:gap-6 mx-3 md:mx-8">
+                                <div className="h-10 md:h-16 w-full flex items-center justify-center px-2 md:px-4">
                                     <img
                                         src={tech.image}
                                         alt={tech.name}
@@ -668,9 +668,9 @@ const FintechWalletsPage = () => {
                                         onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
                                     />
                                 </div>
-                                <div className="flex flex-col items-center">
-                                    <span className="text-[11px] font-bold uppercase tracking-widest text-black/60">{tech.category}</span>
-                                    <span className="text-xs font-medium text-gray-700 mt-1">{tech.name}</span>
+                                <div className="flex flex-col items-center text-center">
+                                    <span className="text-[9px] md:text-[11px] font-bold uppercase tracking-widest text-black/60 mb-1">{tech.category}</span>
+                                    <span className="text-[10px] md:text-xs font-semibold text-gray-700">{tech.name}</span>
                                 </div>
                             </div>
                         ))}
@@ -679,13 +679,13 @@ const FintechWalletsPage = () => {
             </section>
 
             {/* ═══════ SECTION 7 — CLOSING CTA ═══════ */}
-            <section className="py-24 relative overflow-hidden bg-white font-sans">
+            <section className="py-16 lg:py-24 relative overflow-hidden bg-white font-sans">
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-brand-badge-bg/80 rounded-full blur-[120px]" />
                     <div className="absolute bottom-0 right-0 w-[400px] h-[300px] bg-[#E8F5EE]/60 rounded-full blur-[100px]" />
                 </div>
                 <div className="container mx-auto px-4 md:px-6 relative z-10 text-center max-w-[1400px]">
-                    <div className="max-w-4xl mx-auto bg-white p-10 md:p-16 rounded-[3rem] border border-[#E6EFE6] shadow-[0_20px_60px_rgba(45,106,79,0.04)]">
+                    <div className="max-w-4xl mx-auto bg-white p-8 sm:p-10 md:p-16 rounded-[2rem] md:rounded-[3rem] border border-[#E6EFE6] shadow-[0_20px_60px_rgba(45,106,79,0.04)]">
                         <div className="flex flex-col items-center">
                             <SplitTextReveal
                                 as="h2"

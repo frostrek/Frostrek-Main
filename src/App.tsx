@@ -11,10 +11,8 @@ import ScrollToTop from './components/ScrollToTop';
 const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
 const ScheduleDemo = lazy(() => import('./pages/ScheduleDemo'));
-const ProductPage = lazy(() => import('./pages/ProductPage'));
 const HiyringPage = lazy(() => import('./pages/HiyringPage'));
 const VedashiPage = lazy(() => import('./pages/VedashiPage'));
-const SolutionPage = lazy(() => import('./pages/SolutionPage'));
 const ExperiencePage = lazy(() => import('./pages/ExperiencePage'));
 const ResourcesPage = lazy(() => import('./pages/ResourcesPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
@@ -68,13 +66,11 @@ function App() {
                   <Route path="/products/frostrek-manufacturing-os" element={<ManufacturingOSPage />} />
                   <Route path="/products/ai-calling-agent" element={<AICallingAgentPage />} />
                   <Route path="/products/whatsapp-bot" element={<WhatsappBotPage />} />
-                  <Route path="/products/*" element={<ProductPage />} />
                   <Route path="/solutions/fintech-custom-wallets" element={<FintechWalletsPage />} />
                   <Route path="/solutions/multivendor-dashboard" element={<MultivendorDashboardPage />} />
                   <Route path="/solutions/manufacturing-intelligence" element={<ManufacturingIntelligencePage />} />
                   <Route path="/solutions/ai-agents" element={<AIAgentsPage />} />
                   <Route path="/solutions/voice-ai" element={<VoiceAIPage />} />
-                  <Route path="/solutions/*" element={<SolutionPage />} />
 
                   <Route path="/resources/blog/:slug" element={<BlogPostPage />} />
                   <Route path="/resources" element={<ResourcesPage />} />
