@@ -331,7 +331,7 @@ const WhatsappBotPage = () => {
                             </div>
                         </div>
 
-                        <div className="order-1 lg:order-2 relative w-full flex-1 mt-8 lg:mt-0">
+                        {/* <div className="order-1 lg:order-2 relative w-full flex-1 mt-8 lg:mt-0">
                             <div className="relative overflow-hidden group rounded-3xl lg:rounded-[2.2rem]">
                                 <img
                                     src="/products/hiyring-home.png"
@@ -340,7 +340,7 @@ const WhatsappBotPage = () => {
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-3xl lg:rounded-[2.2rem] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </section>

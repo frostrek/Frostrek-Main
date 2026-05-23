@@ -285,10 +285,6 @@ const AICallingAgentPage = () => {
 
             {/* ═══════ SECTION 1 — HERO ═══════ */}
             <section className="relative pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden flex flex-col justify-center min-h-[90vh]">
-                <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-badge-bg/80 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />
-                    <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#E8F5EE] rounded-full blur-[120px] -translate-x-1/4 translate-y-1/4" />
-                </div>
 
                 <div className="container mx-auto px-4 md:px-6 relative z-10 text-center flex flex-col items-center">
                     <div className="max-w-5xl mx-auto w-full flex flex-col items-center">
@@ -330,14 +326,8 @@ const AICallingAgentPage = () => {
                                 to="/contact"
                                 className="group relative w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 bg-[#2D6A4F] text-white rounded-full font-bold text-lg transition-all hover:bg-[#1B4332] shadow-[0_10px_30px_rgba(45,106,79,0.2)] hover:shadow-[0_10px_40px_rgba(45,106,79,0.3)] hover:-translate-y-0.5 overflow-hidden"
                             >
-                                See It In Action
+                                Talk to us
                                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-                            </Link>
-                            <Link
-                                to="/contact"
-                                className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 bg-white text-gray-900 rounded-full font-bold text-lg transition-all border border-gray-200 hover:border-gray-300 hover:bg-gray-50 hover:-translate-y-0.5 shadow-sm"
-                            >
-                                View Case Study
                             </Link>
                         </motion.div>
                     </div>
@@ -380,7 +370,7 @@ const AICallingAgentPage = () => {
                             </div>
                         </div>
 
-                        <div className="order-1 lg:order-2 relative w-full flex-1 mt-8 lg:mt-0">
+                        {/* <div className="order-1 lg:order-2 relative w-full flex-1 mt-8 lg:mt-0">
                             <div className="relative overflow-hidden group rounded-3xl lg:rounded-[2.2rem]">
                                 <img
                                     src="/products/hiyring-home.png"
@@ -389,7 +379,7 @@ const AICallingAgentPage = () => {
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-3xl lg:rounded-[2.2rem] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </section>
