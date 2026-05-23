@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Bot, Mic, MessageSquare, Linkedin, Database, ArrowRight, Sparkles, Play, ChevronRight, Users, Trophy, Factory } from 'lucide-react';
+import { Bot, Mic, MessageSquare, Linkedin, ArrowRight, Sparkles, Play, ChevronRight, Users, Shield, ShoppingBag, Factory } from 'lucide-react';
 
 interface Product {
     id: string;
@@ -47,13 +47,13 @@ const products: Product[] = [
         category: 'core'
     },
     {
-        id: 'frostrek-web3-commerce',
-        name: 'Fintech & Custom Wallets',
-        description: 'Bypass commissions with closed-loop fan loyalty.',
-        shortDesc: 'A centralized, closed-loop digital currency engineered specifically for sports fans and affiliated clubs. Functioning as a next-generation digital loyalty programme that bypasses traditional gateway commissions.',
-        icon: Trophy,
-        href: '/products/frostrek-web3-commerce',
-        features: ['Commission Free', 'Custom Wallets', 'Fan Loyalty'],
+        id: 'vettedge',
+        name: 'VettEdge',
+        description: 'Autonomous financial vetting and credit underwriting agent.',
+        shortDesc: 'Streamline due diligence and risk assessment with autonomous AI underwriting and financial compliance tracking.',
+        icon: Shield,
+        href: '/products/vettedge',
+        features: ['Risk Assessment', 'Automated Compliance', 'Credit Underwriting'],
         category: 'enterprise',
         liveBuild: true
     },
@@ -67,6 +67,16 @@ const products: Product[] = [
         features: ['Live Telemetry', 'AI Scheduling', 'Cost Intelligence'],
         category: 'enterprise',
         liveBuild: true
+    },
+    {
+        id: 'vedashi-ecommerce',
+        name: 'Vedashi Ecommerce',
+        description: 'Bespoke hyper-personalized digital commerce experiences.',
+        shortDesc: 'Scale online storefronts with intelligent retail recommendations and automated WhatsApp cart recovery flows.',
+        icon: ShoppingBag,
+        href: '/products/vedashi-ecommerce',
+        features: ['Product Recs', 'WhatsApp Recovery', 'Cinematic Layouts'],
+        category: 'enterprise'
     },
     {
         id: 'linkedin',
@@ -87,25 +97,16 @@ const products: Product[] = [
         href: '/products/hiyring',
         features: ['AI Video Interviews', 'Instant Screening', 'Bias Reduction'],
         category: 'enterprise'
-    },
-    {
-        id: 'erpnext',
-        name: 'ERPNext AI Modules',
-        description: 'Intelligent add-ons for your ERP system.',
-        shortDesc: 'Reduce operational costs by 60%.',
-        icon: Database,
-        href: '/products/erpnext-ai',
-        features: ['Auto Processing', 'Predictions', 'Reports'],
-        category: 'enterprise'
     }
 ];
 
 // Animated Product Card with Hover Expansions
-const ProductCard = ({ product, index, isActive, onClick }: {
+const ProductCard = ({ product, index, isActive, onMouseEnter, onMouseLeave }: {
     product: Product;
     index: number;
     isActive: boolean;
-    onClick: () => void;
+    onMouseEnter: () => void;
+    onMouseLeave: () => void;
 }) => {
     const IconComponent = product.icon as any;
     const ref = useRef(null);
@@ -117,7 +118,8 @@ const ProductCard = ({ product, index, isActive, onClick }: {
             initial={{ opacity: 0, y: 40 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            onClick={onClick}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
             className={`relative cursor-pointer group ${isActive ? 'z-20' : 'z-10'}`}
         >
             {/* Card */}
@@ -338,7 +340,7 @@ const AllProductsSection = () => {
                     >
                         <div className="w-1.5 h-8 rounded-full bg-[#2D6A4F]" />
                         <span className="text-sm font-extrabold uppercase tracking-wider text-[#2D6A4F]">
-                            Featured Builds — Deployed by Frostrek
+                            Featured Builds - Deployed by Frostrek
                         </span>
                     </motion.div>
 
@@ -352,8 +354,9 @@ const AllProductsSection = () => {
                                     initial={{ opacity: 0, y: 40 }}
                                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                                     transition={{ duration: 0.6, delay: idx * 0.12 }}
-                                    onClick={() => setActiveProduct(isActive ? null : product.id)}
-                                    className="cursor-pointer group"
+                                    onMouseEnter={() => setActiveProduct(product.id)}
+                                    onMouseLeave={() => setActiveProduct(null)}
+                                    className={`relative cursor-pointer group ${isActive ? 'z-20' : 'z-10'}`}
                                 >
                                     {/* FIXED: pure white card with glowing emerald border instead of dark-black box */}
                                     <div className={`relative overflow-hidden rounded-2xl border-2 transition-all duration-500 bg-white ${
@@ -456,7 +459,8 @@ const AllProductsSection = () => {
                                 {coreProducts.map((product, idx) => (
                                     <div key={product.id}>
                                         <ProductCard product={product} index={idx} isActive={activeProduct === product.id}
-                                            onClick={() => setActiveProduct(activeProduct === product.id ? null : product.id)} />
+                                            onMouseEnter={() => setActiveProduct(product.id)}
+                                            onMouseLeave={() => setActiveProduct(null)} />
                                         {idx < coreProducts.length - 1 && <ConnectionLine isVisible={activeProduct === product.id} />}
                                     </div>
                                 ))}
@@ -473,7 +477,8 @@ const AllProductsSection = () => {
                                 {enterpriseProducts.map((product, idx) => (
                                     <div key={product.id}>
                                         <ProductCard product={product} index={idx + 3} isActive={activeProduct === product.id}
-                                            onClick={() => setActiveProduct(activeProduct === product.id ? null : product.id)} />
+                                            onMouseEnter={() => setActiveProduct(product.id)}
+                                            onMouseLeave={() => setActiveProduct(null)} />
                                         {idx < enterpriseProducts.length - 1 && <ConnectionLine isVisible={activeProduct === product.id} />}
                                     </div>
                                 ))}

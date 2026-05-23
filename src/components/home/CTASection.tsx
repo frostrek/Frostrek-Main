@@ -62,11 +62,11 @@ const CTASection = () => {
             </div>
 
             <div className="container mx-auto px-4 md:px-6 relative z-10 text-center max-w-[1400px]">
-                <div ref={contentRef} className="max-w-4xl mx-auto bg-white p-10 md:p-16 rounded-[3rem] border border-[#E6EFE6] shadow-[0_20px_60px_rgba(45,106,79,0.04)]">
+                <div ref={contentRef} className="max-w-4xl mx-auto bg-white p-6 sm:p-10 md:p-16 rounded-2xl sm:rounded-[3rem] border border-[#E6EFE6] shadow-[0_20px_60px_rgba(45,106,79,0.04)]">
                     <div className="flex flex-col items-center">
                         <SplitTextReveal
                             as="h2"
-                            className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#2D6A4F] leading-[1.15] tracking-[-0.01em] whitespace-nowrap"
+                            className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
                             type="chars"
                             stagger={0.02}
                             once={false}
@@ -75,7 +75,7 @@ const CTASection = () => {
                         </SplitTextReveal>
                         <SplitTextReveal
                             as="h2"
-                            className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-[#2D6A4F] leading-[1.15] tracking-[-0.01em] whitespace-nowrap"
+                            className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
                             type="chars"
                             stagger={0.02}
                             once={false}

@@ -4,6 +4,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Hide scrollbar for horizontal scroll containers */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 @layer base {
   body {
     @apply bg-brand-light-bg text-[#2D6A4F] font-body antialiased;
@@ -37,6 +46,21 @@
 
   ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(180deg, #1CB8A1 0%, #148f7d 100%);
+  }
+
+  /* Minimal thin grey scrollbar */
+  .scrollbar-minimal::-webkit-scrollbar {
+    width: 4px;
+  }
+  .scrollbar-minimal::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-minimal::-webkit-scrollbar-thumb {
+    background: #D1D5DB; /* Tailwind gray-300 */
+    border-radius: 4px;
+  }
+  .scrollbar-minimal::-webkit-scrollbar-thumb:hover {
+    background: #9CA3AF; /* Tailwind gray-400 */
   }
 }
 

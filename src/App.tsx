@@ -7,17 +7,27 @@ import SmoothScrollProvider from './components/providers/SmoothScrollProvider';
 import { ThemeProvider } from './context/ThemeContext';
 import ScrollToTop from './components/ScrollToTop';
 
-// Lazy load pages to split code chunks and reduce initial bundle size
+// Lazy load pages to split code chunks and reduce initial bundle sizes
 const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
 const ScheduleDemo = lazy(() => import('./pages/ScheduleDemo'));
-const ProductPage = lazy(() => import('./pages/ProductPage'));
 const HiyringPage = lazy(() => import('./pages/HiyringPage'));
-const SolutionPage = lazy(() => import('./pages/SolutionPage'));
+const VedashiPage = lazy(() => import('./pages/VedashiPage'));
 const ExperiencePage = lazy(() => import('./pages/ExperiencePage'));
 const ResourcesPage = lazy(() => import('./pages/ResourcesPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
-
+const FrostyPage = lazy(() => import('./pages/FrostyPage'));
+const VettEdgePage = lazy(() => import('./pages/VettEdgePage'));
+const ManufacturingOSPage = lazy(() => import('./pages/ManufacturingOSPage'));
+const AICallingAgentPage = lazy(() => import('./pages/AICallingAgentPage'));
+const WhatsappBotPage = lazy(() => import('./pages/WhatsappBotPage'));
+const BlogPostPage = lazy(() => import('./pages/BlogPostPage'));
+const FAQPage = lazy(() => import('./pages/FAQPage'));
+const FintechWalletsPage = lazy(() => import('./pages/FintechWalletsPage'));
+const MultivendorDashboardPage = lazy(() => import('./pages/MultivendorDashboardPage'));
+const ManufacturingIntelligencePage = lazy(() => import('./pages/ManufacturingIntelligencePage'));
+const AIAgentsPage = lazy(() => import('./pages/AIAgentsPage'));
+const VoiceAIPage = lazy(() => import('./pages/VoiceAIPage'));
 // Lazy load Chatbot to improve LCP - defers 705KB GIF and JS bundle
 const Chatbot = lazy(() => import('./components/chat/Chatbot'));
 
@@ -45,19 +55,30 @@ function App() {
             <Header />
             <main className="flex-grow">
               <Suspense fallback={<PageLoader />}>
-               <ScrollToTop/>
+                <ScrollToTop />
                 <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/schedule-demo" element={<ScheduleDemo />} />
                   <Route path="/products/hiyring" element={<HiyringPage />} />
-                  <Route path="/products/*" element={<ProductPage />} />
-                  <Route path="/solutions/*" element={<SolutionPage />} />
+                  <Route path="/products/vedashi-ecommerce" element={<VedashiPage />} />
+                  <Route path="/products/frosty-ai" element={<FrostyPage />} />
+                  <Route path="/products/vettedge" element={<VettEdgePage />} />
+                  <Route path="/products/frostrek-manufacturing-os" element={<ManufacturingOSPage />} />
+                  <Route path="/products/ai-calling-agent" element={<AICallingAgentPage />} />
+                  <Route path="/products/whatsapp-bot" element={<WhatsappBotPage />} />
+                  <Route path="/solutions/fintech-custom-wallets" element={<FintechWalletsPage />} />
+                  <Route path="/solutions/multivendor-dashboard" element={<MultivendorDashboardPage />} />
+                  <Route path="/solutions/manufacturing-intelligence" element={<ManufacturingIntelligencePage />} />
+                  <Route path="/solutions/ai-agents" element={<AIAgentsPage />} />
+                  <Route path="/solutions/voice-ai" element={<VoiceAIPage />} />
 
+                  <Route path="/resources/blog/:slug" element={<BlogPostPage />} />
                   <Route path="/resources" element={<ResourcesPage />} />
                   <Route path="/about" element={<About />} />
                   <Route path="/experience" element={<ExperiencePage />} />
                   <Route path="/careers" element={<PlaceholderPage title="Careers" />} />
                   <Route path="/contact" element={<ContactPage />} />
+                  <Route path="/faq" element={<FAQPage />} />
                   <Route path="*" element={<PlaceholderPage title="Page Not Found" />} />
                 </Routes>
               </Suspense>

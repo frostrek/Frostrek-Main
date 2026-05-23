@@ -308,7 +308,6 @@ const ChatbotDemo: React.FC = () => {
                     if (!atTop && !atBottom) {
                         e.stopPropagation();
                     }
-                    e.stopPropagation();
                 }}
             >
                 {messages.map((msg, idx) => (

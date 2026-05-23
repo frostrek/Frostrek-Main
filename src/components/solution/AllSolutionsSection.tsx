@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { TrendingUp, Headset, ShoppingCart, Server, ArrowRight, Sparkles, Play, ChevronRight } from 'lucide-react';
+import { ArrowRight, Sparkles, Play, ChevronRight } from 'lucide-react';
 
 interface Solution {
     id: string;
@@ -13,42 +13,53 @@ interface Solution {
     features: string[];
 }
 
+import { Bot, Factory, Trophy, Layers, Mic } from 'lucide-react';
+
 const solutions: Solution[] = [
     {
-        id: 'sales',
-        name: 'AI for Sales',
-        description: 'Boost conversion rates with AI sales assistants.',
-        shortDesc: 'Automate lead qualification and follow-ups to close more deals.',
-        icon: TrendingUp,
-        href: '/solutions/sales',
-        features: ['Lead Scoring', 'Auto Follow-up', 'Pipeline Analytics'],
+        id: 'manufacturing-intelligence',
+        name: 'Manufacturing Intelligence',
+        description: 'Real-time factory optimization and production AI.',
+        shortDesc: 'Unify factory telemetry, ERP data, and AI scheduling into a single pane of glass.',
+        icon: Factory,
+        href: '/solutions/manufacturing-intelligence',
+        features: ['Live Telemetry', 'AI Scheduling', 'Cost Intelligence']
     },
     {
-        id: 'support',
-        name: 'AI for Support',
-        description: '24/7 customer support automation.',
-        shortDesc: 'Reduce response times and improve customer satisfaction.',
-        icon: Headset,
-        href: '/solutions/support',
-        features: ['24/7 Availability', 'Smart Routing', 'Sentiment Analysis'],
+        id: 'ai-agents',
+        name: 'AI Agents',
+        description: 'Intelligent, autonomous AI agents built for your business workflows.',
+        shortDesc: 'We design and deploy custom AI agents that think, respond, and act.',
+        icon: Bot,
+        href: '/solutions/ai-agents',
+        features: ['Voice Agents', 'Workflow Automation', 'Domain-Specific']
     },
     {
-        id: 'ecommerce',
-        name: 'AI for eCommerce',
-        description: 'Personalized shopping experiences.',
-        shortDesc: 'Increase conversions with intelligent product recommendations.',
-        icon: ShoppingCart,
-        href: '/solutions/ecommerce',
-        features: ['Product Recs', 'Cart Recovery', 'Personal Offers'],
+        id: 'voice-ai',
+        name: 'Voice AI',
+        description: 'Custom Voice AI systems for high-volume inbound and outbound calls.',
+        shortDesc: 'Every Call Handled. Every Lead Followed Up. Always On.',
+        icon: Mic,
+        href: '/solutions/voice-ai',
+        features: ['Inbound Agents', 'Outbound Campaigns', 'IVR Replacement']
     },
     {
-        id: 'erp',
-        name: 'AI for ERP',
-        description: 'Streamline operations with intelligent ERP.',
-        shortDesc: 'Automate data entry and reduce operational overhead by 60%.',
-        icon: Server,
-        href: '/solutions/erp',
-        features: ['Auto Processing', 'Data Sync', 'Smart Reports'],
+        id: 'multivendor-dashboard',
+        name: 'Multivendor Dashboard',
+        description: 'Consolidated automated command center for e-commerce.',
+        shortDesc: 'Unify revenue, inventory, and orders across all storefronts into one dashboard.',
+        icon: Layers,
+        href: '/solutions/multivendor-dashboard',
+        features: ['Multi-Channel Sync', 'Automated Pricing', 'Predictive Restocking']
+    },
+    {
+        id: 'fintech-custom-wallets',
+        name: 'Fintech & Custom Wallets',
+        description: 'Centralised closed-loop digital loyalty currencies to bypass commissions.',
+        shortDesc: 'A closed-loop digital currency engineered specifically for sports fans and affiliated clubs.',
+        icon: Trophy,
+        href: '/solutions/fintech-custom-wallets',
+        features: ['0% Gateway Fees', 'Closed-Loop Ecosystem', 'Instant Onboarding']
     }
 ];
 
@@ -75,9 +86,8 @@ const SolutionCard = ({ solution, index, isActive, onClick }: {
             {/* Card */}
             <motion.div
                 layout
-                className={`relative overflow-hidden rounded-2xl border transition-all duration-500 bg-white border-gray-150 ${
-                    isActive ? 'border-[#2D6A4F] shadow-2xl shadow-[#2D6A4F]/10' : 'hover:border-[#2D6A4F]/35 hover:shadow-xl'
-                }`}
+                className={`relative overflow-hidden rounded-2xl border transition-all duration-500 bg-white border-gray-150 ${isActive ? 'border-[#2D6A4F] shadow-2xl shadow-[#2D6A4F]/10' : 'hover:border-[#2D6A4F]/35 hover:shadow-xl'
+                    }`}
             >
                 {/* Animated Background Gradient */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-[#E8F5EE]/40 to-transparent" />
@@ -186,32 +196,6 @@ const SolutionCard = ({ solution, index, isActive, onClick }: {
     );
 };
 
-// Connection Line Between Cards
-const ConnectionLine = ({ isVisible }: { isVisible: boolean }) => {
-    return (
-        <motion.div
-            className="hidden lg:flex items-center justify-center h-2 -my-1 relative z-0"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: isVisible ? 1 : 0 }}
-        >
-            <motion.div
-                className="w-0.5 h-full bg-[#E8F5EE]"
-                initial={{ scaleY: 0 }}
-                animate={{ scaleY: isVisible ? 1 : 0 }}
-                transition={{ duration: 0.5 }}
-            />
-            {/* Animated dot */}
-            {isVisible && (
-                <motion.div
-                    className="absolute w-2 h-2 rounded-full bg-[#2D6A4F]"
-                    initial={{ y: -20 }}
-                    animate={{ y: 20 }}
-                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                />
-            )}
-        </motion.div>
-    );
-};
 
 export const AllSolutionsSection = () => {
     const [activeSolution, setActiveSolution] = useState<string | null>(null);
@@ -294,43 +278,26 @@ export const AllSolutionsSection = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
                         {/* Left Column */}
                         <div className="space-y-4">
-                            {solutions.slice(0, 2).map((solution, idx) => (
+                            {solutions.slice(0, 1).map((solution) => (
                                 <div key={solution.id}>
                                     <SolutionCard
                                         solution={solution}
-                                        index={idx}
+                                        index={0}
                                         isActive={activeSolution === solution.id}
                                         onClick={() => setActiveSolution(activeSolution === solution.id ? null : solution.id)}
                                     />
-                                    {idx < 1 && (
-                                        <ConnectionLine isVisible={activeSolution === solution.id} />
-                                    )}
                                 </div>
                             ))}
                         </div>
 
                         {/* Right Column */}
-                        <div className="space-y-4">
-                            {solutions.slice(2, 4).map((solution, idx) => (
-                                <div key={solution.id}>
-                                    <SolutionCard
-                                        solution={solution}
-                                        index={idx + 2}
-                                        isActive={activeSolution === solution.id}
-                                        onClick={() => setActiveSolution(activeSolution === solution.id ? null : solution.id)}
-                                    />
-                                    {idx < 1 && (
-                                        <ConnectionLine isVisible={activeSolution === solution.id} />
-                                    )}
-                                </div>
-                            ))}
-
+                        <div className="space-y-4 flex flex-col justify-center">
                             {/* CTA Card */}
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                                transition={{ delay: 0.8 }}
-                                className="mt-6 p-6 rounded-2xl border-2 border-dashed border-[#2D6A4F]/20 bg-[#E8F5EE]/10"
+                                transition={{ delay: 0.4 }}
+                                className="p-6 rounded-2xl border-2 border-dashed border-[#2D6A4F]/20 bg-[#E8F5EE]/10"
                             >
                                 <div className="text-center">
                                     <h4 className="font-serif font-bold text-gray-900 mb-1.5 text-base">

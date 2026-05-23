@@ -8,15 +8,15 @@ import {
     ShoppingCart, Headset, Server, TrendingUp,
     Linkedin, Users, Trophy, Factory,
     Mail, FileText, Share2, Globe, PenTool, Search, UserPlus, Brain, ArrowRight,
-    Sparkles
+    Shield, ShoppingBag, Layers
 } from 'lucide-react';
-import FlipText from '../ui/FlipText';
 
 const iconMap: Record<string, React.FC<any>> = {
     Bot, Mic, MessageSquare, Database, BarChart,
     ShoppingCart, Headset, Server, TrendingUp,
     Linkedin, Users, Trophy, Factory,
-    Mail, FileText, Share2, Globe, PenTool, Search, UserPlus, Brain
+    Mail, FileText, Share2, Globe, PenTool, Search, UserPlus, Brain,
+    Shield, ShoppingBag, Layers
 };
 
 interface SubItem { name: string; href: string; desc: string; icon?: string; }
@@ -116,36 +116,6 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ sections, onClose }) => {
                     </div>
                 </div>
 
-                {/* Premium White Footer */}
-                <div className="flex-shrink-0 px-12 py-7 bg-white border-t border-gray-100 flex items-center justify-between relative z-20">
-                    <div className="flex items-center gap-5">
-                        <div className="flex -space-x-3">
-                            {[1, 2, 3, 4].map((i) => (
-                                <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-[#E8F5EE] flex items-center justify-center text-[10px] text-[#2D6A4F] font-bold shadow-sm">
-                                    <Sparkles size={12} />
-                                </div>
-                            ))}
-                        </div>
-                        <span className="text-[14px] font-semibold text-slate-500 font-body flex items-center gap-2.5">
-                            <span className="relative flex h-2.5 w-2.5">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2D6A4F] opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#2D6A4F]"></span>
-                            </span>
-                            Expert AI Solutions ready to scale your enterprise
-                        </span>
-                    </div>
-                    
-                    <Link
-                        to="/schedule-demo"
-                        onClick={onClose}
-                        className="group flex items-center gap-2.5 px-7 py-3 rounded-full bg-[#2D6A4F] text-white text-[14px] font-medium hover:bg-[#1B4332] transition-all duration-500 shadow-xl shadow-[#2D6A4F]/15 active:translate-y-0.5 whitespace-nowrap"
-                    >
-                        <FlipText>
-                            Book Free Demo
-                            <ArrowRight size={16} className="group-hover:translate-x-1.5 transition-transform duration-500" />
-                        </FlipText>
-                    </Link>
-                </div>
             </div>
 
             <style dangerouslySetInnerHTML={{ __html: `

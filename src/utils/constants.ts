@@ -9,25 +9,18 @@ export const NAV_ITEMS = [
             {
                 title: '01 CORE AI AGENTS',
                 items: [
-                    { name: 'AI Calling Agent', href: '/products/voice-ai', desc: 'Outbound & inbound voice AI for high-volume reminders and support.', icon: 'Mic' },
-                    { name: 'WhatsApp Bot', href: '/products/whatsapp-agents', desc: 'Automated conversational flows on WhatsApp Business for leads.', icon: 'MessageSquare' },
+                    { name: 'AI Calling Agent', href: '/products/ai-calling-agent', desc: 'Outbound & inbound voice AI for high-volume reminders and support.', icon: 'Mic' },
+                    { name: 'WhatsApp Bot', href: '/products/whatsapp-bot', desc: 'Automated conversational flows on WhatsApp Business for leads.', icon: 'MessageSquare' },
                     { name: 'Website Chatbot (Frosty)', href: '/products/frosty-ai', desc: 'Embedded AI assistant trained on your docs for 24/7 support.', icon: 'Bot' },
-                    { name: 'Lead Generation Agent', href: '/products/lead-agent', desc: 'Scrapes and enriches leads automatically from multiple sources.', icon: 'Users' },
                 ],
             },
             {
                 title: '02 ENTERPRISE PLATFORMS',
                 items: [
                     { name: 'Manufacturing AI OS', href: '/products/frostrek-manufacturing-os', desc: 'Real-time factory intelligence and production optimization.', icon: 'Factory' },
-                    { name: 'Fintech & Custom Wallets', href: '/products/frostrek-web3-commerce', desc: 'Centralised fan loyalty currency that bypasses gateway commissions.', icon: 'Trophy' },
-                    { name: 'CRM & ERP Automation', href: '/products/erpnext-ai', desc: 'Intelligent add-ons to streamline your existing workflows.', icon: 'Database' },
-                ],
-            },
-            {
-                title: '03 SMART AUTOMATION',
-                items: [
-                    { name: 'Invoice & Document AI', href: '/products/invoice-ai', desc: 'Extract and process data from invoices and contracts instantly.', icon: 'FileText' },
-                    { name: 'Workflow Builder', href: '/products/workflow-builder', desc: 'Connect 100s of apps in custom no-code automation flows.', icon: 'Share2' },
+                    { name: 'VettEdge', href: '/products/vettedge', desc: 'AI-driven investment vetting and credit underwriting platform.', icon: 'Shield' },
+                    { name: 'Vedashi Ecommerce', href: '/products/vedashi-ecommerce', desc: 'Premium, hyper-personalized online storefronts with WhatsApp recovery.', icon: 'ShoppingBag' },
+                    { name: 'Hiyring', href: '/products/hiyring', desc: 'Transforming talent acquisition through autonomous AI video interviews.', icon: 'Users' },
                 ],
             },
         ],
@@ -37,19 +30,18 @@ export const NAV_ITEMS = [
         href: '/solutions',
         megaMenu: [
             {
-                title: '01 SALES & COMMUNICATION',
+                title: '01 INTELLIGENT AUTOMATION',
                 items: [
-                    { name: 'AI for Sales', href: '/solutions/sales', desc: 'Lead gen, CRM automation, and calling to close deals.', icon: 'TrendingUp' },
-                    { name: 'AI for Support', href: '/solutions/support', desc: '24/7 customer service across WhatsApp, chat & voice.', icon: 'Headset' },
-                    { name: 'Manufacturing Intelligence', href: '/solutions/manufacturing', desc: 'Real-time factory optimization and production AI.', icon: 'Factory' },
+                    { name: 'AI Agents', href: '/solutions/ai-agents', desc: 'Intelligent, autonomous AI agents built for your business workflows.', icon: 'Bot' },
+                    { name: 'Manufacturing Intelligence', href: '/solutions/manufacturing-intelligence', desc: 'Real-time factory optimization and production AI.', icon: 'Factory' },
+                    { name: 'Voice AI', href: '/solutions/voice-ai', desc: 'Custom Voice AI systems for high-volume inbound and outbound calls.', icon: 'Mic' },
                 ],
             },
             {
-                title: '02 OPERATIONS & COMMERCE',
+                title: '02 DIGITAL INFRASTRUCTURE',
                 items: [
-                    { name: 'AI for ERP', href: '/solutions/erp', desc: 'Invoice AI, workflow builder, and internal knowledge bots.', icon: 'Server' },
-                    { name: 'AI for eCommerce', href: '/solutions/ecommerce', desc: 'Cart recovery, content generation, competitor tracking.', icon: 'ShoppingCart' },
-                    { name: 'Fintech & Custom Wallets', href: '/solutions/web3', desc: 'Centralised closed-loop digital loyalty currencies to bypass commissions.', icon: 'Trophy' },
+                    { name: 'Fintech & Custom Wallets', href: '/solutions/fintech-custom-wallets', desc: 'Centralised closed-loop digital loyalty currencies to bypass commissions.', icon: 'Trophy' },
+                    { name: 'Multivendor Dashboard', href: '/solutions/multivendor-dashboard', desc: 'Consolidated automated command center for all your e-commerce channels.', icon: 'Layers' },
                 ],
             },
         ],
@@ -59,9 +51,9 @@ export const NAV_ITEMS = [
 ];
 
 export const COMPANY_INFO = {
-    name: 'Frostrek',
-    address: '4th Floor, Unit No. 455, JMD Empire, Sector 62, Gurgaon',
-    contact: 'contact@frostrek.com',
+    name: 'Frostrek AI',
+    address: '4th Floor, Unit No. 455, JMD Empire, Sector 62, Gurugram',
+    contact: 'contact@frostrek.ai',
     socials: {
         linkedin: 'https://www.linkedin.com/company/frostrek/',
         instagram: 'https://www.instagram.com/frostrekai?igsh=bndyYWZ1NTA4NWR1',

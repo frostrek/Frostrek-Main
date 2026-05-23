@@ -9,6 +9,9 @@ const routes = [
   '/products/frosty-ai',
   '/products/voice-ai',
   '/products/whatsapp-agents',
+  '/products/hiyring',
+  '/products/linkedin-automation',
+  '/products/erpnext-ai',
   '/solutions',
   '/solutions/sales',
   '/solutions/support',
@@ -17,7 +20,17 @@ const routes = [
   '/resources',
   '/contact',
   '/schedule-demo',
-  '/experience'
+  '/experience',
+  '/faq',
+  '/resources/blog/future-of-data-operations-agentic-ai',
+  '/resources/blog/rlhf-critical-enterprise-model-safety',
+  '/resources/blog/scaling-annotation-teams-without-losing-quality',
+  '/resources/blog/navigating-ai-ethics-data-collection',
+  '/resources/blog/rise-of-multimodal-ai-models',
+  '/resources/blog/optimizing-voice-ai-regional-dialects',
+  '/resources/blog/enterprise-grade-data-security-protocols',
+  '/resources/blog/enduring-role-human-in-the-loop',
+  '/resources/blog/accelerating-medical-ai-precision-data',
 ]
 
 // https://vite.dev/config/
