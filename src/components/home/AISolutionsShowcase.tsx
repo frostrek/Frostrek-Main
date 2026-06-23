@@ -13,7 +13,7 @@ import SplitTextReveal from '../ui/SplitTextReveal';
 gsap.registerPlugin(ScrollTrigger);
 
 interface SolutionDemo {
-    type: 'chat' | 'voice' | 'manufacturing' | 'web3' | 'multivendor';
+    type: 'chat' | 'voice' | 'manufacturing' | 'web3' | 'multivendor' | 'llm';
 }
 
 interface Solution {
@@ -47,8 +47,8 @@ const SOLUTIONS: Solution[] = [
         ],
         link: '/solutions/manufacturing-intelligence',
         gradient: 'from-[#2D6A4F] to-[#3D8B6E]',
-        tabColor: '#FFF7ED',
-        tabColorHover: '#FFEDD5'
+        tabColor: '#F3E8FF',
+        tabColorHover: '#EBE0F7'
     },
     {
         id: 'frostrek-web3-commerce',
@@ -122,6 +122,25 @@ const SOLUTIONS: Solution[] = [
         gradient: 'from-[#2D6A4F] to-[#3D8B6E]',
         tabColor: '#F0F9FF',
         tabColorHover: '#E0F2FE'
+    },
+    {
+        id: 'llm-training-data',
+        title: 'LLM Training & Data Services',
+        tagline: 'High-quality data for robust models.',
+        description: 'Accelerate your AI initiatives with our end-to-end data services. From data annotation and RLHF to model evaluation, we provide the high-quality datasets and human feedback needed to train, fine-tune, and align your Large Language Models.',
+        icon: "/icons/data-analytics.png",
+        demo: { type: 'llm' },
+        features: [
+            'Data Annotation: Precise labeling for computer vision and NLP',
+            'RLHF: Human feedback to align model behavior with human intent',
+            'Model Evaluation: Rigorous benchmarking against industry standards',
+            'Custom Datasets: Tailored data collection for specialized domains',
+            'Data Quality: Multi-stage QA processes for maximum accuracy'
+        ],
+        link: '/solutions/data-services',
+        gradient: 'from-[#2D6A4F] to-[#3D8B6E]',
+        tabColor: '#EEF2FF',
+        tabColorHover: '#E0E7FF'
     }
 ];
 
@@ -206,7 +225,7 @@ const ManufacturingDemo = () => {
     ];
 
     return (
-        <div className="rounded-2xl p-4 h-[240px] bg-gradient-to-r from-[#FFF7ED] to-transparent border border-[#E6EFE6] overflow-hidden flex flex-col relative">
+        <div className="rounded-2xl p-4 h-[240px] bg-gradient-to-r from-[#F3E8FF] to-transparent border border-[#E9D5FF]/50 overflow-hidden flex flex-col relative">
             <div className="flex items-center justify-between mb-3 bg-white p-3 rounded-xl border border-gray-100 shadow-sm z-10">
                 <div className="flex items-center gap-2">
                     <div className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse" />
@@ -286,6 +305,29 @@ const MultivendorDemo = () => {
     );
 };
 
+const LLMDemo = () => {
+    return (
+        <div className="rounded-2xl p-5 h-[240px] bg-gradient-to-br from-[#EEF2FF] to-transparent border border-[#E0E7FF] flex flex-col items-center justify-center relative overflow-hidden">
+            <div className="absolute inset-0 bg-[#EEF2FF]/20" />
+            <div className="w-16 h-16 rounded-2xl bg-white shadow-lg border border-[#E0E7FF] flex items-center justify-center mb-4 z-10 relative">
+                <div className="flex gap-2">
+                    <span className="w-2 h-8 bg-indigo-400 rounded-full animate-pulse" style={{ animationDelay: '0ms' }}></span>
+                    <span className="w-2 h-12 bg-indigo-500 rounded-full animate-pulse" style={{ animationDelay: '150ms' }}></span>
+                    <span className="w-2 h-6 bg-indigo-400 rounded-full animate-pulse" style={{ animationDelay: '300ms' }}></span>
+                </div>
+                <div className="absolute -top-1 -right-1 w-5 h-5 bg-indigo-500 rounded-full flex items-center justify-center">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-white" />
+                </div>
+            </div>
+            <div className="text-center z-10">
+                <div className="text-sm font-bold text-black mb-1">Model Aligned</div>
+                <div className="text-3xl font-black font-mono tracking-tight mb-2">99.8% <span className="text-sm">ACCURACY</span></div>
+                <div className="text-[11px] text-gray-500 bg-white px-3 py-1.5 rounded-lg shadow-sm border border-gray-100 inline-block font-medium">RLHF Pipeline Active</div>
+            </div>
+        </div>
+    );
+};
+
 const DemoComponent = ({ type }: { type: SolutionDemo['type'] }) => {
     switch (type) {
         case 'chat': return <ChatDemo />;
@@ -293,6 +335,7 @@ const DemoComponent = ({ type }: { type: SolutionDemo['type'] }) => {
         case 'manufacturing': return <ManufacturingDemo />;
         case 'web3': return <Web3Demo />;
         case 'multivendor': return <MultivendorDemo />;
+        case 'llm': return <LLMDemo />;
     }
 };
 
@@ -569,7 +612,7 @@ const AISolutionsShowcase = () => {
                                                 <div className="mt-0.5 bg-[#E6EFE6] rounded-full p-0.5 flex-shrink-0">
                                                     <CheckCircle2 className="w-4 h-4 text-[#2D6A4F]" />
                                                 </div>
-                                                <span className="text-[15px] font-medium text-gray-700 leading-snug">{feature}</span>
+                                                <span className="text-[13px] text-gray-600 leading-snug">{feature}</span>
                                             </div>
                                         ))}
                                     </div>

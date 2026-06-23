@@ -56,13 +56,13 @@ const PRODUCTS = [
         title: 'Website Chatbot (FROSTY) ',
         description: 'Connect your data streams, automate customer journeys. Our easy to plug chatbot is here to handle the heavy lifting while your team focuses on closing.',
         icon: <img src="/icons/machine-learning.png" alt="AI Model Training" className="w-7 h-7 md:w-10 md:h-10 object-contain" />,
-        bgColor: 'bg-[#FFFBEB]', // Light Yellow
+        bgColor: 'bg-[#F3E8FF]', // Soft Lavender
         textColor: 'text-black',
-        borderColor: 'border-amber-100',
+        borderColor: 'border-[#E9D5FF]',
         colSpan: 'md:col-span-1',
         rowSpan: 'row-span-1',
         link: '/products/frosty-ai',
-        arrowColor: 'text-[#D97706]' // Mid-tone Amber
+        arrowColor: 'text-[#9333EA]' // Mid-tone Purple
     },
 ];
 

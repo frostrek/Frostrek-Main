@@ -193,14 +193,14 @@ const WhatWeDoSection = () => {
                     const gap = 20; // gap-5 = 20px
                     // Scroll distance needed to align the last card to the left edge
                     const scrollAmount = (cardWidth + gap) * (cards.length - 1);
-                    
+
                     if (scrollAmount > 0) {
                         gsap.to(scrollWrapperRef.current, {
                             x: -scrollAmount,
                             ease: "none",
                             scrollTrigger: {
                                 trigger: pinRef.current,
-                                start: "top 15%", 
+                                start: "top 15%",
                                 end: () => `+=${scrollAmount}`,
                                 scrub: 1,
                                 pin: true,
@@ -294,50 +294,47 @@ const WhatWeDoSection = () => {
                                     <div key={card.label} className="w-[85vw] sm:w-[60vw] md:w-auto shrink-0 flex">
                                         <motion.div
                                             initial={{ opacity: 0, y: 40 }}
-                                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                                transition={{ duration: 0.6, delay: 0.1 + i * 0.15 }}
-                                className={`group relative rounded-3xl border border-gray-100 bg-white p-7 flex flex-col gap-5 transition-all duration-500 ${
-                                    i === 0
-                                        ? 'hover:border-[#BAE6FD] hover:shadow-[0_20px_50px_rgba(14,165,233,0.07)]'
-                                        : i === 2
-                                        ? 'hover:border-[#FFE4E6] hover:shadow-[0_20px_50px_rgba(244,63,94,0.05)]'
-                                        : 'hover:border-[#C8E6DA] hover:shadow-[0_20px_50px_rgba(45,106,79,0.07)]'
-                                }`}
-                            >
-                                <div className={`absolute top-0 left-8 right-8 h-0.5 bg-gradient-to-r from-transparent to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${
-                                    i === 0
-                                        ? 'via-[#0EA5E9]/25'
-                                        : i === 2
-                                        ? 'via-[#FB7185]/20'
-                                        : 'via-[#2D6A4F]/25'
-                                }`} />
-                                <div>
-                                    <div className="flex items-center gap-2 mb-4">
-                                        <div className={`w-9 h-9 rounded-xl flex items-center justify-center border transition-all duration-300 ${
-                                            i === 0
-                                                ? 'bg-[#E0F2FE] border-[#BAE6FD]'
+                                            animate={isInView ? { opacity: 1, y: 0 } : {}}
+                                            transition={{ duration: 0.6, delay: 0.1 + i * 0.15 }}
+                                            className={`group relative rounded-3xl border border-gray-100 bg-white p-7 flex flex-col gap-5 transition-all duration-500 ${i === 0
+                                                ? 'hover:border-[#BAE6FD] hover:shadow-[0_20px_50px_rgba(14,165,233,0.07)]'
                                                 : i === 2
-                                                ? 'bg-[#FFF1F2] border-[#FFE4E6]'
-                                                : 'bg-[#E8F5EE] border-[#C8E6DA]'
-                                        }`}>
-                                            <img src={card.icon} alt={card.label} className="w-5 h-5 object-contain" />
-                                        </div>
-                                        <span className="text-gray-600 text-[10px] font-bold uppercase tracking-widest">{card.label}</span>
+                                                    ? 'hover:border-[#FFE4E6] hover:shadow-[0_20px_50px_rgba(244,63,94,0.05)]'
+                                                    : 'hover:border-[#C8E6DA] hover:shadow-[0_20px_50px_rgba(45,106,79,0.07)]'
+                                                }`}
+                                        >
+                                            <div className={`absolute top-0 left-8 right-8 h-0.5 bg-gradient-to-r from-transparent to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${i === 0
+                                                ? 'via-[#0EA5E9]/25'
+                                                : i === 2
+                                                    ? 'via-[#FB7185]/20'
+                                                    : 'via-[#2D6A4F]/25'
+                                                }`} />
+                                            <div>
+                                                <div className="flex items-center gap-2 mb-4">
+                                                    <div className={`w-9 h-9 rounded-xl flex items-center justify-center border transition-all duration-300 ${i === 0
+                                                        ? 'bg-[#E0F2FE] border-[#BAE6FD]'
+                                                        : i === 2
+                                                            ? 'bg-[#FFF1F2] border-[#FFE4E6]'
+                                                            : 'bg-[#E8F5EE] border-[#C8E6DA]'
+                                                        }`}>
+                                                        <img src={card.icon} alt={card.label} className="w-5 h-5 object-contain" />
+                                                    </div>
+                                                    <span className="text-gray-600 text-[10px] font-bold uppercase tracking-widest">{card.label}</span>
+                                                </div>
+                                                <h3 className="font-serif text-xl font-bold text-black mb-2 leading-snug">{card.title}</h3>
+                                                <p className="text-gray-500 text-sm leading-relaxed">{card.desc}</p>
+                                            </div>
+                                            <div className="flex-1"><Demo /></div>
+                                            <Link to={card.href} className="inline-flex items-center gap-2 text-gray-600 text-sm font-bold group/link hover:gap-3 transition-all duration-300">
+                                                Explore platform <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+                                            </Link>
+                                        </motion.div>
                                     </div>
-                                    <h3 className="font-serif text-xl font-bold text-black mb-2 leading-snug">{card.title}</h3>
-                                    <p className="text-gray-500 text-sm leading-relaxed">{card.desc}</p>
-                                </div>
-                                <div className="flex-1"><Demo /></div>
-                                <Link to={card.href} className="inline-flex items-center gap-2 text-gray-600 text-sm font-bold group/link hover:gap-3 transition-all duration-300">
-                                    Explore platform <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
-                                </Link>
-                                    </motion.div>
-                                </div>
-                            );
-                        })}
+                                );
+                            })}
+                        </div>
                     </div>
                 </div>
-            </div>
 
                 {/* ── Stats bar ── */}
                 <motion.div
