@@ -66,7 +66,7 @@ const Header = () => {
         <>
             <header className={cn(
                 "fixed left-1/2 -translate-x-1/2 z-[60] transition-[height,background-color,box-shadow,top,width] duration-500 backdrop-blur-xl border w-[92%] sm:w-[95%] max-w-7xl overflow-hidden flex flex-col",
-                mobileMenuOpen 
+                mobileMenuOpen
                     ? "top-3 sm:top-4 bg-white/95 border-gray-200 shadow-2xl rounded-[1.75rem] sm:rounded-[2rem]"
                     : isScrolled
                         ? "top-3 sm:top-4 bg-white/80 border-gray-200 shadow-md rounded-[1.75rem] sm:rounded-[2rem]"
@@ -84,7 +84,7 @@ const Header = () => {
                             className="h-8 sm:h-9 w-auto object-contain transition-all duration-300 group-hover:scale-110"
                         />
                         <FlipText className="text-xl sm:text-2xl font-black font-sans font-bold text-[#2D6A4F]">
-                            frostrek.ai
+                            frostrek
                         </FlipText>
                     </Link>
 
@@ -313,7 +313,7 @@ const Header = () => {
                 )}
             </AnimatePresence>
 
-                    </>
+        </>
     );
 };
 
