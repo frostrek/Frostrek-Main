@@ -124,18 +124,19 @@ const FAQSection = () => {
             <div className="container mx-auto px-4 md:px-6 relative z-10 max-w-[1400px]">
                 <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16">
                     <div className="flex items-center justify-center gap-2 mb-6">
-                        <motion.span 
+                        <motion.span
                             initial={{ opacity: 0, y: 10 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: false }}
-                            className="px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-brand-badge-bg border border-[#c4e0d4]/50 text-brand-badge-text"
+                            className="px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wide bg-brand-badge-bg border border-[#c4e0d4]/50 text-brand-badge-text"
                         >
                             Common Queries
                         </motion.span>
                     </div>
                     <SplitTextReveal
                         as="h2"
-                        className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
+                        // className="font-serif text-3xl md:text-4xl lg:text-6xl font-bold mb-6 text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
+                        className="font-serif text-3xl md:text-4xl lg:text-6xl mb-4 text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
                         type="chars"
                         stagger={0.02}
                         once={false}
@@ -166,9 +167,8 @@ const FAQSection = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: false }}
                                 transition={{ duration: 0.5, delay: (index % 5) * 0.1 }}
-                                className={`rounded-2xl border transition-all duration-500 bg-white group ${theme.border} ${theme.hoverBorder} ${
-                                    isActive ? `${theme.activeBorder} ${theme.shadow}` : 'hover:shadow-lg'
-                                }`}
+                                className={`rounded-2xl border transition-all duration-500 bg-white group ${theme.border} ${theme.hoverBorder} ${isActive ? `${theme.activeBorder} ${theme.shadow}` : 'hover:shadow-lg'
+                                    }`}
                             >
                                 <button
                                     onClick={() => setActiveIndex(isActive ? null : index)}
@@ -178,17 +178,15 @@ const FAQSection = () => {
                                         <span className={`flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold border transition-colors duration-300 ${theme.badgeBg} ${theme.badgeText} ${theme.badgeBorder}`}>
                                             0{index + 1}
                                         </span>
-                                        <span className={`text-sm sm:text-base md:text-[1.1rem] font-bold transition-colors duration-300 ${
-                                            isActive ? theme.activeQuestionText : theme.questionText
-                                        }`}>
+                                        <span className={`text-[18px] font-bold transition-colors duration-300 ${isActive ? theme.activeQuestionText : theme.questionText
+                                            }`}>
                                             {faq.question}
                                         </span>
                                     </div>
-                                    <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-500 border ${
-                                        isActive 
-                                            ? `${theme.iconBgActive} ${theme.iconTextActive} border-transparent rotate-180 shadow-md` 
-                                            : `${theme.iconBgInactive} ${theme.iconTextInactive} ${theme.iconBorderInactive}`
-                                    }`}>
+                                    <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-500 border ${isActive
+                                        ? `${theme.iconBgActive} ${theme.iconTextActive} border-transparent rotate-180 shadow-md`
+                                        : `${theme.iconBgInactive} ${theme.iconTextInactive} ${theme.iconBorderInactive}`
+                                        }`}>
                                         {isActive ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                                     </div>
                                 </button>
@@ -218,16 +216,16 @@ const FAQSection = () => {
                         Still have questions? We're here to help.
                     </p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <Link 
-                            to="/faq" 
+                        <Link
+                            to="/faq"
                             className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl font-medium text-sm bg-[#2D6A4F] text-white transition-all hover:bg-[#1B4332] shadow-lg shadow-[#2D6A4F]/10"
                         >
                             <FlipText hoverColor="text-white">
                                 View All FAQs →
                             </FlipText>
                         </Link>
-                        <Link 
-                            to="/contact" 
+                        <Link
+                            to="/contact"
                             className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl font-medium text-sm bg-white border-2 border-gray-200 text-gray-700 transition-all hover:border-[#2D6A4F] hover:bg-gray-50"
                         >
                             <FlipText>

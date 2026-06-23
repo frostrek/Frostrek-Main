@@ -360,7 +360,7 @@ const AISolutionsShowcase = () => {
                         className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-badge-bg text-brand-badge-text text-sm font-bold tracking-wide mb-6 border border-[#c4e0d4]/50"
                     >
                         <Sparkles className="w-3.5 h-3.5 text-[#2D6A4F]" />
-                        <span className="text-[#2D6A4F] text-xs font-bold uppercase tracking-widest">AI Solutions</span>
+                        <span className="text-[#2D6A4F] text-xs font-bold uppercase tracking-wide">AI Solutions</span>
                     </motion.div>
 
                     <div className="flex flex-col items-center">

@@ -79,7 +79,7 @@ const OurProductsSection = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#E8F5EE] border border-[#2D6A4F]/10 text-[#2D6A4F] text-xs font-bold uppercase tracking-widest mb-6"
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#E8F5EE] border border-[#2D6A4F]/10 text-[#2D6A4F] text-xs font-bold uppercase tracking-wide mb-6"
                     >
                         <Sparkles className="w-4 h-4" />
                         Products
@@ -88,7 +88,7 @@ const OurProductsSection = () => {
                     <div className="flex flex-col items-center mb-6">
                         <SplitTextReveal
                             as="h2"
-                            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-[#2D6A4F] leading-tight tracking-tight"
+                            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-tight tracking-tight"
                             type="chars"
                             stagger={0.03}
                             once={false}

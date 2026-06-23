@@ -41,8 +41,8 @@ const floatingIcons: FloatingIconItem[] = [
   },
   {
     id: 2,
-    top: '25%',
-    left: '80%',
+    top: '20%',
+    left: '85%',
     icon: "/icons/ai.png",
     color: 'text-emerald-500',
     bg: 'bg-emerald-50/80',
@@ -73,8 +73,8 @@ const floatingIcons: FloatingIconItem[] = [
   },
   {
     id: 4,
-    top: '65%',
-    left: '85%',
+    top: '45%',
+    left: '90%',
     icon: "/icons/Voice ai.png",
     color: 'text-orange-500',
     bg: 'bg-orange-50/80',
@@ -105,8 +105,8 @@ const floatingIcons: FloatingIconItem[] = [
   },
   {
     id: 6,
-    top: '85%',
-    left: '70%',
+    top: '75%',
+    left: '80%',
     icon: "/icons/multivendor.png",
     color: 'text-indigo-500',
     bg: 'bg-indigo-50/80',
@@ -189,14 +189,14 @@ const HeroSection = () => {
       })}
 
       <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 text-center flex flex-col items-center">
-        {/* Badge */}
+        {/* Badge
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="inline-flex items-center gap-2 px-5 py-1.5 rounded-full bg-brand-badge-bg text-brand-badge-text text-sm font-bold tracking-wide mb-8 border border-[#c4e0d4]/50"
         >
           <span className="text-lg leading-none"></span> ENTERPRISE AI · GURUGRAM, INDIA
-        </motion.div>
+        </motion.div> */}
 
         {/* Heading */}
         <div className="flex flex-col items-center">
@@ -234,7 +234,7 @@ const HeroSection = () => {
         {/* Subtitle */}
         <SplitTextReveal
           as="p"
-          className="text-lg md:text-[1.3rem] text-gray-500 max-w-2xl mx-auto mb-10 leading-relaxed font-medium"
+          className="text-lg text-gray-500 max-w-2xl mx-auto mb-10 leading-relaxed font-medium"
           type="words"
           stagger={0.02}
           delay={0.5}
@@ -254,7 +254,7 @@ const HeroSection = () => {
             className="group w-full sm:w-auto px-10 py-4 rounded-xl bg-[#2D6A4F] text-white font-medium tracking-wide hover:bg-[#1B4332] transition-all duration-300 flex items-center justify-center gap-3 shadow-lg shadow-[#2D6A4F]/10 active:translate-y-0.5"
           >
             <FlipText hoverColor="text-white">
-              BOOK A DEMO <span className="text-xl font-light">→</span>
+              Book a Demo <span className="text-xl font-light">→</span>
             </FlipText>
           </Link>
           <Link
@@ -262,7 +262,7 @@ const HeroSection = () => {
             className="group w-full sm:w-auto px-10 py-4 rounded-xl border-2 border-gray-100 bg-white text-[#2D6A4F] font-medium tracking-wide hover:border-[#2D6A4F] hover:bg-gray-50 transition-all duration-300 shadow-sm active:translate-y-0.5"
           >
             <FlipText>
-              EXPLORE SOLUTIONS
+              Explore Solutions
             </FlipText>
           </Link>
         </motion.div>

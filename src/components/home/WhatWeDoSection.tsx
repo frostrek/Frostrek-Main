@@ -231,14 +231,14 @@ const WhatWeDoSection = () => {
                         className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#C8E6DA] bg-[#F4FAF7] mb-8"
                     >
                         <Sparkles className="w-3.5 h-3.5 text-[#2D6A4F]" />
-                        <span className="text-[#2D6A4F] text-xs font-bold uppercase tracking-widest">What We Do</span>
+                        <span className="text-[#2D6A4F] text-xs font-bold uppercase tracking-wide">What We Do</span>
                     </motion.div>
 
                     {/* Line 1: "What We Do & How" */}
                     <div className="mb-2">
                         <SplitTextReveal
                             as="h2"
-                            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-[#2D6A4F] leading-[1.08] tracking-[-0.02em] text-center"
+                            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-[1.08] tracking-[-0.02em] text-center"
                             type="chars"
                             stagger={0.03}
                             once={false}
@@ -251,7 +251,7 @@ const WhatWeDoSection = () => {
                     <div className="flex flex-row items-center justify-center gap-4 md:gap-6">
                         <SplitTextReveal
                             as="h2"
-                            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-[#2D6A4F] leading-[1.08] tracking-[-0.02em] text-center"
+                            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-[1.08] tracking-[-0.02em] text-center"
                             type="chars"
                             stagger={0.03}
                             once={false}
