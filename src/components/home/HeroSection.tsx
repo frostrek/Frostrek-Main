@@ -185,14 +185,14 @@ const HeroSection = () => {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   return (
-    <section className="relative w-full min-h-[85vh] md:min-h-[95vh] flex flex-col items-center justify-center overflow-hidden bg-brand-light-bg text-[#1f3e30] pt-24 md:pt-32 pb-16 md:pb-20 font-sans">
+    <section className="relative w-full min-h-[100vh] flex flex-col items-center justify-center overflow-hidden bg-brand-light-bg text-[#1f3e30] pt-32 lg:pt-40 pb-10 font-sans">
       {/* Background effect */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[70vw] h-[50vw] rounded-[100%] bg-gradient-to-r from-purple-50/40 via-red-50/40 to-blue-50/40 blur-[80px] opacity-70" />
       </div>
 
       {/* Left Icons Column */}
-      <div className="absolute hidden lg:flex flex-col gap-8 left-6 lg:left-10 xl:left-20 2xl:left-32 top-1/2 -translate-y-1/2 z-40">
+      <div className="absolute hidden lg:flex flex-col gap-8 left-6 lg:left-10 xl:left-20 2xl:left-40 top-[55%] -translate-y-1/2 z-40">
         {floatingIcons.filter(item => [1, 3, 5, 7, 8].includes(item.id)).map((item) => {
           const isHovered = hoveredId === item.id;
           return (
@@ -200,11 +200,11 @@ const HeroSection = () => {
               onMouseEnter={() => setHoveredId(item.id)}
               onMouseLeave={() => setHoveredId(null)}>
               <motion.div
-                className={`relative flex items-center justify-center rounded-2xl shadow-md w-12 h-12 lg:w-14 lg:h-14 border backdrop-blur-sm transition-all duration-300 ${item.bg} ${item.border} ${item.shadow} ${isHovered ? 'shadow-lg scale-105' : ''}`}
+                className={`relative flex items-center justify-center rounded-2xl shadow-md w-10 h-10 lg:w-12 lg:h-12 border border-gray-100 bg-white backdrop-blur-sm transition-all duration-300 ${isHovered ? 'shadow-lg scale-105' : ''}`}
               >
-                <img src={item.icon} alt={item.title} className="w-6 h-6 lg:w-7 lg:h-7 relative z-10 object-contain" />
+                <img src={item.icon} alt={item.title} className="w-5 h-5 lg:w-6 lg:h-6 relative z-10 object-contain" />
               </motion.div>
-              <span className="text-xs lg:text-sm font-semibold text-gray-700 max-w-[130px] leading-snug">
+              <span className="text-xs font-semibold text-gray-500 max-w-[130px] leading-snug">
                 {item.title}
               </span>
 
@@ -242,7 +242,7 @@ const HeroSection = () => {
       </div>
 
       {/* Right Icons Column */}
-      <div className="absolute hidden lg:flex flex-col gap-8 right-6 lg:right-10 xl:right-20 2xl:right-32 top-1/2 -translate-y-1/2 z-40">
+      <div className="absolute hidden lg:flex flex-col gap-8 right-6 lg:right-10 xl:right-20 2xl:right-40 top-[55%] -translate-y-1/2 z-40">
         {floatingIcons.filter(item => [2, 4, 6, 9, 10, 11].includes(item.id)).map((item) => {
           const isHovered = hoveredId === item.id;
           return (
@@ -250,11 +250,11 @@ const HeroSection = () => {
               onMouseEnter={() => setHoveredId(item.id)}
               onMouseLeave={() => setHoveredId(null)}>
               <motion.div
-                className={`relative flex items-center justify-center rounded-2xl shadow-md w-12 h-12 lg:w-14 lg:h-14 border backdrop-blur-sm transition-all duration-300 ${item.bg} ${item.border} ${item.shadow} ${isHovered ? 'shadow-lg scale-105' : ''}`}
+                className={`relative flex items-center justify-center rounded-2xl shadow-md w-10 h-10 lg:w-12 lg:h-12 border border-gray-100 bg-white backdrop-blur-sm transition-all duration-300 ${isHovered ? 'shadow-lg scale-105' : ''}`}
               >
-                <img src={item.icon} alt={item.title} className="w-6 h-6 lg:w-7 lg:h-7 relative z-10 object-contain" />
+                <img src={item.icon} alt={item.title} className="w-5 h-5 lg:w-6 lg:h-6 relative z-10 object-contain" />
               </motion.div>
-              <span className="text-xs lg:text-sm font-semibold text-gray-700 max-w-[130px] leading-snug text-right">
+              <span className="text-xs font-semibold text-gray-500 max-w-[130px] leading-snug text-right">
                 {item.title}
               </span>
 
