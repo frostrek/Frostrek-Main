@@ -231,7 +231,7 @@ const HeroSection = () => {
           </SplitTextReveal>
         </div>
 
-        {/* Subtitle */}
+        {/* Subtitles */}
         <SplitTextReveal
           as="p"
           className="text-lg text-gray-500 max-w-2xl mx-auto mb-10 leading-relaxed font-medium"
