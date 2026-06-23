@@ -71,24 +71,9 @@ const floatingIcons: FloatingIconItem[] = [
     badge: "Save Commissions",
     link: "/products/frostrek-web3-commerce"
   },
+
   {
     id: 4,
-    top: '45%',
-    left: '90%',
-    icon: "/icons/Voice ai.png",
-    color: 'text-orange-500',
-    bg: 'bg-orange-50/80',
-    border: 'border-orange-100',
-    shadow: 'shadow-orange-500/20',
-    delay: 0.5,
-    title: "Conversational Voice AI",
-    tagline: "Sub-200ms spoken responses",
-    desc: "Ultra-low latency spoken voice bots engineered with natural text-to-speech modules for automated booking and inbound dispatch.",
-    badge: "Natural Voice",
-    link: "/products/voice-ai"
-  },
-  {
-    id: 5,
     top: '75%',
     left: '20%',
     icon: "/icons/manufacturing.png",
@@ -104,7 +89,7 @@ const floatingIcons: FloatingIconItem[] = [
     link: "/products/frostrek-manufacturing-os"
   },
   {
-    id: 6,
+    id: 5,
     top: '75%',
     left: '80%',
     icon: "/icons/multivendor.png",
@@ -119,6 +104,81 @@ const floatingIcons: FloatingIconItem[] = [
     badge: "E-Commerce",
     link: "/products/multivendor-dashboard"
   },
+  {
+    id: 7,
+    top: '0%', left: '0%',
+    icon: "/icons/chat.png",
+    color: 'text-teal-500',
+    bg: 'bg-teal-50/80',
+    border: 'border-teal-100',
+    shadow: 'shadow-teal-500/20',
+    delay: 3,
+    title: "Support Automation",
+    tagline: "24/7 intelligent ticketing",
+    desc: "Automate tier-1 and tier-2 support queries instantly with AI that learns from your documentation and past tickets.",
+    badge: "Always On",
+    link: "/solutions"
+  },
+  {
+    id: 8,
+    top: '0%', left: '0%',
+    icon: "/icons/architecture.png",
+    color: 'text-cyan-500',
+    bg: 'bg-cyan-50/80',
+    border: 'border-cyan-100',
+    shadow: 'shadow-cyan-500/20',
+    delay: 4,
+    title: "Workflow Automation",
+    tagline: "Streamline cross-app tasks",
+    desc: "Connect disconnected systems and trigger complex, multi-step actions using natural language or predefined logic.",
+    badge: "Efficiency",
+    link: "/solutions"
+  },
+  {
+    id: 9,
+    top: '0%', left: '0%',
+    icon: "/icons/data-analytics.png",
+    color: 'text-amber-500',
+    bg: 'bg-amber-50/80',
+    border: 'border-amber-100',
+    shadow: 'shadow-amber-500/20',
+    delay: 5,
+    title: "Data Annotation",
+    tagline: "High-quality training data",
+    desc: "Prepare and annotate enterprise datasets accurately to build robust foundations for custom LLM training and fine-tuning.",
+    badge: "Data Prep",
+    link: "/solutions"
+  },
+  {
+    id: 10,
+    top: '0%', left: '0%',
+    icon: "/icons/innovation.png",
+    color: 'text-fuchsia-500',
+    bg: 'bg-fuchsia-50/80',
+    border: 'border-fuchsia-100',
+    shadow: 'shadow-fuchsia-500/20',
+    delay: 6,
+    title: "RLHF / Human Feedback",
+    tagline: "Expert human alignment",
+    desc: "Refine model behavior with domain experts providing Reinforcement Learning from Human Feedback to ensure safety and accuracy.",
+    badge: "Alignment",
+    link: "/solutions"
+  },
+  {
+    id: 11,
+    top: '0%', left: '0%',
+    icon: "/icons/valuation.png",
+    color: 'text-sky-500',
+    bg: 'bg-sky-50/80',
+    border: 'border-sky-100',
+    shadow: 'shadow-sky-500/20',
+    delay: 7,
+    title: "Model Evaluation",
+    tagline: "Continuous performance monitoring",
+    desc: "Rigorously benchmark and evaluate AI models against key metrics to guarantee reliable outputs in production environments.",
+    badge: "Benchmarking",
+    link: "/solutions"
+  }
 ];
 
 const HeroSection = () => {
@@ -131,62 +191,105 @@ const HeroSection = () => {
         <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[70vw] h-[50vw] rounded-[100%] bg-gradient-to-r from-purple-50/40 via-red-50/40 to-blue-50/40 blur-[80px] opacity-70" />
       </div>
 
-      {/* Floating Icons */}
-      {floatingIcons.map((item) => {
-        const isHovered = hoveredId === item.id;
-        const xDirection = parseFloat(item.left) > 50 ? 10 : -10;
+      {/* Left Icons Column */}
+      <div className="absolute hidden lg:flex flex-col gap-8 left-6 lg:left-10 xl:left-20 2xl:left-32 top-1/2 -translate-y-1/2 z-40">
+        {floatingIcons.filter(item => [1, 3, 5, 7, 8].includes(item.id)).map((item) => {
+          const isHovered = hoveredId === item.id;
+          return (
+            <div key={item.id} className="relative flex items-center gap-4 group cursor-pointer"
+              onMouseEnter={() => setHoveredId(item.id)}
+              onMouseLeave={() => setHoveredId(null)}>
+              <motion.div
+                className={`relative flex items-center justify-center rounded-2xl shadow-md w-12 h-12 lg:w-14 lg:h-14 border backdrop-blur-sm transition-all duration-300 ${item.bg} ${item.border} ${item.shadow} ${isHovered ? 'shadow-lg scale-105' : ''}`}
+              >
+                <img src={item.icon} alt={item.title} className="w-6 h-6 lg:w-7 lg:h-7 relative z-10 object-contain" />
+              </motion.div>
+              <span className="text-xs lg:text-sm font-semibold text-gray-700 max-w-[130px] leading-snug">
+                {item.title}
+              </span>
 
-        return (
-          <motion.div
-            key={item.id}
-            className={`absolute hidden md:flex items-center justify-center rounded-2xl shadow-lg w-14 h-14 lg:w-16 lg:h-16 border backdrop-blur-sm cursor-pointer transition-all duration-300 ${item.bg} ${item.border} ${item.shadow} ${isHovered ? 'z-50' : 'z-30'}`}
-            style={{ top: item.top, left: item.left }}
-            onMouseEnter={() => setHoveredId(item.id)}
-            onMouseLeave={() => setHoveredId(null)}
-            animate={{
-              y: isHovered ? -10 : [0, -20, 0],
-            }}
-            transition={{
-              y: isHovered
-                ? { duration: 0.2, ease: "easeOut" }
-                : { duration: 5, repeat: Infinity, ease: "easeInOut", delay: item.delay }
-            }}
-          >
-            <img src={item.icon} alt={item.title} className="w-8 h-8 lg:w-9 lg:h-9 relative z-10 object-contain" />
-
-            {/* Premium Solution Tooltip */}
-            <AnimatePresence>
-              {isHovered && (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9, x: xDirection }}
-                  animate={{ opacity: 1, scale: 1, x: 0 }}
-                  exit={{ opacity: 0, scale: 0.9, x: xDirection }}
-                  transition={{ duration: 0.25, ease: "easeOut" }}
-                  className={`absolute p-5 w-80 rounded-2xl bg-white border border-[#2D6A4F]/15 shadow-[0_20px_50px_rgba(45,106,79,0.15)] backdrop-blur-md pointer-events-auto text-left z-[100]
-                    ${parseFloat(item.left) > 50 ? 'right-full mr-4' : 'left-full ml-4'}
-                    ${parseFloat(item.top) > 70 ? 'bottom-0' : 'top-1/2 -translate-y-1/2'}`}
-                >
-                  <div className="flex items-center justify-between mb-2.5">
-                    <span className="text-[10px] uppercase font-bold tracking-widest text-[#2D6A4F] px-2 py-0.5 rounded bg-[#E8F5EE] border border-[#2D6A4F]/10">
-                      {item.badge}
-                    </span>
-                    <Link to={item.link} className="text-gray-400 hover:text-[#2D6A4F] transition-colors">
-                      <ArrowUpRight size={16} />
+              {/* Premium Solution Tooltip */}
+              <AnimatePresence>
+                {isHovered && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9, x: -10 }}
+                    animate={{ opacity: 1, scale: 1, x: 0 }}
+                    exit={{ opacity: 0, scale: 0.9, x: -10 }}
+                    transition={{ duration: 0.25, ease: "easeOut" }}
+                    className="absolute left-full ml-4 p-5 w-80 rounded-2xl bg-white border border-[#2D6A4F]/15 shadow-[0_20px_50px_rgba(45,106,79,0.15)] backdrop-blur-md pointer-events-auto text-left z-[100] top-1/2 -translate-y-1/2"
+                  >
+                    <div className="flex items-center justify-between mb-2.5">
+                      <span className="text-[10px] uppercase font-bold tracking-wide text-[#2D6A4F] px-2 py-0.5 rounded bg-[#E8F5EE] border border-[#2D6A4F]/10">
+                        {item.badge}
+                      </span>
+                      <Link to={item.link} className="text-gray-400 hover:text-[#2D6A4F] transition-colors">
+                        <ArrowUpRight size={16} />
+                      </Link>
+                    </div>
+                    <h4 className="font-serif font-black text-slate-900 text-[14px] leading-tight mb-0.5">{item.title}</h4>
+                    <p className="text-[11px] font-bold text-[#2D6A4F] mb-2">{item.tagline}</p>
+                    <p className="text-[11px] text-slate-500 leading-relaxed font-semibold mb-3">{item.desc}</p>
+                    <Link to={item.link} className="inline-flex items-center gap-1 text-[11px] font-bold text-[#2D6A4F] hover:underline">
+                      Explore Solution
+                      <ArrowUpRight size={12} />
                     </Link>
-                  </div>
-                  <h4 className="font-serif font-black text-slate-900 text-[14px] leading-tight mb-0.5">{item.title}</h4>
-                  <p className="text-[11px] font-bold text-[#2D6A4F] mb-2">{item.tagline}</p>
-                  <p className="text-[11px] text-slate-500 leading-relaxed font-semibold mb-3">{item.desc}</p>
-                  <Link to={item.link} className="inline-flex items-center gap-1 text-[11px] font-bold text-[#2D6A4F] hover:underline">
-                    Explore Solution
-                    <ArrowUpRight size={12} />
-                  </Link>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.div>
-        );
-      })}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Right Icons Column */}
+      <div className="absolute hidden lg:flex flex-col gap-8 right-6 lg:right-10 xl:right-20 2xl:right-32 top-1/2 -translate-y-1/2 z-40">
+        {floatingIcons.filter(item => [2, 4, 6, 9, 10, 11].includes(item.id)).map((item) => {
+          const isHovered = hoveredId === item.id;
+          return (
+            <div key={item.id} className="relative flex items-center flex-row-reverse gap-4 group cursor-pointer"
+              onMouseEnter={() => setHoveredId(item.id)}
+              onMouseLeave={() => setHoveredId(null)}>
+              <motion.div
+                className={`relative flex items-center justify-center rounded-2xl shadow-md w-12 h-12 lg:w-14 lg:h-14 border backdrop-blur-sm transition-all duration-300 ${item.bg} ${item.border} ${item.shadow} ${isHovered ? 'shadow-lg scale-105' : ''}`}
+              >
+                <img src={item.icon} alt={item.title} className="w-6 h-6 lg:w-7 lg:h-7 relative z-10 object-contain" />
+              </motion.div>
+              <span className="text-xs lg:text-sm font-semibold text-gray-700 max-w-[130px] leading-snug text-right">
+                {item.title}
+              </span>
+
+              {/* Premium Solution Tooltip */}
+              <AnimatePresence>
+                {isHovered && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9, x: 10 }}
+                    animate={{ opacity: 1, scale: 1, x: 0 }}
+                    exit={{ opacity: 0, scale: 0.9, x: 10 }}
+                    transition={{ duration: 0.25, ease: "easeOut" }}
+                    className="absolute right-full mr-4 p-5 w-80 rounded-2xl bg-white border border-[#2D6A4F]/15 shadow-[0_20px_50px_rgba(45,106,79,0.15)] backdrop-blur-md pointer-events-auto text-left z-[100] top-1/2 -translate-y-1/2"
+                  >
+                    <div className="flex items-center justify-between mb-2.5">
+                      <span className="text-[10px] uppercase font-bold tracking-wide text-[#2D6A4F] px-2 py-0.5 rounded bg-[#E8F5EE] border border-[#2D6A4F]/10">
+                        {item.badge}
+                      </span>
+                      <Link to={item.link} className="text-gray-400 hover:text-[#2D6A4F] transition-colors">
+                        <ArrowUpRight size={16} />
+                      </Link>
+                    </div>
+                    <h4 className="font-serif font-black text-slate-900 text-[14px] leading-tight mb-0.5">{item.title}</h4>
+                    <p className="text-[11px] font-bold text-[#2D6A4F] mb-2">{item.tagline}</p>
+                    <p className="text-[11px] text-slate-500 leading-relaxed font-semibold mb-3">{item.desc}</p>
+                    <Link to={item.link} className="inline-flex items-center gap-1 text-[11px] font-bold text-[#2D6A4F] hover:underline">
+                      Explore Solution
+                      <ArrowUpRight size={12} />
+                    </Link>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          );
+        })}
+      </div>
 
       <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 text-center flex flex-col items-center">
         {/* Badge
@@ -221,7 +324,7 @@ const HeroSection = () => {
           </SplitTextReveal>
           <SplitTextReveal
             as="h1"
-            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] mb-6 leading-[1.1] tracking-[-0.01em]"
+            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black mb-6 leading-[1.1] tracking-[-0.01em]"
             trigger="load"
             type="chars"
             stagger={0.03}
