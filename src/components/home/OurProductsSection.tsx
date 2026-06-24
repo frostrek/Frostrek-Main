@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import SplitTextReveal from '../ui/SplitTextReveal';
 import { Sparkles, ArrowUpRight } from 'lucide-react';
@@ -12,9 +12,10 @@ const PRODUCTS = [
         description: 'An end-to-end tech and logistics platform that helps Indian wellness, food, and beauty brands go global effortlessly.',
         image: '/images/custom_software_vibe.png',
         icon: <img src="/products/vedashi-logo.png" alt="Vedashi" className="w-8 h-8 md:w-12 md:h-12 object-contain" />,
-        bgColor: 'bg-[#F0FDF4]', // Light Green
-        textColor: 'text-black',
-        borderColor: 'border-green-100',
+        bgColor: 'bg-white',
+        titleColor: 'text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-500',
+        borderColor: 'border-green-200',
+        spotlightColor: 'rgba(16, 185, 129, 0.18)',
         colSpan: 'md:col-span-2',
         rowSpan: 'row-span-1',
         imagePos: 'right',
@@ -27,44 +28,154 @@ const PRODUCTS = [
         subtitle: 'Standalone AI-powered financial due diligence, valuation, and investment memo platform - the first product shipped by Frostrek AI on the path to FundOS, the AI operating system for fund managers.',
         description: 'Build intelligent AI agents capable of independent reasoning, decision-making, and task execution across operational workflows.',
         image: '/images/ai_agents_white_collar.png',
-        icon: <img src="/icons/ai.png" alt="AI Agents" className="w-7 h-7 md:w-10 md:h-10 object-contain" />,
-        bgColor: 'bg-[#FFF7ED]', // Light Orange
-        textColor: 'text-black',
-        borderColor: 'border-orange-100',
+        icon: <img src="/icons/ai-blue.png" alt="AI Agents" className="w-7 h-7 md:w-10 md:h-10 object-contain" />,
+        bgColor: 'bg-white',
+        titleColor: 'text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-blue-600',
+        borderColor: 'border-blue-200',
+        spotlightColor: 'rgba(14, 165, 233, 0.18)',
         colSpan: 'md:col-span-1',
         rowSpan: 'md:row-span-2',
         imagePos: 'bottom',
         link: '/products/vettedge',
-        arrowColor: 'text-[#E95E1C]' // Mid-tone Orange
+        arrowColor: 'text-[#0284C7]' // Mid-tone Blue
     },
-    // #FE#f0fbfeff
     {
         id: 'Hiyring',
         title: 'Hiyring',
         description: 'Platform that streamlines hiring process with autonomous AI video interviews. Screen thousands of candidates in minutes, with scientifically focused assessments.',
         icon: <img src="/products/hiyring-logo.png" alt="Hiyring" className="w-8 h-8 md:w-12 md:h-12 object-contain p-0" />,
-        bgColor: 'bg-[#f0fbfeff]', // Light Pink/Red/Blue
-        textColor: 'text-black',
-        borderColor: 'border-pink-100',
+        bgColor: 'bg-white',
+        titleColor: 'text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-500',
+        borderColor: 'border-orange-200',
+        spotlightColor: 'rgba(249, 115, 22, 0.18)',
         colSpan: 'md:col-span-1',
         rowSpan: 'row-span-1',
         link: '/products/hiyring',
-        arrowColor: 'text-[#0284C7]' // Mid-tone Blue
+        arrowColor: 'text-[#E95E1C]' // Mid-tone Orange
     },
     {
         id: 'Frosty',
         title: 'Website Chatbot (FROSTY) ',
         description: 'Connect your data streams, automate customer journeys. Our easy to plug chatbot is here to handle the heavy lifting while your team focuses on closing.',
-        icon: <img src="/icons/machine-learning.png" alt="AI Model Training" className="w-7 h-7 md:w-10 md:h-10 object-contain" />,
-        bgColor: 'bg-[#F3E8FF]', // Soft Lavender
-        textColor: 'text-black',
-        borderColor: 'border-[#E9D5FF]',
+        icon: <img src="/icons/machine-learning-lavender.png" alt="AI Model Training" className="w-7 h-7 md:w-10 md:h-10 object-contain" />,
+        bgColor: 'bg-white',
+        titleColor: 'text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-fuchsia-500',
+        borderColor: 'border-purple-200',
+        spotlightColor: 'rgba(168, 85, 247, 0.18)',
         colSpan: 'md:col-span-1',
         rowSpan: 'row-span-1',
         link: '/products/frosty-ai',
         arrowColor: 'text-[#9333EA]' // Mid-tone Purple
     },
 ];
+
+const SpotlightCard = ({ product, index }: { product: any, index: number }) => {
+    const divRef = useRef<HTMLDivElement>(null);
+    const [isFocused, setIsFocused] = useState(false);
+    const [position, setPosition] = useState({ x: 0, y: 0 });
+    const [opacity, setOpacity] = useState(0);
+
+    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (!divRef.current || isFocused) return;
+        const rect = divRef.current.getBoundingClientRect();
+        setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+    };
+
+    const handleFocus = () => {
+        setIsFocused(true);
+        setOpacity(1);
+    };
+
+    const handleBlur = () => {
+        setIsFocused(false);
+        setOpacity(0);
+    };
+
+    const handleMouseEnter = () => {
+        setOpacity(1);
+    };
+
+    const handleMouseLeave = () => {
+        setOpacity(0);
+    };
+
+    return (
+        <Link
+            to={product.link}
+            className={`${product.colSpan} ${product.rowSpan} flex`}
+        >
+            <motion.div
+                ref={divRef}
+                onMouseMove={handleMouseMove}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className={`${product.bgColor} w-full rounded-2xl md:rounded-3xl border-2 ${product.borderColor} overflow-hidden group hover:shadow-2xl hover:shadow-gray-200/50 transition-all duration-500 flex flex-col relative`}
+            >
+                {/* Spotlight Gradient */}
+                <div
+                    className="pointer-events-none absolute -inset-px transition duration-300 z-0 rounded-2xl md:rounded-3xl"
+                    style={{
+                        opacity,
+                        background: `radial-gradient(700px circle at ${position.x}px ${position.y}px, ${product.spotlightColor}, transparent 40%)`,
+                    }}
+                />
+
+                <div className={`flex flex-col h-full w-full relative z-10 ${product.imagePos === 'right' ? 'md:flex-row' : ''} ${product.imagePos === 'left' ? 'md:flex-row-reverse' : ''}`}>
+
+                    {/* Content Area */}
+                    <div className={`p-4 md:p-8 lg:p-10 flex flex-col relative z-10 ${product.imagePos === 'right' || product.imagePos === 'left'
+                        ? 'md:w-1/2 md:h-full flex-1'
+                        : 'w-full flex-1'
+                        }`}>
+                        <div className="w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-8 shadow-md bg-white border border-gray-100/50 relative z-10">
+                            {product.icon}
+                        </div>
+
+                        <div className="relative z-10">
+                            <h3 className={`font-serif text-lg md:text-3xl font-semibold ${product.titleColor || 'text-black'} mb-2 md:mb-4 leading-tight`}>
+                                {product.title}
+                            </h3>
+
+                            <p className="text-[11px] md:text-[15px] text-gray-600 font-medium leading-relaxed max-w-prose">
+                                {product.subtitle || product.description}
+                            </p>
+                        </div>
+
+                        {/* Premium Floating Arrow Icon */}
+                        <div className="absolute top-4 right-4 md:top-10 md:right-10 transition-all duration-300 group-hover:scale-110 z-10">
+                            <ArrowUpRight className={`w-5 h-5 md:w-8 md:h-8 ${product.arrowColor} transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1`} />
+                        </div>
+
+                        {/* Subtle Glass Highlight */}
+                        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/20 to-transparent pointer-events-none z-0" />
+                    </div>
+
+                    {/* Image Area */}
+                    {product.image && (
+                        <div className={`relative overflow-hidden shrink-0 hidden md:block z-10 ${product.imagePos === 'right' || product.imagePos === 'left'
+                            ? 'md:w-1/2 h-56 sm:h-64 md:h-full'
+                            : 'w-full min-h-[200px] sm:min-h-[250px] md:min-h-[300px]'
+                            }`}>
+                            <div className={`absolute inset-0 p-4 md:p-6 h-full w-full`}>
+                                <img
+                                    src={product.image}
+                                    alt=""
+                                    className="w-full h-full object-cover rounded-2xl shadow-lg transition-transform duration-700 group-hover:scale-105 relative z-10"
+                                />
+                            </div>
+                        </div>
+                    )}
+                </div>
+            </motion.div>
+        </Link>
+    );
+};
 
 const OurProductsSection = () => {
     const sectionRef = useRef(null);
@@ -104,66 +215,7 @@ const OurProductsSection = () => {
                 {/* Jumbled Grid */}
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6 md:auto-rows-fr">
                     {PRODUCTS.map((product, index) => (
-                        <Link
-                            key={product.id}
-                            to={product.link}
-                            className={`${product.colSpan} ${product.rowSpan} flex`}
-                        >
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                                whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.6, delay: index * 0.1 }}
-                                className={`${product.bgColor} w-full rounded-2xl md:rounded-3xl border ${product.borderColor} overflow-hidden group hover:shadow-2xl hover:shadow-gray-200/50 transition-all duration-500 flex flex-col`}
-                            >
-                                <div className={`flex flex-col h-full w-full ${product.imagePos === 'right' ? 'md:flex-row' : ''} ${product.imagePos === 'left' ? 'md:flex-row-reverse' : ''}`}>
-
-                                    {/* Content Area */}
-                                    <div className={`p-4 md:p-8 lg:p-10 flex flex-col relative z-10 ${product.imagePos === 'right' || product.imagePos === 'left'
-                                        ? 'md:w-1/2 md:h-full flex-1'
-                                        : 'w-full flex-1'
-                                        }`}>
-                                        <div className="w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-8 shadow-md bg-white border border-gray-100/50">
-                                            {product.icon}
-                                        </div>
-
-                                        <div>
-                                            <h3 className={`font-serif text-lg md:text-3xl font-semibold ${product.textColor} mb-2 md:mb-4 leading-tight`}>
-                                                {product.title}
-                                            </h3>
-
-                                            <p className="text-[11px] md:text-[15px] text-gray-600 font-medium leading-relaxed max-w-prose">
-                                                {product.subtitle || product.description}
-                                            </p>
-                                        </div>
-
-                                        {/* Premium Floating Arrow Icon */}
-                                        <div className="absolute top-4 right-4 md:top-10 md:right-10 transition-all duration-300 group-hover:scale-110">
-                                            <ArrowUpRight className={`w-5 h-5 md:w-8 md:h-8 ${product.arrowColor} transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1`} />
-                                        </div>
-
-                                        {/* Subtle Glass Highlight */}
-                                        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/20 to-transparent pointer-events-none" />
-                                    </div>
-
-                                    {/* Image Area */}
-                                    {product.image && (
-                                        <div className={`relative overflow-hidden shrink-0 hidden md:block ${product.imagePos === 'right' || product.imagePos === 'left'
-                                            ? 'md:w-1/2 h-56 sm:h-64 md:h-full'
-                                            : 'w-full min-h-[200px] sm:min-h-[250px] md:min-h-[300px]'
-                                            }`}>
-                                            <div className={`absolute inset-0 p-4 md:p-6 h-full w-full`}>
-                                                <img
-                                                    src={product.image}
-                                                    alt=""
-                                                    className="w-full h-full object-cover rounded-2xl shadow-lg transition-transform duration-700 group-hover:scale-105"
-                                                />
-                                            </div>
-                                        </div>
-                                    )}
-                                </div>
-                            </motion.div>
-                        </Link>
+                        <SpotlightCard key={product.id} product={product} index={index} />
                     ))}
                 </div>
             </div>

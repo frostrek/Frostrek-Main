@@ -185,7 +185,7 @@ const HeroSection = () => {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   return (
-    <section className="relative w-full min-h-[100vh] flex flex-col items-center justify-center overflow-hidden bg-brand-light-bg text-[#1f3e30] pt-32 lg:pt-40 pb-10 font-sans">
+    <section className="relative w-full min-h-[100vh] flex flex-col items-center justify-center overflow-hidden bg-brand-light-bg text-[#1f3e30] pt-24 lg:pt-28 pb-6 font-sans">
       {/* Background effect */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[70vw] h-[50vw] rounded-[100%] bg-gradient-to-r from-purple-50/40 via-red-50/40 to-blue-50/40 blur-[80px] opacity-70" />
@@ -324,7 +324,7 @@ const HeroSection = () => {
           </SplitTextReveal>
           <SplitTextReveal
             as="h1"
-            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black mb-6 leading-[1.1] tracking-[-0.01em]"
+            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black mb-4 leading-[1.1] tracking-[-0.01em]"
             trigger="load"
             type="chars"
             stagger={0.03}
@@ -337,7 +337,7 @@ const HeroSection = () => {
         {/* Subtitles */}
         <SplitTextReveal
           as="p"
-          className="text-lg text-gray-500 max-w-2xl mx-auto mb-10 leading-relaxed font-medium"
+          className="text-lg text-gray-500 max-w-2xl mx-auto mb-6 leading-relaxed font-medium"
           type="words"
           stagger={0.02}
           delay={0.5}
@@ -368,6 +368,29 @@ const HeroSection = () => {
               Explore Solutions
             </FlipText>
           </Link>
+        </motion.div>
+
+        {/* Trusted By Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 2.0 }}
+          className="mt-10 md:mt-12 w-full max-w-5xl mx-auto z-10 relative"
+        >
+          <h3 className="font-serif text-[#2D6A4F] text-xl md:text-2xl font-semibold mb-4">
+            Trusted by Industry Leaders
+          </h3>
+          <div className="bg-white rounded-3xl md:rounded-full py-5 px-6 md:px-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 flex flex-wrap md:flex-nowrap items-center justify-center md:justify-between gap-8 md:gap-4">
+            <img src="/vedashi-logo.png" alt="Vedashi" className="h-8 md:h-10 object-contain" />
+            <div className="hidden md:block w-[1px] h-10 bg-gray-100"></div>
+            <img src="/clutch.webp" alt="Clutch" className="h-6 md:h-8 object-contain" />
+            <div className="hidden md:block w-[1px] h-10 bg-gray-100"></div>
+            <img src="/topDevelopers.webp" alt="TopDevelopers" className="h-6 md:h-8 object-contain" />
+            <div className="hidden md:block w-[1px] h-10 bg-gray-100"></div>
+            <img src="/goodfirms.webp" alt="GoodFirms" className="h-6 md:h-8 object-contain" />
+            <div className="hidden md:block w-[1px] h-10 bg-gray-100"></div>
+            <img src="/iso.webp" alt="ISO 9001" className="h-10 md:h-12 object-contain" />
+          </div>
         </motion.div>
       </div>
 
