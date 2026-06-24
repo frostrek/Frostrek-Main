@@ -65,9 +65,9 @@ const ManufacturingDemo = () => {
     ];
     return (
         <div className="w-full text-xs select-none font-body">
-            <div className="bg-[#F4FAF7] border border-[#C8E6DA] rounded-xl px-4 py-2.5 mb-3 flex items-center justify-between">
+            <div className="bg-[#F0FDF4] border border-[#BBF7D0] rounded-xl px-4 py-2.5 mb-3 flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-[#2D6A4F] animate-pulse" />
+                    <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
                     <span className="text-gray-400 text-[10px] uppercase tracking-widest font-semibold">Live Factory Dashboard</span>
                 </div>
                 <span className="text-gray-400 text-[10px]">30s refresh</span>
@@ -75,7 +75,7 @@ const ManufacturingDemo = () => {
             <div className="grid grid-cols-3 gap-2 mb-3">
                 {metrics.map(m => (
                     <div key={m.label} className="bg-white border border-gray-100 rounded-xl p-3 text-center shadow-sm">
-                        <div className="text-[#2D6A4F] font-bold text-sm">{m.value}</div>
+                        <div className="text-[#10B981] font-bold text-sm">{m.value}</div>
                         <div className="text-gray-400 text-[10px] mt-0.5">{m.label}</div>
                     </div>
                 ))}
@@ -83,7 +83,7 @@ const ManufacturingDemo = () => {
             <div className="space-y-2">
                 <AnimatePresence mode="popLayout">
                     {[alerts[tick], alerts[(tick + 1) % 4]].map((a, i) => (
-                        <motion.div key={a.id} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.4, delay: i * 0.1 }} className="flex items-center gap-3 bg-[#F4FAF7] border border-[#C8E6DA] rounded-xl px-3 py-2.5">
+                        <motion.div key={a.id} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.4, delay: i * 0.1 }} className="flex items-center gap-3 bg-[#F0FDF4] border border-[#BBF7D0] rounded-xl px-3 py-2.5">
                             <span>{a.icon}</span>
                             <span className="text-gray-600 text-[11px] leading-tight">{a.text}</span>
                         </motion.div>
@@ -106,9 +106,9 @@ const Web3Demo = () => {
     const steps = [{ label: 'Wallet provisioned', done: true }, { label: 'Cart validated', done: phase >= 1 }, { label: 'On-chain settlement', done: phase >= 2 }, { label: 'Treasury updated', done: phase >= 3 }];
     return (
         <div className="w-full font-body text-xs select-none space-y-3">
-            <div className="bg-[#FFF9F2] border border-[#FFEDD5] rounded-xl px-4 py-3 flex items-center justify-between">
-                <div><div className="text-gray-400 text-[10px] uppercase tracking-widest mb-1">Wallet Balance</div><div className="text-[#EA580C] font-bold text-base">1,450 <span className="text-xs text-gray-400">$TOKEN</span></div></div>
-                <div className="w-9 h-9 rounded-full bg-[#FFEDD5] border border-[#FFEDD5] flex items-center justify-center">
+            <div className="bg-[#FEFCE8] border-[#FEF08A] rounded-xl px-4 py-3 flex items-center justify-between">
+                <div><div className="text-gray-400 text-[10px] uppercase tracking-widest mb-1">Wallet Balance</div><div className="text-[#CA8A04] font-bold text-base">1,450 <span className="text-xs text-gray-400">$TOKEN</span></div></div>
+                <div className="w-9 h-9 rounded-full bg-[#FEF9C3] border border-[#FEF9C3] flex items-center justify-center">
                     <img src="/icons/fintech.png" alt="Fintech" className="w-5 h-5 object-contain" />
                 </div>
             </div>
@@ -116,7 +116,7 @@ const Web3Demo = () => {
                 {clubs.map((c, i) => (
                     <div
                         key={c.name}
-                        className={`flex-1 border rounded-xl p-2 text-center transition-all duration-500 flex flex-col items-center justify-center ${i === phase % 3 ? 'border-[#EA580C]/40 bg-[#FFF9F2]' : 'border-gray-100 bg-white'
+                        className={`flex-1 border rounded-xl p-2 text-center transition-all duration-500 flex flex-col items-center justify-center ${i === phase % 3 ? 'border-[#CA8A04]/40 bg-[#FEFCE8]' : 'border-gray-100 bg-white'
                             }`}
                     >
                         <div className="h-6 w-6 flex items-center justify-center">
@@ -127,7 +127,7 @@ const Web3Demo = () => {
                 ))}
             </div>
             <div className="bg-white border border-gray-100 rounded-xl px-4 py-3 space-y-2 shadow-sm">
-                {steps.map(s => (<div key={s.label} className="flex items-center gap-2"><div className={`w-3.5 h-3.5 rounded-full flex items-center justify-center transition-all duration-500 flex-shrink-0 ${s.done ? 'bg-[#EA580C]' : 'bg-gray-100'}`}>{s.done && <CheckCircle className="w-2.5 h-2.5 text-white" />}</div><span className={`text-[10px] transition-colors duration-300 ${s.done ? 'text-gray-700' : 'text-gray-300'}`}>{s.label}</span></div>))}
+                {steps.map(s => (<div key={s.label} className="flex items-center gap-2"><div className={`w-3.5 h-3.5 rounded-full flex items-center justify-center transition-all duration-500 flex-shrink-0 ${s.done ? 'bg-[#CA8A04]' : 'bg-gray-100'}`}>{s.done && <CheckCircle className="w-2.5 h-2.5 text-white" />}</div><span className={`text-[10px] transition-colors duration-300 ${s.done ? 'text-gray-700' : 'text-gray-300'}`}>{s.label}</span></div>))}
             </div>
         </div>
     );
@@ -150,18 +150,18 @@ const AIAgentDemo = () => {
     }, []);
     return (
         <div className="w-full font-body text-xs select-none space-y-2">
-            <div className="flex items-center gap-2 bg-[#F3E8FF] border border-[#E9D5FF] rounded-xl px-3 py-2 mb-3">
-                <div className="w-7 h-7 rounded-full bg-[#F3E8FF] border border-[#E9D5FF] flex items-center justify-center">
-                    <img src="/icons/ai agents.png" alt="AI Agent" className="w-4 h-4 object-contain" />
+            <div className="flex items-center gap-2 bg-[#FDF4FA] border border-[#F2BAE4] rounded-xl px-3 py-2 mb-3">
+                <div className="w-7 h-7 rounded-full bg-white border border-[#F2BAE4] flex items-center justify-center">
+                    <img src="/icons/machine-learning-lavender.png" alt="AI Agent" className="w-4 h-4 object-contain" />
                 </div>
-                <div><div className="text-gray-800 text-[10px] font-semibold">Frosty AI Agent</div><div className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-[#8B5CF6] animate-pulse" /><span className="text-[#7C3AED] text-[9px]">Online</span></div></div>
+                <div><div className="text-gray-800 text-[10px] font-semibold">Frosty AI Agent</div><div className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-[#D67CBA] animate-pulse" /><span className="text-[#D67CBA] text-[9px]">Online</span></div></div>
                 <div className="ml-auto flex gap-1.5"><Mic className="w-3.5 h-3.5 text-gray-300" /><MessageSquare className="w-3.5 h-3.5 text-gray-300" /></div>
             </div>
             <div className="space-y-2 min-h-[140px]">
                 <AnimatePresence>
-                    {msgs.map(m => (<motion.div key={m.id} initial={{ opacity: 0, y: 8, scale: 0.95 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 0.3 }} className={`flex ${m.who === 'user' ? 'justify-end' : 'justify-start'}`}><div className={`max-w-[80%] px-3 py-2 rounded-2xl text-[11px] leading-snug ${m.who === 'user' ? 'bg-gray-100 text-gray-700 rounded-br-sm' : 'bg-[#F3E8FF] border border-[#E9D5FF] text-gray-800 rounded-bl-sm'}`}>{m.text}</div></motion.div>))}
+                    {msgs.map(m => (<motion.div key={m.id} initial={{ opacity: 0, y: 8, scale: 0.95 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 0.3 }} className={`flex ${m.who === 'user' ? 'justify-end' : 'justify-start'}`}><div className={`max-w-[80%] px-3 py-2 rounded-2xl text-[11px] leading-snug ${m.who === 'user' ? 'bg-gray-100 text-gray-700 rounded-br-sm' : 'bg-[#FDF4FA] border border-[#F2BAE4] text-gray-800 rounded-bl-sm'}`}>{m.text}</div></motion.div>))}
                 </AnimatePresence>
-                {typing && (<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex justify-start"><div className="bg-[#F3E8FF] border border-[#E9D5FF] rounded-2xl rounded-bl-sm px-3 py-2 flex gap-1 items-center">{[0, 0.15, 0.3].map((d, i) => (<span key={i} className="w-1.5 h-1.5 rounded-full bg-[#8B5CF6] animate-bounce" style={{ animationDelay: `${d}s` }} />))}</div></motion.div>)}
+                {typing && (<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex justify-start"><div className="bg-[#FDF4FA] border border-[#F2BAE4] rounded-2xl rounded-bl-sm px-3 py-2 flex gap-1 items-center">{[0, 0.15, 0.3].map((d, i) => (<span key={i} className="w-1.5 h-1.5 rounded-full bg-[#D67CBA] animate-bounce" style={{ animationDelay: `${d}s` }} />))}</div></motion.div>)}
             </div>
         </div>
     );
@@ -169,62 +169,62 @@ const AIAgentDemo = () => {
 
 // ─── Cards data ───────────────────────────────────────────────────────────────
 const CARDS = [
-    { 
-        icon: "/icons/manufacturing.png", 
-        label: 'MANUFACTURING OS', 
-        title: 'Frostrek\nManufacturing OS', 
-        desc: 'A unified operating system for smart factories. Real-time visibility, predictive insights, and seamless automation across your shop floor.', 
+    {
+        icon: "/icons/manufacturing-green.png",
+        label: 'MANUFACTURING OS',
+        title: 'Frostrek Manufacturing OS',
+        desc: 'A unified operating system for smart factories. Real-time visibility, predictive insights, and seamless automation across your shop floor.',
         features: ['Real-time production monitoring', 'Predictive maintenance', 'Quality & process optimization'],
-        href: '/products/frostrek-manufacturing-os', 
+        href: '/products/frostrek-manufacturing-os',
         exploreText: 'Explore Manufacturing OS',
-        Demo: ManufacturingDemo 
+        Demo: ManufacturingDemo
     },
-    { 
-        icon: "/icons/fintech.png", 
-        label: 'FINTECH PLATFORM', 
-        title: 'Fintech &\nCustom Wallets', 
-        desc: 'Secure, compliant, and scalable fintech solutions. Digital wallets, KYC, transactions and beyond.', 
+    {
+        icon: "/icons/fintech-yellow.png",
+        label: 'FINTECH PLATFORM',
+        title: 'Fintech & Custom Wallets',
+        desc: 'Secure, compliant, and scalable fintech solutions. Digital wallets, KYC, transactions and beyond.',
         features: ['Digital wallets & payments', 'KYC & compliance engine', 'Transaction monitoring'],
-        href: '/products/frostrek-web3-commerce', 
+        href: '/products/frostrek-web3-commerce',
         exploreText: 'Explore Fintech Platform',
-        Demo: Web3Demo 
+        Demo: Web3Demo
     },
-    { 
-        icon: "/icons/ai agents.png", 
-        label: 'AI AGENTS PLATFORM', 
-        title: 'Frostrek\nAI Agents', 
-        desc: 'Autonomous AI agents that handle tasks, answer queries, and drive outcomes across your business.', 
+    {
+        icon: "/icons/machine-learning-lavender-filled.png",
+        label: 'AI AGENTS PLATFORM',
+        title: 'Frostrek AI Agents',
+        desc: 'Autonomous AI agents that handle tasks, answer queries, and drive outcomes across your business.',
         features: ['Multi-agent orchestration', 'Context-aware automation', 'Human-in-the-loop control'],
-        href: '/products/frosty-ai', 
+        href: '/products/frosty-ai',
         exploreText: 'Explore AI Agents',
-        Demo: AIAgentDemo 
+        Demo: AIAgentDemo
     },
 ];
 
 const getCardStyles = (i: number) => {
-    if (i === 0) return { // Green
-        bg: 'bg-[#FAFCFB]',
-        border: 'border-t-[#2D6A4F] border-[#E6EFE6]',
-        iconBg: 'bg-[#E8F5EE]',
-        labelColor: 'text-[#2D6A4F]',
-        arrowColor: 'text-[#2D6A4F] border-[#2D6A4F]',
-        checkColor: 'text-[#2D6A4F]',
+    if (i === 0) return { // Emerald Green
+        bg: 'bg-[#F9FDFB]',
+        border: 'border-t-[#10B981] border-[#BBF7D0]',
+        iconBg: 'bg-[#F0FDF4]',
+        labelColor: 'text-[#10B981]',
+        arrowColor: 'text-[#10B981] border-[#10B981]',
+        checkColor: 'text-[#10B981]',
     };
-    if (i === 1) return { // Orange
-        bg: 'bg-[#FFFDFB]',
-        border: 'border-t-[#F97316] border-[#FFEDD5]',
-        iconBg: 'bg-[#FFEDD5]',
-        labelColor: 'text-[#EA580C]',
-        arrowColor: 'text-[#EA580C] border-[#EA580C]',
-        checkColor: 'text-[#EA580C]',
+    if (i === 1) return { // Yellow
+        bg: 'bg-[#FEFDF9]',
+        border: 'border-t-[#EAB308] border-[#FEF08A]',
+        iconBg: 'bg-[#FEF9C3]',
+        labelColor: 'text-[#CA8A04]',
+        arrowColor: 'text-[#CA8A04] border-[#CA8A04]',
+        checkColor: 'text-[#CA8A04]',
     };
-    return { // Purple
-        bg: 'bg-[#FCFAFF]',
-        border: 'border-t-[#8B5CF6] border-[#E9D5FF]',
-        iconBg: 'bg-[#F3E8FF]',
-        labelColor: 'text-[#7C3AED]',
-        arrowColor: 'text-[#7C3AED] border-[#7C3AED]',
-        checkColor: 'text-[#7C3AED]',
+    return { // Lavender/Pink
+        bg: 'bg-[#FDFBFC]',
+        border: 'border-t-[#D67CBA] border-[#F2BAE4]',
+        iconBg: 'bg-[#FDF4FA]',
+        labelColor: 'text-[#D67CBA]',
+        arrowColor: 'text-[#D67CBA] border-[#D67CBA]',
+        checkColor: 'text-[#D67CBA]',
     };
 };
 
@@ -362,7 +362,7 @@ const WhatWeDoSection = () => {
                                                 </div>
                                                 <h3 className="font-serif text-[22px] sm:text-2xl font-bold text-black mb-3 leading-tight whitespace-pre-line">{card.title}</h3>
                                                 <p className="text-gray-500 text-sm leading-relaxed mb-6">{card.desc}</p>
-                                                
+
                                                 <div className="space-y-2 mb-6">
                                                     {card.features.map((feature, idx) => (
                                                         <div key={idx} className="flex items-start gap-2">
@@ -375,7 +375,7 @@ const WhatWeDoSection = () => {
                                             <div className="flex-1 mt-auto">
                                                 <Demo />
                                             </div>
-                                            
+
                                             <div className="mt-6 pt-5 flex items-center justify-between border-t border-gray-100/60">
                                                 <Link to={card.href} className={`text-sm font-bold group/link transition-colors ${styles.labelColor}`}>
                                                     {card.exploreText}

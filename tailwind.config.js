@@ -73,9 +73,9 @@ export default {
                 'brand-light-green': '#EBF2F0',
             },
             fontFamily: {
-                sans: ['Raleway', 'system-ui', 'sans-serif'],
-                body: ['Raleway', 'system-ui', 'sans-serif'],
-                serif: ['Playfair Display', 'serif'],
+                sans: ['Inter', 'system-ui', 'sans-serif'],
+                body: ['Inter', 'system-ui', 'sans-serif'],
+                serif: ['Cormorant Garamond', 'serif'],
             },
 
             backgroundImage: {
@@ -156,11 +156,11 @@ export default {
                 },
                 // Pulse glow for core engine
                 pulseGlow: {
-                    '0%, 100%': { 
+                    '0%, 100%': {
                         transform: 'scale(1)',
                         boxShadow: '0 0 20px rgba(176, 117, 82, 0.2)'
                     },
-                    '50%': { 
+                    '50%': {
                         transform: 'scale(1.05)',
                         boxShadow: '0 0 40px rgba(176, 117, 82, 0.4)'
                     },

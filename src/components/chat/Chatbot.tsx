@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, useDragControls } from 'framer-motion';
-import { X, Send, Mic, Square, Paperclip, Trash2, Minus, MessageCircle, XCircle } from 'lucide-react';
+import { X, Send, Mic, Square, Paperclip, Trash2, Minus } from 'lucide-react';
 import {
     buildVoiceFormData,
     getTenantId,
