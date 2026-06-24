@@ -47,7 +47,7 @@ const COLORS = {
 
 const Chatbot: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [showPrompt, setShowPrompt] = useState(true);
+
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState<Array<{ type: 'user' | 'bot', content: string, image?: string }>>([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -68,11 +68,7 @@ const Chatbot: React.FC = () => {
     const chatContainerRef = useRef<HTMLDivElement>(null);
     const dragControls = useDragControls();
 
-    // Show prompt after a short delay
-    useEffect(() => {
-        const timer = setTimeout(() => setShowPrompt(true), 1500);
-        return () => clearTimeout(timer);
-    }, []);
+
 
 
     const scrollToBottom = () => {
@@ -514,78 +510,38 @@ const Chatbot: React.FC = () => {
                 }
             `}</style>
 
-            {/* Floating Assistant Prompt (Noddy) */}
-            <AnimatePresence>
-                {showPrompt && !isOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, y: 100, x: 20 }}
-                        animate={{ opacity: 1, y: 0, x: 0 }}
-                        exit={{ opacity: 0, y: 100, x: 20 }}
-                        className="fixed bottom-4 right-2 z-[10001] flex items-end pointer-events-none"
-                    >
-                        {/* Speech Bubble */}
-                        <div className="relative bg-white border border-gray-200 shadow-2xl rounded-2xl p-4 pr-10 mb-28 -mr-10 z-20 max-w-[180px] pointer-events-auto">
-                            <button 
-                                onClick={() => setShowPrompt(false)}
-                                className="absolute top-2 right-2 text-gray-400 hover:text-gray-600 transition-colors"
-                            >
-                                <XCircle size={16} />
-                            </button>
-                            <p className="text-sm font-medium text-gray-800 leading-tight">
-                                Need help? <br />
-                                <span className="text-[#2D6A4F]">I'm an AI Assistant.</span>
-                            </p>
-                            {/* Triangle Arrow */}
-                            <div className="absolute bottom-4 right-[-6px] w-3 h-3 bg-white border-r border-t border-gray-200 rotate-45" />
-                        </div>
 
-                        {/* Noddy Image */}
-                        <motion.div 
-                            className="w-32 h-32 sm:w-44 sm:h-44 flex-shrink-0 z-10 pointer-events-auto"
-                            animate={{ y: [0, -8, 0] }}
-                            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                        >
-                            <img 
-                                src="/noddy.png" 
-                                alt="AI Assistant" 
-                                className="w-full h-full object-contain filter drop-shadow-2xl"
-                            />
-                        </motion.div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
 
             {/* Trigger Button - Always Visible */}
             <motion.button
                 initial={{ scale: 0, opacity: 0 }}
-                animate={{ 
-                    scale: 1, 
+                animate={{
+                    scale: 1,
                     opacity: 1,
-                    right: showPrompt && !isOpen ? 120 : 24
+                    right: 24
                 }}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={() => {
                     toggleChat();
-                    setShowPrompt(false);
                 }}
                 style={{
                     position: 'fixed',
                     bottom: '24px',
                     zIndex: 10002,
-                    backgroundColor: isOpen ? '#f0f0f0' : COLORS.primary,
+                    backgroundColor: isOpen ? '#f0f0f0' : 'transparent',
                 }}
-                className={`p-4 rounded-full shadow-2xl transition-all duration-300 ai-copilot-button ${isOpen ? 'rotate-90' : ''}`}
+                className={`rounded-full shadow-2xl transition-all duration-300 ai-copilot-button ${isOpen ? 'p-4 rotate-90' : 'p-0'}`}
             >
                 {isOpen ? (
                     <X className="w-6 h-6" style={{ color: COLORS.text }} />
                 ) : (
-                    <div className="w-8 h-8 relative flex items-center justify-center">
-                        <MessageCircle className="w-8 h-8 text-white" />
-                        <motion.div 
+                    <div className="w-16 h-16 sm:w-[72px] sm:h-[72px] relative flex items-center justify-center bg-[#2D6A4F] rounded-full shadow-lg">
+                        <img src="/chatbot.png" alt="Chat" className="w-full h-full object-cover rounded-full" />
+                        <motion.div
                             animate={{ scale: [1, 1.2, 1] }}
                             transition={{ duration: 2, repeat: Infinity }}
-                            className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full border-2 border-white"
+                            className="absolute top-0 right-0 w-4 h-4 sm:w-4 sm:h-4 bg-red-500 rounded-full border-2 border-white z-10"
                         />
                     </div>
                 )}

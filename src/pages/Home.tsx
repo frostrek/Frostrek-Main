@@ -3,7 +3,7 @@ import OurProductsSection from '../components/home/OurProductsSection';
 import AISolutionsShowcase from '../components/home/AISolutionsShowcase';
 import WhatWeDoSection from '../components/home/WhatWeDoSection';
 import ImpactComparison from '../components/home/ImpactComparison';
-import TrustedBySection from '../components/home/TrustedBySection';
+
 import FeaturesSection from '../components/home/FeaturesSection';
 import FAQSection from '../components/home/FAQSection';
 import CTASection from '../components/home/CTASection';
@@ -171,8 +171,7 @@ const Home = () => {
       <WhatWeDoSection />
       {/* 4. AI-Driven Outcomes We Deliver */}
       <ImpactComparison />
-      {/* 5. Trusted By */}
-      <TrustedBySection />
+
       {/* 6. Why Choose Frostrek */}
       <FeaturesSection />
       {/* 7. FAQ */}

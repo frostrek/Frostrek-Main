@@ -377,12 +377,12 @@ const HeroSection = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 2.0 }}
-        className="mt-10 md:mt-12 w-[90vw] mx-auto z-10 relative flex flex-col items-center"
+        className="mt-auto pt-16 md:pt-20 w-[90vw] mx-auto z-10 relative flex flex-col items-center"
       >
         <h3 className="font-serif text-[#2D6A4F] text-xl md:text-2xl font-semibold mb-4 text-center">
           Trusted by Industry Leaders
         </h3>
-        <div className="w-[85%] bg-white rounded-[32px] md:rounded-2xl py-1 md:py-2 px-6 md:px-12 lg:px-18 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 flex flex-wrap md:flex-nowrap items-center justify-center md:justify-between gap-8 md:gap-4">
+        <div className="w-[87%] bg-white rounded-[32px] md:rounded-2xl py-1 md:py-2 px-6 md:px-12 lg:px-18 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 flex flex-wrap md:flex-nowrap items-center justify-center md:justify-between gap-8 md:gap-4">
           <img src="/vedashi-logo.png" alt="Vedashi" className="h-10 md:h-14 object-contain" />
           <div className="hidden md:block w-[1px] h-10 bg-gray-200"></div>
           <img src="/clutch.png" alt="Clutch" className="h-8 md:h-12 object-contain" />

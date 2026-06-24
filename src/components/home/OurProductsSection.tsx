@@ -1,16 +1,23 @@
 import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import SplitTextReveal from '../ui/SplitTextReveal';
-import { Sparkles, ArrowUpRight } from 'lucide-react';
+import { Sparkles, ArrowUpRight, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const PRODUCTS = [
     {
         id: 'Vedashi',
         title: 'Vedashi Ecommerce',
-        subtitle: 'An global Ecommerce platform empowering Indian Ayurvedic and Wellness brands and startups to scale globally without the complexities of international expansion.',
+        subtitle: 'An global Ecommerce platform empowering Indian Wellness brands to scale globally without the complexities of international expansion.',
         description: 'An end-to-end tech and logistics platform that helps Indian wellness, food, and beauty brands go global effortlessly.',
-        image: '/images/custom_software_vibe.png',
+        image: '/vedashi-info1.jpeg',
+        features: [
+            "Seamless global market expansion",
+            "End-to-end logistics & supply chain",
+            "Multi-currency cross-border payments"
+        ],
+        featureBgColor: "bg-[#E6EFE6]",
+        featureIconColor: "text-[#2D6A4F]",
         icon: <img src="/products/vedashi-logo.png" alt="Vedashi" className="w-8 h-8 md:w-12 md:h-12 object-contain" />,
         bgColor: 'bg-white',
         titleColor: 'text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-500',
@@ -27,6 +34,13 @@ const PRODUCTS = [
         title: 'VettEdge',
         subtitle: 'Standalone AI-powered financial due diligence, valuation, and investment memo platform - the first product shipped by Frostrek AI on the path to FundOS, the AI operating system for fund managers.',
         description: 'Build intelligent AI agents capable of independent reasoning, decision-making, and task execution across operational workflows.',
+        features: [
+            "AI-powered financial due diligence",
+            "Automated valuation models",
+            "Instant investment memos"
+        ],
+        featureBgColor: "bg-sky-50",
+        featureIconColor: "text-[#0284C7]",
         image: '/images/ai_agents_white_collar.png',
         icon: <img src="/icons/ai-blue.png" alt="AI Agents" className="w-7 h-7 md:w-10 md:h-10 object-contain" />,
         bgColor: 'bg-white',
@@ -42,7 +56,14 @@ const PRODUCTS = [
     {
         id: 'Hiyring',
         title: 'Hiyring',
-        description: 'Platform that streamlines hiring process with autonomous AI video interviews. Screen thousands of candidates in minutes, with scientifically focused assessments.',
+        description: 'Platform that streamlines hiring process with autonomous AI video interviews. Screen thousands of candidates in minutes.',
+        features: [
+            "Autonomous AI video interviews",
+            "Screen thousands in minutes",
+            "Scientific & unbiased assessments"
+        ],
+        featureBgColor: "bg-orange-50",
+        featureIconColor: "text-[#E95E1C]",
         icon: <img src="/products/hiyring-logo.png" alt="Hiyring" className="w-8 h-8 md:w-12 md:h-12 object-contain p-0" />,
         bgColor: 'bg-white',
         titleColor: 'text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-500',
@@ -55,8 +76,15 @@ const PRODUCTS = [
     },
     {
         id: 'Frosty',
-        title: 'Website Chatbot (FROSTY) ',
-        description: 'Connect your data streams, automate customer journeys. Our easy to plug chatbot is here to handle the heavy lifting while your team focuses on closing.',
+        title: 'Website Chatbot ',
+        description: 'Our easy to plug chatbot is here to handle the heavy lifting while your team focuses on closing.',
+        features: [
+            "Trained on your data",
+            "Human-like conversations",
+            "Lead capture & CRM integration"
+        ],
+        featureBgColor: "bg-[#FDF4FA]",
+        featureIconColor: "text-[#D67CBA]",
         icon: <img src="/icons/machine-learning-lavender.png" alt="AI Model Training" className="w-7 h-7 md:w-10 md:h-10 object-contain" />,
         bgColor: 'bg-white',
         titleColor: 'text-[#D67CBA]',
@@ -129,22 +157,35 @@ const SpotlightCard = ({ product, index }: { product: any, index: number }) => {
                 <div className={`flex flex-col h-full w-full relative z-10 ${product.imagePos === 'right' ? 'md:flex-row' : ''} ${product.imagePos === 'left' ? 'md:flex-row-reverse' : ''}`}>
 
                     {/* Content Area */}
-                    <div className={`p-4 md:p-8 lg:p-10 flex flex-col relative z-10 ${product.imagePos === 'right' || product.imagePos === 'left'
+                    <div className={`p-4 md:p-6 lg:p-8 flex flex-col relative z-10 ${product.imagePos === 'right' || product.imagePos === 'left'
                         ? 'md:w-1/2 md:h-full flex-1'
                         : 'w-full flex-1'
                         }`}>
-                        <div className="w-10 h-10 md:w-14 md:h-14 flex items-center mb-4 md:mb-8 relative z-10">
+                        <div className="w-10 h-10 md:w-14 md:h-14 flex items-center mb-4 relative z-10">
                             {product.icon}
                         </div>
 
                         <div className="relative z-10">
-                            <h3 className={`font-serif text-lg md:text-3xl font-semibold ${product.titleColor || 'text-black'} mb-2 md:mb-4 leading-tight`}>
+                            <h3 className={`font-serif text-lg md:text-3xl font-semibold ${product.titleColor || 'text-black'} mb-1.5 md:mb-2.5 leading-tight`}>
                                 {product.title}
                             </h3>
 
-                            <p className="text-[11px] md:text-[15px] text-gray-600 font-medium leading-relaxed max-w-prose">
+                            <p className="text-[11px] md:text-[14px] text-gray-600 font-medium leading-relaxed max-w-prose">
                                 {product.subtitle || product.description}
                             </p>
+
+                            {product.features && (
+                                <div className="mt-3.5 md:mt-5 space-y-1.5">
+                                    {product.features.map((feature: string, idx: number) => (
+                                        <div key={idx} className="flex items-center gap-2">
+                                            <div className={`flex-shrink-0 w-4 h-4 rounded-full ${product.featureBgColor || 'bg-[#E6EFE6]'} flex items-center justify-center`}>
+                                                <CheckCircle2 className={`w-3 h-3 ${product.featureIconColor || 'text-[#2D6A4F]'}`} />
+                                            </div>
+                                            <span className="text-[12px] md:text-[13px] text-gray-600 font-medium">{feature}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
                         </div>
 
                         {/* Premium Floating Arrow Icon */}

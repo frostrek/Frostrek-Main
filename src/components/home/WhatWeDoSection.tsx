@@ -392,20 +392,7 @@ const WhatWeDoSection = () => {
                     </div>
                 </div>
 
-                {/* ── Stats bar ── */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.6, delay: 0.6 }}
-                    className="mt-14 grid grid-cols-4 gap-px bg-gray-100 rounded-xl md:rounded-2xl overflow-hidden border border-gray-100"
-                >
-                    {[{ value: '8 wks', label: 'Avg. time to go live' }, { value: '4+', label: 'Systems unified' }, { value: '80%', label: 'Inquiries automated' }, { value: '10X', label: 'ROI potential' }].map(s => (
-                        <div key={s.label} className="bg-white px-2 py-6 sm:px-4 sm:py-8 md:px-6 md:py-12 text-center transition-all duration-300 hover:bg-gray-50/30 flex flex-col justify-center">
-                            <div className="font-serif text-[1.1rem] sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#2D6A4F] mb-1 md:mb-2">{s.value}</div>
-                            <div className="text-gray-600 text-[9px] sm:text-xs md:text-sm lg:text-base font-medium font-body leading-[1.2] md:leading-tight max-w-[70px] sm:max-w-[100px] md:max-w-[140px] mx-auto">{s.label}</div>
-                        </div>
-                    ))}
-                </motion.div>
+
             </div>
         </section>
     );
