@@ -65,9 +65,9 @@ const ManufacturingDemo = () => {
     ];
     return (
         <div className="w-full text-xs select-none font-body">
-            <div className="bg-[#F0F9FF] border border-[#BAE6FD] rounded-xl px-4 py-2.5 mb-3 flex items-center justify-between">
+            <div className="bg-[#F4FAF7] border border-[#C8E6DA] rounded-xl px-4 py-2.5 mb-3 flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-[#0EA5E9] animate-pulse" />
+                    <span className="w-2 h-2 rounded-full bg-[#2D6A4F] animate-pulse" />
                     <span className="text-gray-400 text-[10px] uppercase tracking-widest font-semibold">Live Factory Dashboard</span>
                 </div>
                 <span className="text-gray-400 text-[10px]">30s refresh</span>
@@ -75,7 +75,7 @@ const ManufacturingDemo = () => {
             <div className="grid grid-cols-3 gap-2 mb-3">
                 {metrics.map(m => (
                     <div key={m.label} className="bg-white border border-gray-100 rounded-xl p-3 text-center shadow-sm">
-                        <div className="text-[#0EA5E9] font-bold text-sm">{m.value}</div>
+                        <div className="text-[#2D6A4F] font-bold text-sm">{m.value}</div>
                         <div className="text-gray-400 text-[10px] mt-0.5">{m.label}</div>
                     </div>
                 ))}
@@ -83,7 +83,7 @@ const ManufacturingDemo = () => {
             <div className="space-y-2">
                 <AnimatePresence mode="popLayout">
                     {[alerts[tick], alerts[(tick + 1) % 4]].map((a, i) => (
-                        <motion.div key={a.id} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.4, delay: i * 0.1 }} className="flex items-center gap-3 bg-[#F0F9FF] border border-[#BAE6FD] rounded-xl px-3 py-2.5">
+                        <motion.div key={a.id} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.4, delay: i * 0.1 }} className="flex items-center gap-3 bg-[#F4FAF7] border border-[#C8E6DA] rounded-xl px-3 py-2.5">
                             <span>{a.icon}</span>
                             <span className="text-gray-600 text-[11px] leading-tight">{a.text}</span>
                         </motion.div>
@@ -106,9 +106,9 @@ const Web3Demo = () => {
     const steps = [{ label: 'Wallet provisioned', done: true }, { label: 'Cart validated', done: phase >= 1 }, { label: 'On-chain settlement', done: phase >= 2 }, { label: 'Treasury updated', done: phase >= 3 }];
     return (
         <div className="w-full font-body text-xs select-none space-y-3">
-            <div className="bg-[#F4FAF7] border border-[#C8E6DA] rounded-xl px-4 py-3 flex items-center justify-between">
-                <div><div className="text-gray-400 text-[10px] uppercase tracking-widest mb-1">Wallet Balance</div><div className="text-[#2D6A4F] font-bold text-base">1,450 <span className="text-xs text-gray-400">$TOKEN</span></div></div>
-                <div className="w-9 h-9 rounded-full bg-[#E8F5EE] border border-[#C8E6DA] flex items-center justify-center">
+            <div className="bg-[#FFF9F2] border border-[#FFEDD5] rounded-xl px-4 py-3 flex items-center justify-between">
+                <div><div className="text-gray-400 text-[10px] uppercase tracking-widest mb-1">Wallet Balance</div><div className="text-[#EA580C] font-bold text-base">1,450 <span className="text-xs text-gray-400">$TOKEN</span></div></div>
+                <div className="w-9 h-9 rounded-full bg-[#FFEDD5] border border-[#FFEDD5] flex items-center justify-center">
                     <img src="/icons/fintech.png" alt="Fintech" className="w-5 h-5 object-contain" />
                 </div>
             </div>
@@ -116,7 +116,7 @@ const Web3Demo = () => {
                 {clubs.map((c, i) => (
                     <div
                         key={c.name}
-                        className={`flex-1 border rounded-xl p-2 text-center transition-all duration-500 flex flex-col items-center justify-center ${i === phase % 3 ? 'border-[#2D6A4F]/40 bg-[#F4FAF7]' : 'border-gray-100 bg-white'
+                        className={`flex-1 border rounded-xl p-2 text-center transition-all duration-500 flex flex-col items-center justify-center ${i === phase % 3 ? 'border-[#EA580C]/40 bg-[#FFF9F2]' : 'border-gray-100 bg-white'
                             }`}
                     >
                         <div className="h-6 w-6 flex items-center justify-center">
@@ -127,7 +127,7 @@ const Web3Demo = () => {
                 ))}
             </div>
             <div className="bg-white border border-gray-100 rounded-xl px-4 py-3 space-y-2 shadow-sm">
-                {steps.map(s => (<div key={s.label} className="flex items-center gap-2"><div className={`w-3.5 h-3.5 rounded-full flex items-center justify-center transition-all duration-500 flex-shrink-0 ${s.done ? 'bg-[#2D6A4F]' : 'bg-gray-100'}`}>{s.done && <CheckCircle className="w-2.5 h-2.5 text-white" />}</div><span className={`text-[10px] transition-colors duration-300 ${s.done ? 'text-gray-700' : 'text-gray-300'}`}>{s.label}</span></div>))}
+                {steps.map(s => (<div key={s.label} className="flex items-center gap-2"><div className={`w-3.5 h-3.5 rounded-full flex items-center justify-center transition-all duration-500 flex-shrink-0 ${s.done ? 'bg-[#EA580C]' : 'bg-gray-100'}`}>{s.done && <CheckCircle className="w-2.5 h-2.5 text-white" />}</div><span className={`text-[10px] transition-colors duration-300 ${s.done ? 'text-gray-700' : 'text-gray-300'}`}>{s.label}</span></div>))}
             </div>
         </div>
     );
@@ -150,18 +150,18 @@ const AIAgentDemo = () => {
     }, []);
     return (
         <div className="w-full font-body text-xs select-none space-y-2">
-            <div className="flex items-center gap-2 bg-[#FFF1F2] border border-[#FFE4E6] rounded-xl px-3 py-2 mb-3">
-                <div className="w-7 h-7 rounded-full bg-[#FFF1F2] border border-[#FFE4E6] flex items-center justify-center">
+            <div className="flex items-center gap-2 bg-[#F3E8FF] border border-[#E9D5FF] rounded-xl px-3 py-2 mb-3">
+                <div className="w-7 h-7 rounded-full bg-[#F3E8FF] border border-[#E9D5FF] flex items-center justify-center">
                     <img src="/icons/ai agents.png" alt="AI Agent" className="w-4 h-4 object-contain" />
                 </div>
-                <div><div className="text-gray-800 text-[10px] font-semibold">Frosty AI Agent</div><div className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-[#FB7185] animate-pulse" /><span className="text-[#FB7185] text-[9px]">Online</span></div></div>
+                <div><div className="text-gray-800 text-[10px] font-semibold">Frosty AI Agent</div><div className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-[#8B5CF6] animate-pulse" /><span className="text-[#7C3AED] text-[9px]">Online</span></div></div>
                 <div className="ml-auto flex gap-1.5"><Mic className="w-3.5 h-3.5 text-gray-300" /><MessageSquare className="w-3.5 h-3.5 text-gray-300" /></div>
             </div>
             <div className="space-y-2 min-h-[140px]">
                 <AnimatePresence>
-                    {msgs.map(m => (<motion.div key={m.id} initial={{ opacity: 0, y: 8, scale: 0.95 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 0.3 }} className={`flex ${m.who === 'user' ? 'justify-end' : 'justify-start'}`}><div className={`max-w-[80%] px-3 py-2 rounded-2xl text-[11px] leading-snug ${m.who === 'user' ? 'bg-gray-100 text-gray-700 rounded-br-sm' : 'bg-[#FFF1F2] border border-[#FFE4E6] text-gray-800 rounded-bl-sm'}`}>{m.text}</div></motion.div>))}
+                    {msgs.map(m => (<motion.div key={m.id} initial={{ opacity: 0, y: 8, scale: 0.95 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 0.3 }} className={`flex ${m.who === 'user' ? 'justify-end' : 'justify-start'}`}><div className={`max-w-[80%] px-3 py-2 rounded-2xl text-[11px] leading-snug ${m.who === 'user' ? 'bg-gray-100 text-gray-700 rounded-br-sm' : 'bg-[#F3E8FF] border border-[#E9D5FF] text-gray-800 rounded-bl-sm'}`}>{m.text}</div></motion.div>))}
                 </AnimatePresence>
-                {typing && (<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex justify-start"><div className="bg-[#FFF1F2] border border-[#FFE4E6] rounded-2xl rounded-bl-sm px-3 py-2 flex gap-1 items-center">{[0, 0.15, 0.3].map((d, i) => (<span key={i} className="w-1.5 h-1.5 rounded-full bg-[#FB7185] animate-bounce" style={{ animationDelay: `${d}s` }} />))}</div></motion.div>)}
+                {typing && (<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex justify-start"><div className="bg-[#F3E8FF] border border-[#E9D5FF] rounded-2xl rounded-bl-sm px-3 py-2 flex gap-1 items-center">{[0, 0.15, 0.3].map((d, i) => (<span key={i} className="w-1.5 h-1.5 rounded-full bg-[#8B5CF6] animate-bounce" style={{ animationDelay: `${d}s` }} />))}</div></motion.div>)}
             </div>
         </div>
     );
@@ -169,10 +169,64 @@ const AIAgentDemo = () => {
 
 // ─── Cards data ───────────────────────────────────────────────────────────────
 const CARDS = [
-    { icon: "/icons/manufacturing.png", label: 'Manufacturing Intelligence', title: 'Frostrek Manufacturing OS', desc: 'Unify ERP, WMS, SCADA and PLC data into a single real-time intelligence hub. Live dashboards, AI cost analytics, and automated production scheduling.', href: '/products/frostrek-manufacturing-os', Demo: ManufacturingDemo },
-    { icon: "/icons/fintech.png", label: 'Fintech & Custom Wallets', title: 'Fintech & Custom Wallets', desc: 'A centralized, closed-loop digital currency engineered specifically for sports fans and affiliated clubs. Functioning as a next-generation digital loyalty programme that bypasses gateway commissions.', href: '/products/frostrek-web3-commerce', Demo: Web3Demo },
-    { icon: "/icons/ai agents.png", label: 'AI Agents', title: 'Frostrek AI Agents', desc: 'Deploy intelligent AI agents across voice, chat, and WhatsApp. Context-aware, sentiment-sensitive, resolving 80% of inquiries without human intervention.', href: '/products/frosty-ai', Demo: AIAgentDemo },
+    { 
+        icon: "/icons/manufacturing.png", 
+        label: 'MANUFACTURING OS', 
+        title: 'Frostrek\nManufacturing OS', 
+        desc: 'A unified operating system for smart factories. Real-time visibility, predictive insights, and seamless automation across your shop floor.', 
+        features: ['Real-time production monitoring', 'Predictive maintenance', 'Quality & process optimization'],
+        href: '/products/frostrek-manufacturing-os', 
+        exploreText: 'Explore Manufacturing OS',
+        Demo: ManufacturingDemo 
+    },
+    { 
+        icon: "/icons/fintech.png", 
+        label: 'FINTECH PLATFORM', 
+        title: 'Fintech &\nCustom Wallets', 
+        desc: 'Secure, compliant, and scalable fintech solutions. Digital wallets, KYC, transactions and beyond.', 
+        features: ['Digital wallets & payments', 'KYC & compliance engine', 'Transaction monitoring'],
+        href: '/products/frostrek-web3-commerce', 
+        exploreText: 'Explore Fintech Platform',
+        Demo: Web3Demo 
+    },
+    { 
+        icon: "/icons/ai agents.png", 
+        label: 'AI AGENTS PLATFORM', 
+        title: 'Frostrek\nAI Agents', 
+        desc: 'Autonomous AI agents that handle tasks, answer queries, and drive outcomes across your business.', 
+        features: ['Multi-agent orchestration', 'Context-aware automation', 'Human-in-the-loop control'],
+        href: '/products/frosty-ai', 
+        exploreText: 'Explore AI Agents',
+        Demo: AIAgentDemo 
+    },
 ];
+
+const getCardStyles = (i: number) => {
+    if (i === 0) return { // Green
+        bg: 'bg-[#FAFCFB]',
+        border: 'border-t-[#2D6A4F] border-[#E6EFE6]',
+        iconBg: 'bg-[#E8F5EE]',
+        labelColor: 'text-[#2D6A4F]',
+        arrowColor: 'text-[#2D6A4F] border-[#2D6A4F]',
+        checkColor: 'text-[#2D6A4F]',
+    };
+    if (i === 1) return { // Orange
+        bg: 'bg-[#FFFDFB]',
+        border: 'border-t-[#F97316] border-[#FFEDD5]',
+        iconBg: 'bg-[#FFEDD5]',
+        labelColor: 'text-[#EA580C]',
+        arrowColor: 'text-[#EA580C] border-[#EA580C]',
+        checkColor: 'text-[#EA580C]',
+    };
+    return { // Purple
+        bg: 'bg-[#FCFAFF]',
+        border: 'border-t-[#8B5CF6] border-[#E9D5FF]',
+        iconBg: 'bg-[#F3E8FF]',
+        labelColor: 'text-[#7C3AED]',
+        arrowColor: 'text-[#7C3AED] border-[#7C3AED]',
+        checkColor: 'text-[#7C3AED]',
+    };
+};
 
 // ─── Main Section ─────────────────────────────────────────────────────────────
 const WhatWeDoSection = () => {
@@ -290,44 +344,46 @@ const WhatWeDoSection = () => {
                         <div ref={scrollWrapperRef} className="flex md:grid md:grid-cols-3 gap-5 md:gap-6 w-max md:w-auto">
                             {CARDS.map((card, i) => {
                                 const Demo = card.Demo;
+                                const styles = getCardStyles(i);
                                 return (
                                     <div key={card.label} className="w-[85vw] sm:w-[60vw] md:w-auto shrink-0 flex">
                                         <motion.div
                                             initial={{ opacity: 0, y: 40 }}
                                             animate={isInView ? { opacity: 1, y: 0 } : {}}
                                             transition={{ duration: 0.6, delay: 0.1 + i * 0.15 }}
-                                            className={`group relative rounded-3xl border border-gray-100 bg-white p-7 flex flex-col gap-5 transition-all duration-500 ${i === 0
-                                                ? 'hover:border-[#BAE6FD] hover:shadow-[0_20px_50px_rgba(14,165,233,0.07)]'
-                                                : i === 2
-                                                    ? 'hover:border-[#FFE4E6] hover:shadow-[0_20px_50px_rgba(244,63,94,0.05)]'
-                                                    : 'hover:border-[#C8E6DA] hover:shadow-[0_20px_50px_rgba(45,106,79,0.07)]'
-                                                }`}
+                                            className={`group relative rounded-2xl border border-t-4 p-6 sm:p-7 flex flex-col transition-all duration-500 shadow-sm hover:shadow-md ${styles.bg} ${styles.border}`}
                                         >
-                                            <div className={`absolute top-0 left-8 right-8 h-0.5 bg-gradient-to-r from-transparent to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${i === 0
-                                                ? 'via-[#0EA5E9]/25'
-                                                : i === 2
-                                                    ? 'via-[#FB7185]/20'
-                                                    : 'via-[#2D6A4F]/25'
-                                                }`} />
                                             <div>
-                                                <div className="flex items-center gap-2 mb-4">
-                                                    <div className={`w-9 h-9 rounded-xl flex items-center justify-center border transition-all duration-300 ${i === 0
-                                                        ? 'bg-[#E0F2FE] border-[#BAE6FD]'
-                                                        : i === 2
-                                                            ? 'bg-[#FFF1F2] border-[#FFE4E6]'
-                                                            : 'bg-[#E8F5EE] border-[#C8E6DA]'
-                                                        }`}>
-                                                        <img src={card.icon} alt={card.label} className="w-5 h-5 object-contain" />
+                                                <div className="flex items-center gap-3 mb-5">
+                                                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${styles.iconBg}`}>
+                                                        <img src={card.icon} alt={card.label} className="w-6 h-6 object-contain" />
                                                     </div>
-                                                    <span className="text-gray-600 text-[10px] font-bold uppercase tracking-widest">{card.label}</span>
+                                                    <span className={`text-[11px] font-bold tracking-widest ${styles.labelColor}`}>{card.label}</span>
                                                 </div>
-                                                <h3 className="font-serif text-xl font-bold text-black mb-2 leading-snug">{card.title}</h3>
-                                                <p className="text-gray-500 text-sm leading-relaxed">{card.desc}</p>
+                                                <h3 className="font-serif text-[22px] sm:text-2xl font-bold text-black mb-3 leading-tight whitespace-pre-line">{card.title}</h3>
+                                                <p className="text-gray-500 text-sm leading-relaxed mb-6">{card.desc}</p>
+                                                
+                                                <div className="space-y-2 mb-6">
+                                                    {card.features.map((feature, idx) => (
+                                                        <div key={idx} className="flex items-start gap-2">
+                                                            <CheckCircle className={`w-4 h-4 mt-0.5 flex-shrink-0 ${styles.checkColor}`} />
+                                                            <span className="text-[13px] font-medium text-gray-600">{feature}</span>
+                                                        </div>
+                                                    ))}
+                                                </div>
                                             </div>
-                                            <div className="flex-1"><Demo /></div>
-                                            <Link to={card.href} className="inline-flex items-center gap-2 text-gray-600 text-sm font-bold group/link hover:gap-3 transition-all duration-300">
-                                                Explore platform <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
-                                            </Link>
+                                            <div className="flex-1 mt-auto">
+                                                <Demo />
+                                            </div>
+                                            
+                                            <div className="mt-6 pt-5 flex items-center justify-between border-t border-gray-100/60">
+                                                <Link to={card.href} className={`text-sm font-bold group/link transition-colors ${styles.labelColor}`}>
+                                                    {card.exploreText}
+                                                </Link>
+                                                <Link to={card.href} className={`w-8 h-8 rounded-full border flex items-center justify-center transition-all bg-white hover:bg-gray-50 ${styles.arrowColor}`}>
+                                                    <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+                                                </Link>
+                                            </div>
                                         </motion.div>
                                     </div>
                                 );

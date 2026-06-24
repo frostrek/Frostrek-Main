@@ -59,13 +59,13 @@ const PRODUCTS = [
         description: 'Connect your data streams, automate customer journeys. Our easy to plug chatbot is here to handle the heavy lifting while your team focuses on closing.',
         icon: <img src="/icons/machine-learning-lavender.png" alt="AI Model Training" className="w-7 h-7 md:w-10 md:h-10 object-contain" />,
         bgColor: 'bg-white',
-        titleColor: 'text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-fuchsia-500',
-        borderColor: 'border-purple-200',
-        spotlightColor: 'rgba(168, 85, 247, 0.18)',
+        titleColor: 'text-[#D67CBA]',
+        borderColor: 'border-[#F2BAE4]',
+        spotlightColor: 'rgba(242, 186, 228, 0.45)',
         colSpan: 'md:col-span-1',
         rowSpan: 'row-span-1',
         link: '/products/frosty-ai',
-        arrowColor: 'text-[#9333EA]' // Mid-tone Purple
+        arrowColor: 'text-[#D67CBA]'
     },
 ];
 
@@ -133,7 +133,7 @@ const SpotlightCard = ({ product, index }: { product: any, index: number }) => {
                         ? 'md:w-1/2 md:h-full flex-1'
                         : 'w-full flex-1'
                         }`}>
-                        <div className="w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-8 shadow-md bg-white border border-gray-100/50 relative z-10">
+                        <div className="w-10 h-10 md:w-14 md:h-14 flex items-center mb-4 md:mb-8 relative z-10">
                             {product.icon}
                         </div>
 

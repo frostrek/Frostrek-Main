@@ -370,29 +370,30 @@ const HeroSection = () => {
           </Link>
         </motion.div>
 
-        {/* Trusted By Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2.0 }}
-          className="mt-10 md:mt-12 w-full max-w-5xl mx-auto z-10 relative"
-        >
-          <h3 className="font-serif text-[#2D6A4F] text-xl md:text-2xl font-semibold mb-4">
-            Trusted by Industry Leaders
-          </h3>
-          <div className="bg-white rounded-3xl md:rounded-full py-5 px-6 md:px-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 flex flex-wrap md:flex-nowrap items-center justify-center md:justify-between gap-8 md:gap-4">
-            <img src="/vedashi-logo.png" alt="Vedashi" className="h-8 md:h-10 object-contain" />
-            <div className="hidden md:block w-[1px] h-10 bg-gray-100"></div>
-            <img src="/clutch.webp" alt="Clutch" className="h-6 md:h-8 object-contain" />
-            <div className="hidden md:block w-[1px] h-10 bg-gray-100"></div>
-            <img src="/topDevelopers.webp" alt="TopDevelopers" className="h-6 md:h-8 object-contain" />
-            <div className="hidden md:block w-[1px] h-10 bg-gray-100"></div>
-            <img src="/goodfirms.webp" alt="GoodFirms" className="h-6 md:h-8 object-contain" />
-            <div className="hidden md:block w-[1px] h-10 bg-gray-100"></div>
-            <img src="/iso.webp" alt="ISO 9001" className="h-10 md:h-12 object-contain" />
-          </div>
-        </motion.div>
       </div>
+
+      {/* Trusted By Section */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 2.0 }}
+        className="mt-10 md:mt-12 w-[90vw] mx-auto z-10 relative flex flex-col items-center"
+      >
+        <h3 className="font-serif text-[#2D6A4F] text-xl md:text-2xl font-semibold mb-4 text-center">
+          Trusted by Industry Leaders
+        </h3>
+        <div className="w-[85%] bg-white rounded-[32px] md:rounded-2xl py-1 md:py-2 px-6 md:px-12 lg:px-18 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 flex flex-wrap md:flex-nowrap items-center justify-center md:justify-between gap-8 md:gap-4">
+          <img src="/vedashi-logo.png" alt="Vedashi" className="h-10 md:h-14 object-contain" />
+          <div className="hidden md:block w-[1px] h-10 bg-gray-200"></div>
+          <img src="/clutch.png" alt="Clutch" className="h-8 md:h-12 object-contain" />
+          <div className="hidden md:block w-[1px] h-10 bg-gray-200"></div>
+          <img src="/topDevelopers.webp" alt="TopDevelopers" className="h-8 md:h-12 object-contain" />
+          <div className="hidden md:block w-[1px] h-10 bg-gray-200"></div>
+          <img src="/goodfirms.png" alt="GoodFirms" className="h-8 md:h-12 object-contain" />
+          <div className="hidden md:block w-[1px] h-10 bg-gray-200"></div>
+          <img src="/iso.webp" alt="ISO 9001" className="h-12 md:h-16 object-contain" />
+        </div>
+      </motion.div>
 
       <div className="absolute bottom-0 w-full h-[12vh] bg-gradient-to-t from-orange-600/90 via-red-500/50 to-transparent blur-3xl pointer-events-none -z-10" />
     </section>
