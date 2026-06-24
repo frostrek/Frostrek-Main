@@ -28,6 +28,8 @@ interface Solution {
     gradient: string;
     tabColor: string;
     tabColorHover: string;
+    iconBgIdle: string;
+    iconColorDark: string;
 }
 
 const SOLUTIONS: Solution[] = [
@@ -48,7 +50,9 @@ const SOLUTIONS: Solution[] = [
         link: '/solutions/manufacturing-intelligence',
         gradient: 'from-[#2D6A4F] to-[#3D8B6E]',
         tabColor: '#F3E8FF',
-        tabColorHover: '#EBE0F7'
+        tabColorHover: '#EBE0F7',
+        iconBgIdle: '#F3E8FF',
+        iconColorDark: '#7C3AED'
     },
     {
         id: 'frostrek-web3-commerce',
@@ -66,7 +70,9 @@ const SOLUTIONS: Solution[] = [
         link: '/solutions/fintech-custom-wallets',
         gradient: 'from-[#2D6A4F] to-[#3D8B6E]',
         tabColor: '#FFFBEB',
-        tabColorHover: '#FEF3C7'
+        tabColorHover: '#FEF3C7',
+        iconBgIdle: '#FFEDD5',
+        iconColorDark: '#EA580C'
     },
     {
         id: 'ai-agents',
@@ -84,7 +90,9 @@ const SOLUTIONS: Solution[] = [
         link: '/solutions/ai-agents',
         gradient: 'from-[#2D6A4F] to-[#3D8B6E]',
         tabColor: '#FEF2F2',
-        tabColorHover: '#FEE2E2'
+        tabColorHover: '#FEE2E2',
+        iconBgIdle: '#FEE2E2',
+        iconColorDark: '#DC2626'
     },
     {
         id: 'voice-ai',
@@ -102,7 +110,9 @@ const SOLUTIONS: Solution[] = [
         link: '/solutions/voice-ai',
         gradient: 'from-[#2D6A4F] to-[#3D8B6E]',
         tabColor: '#F0FDF4',
-        tabColorHover: '#DCFCE7'
+        tabColorHover: '#DCFCE7',
+        iconBgIdle: '#DCFCE7',
+        iconColorDark: '#16A34A'
     },
     {
         id: 'multivendor-dashboard',
@@ -121,7 +131,9 @@ const SOLUTIONS: Solution[] = [
         link: '/solutions/multivendor-dashboard',
         gradient: 'from-[#2D6A4F] to-[#3D8B6E]',
         tabColor: '#F0F9FF',
-        tabColorHover: '#E0F2FE'
+        tabColorHover: '#E0F2FE',
+        iconBgIdle: '#E0F2FE',
+        iconColorDark: '#0284C7'
     },
     {
         id: 'llm-training-data',
@@ -140,7 +152,9 @@ const SOLUTIONS: Solution[] = [
         link: '/solutions/data-services',
         gradient: 'from-[#2D6A4F] to-[#3D8B6E]',
         tabColor: '#EEF2FF',
-        tabColorHover: '#E0E7FF'
+        tabColorHover: '#E0E7FF',
+        iconBgIdle: '#E0E7FF',
+        iconColorDark: '#4F46E5'
     }
 ];
 
@@ -536,17 +550,21 @@ const AISolutionsShowcase = () => {
                                             onClick={() => handleTabChange(index)}
                                             onMouseEnter={() => setHoveredIndex(index)}
                                             onMouseLeave={() => setHoveredIndex(null)}
-                                            style={{ backgroundColor: isActive ? solution.tabColorHover : solution.tabColor }}
+                                            style={{ backgroundColor: isActive ? solution.iconColorDark + '08' : '#FFFFFF' }}
                                             className={`w-full flex items-center gap-4 px-5 py-4 rounded-2xl text-left transition-all duration-300 group border-2 ${isActive
-                                                ? 'border-[#2D6A4F]/20 shadow-xl shadow-[#2D6A4F]/5 scale-[1.02]'
+                                                ? `shadow-xl scale-[1.02]`
                                                 : 'border-transparent shadow-sm hover:shadow-md'
                                                 }`}
                                         >
-                                            <div className={`w-12 h-12 shrink-0 rounded-xl flex items-center justify-center transition-all duration-300 ${isActive ? 'bg-white/40' : 'bg-[#F4F9F6]'}`}>
+                                            <div
+                                                className="w-12 h-12 shrink-0 rounded-xl flex items-center justify-center transition-all duration-300"
+                                                style={{ backgroundColor: solution.iconBgIdle }}
+                                            >
                                                 <img
                                                     src={solution.icon}
                                                     alt={solution.title}
                                                     className="w-7 h-7 object-contain transition-all duration-300"
+                                                    style={{ filter: isActive ? 'none' : 'none' }}
                                                 />
                                             </div>
                                             <div className="flex-1">
@@ -558,7 +576,7 @@ const AISolutionsShowcase = () => {
                                                 </div>
                                             </div>
                                             {isActive && (
-                                                <div className="w-1.5 h-8 bg-[#2D6A4F]/20 rounded-full" />
+                                                <div className="w-1.5 h-8 rounded-full" style={{ backgroundColor: solution.iconColorDark + '33' }} />
                                             )}
                                         </button>
                                     );
@@ -577,11 +595,20 @@ const AISolutionsShowcase = () => {
 
                         {/* Right Panel */}
                         <div ref={contentRef} className="lg:w-2/3">
-                            <div className="rounded-3xl border border-[#E6EFE6] shadow-[0_30px_60px_rgba(45,106,79,0.06)] bg-white overflow-hidden flex flex-col h-full">
+                            <div
+                                className="rounded-3xl border border-[#E6EFE6] shadow-[0_30px_60px_rgba(45,106,79,0.06)] overflow-hidden flex flex-col h-full"
+                                style={{ background: `linear-gradient(135deg, ${activeSolution.iconColorDark}06 0%, ${activeSolution.iconColorDark}03 35%, white 70%, ${activeSolution.iconColorDark}03 100%)` }}
+                            >
                                 {/* Header */}
-                                <div className="p-8 border-b border-[#E6EFE6] bg-gradient-to-br from-white to-[#Fafdfb]">
+                                <div
+                                    className="p-8 border-b border-[#E6EFE6]"
+                                    style={{ background: `linear-gradient(to bottom right, ${activeSolution.iconColorDark}05 0%, ${activeSolution.iconColorDark}03 40%, white 100%)` }}
+                                >
                                     <div className="flex items-start gap-5">
-                                        <div className="w-16 h-16 shrink-0 rounded-2xl bg-[#F4F9F6] flex items-center justify-center shadow-lg shadow-[#2D6A4F]/20">
+                                        <div
+                                            className="w-16 h-16 shrink-0 rounded-2xl flex items-center justify-center shadow-lg"
+                                            style={{ backgroundColor: activeSolution.iconBgIdle, boxShadow: `0 10px 15px -3px ${activeSolution.iconColorDark}20` }}
+                                        >
                                             <img
                                                 src={activeSolution.icon}
                                                 alt={activeSolution.title}
@@ -600,17 +627,17 @@ const AISolutionsShowcase = () => {
                                 </div>
 
                                 {/* Body */}
-                                <div className="p-8 grid grid-cols-[1fr_1.1fr] gap-8 bg-white flex-1">
+                                <div className="p-8 grid grid-cols-[1fr_1.1fr] gap-8 flex-1">
                                     <div className="space-y-4 pt-2">
-                                        <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Key Features</h4>
+                                        <h4 className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: activeSolution.iconColorDark }}>Key Features</h4>
                                         {activeSolution.features.map((feature, i) => (
                                             <div
                                                 key={i}
                                                 className="flex items-start gap-3 animate-fade-in"
                                                 style={{ animationDelay: `${i * 0.1}s` }}
                                             >
-                                                <div className="mt-0.5 bg-[#E6EFE6] rounded-full p-0.5 flex-shrink-0">
-                                                    <CheckCircle2 className="w-4 h-4 text-[#2D6A4F]" />
+                                                <div className="mt-0.5 rounded-full p-0.5 flex-shrink-0" style={{ backgroundColor: activeSolution.iconColorDark + '15' }}>
+                                                    <CheckCircle2 className="w-4 h-4" style={{ color: activeSolution.iconColorDark }} />
                                                 </div>
                                                 <span className="text-[13px] text-gray-600 leading-snug">{feature}</span>
                                             </div>
@@ -623,7 +650,10 @@ const AISolutionsShowcase = () => {
                                 </div>
 
                                 {/* Footer CTA */}
-                                <div className="px-8 py-6 flex items-center gap-4 bg-gray-50/50 border-t border-[#E6EFE6]">
+                                <div
+                                    className="px-8 py-6 flex items-center gap-4 border-t border-[#E6EFE6]"
+                                    style={{ background: `linear-gradient(to right, ${activeSolution.iconColorDark}05 0%, ${activeSolution.iconColorDark}03 40%, white 100%)` }}
+                                >
                                     <Link
                                         to={activeSolution.link}
                                         style={{
