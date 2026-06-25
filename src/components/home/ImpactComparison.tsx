@@ -47,7 +47,7 @@ const ImpactComparison = () => {
             beforeBg: 'bg-[#F0F9FF]',
             beforeBorder: 'border-[#BAE6FD]',
             topLine: 'bg-[#0EA5E9]/20',
-            titleColor: 'text-[#0284C7]',
+            titleColor: 'text-[#0EA5E9]',
             xIconColor: 'text-[#0EA5E9]',
 
             arrowHoverColor: 'group-hover:text-[#0EA5E9]',
@@ -65,7 +65,7 @@ const ImpactComparison = () => {
             beforeBg: 'bg-[#F0FDF4]',
             beforeBorder: 'border-[#BBF7D0]',
             topLine: 'bg-[#10B981]/20',
-            titleColor: 'text-[#047857]',
+            titleColor: 'text-[#10B981]',
             xIconColor: 'text-[#10B981]',
 
             arrowHoverColor: 'group-hover:text-[#10B981]',
@@ -83,7 +83,7 @@ const ImpactComparison = () => {
             beforeBg: 'bg-[#FFF1F2]',
             beforeBorder: 'border-[#FFE4E6]',
             topLine: 'bg-[#FB7185]/20',
-            titleColor: 'text-[#BE123C]',
+            titleColor: 'text-[#FB7185]',
             xIconColor: 'text-[#FB7185]',
 
             arrowHoverColor: 'group-hover:text-[#FB7185]',
@@ -101,7 +101,7 @@ const ImpactComparison = () => {
             beforeBg: 'bg-[#FFF7ED]',
             beforeBorder: 'border-[#FFEDD5]',
             topLine: 'bg-[#F97316]/20',
-            titleColor: 'text-[#C2410C]',
+            titleColor: 'text-[#F97316]',
             xIconColor: 'text-[#F97316]',
 
             arrowHoverColor: 'group-hover:text-[#F97316]',
@@ -205,7 +205,7 @@ const ImpactComparison = () => {
                                         </div>
                                     </div>
 
-                                    <p className="text-xs md:text-[14px] font-medium text-gray-600 lg:text-gray-500 leading-relaxed lg:group-hover:text-gray-600 transition-colors duration-300">
+                                    <p className="text-xs md:text-[14px] text-gray-600 lg:text-gray-500 leading-relaxed lg:group-hover:text-gray-600 transition-colors duration-300">
                                         {item.before}
                                     </p>
                                 </div>
@@ -226,7 +226,7 @@ const ImpactComparison = () => {
                                         <CheckCircle2 className={`w-3.5 h-3.5 md:w-4 md:h-4 ${theme.checkIconColor}`} />
                                         <span className={`text-[10px] md:text-xs font-bold uppercase tracking-wider ${theme.labelColor}`}>With Frostrek</span>
                                     </div>
-                                    <h4 className={`text-xs md:text-[16px] font-medium leading-relaxed relative z-10 ${theme.afterTextColor}`}>
+                                    <h4 className={`text-xs md:text-[15px] text-black leading-relaxed relative z-10 ${theme.afterTextColor}`}>
                                         {item.after}
                                     </h4>
                                 </div>

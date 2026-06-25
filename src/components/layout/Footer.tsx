@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Linkedin, Instagram, Mail, Sparkles, MapPin } from 'lucide-react';
+import { Sparkles, MapPin } from 'lucide-react';
 import { NAV_ITEMS, COMPANY_INFO } from '../../utils/constants';
 import FlipText from '../ui/FlipText';
 
@@ -74,8 +74,8 @@ const Footer = () => {
         <div className="py-12 bg-brand-light-bg transition-colors duration-300 font-sans">
           <div className="container mx-auto px-4 md:px-6">
             <Link to="/contact" className="block max-w-4xl mx-auto">
-              <div className="careers-card border-2 rounded-[2rem] p-8 md:p-10 cursor-pointer bg-white border-[#E6EFE6] hover:border-[#2D6A4F]/30">
-                <div className="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-8 text-center md:text-left">
+              <div className="careers-card border-2 rounded-[2rem] p-8 md:p-10 cursor-pointer bg-white border-[#F2BAE4] hover:border-[#D67CBA]/40">
+                <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8 text-center md:text-left">
                   <div className="flex-shrink-0">
                     <svg className="careers-icon w-16 h-16 opacity-90 text-[#2D6A4F]" viewBox="0 0 64 64" fill="none">
                       <circle cx="32" cy="32" r="28" stroke="currentColor" strokeWidth="2" />
@@ -99,7 +99,7 @@ const Footer = () => {
                     </p>
                   </div>
                   <div className="flex-shrink-0 mt-4 md:mt-0">
-                    <div className="w-12 h-12 rounded-full flex items-center justify-center bg-brand-badge-bg text-[#2D6A4F] font-bold text-xl border border-[#c4e0d4]/50 shadow-sm">
+                    <div className="w-14 h-14 rounded-full flex items-center justify-center bg-brand-badge-bg text-[#2D6A4F] font-bold text-2xl border border-[#c4e0d4]/50 shadow-sm">
                       →
                     </div>
                   </div>
@@ -149,10 +149,10 @@ const Footer = () => {
 
               {/* Social Icons */}
               <div className="flex items-center gap-3 flex-wrap">
-                <a href={COMPANY_INFO.socials.linkedin} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white border border-[#E6EFE6] text-[#2D6A4F] hover:bg-[#2D6A4F] hover:border-[#2D6A4F] hover:text-white shadow-sm hover:shadow-md hover:-translate-y-1"><Linkedin size={18} /></a>
-                <a href={COMPANY_INFO.socials.instagram} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white border border-[#E6EFE6] text-[#2D6A4F] hover:bg-[#2D6A4F] hover:border-[#2D6A4F] hover:text-white shadow-sm hover:shadow-md hover:-translate-y-1"><Instagram size={18} /></a>
-                <a href="https://wa.me/17574722491" target="_blank" rel="noopener noreferrer" className="group w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white border border-[#E6EFE6] text-[#2D6A4F] hover:bg-[#2D6A4F] hover:border-[#2D6A4F] hover:text-white shadow-sm hover:shadow-md hover:-translate-y-1"><img src="/whatsapp.png" alt="WhatsApp" className="w-5 h-5 object-contain transition-all group-hover:brightness-0 group-hover:invert" /></a>
-                <a href="mailto:contact@frostrek.ai" className="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white border border-[#E6EFE6] text-[#2D6A4F] hover:bg-[#2D6A4F] hover:border-[#2D6A4F] hover:text-white shadow-sm hover:shadow-md hover:-translate-y-1"><Mail size={18} /></a>
+                <a href={COMPANY_INFO.socials.linkedin} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white border border-[#E6EFE6] text-[#2D6A4F] shadow-sm hover:shadow-md hover:-translate-y-1"><img src="/linkedin.png" alt="Linkedin" className="w-10 h-10 object-contain transition-all hover:scale-110" /></a>
+                <a href={COMPANY_INFO.socials.instagram} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white border border-[#E6EFE6] text-[#2D6A4F] shadow-sm hover:shadow-md hover:-translate-y-1"><img src="/instagram.png" alt="Instagram" className="w-10 h-10 object-contain transition-all hover:scale-110" /></a>
+                <a href="https://wa.me/17574722491" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white border border-[#E6EFE6] text-[#2D6A4F] shadow-sm hover:shadow-md hover:-translate-y-1"><img src="/whatsapp.png" alt="WhatsApp" className="w-10 h-10 object-contain transition-all hover:scale-110" /></a>
+                <a href="mailto:contact@frostrek.ai" className="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white border border-[#E6EFE6] text-[#2D6A4F] shadow-sm hover:shadow-md hover:-translate-y-1"><img src="/gmail.png" alt="Gmail" className="w-10 h-10 object-contain transition-all hover:scale-110" /></a>
               </div>
             </div>
 

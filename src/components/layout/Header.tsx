@@ -67,10 +67,10 @@ const Header = () => {
             <header className={cn(
                 "fixed left-1/2 -translate-x-1/2 z-[60] transition-[height,background-color,box-shadow,top,width] duration-500 backdrop-blur-xl border w-[92%] sm:w-[95%] max-w-7xl overflow-hidden flex flex-col",
                 mobileMenuOpen
-                    ? "top-3 sm:top-4 bg-white/95 border-gray-200 shadow-2xl rounded-[1.75rem] sm:rounded-[2rem]"
+                    ? "top-3 sm:top-4 bg-white/95 border-gray-200 shadow-2xl rounded-xl sm:rounded-2xl"
                     : isScrolled
-                        ? "top-3 sm:top-4 bg-white/80 border-gray-200 shadow-md rounded-[1.75rem] sm:rounded-[2rem]"
-                        : "top-4 sm:top-6 bg-transparent border-transparent rounded-[1.75rem] sm:rounded-[2rem]"
+                        ? "top-3 sm:top-4 bg-white/80 border-gray-200 shadow-md rounded-xl sm:rounded-2xl"
+                        : "top-4 sm:top-6 bg-transparent border-transparent rounded-xl sm:rounded-2xl"
             )}>
                 <div className={cn(
                     "flex items-center justify-between px-4 sm:px-5 md:px-6 w-full shrink-0 transition-all duration-500",
@@ -106,7 +106,7 @@ const Header = () => {
                                         }
                                     }}
                                     className={cn(
-                                        "flex items-center gap-1 text-[15px] font-medium transition-colors py-2 px-4 rounded-full relative z-10 text-gray-600 hover:text-[#2D6A4F] group",
+                                        "flex items-center gap-1 text-[15px] font-medium transition-colors py-2 px-4 rounded-xl relative z-10 text-gray-600 hover:text-[#2D6A4F] group",
                                         (location.pathname === item.href || activeMegaMenu === item.label) && "text-[#2D6A4F] font-bold"
                                     )}
                                 >
@@ -123,7 +123,7 @@ const Header = () => {
                                     {location.pathname === item.href && !item.megaMenu && (
                                         <motion.div
                                             layoutId="navbar-active"
-                                            className="absolute inset-0 rounded-full -z-10 bg-gray-100"
+                                            className="absolute inset-0 rounded-xl -z-10 bg-gray-100"
                                             initial={{ opacity: 0 }}
                                             animate={{ opacity: 1 }}
                                             transition={{ duration: 0.3 }}
@@ -138,14 +138,14 @@ const Header = () => {
                     <div className="flex items-center justify-end gap-2 sm:gap-3 xl:min-w-[160px] shrink-0">
                         {/* Desktop CTA */}
                         <Link to="/schedule-demo" className="hidden xl:block">
-                            <Button size="sm" className="px-6 py-2.5 text-sm rounded-full font-medium border-none shadow-sm whitespace-nowrap bg-[#336B55] text-white hover:bg-[#1a2d24] transition-colors">
+                            <Button size="sm" className="px-6 py-2.5 text-sm rounded-xl font-medium border-none shadow-sm whitespace-nowrap bg-[#336B55] text-white hover:bg-[#1a2d24] transition-colors">
                                 Book a demo
                             </Button>
                         </Link>
 
                         {/* Mobile Pill CTA */}
                         <Link to="/schedule-demo" className="flex xl:hidden items-center">
-                            <div className="px-3 py-2 sm:px-4 sm:py-2 text-[12px] sm:text-xs font-bold uppercase tracking-wider rounded-full bg-[#2D6A4F] text-white shadow-sm whitespace-nowrap flex items-center justify-center transition-all active:scale-95">
+                            <div className="px-3 py-2 sm:px-4 sm:py-2 text-[12px] sm:text-xs font-bold uppercase tracking-wider rounded-xl bg-[#2D6A4F] text-white shadow-sm whitespace-nowrap flex items-center justify-center transition-all active:scale-95">
                                 Book a demo
                             </div>
                         </Link>

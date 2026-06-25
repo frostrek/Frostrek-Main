@@ -466,7 +466,7 @@ const Chatbot: React.FC = () => {
                     font-family: 'Raleway', sans-serif;
                 }
                 .ai-copilot-button:hover {
-                    background-color: ${COLORS.primaryDark} !important;
+                    /* Removed background-color to keep it transparent */
                 }
                 .ai-copilot-button-style {
                     font-family: 'Raleway', sans-serif;
@@ -531,13 +531,13 @@ const Chatbot: React.FC = () => {
                     zIndex: 10002,
                     backgroundColor: isOpen ? '#f0f0f0' : 'transparent',
                 }}
-                className={`rounded-full shadow-2xl transition-all duration-300 ai-copilot-button ${isOpen ? 'p-4 rotate-90' : 'p-0'}`}
+                className={`rounded-full transition-all duration-300 ai-copilot-button group ${isOpen ? 'p-4 rotate-90 shadow-2xl' : 'p-0'}`}
             >
                 {isOpen ? (
-                    <X className="w-6 h-6" style={{ color: COLORS.text }} />
+                    <X className="w-6 h-6 text-[#2D6A4F] transition-colors duration-300" />
                 ) : (
-                    <div className="w-16 h-16 sm:w-[72px] sm:h-[72px] relative flex items-center justify-center bg-[#2D6A4F] rounded-full shadow-lg">
-                        <img src="/chatbot.png" alt="Chat" className="w-full h-full object-cover rounded-full" />
+                    <div className="w-16 h-16 sm:w-[72px] sm:h-[72px] relative flex items-center justify-center bg-transparent transition-all hover:scale-105">
+                        <img src="/chatbot.png" alt="Chat" className="w-full h-full object-contain" />
                         <motion.div
                             animate={{ scale: [1, 1.2, 1] }}
                             transition={{ duration: 2, repeat: Infinity }}
@@ -582,16 +582,16 @@ const Chatbot: React.FC = () => {
 
                             {/* Header - Draggable Area */}
                             <div
-                                className="p-4 flex items-center justify-between text-white rounded-t-2xl cursor-grab active:cursor-grabbing select-none touch-none"
-                                style={{ backgroundColor: COLORS.primary }} onPointerDown={(e) => dragControls.start(e)}
+                                className="p-4 flex items-center justify-between text-slate-900 bg-white border-b border-gray-100 rounded-t-2xl cursor-grab active:cursor-grabbing select-none touch-none"
+                                onPointerDown={(e) => dragControls.start(e)}
                             >
                                 <div className="flex items-center gap-3 pointer-events-none">
-                                    <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-md border border-white/30 shadow-inner overflow-hidden">
-                                        <img src="/noddy.png" alt="Noddy" className="w-8 h-8 object-contain translate-y-1" />
+                                    <div className="w-12 h-12 bg-[#E8F5EE] rounded-2xl flex items-center justify-center border border-[#2D6A4F]/20 shadow-inner overflow-hidden">
+                                        <img src="/chatbot.png" alt="chatbot" className="w-10 h-10 object-contain translate-y-1" />
                                     </div>
                                     <div>
                                         <h3 className="font-serif font-bold text-base tracking-tight">Frostrek Assistant</h3>
-                                        <p className="text-[10px] uppercase tracking-widest font-bold opacity-80 font-body">Online • Ready to help</p>
+                                        <p className="text-[10px] uppercase tracking-widest font-bold text-slate-500 font-body">Online • Ready to help</p>
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-2 pointer-events-auto">
@@ -606,9 +606,9 @@ const Chatbot: React.FC = () => {
                                                 onClick={clearChat}
                                                 title="Clear Chat"
                                                 className="p-1.5 rounded-lg transition-all duration-200 
-                           hover:bg-red-500/20 group"
+                           hover:bg-red-50 group"
                                             >
-                                                <Trash2 className="w-5 h-5 text-white/80 group-hover:text-red-400 transition" />
+                                                <Trash2 className="w-5 h-5 text-slate-400 group-hover:text-red-500 transition" />
                                             </motion.button>
                                         )}
                                     </AnimatePresence>
@@ -617,9 +617,9 @@ const Chatbot: React.FC = () => {
                                     <button
                                         onClick={toggleChat}
                                         title="Close Chat"
-                                        className="p-1.5 rounded-lg transition-all duration-200 hover:bg-white/20"
+                                        className="p-1.5 rounded-lg transition-all duration-200 hover:bg-slate-100 text-slate-400 hover:text-slate-700"
                                     >
-                                        <Minus className="w-5 h-5 text-white" />
+                                        <Minus className="w-5 h-5" />
                                     </button>
                                 </div>
                             </div>
@@ -657,7 +657,7 @@ const Chatbot: React.FC = () => {
                                             className="text-center px-6 py-6"
                                         >
                                             <div className="w-20 h-20 bg-[#E8F5EE] rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#2D6A4F]/10 overflow-hidden">
-                                                <img src="/noddy.png" alt="Frosty" className="w-16 h-16 object-contain translate-y-2" />
+                                                <img src="/chatbot.png" alt="Frosty" className="w-16 h-16 object-contain translate-y-2" />
                                             </div>
                                             <h4 className="text-2xl font-serif font-black text-gray-950">
                                                 Hi, I'm Frosty 👋

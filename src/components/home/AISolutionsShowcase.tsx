@@ -556,14 +556,11 @@ const AISolutionsShowcase = () => {
                                                 : 'border-transparent shadow-sm hover:shadow-md'
                                                 }`}
                                         >
-                                            <div
-                                                className="w-12 h-12 shrink-0 rounded-xl flex items-center justify-center transition-all duration-300"
-                                                style={{ backgroundColor: solution.iconBgIdle }}
-                                            >
+                                            <div className="w-10 h-10 shrink-0 flex items-center justify-center transition-all duration-300">
                                                 <img
                                                     src={solution.icon}
                                                     alt={solution.title}
-                                                    className="w-7 h-7 object-contain transition-all duration-300"
+                                                    className="w-9 h-9 object-contain transition-all duration-300"
                                                     style={{ filter: isActive ? 'none' : 'none' }}
                                                 />
                                             </div>
