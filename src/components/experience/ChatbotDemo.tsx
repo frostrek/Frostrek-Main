@@ -217,19 +217,19 @@ const ChatbotDemo: React.FC = () => {
 
     return (
         <motion.div
-            className="rounded-3xl shadow-[0_15px_40px_rgba(45,106,79,0.06)] border border-[#2D6A4F]/10 overflow-hidden flex flex-col h-[500px] bg-white font-body"
+            className="rounded-3xl shadow-[0_15px_40px_rgba(214,124,186,0.1)] border border-[#D67CBA]/20 overflow-hidden flex flex-col h-[500px] bg-white font-body"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
         >
-            {/* Header - Vibrant Brand Green */}
-            <div className="p-4 text-white flex items-center gap-3 bg-gradient-to-r from-[#2D6A4F] to-[#1B4332]">
-                <div className="w-9 h-9 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-md shadow-inner overflow-hidden">
-                    <img src="/noddy.png" alt="Noddy" className="w-7 h-7 object-contain translate-y-1" />
+            {/* Header - Pink Theme */}
+            <div className="p-4 text-gray-900 flex items-center gap-3 bg-[#FDF4FA] border-b border-[#F2BAE4]">
+                <div className="w-9 h-9 bg-white border border-[#F2BAE4] rounded-full flex items-center justify-center shadow-sm overflow-hidden">
+                    <img src="/chatbot.png" alt="Noddy" className="w-7 h-7 object-contain translate-y-1" />
                 </div>
                 <div>
                     <h3 className="font-serif font-extrabold text-sm tracking-wide">Chat with Frosty</h3>
-                    <p className="text-[10px] text-[#E8F5EE] font-medium tracking-wider">AI-powered assistant</p>
+                    <p className="text-[10px] text-[#D67CBA] font-bold tracking-wider">AI-powered assistant</p>
                 </div>
             </div>
 
@@ -256,30 +256,23 @@ const ChatbotDemo: React.FC = () => {
                         animate={{ opacity: 1, y: 0 }}
                         className={`flex gap-2 max-w-[85%] ${msg.type === 'user' ? 'self-end flex-row-reverse' : ''}`}
                     >
-                        <div className={`w-7.5 h-7.5 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden border ${
-                            msg.type === 'user'
-                                ? 'bg-[#E8F5EE] border-[#2D6A4F]/25 text-[#2D6A4F]'
-                                : 'bg-white border-gray-200 text-gray-500'
-                        }`}>
-                            {msg.type === 'user' ? (
+                        {msg.type === 'user' && (
+                            <div className="w-7.5 h-7.5 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden border bg-gray-100 border-gray-200 text-gray-500">
                                 <span className="text-[9px] font-bold">You</span>
-                            ) : (
-                                <img src="/noddy.png" alt="Bot" className="w-5 h-5 object-contain translate-y-[2px]" />
-                            )}
-                        </div>
-                        <div className={`p-3 rounded-2xl text-sm leading-relaxed whitespace-pre-wrap font-medium shadow-sm ${
-                            msg.type === 'user'
-                                ? 'bg-[#2D6A4F] text-white rounded-tr-none'
-                                : 'bg-white text-slate-800 border border-gray-100 rounded-tl-none'
-                        }`}>
+                            </div>
+                        )}
+                        <div className={`p-3 rounded-2xl text-sm leading-relaxed whitespace-pre-wrap font-medium shadow-sm ${msg.type === 'user'
+                            ? 'bg-gray-100 text-gray-700 rounded-tr-none'
+                            : 'bg-[#FDF4FA] text-slate-800 border border-[#F2BAE4] rounded-tl-none'
+                            }`}>
                             {msg.content ? (
                                 <div className="whitespace-pre-wrap">{msg.content}</div>
                             ) : (
                                 msg.type === 'bot' && isLoading && (
                                     <div className="flex gap-1.5 h-5 items-center px-1">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-[#2D6A4F] animate-pulse" />
-                                        <div className="w-1.5 h-1.5 rounded-full bg-[#2D6A4F] animate-pulse" style={{ animationDelay: '0.2s' }} />
-                                        <div className="w-1.5 h-1.5 rounded-full bg-[#2D6A4F] animate-pulse" style={{ animationDelay: '0.4s' }} />
+                                        <div className="w-1.5 h-1.5 rounded-full bg-[#D67CBA] animate-pulse" />
+                                        <div className="w-1.5 h-1.5 rounded-full bg-[#D67CBA] animate-pulse" style={{ animationDelay: '0.2s' }} />
+                                        <div className="w-1.5 h-1.5 rounded-full bg-[#D67CBA] animate-pulse" style={{ animationDelay: '0.4s' }} />
                                     </div>
                                 )
                             )}
@@ -300,11 +293,10 @@ const ChatbotDemo: React.FC = () => {
                     <button
                         type="button"
                         onClick={isRecording ? stopRecording : startRecording}
-                        className={`p-2.5 rounded-xl transition-all duration-200 border ${
-                            isRecording
-                                ? 'bg-red-50 text-red-500 border-red-200 animate-pulse ring-2 ring-red-500/20'
-                                : 'bg-gray-50 border-gray-200 text-gray-500 hover:bg-gray-100 hover:text-gray-700'
-                        }`}
+                        className={`p-2.5 rounded-xl transition-all duration-200 border ${isRecording
+                            ? 'bg-red-50 text-red-500 border-red-200 animate-pulse ring-2 ring-red-500/20'
+                            : 'bg-gray-50 border-gray-200 text-gray-500 hover:bg-gray-100 hover:text-gray-700'
+                            }`}
                         title={isRecording ? "Stop Recording" : "Start Recording"}
                     >
                         {isRecording ? <Square className="w-4 h-4 fill-current" /> : <Mic className="w-4 h-4" />}
@@ -316,7 +308,7 @@ const ChatbotDemo: React.FC = () => {
                         onChange={(e) => setMessage(e.target.value)}
                         placeholder={isRecording ? "Listening..." : "Type a message..."}
                         disabled={isRecording || isLoading}
-                        className="w-full pl-3 pr-10 py-2.5 border border-gray-200 rounded-xl text-sm transition-all duration-200 outline-none disabled:opacity-60 bg-gray-50 text-gray-900 placeholder-gray-400 focus:bg-white focus:border-[#2D6A4F] focus:ring-2 focus:ring-[#2D6A4F]/10 font-bold"
+                        className="w-full pl-3 pr-10 py-2.5 border border-gray-200 rounded-xl text-sm transition-all duration-200 outline-none disabled:opacity-60 bg-gray-50 text-gray-900 placeholder-gray-400 focus:bg-white focus:border-[#D67CBA] focus:ring-2 focus:ring-[#D67CBA]/10 font-bold"
                         onFocus={(e) => {
                             e.preventDefault();
                             e.target.focus({ preventScroll: true });
@@ -325,7 +317,7 @@ const ChatbotDemo: React.FC = () => {
                     <button
                         type="submit"
                         disabled={!message.trim() || isLoading || isRecording}
-                        className="absolute right-2 p-1.5 rounded-lg transition-colors disabled:opacity-40 bg-[#2D6A4F] text-white hover:bg-[#1B4332]"
+                        className="absolute right-2 p-1.5 rounded-lg transition-colors disabled:opacity-40 bg-[#D67CBA] text-white hover:bg-[#C060A0]"
                     >
                         <Send className="w-4 h-4" />
                     </button>

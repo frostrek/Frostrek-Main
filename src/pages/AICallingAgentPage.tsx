@@ -310,7 +310,7 @@ const AICallingAgentPage = () => {
 
                         <SplitTextReveal
                             as="p"
-                            className="text-lg md:text-xl mb-10 max-w-3xl mx-auto leading-relaxed text-gray-500 font-medium"
+                            className="text-lg md:text-xl mb-10 max-w-3xl mx-auto leading-relaxed text-gray-500"
                             type="words" stagger={0.015} once={false} delay={0.6}
                         >
                             A production-grade AI voice agent platform that handles outbound sales calls and inbound customer support, autonomously, at scale, with human-like conversation quality. Built end-to-end by Frostrek.
@@ -360,7 +360,7 @@ const AICallingAgentPage = () => {
                                 </SplitTextReveal>
                             </h2>
 
-                            <div className="text-lg text-gray-600 leading-relaxed font-medium space-y-4 mt-2">
+                            <div className="text-lg text-gray-600 leading-relaxed space-y-4 mt-2">
                                 <SplitTextReveal as="p" type="words" stagger={0.01} once={false} delay={0.2}>
                                     AI Calling Agent is a production-ready autonomous voice AI platform built for businesses that cannot afford to miss a call or waste a rep's time on one that does not convert.
                                 </SplitTextReveal>
@@ -398,7 +398,7 @@ const AICallingAgentPage = () => {
                         <div className="mt-4">
                             <SplitTextReveal
                                 as="p"
-                                className="max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                                className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
                                 Three critical gaps that cost businesses revenue and customers every single day.
@@ -422,7 +422,7 @@ const AICallingAgentPage = () => {
                                                 </div>
                                                 <div className="flex-1">
                                                     <h3 className={`font-serif text-[15px] md:text-xl font-bold mb-0.5 md:mb-1.5 leading-tight text-black`}>{problem.title}</h3>
-                                                    <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600 font-medium">{problem.description}</p>
+                                                    <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600">{problem.description}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -458,7 +458,7 @@ const AICallingAgentPage = () => {
                         <div className="mt-4">
                             <SplitTextReveal
                                 as="p"
-                                className="max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                                className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
                                 A complete, production-ready AI voice agent platform engineered from scratch.
@@ -491,7 +491,7 @@ const AICallingAgentPage = () => {
                                             </div>
                                             <div className="flex-1">
                                                 <h3 className="font-serif text-[15px] md:text-xl font-bold mb-0.5 md:mb-1.5 leading-tight text-black">{feature.title}</h3>
-                                                <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600 font-medium">{feature.description}</p>
+                                                <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600">{feature.description}</p>
                                             </div>
                                         </div>
                                     </SpotlightCard>
@@ -516,7 +516,7 @@ const AICallingAgentPage = () => {
                         <div className="mt-4">
                             <SplitTextReveal
                                 as="p"
-                                className="max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                                className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
                                 Whether your calls are coming in or going out, AI Calling Agent handles both.
@@ -541,7 +541,7 @@ const AICallingAgentPage = () => {
                                         </div>
                                     </div>
                                     <h3 className={`font-serif text-xl md:text-3xl font-bold mb-2 md:mb-4 ${mode.headingColor}`}>{mode.title}</h3>
-                                    <p className="text-gray-600 text-sm md:text-lg font-medium leading-relaxed mb-4 md:mb-8 flex-grow">
+                                    <p className="text-gray-600 text-sm md:text-lg leading-relaxed mb-4 md:mb-8 flex-grow">
                                         {mode.description}
                                     </p>
                                     <div className="pt-6 border-t border-black/5 flex items-center justify-between">
@@ -570,7 +570,7 @@ const AICallingAgentPage = () => {
                         <div className="mt-4">
                             <SplitTextReveal
                                 as="p"
-                                className="max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                                className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
                                 Industries where every call is a relationship and every missed call is a cost.
@@ -591,7 +591,7 @@ const AICallingAgentPage = () => {
                                     </div>
                                     <div>
                                         <h3 className={`font-serif text-[17px] md:text-xl font-bold mb-1 md:mb-2 leading-tight ${ind.headingColor}`}>{ind.title}</h3>
-                                        <p className="text-gray-600 text-[12px] md:text-sm leading-snug md:leading-relaxed font-medium">
+                                        <p className="text-gray-600 text-[12px] md:text-sm leading-snug md:leading-relaxed">
                                             {ind.description}
                                         </p>
                                     </div>
@@ -642,14 +642,14 @@ const AICallingAgentPage = () => {
                         <div className="flex flex-col items-center">
                             <SplitTextReveal
                                 as="h2"
-                                className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
+                                className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
                                 type="chars" stagger={0.02} once={false}
                             >
                                 Ready to put your calls
                             </SplitTextReveal>
                             <SplitTextReveal
                                 as="h2"
-                                className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
+                                className="font-serif text-3xl md:text-4xl lg:text-5xl mb-6 text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
                                 type="chars" stagger={0.02} once={false} delay={0.2}
                             >
                                 on autopilot?
@@ -657,7 +657,7 @@ const AICallingAgentPage = () => {
                         </div>
                         <SplitTextReveal
                             as="p"
-                            className="text-lg md:text-xl text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed font-medium"
+                            className="text-lg md:text-xl text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed"
                             type="words" stagger={0.02} once={false} delay={0.3}
                         >
                             Let's talk about deploying AI Calling Agent for your business.

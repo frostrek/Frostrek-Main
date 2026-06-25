@@ -246,7 +246,7 @@ const ManufacturingOSPage = () => {
 
                         <SplitTextReveal
                             as="p"
-                            className="text-lg md:text-xl mb-10 max-w-3xl mx-auto leading-relaxed text-gray-500 font-medium"
+                            className="text-lg md:text-xl mb-10 max-w-3xl mx-auto leading-relaxed text-gray-500"
                             type="words" stagger={0.015} once={false} delay={0.6}
                         >
                             A unified intelligence platform that connects disconnected factory systems, delivers real-time visibility, and uses AI-powered scheduling to recover lost capacity — without buying new equipment. Built end-to-end by Frostrek.
@@ -296,7 +296,7 @@ const ManufacturingOSPage = () => {
                                 </SplitTextReveal>
                             </h2>
 
-                            <div className="text-lg text-gray-600 leading-relaxed font-medium space-y-4 mt-2">
+                            <div className="text-lg text-gray-600 leading-relaxed space-y-4 mt-2">
                                 <SplitTextReveal as="p" type="words" stagger={0.01} once={false} delay={0.2}>
                                     Manufacturing AI OS is a production-ready intelligence layer built for industrial manufacturers. It connects existing ERP, WMS, PLC, and SCADA systems into a single real-time dashboard — no hardware changes, no system replacements, read-only access.
                                 </SplitTextReveal>
@@ -334,7 +334,7 @@ const ManufacturingOSPage = () => {
                         <div className="mt-4">
                             <SplitTextReveal
                                 as="p"
-                                className="max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                                className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
                                 Three critical gaps holding the factory back from full capacity.
@@ -357,7 +357,7 @@ const ManufacturingOSPage = () => {
                                             </div>
                                             <div className="flex-1">
                                                 <h3 className="font-serif text-[15px] md:text-xl font-bold mb-0.5 md:mb-1.5 text-black leading-tight">{problem.title}</h3>
-                                                <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600 font-medium">{problem.description}</p>
+                                                <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600">{problem.description}</p>
                                             </div>
                                         </div>
                                     </SpotlightCard>
@@ -392,7 +392,7 @@ const ManufacturingOSPage = () => {
                         <div className="mt-4">
                             <SplitTextReveal
                                 as="p"
-                                className="max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                                className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
                                 A complete manufacturing intelligence platform engineered from the ground up.
@@ -425,7 +425,7 @@ const ManufacturingOSPage = () => {
                                             </div>
                                             <div className="flex-1">
                                                 <h3 className="font-serif text-[15px] md:text-[1.1rem] font-bold mb-0.5 md:mb-1 text-black leading-tight">{feature.title}</h3>
-                                                <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600 font-medium">{feature.description}</p>
+                                                <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600">{feature.description}</p>
                                             </div>
                                         </div>
                                     </SpotlightCard>
@@ -450,7 +450,7 @@ const ManufacturingOSPage = () => {
                         <div className="mt-4">
                             <SplitTextReveal
                                 as="p"
-                                className="max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                                className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
                                 75% to 85%+ capacity utilization — without buying a single new machine.
@@ -471,7 +471,7 @@ const ManufacturingOSPage = () => {
                                         {item.unit && <span className={`text-sm md:text-xl lg:text-2xl font-body font-bold tracking-normal opacity-70`}>{item.unit}</span>}
                                     </div>
                                     <h4 className="text-sm md:text-lg font-bold text-gray-900 uppercase tracking-widest mb-2 md:mb-4">{item.label}</h4>
-                                    <p className="text-[12px] md:text-sm text-gray-600 font-medium leading-snug md:leading-relaxed max-w-xs">{item.description}</p>
+                                    <p className="text-[12px] md:text-sm text-gray-600 leading-snug md:leading-relaxed max-w-xs">{item.description}</p>
                                 </div>
                             </SpotlightCard>
                         ))}
@@ -521,14 +521,14 @@ const ManufacturingOSPage = () => {
                         <div className="flex flex-col items-center">
                             <SplitTextReveal
                                 as="h2"
-                                className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
+                                className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
                                 type="chars" stagger={0.02} once={false}
                             >
                                 Want manufacturing intelligence
                             </SplitTextReveal>
                             <SplitTextReveal
                                 as="h2"
-                                className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
+                                className="font-serif text-3xl md:text-4xl lg:text-5xl mb-6 text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
                                 type="chars" stagger={0.02} once={false} delay={0.2}
                             >
                                 built for your factory?
@@ -536,7 +536,7 @@ const ManufacturingOSPage = () => {
                         </div>
                         <SplitTextReveal
                             as="p"
-                            className="text-lg md:text-xl text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed font-medium"
+                            className="text-lg md:text-xl text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed"
                             type="words" stagger={0.02} once={false} delay={0.3}
                         >
                             Let's talk about how Frostrek can unlock capacity in your operations.

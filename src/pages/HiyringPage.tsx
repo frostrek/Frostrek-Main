@@ -222,7 +222,7 @@ const HiyringPage = () => {
                     {/* Subtext */}
                     <SplitTextReveal
                         as="p"
-                        className="text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed text-gray-500 font-medium"
+                        className="text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed text-gray-500"
                         type="words" stagger={0.015} once={false} delay={0.6}
                     >
                         A full-stack AI hiring platform that helps teams screen candidates faster with intelligent video interviews, structured evaluations, and scalable recruitment workflows — built end-to-end by Frostrek.
@@ -285,7 +285,7 @@ const HiyringPage = () => {
                             <div className="w-full">
                                 <SplitTextReveal
                                     as="p"
-                                    className="text-lg text-gray-500 font-medium leading-relaxed"
+                                    className="text-lg text-gray-500 leading-relaxed"
                                     type="words" stagger={0.02} once={false} delay={0.3}
                                 >
                                     Hiyring is a production-grade AI hiring platform designed to eliminate the bottlenecks of traditional recruitment. It enables companies to run asynchronous AI video interviews, evaluate candidates through structured scoring, and manage end-to-end hiring workflows — all in one place. Built for speed, scale, and smarter decisions.
@@ -341,7 +341,7 @@ const HiyringPage = () => {
                         <div className="mt-4">
                             <SplitTextReveal
                                 as="p"
-                                className="max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                                className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
                                 We've streamlined every part of hiring so you can focus on building meaningful relationships with your talent.
@@ -363,7 +363,7 @@ const HiyringPage = () => {
 
                                     {/* Text Content */}
                                     <h3 className={`font-serif text-[15px] sm:text-lg md:text-xl font-bold mb-2 md:mb-3 ${step.headingColor}`}>{step.title}</h3>
-                                    <p className="text-[13px] sm:text-sm leading-relaxed text-gray-500 font-medium px-1 sm:px-2 mb-4 md:mb-6 min-h-[5rem] md:h-20">{step.description}</p>
+                                    <p className="text-[13px] sm:text-sm leading-relaxed text-gray-500 px-1 sm:px-2 mb-4 md:mb-6 min-h-[5rem] md:h-20">{step.description}</p>
 
                                     {/* Step Number */}
                                     <div className="w-7 h-7 md:w-8 md:h-8 rounded-full border border-[#FF5722]/30 flex items-center justify-center text-[#FF5722] text-xs md:text-sm font-bold bg-[#FF5722]/5 mt-auto shadow-sm">
@@ -390,7 +390,7 @@ const HiyringPage = () => {
                         <div className="mt-4">
                             <SplitTextReveal
                                 as="p"
-                                className="max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                                className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
                                 Three critical bottlenecks that slow down modern hiring teams.
@@ -422,7 +422,7 @@ const HiyringPage = () => {
                                                 </div>
                                                 <div className="flex-1">
                                                     <h3 className={`font-serif text-[15px] md:text-xl font-bold mb-0.5 md:mb-1.5 text-black leading-tight`}>{problem.title}</h3>
-                                                    <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600 font-medium">{problem.description}</p>
+                                                    <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600">{problem.description}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -461,7 +461,7 @@ const HiyringPage = () => {
                         <div className="mt-4">
                             <SplitTextReveal
                                 as="p"
-                                className="max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                                className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
                                 A complete, production-ready AI hiring platform engineered from scratch.
@@ -503,7 +503,7 @@ const HiyringPage = () => {
                                             </div>
                                             <div className="flex-1">
                                                 <h3 className="font-serif text-[15px] md:text-xl font-bold mb-0.5 md:mb-1.5 text-black leading-tight">{feature.title}</h3>
-                                                <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600 font-medium">{feature.description}</p>
+                                                <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600">{feature.description}</p>
                                             </div>
                                         </div>
                                     </SpotlightCard>
@@ -555,14 +555,14 @@ const HiyringPage = () => {
                         <div className="flex flex-col items-center">
                             <SplitTextReveal
                                 as="h2"
-                                className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
+                                className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
                                 type="chars" stagger={0.02} once={false}
                             >
                                 Want us to build your
                             </SplitTextReveal>
                             <SplitTextReveal
                                 as="h2"
-                                className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
+                                className="font-serif text-3xl md:text-4xl lg:text-5xl mb-6 text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
                                 type="chars" stagger={0.02} once={false} delay={0.2}
                             >
                                 hiring infrastructure?
@@ -570,7 +570,7 @@ const HiyringPage = () => {
                         </div>
                         <SplitTextReveal
                             as="p"
-                            className="text-lg md:text-xl text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed font-medium"
+                            className="text-lg md:text-xl text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed"
                             type="words" stagger={0.02} once={false} delay={0.3}
                         >
                             Let's talk about what Frostrek can build for you.

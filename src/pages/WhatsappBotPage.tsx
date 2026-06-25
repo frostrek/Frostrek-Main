@@ -271,7 +271,7 @@ const WhatsappBotPage = () => {
 
                         <SplitTextReveal
                             as="p"
-                            className="text-lg md:text-xl mb-10 max-w-3xl mx-auto leading-relaxed text-gray-500 font-medium"
+                            className="text-lg md:text-xl mb-10 max-w-3xl mx-auto leading-relaxed text-gray-500"
                             type="words" stagger={0.015} once={false} delay={0.6}
                         >
                             A standalone, full-featured AI bot built exclusively for WhatsApp. It captures leads, qualifies prospects, closes conversations, and resolves customer queries — all natively inside the app your customers already use every day. Built end-to-end by Frostrek.
@@ -321,7 +321,7 @@ const WhatsappBotPage = () => {
                                 </SplitTextReveal>
                             </h2>
 
-                            <div className="text-lg text-gray-600 leading-relaxed font-medium space-y-4 mt-2">
+                            <div className="text-lg text-gray-600 leading-relaxed space-y-4 mt-2">
                                 <SplitTextReveal as="p" type="words" stagger={0.01} once={false} delay={0.2}>
                                     WhatsApp Bot is a production-grade, AI-powered sales and support automation platform built exclusively for WhatsApp using the Meta Cloud API.
                                 </SplitTextReveal>
@@ -359,7 +359,7 @@ const WhatsappBotPage = () => {
                         <div className="mt-4">
                             <SplitTextReveal
                                 as="p"
-                                className="max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                                className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
                                 Three critical gaps that generic tools and basic WhatsApp integrations cannot fix.
@@ -383,7 +383,7 @@ const WhatsappBotPage = () => {
                                                 </div>
                                                 <div className="flex-1">
                                                     <h3 className={`font-serif text-[15px] md:text-xl font-bold mb-0.5 md:mb-1.5 leading-tight text-black`}>{problem.title}</h3>
-                                                    <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600 font-medium">{problem.description}</p>
+                                                    <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600">{problem.description}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -419,7 +419,7 @@ const WhatsappBotPage = () => {
                         <div className="mt-4">
                             <SplitTextReveal
                                 as="p"
-                                className="max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                                className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
                                 A complete, production-ready WhatsApp AI product engineered from scratch and built deeper than any generic integration.
@@ -452,7 +452,7 @@ const WhatsappBotPage = () => {
                                             </div>
                                             <div className="flex-1">
                                                 <h3 className="font-serif text-[15px] md:text-xl font-bold mb-0.5 md:mb-1.5 leading-tight text-black">{feature.title}</h3>
-                                                <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600 font-medium">{feature.description}</p>
+                                                <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600">{feature.description}</p>
                                             </div>
                                         </div>
                                     </SpotlightCard>
@@ -477,7 +477,7 @@ const WhatsappBotPage = () => {
                         <div className="mt-4">
                             <SplitTextReveal
                                 as="p"
-                                className="max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                                className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
                                 If your customers message you on WhatsApp, this is built for you.
@@ -498,7 +498,7 @@ const WhatsappBotPage = () => {
                                     </div>
                                     <div>
                                         <h3 className={`font-serif text-[15px] md:text-xl font-bold mb-1 md:mb-2 leading-tight ${ind.headingColor}`}>{ind.title}</h3>
-                                        <p className="text-gray-600 text-[12px] md:text-sm leading-snug md:leading-relaxed font-medium">
+                                        <p className="text-gray-600 text-[12px] md:text-sm leading-snug md:leading-relaxed">
                                             {ind.description}
                                         </p>
                                     </div>
@@ -566,7 +566,7 @@ const WhatsappBotPage = () => {
                         </div>
                         <SplitTextReveal
                             as="p"
-                            className="text-lg md:text-xl text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed font-medium"
+                            className="text-lg md:text-xl text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed"
                             type="words" stagger={0.02} once={false} delay={0.3}
                         >
                             Let's talk about deploying WhatsApp Bot for your business.

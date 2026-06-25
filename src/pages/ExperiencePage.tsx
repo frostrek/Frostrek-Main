@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Phone, MessageSquare, Sparkles, Zap, Linkedin } from 'lucide-react';
+import { MessageSquare, Sparkles, Zap, Linkedin } from 'lucide-react';
 import VoiceCallWidget from '../components/experience/VoiceCallWidget';
 import ChatbotDemo from '../components/experience/ChatbotDemo';
 import LinkedinOutreachDemo from '../components/demos/LinkedinOutreachDemo';
@@ -16,10 +16,10 @@ const ExperiencePage = () => {
 
     return (
         <div className="min-h-screen relative overflow-hidden bg-white text-gray-900">
-            <SEO 
-                title="Experience AI in Action | Frostrek AI" 
-                description="Try Frostrek AI solutions yourself. Test our autonomous voice agents, enterprise chatbots, and smart outreach tools live." 
-                path="/experience" 
+            <SEO
+                title="Experience AI in Action | Frostrek AI"
+                description="Try Frostrek AI solutions yourself. Test our autonomous voice agents, enterprise chatbots, and smart outreach tools live."
+                path="/experience"
             />
             {/* Background */}
             <CuteBackground />
@@ -34,7 +34,7 @@ const ExperiencePage = () => {
                         </div>
 
                         <div className="flex flex-col items-center">
-                            <div className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-gray-900 tracking-tight">
+                            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black leading-[1.1] tracking-[-0.01em]">
                                 <SplitTextReveal as="span" type="chars" stagger={0.03} once={false}>
                                     Experience
                                 </SplitTextReveal>
@@ -50,12 +50,12 @@ const ExperiencePage = () => {
                                         transition={{ delay: 0.5, duration: 0.8 }}
                                     />
                                 </span>
-                            </div>
+                            </h1>
                         </div>
 
                         <SplitTextReveal
                             as="p"
-                            className="text-lg sm:text-xl max-w-2xl mx-auto text-slate-600 font-body font-medium leading-relaxed"
+                            className="text-lg sm:text-xl max-w-2xl mx-auto text-slate-600 font-body leading-relaxed"
                             type="words"
                             stagger={0.015}
                             once={false}
@@ -80,23 +80,23 @@ const ExperiencePage = () => {
                             className="space-y-6"
                         >
                             <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 rounded-2xl flex items-center justify-center shadow-md bg-gradient-to-br from-[#2D6A4F] to-[#2D6A4F]/80">
-                                    <Phone className="w-5.5 h-5.5 text-white" />
+                                <div className="w-12 h-12 rounded-2xl flex items-center justify-center shadow-sm bg-[#F0FDF4] border border-[#BBF7D0]">
+                                    <img src="/icons/Voice ai-green.png" alt="Voice AI" className="w-6 h-6 object-contain" />
                                 </div>
                                 <div className="space-y-0.5">
-                                    <h2 className="text-2xl font-serif font-bold text-gray-900 leading-none">Voice AI Agent</h2>
-                                    <p className="text-xs sm:text-sm text-slate-500 font-body font-medium">Real-time voice conversation</p>
+                                    <h2 className="text-2xl font-serif font-semibold text-gray-900 leading-none">Voice AI Agent</h2>
+                                    <p className="text-xs sm:text-sm text-slate-500 font-body">Real-time voice conversation</p>
                                 </div>
                             </div>
 
                             <VoiceCallWidget />
 
-                            <div className="rounded-2xl p-5 border bg-gradient-to-r from-[#E8F5EE]/40 to-white border-[#2D6A4F]/15 shadow-sm">
+                            <div className="rounded-2xl p-5 border bg-[#F0FDF4] border-[#BBF7D0] shadow-sm">
                                 <h4 className="font-serif font-bold text-gray-900 mb-2 flex items-center gap-2">
-                                    <Zap className="w-4.5 h-4.5 text-[#2D6A4F]" />
+                                    <Zap className="w-4.5 h-4.5 text-[#1B4332]" />
                                     What to try:
                                 </h4>
-                                <ul className="text-sm space-y-1.5 text-slate-600 font-body font-medium">
+                                <ul className="text-sm space-y-1.5 text-slate-600 font-body">
                                     <li className="flex items-center gap-1.5">• Ask about Frostrek's services</li>
                                     <li className="flex items-center gap-1.5">• Request a demo or quote</li>
                                     <li className="flex items-center gap-1.5">• Inquire about AI solutions</li>
@@ -112,23 +112,23 @@ const ExperiencePage = () => {
                             className="space-y-6"
                         >
                             <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 rounded-2xl flex items-center justify-center shadow-md bg-gradient-to-br from-[#2D6A4F] to-[#204F3B]">
+                                <div className="w-12 h-12 rounded-2xl flex items-center justify-center shadow-md bg-gradient-to-br from-[#D67CBA] to-[#C060A0]">
                                     <MessageSquare className="w-5.5 h-5.5 text-white" />
                                 </div>
                                 <div className="space-y-0.5">
-                                    <h2 className="text-2xl font-serif font-bold text-gray-900 leading-none">AI Chatbot</h2>
-                                    <p className="text-xs sm:text-sm text-slate-500 font-body font-medium">Text & voice messaging</p>
+                                    <h2 className="text-2xl font-serif font-semibold text-gray-900 leading-none">AI Chatbot</h2>
+                                    <p className="text-xs sm:text-sm text-slate-500 font-body">Text & voice messaging</p>
                                 </div>
                             </div>
 
                             <ChatbotDemo />
 
-                            <div className="rounded-2xl p-5 border bg-gradient-to-r from-[#E8F5EE]/40 to-white border-[#2D6A4F]/15 shadow-sm">
-                                <h4 className="font-serif font-bold text-gray-900 mb-2 flex items-center gap-2">
-                                    <Sparkles className="w-4.5 h-4.5 text-[#2D6A4F]" />
+                            <div className="rounded-2xl p-5 border bg-gradient-to-r from-[#FDF4FA] to-white border-[#F2BAE4] shadow-sm">
+                                <h4 className="font-serif font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                                    <Sparkles className="w-4.5 h-4.5 text-[#D67CBA]" />
                                     Features:
                                 </h4>
-                                <ul className="text-sm space-y-1.5 text-slate-600 font-body font-medium">
+                                <ul className="text-sm space-y-1.5 text-slate-600 font-body">
                                     <li className="flex items-center gap-1.5">• Natural language understanding</li>
                                     <li className="flex items-center gap-1.5">• Voice message support</li>
                                     <li className="flex items-center gap-1.5">• Context-aware responses</li>
@@ -152,22 +152,22 @@ const ExperiencePage = () => {
                                     <Linkedin className="w-5.5 h-5.5 text-white" />
                                 </div>
                                 <div className="space-y-0.5">
-                                    <span className="inline-block py-0.5 px-2.5 rounded-full text-[9px] font-bold tracking-wider mb-1 bg-[#0077B5]/10 text-[#0077B5] font-body">
+                                    <span className="inline-block py-0.5 px-2.5 rounded-full text-[9px] font-semibold tracking-wider mb-1 bg-[#0077B5]/10 text-[#0077B5] font-body">
                                         NEW
                                     </span>
-                                    <h2 className="text-2xl font-serif font-bold text-gray-900 leading-none">LinkedIn Outreach</h2>
-                                    <p className="text-xs sm:text-sm text-slate-500 font-body font-medium">Automated lead generation</p>
+                                    <h2 className="text-2xl font-serif font-semibold text-gray-900 leading-none">LinkedIn Outreach</h2>
+                                    <p className="text-xs sm:text-sm text-slate-500 font-body">Automated lead generation</p>
                                 </div>
                             </div>
 
                             <LinkedinOutreachDemo />
 
                             <div className="rounded-2xl p-5 border bg-gradient-to-r from-[#E8F5EE]/30 to-white border-blue-100 shadow-sm">
-                                <h4 className="font-serif font-bold text-gray-900 mb-2 flex items-center gap-2">
+                                <h4 className="font-serif font-semibold text-gray-900 mb-2 flex items-center gap-2">
                                     <Zap className="w-4.5 h-4.5 text-[#0077B5]" />
                                     Features:
                                 </h4>
-                                <ul className="text-sm space-y-1.5 text-slate-600 font-body font-medium">
+                                <ul className="text-sm space-y-1.5 text-slate-600 font-body">
                                     <li className="flex items-center gap-1.5">• Target industry & location filtering</li>
                                     <li className="flex items-center gap-1.5">• Decision maker identification</li>
                                     <li className="flex items-center gap-1.5">• Verified contact extraction</li>

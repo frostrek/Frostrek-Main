@@ -579,19 +579,18 @@ const Chatbot: React.FC = () => {
                             onWheel={(e) => e.stopPropagation()}
                             onTouchMove={(e) => e.stopPropagation()}
                         >
-
                             {/* Header - Draggable Area */}
                             <div
-                                className="p-4 flex items-center justify-between text-slate-900 bg-white border-b border-gray-100 rounded-t-2xl cursor-grab active:cursor-grabbing select-none touch-none"
+                                className="p-4 flex items-center justify-between text-slate-900 bg-[#BAE6FD] border-b border-[#7DD3FC] rounded-t-2xl cursor-grab active:cursor-grabbing select-none touch-none relative"
                                 onPointerDown={(e) => dragControls.start(e)}
                             >
                                 <div className="flex items-center gap-3 pointer-events-none">
-                                    <div className="w-12 h-12 bg-[#E8F5EE] rounded-2xl flex items-center justify-center border border-[#2D6A4F]/20 shadow-inner overflow-hidden">
+                                    <div className="w-12 h-12 bg-transparent flex items-center justify-center overflow-hidden">
                                         <img src="/chatbot.png" alt="chatbot" className="w-10 h-10 object-contain translate-y-1" />
                                     </div>
                                     <div>
                                         <h3 className="font-serif font-bold text-base tracking-tight">Frostrek Assistant</h3>
-                                        <p className="text-[10px] uppercase tracking-widest font-bold text-slate-500 font-body">Online • Ready to help</p>
+                                        <p className="text-[10px] uppercase tracking-widest font-bold text-[#0EA5E9] font-body">Online • Ready to help</p>
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-2 pointer-events-auto">
@@ -656,7 +655,7 @@ const Chatbot: React.FC = () => {
                                             transition={{ duration: 0.5 }}
                                             className="text-center px-6 py-6"
                                         >
-                                            <div className="w-20 h-20 bg-[#E8F5EE] rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#2D6A4F]/10 overflow-hidden">
+                                            <div className="w-20 h-20 bg-transparent flex items-center justify-center mx-auto mb-6 overflow-hidden">
                                                 <img src="/chatbot.png" alt="Frosty" className="w-16 h-16 object-contain translate-y-2" />
                                             </div>
                                             <h4 className="text-2xl font-serif font-black text-gray-950">

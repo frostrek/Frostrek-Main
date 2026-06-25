@@ -280,7 +280,7 @@ const FrostyPage = () => {
                     {/* Subtext */}
                     <SplitTextReveal
                         as="p"
-                        className="text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed text-gray-500 font-medium"
+                        className="text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed text-gray-500"
                         type="words" stagger={0.015} once={false} delay={0.6}
                     >
                         Frosty deploys intelligent AI agents on your website, WhatsApp, and social media — capturing leads, booking meetings, and closing deals 24/7. Built end-to-end by Frostrek.
@@ -353,7 +353,7 @@ const FrostyPage = () => {
                             <div className="w-full">
                                 <SplitTextReveal
                                     as="p"
-                                    className="text-lg text-gray-500 font-medium leading-relaxed"
+                                    className="text-lg text-gray-500 leading-relaxed"
                                     type="words" stagger={0.02} once={false} delay={0.3}
                                 >
                                     Frosty is a production-grade autonomous AI agent platform built for businesses that want to convert website visitors and WhatsApp leads into real customers — without adding headcount. It combines omnichannel deployment, frontier AI models, a RAG-powered knowledge engine, and a human takeover console — all managed from a single dashboard.
@@ -390,7 +390,7 @@ const FrostyPage = () => {
                         <div className="mt-4">
                             <SplitTextReveal
                                 as="p"
-                                className="max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                                className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
                                 Three critical gaps that hold businesses back from converting visitors into customers.
@@ -415,7 +415,7 @@ const FrostyPage = () => {
                                                 </div>
                                                 <div className="flex-1">
                                                     <h3 className="font-serif text-[15px] md:text-xl font-bold mb-0.5 md:mb-1.5 leading-tight text-black">{problem.title}</h3>
-                                                    <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600 font-medium">{problem.description}</p>
+                                                    <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600">{problem.description}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -452,7 +452,7 @@ const FrostyPage = () => {
                         <div className="mt-4">
                             <SplitTextReveal
                                 as="p"
-                                className="max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                                className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
                                 A complete, production-ready autonomous AI agent platform engineered from scratch.
@@ -487,7 +487,7 @@ const FrostyPage = () => {
                                             </div>
                                             <div className="flex-1">
                                                 <h3 className="font-serif text-[15px] md:text-xl font-bold mb-0.5 md:mb-1.5 leading-tight text-black">{feature.title}</h3>
-                                                <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600 font-medium">{feature.description}</p>
+                                                <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600">{feature.description}</p>
                                             </div>
                                         </div>
                                     </SpotlightCard>
@@ -531,7 +531,7 @@ const FrostyPage = () => {
                         <div className="mt-4">
                             <SplitTextReveal
                                 as="p"
-                                className="max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                                className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
                                 Three steps. No engineers. Live in under 5 minutes.
@@ -552,7 +552,7 @@ const FrostyPage = () => {
 
                                 {/* Text Content */}
                                 <h3 className={`font-serif text-[15px] sm:text-lg md:text-xl font-bold mb-2 md:mb-3 ${step.headingColor}`}>{step.title}</h3>
-                                <p className="text-[13px] sm:text-sm leading-relaxed text-gray-500 font-medium px-1 sm:px-2 mb-4 md:mb-6 min-h-[5rem] md:h-20">{step.description}</p>
+                                <p className="text-[13px] sm:text-sm leading-relaxed text-gray-500 px-1 sm:px-2 mb-4 md:mb-6 min-h-[5rem] md:h-20">{step.description}</p>
 
                                 {/* Step Number */}
                                 <div className="w-7 h-7 md:w-8 md:h-8 rounded-full border border-[#0068FF]/30 flex items-center justify-center text-[#0068FF] text-xs md:text-sm font-bold bg-[#0068FF]/5 mt-auto shadow-sm">
@@ -606,14 +606,14 @@ const FrostyPage = () => {
                         <div className="flex flex-col items-center">
                             <SplitTextReveal
                                 as="h2"
-                                className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
+                                className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
                                 type="chars" stagger={0.02} once={false}
                             >
                                 Ready to put your lead
                             </SplitTextReveal>
                             <SplitTextReveal
                                 as="h2"
-                                className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
+                                className="font-serif text-3xl md:text-4xl lg:text-5xl mb-6 text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
                                 type="chars" stagger={0.02} once={false} delay={0.2}
                             >
                                 generation on autopilot?
@@ -621,7 +621,7 @@ const FrostyPage = () => {
                         </div>
                         <SplitTextReveal
                             as="p"
-                            className="text-lg md:text-xl text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed font-medium"
+                            className="text-lg md:text-xl text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed"
                             type="words" stagger={0.02} once={false} delay={0.3}
                         >
                             Let's talk about deploying Frosty for your business.

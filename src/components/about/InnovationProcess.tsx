@@ -166,7 +166,7 @@ const InnovationProcess = () => {
     }, [currentStepIndex, paused]);
 
     return (
-        <div 
+        <div
             className="grid lg:grid-cols-12 gap-6 lg:gap-10 items-stretch max-w-7xl mx-auto text-left"
             onMouseEnter={() => setPaused(true)}
             onMouseLeave={() => setPaused(false)}
@@ -179,31 +179,27 @@ const InnovationProcess = () => {
                         <div
                             key={step.id}
                             onClick={() => setActiveStep(step.id)}
-                            className={`group relative p-3 lg:p-5 rounded-2xl cursor-pointer border-2 transition-all duration-300 flex items-center gap-3 lg:gap-4 min-w-[200px] lg:min-w-0 snap-start shrink-0 lg:shrink ${
-                                isSelected
-                                    ? `${step.tabColorActive} ${step.activeBorder} ${step.shadow} scale-[1.02]`
-                                    : `${step.tabColor} border-transparent shadow-sm hover:shadow-md hover:${step.tabColorActive}`
-                            }`}
+                            className={`group relative p-3 lg:p-5 rounded-2xl cursor-pointer border-2 transition-all duration-300 flex items-center gap-3 lg:gap-4 min-w-[200px] lg:min-w-0 snap-start shrink-0 lg:shrink ${isSelected
+                                ? `${step.tabColorActive} ${step.activeBorder} ${step.shadow} scale-[1.02]`
+                                : `${step.tabColor} border-transparent shadow-sm hover:shadow-md hover:${step.tabColorActive}`
+                                }`}
                         >
                             <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-xl transition-all duration-300 shrink-0 flex items-center justify-center border bg-white border-white shadow-sm shadow-black/5 group-hover:shadow-md">
                                 <img
                                     src={step.icon}
                                     alt={step.title}
-                                    className={`w-6 h-6 lg:w-7 lg:h-7 object-contain transition-all duration-300 ${
-                                        isSelected ? 'opacity-100 scale-105' : 'opacity-70 group-hover:opacity-100'
-                                    }`}
+                                    className={`w-6 h-6 lg:w-7 lg:h-7 object-contain transition-all duration-300 ${isSelected ? 'opacity-100 scale-105' : 'opacity-70 group-hover:opacity-100'
+                                        }`}
                                 />
                             </div>
 
                             <div className="space-y-0.5 lg:space-y-1 flex-1 min-w-0">
-                                <span className={`text-[10px] font-bold tracking-widest font-body uppercase transition-colors duration-300 ${
-                                    isSelected ? step.textColor : 'text-gray-400'
-                                }`}>
+                                <span className={`text-[10px] font-bold tracking-widest font-body uppercase transition-colors duration-300 ${isSelected ? step.textColor : 'text-gray-400'
+                                    }`}>
                                     {step.label}
                                 </span>
-                                <h3 className={`font-serif text-sm lg:text-lg font-bold transition-colors duration-300 leading-tight ${
-                                    isSelected ? 'text-gray-950 font-black' : 'text-gray-600 group-hover:text-gray-800'
-                                }`}>
+                                <h3 className={`font-serif text-sm lg:text-lg font-bold transition-colors duration-300 leading-tight ${isSelected ? 'text-gray-950 font-black' : 'text-gray-600 group-hover:text-gray-800'
+                                    }`}>
                                     {step.title}
                                 </h3>
                             </div>
@@ -250,14 +246,14 @@ const InnovationProcess = () => {
                                     <h4 className="font-serif text-xl sm:text-2xl text-gray-950 font-bold">
                                         {activeData.title}
                                     </h4>
-                                    <p className="text-gray-600 font-body text-sm leading-relaxed max-w-xl font-medium">
+                                    <p className="text-gray-600 font-body text-sm leading-relaxed max-w-xl">
                                         {activeData.description}
                                     </p>
                                 </div>
 
                                 {/* Custom simulation content based on selected phase - Dynamic theme */}
                                 <div className={`border rounded-2xl p-4 sm:p-5 font-mono text-xs text-gray-800 relative shadow-sm transition-all duration-500 ${activeData.simBg}`}>
-                                    
+
                                     {activeStep === 'research' && (
                                         <div className="space-y-3">
                                             <div className={`flex items-center justify-between border-b pb-2 ${activeData.simHeaderBorder}`}>
@@ -293,7 +289,7 @@ const InnovationProcess = () => {
                                                 <span className={`${activeData.simTitleColor} font-bold flex items-center gap-1.5`}><Bot size={13} /> Calling Agents Simulator</span>
                                                 <span className={`${activeData.simTitleColor} flex items-center gap-1 animate-pulse font-bold`}>● Connected</span>
                                             </div>
-                                            
+
                                             <div className="space-y-2 font-mono text-[11px] leading-relaxed font-semibold">
                                                 <div className="flex items-start gap-2 text-blue-700">
                                                     <span className="text-gray-400">[12:45:01]</span>
@@ -374,7 +370,7 @@ const InnovationProcess = () => {
                                 {/* Custom bullet lists - Dynamic accent checkboxes */}
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
                                     {activeData.bullets.map((bullet, idx) => (
-                                        <div key={idx} className="flex items-start gap-2 text-xs text-gray-700 font-body font-bold">
+                                        <div key={idx} className="flex items-start gap-2 text-xs text-gray-700 font-body font-semibold">
                                             <CheckCircle2 size={15} className={`${activeData.simBulletIcon} shrink-0 mt-0.5`} />
                                             <span>{bullet}</span>
                                         </div>

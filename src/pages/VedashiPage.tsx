@@ -168,7 +168,7 @@ const VedashiPage = () => {
                     {/* Subtext */}
                     <SplitTextReveal
                         as="p"
-                        className="text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed text-gray-500 font-medium"
+                        className="text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed text-gray-500"
                         type="words" stagger={0.015} once={false} delay={0.6}
                     >
                         A full-stack, multi-vendor wellness marketplace built from the ground up - connecting authentic Indian brands to customers worldwide.
@@ -224,7 +224,7 @@ const VedashiPage = () => {
                             <div className="w-full">
                                 <SplitTextReveal
                                     as="p"
-                                    className="text-lg text-gray-500 font-medium leading-relaxed"
+                                    className="text-lg text-gray-500 leading-relaxed"
                                     type="words" stagger={0.02} once={false} delay={0.3}
                                 >
                                     Vedashi is a production-grade e-commerce platform purpose-built for India's wellness, herbal, and natural goods market. It supports multi-vendor seller onboarding, curated brand storefronts, international shipping, multi-currency payments, and a fully optimised consumer storefront - all engineered and maintained by Frostrek.
@@ -260,7 +260,7 @@ const VedashiPage = () => {
                         <div className="mt-4">
                             <SplitTextReveal
                                 as="p"
-                                className="max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                                className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
                                 Three critical gaps that held back India's wellness industry from reaching global customers.
@@ -292,7 +292,7 @@ const VedashiPage = () => {
                                                 </div>
                                                 <div className="flex-1">
                                                     <h3 className={`font-serif text-[15px] md:text-xl font-bold mb-0.5 md:mb-1.5 text-black leading-tight`}>{problem.title}</h3>
-                                                    <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600 font-medium">{problem.description}</p>
+                                                    <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600">{problem.description}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -331,7 +331,7 @@ const VedashiPage = () => {
                         <div className="mt-4">
                             <SplitTextReveal
                                 as="p"
-                                className="max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                                className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
                                 A complete, production-ready e-commerce ecosystem engineered from scratch.
@@ -373,7 +373,7 @@ const VedashiPage = () => {
                                             </div>
                                             <div className="flex-1">
                                                 <h3 className="font-serif text-[15px] md:text-xl font-bold mb-0.5 md:mb-1.5 text-black leading-tight">{feature.title}</h3>
-                                                <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600 font-medium">{feature.description}</p>
+                                                <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600">{feature.description}</p>
                                             </div>
                                         </div>
                                     </SpotlightCard>
@@ -398,7 +398,7 @@ const VedashiPage = () => {
                         <div className="mt-4">
                             <SplitTextReveal
                                 as="p"
-                                className="max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                                className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
                                 Modern, battle-tested technologies powering Vedashi at scale.
@@ -434,14 +434,14 @@ const VedashiPage = () => {
                         <div className="flex flex-col items-center">
                             <SplitTextReveal
                                 as="h2"
-                                className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
+                                className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
                                 type="chars" stagger={0.02} once={false}
                             >
                                 Want us to build
                             </SplitTextReveal>
                             <SplitTextReveal
                                 as="h2"
-                                className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
+                                className="font-serif text-3xl md:text-4xl lg:text-5xl mb-6 text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
                                 type="chars" stagger={0.02} once={false} delay={0.2}
                             >
                                 something like this?
@@ -449,7 +449,7 @@ const VedashiPage = () => {
                         </div>
                         <SplitTextReveal
                             as="p"
-                            className="text-lg md:text-xl text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed font-medium"
+                            className="text-lg md:text-xl text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed"
                             type="words" stagger={0.02} once={false} delay={0.3}
                         >
                             Let's talk about your next product.

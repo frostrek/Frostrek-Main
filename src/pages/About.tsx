@@ -544,7 +544,7 @@ const TeamFlipCard = memo(({ member, delay }: { member: typeof TEAM_DATA[0]; del
                                     <p className="text-[#2D6A4F] text-xs font-semibold font-body">{member.role}</p>
                                 </div>
                             </div>
-                            <p className="text-gray-600 text-xs sm:text-sm leading-relaxed font-body font-medium">
+                            <p className="text-gray-600 text-xs sm:text-sm leading-relaxed font-body">
                                 {member.bio}
                             </p>
                         </div>
@@ -612,7 +612,7 @@ const CertificationBadge = memo(({ cert, delay }: { cert: typeof CERTIFICATIONS_
                         className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-4 py-2.5 bg-gray-900 text-white text-xs rounded-xl shadow-xl z-50 w-52 text-center border border-gray-800"
                     >
                         <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-gray-900 rotate-45 border-b border-r border-gray-800" />
-                        <p className="relative z-10 font-body font-medium">{cert.description}</p>
+                        <p className="relative z-10 font-body">{cert.description}</p>
                     </motion.div>
                 )}
             </AnimatePresence>
@@ -1048,7 +1048,7 @@ const About = () => {
                             </h1>
                         </div>
 
-                        <p className="text-base sm:text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed font-body font-medium">
+                        <p className="text-base sm:text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed font-body">
                             We specialize in custom enterprise AI training, multi-agent orchestrations, and full-stack software systems built to redefine human-to-AI operational capacity.
                         </p>
 
@@ -1163,14 +1163,14 @@ const About = () => {
 
                             <motion.p
                                 variants={{ hidden: { opacity: 0, y: 15 }, visible: { opacity: 1, y: 0 } }}
-                                className="text-sm sm:text-base leading-relaxed font-body font-medium text-slate-600"
+                                className="text-sm sm:text-base leading-relaxed font-body text-slate-600"
                             >
                                 We partner with leading organizations to build next-generation agentic solutions, automating complex workflows with unmatched speed, accuracy, and security filters.
                             </motion.p>
 
                             <motion.p
                                 variants={{ hidden: { opacity: 0, y: 15 }, visible: { opacity: 1, y: 0 } }}
-                                className="text-sm sm:text-base leading-relaxed font-body font-medium text-slate-600"
+                                className="text-sm sm:text-base leading-relaxed font-body text-slate-600"
                             >
                                 From planning workflows to orchestrating hundreds of parallel agents, our systems scale seamlessly on auto-scaling clusters, ensuring you stay ahead of the curve in a hyper-competitive AI landscape.
                             </motion.p>
@@ -1324,7 +1324,7 @@ const About = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.1 }}
-                            className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto font-body font-medium"
+                            className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto font-body"
                         >
                             From a core R&D initiative to a global trailblazer in Multi-Agent Enterprise systems.
                         </motion.p>
@@ -1376,7 +1376,7 @@ const About = () => {
                                                     <item.icon className="w-4 h-4 text-[#2D6A4F]" />
                                                 </div>
                                                 <h3 className="text-base md:text-xl font-serif font-semibold text-gray-900">{item.title}</h3>
-                                                <p className="text-slate-600 text-xs md:text-sm leading-relaxed font-body font-medium">
+                                                <p className="text-slate-600 text-xs md:text-sm leading-relaxed font-body">
                                                     {item.description}
                                                 </p>
                                             </div>
@@ -1422,7 +1422,7 @@ const About = () => {
                         <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#2D6A4F]">
                             Our Innovation Engine
                         </h2>
-                        <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto font-body font-medium">
+                        <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto font-body">
                             Our robust, multi-phase testing and orchestration blueprint ensures seamless, risk-free enterprise AI deployment.
                         </p>
                     </div>
@@ -1456,7 +1456,7 @@ const About = () => {
                                         </motion.div>
                                         <div className="space-y-1 font-body">
                                             <h3 className="font-serif font-semibold text-gray-900 text-lg">{v.title}</h3>
-                                            <p className="text-slate-500 text-xs sm:text-sm font-medium leading-relaxed">{v.desc}</p>
+                                            <p className="text-slate-500 text-xs sm:text-sm leading-relaxed">{v.desc}</p>
                                         </div>
                                     </div>
                                 </TiltCard>
@@ -1512,7 +1512,7 @@ const About = () => {
                                                         <div className={cn("h-1 w-10 rounded-full transition-colors duration-300", f.bulletBg)} />
                                                     </div>
                                                 </div>
-                                                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-body font-medium">
+                                                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-body">
                                                     {f.desc}
                                                 </p>
                                             </div>
@@ -1547,7 +1547,7 @@ const About = () => {
                                                     <h3 className="font-serif font-bold text-sm sm:text-base text-gray-900">{f.title}</h3>
                                                     <span className={cn("text-sm font-bold transition-colors duration-300", f.textColor)}>{f.num}</span>
                                                 </div>
-                                                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-body font-medium">
+                                                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-body">
                                                     {f.details}
                                                 </p>
                                                 <div className="space-y-1.5 pt-1">
@@ -1581,7 +1581,7 @@ const About = () => {
                         <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#2D6A4F]">
                             Our Global Offices
                         </h2>
-                        <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto font-body font-medium">
+                        <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto font-body">
                             Serving fast-growing enterprises across three global hubs.
                         </p>
                     </div>
@@ -1635,7 +1635,7 @@ const About = () => {
                                                 </span>
                                             </div>
                                             <h3 className="text-xl font-serif font-semibold text-gray-900">{o.city}</h3>
-                                            <p className="text-xs sm:text-sm text-gray-500 font-body font-medium">{o.country}</p>
+                                            <p className="text-xs sm:text-sm text-gray-500 font-body">{o.country}</p>
                                         </div>
 
                                         {/* Mobile directions link */}

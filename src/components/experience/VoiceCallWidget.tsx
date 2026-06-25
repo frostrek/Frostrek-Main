@@ -126,10 +126,10 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
             const blob = new Blob([merged as any], { type: "audio/mpeg" });
             const url = URL.createObjectURL(blob);
             const audio = new Audio(url);
-            
+
             setIsSpeaking(true);
             setIsListening(false);
-            
+
             audio.onended = () => {
                 URL.revokeObjectURL(url);
                 setIsSpeaking(false);
@@ -278,8 +278,8 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
         }
 
         if (callWsRef.current) {
-            try { callWsRef.current.send(JSON.stringify({ type: "hangup" })); } catch {}
-            try { callWsRef.current.close(); } catch {}
+            try { callWsRef.current.send(JSON.stringify({ type: "hangup" })); } catch { }
+            try { callWsRef.current.close(); } catch { }
             callWsRef.current = null;
         }
 
@@ -307,14 +307,14 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
         <div className="relative font-body">
             {/* Main Call Widget */}
             <motion.div
-                className="relative rounded-3xl p-8 shadow-[0_15px_40px_rgba(45,106,79,0.06)] border overflow-hidden bg-white border-[#2D6A4F]/10"
+                className="relative rounded-3xl p-8 shadow-[0_15px_40px_rgba(16,185,129,0.06)] border overflow-hidden bg-white border-[#BBF7D0]"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
             >
                 {/* Background Elegant Glow Accent */}
                 <div
-                    className={`absolute inset-0 transition-opacity duration-500 pointer-events-none ${isCallActive ? 'opacity-100' : 'opacity-0'} bg-gradient-to-br from-[#E8F5EE] to-[#C8E6DA]/20`}
+                    className={`absolute inset-0 transition-opacity duration-500 pointer-events-none ${isCallActive ? 'opacity-100' : 'opacity-0'} bg-gradient-to-br from-[#F0FDF4] to-[#BBF7D0]/20`}
                 />
 
                 {/* Animated Orb - Premium Inactive & Active Green States */}
@@ -322,8 +322,8 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
                     <motion.div
                         className={`relative w-28 h-28 sm:w-32 sm:h-32 rounded-full flex items-center justify-center cursor-pointer ${isCallActive
                             ? 'bg-gradient-to-br from-[#2D6A4F] to-[#1B4332] shadow-lg shadow-[#2D6A4F]/30 border-2 border-emerald-400/30 text-white'
-                            : 'bg-gradient-to-br from-[#E8F5EE] to-white border-2 border-[#2D6A4F]/25 text-[#2D6A4F] shadow-sm hover:border-[#2D6A4F]/50 hover:shadow-md transition-all duration-300'
-                        }`}
+                            : 'bg-[#F0FDF4] border border-[#BBF7D0] text-[#1B4332] shadow-sm hover:border-[#10B981]/50 hover:shadow-md transition-all duration-300'
+                            }`}
                         animate={{
                             scale: isCallActive ? [1, 1.05, 1] : 1,
                         }}
@@ -355,16 +355,16 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
                         ) : isListening ? (
                             <Mic className="w-10 h-10 text-white animate-pulse" />
                         ) : (
-                            <Phone className={`w-10 h-10 ${isCallActive ? 'text-white' : 'text-[#2D6A4F]'} transition-colors duration-300`} />
+                            <img src="/icons/Voice ai-green.png" alt="Voice AI" className={`w-10 h-10 object-contain transition-all duration-300 ${isCallActive ? 'brightness-0 invert' : ''}`} />
                         )}
                     </motion.div>
                 </div>
 
                 {/* Status Text */}
                 <div className="text-center mb-6 space-y-2 relative z-10">
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E8F5EE] border border-[#2D6A4F]/15 mb-1.5">
-                        <Sparkles className="w-3.5 h-3.5 text-[#2D6A4F]" />
-                        <span className="text-[10px] font-bold tracking-wider text-[#2D6A4F] uppercase font-mono">
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F0FDF4] border border-[#BBF7D0] mb-1.5">
+                        <Sparkles className="w-3.5 h-3.5 text-[#1B4332]" />
+                        <span className="text-[10px] font-bold tracking-wider text-[#1B4332] uppercase font-mono">
                             {callStatus === 'active' ? 'Agent Online' : 'Agent Offline'}
                         </span>
                     </div>
@@ -387,7 +387,7 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
                             initial={{ opacity: 0, y: 8 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -8 }}
-                            className="text-sm max-w-sm mx-auto leading-relaxed text-slate-700 font-body font-bold"
+                            className="text-sm max-w-sm mx-auto leading-relaxed text-slate-700 font-body"
                         >
                             {aiResponse || "Click 'Try Voice Call' below to speak live with our conversational AI agent."}
                         </motion.p>
@@ -404,7 +404,7 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
                         <button
                             onClick={startCall}
                             disabled={callStatus === 'connecting'}
-                            className="flex items-center gap-2.5 px-8 py-4 font-extrabold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 cursor-pointer bg-[#2D6A4F] hover:bg-[#1B4332] text-white text-sm tracking-widest uppercase font-body"
+                            className="flex items-center gap-2.5 px-8 py-4 font-extrabold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 cursor-pointer bg-[#16A34A] hover:bg-[#12823b] text-white text-sm tracking-widest uppercase font-body"
                         >
                             <Phone className="w-4 h-4 text-white" />
                             Try Voice Call
@@ -417,7 +417,7 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
                                 className={`p-4 rounded-full transition-all duration-300 border ${isMuted
                                     ? 'bg-red-50 text-red-500 border-red-200'
                                     : 'bg-white border-gray-200 text-gray-700 hover:bg-gray-50'
-                                }`}
+                                    }`}
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                             >

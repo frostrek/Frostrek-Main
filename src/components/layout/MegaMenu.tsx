@@ -27,8 +27,8 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ sections, onClose }) => {
     // Layout: 2 cols for ≤2 sections, 3 cols for 3+
     const cols =
         sections.length >= 3 ? 'grid-cols-3' :
-        sections.length === 2 ? 'grid-cols-2' :
-        'grid-cols-1';
+            sections.length === 2 ? 'grid-cols-2' :
+                'grid-cols-1';
 
     return (
         <motion.div
@@ -43,7 +43,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ sections, onClose }) => {
                 <div className="w-3 h-3 rotate-45 bg-white border-l border-t border-gray-100 rounded-sm" />
             </div>
 
-            <div 
+            <div
                 className="bg-white border border-gray-100/60 rounded-[3rem] shadow-[0_40px_100px_rgba(0,0,0,0.08)] overflow-hidden flex flex-col ring-1 ring-black/[0.02]"
                 style={{ maxHeight: 'min(85vh, 850px)' }}
             >
@@ -51,7 +51,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ sections, onClose }) => {
                 <div className="h-1.5 w-full flex-shrink-0 bg-gradient-to-r from-transparent via-[#2D6A4F]/10 to-transparent opacity-40" />
 
                 {/* Custom Scrollable Content - Increased padding for "Elegance" */}
-                <div 
+                <div
                     className="p-10 md:p-12 overflow-y-auto flex-1 custom-scrollbar scroll-smooth overscroll-contain"
                     onWheel={(e) => e.stopPropagation()}
                 >
@@ -62,8 +62,8 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ sections, onClose }) => {
                             const displayTitle = numberMatch ? numberMatch[2] : section.title;
 
                             return (
-                                <motion.div 
-                                    key={idx} 
+                                <motion.div
+                                    key={idx}
                                     className="space-y-8"
                                     initial={{ opacity: 0, y: 15 }}
                                     animate={{ opacity: 1, y: 0 }}
@@ -97,7 +97,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ sections, onClose }) => {
 
                                                     <div className="relative z-10 min-w-0">
                                                         <div className="flex items-center gap-2">
-                                                            <h4 className="font-bold text-[15px] text-gray-900 group-hover:text-[#2D6A4F] transition-colors font-body">
+                                                            <h4 className="font-semibold text-[16px] text-gray-900 group-hover:text-[#2D6A4F] transition-colors font-serif">
                                                                 {item.name}
                                                             </h4>
                                                             <ArrowRight size={14} className="opacity-0 -translate-x-3 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 text-[#2D6A4F]" />
@@ -118,7 +118,8 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ sections, onClose }) => {
 
             </div>
 
-            <style dangerouslySetInnerHTML={{ __html: `
+            <style dangerouslySetInnerHTML={{
+                __html: `
                 .custom-scrollbar::-webkit-scrollbar {
                     width: 5px;
                 }

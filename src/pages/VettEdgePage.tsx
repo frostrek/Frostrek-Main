@@ -338,7 +338,7 @@ const VettEdgePage = () => {
                     {/* Subtext */}
                     <SplitTextReveal
                         as="p"
-                        className="text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed text-gray-500 font-medium"
+                        className="text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed text-gray-500"
                         type="words" stagger={0.015} once={false} delay={0.6}
                     >
                         The first AI platform built for financial professionals - automating due diligence, valuation, and investment memos with institutional-grade accuracy. Built end-to-end by Frostrek.
@@ -394,7 +394,7 @@ const VettEdgePage = () => {
                             <div className="w-full">
                                 <SplitTextReveal
                                     as="p"
-                                    className="text-lg text-gray-500 font-medium leading-relaxed"
+                                    className="text-lg text-gray-500 leading-relaxed"
                                     type="words" stagger={0.02} once={false} delay={0.3}
                                 >
                                     VettEdge is a standalone AI-powered financial due diligence, valuation, and investment memo platform, purpose-built for CAs, investment bankers, VCs, PE funds, and M&A advisors. It accepts financial statements in any format, extracts data with source-linked accuracy, runs 40+ financial ratios, detects red flags, and produces 15-to-20 page professional-grade reports in minutes. Built as the wedge product on Frostrek's path to FundOS, the AI operating system for fund managers.
@@ -431,7 +431,7 @@ const VettEdgePage = () => {
                         <div className="mt-4">
                             <SplitTextReveal
                                 as="p"
-                                className="max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                                className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
                                 Three critical gaps that slow down every financial professional doing due diligence today.
@@ -455,7 +455,7 @@ const VettEdgePage = () => {
                                             </div>
                                             <div className="flex-1">
                                                 <h3 className="font-serif text-[15px] md:text-xl font-bold mb-0.5 md:mb-1.5 text-black leading-tight">{problem.title}</h3>
-                                                <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600 font-medium">{problem.description}</p>
+                                                <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600">{problem.description}</p>
                                             </div>
                                         </div>
                                     </SpotlightCard>
@@ -491,7 +491,7 @@ const VettEdgePage = () => {
                         <div className="mt-4">
                             <SplitTextReveal
                                 as="p"
-                                className="max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                                className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
                                 A complete, production-ready AI financial intelligence platform engineered from scratch.
@@ -526,7 +526,7 @@ const VettEdgePage = () => {
                                             </div>
                                             <div className="flex-1">
                                                 <h3 className="font-serif text-[15px] md:text-xl font-bold mb-0.5 md:mb-1.5 text-black leading-tight">{feature.title}</h3>
-                                                <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600 font-medium">{feature.description}</p>
+                                                <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600">{feature.description}</p>
                                             </div>
                                         </div>
                                     </SpotlightCard>
@@ -569,7 +569,7 @@ const VettEdgePage = () => {
                         <div className="mt-6">
                             <SplitTextReveal
                                 as="p"
-                                className="max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                                className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
                                 VettEdge ships three purpose-built AI agents — each solving a distinct problem for financial professionals.
@@ -599,7 +599,7 @@ const VettEdgePage = () => {
                                     <h3 className={`font-serif text-[17px] md:text-2xl font-bold mb-1.5 md:mb-3 leading-tight ${agent.headingColor}`}>{agent.title}</h3>
 
                                     {/* Body */}
-                                    <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600 font-medium flex-1 mb-3 md:mb-6">{agent.description}</p>
+                                    <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600 flex-1 mb-3 md:mb-6">{agent.description}</p>
 
                                     {/* For */}
                                     <div className="border-t border-current/10 pt-3 md:pt-4 mt-auto" style={{ borderColor: 'rgba(0,0,0,0.08)' }}>
@@ -627,7 +627,7 @@ const VettEdgePage = () => {
                         <div className="mt-4">
                             <SplitTextReveal
                                 as="p"
-                                className="max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                                className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
                                 VettEdge is purpose-built for the people who live and die by financial accuracy.
@@ -648,7 +648,7 @@ const VettEdgePage = () => {
                                     </div>
                                     <div className="flex-1">
                                         <h3 className={`font-serif text-[15px] md:text-lg font-bold mb-1 md:mb-2 leading-tight ${tile.headingColor}`}>{tile.title}</h3>
-                                        <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600 font-medium">{tile.description}</p>
+                                        <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600">{tile.description}</p>
                                     </div>
                                 </div>
                             </SpotlightCard>
@@ -699,14 +699,14 @@ const VettEdgePage = () => {
                         <div className="flex flex-col items-center">
                             <SplitTextReveal
                                 as="h2"
-                                className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
+                                className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
                                 type="chars" stagger={0.02} once={false}
                             >
                                 Want AI built for your
                             </SplitTextReveal>
                             <SplitTextReveal
                                 as="h2"
-                                className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
+                                className="font-serif text-3xl md:text-4xl lg:text-5xl mb-6 text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
                                 type="chars" stagger={0.02} once={false} delay={0.2}
                             >
                                 financial workflows?
@@ -714,7 +714,7 @@ const VettEdgePage = () => {
                         </div>
                         <SplitTextReveal
                             as="p"
-                            className="text-lg md:text-xl text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed font-medium"
+                            className="text-lg md:text-xl text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed"
                             type="words" stagger={0.02} once={false} delay={0.3}
                         >
                             Let's talk about what Frostrek can build for you.
