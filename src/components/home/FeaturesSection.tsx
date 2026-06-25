@@ -110,7 +110,7 @@ const FeaturesSection = () => {
                     </div>
                     <SplitTextReveal
                         as="p"
-                        className="max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                        className="max-w-2xl mx-auto text-lg text-gray-500"
                         type="words"
                         stagger={0.02}
                         once={false}
@@ -134,7 +134,7 @@ const FeaturesSection = () => {
                             <h3 className="font-serif text-xl md:text-3xl font-bold mb-2 md:mb-4 text-[#047857]">
                                 Enterprise Security
                             </h3>
-                            <p className="mb-6 md:mb-8 text-xs md:text-base leading-relaxed text-gray-600 font-medium">
+                            <p className="mb-6 md:mb-8 text-xs md:text-base leading-relaxed text-gray-600">
                                 Role-based access control, end-to-end data encryption, comprehensive audit logs, and compliance-ready infrastructure built-in.
                             </p>
 
@@ -171,7 +171,7 @@ const FeaturesSection = () => {
                                 <h3 className="font-serif text-[15px] md:text-2xl font-bold mb-1.5 md:mb-3 text-[#C2410C]">
                                     Lightning Fast
                                 </h3>
-                                <p className="text-[11px] md:text-[15px] leading-relaxed text-gray-600 font-medium">
+                                <p className="text-[11px] md:text-[15px] leading-relaxed text-gray-600">
                                     Sub-second response times with optimized LLM routing and intelligent caching.
                                 </p>
                             </div>
@@ -191,7 +191,7 @@ const FeaturesSection = () => {
                                 <h3 className="font-serif text-[15px] md:text-2xl font-bold mb-1.5 md:mb-3 text-[#0284C7]">
                                     Real-time Analytics
                                 </h3>
-                                <p className="text-[11px] md:text-[15px] leading-relaxed text-gray-600 font-medium">
+                                <p className="text-[11px] md:text-[15px] leading-relaxed text-gray-600">
                                     Track KPIs, conversation quality, and user satisfaction metrics live.
                                 </p>
                             </div>
@@ -211,7 +211,7 @@ const FeaturesSection = () => {
                                 <h3 className="font-serif text-[15px] md:text-2xl font-bold mb-1.5 md:mb-3 text-[#B45309]">
                                     Multi-agent Orchestration
                                 </h3>
-                                <p className="text-[11px] md:text-[15px] leading-relaxed text-gray-600 font-medium">
+                                <p className="text-[11px] md:text-[15px] leading-relaxed text-gray-600">
                                     Deploy multiple agents across channels with unified analytics dashboard.
                                 </p>
                             </div>

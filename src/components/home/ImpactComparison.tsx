@@ -168,7 +168,7 @@ const ImpactComparison = () => {
 
                     <SplitTextReveal
                         as="p"
-                        className="text-base md:text-lg text-gray-500 max-w-2xl mx-auto font-medium"
+                        className="text-base md:text-lg text-gray-500 max-w-2xl mx-auto"
                         type="words"
                         stagger={0.02}
                         once={false}

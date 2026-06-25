@@ -109,7 +109,7 @@ const Web3Demo = () => {
             <div className="bg-[#FEFCE8] border-[#FEF08A] rounded-xl px-4 py-3 flex items-center justify-between">
                 <div><div className="text-gray-400 text-[10px] uppercase tracking-widest mb-1">Wallet Balance</div><div className="text-[#CA8A04] font-bold text-base">1,450 <span className="text-xs text-gray-400">$TOKEN</span></div></div>
                 <div className="w-9 h-9 rounded-full bg-[#FEF9C3] border border-[#FEF9C3] flex items-center justify-center">
-                    <img src="/icons/fintech.png" alt="Fintech" className="w-5 h-5 object-contain" />
+                    <img src="/icons/fintech-yellow.png" alt="Fintech" className="w-5 h-5 object-contain" />
                 </div>
             </div>
             <div className="flex gap-2">
@@ -152,10 +152,10 @@ const AIAgentDemo = () => {
         <div className="w-full font-body text-xs select-none space-y-2">
             <div className="flex items-center gap-2 bg-[#FDF4FA] border border-[#F2BAE4] rounded-xl px-3 py-2 mb-3">
                 <div className="w-7 h-7 rounded-full bg-white border border-[#F2BAE4] flex items-center justify-center">
-                    <img src="/icons/machine-learning-lavender.png" alt="AI Agent" className="w-4 h-4 object-contain" />
+                    <img src="/icons/machine-learning-lavender-filled.png" alt="AI Agent" className="w-4 h-4 object-contain" />
                 </div>
                 <div><div className="text-gray-800 text-[10px] font-semibold">Frosty AI Agent</div><div className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-[#D67CBA] animate-pulse" /><span className="text-[#D67CBA] text-[9px]">Online</span></div></div>
-                <div className="ml-auto flex gap-1.5"><Mic className="w-3.5 h-3.5 text-gray-300" /><MessageSquare className="w-3.5 h-3.5 text-gray-300" /></div>
+                <div className="ml-auto flex gap-1.5"><Mic className="w-3.5 h-3.5 text-[#D67CBA]" /><MessageSquare className="w-3.5 h-3.5 text-[#D67CBA]" /></div>
             </div>
             <div className="space-y-2 min-h-[140px]">
                 <AnimatePresence>
@@ -329,7 +329,7 @@ const WhatWeDoSection = () => {
                     {/* Subtitle */}
                     <SplitTextReveal
                         as="p"
-                        className="mt-6 max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                        className="mt-6 max-w-2xl mx-auto text-lg text-gray-500"
                         type="words"
                         stagger={0.02}
                         once={false}
@@ -367,7 +367,7 @@ const WhatWeDoSection = () => {
                                                     {card.features.map((feature, idx) => (
                                                         <div key={idx} className="flex items-start gap-2">
                                                             <CheckCircle className={`w-4 h-4 mt-0.5 flex-shrink-0 ${styles.checkColor}`} />
-                                                            <span className="text-[13px] font-medium text-gray-600">{feature}</span>
+                                                            <span className="text-[13px] text-gray-600">{feature}</span>
                                                         </div>
                                                     ))}
                                                 </div>

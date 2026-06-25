@@ -38,7 +38,7 @@ const SOLUTIONS: Solution[] = [
         title: 'Manufacturing Intelligence',
         tagline: 'Your factory. Finally, one screen.',
         description: 'Connect every system on your production floor - ERP, WMS, PLCs, SCADA - into a single real-time intelligence platform. Built in 8 weeks. No new hardware. No million-dollar MES licence.',
-        icon: "/icons/manufacturing-purple.png",
+        icon: "/icons/manufacturing-lavender.png",
         demo: { type: 'manufacturing' },
         features: [
             'Disconnected systems: Unify ERP, WMS, and machine control',
@@ -49,10 +49,10 @@ const SOLUTIONS: Solution[] = [
         ],
         link: '/solutions/manufacturing-intelligence',
         gradient: 'from-[#2D6A4F] to-[#3D8B6E]',
-        tabColor: '#F3E8FF',
-        tabColorHover: '#EBE0F7',
-        iconBgIdle: '#F3E8FF',
-        iconColorDark: '#7C3AED'
+        tabColor: '#FDF4FA',
+        tabColorHover: '#F9E4F3',
+        iconBgIdle: '#FDF4FA',
+        iconColorDark: '#D67CBA'
     },
     {
         id: 'frostrek-web3-commerce',
@@ -72,7 +72,7 @@ const SOLUTIONS: Solution[] = [
         tabColor: '#FFFBEB',
         tabColorHover: '#FEF3C7',
         iconBgIdle: '#FFEDD5',
-        iconColorDark: '#EA580C'
+        iconColorDark: '#EAA30C'
     },
     {
         id: 'ai-agents',
@@ -239,7 +239,7 @@ const ManufacturingDemo = () => {
     ];
 
     return (
-        <div className="rounded-2xl p-4 h-[240px] bg-gradient-to-r from-[#F3E8FF] to-transparent border border-[#E9D5FF]/50 overflow-hidden flex flex-col relative">
+        <div className="rounded-2xl p-4 h-[240px] bg-gradient-to-r from-[#FDF4FA] to-transparent border border-[#F2BAE4]/50 overflow-hidden flex flex-col relative">
             <div className="flex items-center justify-between mb-3 bg-white p-3 rounded-xl border border-gray-100 shadow-sm z-10">
                 <div className="flex items-center gap-2">
                     <div className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse" />
@@ -443,7 +443,7 @@ const AISolutionsShowcase = () => {
                     </div>
                     <SplitTextReveal
                         as="p"
-                        className="text-lg text-gray-500 max-w-2xl mx-auto font-medium"
+                        className="text-lg text-gray-500 max-w-2xl mx-auto"
                         type="words"
                         stagger={0.02}
                         once={false}
@@ -493,7 +493,7 @@ const AISolutionsShowcase = () => {
                             <h3 className="font-serif text-2xl font-bold text-[#2D6A4F] mb-1">
                                 {activeSolution.title}
                             </h3>
-                            <p className="text-sm font-medium text-gray-500">
+                            <p className="text-sm text-gray-500">
                                 {activeSolution.tagline}
                             </p>
                         </div>
@@ -571,7 +571,7 @@ const AISolutionsShowcase = () => {
                                                 <div className="font-serif font-bold text-[17px] tracking-wide mb-1">
                                                     {solution.title}
                                                 </div>
-                                                <div className={`text-[13px] font-medium ${isActive ? 'text-gray-600' : 'text-gray-500'}`}>
+                                                <div className={`text-[13px] ${isActive ? 'text-gray-600' : 'text-gray-500'}`}>
                                                     {solution.tagline}
                                                 </div>
                                             </div>
@@ -582,15 +582,6 @@ const AISolutionsShowcase = () => {
                                     );
                                 })}
                             </div>
-
-                            <Link
-                                to="/products"
-                                className="mt-8 flex items-center gap-3 px-5 py-4 rounded-2xl border-2 border-dashed border-[#c4e0d4] text-[#2D6A4F] hover:bg-white hover:border-[#2D6A4F]/30 transition-all group font-bold"
-                            >
-                                <Sparkles className="w-5 h-5 text-[#2D6A4F]" />
-                                <span>View Full AI Ecosystem</span>
-                                <ArrowRight className="w-5 h-5 ml-auto transform group-hover:translate-x-1 transition-transform" />
-                            </Link>
                         </div>
 
                         {/* Right Panel */}
@@ -605,10 +596,7 @@ const AISolutionsShowcase = () => {
                                     style={{ background: `linear-gradient(to bottom right, ${activeSolution.iconColorDark}05 0%, ${activeSolution.iconColorDark}03 40%, white 100%)` }}
                                 >
                                     <div className="flex items-start gap-5">
-                                        <div
-                                            className="w-16 h-16 shrink-0 rounded-2xl flex items-center justify-center shadow-lg"
-                                            style={{ backgroundColor: activeSolution.iconBgIdle, boxShadow: `0 10px 15px -3px ${activeSolution.iconColorDark}20` }}
-                                        >
+                                        <div className="shrink-0 flex items-center justify-center pt-1">
                                             <img
                                                 src={activeSolution.icon}
                                                 alt={activeSolution.title}
@@ -619,7 +607,7 @@ const AISolutionsShowcase = () => {
                                             <h3 className="font-serif text-3xl font-bold mb-2">
                                                 {activeSolution.title}
                                             </h3>
-                                            <p className="text-base text-gray-600 leading-relaxed font-medium">
+                                            <p className="text-base text-gray-600 leading-relaxed">
                                                 {activeSolution.description}
                                             </p>
                                         </div>

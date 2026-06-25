@@ -170,7 +170,7 @@ const SpotlightCard = ({ product, index }: { product: any, index: number }) => {
                                 {product.title}
                             </h3>
 
-                            <p className="text-[11px] md:text-[14px] text-gray-600 font-medium leading-relaxed max-w-prose">
+                            <p className="text-[11px] md:text-[14px] text-gray-600 leading-relaxed max-w-prose">
                                 {product.subtitle || product.description}
                             </p>
 
@@ -181,7 +181,7 @@ const SpotlightCard = ({ product, index }: { product: any, index: number }) => {
                                             <div className={`flex-shrink-0 w-4 h-4 rounded-full ${product.featureBgColor || 'bg-[#E6EFE6]'} flex items-center justify-center`}>
                                                 <CheckCircle2 className={`w-3 h-3 ${product.featureIconColor || 'text-[#2D6A4F]'}`} />
                                             </div>
-                                            <span className="text-[12px] md:text-[13px] text-gray-600 font-medium">{feature}</span>
+                                            <span className="text-[12px] md:text-[13px] text-gray-600">{feature}</span>
                                         </div>
                                     ))}
                                 </div>
@@ -248,7 +248,7 @@ const OurProductsSection = () => {
                             Our Products
                         </SplitTextReveal>
                     </div>
-                    <p className="text-lg text-gray-500 max-w-2xl mx-auto font-medium">
+                    <p className="text-lg text-gray-500 max-w-2xl mx-auto">
                         From conversational AI agents to full-stack development - 50+ engineers delivering production-ready systems in 4-8 weeks.
                     </p>
                 </div>

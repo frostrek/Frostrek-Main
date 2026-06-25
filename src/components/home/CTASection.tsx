@@ -66,7 +66,7 @@ const CTASection = () => {
                     <div className="flex flex-col items-center">
                         <SplitTextReveal
                             as="h2"
-                            className="font-serif text-3xl md:text-4xl lg:text-6xl font-bold text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
+                            className="font-serif text-3xl md:text-4xl lg:text-6xl mb-4 text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
                             type="chars"
                             stagger={0.02}
                             once={false}
@@ -75,7 +75,7 @@ const CTASection = () => {
                         </SplitTextReveal>
                         <SplitTextReveal
                             as="h2"
-                            className="font-serif text-3xl md:text-4xl lg:text-6xl font-bold mb-6 text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
+                            className="font-serif text-3xl md:text-4xl lg:text-6xl mb-4 text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
                             type="chars"
                             stagger={0.02}
                             once={false}
@@ -86,7 +86,7 @@ const CTASection = () => {
                     </div>
                     <SplitTextReveal
                         as="p"
-                        className="text-lg md:text-xl text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed font-medium"
+                        className="text-lg md:text-xl text-gray-500 mb-10 max-w-2xl mx-auto"
                         type="words"
                         stagger={0.02}
                         once={false}
@@ -96,8 +96,8 @@ const CTASection = () => {
                     </SplitTextReveal>
 
                     <div ref={buttonsRef} className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <Link 
-                            to="/schedule-demo" 
+                        <Link
+                            to="/schedule-demo"
                             className="group cta-button primary-cta w-full sm:w-auto px-10 py-4 bg-[#2D6A4F] text-white rounded-2xl font-medium text-[15px] shadow-lg shadow-[#2D6A4F]/10 transition-all duration-300 flex items-center justify-center gap-2 hover:bg-[#1E4D38]"
                         >
                             <FlipText hoverColor="text-white">
@@ -105,8 +105,8 @@ const CTASection = () => {
                                 <ArrowRight size={18} />
                             </FlipText>
                         </Link>
-                        <Link 
-                            to="/contact" 
+                        <Link
+                            to="/contact"
                             className="group cta-button w-full sm:w-auto px-10 py-4 bg-white border-2 border-gray-200 text-gray-700 rounded-2xl font-medium text-[15px] transition-all duration-300 hover:border-[#2D6A4F] hover:bg-gray-50 flex items-center justify-center"
                         >
                             <FlipText>

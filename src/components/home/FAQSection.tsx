@@ -145,7 +145,7 @@ const FAQSection = () => {
                     </SplitTextReveal>
                     <SplitTextReveal
                         as="p"
-                        className="text-lg text-gray-500 font-medium"
+                        className="text-lg text-gray-500"
                         type="words"
                         stagger={0.02}
                         once={false}
@@ -178,7 +178,7 @@ const FAQSection = () => {
                                         <span className={`flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold border transition-colors duration-300 ${theme.badgeBg} ${theme.badgeText} ${theme.badgeBorder}`}>
                                             0{index + 1}
                                         </span>
-                                        <span className={`text-[18px] font-bold transition-colors duration-300 ${isActive ? theme.activeQuestionText : theme.questionText
+                                        <span className={`text-[18px] font-medium transition-colors duration-300 ${isActive ? theme.activeQuestionText : theme.questionText
                                             }`}>
                                             {faq.question}
                                         </span>
@@ -200,7 +200,7 @@ const FAQSection = () => {
                                             transition={{ duration: 0.3, ease: "easeInOut" }}
                                             className="overflow-hidden"
                                         >
-                                            <div className="px-6 pb-6 pt-2 md:pl-[5.5rem] leading-relaxed text-[15px] text-gray-500 font-medium">
+                                            <div className="px-6 pb-6 pt-2 md:pl-[5.5rem] leading-relaxed text-[15px] text-gray-500">
                                                 {faq.answer}
                                             </div>
                                         </motion.div>
