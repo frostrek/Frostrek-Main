@@ -1,6 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
 import { MapPin, Clock, Calendar as CalendarIcon, Sparkles, ArrowRight, type LucideIcon } from 'lucide-react';
-import { motion } from 'framer-motion';
 import SEO from '../components/seo/SEO';
 import SplitTextReveal from '../components/ui/SplitTextReveal';
 
@@ -71,21 +70,34 @@ const InfoCard = ({
     icon: Icon,
     title,
     children,
+    colorTheme = 'green'
 }: {
     icon: LucideIcon;
     title: string;
     children: React.ReactNode;
-}) => (
-    <div className="flex items-start gap-4 p-5 rounded-2xl transition-all duration-300 group hover:scale-[1.01] bg-[#FAFCFB] hover:bg-white border border-[#2D6A4F]/5 hover:border-[#2D6A4F]/25 shadow-sm hover:shadow-md">
-        <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 bg-[#E8F5EE] text-[#2D6A4F] group-hover:bg-[#2D6A4F] group-hover:text-white transition-all duration-300 shadow-sm">
-            <Icon className="w-5 h-5" />
+    colorTheme?: 'blue' | 'green' | 'pink' | 'orange' | 'purple' | 'yellow';
+}) => {
+    const colorStyles = {
+        blue: { bg: 'bg-sky-50/50', hoverBg: 'hover:bg-sky-50', border: 'border-sky-100', hoverBorder: 'hover:border-sky-200', iconBg: 'bg-sky-100', iconText: 'text-sky-600', iconHoverBg: 'group-hover:bg-sky-500' },
+        green: { bg: 'bg-[#E8F5EE]/50', hoverBg: 'hover:bg-[#E8F5EE]', border: 'border-[#2D6A4F]/10', hoverBorder: 'hover:border-[#2D6A4F]/30', iconBg: 'bg-[#2D6A4F]/10', iconText: 'text-[#2D6A4F]', iconHoverBg: 'group-hover:bg-[#2D6A4F]' },
+        pink: { bg: 'bg-rose-50/50', hoverBg: 'hover:bg-rose-50', border: 'border-rose-100', hoverBorder: 'hover:border-rose-200', iconBg: 'bg-rose-100', iconText: 'text-rose-600', iconHoverBg: 'group-hover:bg-rose-500' },
+        orange: { bg: 'bg-orange-50/50', hoverBg: 'hover:bg-orange-50', border: 'border-orange-100', hoverBorder: 'hover:border-orange-200', iconBg: 'bg-orange-100', iconText: 'text-orange-600', iconHoverBg: 'group-hover:bg-orange-500' },
+        yellow: { bg: 'bg-yellow-50/50', hoverBg: 'hover:bg-yellow-50', border: 'border-yellow-100', hoverBorder: 'hover:border-yellow-200', iconBg: 'bg-yellow-100', iconText: 'text-yellow-600', iconHoverBg: 'group-hover:bg-yellow-500' },
+        purple: { bg: 'bg-purple-50/50', hoverBg: 'hover:bg-purple-50', border: 'border-purple-100', hoverBorder: 'hover:border-purple-200', iconBg: 'bg-purple-100', iconText: 'text-purple-600', iconHoverBg: 'group-hover:bg-purple-500' }
+    }[colorTheme];
+
+    return (
+        <div className={`flex items-start gap-4 p-5 rounded-2xl transition-all duration-300 group hover:scale-[1.01] ${colorStyles.bg} ${colorStyles.hoverBg} border ${colorStyles.border} ${colorStyles.hoverBorder} shadow-sm hover:shadow-md`}>
+            <div className={`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 ${colorStyles.iconBg} ${colorStyles.iconText} ${colorStyles.iconHoverBg} group-hover:text-white transition-all duration-300 shadow-sm`}>
+                <Icon className="w-5 h-5" />
+            </div>
+            <div className="min-w-0 flex-1">
+                <h3 className="font-serif font-black text-sm text-gray-950 mb-1">{title}</h3>
+                <div className="text-sm text-slate-500 leading-relaxed font-body">{children}</div>
+            </div>
         </div>
-        <div className="min-w-0 flex-1">
-            <h3 className="font-serif font-black text-sm text-gray-950 mb-1">{title}</h3>
-            <div className="text-sm text-slate-500 font-medium leading-relaxed font-body">{children}</div>
-        </div>
-    </div>
-);
+    );
+};
 
 const ScheduleDemo = () => {
     const [widgetReady, setWidgetReady] = useState(false);
@@ -192,24 +204,29 @@ const ScheduleDemo = () => {
                     <span>Book Your Demo</span>
                 </div>
                 <div className="flex flex-col items-center">
-                    <div className="text-4xl md:text-5xl lg:text-6xl font-serif font-black tracking-tight text-gray-950 leading-tight">
-                        <SplitTextReveal as="span" type="chars" stagger={0.03} once={false}>
-                            Let's Build Something
-                        </SplitTextReveal>
-                        <br />
-                        <motion.span 
-                            initial={{ opacity: 0, y: 24 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.7, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                            className="text-transparent bg-clip-text bg-gradient-to-r from-[#2D6A4F] via-[#40916C] to-[#1B4332]"
-                        >
-                            Amazing
-                        </motion.span>
-                    </div>
+                    <SplitTextReveal
+                        as="h1"
+                        className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black leading-[1.1] tracking-[-0.01em]"
+                        trigger="load"
+                        type="chars"
+                        stagger={0.03}
+                    >
+                        Let's Build Something
+                    </SplitTextReveal>
+                    <SplitTextReveal
+                        as="h1"
+                        className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] mb-4 leading-[1.1] tracking-[-0.01em]"
+                        trigger="load"
+                        type="chars"
+                        stagger={0.03}
+                        delay={0.4}
+                    >
+                        Amazing
+                    </SplitTextReveal>
                 </div>
                 <SplitTextReveal
                     as="p"
-                    className="text-base sm:text-lg text-slate-600 font-medium leading-relaxed max-w-xl mx-auto mt-4"
+                    className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl mx-auto mt-4"
                     type="words"
                     stagger={0.015}
                     once={false}
@@ -228,24 +245,24 @@ const ScheduleDemo = () => {
                         {/* Info cards with pristine light theme */}
                         <div className="rounded-3xl p-6 sm:p-8 bg-white border border-[#2D6A4F]/10 shadow-2xl shadow-[#2D6A4F]/5">
                             <div className="flex flex-col gap-4">
-                                <InfoCard icon={Clock} title="Meeting Duration">
+                                <InfoCard icon={Clock} title="Meeting Duration" colorTheme="blue">
                                     <p className="font-semibold text-slate-600">30 minutes</p>
                                 </InfoCard>
-                                <InfoCard icon={MapPin} title="Meeting Location">
+                                <InfoCard icon={MapPin} title="Meeting Location" colorTheme="green">
                                     <p className="font-semibold text-slate-600">Microsoft Teams / Google Meet</p>
                                 </InfoCard>
-                                <InfoCard icon={CalendarIcon} title="What to Expect">
+                                <InfoCard icon={CalendarIcon} title="What to Expect" colorTheme="orange">
                                     <ul className="space-y-1 font-semibold text-slate-600 mt-1">
                                         <li className="flex items-center gap-2">
-                                            <ArrowRight className="w-3.5 h-3.5 text-[#2D6A4F] flex-shrink-0 animate-pulse" />
+                                            <ArrowRight className="w-3.5 h-3.5 text-orange-500 flex-shrink-0 animate-pulse" />
                                             <span>Product walkthrough</span>
                                         </li>
                                         <li className="flex items-center gap-2">
-                                            <ArrowRight className="w-3.5 h-3.5 text-[#2D6A4F] flex-shrink-0 animate-pulse" />
+                                            <ArrowRight className="w-3.5 h-3.5 text-orange-500 flex-shrink-0 animate-pulse" />
                                             <span>Q&A session</span>
                                         </li>
                                         <li className="flex items-center gap-2">
-                                            <ArrowRight className="w-3.5 h-3.5 text-[#2D6A4F] flex-shrink-0 animate-pulse" />
+                                            <ArrowRight className="w-3.5 h-3.5 text-orange-500 flex-shrink-0 animate-pulse" />
                                             <span>Custom solution discussion</span>
                                         </li>
                                     </ul>

@@ -24,32 +24,30 @@ const ResourcesHero = () => {
                 </motion.div>
 
                 {/* Title */}
-                <h1 className="text-5xl md:text-7xl font-serif font-black mb-6 tracking-tight text-gray-950 leading-tight">
-                    <span className="flex flex-wrap justify-center items-baseline gap-x-3">
-                        <SplitTextReveal
-                            as="span"
-                            type="chars"
-                            stagger={0.02}
-                            once={false}
-                            trigger="load"
-                        >
-                            Insights &amp;
-                        </SplitTextReveal>
-                        <motion.span
-                            initial={{ opacity: 0, y: 24 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.7, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                            className="text-transparent bg-clip-text bg-gradient-to-r from-[#2D6A4F] via-[#40916C] to-[#1B4332]"
-                        >
-                            Success Stories
-                        </motion.span>
-                    </span>
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif text-[#2D6A4F] leading-[1.05] tracking-tight flex flex-col items-center mb-6">
+                    <SplitTextReveal
+                        as="span"
+                        type="chars"
+                        stagger={0.03}
+                        once={false}
+                        trigger="load"
+                    >
+                        Insights &amp;
+                    </SplitTextReveal>
+                    <motion.span
+                        initial={{ opacity: 0, y: 24 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                        className="text-[#2D6A4F] mt-1"
+                    >
+                        Success Stories
+                    </motion.span>
                 </h1>
 
                 {/* Subtitle */}
                 <SplitTextReveal
                     as="p"
-                    className="text-base sm:text-lg text-slate-600 font-medium max-w-2xl mx-auto leading-relaxed"
+                    className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed"
                     type="words"
                     stagger={0.015}
                     once={false}
@@ -73,7 +71,29 @@ const ResourcesHero = () => {
     );
 };
 
-const CaseStudyCard = ({ study, onClick }: { study: CaseStudy; onClick: () => void }) => {
+const RESOURCE_COLORS = [
+    { // Blue
+        bg: 'bg-[#F0F9FF]', border: 'border-[#0284C7]/20 hover:border-[#0284C7]/40', iconBg: 'bg-[#E0F2FE]', iconColor: 'text-[#0284C7]', badgeBg: 'bg-white/60', badgeBorder: 'border-[#0284C7]/20', hoverBg: 'group-hover:bg-[#0284C7]', hoverText: 'group-hover:text-[#0284C7]', shadow: 'hover:shadow-[#0284C7]/10', topBar: 'bg-[#0284C7]'
+    },
+    { // Green
+        bg: 'bg-[#F0FDF4]', border: 'border-[#16A34A]/20 hover:border-[#16A34A]/40', iconBg: 'bg-[#DCFCE7]', iconColor: 'text-[#16A34A]', badgeBg: 'bg-white/60', badgeBorder: 'border-[#16A34A]/20', hoverBg: 'group-hover:bg-[#16A34A]', hoverText: 'group-hover:text-[#16A34A]', shadow: 'hover:shadow-[#16A34A]/10', topBar: 'bg-[#16A34A]'
+    },
+    { // Pink
+        bg: 'bg-[#FDF4FA]', border: 'border-[#DB2777]/20 hover:border-[#DB2777]/40', iconBg: 'bg-[#FCE7F3]', iconColor: 'text-[#DB2777]', badgeBg: 'bg-white/60', badgeBorder: 'border-[#DB2777]/20', hoverBg: 'group-hover:bg-[#DB2777]', hoverText: 'group-hover:text-[#DB2777]', shadow: 'hover:shadow-[#DB2777]/10', topBar: 'bg-[#DB2777]'
+    },
+    { // Orange
+        bg: 'bg-[#FFF7ED]', border: 'border-[#EA580C]/20 hover:border-[#EA580C]/40', iconBg: 'bg-[#FFEDD5]', iconColor: 'text-[#EA580C]', badgeBg: 'bg-white/60', badgeBorder: 'border-[#EA580C]/20', hoverBg: 'group-hover:bg-[#EA580C]', hoverText: 'group-hover:text-[#EA580C]', shadow: 'hover:shadow-[#EA580C]/10', topBar: 'bg-[#EA580C]'
+    },
+    { // Yellow
+        bg: 'bg-[#FFFBEB]', border: 'border-[#D97706]/20 hover:border-[#D97706]/40', iconBg: 'bg-[#FEF3C7]', iconColor: 'text-[#D97706]', badgeBg: 'bg-white/60', badgeBorder: 'border-[#D97706]/20', hoverBg: 'group-hover:bg-[#D97706]', hoverText: 'group-hover:text-[#D97706]', shadow: 'hover:shadow-[#D97706]/10', topBar: 'bg-[#D97706]'
+    },
+    { // Purple
+        bg: 'bg-[#F5F3FF]', border: 'border-[#7C3AED]/20 hover:border-[#7C3AED]/40', iconBg: 'bg-[#EDE9FE]', iconColor: 'text-[#7C3AED]', badgeBg: 'bg-white/60', badgeBorder: 'border-[#7C3AED]/20', hoverBg: 'group-hover:bg-[#7C3AED]', hoverText: 'group-hover:text-[#7C3AED]', shadow: 'hover:shadow-[#7C3AED]/10', topBar: 'bg-[#7C3AED]'
+    }
+];
+
+const CaseStudyCard = ({ study, onClick, index = 0 }: { study: CaseStudy; onClick: () => void; index?: number }) => {
+    const color = RESOURCE_COLORS[index % RESOURCE_COLORS.length];
     return (
         <motion.div
             layoutId={`card-${study.id}`}
@@ -81,29 +101,29 @@ const CaseStudyCard = ({ study, onClick }: { study: CaseStudy; onClick: () => vo
             onClick={onClick}
             className="group cursor-pointer h-full"
         >
-            <div className="h-full rounded-3xl border shadow-xl bg-white border-[#2D6A4F]/10 hover:border-[#2D6A4F]/25 hover:shadow-2xl hover:shadow-[#2D6A4F]/5 shadow-gray-100/50 transition-all duration-300 relative overflow-hidden flex flex-col p-8">
+            <div className={`h-full rounded-3xl border shadow-xl ${color.bg} ${color.border} hover:shadow-2xl ${color.shadow} shadow-gray-100/50 transition-all duration-300 relative overflow-hidden flex flex-col p-8`}>
                 {/* Top slide bar */}
-                <div className="absolute top-0 left-0 w-full h-1 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 bg-[#2D6A4F]" />
+                <div className={`absolute top-0 left-0 w-full h-1 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ${color.topBar}`} />
 
                 <div className="mb-6 flex justify-between items-start">
-                    <div className="p-3.5 rounded-2xl bg-[#E8F5EE] text-[#2D6A4F] group-hover:bg-[#2D6A4F] group-hover:text-white transition-all duration-300">
+                    <div className={`p-3.5 rounded-2xl ${color.iconBg} ${color.iconColor} ${color.hoverBg} group-hover:text-white transition-all duration-300`}>
                         <study.icon className="w-5 h-5" />
                     </div>
-                    <span className="px-3 py-1 text-[10px] font-bold tracking-wider uppercase rounded-full border bg-[#E8F5EE]/40 border-[#2D6A4F]/15 text-[#2D6A4F]">
+                    <span className={`px-3 py-1 text-[10px] font-bold tracking-wider uppercase rounded-full border ${color.badgeBg} ${color.badgeBorder} ${color.iconColor}`}>
                         {study.category}
                     </span>
                 </div>
 
-                <h3 className="text-lg font-serif font-black text-gray-950 mb-3 group-hover:text-[#2D6A4F] transition-colors duration-200 line-clamp-2">
+                <h3 className={`text-lg font-serif font-black text-gray-950 mb-3 ${color.hoverText} transition-colors duration-200 line-clamp-2`}>
                     {study.title}
                 </h3>
 
                 {/* FIXED: high contrast description text-slate-500 prevents invisible body text */}
-                <p className="text-sm text-slate-500 font-medium font-body leading-relaxed mb-6 flex-grow">
+                <p className="text-sm text-slate-500 font-body leading-relaxed mb-6 flex-grow">
                     {study.description}
                 </p>
 
-                <div className="flex items-center font-bold text-xs uppercase tracking-wider text-[#2D6A4F] group/btn">
+                <div className={`flex items-center font-bold text-xs uppercase tracking-wider ${color.iconColor} group/btn`}>
                     View Case Study
                     <ArrowUpRight className="w-4 h-4 ml-1 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
                 </div>
@@ -112,53 +132,54 @@ const CaseStudyCard = ({ study, onClick }: { study: CaseStudy; onClick: () => vo
     );
 };
 
-const BlogCard = ({ post }: { post: BlogPost }) => {
+const BlogCard = ({ post, index = 0 }: { post: BlogPost; index?: number }) => {
+    const color = RESOURCE_COLORS[index % RESOURCE_COLORS.length];
     return (
         <Link to={`/resources/blog/${post.slug}`}>
-        <motion.div
-            whileHover={{ y: -6, transition: { duration: 0.2 } }}
-            className="group cursor-pointer h-full"
-        >
-            <div className="rounded-3xl border shadow-xl bg-white border-[#2D6A4F]/10 hover:border-[#2D6A4F]/25 hover:shadow-2xl hover:shadow-[#2D6A4F]/5 shadow-gray-100/50 transition-all duration-300 overflow-hidden flex flex-col h-full">
-                <div className="relative h-52 overflow-hidden">
-                    {post.image && (
-                        <img
-                            src={post.image}
-                            alt={post.title}
-                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
-                    )}
-                    <div className="absolute top-4 left-4 backdrop-blur-sm bg-white/90 text-[#2D6A4F] border border-[#2D6A4F]/15 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">
-                        {post.category}
-                    </div>
-                </div>
-
-                <div className="p-7 flex flex-col flex-grow">
-                    <div className="flex items-center gap-4 text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-3">
-                        <span className="flex items-center gap-1"><Calendar className="w-3.5 h-3.5 text-[#2D6A4F]/70" /> {post.date}</span>
-                        <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5 text-[#2D6A4F]/70" /> {post.readTime}</span>
+            <motion.div
+                whileHover={{ y: -6, transition: { duration: 0.2 } }}
+                className="group cursor-pointer h-full"
+            >
+                <div className={`rounded-3xl border shadow-xl ${color.bg} ${color.border} hover:shadow-2xl ${color.shadow} shadow-gray-100/50 transition-all duration-300 overflow-hidden flex flex-col h-full`}>
+                    <div className="relative h-52 overflow-hidden">
+                        {post.image && (
+                            <img
+                                src={post.image.startsWith('http') || post.image.startsWith('/') ? post.image : `/${post.image}`}
+                                alt={post.title}
+                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            />
+                        )}
+                        <div className={`absolute top-4 left-4 backdrop-blur-sm bg-white/90 ${color.iconColor} border ${color.badgeBorder} px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider`}>
+                            {post.category}
+                        </div>
                     </div>
 
-                    <h3 className="text-lg font-serif font-black text-gray-950 mb-3 group-hover:text-[#2D6A4F] transition-colors duration-200 line-clamp-2">
-                        {post.title}
-                    </h3>
+                    <div className="p-7 flex flex-col flex-grow">
+                        <div className="flex items-center gap-4 text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-3">
+                            <span className="flex items-center gap-1"><Calendar className={`w-3.5 h-3.5 opacity-70 ${color.iconColor}`} /> {post.date}</span>
+                            <span className="flex items-center gap-1"><Clock className={`w-3.5 h-3.5 opacity-70 ${color.iconColor}`} /> {post.readTime}</span>
+                        </div>
 
-                    {/* FIXED: text-slate-500 prevents white-on-white text issues */}
-                    <p className="text-sm text-slate-500 font-medium font-body leading-relaxed mb-6 line-clamp-3">
-                        {post.excerpt}
-                    </p>
+                        <h3 className={`text-lg font-serif font-black text-gray-950 mb-3 ${color.hoverText} transition-colors duration-200 line-clamp-2`}>
+                            {post.title}
+                        </h3>
 
-                    <div className="mt-auto flex items-center justify-between pt-4.5 border-t border-gray-100">
-                        <div className="flex items-center gap-2">
-                            <div className="w-6 h-6 rounded-full flex items-center justify-center bg-[#E8F5EE] text-[#2D6A4F]">
-                                <User className="w-3.5 h-3.5" />
+                        {/* FIXED: text-slate-500 prevents white-on-white text issues */}
+                        <p className="text-sm text-slate-500 font-body leading-relaxed mb-6 line-clamp-3">
+                            {post.excerpt}
+                        </p>
+
+                        <div className="mt-auto flex items-center justify-between pt-4.5 border-t border-gray-100">
+                            <div className="flex items-center gap-2">
+                                <div className={`w-6 h-6 rounded-full flex items-center justify-center ${color.iconBg} ${color.iconColor}`}>
+                                    <User className="w-3.5 h-3.5" />
+                                </div>
+                                <span className="text-xs font-bold text-slate-600 font-body">{post.author}</span>
                             </div>
-                            <span className="text-xs font-bold text-slate-600 font-body">{post.author}</span>
                         </div>
                     </div>
                 </div>
-            </div>
-        </motion.div>
+            </motion.div>
         </Link>
     );
 };
@@ -200,10 +221,10 @@ export const ResourcesPage = () => {
 
     return (
         <div className="relative min-h-screen pb-24 bg-gradient-to-b from-white via-white to-[#FAFCFB] font-body">
-            <SEO 
-                title="Resources | Frostrek AI - Insights & Success Stories" 
-                description="Deep dives into how Frostrek AI helps enterprises build production-ready AI systems through high-quality data operations and citable case studies." 
-                path="/resources" 
+            <SEO
+                title="Resources | Frostrek AI - Insights & Success Stories"
+                description="Deep dives into how Frostrek AI helps enterprises build production-ready AI systems through high-quality data operations and citable case studies."
+                path="/resources"
             />
 
             <ResourcesHero />
@@ -248,115 +269,17 @@ export const ResourcesPage = () => {
                             className="relative"
                         >
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                                {(isExpanded ? CASE_STUDIES : CASE_STUDIES.slice(0, 6)).map((study) => (
+                                {(isExpanded ? CASE_STUDIES : CASE_STUDIES.slice(0, 6)).map((study, index) => (
                                     <div key={study.id}>
                                         <CaseStudyCard
                                             study={study}
+                                            index={index}
                                             onClick={() => setSelectedStudy(study)}
                                         />
                                     </div>
                                 ))}
                             </div>
 
-                            {/* Innovative CTA Section */}
-                            {!isExpanded && (
-                                <motion.div
-                                    initial={{ opacity: 0, y: 30 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.3, duration: 0.6 }}
-                                    className="mt-20"
-                                >
-                                    <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-white via-[#FAFCFB] to-white border border-[#2D6A4F]/10 shadow-2xl shadow-[#2D6A4F]/5">
-                                        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                                            <div className="absolute top-0 right-0 w-96 h-96 rounded-full blur-[100px] opacity-15 bg-[#E8F5EE]" />
-                                            <div className="absolute bottom-0 left-0 w-72 h-72 rounded-full blur-[80px] opacity-10 bg-[#2D6A4F]/5" />
-                                        </div>
-
-                                        <div className="relative z-10 p-8 md:p-14">
-                                            <div className="flex flex-col lg:flex-row items-center gap-12">
-
-                                                {/* Left: Stacked Cards Preview */}
-                                                <div className="relative w-full lg:w-auto flex-shrink-0">
-                                                    <div className="relative h-44 w-full lg:w-80 flex items-center justify-center">
-                                                        {[2, 1, 0].map((i) => (
-                                                            <motion.div
-                                                                key={i}
-                                                                initial={{ opacity: 0, y: 20 }}
-                                                                animate={{ opacity: 1, y: 0 }}
-                                                                transition={{ delay: 0.4 + i * 0.1 }}
-                                                                className="absolute rounded-2xl shadow-xl bg-white border border-gray-150"
-                                                                style={{
-                                                                    width: `${210 - i * 20}px`,
-                                                                    height: `${140 - i * 15}px`,
-                                                                    transform: `translateY(${i * 12}px) rotate(${(i - 1) * 3}deg)`,
-                                                                    zIndex: 3 - i,
-                                                                }}
-                                                            >
-                                                                <div className="p-4 h-full flex flex-col justify-between">
-                                                                    <div className="w-8 h-8 rounded-lg bg-[#E8F5EE]" />
-                                                                    <div className="space-y-2">
-                                                                        <div className="h-1.5 rounded-full bg-slate-100" style={{ width: `${80 - i * 10}%` }} />
-                                                                        <div className="h-1.5 rounded-full bg-slate-100" style={{ width: `${60 - i * 10}%` }} />
-                                                                    </div>
-                                                                </div>
-                                                             </motion.div>
-                                                        ))}
-                                                    </div>
-
-                                                    {/* Floating count badge — outside the clipping container */}
-                                                    <motion.div
-                                                        initial={{ scale: 0 }}
-                                                        animate={{ scale: 1 }}
-                                                        transition={{ delay: 0.8, type: 'spring', stiffness: 260, damping: 18 }}
-                                                        className="absolute -top-4 -right-4 w-14 h-14 rounded-full flex items-center justify-center shadow-xl bg-[#2D6A4F] text-white border-[3px] border-white z-20"
-                                                    >
-                                                        <span className="text-base font-extrabold leading-none tracking-tight">+{CASE_STUDIES.length - 6}</span>
-                                                    </motion.div>
-                                                </div>
-
-                                                {/* Center: Content details */}
-                                                <div className="flex-1 text-center lg:text-left space-y-4">
-                                                    <h3 className="text-3xl font-serif font-black text-gray-950">
-                                                        Unlock All Case Studies
-                                                    </h3>
-                                                    <p className="text-sm text-slate-500 font-medium leading-relaxed max-w-xl">
-                                                        Dive into our complete library of AI transformation stories across every industry.
-                                                    </p>
-
-                                                    {/* Category Pills */}
-                                                    <div className="flex flex-wrap justify-center lg:justify-start gap-2">
-                                                        {['Computer Vision', 'NLP', 'Data Ops', 'Automation'].map((cat, i) => (
-                                                            <motion.span
-                                                                key={cat}
-                                                                initial={{ opacity: 0, scale: 0.8 }}
-                                                                animate={{ opacity: 1, scale: 1 }}
-                                                                transition={{ delay: 0.6 + i * 0.1 }}
-                                                                className="px-3.5 py-1.5 text-[10px] font-extrabold uppercase tracking-wider bg-[#E8F5EE] text-[#2D6A4F] border border-[#2D6A4F]/10 rounded-full"
-                                                            >
-                                                                {cat}
-                                                            </motion.span>
-                                                        ))}
-                                                    </div>
-                                                </div>
-
-                                                {/* Right: CTA Button */}
-                                                <div className="flex-shrink-0">
-                                                    <motion.button
-                                                        onClick={() => setIsExpanded(true)}
-                                                        whileTap={{ scale: 0.97 }}
-                                                        className="group relative px-8 py-4 rounded-2xl font-medium text-sm bg-[#2D6A4F] hover:bg-[#1B4332] text-white shadow-lg shadow-[#2D6A4F]/10 transition-all duration-300 flex items-center gap-3 cursor-pointer overflow-hidden"
-                                                    >
-                                                        <FlipText>
-                                                            Explore All
-                                                            <ArrowUpRight className="w-4 h-4 text-white" />
-                                                        </FlipText>
-                                                    </motion.button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </motion.div>
-                            )}
                         </motion.div>
                     ) : (
                         <motion.div
@@ -368,10 +291,11 @@ export const ResourcesPage = () => {
                             className="relative"
                         >
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                                {(isExpanded ? BLOG_POSTS : BLOG_POSTS.slice(0, 6)).map((post) => (
+                                {(isExpanded ? BLOG_POSTS : BLOG_POSTS.slice(0, 6)).map((post, index) => (
                                     <div key={post.id}>
                                         <BlogCard
                                             post={post}
+                                            index={index}
                                         />
                                     </div>
                                 ))}
@@ -438,7 +362,7 @@ export const ResourcesPage = () => {
                                                     <h3 className="text-3xl font-serif font-black text-gray-950">
                                                         More Insights Await
                                                     </h3>
-                                                    <p className="text-sm text-slate-500 font-medium leading-relaxed max-w-xl">
+                                                    <p className="text-sm text-slate-500 leading-relaxed max-w-xl">
                                                         Explore deep technical articles and industry perspectives from our core engineering team.
                                                     </p>
 
@@ -493,17 +417,17 @@ export const ResourcesPage = () => {
                     >
                         <motion.div
                             layoutId={`card-${selectedStudy.id}`}
-                            className="rounded-3xl shadow-2xl w-full max-w-4xl max-h-[85vh] overflow-y-auto bg-white border border-[#2D6A4F]/10 overscroll-contain relative"
+                            className="rounded-3xl shadow-2xl w-full max-w-4xl max-h-[85vh] bg-white border border-[#2D6A4F]/10 relative overflow-hidden flex flex-col"
                             onClick={(e) => e.stopPropagation()}
                         >
                             <button
                                 onClick={() => setSelectedStudy(null)}
-                                className="absolute top-5 right-5 p-2 rounded-full bg-gray-100 hover:bg-[#E8F5EE] text-[#2D6A4F] hover:scale-105 transition-all duration-200 z-10 cursor-pointer"
+                                className="absolute top-5 right-5 p-2 rounded-full bg-gray-100 hover:bg-[#E8F5EE] text-[#2D6A4F] hover:scale-105 transition-all duration-200 z-20 cursor-pointer"
                             >
                                 <X size={18} />
                             </button>
 
-                            <div className="p-8 md:p-12">
+                            <div className="overflow-y-auto overscroll-contain p-8 md:p-12 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-gray-200 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-gray-300">
                                 <div className="flex items-center gap-3 mb-6">
                                     <div className="p-3.5 rounded-2xl bg-[#E8F5EE] text-[#2D6A4F]">
                                         <selectedStudy.icon className="w-6 h-6" />
@@ -520,20 +444,20 @@ export const ResourcesPage = () => {
                                 {/* Metadata Grid */}
                                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10 p-6 rounded-2xl border bg-[#FAFCFB] border-[#2D6A4F]/10">
                                     <div>
-                                        <div className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 mb-1 font-body">Client Type</div>
-                                        <div className="text-sm font-bold text-gray-950">{selectedStudy.client}</div>
+                                        <div className="text-[12px] font-bold mb-1 text-black uppercase font-body">Client Type</div>
+                                        <div className="text-sm text-gray-600">{selectedStudy.client}</div>
                                     </div>
                                     <div>
-                                        <div className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 mb-1 font-body">Duration</div>
-                                        <div className="text-sm font-bold text-gray-950">{selectedStudy.duration}</div>
+                                        <div className="text-[12px] font-bold mb-1 text-black uppercase font-body">Duration</div>
+                                        <div className="text-sm text-gray-600">{selectedStudy.duration}</div>
                                     </div>
                                     <div className="col-span-2">
-                                        <div className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 mb-1 font-body">Project Team</div>
-                                        <div className="text-sm font-bold text-gray-950">{selectedStudy.team}</div>
+                                        <div className="text-[12px] font-bold mb-1 text-black uppercase font-body">Project Team</div>
+                                        <div className="text-sm text-gray-600">{selectedStudy.team}</div>
                                     </div>
                                 </div>
 
-                                <div className="space-y-8 leading-relaxed text-slate-600 font-medium font-body text-base md:text-lg">
+                                <div className="space-y-8 leading-relaxed text-slate-600 font-body text-base md:text-lg">
                                     <section className="space-y-2">
                                         <h3 className="text-lg font-serif font-black text-gray-950 flex items-center gap-2">
                                             <span className="w-1.5 h-6 rounded-full bg-[#2D6A4F]" />
@@ -640,7 +564,7 @@ export const ResourcesPage = () => {
                                     </div>
                                 </div>
 
-                                <div className="prose max-w-none text-slate-600 font-medium font-body leading-relaxed text-base md:text-lg">
+                                <div className="prose max-w-none text-slate-600 font-body leading-relaxed text-base md:text-lg">
                                     <p className="text-lg md:text-xl font-bold mb-8 text-slate-800 leading-relaxed border-l-4 border-[#2D6A4F] pl-4">
                                         {selectedBlog.excerpt}
                                     </p>

@@ -4,7 +4,6 @@ import CuteBackground from '../components/ui/CuteBackground';
 import { useRef, useState, useEffect, useMemo, memo } from 'react';
 import { TIMELINE_DATA } from '../utils/aboutData';
 import InnovationProcess from '../components/about/InnovationProcess';
-import CTASection from '../components/home/CTASection';
 import { useNavigate } from 'react-router-dom';
 import SEO from '../components/seo/SEO';
 import FlipText from '../components/ui/FlipText';
@@ -1102,7 +1101,7 @@ const About = () => {
             <section id="stats" className="py-12 md:py-20 relative z-10">
                 <div className="container mx-auto px-4">
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="max-w-4xl mx-auto space-y-12">
-                        <motion.p variants={fadeUp} className="text-center text-slate-600 text-lg md:text-xl font-body font-semibold max-w-2xl mx-auto leading-relaxed">
+                        <motion.p variants={fadeUp} className="text-center text-slate-600 text-lg md:text-xl font-body max-w-2xl mx-auto leading-relaxed">
                             Pioneering enterprise AI software built for compliance, scale, and high-performance outcomes.
                         </motion.p>
 
@@ -1471,7 +1470,7 @@ const About = () => {
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16 space-y-2">
                         <h2 className="text-3xl sm:text-4xl font-serif text-[#2D6A4F]">Why Frostrek?</h2>
-                        <p className="text-slate-600 font-body font-semibold">Our unique platform advantages</p>
+                        <p className="text-slate-600 font-body">Our unique platform advantages</p>
                     </div>
 
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto">
@@ -1657,8 +1656,6 @@ const About = () => {
                 </div>
             </section>
 
-            {/* ===== CTA SECTION ===== */}
-            <CTASection />
         </div>
     );
 };

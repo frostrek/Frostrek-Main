@@ -477,7 +477,7 @@ const ManufacturingIntelligencePage = () => {
                         {/* Subtext */}
                         <SplitTextReveal
                             as="p"
-                            className="text-lg md:text-xl mb-10 max-w-4xl mx-auto leading-relaxed text-gray-500 font-medium"
+                            className="text-lg md:text-xl mb-10 max-w-4xl mx-auto leading-relaxed text-gray-500"
                             type="words" stagger={0.015} once={false} delay={0.5}
                         >
                             Most factories aren't limited by their machines — they're limited by what they can't see. We connect your existing ERP, WMS, PLC, and SCADA systems into a single real-time intelligence platform that eliminates guesswork, replaces WhatsApp operations, and unlocks capacity you already own.
@@ -492,7 +492,7 @@ const ManufacturingIntelligencePage = () => {
                         >
                             <Link
                                 to="/contact"
-                                className="group relative w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 bg-[#2D6A4F] text-white rounded-full font-bold text-lg transition-all hover:bg-[#1B4332] shadow-[0_10px_30px_rgba(45,106,79,0.2)] hover:shadow-[0_10px_40px_rgba(45,106,79,0.3)] hover:-translate-y-0.5"
+                                className="group relative w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 bg-[#2D6A4F] text-white rounded-full font-medium text-lg transition-all hover:bg-[#1B4332] shadow-[0_10px_30px_rgba(45,106,79,0.2)] hover:shadow-[0_10px_40px_rgba(45,106,79,0.3)] hover:-translate-y-0.5"
                             >
                                 Build Your Platform
                                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -512,7 +512,7 @@ const ManufacturingIntelligencePage = () => {
                         <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]">
                             The Problem We Solve
                         </h2>
-                        <p className="max-w-2xl mx-auto text-base md:text-lg text-gray-500 font-medium mt-4">
+                        <p className="max-w-2xl mx-auto text-base md:text-lg text-gray-500 mt-4">
                             Running a modern factory on disconnected systems and WhatsApp is not a strategy — it's a liability.
                         </p>
                     </div>
@@ -528,7 +528,7 @@ const ManufacturingIntelligencePage = () => {
                                         </div>
                                         <div>
                                             <h3 className={`font-serif text-[15px] md:text-lg font-bold mb-1 ${pt.headingColor}`}>{pt.title}</h3>
-                                            <p className="text-gray-600 text-[12px] md:text-sm leading-snug md:leading-relaxed font-medium">{pt.description}</p>
+                                            <p className="text-gray-600 text-[12px] md:text-sm leading-snug md:leading-relaxed">{pt.description}</p>
                                         </div>
                                     </div>
                                 );
@@ -575,19 +575,16 @@ const ManufacturingIntelligencePage = () => {
                             <h2 className="build-el font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]">
                                 What We Build
                             </h2>
-                            <h3 className="build-el font-sans text-xl font-bold text-[#1B4332]">
+                            <h3 className="build-el font-sans text-base md:text-lg text-gray-600">
                                 A unified manufacturing intelligence platform — built on your existing systems, with zero hardware installation.
                             </h3>
-                            <p className="build-el text-gray-600 text-base md:text-lg leading-relaxed font-medium">
+                            <p className="build-el text-gray-600 text-base md:text-lg">
                                 We build the connection layer your factory is missing. We integrate directly with your ERP (read-only SQL), your warehouse management system (REST API), your PLC-controlled production machines (EtherNet/IP or OPC-UA), and your plant SCADA systems (MQTT).
-                            </p>
-                            <p className="build-el text-gray-500 text-sm leading-relaxed font-medium">
-                                No changes to your existing systems. No new hardware. No disruption to production. Everything your factory already generates — orders, job cards, sensor readings, shift data, quality results — flows into one secure cloud platform, displayed in a single real-time dashboard built for how your team actually works.
                             </p>
                             <div className="build-el pt-4">
                                 <Link
                                     to="/contact"
-                                    className="inline-flex items-center gap-3 px-6 py-3 bg-[#2D6A4F] text-white rounded-full font-bold text-md transition-all hover:bg-[#1B4332] shadow-md hover:-translate-y-0.5"
+                                    className="inline-flex items-center gap-3 px-6 py-3 bg-[#2D6A4F] text-white rounded-full font-medium text-md transition-all hover:bg-[#1B4332] shadow-md hover:-translate-y-0.5"
                                 >
                                     Build Your Platform
                                     <ArrowRight className="w-4 h-4" />
@@ -677,7 +674,7 @@ const ManufacturingIntelligencePage = () => {
                         <div className="mt-4">
                             <SplitTextReveal
                                 as="p"
-                                className="max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                                className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
                                 We don't drop a system and disappear. We build in phases — each one delivering value before the next begins.
@@ -696,7 +693,7 @@ const ManufacturingIntelligencePage = () => {
                                     <img src={step.icon} alt={step.title} className="w-8 h-8 md:w-10 md:h-10 object-contain opacity-80" />
                                 </div>
                                 <h3 className={`font-serif text-[15px] sm:text-lg md:text-xl font-bold mb-2 md:mb-3 ${step.headingColor}`}>{step.title}</h3>
-                                <p className="text-[13px] sm:text-sm leading-relaxed text-gray-500 font-medium px-1 sm:px-2 mb-4 md:mb-6 min-h-[5rem] md:min-h-[80px]">{step.description}</p>
+                                <p className="text-[13px] sm:text-sm leading-relaxed text-gray-500 px-1 sm:px-2 mb-4 md:mb-6 min-h-[5rem] md:min-h-[80px]">{step.description}</p>
 
                                 {/* Timeline & Step number */}
                                 <div className="mt-auto flex flex-col items-center gap-3 w-full">
@@ -718,7 +715,7 @@ const ManufacturingIntelligencePage = () => {
                         <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]">
                             Systems We Connect
                         </h2>
-                        <p className="max-w-2xl mx-auto text-base md:text-lg text-gray-500 font-medium mt-4">
+                        <p className="max-w-2xl mx-auto text-base md:text-lg text-gray-500 mt-4">
                             We integrate with the systems your factory already runs — read-only, non-disruptive, and secure.
                         </p>
                     </div>
@@ -736,7 +733,7 @@ const ManufacturingIntelligencePage = () => {
                                     </div>
                                     <div className="flex-1">
                                         <h3 className={`font-serif text-[14px] md:text-xl font-bold mb-1 md:mb-3 ${sys.headingColor}`}>{sys.title}</h3>
-                                        <p className="text-gray-600 text-[11px] md:text-sm leading-snug md:leading-relaxed font-medium">{sys.description}</p>
+                                        <p className="text-gray-600 text-[11px] md:text-sm leading-snug md:leading-relaxed">{sys.description}</p>
                                     </div>
                                 </div>
                             </SpotlightCard>
@@ -752,7 +749,7 @@ const ManufacturingIntelligencePage = () => {
                         <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]">
                             Key Capabilities
                         </h2>
-                        <p className="max-w-2xl mx-auto text-base md:text-lg text-gray-500 font-medium mt-4">
+                        <p className="max-w-2xl mx-auto text-base md:text-lg text-gray-500 mt-4">
                             Six core capabilities delivered across three phases — each solving a specific operational problem.
                         </p>
                     </div>
@@ -770,7 +767,7 @@ const ManufacturingIntelligencePage = () => {
                                     </div>
                                     <div className="flex-1">
                                         <h3 className={`font-serif text-[13px] md:text-lg font-bold mb-1 md:mb-2 ${cap.headingColor}`}>{cap.title}</h3>
-                                        <p className="text-gray-600 text-[10px] md:text-xs leading-snug md:leading-relaxed font-medium">{cap.description}</p>
+                                        <p className="text-gray-600 text-[10px] md:text-xs leading-snug md:leading-relaxed">{cap.description}</p>
                                     </div>
                                 </div>
                             </SpotlightCard>
@@ -786,7 +783,7 @@ const ManufacturingIntelligencePage = () => {
                         <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]">
                             Who It's For
                         </h2>
-                        <p className="max-w-2xl mx-auto text-base md:text-lg text-gray-500 font-medium mt-4">
+                        <p className="max-w-2xl mx-auto text-base md:text-lg text-gray-500 mt-4">
                             Built for manufacturers who know their machines are capable — but can't see what's holding them back.
                         </p>
                     </div>
@@ -803,7 +800,7 @@ const ManufacturingIntelligencePage = () => {
                                         <img src={aud.icon} alt={aud.title} className="w-3.5 h-3.5 md:w-5 md:h-5 object-contain" />
                                     </div>
                                     <h3 className={`font-serif text-[13px] md:text-lg font-bold mb-1 md:mb-2 ${aud.headingColor}`}>{aud.title}</h3>
-                                    <p className="text-gray-600 text-[10px] md:text-xs leading-snug md:leading-relaxed font-medium">{aud.description}</p>
+                                    <p className="text-gray-600 text-[10px] md:text-xs leading-snug md:leading-relaxed">{aud.description}</p>
                                 </div>
                             </SpotlightCard>
                         ))}
@@ -826,7 +823,7 @@ const ManufacturingIntelligencePage = () => {
                         <div className="mt-4">
                             <SplitTextReveal
                                 as="p"
-                                className="max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                                className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
                                 Enterprise-grade tools. Factory-floor reliability.
@@ -871,20 +868,20 @@ const ManufacturingIntelligencePage = () => {
                 <div className="container mx-auto px-4 md:px-6 relative z-10 text-center max-w-[1400px]">
                     <div className="max-w-4xl mx-auto bg-white p-8 sm:p-10 md:p-16 rounded-[2rem] md:rounded-[3rem] border border-[#E6EFE6] shadow-[0_20px_60px_rgba(45,106,79,0.04)]">
                         <div className="flex flex-col items-center">
-                            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]">
+                            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]">
                                 Ready to See Your
                             </h2>
-                            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]">
+                            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl mb-6 text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]">
                                 Factory in Real Time?
                             </h2>
                         </div>
-                        <p className="text-base md:text-lg text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed font-medium">
+                        <p className="text-base md:text-lg text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed">
                             Let's talk about connecting your systems, recovering your capacity, and putting AI to work on your production floor.
                         </p>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                             <Link
                                 to="/contact"
-                                className="cta-btn group relative flex items-center gap-3 px-10 py-5 bg-[#2D6A4F] text-white rounded-full font-bold text-lg transition-all hover:bg-[#1B4332] shadow-[0_10px_30px_rgba(45,106,79,0.2)] hover:shadow-[0_10px_40px_rgba(45,106,79,0.3)] hover:-translate-y-0.5 overflow-hidden"
+                                className="cta-btn group relative flex items-center gap-3 px-10 py-5 bg-[#2D6A4F] text-white rounded-full font-medium text-lg transition-all hover:bg-[#1B4332] shadow-[0_10px_30px_rgba(45,106,79,0.2)] hover:shadow-[0_10px_40px_rgba(45,106,79,0.3)] hover:-translate-y-0.5 overflow-hidden"
                             >
                                 Build Your Platform
                                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />

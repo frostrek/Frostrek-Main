@@ -406,7 +406,7 @@ const FintechWalletsPage = () => {
                         {/* Subtext */}
                         <SplitTextReveal
                             as="p"
-                            className="text-lg md:text-xl mb-10 max-w-3xl mx-auto leading-relaxed text-gray-500 font-medium"
+                            className="text-lg md:text-xl mb-10 max-w-3xl mx-auto leading-relaxed text-gray-500"
                             type="words" stagger={0.015} once={false} delay={0.6}
                         >
                             We build production-grade digital wallets, payment infrastructure, and stablecoin platforms that handle real money, real compliance, and real users — engineered from the ground up by Frostrek.
@@ -422,7 +422,7 @@ const FintechWalletsPage = () => {
                             <Link
                                 to="/contact"
                                 id="fintech-hero-cta-primary"
-                                className="group relative w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 bg-[#2D6A4F] text-white rounded-full font-bold text-lg transition-all hover:bg-[#1B4332] shadow-[0_10px_30px_rgba(45,106,79,0.2)] hover:shadow-[0_10px_40px_rgba(45,106,79,0.3)] hover:-translate-y-0.5"
+                                className="group relative w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 bg-[#2D6A4F] text-white rounded-full font-medium text-lg transition-all hover:bg-[#1B4332] shadow-[0_10px_30px_rgba(45,106,79,0.2)] hover:shadow-[0_10px_40px_rgba(45,106,79,0.3)] hover:-translate-y-0.5"
                             >
                                 Talk to Us
                                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -449,7 +449,7 @@ const FintechWalletsPage = () => {
                         <div className="mt-4">
                             <SplitTextReveal
                                 as="p"
-                                className="max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                                className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
                                 End-to-end fintech solutions across wallets, payments, blockchain, and rewards.
@@ -470,7 +470,7 @@ const FintechWalletsPage = () => {
                                     </div>
                                     <div className="flex-1">
                                         <h3 className={`font-serif text-[15px] md:text-xl font-bold mb-1 md:mb-2 ${item.headingColor}`}>{item.title}</h3>
-                                        <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600 font-medium">{item.description}</p>
+                                        <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600">{item.description}</p>
                                     </div>
                                 </div>
                             </SpotlightCard>
@@ -493,7 +493,7 @@ const FintechWalletsPage = () => {
                         <div className="mt-4">
                             <SplitTextReveal
                                 as="p"
-                                className="max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                                className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
                                 Deep technical expertise across payments, blockchain, and compliance — everything needed to build financial infrastructure that works.
@@ -515,7 +515,7 @@ const FintechWalletsPage = () => {
                                 {CAPABILITIES_LEFT.map((item) => (
                                     <li key={item} className="cap-item flex items-start gap-2 md:gap-3">
                                         <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-[#0284C7] flex-shrink-0 mt-0.5" strokeWidth={2} />
-                                        <span className="text-gray-700 font-medium text-[12px] md:text-sm leading-snug md:leading-relaxed">{item}</span>
+                                        <span className="text-gray-700 text-[12px] md:text-sm leading-snug md:leading-relaxed">{item}</span>
                                     </li>
                                 ))}
                             </ul>
@@ -533,7 +533,7 @@ const FintechWalletsPage = () => {
                                 {CAPABILITIES_RIGHT.map((item) => (
                                     <li key={item} className="cap-item flex items-start gap-2 md:gap-3">
                                         <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-[#166534] flex-shrink-0 mt-0.5" strokeWidth={2} />
-                                        <span className="text-gray-700 font-medium text-[12px] md:text-sm leading-snug md:leading-relaxed">{item}</span>
+                                        <span className="text-gray-700 text-[12px] md:text-sm leading-snug md:leading-relaxed">{item}</span>
                                     </li>
                                 ))}
                             </ul>
@@ -556,7 +556,7 @@ const FintechWalletsPage = () => {
                         <div className="mt-4">
                             <SplitTextReveal
                                 as="p"
-                                className="max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                                className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
                                 Fintech solutions tailored to the unique needs of different verticals.
@@ -576,7 +576,7 @@ const FintechWalletsPage = () => {
                                         <img src={ind.icon} alt={ind.title} className="w-4 h-4 md:w-7 md:h-7 object-contain" />
                                     </div>
                                     <h3 className={`font-serif text-[14px] md:text-xl font-bold mb-1 md:mb-2 ${ind.headingColor}`}>{ind.title}</h3>
-                                    <p className="text-gray-600 text-[11px] md:text-sm leading-snug md:leading-relaxed font-medium">{ind.description}</p>
+                                    <p className="text-gray-600 text-[11px] md:text-sm leading-snug md:leading-relaxed">{ind.description}</p>
                                 </div>
                             </SpotlightCard>
                         ))}
@@ -598,7 +598,7 @@ const FintechWalletsPage = () => {
                         <div className="mt-4">
                             <SplitTextReveal
                                 as="p"
-                                className="max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                                className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
                                 A proven process from discovery to deployment — transparent, collaborative, and engineered for scale.
@@ -617,7 +617,7 @@ const FintechWalletsPage = () => {
                                     <img src={step.icon} alt={step.title} className="w-6 h-6 md:w-10 md:h-10 object-contain opacity-80" />
                                 </div>
                                 <h3 className={`font-serif text-[14px] md:text-xl font-bold mb-1.5 md:mb-3 ${step.headingColor}`}>{step.title}</h3>
-                                <p className="text-[11px] md:text-sm leading-snug md:leading-relaxed text-gray-500 font-medium px-1 md:px-2 mb-3 md:mb-6 min-h-[5rem] md:min-h-[80px]">{step.description}</p>
+                                <p className="text-[11px] md:text-sm leading-snug md:leading-relaxed text-gray-500 px-1 md:px-2 mb-3 md:mb-6 min-h-[5rem] md:min-h-[80px]">{step.description}</p>
                                 {/* Step number badge */}
                                 <div className="w-6 h-6 md:w-8 md:h-8 rounded-full border border-[#2D6A4F]/30 flex items-center justify-center text-[#2D6A4F] text-xs md:text-sm font-bold bg-[#2D6A4F]/5 mt-auto shadow-sm">
                                     {step.step}
@@ -642,7 +642,7 @@ const FintechWalletsPage = () => {
                         <div className="mt-4">
                             <SplitTextReveal
                                 as="p"
-                                className="max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                                className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
                                 We work with the best tools and platforms in fintech and blockchain.
@@ -689,14 +689,14 @@ const FintechWalletsPage = () => {
                         <div className="flex flex-col items-center">
                             <SplitTextReveal
                                 as="h2"
-                                className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
+                                className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
                                 type="chars" stagger={0.02} once={false}
                             >
                                 Ready to Build Your
                             </SplitTextReveal>
                             <SplitTextReveal
                                 as="h2"
-                                className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
+                                className="font-serif text-3xl md:text-4xl lg:text-5xl mb-6 text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
                                 type="chars" stagger={0.02} once={false} delay={0.2}
                             >
                                 Fintech Platform?
@@ -704,7 +704,7 @@ const FintechWalletsPage = () => {
                         </div>
                         <SplitTextReveal
                             as="p"
-                            className="text-lg md:text-xl text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed font-medium"
+                            className="text-lg md:text-xl text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed"
                             type="words" stagger={0.02} once={false} delay={0.3}
                         >
                             Let's talk about your wallet, payment system, or blockchain integration.
@@ -713,7 +713,7 @@ const FintechWalletsPage = () => {
                             <Link
                                 to="/contact"
                                 id="fintech-cta-start-project"
-                                className="cta-btn group relative flex items-center gap-3 px-10 py-5 bg-[#2D6A4F] text-white rounded-full font-bold text-lg transition-all hover:bg-[#1B4332] shadow-[0_10px_30px_rgba(45,106,79,0.2)] hover:shadow-[0_10px_40px_rgba(45,106,79,0.3)] hover:-translate-y-0.5 overflow-hidden"
+                                className="cta-btn group relative flex items-center gap-3 px-10 py-5 bg-[#2D6A4F] text-white rounded-full text-lg transition-all hover:bg-[#1B4332] shadow-[0_10px_30px_rgba(45,106,79,0.2)] hover:shadow-[0_10px_40px_rgba(45,106,79,0.3)] hover:-translate-y-0.5 overflow-hidden"
                             >
                                 Start a Project
                                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />

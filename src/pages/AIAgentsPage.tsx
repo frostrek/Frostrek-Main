@@ -444,7 +444,7 @@ export default function AIAgentsPage() {
 
                         <SplitTextReveal
                             as="p"
-                            className="hero-el text-lg md:text-xl text-gray-600 font-medium leading-relaxed mb-10 max-w-3xl"
+                            className="hero-el text-lg md:text-xl text-gray-600 leading-relaxed mb-10 max-w-3xl"
                             type="words" stagger={0.015} once={false} delay={0.5}
                         >
                             We design and deploy custom AI agents that think, respond, and act — handling calls, conversations, workflows, and decisions at scale. Not off-the-shelf chatbots. Purpose-built agents trained on your data, integrated into your systems, and working 24/7 so your team doesn't have to.
@@ -458,7 +458,7 @@ export default function AIAgentsPage() {
                         >
                             <Link
                                 to="/contact"
-                                className="group relative w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 bg-[#2D6A4F] text-white rounded-full font-bold text-lg transition-all hover:bg-[#1B4332] shadow-[0_10px_30px_rgba(45,106,79,0.2)] hover:shadow-[0_10px_40px_rgba(45,106,79,0.3)] hover:-translate-y-0.5"
+                                className="group relative w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 bg-[#2D6A4F] text-white rounded-full font-medium text-lg transition-all hover:bg-[#1B4332] shadow-[0_10px_30px_rgba(45,106,79,0.2)] hover:shadow-[0_10px_40px_rgba(45,106,79,0.3)] hover:-translate-y-0.5"
                             >
                                 Build Your Agent
                                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -485,7 +485,7 @@ export default function AIAgentsPage() {
                         <div className="mt-4">
                             <SplitTextReveal
                                 as="p"
-                                className="max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                                className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
                                 Four categories of AI agents — each solving a different class of business problem.
@@ -506,7 +506,7 @@ export default function AIAgentsPage() {
                                     </div>
                                     <div className="flex-1">
                                         <h3 className={`font-serif text-[14px] md:text-xl font-bold mb-1 md:mb-3 ${agent.headingColor}`}>{agent.title}</h3>
-                                        <p className="text-gray-600 text-[11px] md:text-sm leading-snug md:leading-relaxed font-medium">{agent.description}</p>
+                                        <p className="text-gray-600 text-[11px] md:text-sm leading-snug md:leading-relaxed">{agent.description}</p>
                                     </div>
                                 </div>
                             </SpotlightCard>
@@ -522,7 +522,7 @@ export default function AIAgentsPage() {
                         <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]">
                             Key Capabilities
                         </h2>
-                        <p className="max-w-2xl mx-auto text-base md:text-lg text-gray-500 font-medium mt-4">
+                        <p className="max-w-2xl mx-auto text-base md:text-lg text-gray-500 mt-4">
                             The technical building blocks that make our agents genuinely intelligent — not just responsive.
                         </p>
                     </div>
@@ -539,7 +539,7 @@ export default function AIAgentsPage() {
                                         <img src={cap.icon} alt={cap.title} className="w-3.5 h-3.5 md:w-5 md:h-5 object-contain" />
                                     </div>
                                     <h3 className={`font-serif text-[13px] md:text-lg font-bold mb-1 md:mb-2 ${cap.headingColor}`}>{cap.title}</h3>
-                                    <p className="text-gray-600 text-[10px] md:text-xs leading-snug md:leading-relaxed font-medium">{cap.description}</p>
+                                    <p className="text-gray-600 text-[10px] md:text-xs leading-snug md:leading-relaxed">{cap.description}</p>
                                 </div>
                             </SpotlightCard>
                         ))}
@@ -561,7 +561,7 @@ export default function AIAgentsPage() {
                         <div className="mt-4">
                             <SplitTextReveal
                                 as="p"
-                                className="max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                                className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
                                 Under the hood — a purpose-built architecture for reliable, production-grade AI.
@@ -660,7 +660,7 @@ export default function AIAgentsPage() {
                         <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]">
                             Use Cases by Function
                         </h2>
-                        <p className="max-w-2xl mx-auto text-base md:text-lg text-gray-500 font-medium mt-4">
+                        <p className="max-w-2xl mx-auto text-base md:text-lg text-gray-500 mt-4">
                             AI agents aren't one-size-fits-all. Here's how different teams deploy them.
                         </p>
                     </div>
@@ -677,7 +677,7 @@ export default function AIAgentsPage() {
                                         <img src={useCase.icon} alt={useCase.title} className="w-3.5 h-3.5 md:w-5 md:h-5 object-contain" />
                                     </div>
                                     <h3 className={`font-serif text-[13px] md:text-xl font-bold mb-1 md:mb-3 ${useCase.headingColor}`}>{useCase.title}</h3>
-                                    <p className="text-gray-600 text-[10px] md:text-sm leading-snug md:leading-relaxed font-medium">{useCase.description}</p>
+                                    <p className="text-gray-600 text-[10px] md:text-sm leading-snug md:leading-relaxed">{useCase.description}</p>
                                 </div>
                             </SpotlightCard>
                         ))}
@@ -692,7 +692,7 @@ export default function AIAgentsPage() {
                         <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]">
                             Industries We Serve
                         </h2>
-                        <p className="max-w-2xl mx-auto text-base md:text-lg text-gray-500 font-medium mt-4">
+                        <p className="max-w-2xl mx-auto text-base md:text-lg text-gray-500 mt-4">
                             Deployed across industries where speed, accuracy, and scale of communication matter.
                         </p>
                     </div>
@@ -709,7 +709,7 @@ export default function AIAgentsPage() {
                                         <img src={ind.icon} alt={ind.title} className="w-3.5 h-3.5 md:w-5 md:h-5 object-contain" />
                                     </div>
                                     <h3 className={`font-serif text-[13px] md:text-lg font-bold mb-1 md:mb-2 ${ind.headingColor}`}>{ind.title}</h3>
-                                    <p className="text-gray-600 text-[10px] md:text-xs leading-snug md:leading-relaxed font-medium">{ind.description}</p>
+                                    <p className="text-gray-600 text-[10px] md:text-xs leading-snug md:leading-relaxed">{ind.description}</p>
                                 </div>
                             </SpotlightCard>
                         ))}
@@ -731,7 +731,7 @@ export default function AIAgentsPage() {
                         <div className="mt-4">
                             <SplitTextReveal
                                 as="p"
-                                className="max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                                className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
                                 From brief to deployed agent — a structured process that gets it right the first time.
@@ -750,7 +750,7 @@ export default function AIAgentsPage() {
                                     <img src={step.icon} alt={step.title} className="w-8 h-8 md:w-10 md:h-10 object-contain opacity-80" />
                                 </div>
                                 <h3 className={`font-serif text-[15px] sm:text-lg md:text-xl font-bold mb-2 md:mb-3 ${step.headingColor}`}>{step.title}</h3>
-                                <p className="text-[13px] sm:text-sm leading-relaxed text-gray-500 font-medium px-1 sm:px-2 mb-4 md:mb-6 min-h-[5rem] md:min-h-[80px]">{step.description}</p>
+                                <p className="text-[13px] sm:text-sm leading-relaxed text-gray-500 px-1 sm:px-2 mb-4 md:mb-6 min-h-[5rem] md:min-h-[80px]">{step.description}</p>
 
                                 {/* Step number badge */}
                                 <div className="mt-auto flex flex-col items-center gap-3 w-full">
@@ -778,7 +778,7 @@ export default function AIAgentsPage() {
                         <div className="mt-4">
                             <SplitTextReveal
                                 as="p"
-                                className="max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                                className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
                                 Best-in-class tools across every layer of the agent stack.
@@ -825,14 +825,14 @@ export default function AIAgentsPage() {
                         <div className="flex flex-col items-center">
                             <SplitTextReveal
                                 as="h2"
-                                className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
+                                className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
                                 type="chars" stagger={0.02} once={false}
                             >
                                 Ready to Deploy Your
                             </SplitTextReveal>
                             <SplitTextReveal
                                 as="h2"
-                                className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
+                                className="font-serif text-3xl md:text-4xl lg:text-5xl mb-6 text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
                                 type="chars" stagger={0.02} once={false} delay={0.2}
                             >
                                 First AI Agent?
@@ -840,7 +840,7 @@ export default function AIAgentsPage() {
 
                             <SplitTextReveal
                                 as="p"
-                                className="text-base md:text-lg text-gray-500 font-medium mb-10 max-w-2xl"
+                                className="text-base md:text-lg text-gray-500 mb-10 max-w-2xl"
                                 type="words" stagger={0.015} once={false} delay={0.4}
                             >
                                 Tell us your use case — sales, support, operations, or something entirely custom. We'll design and build the agent that works for your business.
@@ -853,7 +853,7 @@ export default function AIAgentsPage() {
                             >
                                 <Link
                                     to="/contact"
-                                    className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#2D6A4F] text-white rounded-full font-bold text-lg transition-all hover:bg-[#1B4332] shadow-[0_10px_30px_rgba(45,106,79,0.2)] hover:shadow-[0_10px_40px_rgba(45,106,79,0.3)] hover:-translate-y-0.5"
+                                    className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#2D6A4F] text-white rounded-full font-medium text-lg transition-all hover:bg-[#1B4332] shadow-[0_10px_30px_rgba(45,106,79,0.2)] hover:shadow-[0_10px_40px_rgba(45,106,79,0.3)] hover:-translate-y-0.5"
                                 >
                                     Build Your Agent
                                     <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />

@@ -19,7 +19,7 @@ const iconMap: Record<string, React.FC<any>> = {
     Shield, ShoppingBag, Layers
 };
 
-interface SubItem { name: string; href: string; desc: string; icon?: string; }
+interface SubItem { name: string; href: string; desc: string; icon?: string; hoverBgClass?: string; }
 interface Section { title: string; items: SubItem[]; }
 interface MegaMenuProps { sections: Section[]; onClose?: () => void; }
 
@@ -82,17 +82,22 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ sections, onClose }) => {
 
                                     <div className="space-y-3">
                                         {section.items.map((item, itemIdx) => {
-                                            const Icon = item.icon ? iconMap[item.icon] : Bot;
+                                            const isImageIcon = item.icon && item.icon.startsWith('/');
+                                            const IconComponent = !isImageIcon && item.icon ? iconMap[item.icon] : Bot;
                                             return (
                                                 <Link
                                                     key={itemIdx}
                                                     to={item.href}
                                                     onClick={onClose}
-                                                    className="group flex items-center gap-5 p-4.5 rounded-[1.5rem] transition-all duration-500 hover:bg-[#F4FAF7] hover:translate-x-1 relative overflow-hidden active:scale-[0.98]"
+                                                    className={`group flex items-center gap-5 p-4.5 rounded-[1.5rem] transition-all duration-500 ${item.hoverBgClass || 'hover:bg-[#F4FAF7]'} hover:translate-x-1 relative overflow-hidden active:scale-[0.98]`}
                                                 >
                                                     {/* Subtle icon container */}
-                                                    <div className="relative z-10 p-3.5 rounded-2xl bg-white shadow-sm border border-gray-100 text-[#2D6A4F] group-hover:bg-[#2D6A4F] group-hover:text-white group-hover:shadow-lg group-hover:shadow-[#2D6A4F]/20 transition-all duration-500 shrink-0">
-                                                        <Icon size={20} />
+                                                    <div className="relative z-10 p-2 text-[#2D6A4F] transition-all duration-500 shrink-0 flex items-center justify-center">
+                                                        {isImageIcon ? (
+                                                            <img src={item.icon} alt={item.name} className="w-5 h-5 object-contain" />
+                                                        ) : (
+                                                            <IconComponent size={20} />
+                                                        )}
                                                     </div>
 
                                                     <div className="relative z-10 min-w-0">

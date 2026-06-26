@@ -374,7 +374,7 @@ const MultivendorDashboardPage = () => {
                         {/* Subtext */}
                         <SplitTextReveal
                             as="p"
-                            className="text-lg md:text-xl mb-10 max-w-4xl mx-auto leading-relaxed text-gray-500 font-medium"
+                            className="text-lg md:text-xl mb-10 max-w-4xl mx-auto leading-relaxed text-gray-500"
                             type="words" stagger={0.015} once={false} delay={0.5}
                         >
                             Stop juggling multiple platform dashboards. We build unified AI-powered control centers that consolidate revenue, inventory, orders, and market intelligence across every storefront and marketplace you operate in real-time.
@@ -390,7 +390,7 @@ const MultivendorDashboardPage = () => {
                             <Link
                                 to="/contact"
                                 id="multivendor-hero-cta"
-                                className="group relative w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 bg-[#2D6A4F] text-white rounded-full font-bold text-lg transition-all hover:bg-[#1B4332] shadow-[0_10px_30px_rgba(45,106,79,0.2)] hover:shadow-[0_10px_40px_rgba(45,106,79,0.3)] hover:-translate-y-0.5"
+                                className="group relative w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 bg-[#2D6A4F] text-white rounded-full font-medium text-lg transition-all hover:bg-[#1B4332] shadow-[0_10px_30px_rgba(45,106,79,0.2)] hover:shadow-[0_10px_40px_rgba(45,106,79,0.3)] hover:-translate-y-0.5"
                             >
                                 Build Your Dashboard
                                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -410,7 +410,7 @@ const MultivendorDashboardPage = () => {
                         <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]">
                             The Multi-Channel Challenge
                         </h2>
-                        <p className="max-w-2xl mx-auto text-base md:text-lg text-gray-500 font-medium mt-4">
+                        <p className="max-w-2xl mx-auto text-base md:text-lg text-gray-500 mt-4">
                             Selling on multiple platforms means managing multiple dashboards — and that's where the chaos begins.
                         </p>
                     </div>
@@ -426,7 +426,7 @@ const MultivendorDashboardPage = () => {
                                         </div>
                                         <div>
                                             <h3 className={`font-serif text-[15px] md:text-lg font-bold mb-1 ${pt.headingColor}`}>{pt.title}</h3>
-                                            <p className="text-gray-600 text-[12px] md:text-sm leading-snug md:leading-relaxed font-medium">{pt.description}</p>
+                                            <p className="text-gray-600 text-[12px] md:text-sm leading-snug md:leading-relaxed">{pt.description}</p>
                                         </div>
                                     </div>
                                 );
@@ -471,18 +471,16 @@ const MultivendorDashboardPage = () => {
                             <h2 className="build-el font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]">
                                 What We Build
                             </h2>
-                            <h3 className="build-el font-sans text-xl font-bold text-[#1B4332]">
+                            <p className="build-el font-sans text-gray-600 text-base md:text-lg">
                                 A unified AI command center that connects every storefront you operate — one dashboard, one login, complete visibility.
-                            </h3>
-                            <p className="build-el text-gray-600 text-base md:text-lg leading-relaxed font-medium">
-                                We build production-grade multivendor dashboards with custom API integrations for any e-commerce platform you use — from leading global marketplaces and direct-to-consumer websites to your own custom proprietary storefronts.                            </p>
-                            <p className="build-el text-gray-500 text-sm leading-relaxed font-medium">
+                            </p>
+                            <p className="build-el text-gray-600 text-base md:text-lg">
                                 Every order, every SKU, every dollar — consolidated in real-time. Add AI-powered demand forecasting, inventory alerts, profit margin analysis, and market trend intelligence. Built custom for your business, deployed on your infrastructure, owned by you.
                             </p>
                             <div className="build-el pt-4">
                                 <Link
                                     to="/contact"
-                                    className="inline-flex items-center gap-3 px-6 py-3 bg-[#2D6A4F] text-white rounded-full font-bold text-md transition-all hover:bg-[#1B4332] shadow-md hover:-translate-y-0.5"
+                                    className="inline-flex items-center gap-3 px-6 py-3 bg-[#2D6A4F] text-white rounded-full font-medium text-md transition-all hover:bg-[#1B4332] shadow-md hover:-translate-y-0.5"
                                 >
                                     Build Your Dashboard
                                     <ArrowRight className="w-4 h-4" />
@@ -581,7 +579,7 @@ const MultivendorDashboardPage = () => {
                         <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]">
                             Key Capabilities
                         </h2>
-                        <p className="max-w-2xl mx-auto text-base md:text-lg text-gray-500 font-medium mt-4">
+                        <p className="max-w-2xl mx-auto text-base md:text-lg text-gray-500 mt-4">
                             Everything you need to run a multi-channel e-commerce business from one screen.
                         </p>
                     </div>
@@ -600,7 +598,7 @@ const MultivendorDashboardPage = () => {
                                         </div>
                                         <div className="flex-1">
                                             <h3 className={`font-serif text-[14px] md:text-lg font-bold mb-1 md:mb-2 ${cap.headingColor}`}>{cap.title}</h3>
-                                            <p className="text-gray-600 text-[11px] md:text-sm leading-snug md:leading-relaxed font-medium">{cap.description}</p>
+                                            <p className="text-gray-600 text-[11px] md:text-sm leading-snug md:leading-relaxed">{cap.description}</p>
                                         </div>
                                     </div>
                                 </SpotlightCard>
@@ -617,7 +615,7 @@ const MultivendorDashboardPage = () => {
                         <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]">
                             Who It's For
                         </h2>
-                        <p className="max-w-2xl mx-auto text-base md:text-lg text-gray-500 font-medium mt-4">
+                        <p className="max-w-2xl mx-auto text-base md:text-lg text-gray-500 mt-4">
                             Built for e-commerce operators who've outgrown platform-native dashboards.
                         </p>
                     </div>
@@ -635,7 +633,7 @@ const MultivendorDashboardPage = () => {
                                             <img src={aud.icon} alt={aud.title} className="w-3.5 h-3.5 md:w-5 md:h-5 object-contain" />
                                         </div>
                                         <h3 className={`font-serif text-[13px] md:text-lg font-bold mb-1 md:mb-2 ${aud.headingColor}`}>{aud.title}</h3>
-                                        <p className="text-gray-600 text-[10px] md:text-xs leading-snug md:leading-relaxed font-medium">{aud.description}</p>
+                                        <p className="text-gray-600 text-[10px] md:text-xs leading-snug md:leading-relaxed">{aud.description}</p>
                                     </div>
                                 </SpotlightCard>
                             );
@@ -651,7 +649,7 @@ const MultivendorDashboardPage = () => {
                         <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]">
                             Tech Stack & Integrations
                         </h2>
-                        <p className="max-w-2xl mx-auto text-base md:text-lg text-gray-500 font-medium mt-4">
+                        <p className="max-w-2xl mx-auto text-base md:text-lg text-gray-500 mt-4">
                             Enterprise-grade tools for reliable, real-time e-commerce data and seamless sync.
                         </p>
                     </div>
@@ -693,21 +691,21 @@ const MultivendorDashboardPage = () => {
                 <div className="container mx-auto px-4 md:px-6 relative z-10 text-center max-w-[1400px]">
                     <div className="max-w-4xl mx-auto bg-white p-8 sm:p-10 md:p-16 rounded-[2rem] md:rounded-[3rem] border border-[#E6EFE6] shadow-[0_20px_60px_rgba(45,106,79,0.04)]">
                         <div className="flex flex-col items-center">
-                            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]">
+                            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]">
                                 Ready to Consolidate Your
                             </h2>
-                            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]">
+                            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl mb-6 text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]">
                                 E-Commerce Operations?
                             </h2>
                         </div>
-                        <p className="text-base md:text-lg text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed font-medium">
+                        <p className="text-base md:text-lg text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed">
                             Let's talk about building your unified multivendor dashboard.
                         </p>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                             <Link
                                 to="/contact"
                                 id="multivendor-cta-start-project"
-                                className="cta-btn group relative flex items-center gap-3 px-10 py-5 bg-[#2D6A4F] text-white rounded-full font-bold text-lg transition-all hover:bg-[#1B4332] shadow-[0_10px_30px_rgba(45,106,79,0.2)] hover:shadow-[0_10px_40px_rgba(45,106,79,0.3)] hover:-translate-y-0.5 overflow-hidden"
+                                className="cta-btn group relative flex items-center gap-3 px-10 py-5 bg-[#2D6A4F] text-white rounded-full font-medium text-lg transition-all hover:bg-[#1B4332] shadow-[0_10px_30px_rgba(45,106,79,0.2)] hover:shadow-[0_10px_40px_rgba(45,106,79,0.3)] hover:-translate-y-0.5 overflow-hidden"
                             >
                                 Build Your Dashboard
                                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />

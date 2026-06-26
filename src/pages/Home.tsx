@@ -6,7 +6,6 @@ import ImpactComparison from '../components/home/ImpactComparison';
 
 import FeaturesSection from '../components/home/FeaturesSection';
 import FAQSection from '../components/home/FAQSection';
-import CTASection from '../components/home/CTASection';
 
 import SEO from '../components/seo/SEO';
 
@@ -176,8 +175,6 @@ const Home = () => {
       <FeaturesSection />
       {/* 7. FAQ */}
       <FAQSection />
-      {/* 8. Ready to Transform */}
-      <CTASection />
     </div>
   );
 };

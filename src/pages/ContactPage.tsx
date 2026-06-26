@@ -174,7 +174,7 @@ ${formData.projectDetails}
                             </div>
                             <SplitTextReveal
                                 as="p"
-                                className="text-base sm:text-lg text-slate-600 font-medium leading-relaxed max-w-lg mt-4"
+                                className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-lg mt-4"
                                 type="words"
                                 stagger={0.015}
                                 once={false}
@@ -296,7 +296,7 @@ ${formData.projectDetails}
                                                         </span>
                                                     )}
                                                 </div>
-                                                <p className="text-xs text-slate-500 font-medium leading-relaxed">
+                                                <p className="text-xs text-slate-500 leading-relaxed">
                                                     {office.address}
                                                 </p>
                                             </div>
@@ -322,7 +322,7 @@ ${formData.projectDetails}
                                 <form onSubmit={handleSubmit} className="space-y-6">
                                     <div className="border-b border-gray-100 pb-4">
                                         <h3 className="text-2xl font-serif font-semibold text-gray-900">Send Us a Message</h3>
-                                        <p className="text-xs text-slate-500 font-medium mt-1">Please fill in the form below and we'll connect shortly.</p>
+                                        <p className="text-xs text-slate-500 mt-1">Please fill in the form below and we'll connect shortly.</p>
                                     </div>
 
                                     {/* Name Row */}
@@ -484,7 +484,7 @@ ${formData.projectDetails}
                                         <Check className="w-9 h-9 text-[#2D6A4F]" />
                                     </div>
                                     <h3 className="text-2xl font-serif font-bold text-gray-900">Message Sent!</h3>
-                                    <p className="text-slate-500 text-sm max-w-xs mt-2.5 font-medium">
+                                    <p className="text-slate-500 text-sm max-w-xs mt-2.5">
                                         Thanks for reaching out! We have received your inquiry and will get back to you within 24 hours.
                                     </p>
                                     <button

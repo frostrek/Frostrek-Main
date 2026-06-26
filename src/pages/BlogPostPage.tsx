@@ -167,7 +167,7 @@ const BlogPostPage = () => {
                         className="rounded-3xl overflow-hidden border border-gray-100 shadow-xl"
                     >
                         <img
-                            src={post.image}
+                            src={post.image.startsWith('http') || post.image.startsWith('/') ? post.image : `/${post.image}`}
                             alt={post.title}
                             className="w-full h-64 md:h-96 object-cover"
                         />

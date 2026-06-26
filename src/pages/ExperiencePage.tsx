@@ -4,7 +4,6 @@ import VoiceCallWidget from '../components/experience/VoiceCallWidget';
 import ChatbotDemo from '../components/experience/ChatbotDemo';
 import LinkedinOutreachDemo from '../components/demos/LinkedinOutreachDemo';
 import CuteBackground from '../components/ui/CuteBackground';
-import CTASection from '../components/home/CTASection';
 import { useEffect } from 'react';
 import SEO from '../components/seo/SEO';
 import SplitTextReveal from '../components/ui/SplitTextReveal';
@@ -197,8 +196,6 @@ const ExperiencePage = () => {
                 </div>
             </section>
 
-            {/* CTA Section */}
-            <CTASection />
         </div>
     );
 };

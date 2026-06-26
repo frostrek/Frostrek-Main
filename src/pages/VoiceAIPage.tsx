@@ -104,7 +104,7 @@ const KEY_CAPABILITIES = [
     {
         title: 'Real-Time Speech Recognition',
         description: 'Industry-leading STT engines (Deepgram, Whisper, AssemblyAI) with low word-error rates across accents, noise conditions, and call quality levels. What callers say is always understood accurately.',
-        icon: '/icons/Mic.png',
+        icon: '/icons/Voice ai.png',
         bgColor: 'bg-[#F0F9FF]',
         border: 'border-[#BAE6FD]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(14,165,233,0.07)]',
@@ -431,7 +431,7 @@ export default function VoiceAIPage() {
 
                         <SplitTextReveal
                             as="p"
-                            className="hero-el text-lg md:text-xl text-gray-600 font-medium leading-relaxed mb-10 max-w-3xl"
+                            className="hero-el text-lg md:text-xl text-gray-600 leading-relaxed mb-10 max-w-3xl"
                             type="words" stagger={0.015} once={false} delay={0.5}
                         >
                             We build custom Voice AI systems that handle inbound calls, run outbound campaigns, replace legacy IVR, and conduct voice interactions at any scale — in natural, human-sounding speech, 24/7, without a call centre.
@@ -445,7 +445,7 @@ export default function VoiceAIPage() {
                         >
                             <Link
                                 to="/contact"
-                                className="group relative w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 bg-[#2D6A4F] text-white rounded-full font-bold text-lg transition-all hover:bg-[#1B4332] shadow-[0_10px_30px_rgba(45,106,79,0.2)] hover:shadow-[0_10px_40px_rgba(45,106,79,0.3)] hover:-translate-y-0.5"
+                                className="group relative w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 bg-[#2D6A4F] text-white rounded-full font-medium text-lg transition-all hover:bg-[#1B4332] shadow-[0_10px_30px_rgba(45,106,79,0.2)] hover:shadow-[0_10px_40px_rgba(45,106,79,0.3)] hover:-translate-y-0.5"
                             >
                                 Build Your Voice Agent
                                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -480,7 +480,7 @@ export default function VoiceAIPage() {
                                                 </div>
                                                 <div className="flex-1">
                                                     <h3 className={`font-serif text-[15px] md:text-xl font-bold mb-1 md:mb-1.5 text-black`}>{problem.title}</h3>
-                                                    <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600 font-medium">{problem.description}</p>
+                                                    <p className="text-[12px] md:text-sm leading-snug md:leading-relaxed text-gray-600">{problem.description}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -538,7 +538,7 @@ export default function VoiceAIPage() {
                         <div className="mt-4">
                             <SplitTextReveal
                                 as="p"
-                                className="max-w-2xl mx-auto text-lg text-gray-500 font-medium"
+                                className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
                                 Four categories of Voice AI — each replacing a different voice operation bottleneck.
@@ -559,7 +559,7 @@ export default function VoiceAIPage() {
                                     </div>
                                     <div className="flex-1">
                                         <h3 className={`font-serif text-[14px] md:text-xl font-bold mb-1 md:mb-3 ${agent.headingColor}`}>{agent.title}</h3>
-                                        <p className="text-gray-600 text-[11px] md:text-sm leading-snug md:leading-relaxed font-medium">{agent.description}</p>
+                                        <p className="text-gray-600 text-[11px] md:text-sm leading-snug md:leading-relaxed">{agent.description}</p>
                                     </div>
                                 </div>
                             </SpotlightCard>
@@ -576,7 +576,7 @@ export default function VoiceAIPage() {
                         <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]">
                             Key Capabilities
                         </h2>
-                        <p className="max-w-2xl mx-auto text-base md:text-lg text-gray-500 font-medium mt-4">
+                        <p className="max-w-2xl mx-auto text-base md:text-lg text-gray-500 mt-4">
                             The technical foundations that make our Voice AI production-ready — not just demo-ready.
                         </p>
                     </div>
@@ -593,7 +593,7 @@ export default function VoiceAIPage() {
                                         <img src={cap.icon} alt={cap.title} className="w-3.5 h-3.5 md:w-5 md:h-5 object-contain" />
                                     </div>
                                     <h3 className={`font-serif text-[13px] md:text-lg font-bold mb-1 md:mb-2 ${cap.headingColor}`}>{cap.title}</h3>
-                                    <p className="text-gray-600 text-[10px] md:text-xs leading-snug md:leading-relaxed font-medium">{cap.description}</p>
+                                    <p className="text-gray-600 text-[10px] md:text-xs leading-snug md:leading-relaxed">{cap.description}</p>
                                 </div>
                             </SpotlightCard>
                         ))}
@@ -608,7 +608,7 @@ export default function VoiceAIPage() {
                         <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]">
                             Use Cases by Function
                         </h2>
-                        <p className="max-w-2xl mx-auto text-base md:text-lg text-gray-500 font-medium mt-4">
+                        <p className="max-w-2xl mx-auto text-base md:text-lg text-gray-500 mt-4">
                             Voice AI isn't one use case — it's a capability that transforms multiple functions across your business.
                         </p>
                     </div>
@@ -625,7 +625,7 @@ export default function VoiceAIPage() {
                                         <img src={useCase.icon} alt={useCase.title} className="w-3.5 h-3.5 md:w-5 md:h-5 object-contain" />
                                     </div>
                                     <h3 className={`font-serif text-[13px] md:text-xl font-bold mb-1 md:mb-3 ${useCase.headingColor}`}>{useCase.title}</h3>
-                                    <p className="text-gray-600 text-[10px] md:text-sm leading-snug md:leading-relaxed font-medium">{useCase.description}</p>
+                                    <p className="text-gray-600 text-[10px] md:text-sm leading-snug md:leading-relaxed">{useCase.description}</p>
                                 </div>
                             </SpotlightCard>
                         ))}
@@ -640,7 +640,7 @@ export default function VoiceAIPage() {
                         <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]">
                             Industries We Serve
                         </h2>
-                        <p className="max-w-2xl mx-auto text-base md:text-lg text-gray-500 font-medium mt-4">
+                        <p className="max-w-2xl mx-auto text-base md:text-lg text-gray-500 mt-4">
                             Any industry where voice is a primary customer touchpoint is a candidate for Voice AI.
                         </p>
                     </div>
@@ -657,7 +657,7 @@ export default function VoiceAIPage() {
                                         <img src={industry.icon} alt={industry.title} className="w-3.5 h-3.5 md:w-5 md:h-5 object-contain" />
                                     </div>
                                     <h3 className={`font-serif text-[13px] md:text-xl font-bold mb-1 md:mb-3 ${industry.headingColor}`}>{industry.title}</h3>
-                                    <p className="text-gray-600 text-[10px] md:text-sm leading-snug md:leading-relaxed font-medium">{industry.description}</p>
+                                    <p className="text-gray-600 text-[10px] md:text-sm leading-snug md:leading-relaxed">{industry.description}</p>
                                 </div>
                             </SpotlightCard>
                         ))}
@@ -673,7 +673,7 @@ export default function VoiceAIPage() {
                         <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]">
                             Tech Stack
                         </h2>
-                        <p className="max-w-2xl mx-auto text-base md:text-lg text-gray-500 font-medium mt-4">
+                        <p className="max-w-2xl mx-auto text-base md:text-lg text-gray-500 mt-4">
                             The best voice, language, and infrastructure tools — assembled into one production-grade pipeline.
                         </p>
                     </div>
@@ -717,14 +717,14 @@ export default function VoiceAIPage() {
                         <div className="flex flex-col items-center">
                             <SplitTextReveal
                                 as="h2"
-                                className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
+                                className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
                                 type="chars" stagger={0.02} once={false}
                             >
                                 Ready to Put Your
                             </SplitTextReveal>
                             <SplitTextReveal
                                 as="h2"
-                                className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
+                                className="font-serif text-3xl md:text-4xl lg:text-5xl mb-6 text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
                                 type="chars" stagger={0.02} once={false} delay={0.2}
                             >
                                 Phone Lines on Autopilot?
@@ -732,7 +732,7 @@ export default function VoiceAIPage() {
 
                             <SplitTextReveal
                                 as="p"
-                                className="text-base md:text-lg text-gray-500 font-medium mb-10 max-w-2xl"
+                                className="text-base md:text-lg text-gray-500 mb-10 max-w-2xl"
                                 type="words" stagger={0.015} once={false} delay={0.4}
                             >
                                 Tell us your call volume, your use case, and your biggest voice ops bottleneck. We'll design and deploy the Voice AI system that handles it.
@@ -745,7 +745,7 @@ export default function VoiceAIPage() {
                             >
                                 <Link
                                     to="/contact"
-                                    className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#2D6A4F] text-white rounded-full font-bold text-lg transition-all hover:bg-[#1B4332] shadow-[0_10px_30px_rgba(45,106,79,0.2)] hover:shadow-[0_10px_40px_rgba(45,106,79,0.3)] hover:-translate-y-0.5"
+                                    className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#2D6A4F] text-white rounded-full font-medium text-lg transition-all hover:bg-[#1B4332] shadow-[0_10px_30px_rgba(45,106,79,0.2)] hover:shadow-[0_10px_40px_rgba(45,106,79,0.3)] hover:-translate-y-0.5"
                                 >
                                     Build Your Voice Agent
                                     <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
