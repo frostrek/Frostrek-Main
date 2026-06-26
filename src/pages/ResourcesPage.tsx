@@ -84,8 +84,8 @@ const RESOURCE_COLORS = [
     { // Orange
         bg: 'bg-[#FFF7ED]', border: 'border-[#EA580C]/20 hover:border-[#EA580C]/40', iconBg: 'bg-[#FFEDD5]', iconColor: 'text-[#EA580C]', badgeBg: 'bg-white/60', badgeBorder: 'border-[#EA580C]/20', hoverBg: 'group-hover:bg-[#EA580C]', hoverText: 'group-hover:text-[#EA580C]', shadow: 'hover:shadow-[#EA580C]/10', topBar: 'bg-[#EA580C]'
     },
-    { // Yellow
-        bg: 'bg-[#FFFBEB]', border: 'border-[#D97706]/20 hover:border-[#D97706]/40', iconBg: 'bg-[#FEF3C7]', iconColor: 'text-[#D97706]', badgeBg: 'bg-white/60', badgeBorder: 'border-[#D97706]/20', hoverBg: 'group-hover:bg-[#D97706]', hoverText: 'group-hover:text-[#D97706]', shadow: 'hover:shadow-[#D97706]/10', topBar: 'bg-[#D97706]'
+    { // Yellow (Replaced with Green theme)
+        bg: 'bg-[#F0FDF4]', border: 'border-[#16A34A]/20 hover:border-[#16A34A]/40', iconBg: 'bg-[#DCFCE7]', iconColor: 'text-[#16A34A]', badgeBg: 'bg-white/60', badgeBorder: 'border-[#16A34A]/20', hoverBg: 'group-hover:bg-[#16A34A]', hoverText: 'group-hover:text-[#16A34A]', shadow: 'hover:shadow-[#16A34A]/10', topBar: 'bg-[#16A34A]'
     },
     { // Purple
         bg: 'bg-[#F5F3FF]', border: 'border-[#7C3AED]/20 hover:border-[#7C3AED]/40', iconBg: 'bg-[#EDE9FE]', iconColor: 'text-[#7C3AED]', badgeBg: 'bg-white/60', badgeBorder: 'border-[#7C3AED]/20', hoverBg: 'group-hover:bg-[#7C3AED]', hoverText: 'group-hover:text-[#7C3AED]', shadow: 'hover:shadow-[#7C3AED]/10', topBar: 'bg-[#7C3AED]'

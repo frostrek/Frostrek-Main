@@ -74,7 +74,7 @@ const Footer = () => {
         <div className="py-12 bg-brand-light-bg transition-colors duration-300 font-sans">
           <div className="container mx-auto px-4 md:px-6">
             <Link to="/contact" className="block max-w-4xl mx-auto">
-              <div className="careers-card border-2 rounded-[2rem] p-8 md:p-10 cursor-pointer bg-white border-[#F2BAE4] hover:border-[#D67CBA]/40">
+              <div className="careers-card border-2 rounded-[2rem] p-8 md:p-10 cursor-pointer bg-white border-[#BAE6FD] hover:border-[#7DD3FC]/40">
                 <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8 text-center md:text-left">
                   <div className="flex-shrink-0">
                     <svg className="careers-icon w-16 h-16 opacity-90 text-[#2D6A4F]" viewBox="0 0 64 64" fill="none">

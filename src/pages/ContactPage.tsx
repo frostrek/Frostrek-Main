@@ -129,7 +129,7 @@ ${formData.projectDetails}
     };
 
     return (
-        <div className="min-h-screen pt-24 pb-16 bg-gradient-to-b from-white via-[#FAFCFB] to-white relative font-body overflow-hidden">
+        <div className="min-h-screen pt-32 pb-16 bg-gradient-to-b from-white via-[#FAFCFB] to-white relative font-body overflow-hidden">
             <SEO
                 title="Contact Us | Frostrek AI"
                 description="Get in touch with the Frostrek AI team in Gurugram to explore how production-grade AI can transform your enterprise operations."
@@ -148,8 +148,8 @@ ${formData.projectDetails}
                 />
             </div>
 
-            <div className="container mx-auto px-4 lg:px-8 relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-start">
+            <div className="max-w-7xl mx-auto px-4 lg:px-8 relative z-10">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-start">
 
                     {/* Left Side: Information & Branding */}
                     <motion.div
@@ -167,7 +167,7 @@ ${formData.projectDetails}
 
                             <div className="flex flex-col">
                                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-[#2D6A4F] leading-[1.1] tracking-[-0.01em]">
-                                    <SplitTextReveal as="span" type="chars" stagger={0.03} once={false} trigger="load">
+                                    <SplitTextReveal as="span" type="words" stagger={0.03} once={false} trigger="load">
                                         Let's Start a Conversation
                                     </SplitTextReveal>
                                 </h1>
@@ -188,37 +188,23 @@ ${formData.projectDetails}
                         {/* Contact Methods Container */}
                         <div className="space-y-6 max-w-xl">
                             {/* Call & Direct Contact Details */}
-                            <div className="p-5 sm:p-8 rounded-3xl bg-white border border-[#2D6A4F]/10 shadow-xl shadow-gray-100/50 space-y-6">
-                                <div className="border-b border-gray-100 pb-4">
-                                    <h3 className="text-2xl font-serif font-semibold text-gray-900">Direct Connect</h3>
+                            <div className="p-4 sm:p-6 rounded-3xl bg-white border border-[#2D6A4F]/10 shadow-xl shadow-gray-100/50 space-y-4">
+                                <div className="border-b border-gray-100 pb-3">
+                                    <h3 className="text-xl sm:text-2xl font-serif font-semibold text-gray-900">Direct Connect</h3>
                                 </div>
 
-                                <div className="grid grid-cols-3 gap-2 sm:gap-4">
+                                <div className="grid grid-cols-2 gap-2 sm:gap-3">
                                     {/* CALL US */}
                                     <a
                                         href="tel:+916399999955"
-                                        className="flex flex-col items-center justify-center text-center gap-2 sm:gap-3 p-3 sm:p-5 rounded-2xl bg-[#FFF7ED] border border-[#FFEDD5] hover:border-[#EA580C]/35 shadow-sm hover:shadow-md transition-all duration-300 group"
+                                        className="flex flex-col items-center justify-center text-center gap-1.5 sm:gap-2 p-3 sm:p-4 rounded-2xl bg-[#FFF7ED] border border-[#FFEDD5] hover:border-[#EA580C]/35 shadow-sm hover:shadow-md transition-all duration-300 group"
                                     >
-                                        <div className="p-2 sm:p-3 rounded-xl bg-white/40 border border-white/60 flex items-center justify-center shadow-sm backdrop-blur-[2px] transition-all duration-300 group-hover:scale-110">
-                                            <img src="/icons/phone-call.png" alt="Phone" className="w-5 h-5 sm:w-6 sm:h-6 object-contain" />
+                                        <div className="p-1.5 sm:p-2 rounded-xl bg-white/40 border border-white/60 flex items-center justify-center shadow-sm backdrop-blur-[2px] transition-all duration-300 group-hover:scale-110">
+                                            <img src="/icons/phone-call.png" alt="Phone" className="w-4 h-4 sm:w-5 sm:h-5 object-contain" />
                                         </div>
                                         <div className="w-full">
                                             <h4 className="font-bold text-[9px] sm:text-xs text-[#EA580C] uppercase tracking-wider font-body leading-none mb-1 sm:mb-1.5 truncate">Call Us</h4>
                                             <p className="font-serif font-bold text-[10px] sm:text-sm md:text-base text-gray-900 tracking-wide w-full truncate">+91 6399999955</p>
-                                        </div>
-                                    </a>
-
-                                    {/* EMAIL US */}
-                                    <a
-                                        href="mailto:contact@frostrek.ai"
-                                        className="flex flex-col items-center justify-center text-center gap-2 sm:gap-3 p-3 sm:p-5 rounded-2xl bg-[#F0F9FF] border border-[#E0F2FE] hover:border-[#0284C7]/35 shadow-sm hover:shadow-md transition-all duration-300 group"
-                                    >
-                                        <div className="p-2 sm:p-3 rounded-xl bg-white/40 border border-white/60 flex items-center justify-center shadow-sm backdrop-blur-[2px] transition-all duration-300 group-hover:scale-110">
-                                            <img src="/icons/email.png" alt="Email" className="w-5 h-5 sm:w-6 sm:h-6 object-contain" />
-                                        </div>
-                                        <div className="w-full">
-                                            <h4 className="font-bold text-[9px] sm:text-xs text-[#0284C7] uppercase tracking-wider font-body leading-none mb-1 sm:mb-1.5 truncate">Email Us</h4>
-                                            <p className="font-serif font-bold text-[10px] sm:text-sm md:text-base text-gray-900 tracking-wide w-full truncate">contact@frostrek.ai</p>
                                         </div>
                                     </a>
 
@@ -227,14 +213,28 @@ ${formData.projectDetails}
                                         href="https://wa.me/17574722491"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex flex-col items-center justify-center text-center gap-2 sm:gap-3 p-3 sm:p-5 rounded-2xl bg-[#F0FDF4] border border-[#E8F5EE] hover:border-[#2D6A4F]/35 shadow-sm hover:shadow-md transition-all duration-300 group"
+                                        className="flex flex-col items-center justify-center text-center gap-1.5 sm:gap-2 p-3 sm:p-4 rounded-2xl bg-[#F0FDF4] border border-[#E8F5EE] hover:border-[#2D6A4F]/35 shadow-sm hover:shadow-md transition-all duration-300 group"
                                     >
-                                        <div className="p-2 sm:p-3 rounded-xl bg-white/40 border border-white/60 flex items-center justify-center shadow-sm backdrop-blur-[2px] transition-all duration-300 group-hover:scale-110">
-                                            <img src="/icons/chat.png" alt="Chat" className="w-5 h-5 sm:w-6 sm:h-6 object-contain" />
+                                        <div className="p-1.5 sm:p-2 rounded-xl bg-white/40 border border-white/60 flex items-center justify-center shadow-sm backdrop-blur-[2px] transition-all duration-300 group-hover:scale-110">
+                                            <img src="/icons/chat.png" alt="Chat" className="w-4 h-4 sm:w-5 sm:h-5 object-contain" />
                                         </div>
                                         <div className="w-full">
                                             <h4 className="font-bold text-[9px] sm:text-xs text-[#2D6A4F] uppercase tracking-wider font-body leading-none mb-1 sm:mb-1.5 truncate">WhatsApp</h4>
                                             <p className="font-serif font-bold text-[10px] sm:text-sm md:text-base text-gray-900 tracking-wide w-full truncate">+1 757 472 2491</p>
+                                        </div>
+                                    </a>
+
+                                    {/* EMAIL US */}
+                                    <a
+                                        href="mailto:contact@frostrek.ai"
+                                        className="col-span-2 flex flex-col items-center justify-center text-center gap-1.5 sm:gap-2 p-3 sm:p-4 rounded-2xl bg-[#F0F9FF] border border-[#E0F2FE] hover:border-[#0284C7]/35 shadow-sm hover:shadow-md transition-all duration-300 group"
+                                    >
+                                        <div className="p-1.5 sm:p-2 rounded-xl bg-white/40 border border-white/60 flex items-center justify-center shadow-sm backdrop-blur-[2px] transition-all duration-300 group-hover:scale-110">
+                                            <img src="/icons/email.png" alt="Email" className="w-4 h-4 sm:w-5 sm:h-5 object-contain" />
+                                        </div>
+                                        <div className="w-full">
+                                            <h4 className="font-bold text-[9px] sm:text-xs text-[#0284C7] uppercase tracking-wider font-body leading-none mb-1 sm:mb-1.5 truncate">Email Us</h4>
+                                            <p className="font-serif font-bold text-[10px] sm:text-sm md:text-base text-gray-900 tracking-wide w-full truncate">contact@frostrek.ai</p>
                                         </div>
                                     </a>
                                 </div>
