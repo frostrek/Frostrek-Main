@@ -46,8 +46,8 @@ export const NAV_ITEMS = [
             },
         ],
     },
+    { label: 'Blog', href: '/blog' },
     { label: 'Contact', href: '/contact' },
-    { label: 'Resources', href: '/resources' },
 ];
 
 export const COMPANY_INFO = {

@@ -262,7 +262,6 @@ ${formData.projectDetails}
                                         {
                                             title: 'USA',
                                             address: '701 Tillery Street Unit 12-3227, Austin, Texas 78702, United States',
-                                            mapUrl: 'https://www.google.com/maps/search/?api=1&query=701+Tillery+Street+Unit+12-3227+Austin+Texas+78702+United+States',
                                             isHQ: false,
                                             bgClass: 'bg-white border-[#BAE6FD] hover:border-[#0284C7]/35 hover:shadow-[0_15px_30px_rgba(2,132,199,0.04)]',
                                             accentText: 'text-[#0284C7]',
@@ -271,40 +270,58 @@ ${formData.projectDetails}
                                         {
                                             title: 'UK',
                                             address: '24–26 Arcadia Avenue, Fin009/8701, London, United Kingdom, N3 2JU',
-                                            mapUrl: 'https://www.google.com/maps/search/?api=1&query=24-26+Arcadia+Avenue+London+N3+2JU+United+Kingdom',
                                             isHQ: false,
                                             bgClass: 'bg-white border-[#FECDD3] hover:border-[#E11D48]/35 hover:shadow-[0_15px_30px_rgba(225,29,72,0.04)]',
                                             accentText: 'text-[#E11D48]',
                                             arrowText: 'text-[#E11D48]'
-                                        },
-                                    ].map((office, i) => (
-                                        <a
-                                            key={i}
-                                            href={office.mapUrl}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className={`flex items-center gap-4 p-4 rounded-2xl border ${office.bgClass} transition-all duration-300 group`}
-                                        >
-                                            <div className="flex-1 min-w-0">
-                                                <div className="flex items-center gap-2 mb-1">
-                                                    <h4 className={`font-serif font-bold text-base tracking-tight ${office.accentText} transition-colors`}>
-                                                        {office.title}
-                                                    </h4>
-                                                    {office.isHQ && (
-                                                        <span className={`text-[9px] font-black px-2 py-0.5 rounded-full ${office.hqBadgeBg} border`}>
-                                                            HQ
-                                                        </span>
-                                                    )}
+                                        }
+                                    ].map((office, i) => {
+                                        const content = (
+                                            <>
+                                                <div className="flex-1 min-w-0">
+                                                    <div className="flex items-center gap-2 mb-1">
+                                                        <h4 className={`font-serif font-bold text-base tracking-tight ${office.accentText} transition-colors`}>
+                                                            {office.title}
+                                                        </h4>
+                                                        {office.isHQ && (
+                                                            <span className={`text-[9px] font-black px-2 py-0.5 rounded-full ${office.hqBadgeBg} border`}>
+                                                                HQ
+                                                            </span>
+                                                        )}
+                                                    </div>
+                                                    <p className="text-xs text-slate-500 leading-relaxed">
+                                                        {office.address}
+                                                    </p>
                                                 </div>
-                                                <p className="text-xs text-slate-500 leading-relaxed">
-                                                    {office.address}
-                                                </p>
+                                                {office.mapUrl && (
+                                                    <div className={`opacity-0 group-hover:opacity-100 transition-all shrink-0 ${office.arrowText}`}>
+                                                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                                    </div>
+                                                )}
+                                            </>
+                                        );
+
+                                        const className = `flex items-center gap-4 p-4 rounded-2xl border ${office.bgClass} transition-all duration-300 group`;
+
+                                        return office.mapUrl ? (
+                                            <a
+                                                key={i}
+                                                href={office.mapUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className={className}
+                                            >
+                                                {content}
+                                            </a>
+                                        ) : (
+                                            <div
+                                                key={i}
+                                                className={className}
+                                            >
+                                                {content}
                                             </div>
-                                            <div className={`opacity-0 group-hover:opacity-100 transition-all shrink-0 ${office.arrowText}`}>
-                                                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                            </div>
-                                        </a>
-                                    ))}
+                                        );
+                                    })}
                                 </div>
                             </div>
                         </div>

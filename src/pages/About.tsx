@@ -947,7 +947,7 @@ const About = () => {
             image: '/701 Tillery St 12 3227, Austin, TX 78702, USA.jpg',
             companyName: 'USA Office',
             address: '701 Tillery Street Unit 12-3227, Austin, Texas 78702, United States',
-            mapUrl: 'https://www.google.com/maps/search/?api=1&query=701+Tillery+Street+Unit+12-3227+Austin+Texas+78702'
+            mapUrl: undefined
         },
         {
             name: 'UK',
@@ -957,7 +957,7 @@ const About = () => {
             image: '/24-26-Arcadia-Ave-London-Primary-Photo-1-LargeHighDefinition.jpg',
             companyName: 'UK Office',
             address: '24-26 Arcadia Avenue, Fin009/8701, London, United Kingdom, N3 2JU',
-            mapUrl: 'https://www.google.com/maps/search/?api=1&query=24-26+Arcadia+Avenue+London+N3+2JU'
+            mapUrl: undefined
         },
     ], []);
 
@@ -1343,7 +1343,7 @@ const About = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, margin: "-40px" }}
                                     transition={{ delay: i * 0.08, duration: 0.5 }}
-                                    className={`relative flex items-center gap-3 md:gap-8 mb-8 md:mb-16 last:mb-0 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
+                                    className={`relative flex items-center gap-3 md:gap-8 mb-8 md:mb-16 last:mb-0 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} md:min-h-[280px]`}
                                 >
                                     {/* Timeline Dot */}
                                     <div
@@ -1391,15 +1391,18 @@ const About = () => {
                                                     animate={{ opacity: 1, scale: 1 }}
                                                     exit={{ opacity: 0, scale: 0.95 }}
                                                     transition={{ duration: 0.4 }}
-                                                    className="relative overflow-hidden rounded-2xl shadow-lg border border-gray-100 w-[280px] h-[180px]"
+                                                    className="w-[400px] h-[220px] flex items-center justify-center"
                                                 >
-                                                    <img
-                                                        src={item.image}
-                                                        alt={item.title}
-                                                        className="w-full h-full object-cover"
-                                                        loading="lazy"
-                                                    />
-                                                    <div className="absolute inset-0 bg-[#2D6A4F]/5 pointer-events-none" />
+                                                    <div className={`relative rounded-2xl shadow-lg border ${item.color.border} ${item.color.bg} p-4 flex items-center justify-center`}>
+                                                        <img
+                                                            src={item.image}
+                                                            alt={item.title}
+                                                            className="max-w-[368px] max-h-[188px] rounded-xl"
+                                                            style={{ width: 'auto', height: 'auto' }}
+                                                            loading="lazy"
+                                                        />
+                                                        <div className="absolute inset-0 bg-[#2D6A4F]/5 pointer-events-none rounded-2xl" />
+                                                    </div>
                                                 </motion.div>
                                             )}
                                         </AnimatePresence>
@@ -1612,14 +1615,16 @@ const About = () => {
                                                 <p className="text-xs text-gray-700 font-body font-semibold leading-relaxed">
                                                     {o.address}
                                                 </p>
-                                                <a
-                                                    href={o.mapUrl}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="inline-block px-4 py-1.5 rounded-lg bg-[#2D6A4F] hover:bg-[#204F3B] text-white font-body font-bold text-xs shadow-md transition-colors"
-                                                >
-                                                    Get Directions
-                                                </a>
+                                                {o.mapUrl && (
+                                                    <a
+                                                        href={o.mapUrl}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="inline-block px-4 py-1.5 rounded-lg bg-[#2D6A4F] hover:bg-[#204F3B] text-white font-body font-bold text-xs shadow-md transition-colors"
+                                                    >
+                                                        Get Directions
+                                                    </a>
+                                                )}
                                             </div>
                                         </div>
                                     </div>

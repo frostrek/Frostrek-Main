@@ -5,8 +5,6 @@ import WhatWeDoSection from '../components/home/WhatWeDoSection';
 import ImpactComparison from '../components/home/ImpactComparison';
 
 import FeaturesSection from '../components/home/FeaturesSection';
-import FAQSection from '../components/home/FAQSection';
-
 import SEO from '../components/seo/SEO';
 
 const organizationSchema = JSON.stringify({
@@ -75,53 +73,6 @@ const websiteSchema = JSON.stringify({
   }
 });
 
-const faqSchema = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How does the AI Project Review process work?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We start with a comprehensive audit of your current infrastructure and goals. Our team then designs a tailored roadmap, selecting the right models and architecture to ensure scalability and ROI."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is my data secure with your AI models?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Absolutely. Security is our top priority. We implement enterprise-grade encryption, on-premise deployment options, and strict compliance with global data protection standards (GDPR, ISO)."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can you integrate with our existing software?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, our solutions are designed to be agnostic. We build custom APIs and middleware to seamlessly integrate with your CRM, ERP, or legacy systems without disrupting operations."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the typical timeline for an MVP?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Most MVPs are delivered within 4-8 weeks, depending on complexity. We use agile methodologies to ensure rapid iteration and quick time-to-market."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you offer post-deployment support?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We provide 24/7 monitoring and maintenance packages to ensure your AI systems remain efficient, secure, and up-to-date with the latest advancements."
-      }
-    }
-  ]
-});
-
 const localBusinessSchema = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
@@ -159,7 +110,7 @@ const Home = () => {
         description="Frostrek AI builds conversational AI agents, AI-powered video interview platforms, and enterprise workflow automation. 50+ specialists, 5+ years delivery, serving startups to enterprises globally from Gurugram, India."
         path="/"
         keywords="production-ready autonomous AI agents USA, managed RLHF alignment services UK, custom LLM fine-tuning enterprise India, conversational AI deployment globally, enterprise AI solutions USA, custom Retrieval Augmented Generation (RAG) setup, LLM dataset preparation services USA"
-        schema={[organizationSchema, websiteSchema, faqSchema, localBusinessSchema, personSchema]}
+        schema={[organizationSchema, websiteSchema, localBusinessSchema, personSchema]}
       />
       <HeroSection />
       {/* Our Products Section */}
@@ -173,8 +124,6 @@ const Home = () => {
 
       {/* 6. Why Choose Frostrek */}
       <FeaturesSection />
-      {/* 7. FAQ */}
-      <FAQSection />
     </div>
   );
 };

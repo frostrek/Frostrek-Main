@@ -22,6 +22,7 @@ const ManufacturingOSPage = lazy(() => import('./pages/ManufacturingOSPage'));
 const AICallingAgentPage = lazy(() => import('./pages/AICallingAgentPage'));
 const WhatsappBotPage = lazy(() => import('./pages/WhatsappBotPage'));
 const BlogPostPage = lazy(() => import('./pages/BlogPostPage'));
+const BlogIndexPage = lazy(() => import('./pages/BlogIndexPage'));
 const FAQPage = lazy(() => import('./pages/FAQPage'));
 const FintechWalletsPage = lazy(() => import('./pages/FintechWalletsPage'));
 const MultivendorDashboardPage = lazy(() => import('./pages/MultivendorDashboardPage'));
@@ -74,6 +75,7 @@ function App() {
 
                   <Route path="/resources/blog/:slug" element={<BlogPostPage />} />
                   <Route path="/resources" element={<ResourcesPage />} />
+                  <Route path="/blog" element={<BlogIndexPage />} />
                   <Route path="/about" element={<About />} />
                   <Route path="/experience" element={<ExperiencePage />} />
                   <Route path="/careers" element={<PlaceholderPage title="Careers" />} />

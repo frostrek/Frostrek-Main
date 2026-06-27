@@ -172,7 +172,7 @@ const InnovationProcess = () => {
             onMouseLeave={() => setPaused(false)}
         >
             {/* Left side: Interactive Timeline Control */}
-            <div className="lg:col-span-5 flex lg:flex-col justify-start lg:justify-center gap-3 lg:gap-0 lg:space-y-4 overflow-x-auto pb-2 lg:pb-0 snap-x snap-mandatory scrollbar-hide">
+            <div className="lg:col-span-5 flex lg:flex-col justify-start lg:justify-center gap-3 lg:gap-0 lg:space-y-4 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0 snap-x snap-mandatory scrollbar-hide">
                 {STEPS.map((step) => {
                     const isSelected = step.id === activeStep;
                     return (

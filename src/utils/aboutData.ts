@@ -223,39 +223,39 @@ export const TIMELINE_DATA: TimelineItem[] = [
         title: 'Inception',
         description: 'Frostrek founded with a vision to revolutionize enterprise AI adoption.',
         icon: Sparkles,
-        image: '/inception.png',
-        color: { border: 'rgb(176, 117, 82)', shadow: 'rgba(176, 117, 82, 0.2)', bg: 'bg-brand-green-50', text: 'text-brand-green-700', iconColor: 'text-brand-green-500' }
+        image: '/inception.jpg',
+        color: { border: 'border-blue-200', shadow: 'shadow-blue-500/10', bg: 'bg-blue-50', text: 'text-blue-700', iconColor: 'text-blue-500' }
     },
     {
         year: '2025',
         title: 'First Deployment',
         description: 'Successfully deployed our first AI agent platform for a Fortune 500 partner.',
         icon: Building2,
-        image: '/firstDeployment.png',
-        color: { border: 'rgb(212, 187, 117)', shadow: 'rgba(212, 187, 117, 0.2)', bg: 'bg-brand-yellow-50', text: 'text-brand-yellow-700', iconColor: 'text-brand-yellow-500' } // Gold
+        image: '/firstDeployment.jpg',
+        color: { border: 'border-emerald-200', shadow: 'shadow-emerald-500/10', bg: 'bg-emerald-50', text: 'text-emerald-700', iconColor: 'text-emerald-500' }
     },
     {
         year: '2025',
         title: 'Global Expansion',
         description: 'Opened offices in 3 new continents to serve our growing international client base.',
         icon: Globe,
-        image: '/global.png',
-        color: { border: 'rgb(138, 90, 53)', shadow: 'rgba(138, 90, 53, 0.2)', bg: 'bg-stone-100', text: 'text-stone-700', iconColor: 'text-stone-600' } // Darker Brown
+        image: '/global.jpg',
+        color: { border: 'border-rose-200', shadow: 'shadow-rose-500/10', bg: 'bg-rose-50', text: 'text-rose-700', iconColor: 'text-rose-500' }
     },
     {
         year: '2025',
         title: 'Platform Launch',
         description: 'Released Frostrek Agent V1, setting a new standard for autonomous enterprise agents.',
         icon: Zap,
-        image: '/frostyAbout.png',
-        color: { border: 'rgb(196, 143, 113)', shadow: 'rgba(196, 143, 113, 0.2)', bg: 'bg-brand-green-50', text: 'text-brand-green-600', iconColor: 'text-brand-green-400' } // Light Bronze
+        image: '/frostyAbout.jpg',
+        color: { border: 'border-violet-200', shadow: 'shadow-violet-500/10', bg: 'bg-violet-50', text: 'text-violet-700', iconColor: 'text-violet-500' }
     },
     {
         year: 'Next Era',
         title: 'Market Leader',
         description: 'Recognized as a top AI innovator with over 1M+ active agents managed daily.',
         icon: Award,
-        image: '/marketLeader.png',
-        color: { border: 'rgb(212, 187, 117)', shadow: 'rgba(212, 187, 117, 0.2)', bg: 'bg-brand-yellow-50', text: 'text-brand-yellow-700', iconColor: 'text-brand-yellow-600' } // Gold Return
+        image: '/marketLeader.jpg',
+        color: { border: 'border-fuchsia-200', shadow: 'shadow-fuchsia-500/10', bg: 'bg-fuchsia-50', text: 'text-fuchsia-700', iconColor: 'text-fuchsia-500' }
     },
 ];

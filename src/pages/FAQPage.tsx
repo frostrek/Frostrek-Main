@@ -93,6 +93,95 @@ const FAQ_CATEGORIES: FAQCategory[] = [
     }
 ];
 
+// Color themes matching home page FAQ styling
+const FAQ_THEMES = [
+    {
+        // Blue Theme
+        border: 'border-[#BAE6FD]',
+        hoverBorder: 'hover:border-[#0EA5E9]/40',
+        activeBorder: 'border-[#0EA5E9]/40',
+        shadow: 'shadow-[0_10px_35px_rgba(14,165,233,0.06)]',
+        badgeBg: 'bg-[#F0F9FF]',
+        badgeBorder: 'border-[#BAE6FD]/50',
+        badgeText: 'text-[#0284C7]',
+        questionText: 'text-gray-900 group-hover:text-[#0284C7]',
+        activeQuestionText: 'text-[#0284C7]',
+        iconBgActive: 'bg-[#0284C7]',
+        iconTextActive: 'text-white',
+        iconBgInactive: 'bg-[#F0F9FF]',
+        iconBorderInactive: 'border-[#BAE6FD]/50',
+        iconTextInactive: 'text-[#0284C7]',
+    },
+    {
+        // Green Theme
+        border: 'border-[#BBF7D0]',
+        hoverBorder: 'hover:border-[#2D6A4F]/40',
+        activeBorder: 'border-[#2D6A4F]/40',
+        shadow: 'shadow-[0_10px_35px_rgba(45,106,79,0.06)]',
+        badgeBg: 'bg-[#F0FDF4]',
+        badgeBorder: 'border-[#BBF7D0]/50',
+        badgeText: 'text-[#047857]',
+        questionText: 'text-gray-900 group-hover:text-[#047857]',
+        activeQuestionText: 'text-[#047857]',
+        iconBgActive: 'bg-[#047857]',
+        iconTextActive: 'text-white',
+        iconBgInactive: 'bg-[#F0FDF4]',
+        iconBorderInactive: 'border-[#BBF7D0]/50',
+        iconTextInactive: 'text-[#047857]',
+    },
+    {
+        // Pink Theme
+        border: 'border-[#FFE4E6]',
+        hoverBorder: 'hover:border-[#BE123C]/40',
+        activeBorder: 'border-[#BE123C]/40',
+        shadow: 'shadow-[0_10px_35px_rgba(244,63,94,0.06)]',
+        badgeBg: 'bg-[#FFF1F2]',
+        badgeBorder: 'border-[#FFE4E6]/50',
+        badgeText: 'text-[#BE123C]',
+        questionText: 'text-gray-900 group-hover:text-[#BE123C]',
+        activeQuestionText: 'text-[#BE123C]',
+        iconBgActive: 'bg-[#BE123C]',
+        iconTextActive: 'text-white',
+        iconBgInactive: 'bg-[#FFF1F2]',
+        iconBorderInactive: 'border-[#FFE4E6]/50',
+        iconTextInactive: 'text-[#BE123C]',
+    },
+    {
+        // Orange Theme
+        border: 'border-[#FFEDD5]',
+        hoverBorder: 'hover:border-[#C2410C]/40',
+        activeBorder: 'border-[#C2410C]/40',
+        shadow: 'shadow-[0_10px_35px_rgba(234,88,12,0.06)]',
+        badgeBg: 'bg-[#FFF7ED]',
+        badgeBorder: 'border-[#FFEDD5]/50',
+        badgeText: 'text-[#C2410C]',
+        questionText: 'text-gray-900 group-hover:text-[#C2410C]',
+        activeQuestionText: 'text-[#C2410C]',
+        iconBgActive: 'bg-[#C2410C]',
+        iconTextActive: 'text-white',
+        iconBgInactive: 'bg-[#FFF7ED]',
+        iconBorderInactive: 'border-[#FFEDD5]/50',
+        iconTextInactive: 'text-[#C2410C]',
+    },
+    {
+        // Yellow Theme
+        border: 'border-[#FEF3C7]',
+        hoverBorder: 'hover:border-[#B45309]/40',
+        activeBorder: 'border-[#B45309]/40',
+        shadow: 'shadow-[0_10px_35px_rgba(217,119,6,0.06)]',
+        badgeBg: 'bg-[#FFFBEB]',
+        badgeBorder: 'border-[#FEF3C7]/50',
+        badgeText: 'text-[#B45309]',
+        questionText: 'text-gray-900 group-hover:text-[#B45309]',
+        activeQuestionText: 'text-[#B45309]',
+        iconBgActive: 'bg-[#B45309]',
+        iconTextActive: 'text-white',
+        iconBgInactive: 'bg-[#FFFBEB]',
+        iconBorderInactive: 'border-[#FEF3C7]/50',
+        iconTextInactive: 'text-[#B45309]',
+    }
+];
+
 // Flatten all FAQs for the schema
 const allFAQs = FAQ_CATEGORIES.flatMap(cat => cat.faqs);
 
@@ -138,14 +227,16 @@ const FAQPage = () => {
             {/* Hero */}
             <section className="relative pt-32 pb-16 bg-gradient-to-b from-white via-[#FAFCFB] to-brand-light-bg overflow-hidden">
                 <div className="container mx-auto px-4 md:px-6 max-w-4xl text-center relative z-10">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#E8F5EE] border border-[#2D6A4F]/20 text-[#2D6A4F] text-xs font-bold uppercase tracking-wider mb-8"
-                    >
-                        <span className="flex h-2 w-2 rounded-full bg-[#2D6A4F] animate-pulse" />
-                        Help Center
-                    </motion.div>
+                    <div className="mb-6">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#E8F5EE] border border-[#2D6A4F]/20 text-[#2D6A4F] text-xs font-bold uppercase tracking-wider"
+                        >
+                            <span className="flex h-2 w-2 rounded-full bg-[#2D6A4F] animate-pulse" />
+                            Help Center
+                        </motion.div>
+                    </div>
 
                     <SplitTextReveal
                         as="h1"
@@ -198,10 +289,12 @@ const FAQPage = () => {
                                     {category.title}
                                 </motion.h2>
 
-                                <div className="space-y-3">
+                                <div className="space-y-4">
                                     {category.faqs.map((faq, index) => {
                                         const faqKey = `${category.title}-${index}`;
                                         const isActive = activeIndex === faqKey;
+                                        const globalIndex = FAQ_CATEGORIES.slice(0, FAQ_CATEGORIES.indexOf(category)).reduce((acc, c) => acc + c.faqs.length, 0) + index;
+                                        const theme = FAQ_THEMES[globalIndex % FAQ_THEMES.length];
 
                                         return (
                                             <motion.div
@@ -210,20 +303,26 @@ const FAQPage = () => {
                                                 whileInView={{ opacity: 1, y: 0 }}
                                                 viewport={{ once: true }}
                                                 transition={{ duration: 0.4, delay: index * 0.05 }}
-                                                className={`rounded-2xl border transition-all duration-300 bg-white ${
-                                                    isActive
-                                                        ? 'border-[#2D6A4F]/30 shadow-[0_10px_30px_rgba(45,106,79,0.06)]'
-                                                        : 'border-gray-100 hover:border-[#2D6A4F]/20 hover:shadow-md'
-                                                }`}
+                                                className={`rounded-2xl border transition-all duration-500 bg-white group ${theme.border} ${theme.hoverBorder} ${isActive ? `${theme.activeBorder} ${theme.shadow}` : 'hover:shadow-lg'
+                                                    }`}
                                             >
                                                 <button
                                                     onClick={() => setActiveIndex(isActive ? null : faqKey)}
-                                                    className="w-full flex items-center justify-between px-6 py-5 text-left"
+                                                    className="w-full px-6 py-5 md:py-6 flex items-center justify-between gap-4 text-left focus:outline-none"
                                                 >
-                                                    <span className="font-semibold text-gray-800 pr-4">{faq.question}</span>
-                                                    <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
-                                                        isActive ? 'bg-[#2D6A4F] text-white rotate-180' : 'bg-[#E8F5EE] text-[#2D6A4F]'
-                                                    }`}>
+                                                    <div className="flex items-center gap-4 md:gap-6">
+                                                        <span className={`flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold border transition-colors duration-300 ${theme.badgeBg} ${theme.badgeText} ${theme.badgeBorder}`}>
+                                                            {String(globalIndex + 1).padStart(2, '0')}
+                                                        </span>
+                                                        <span className={`text-[17px] font-medium transition-colors duration-300 ${isActive ? theme.activeQuestionText : theme.questionText
+                                                            }`}>
+                                                            {faq.question}
+                                                        </span>
+                                                    </div>
+                                                    <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-500 border ${isActive
+                                                        ? `${theme.iconBgActive} ${theme.iconTextActive} border-transparent rotate-180 shadow-md`
+                                                        : `${theme.iconBgInactive} ${theme.iconTextInactive} ${theme.iconBorderInactive}`
+                                                        }`}>
                                                         {isActive ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                                                     </div>
                                                 </button>
@@ -234,10 +333,10 @@ const FAQPage = () => {
                                                             initial={{ height: 0, opacity: 0 }}
                                                             animate={{ height: 'auto', opacity: 1 }}
                                                             exit={{ height: 0, opacity: 0 }}
-                                                            transition={{ duration: 0.3 }}
+                                                            transition={{ duration: 0.3, ease: "easeInOut" }}
                                                             className="overflow-hidden"
                                                         >
-                                                            <div className="px-6 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+                                                            <div className="px-6 pb-6 pt-2 md:pl-[5.5rem] leading-relaxed text-[15px] text-gray-500">
                                                                 {faq.answer}
                                                             </div>
                                                         </motion.div>
