@@ -83,6 +83,17 @@
   <!-- Preconnect to OpenStreetMap for faster footer map loading -->
   <link rel="preconnect" href="https://www.openstreetmap.org" crossorigin />
   <link rel="dns-prefetch" href="//www.openstreetmap.org" />
+
+  <!-- Critical above-the-fold CSS inlined to prevent FOUC when main stylesheet loads async -->
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{-webkit-text-size-adjust:100%;line-height:1.5}
+    body{background-color:#Fcfcfc;color:#2D6A4F;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    #root{min-height:100vh;width:100%}
+    img,video{max-width:100%;height:auto;display:block}
+    h1,h2,h3,h4,h5,h6{font-family:Inter,system-ui,sans-serif}
+    .font-serif{font-family:'Cormorant Garamond',serif}
+  </style>
 </head>
 
 <body>
