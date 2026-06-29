@@ -213,6 +213,7 @@ const Footer = () => {
                     marginHeight={0}
                     marginWidth={0}
                     src="https://www.openstreetmap.org/export/embed.html?bbox=77.0%2C28.4%2C77.1%2C28.5&amp;layer=mapnik&amp;marker=28.4595%2C77.0266"
+                    loading="lazy"
                     className="transition-opacity duration-300 pointer-events-none group-hover:opacity-90"
                   ></iframe>
 
