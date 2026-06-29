@@ -122,9 +122,9 @@ const Footer = () => {
               <div className="space-y-4">
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-3 group">
                   <Link to="/" className="flex items-center gap-3">
-                    <img src="/logonew.png"
+                    <img src="/optimized/logonew.webp"
                       alt="Frostrek AI Logo"
-                      className="h-9 w-auto transition-transform group-hover:scale-110" loading="lazy" width={512} height={512} />
+                      className="h-9 w-auto transition-transform group-hover:scale-110" loading="lazy" width={90} height={90} />
                     <FlipText className="text-[1.35rem] font-black font-sans font-bold text-[#2D6A4F]">
                       frostrek
                     </FlipText>
@@ -147,10 +147,10 @@ const Footer = () => {
 
               {/* Social Icons */}
               <div className="flex items-center gap-3 flex-wrap">
-                <a href={COMPANY_INFO.socials.linkedin} target="_blank" rel="noopener noreferrer" aria-label="Visit our LinkedIn page" className="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white border border-[#E6EFE6] text-[#2D6A4F] shadow-sm hover:shadow-md hover:-translate-y-1"><img src="/linkedin.png" alt="Linkedin" className="w-6 h-6 object-contain transition-all hover:scale-110" loading="lazy" width={512} height={512} /></a>
-                <a href={COMPANY_INFO.socials.instagram} target="_blank" rel="noopener noreferrer" aria-label="Visit our Instagram page" className="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white border border-[#E6EFE6] text-[#2D6A4F] shadow-sm hover:shadow-md hover:-translate-y-1"><img src="/instagram.png" alt="Instagram" className="w-6 h-6 object-contain transition-all hover:scale-110" loading="lazy" width={512} height={512} /></a>
-                <a href="https://wa.me/17574722491" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp" className="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white border border-[#E6EFE6] text-[#2D6A4F] shadow-sm hover:shadow-md hover:-translate-y-1"><img src="/whatsapp.png" alt="WhatsApp" className="w-6 h-6 object-contain transition-all hover:scale-110" loading="lazy" width={512} height={512} /></a>
-                <a href="mailto:contact@frostrek.ai" aria-label="Send us an email" className="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white border border-[#E6EFE6] text-[#2D6A4F] shadow-sm hover:shadow-md hover:-translate-y-1"><img src="/gmail.png" alt="Gmail" className="w-8 h-8 object-contain transition-all hover:scale-110" loading="lazy" width={512} height={512} /></a>
+                <a href={COMPANY_INFO.socials.linkedin} target="_blank" rel="noopener noreferrer" aria-label="Visit our LinkedIn page" className="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white border border-[#E6EFE6] text-[#2D6A4F] shadow-sm hover:shadow-md hover:-translate-y-1"><img src="/optimized/linkedin.webp" alt="Linkedin" className="w-6 h-6 object-contain transition-all hover:scale-110" loading="lazy" width={60} height={60} /></a>
+                <a href={COMPANY_INFO.socials.instagram} target="_blank" rel="noopener noreferrer" aria-label="Visit our Instagram page" className="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white border border-[#E6EFE6] text-[#2D6A4F] shadow-sm hover:shadow-md hover:-translate-y-1"><img src="/optimized/instagram.webp" alt="Instagram" className="w-6 h-6 object-contain transition-all hover:scale-110" loading="lazy" width={60} height={60} /></a>
+                <a href="https://wa.me/17574722491" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp" className="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white border border-[#E6EFE6] text-[#2D6A4F] shadow-sm hover:shadow-md hover:-translate-y-1"><img src="/optimized/whatsapp.webp" alt="WhatsApp" className="w-6 h-6 object-contain transition-all hover:scale-110" loading="lazy" width={60} height={60} /></a>
+                <a href="mailto:contact@frostrek.ai" aria-label="Send us an email" className="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white border border-[#E6EFE6] text-[#2D6A4F] shadow-sm hover:shadow-md hover:-translate-y-1"><img src="/optimized/gmail.webp" alt="Gmail" className="w-8 h-8 object-contain transition-all hover:scale-110" loading="lazy" width={80} height={80} /></a>
               </div>
             </div>
 

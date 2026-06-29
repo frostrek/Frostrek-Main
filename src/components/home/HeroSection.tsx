@@ -378,15 +378,15 @@ const HeroSection = () => {
           Trusted by Industry Leaders
         </h2>
         <div className="w-[87%] bg-white rounded-[32px] md:rounded-2xl py-1 md:py-2 px-6 md:px-12 lg:px-18 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 flex flex-wrap md:flex-nowrap items-center justify-center md:justify-between gap-8 md:gap-4">
-          <img src="/vedashi-logo.png" alt="Vedashi" className="h-8 md:h-12 object-contain" width={512} height={512} />
+          <img src="/optimized/vedashi-logo.webp" alt="Vedashi" className="h-8 md:h-12 object-contain" width={230} height={80} />
           <div className="hidden md:block w-[1px] h-8 bg-gray-200"></div>
-          <img src="/clutch.png" alt="Clutch" className="h-7 md:h-10 object-contain" width={512} height={512} />
+          <img src="/optimized/clutch.webp" alt="Clutch" className="h-7 md:h-10 object-contain" width={172} height={70} />
           <div className="hidden md:block w-[1px] h-8 bg-gray-200"></div>
-          <img src="/topDevelopers.webp" alt="TopDevelopers" className="h-7 md:h-10 object-contain" width={512} height={512} />
+          <img src="/optimized/topDevelopers.webp" alt="TopDevelopers" className="h-7 md:h-10 object-contain" width={270} height={70} />
           <div className="hidden md:block w-[1px] h-8 bg-gray-200"></div>
-          <img src="/goodfirms.png" alt="GoodFirms" className="h-7 md:h-10 object-contain" width={512} height={512} />
+          <img src="/optimized/goodfirms.webp" alt="GoodFirms" className="h-7 md:h-10 object-contain" width={262} height={70} />
           <div className="hidden md:block w-[1px] h-8 bg-gray-200"></div>
-          <img src="/iso.webp" alt="ISO 9001" className="h-10 md:h-14 object-contain" width={512} height={512} />
+          <img src="/optimized/iso.webp" alt="ISO 9001" className="h-10 md:h-14 object-contain" width={100} height={100} />
         </div>
       </motion.div>
 
