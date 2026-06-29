@@ -41,9 +41,9 @@ const BlogCard = ({ post, index = 0 }: { post: BlogPost; index?: number }) => {
                             <span className="flex items-center gap-1"><Clock className={`w-3.5 h-3.5 opacity-70 ${color.iconColor}`} /> {post.readTime}</span>
                         </div>
 
-                        <h3 className={`text-lg font-serif font-black text-gray-950 mb-3 ${color.hoverText} transition-colors duration-200 line-clamp-2`}>
+                        <h2 className={`text-lg font-serif font-black text-gray-950 mb-3 ${color.hoverText} transition-colors duration-200 line-clamp-2`}>
                             {post.title}
-                        </h3>
+                        </h2>
 
                         <p className="text-sm text-slate-500 font-body leading-relaxed mb-6 line-clamp-3">
                             {post.excerpt}

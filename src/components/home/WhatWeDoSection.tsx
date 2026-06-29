@@ -382,7 +382,7 @@ const WhatWeDoSection = () => {
                                                 <Link to={card.href} className={`text-sm font-bold group/link transition-colors ${styles.labelColor}`}>
                                                     {card.exploreText}
                                                 </Link>
-                                                <Link to={card.href} className={`w-8 h-8 rounded-full border flex items-center justify-center transition-all bg-white hover:bg-gray-50 ${styles.arrowColor}`}>
+                                                <Link to={card.href} aria-label={card.exploreText} className={`w-8 h-8 rounded-full border flex items-center justify-center transition-all bg-white hover:bg-gray-50 ${styles.arrowColor}`}>
                                                     <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
                                                 </Link>
                                             </div>

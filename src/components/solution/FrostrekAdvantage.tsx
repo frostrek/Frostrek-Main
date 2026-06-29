@@ -243,7 +243,7 @@ export const FrostrekAdvantage = ({ features: _features }: FrostrekAdvantageProp
                                                     </motion.div>
 
                                                     <div className="flex-1 min-w-0">
-                                                        <h4 className="font-serif font-bold text-sm text-gray-900 leading-tight">{step.title}</h4>
+                                                        <h3 className="font-serif font-bold text-sm text-gray-900 leading-tight">{step.title}</h3>
                                                         {/* FIXED: text-slate-500 prevents invisible subtitle */}
                                                         <p className="text-xs text-slate-500 font-medium mt-0.5">{step.subtitle}</p>
                                                     </div>
@@ -345,9 +345,9 @@ export const FrostrekAdvantage = ({ features: _features }: FrostrekAdvantageProp
                                             )}
                                         </motion.div>
 
-                                        <h4 className="font-serif font-bold text-xs text-gray-900">
+                                        <h3 className="font-serif font-bold text-xs text-gray-900">
                                             {allProcessed ? 'Complete!' : processingId ? 'Processing' : 'AI Core'}
-                                        </h4>
+                                        </h3>
 
                                         <motion.div
                                             className={`
@@ -410,7 +410,7 @@ export const FrostrekAdvantage = ({ features: _features }: FrostrekAdvantageProp
                                                             <Zap size={16} />
                                                         </div>
                                                         <div className="flex-1">
-                                                            <h4 className="font-serif font-bold text-sm text-gray-900 leading-tight">{item.outcome.title}</h4>
+                                                            <h3 className="font-serif font-bold text-sm text-gray-900 leading-tight">{item.outcome.title}</h3>
                                                             {/* FIXED: high-contrast text-slate-500 */}
                                                             <p className="text-xs text-slate-500 mt-1 leading-relaxed">{item.outcome.desc}</p>
                                                             <div className="mt-2.5 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-lg bg-[#E8F5EE] border border-[#2D6A4F]/15">

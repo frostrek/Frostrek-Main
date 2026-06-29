@@ -126,9 +126,9 @@ const SolutionCard = ({ solution, index, isActive, onClick }: {
                         </motion.div>
 
                         <div className="flex-1 min-w-0">
-                            <h4 className={`text-lg font-serif font-bold mb-1 transition-colors duration-300 ${isActive ? 'text-[#2D6A4F]' : 'text-gray-900 group-hover:text-[#2D6A4F]'}`}>
+                            <h3 className={`text-lg font-serif font-bold mb-1 transition-colors duration-300 ${isActive ? 'text-[#2D6A4F]' : 'text-gray-900 group-hover:text-[#2D6A4F]'}`}>
                                 {solution.name}
-                            </h4>
+                            </h3>
                             {/* FIXED: high-contrast text-slate-500 prevents white-on-white text issues */}
                             <p className="text-sm text-slate-500 font-medium font-body leading-relaxed">
                                 {solution.description}
@@ -300,9 +300,9 @@ export const AllSolutionsSection = () => {
                                 className="p-6 rounded-2xl border-2 border-dashed border-[#2D6A4F]/20 bg-[#E8F5EE]/10"
                             >
                                 <div className="text-center">
-                                    <h4 className="font-serif font-bold text-gray-900 mb-1.5 text-base">
+                                    <h3 className="font-serif font-bold text-gray-900 mb-1.5 text-base">
                                         Don't See Your Industry?
-                                    </h4>
+                                    </h3>
                                     {/* FIXED: text-slate-500 prevents invisible description */}
                                     <p className="text-xs text-slate-500 font-medium mb-4 leading-relaxed font-body">
                                         We build custom AI solutions for any business need.

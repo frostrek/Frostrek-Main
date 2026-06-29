@@ -1,63 +1,17 @@
 # Frostrek AI
-> AI workflow delivery, full-stack development, and automation company
-> Founded by Akash Mittal | Based in Gurugram, India | 18+ team members
-> 5+ years AI delivery | 50+ trained specialists
 
-## About
-Frostrek AI is an AI-first technology company that delivers end-to-end AI workflow automation, conversational AI agents, and full-stack development services. Founded by Akash Mittal, Frostrek AI operates as an exclusive technical partner — not a body-shopping agency — providing architecture-to-deployment solutions for startups, mid-market companies, and enterprises globally.
+> Frostrek AI delivers production-ready autonomous AI agents, LLM training, customized applications, workflow automation, and data annotation services for enterprises.
 
-## Core Services
-- Conversational AI Agents (Frosty Robo — plug-and-play SaaS bot for WhatsApp, Slack, and web chat, deployable in under 48 hours)
-- AI-Powered Video Interviews (Hiyring — hiyring.com — conducts multilingual AI video interviews simultaneously, reducing screening time by 80% for high-volume hiring)
-- Full-Stack AI Development & Automation
-- Fintech & Custom Wallet Development (digital wallets, payment infrastructure, stablecoin platforms, KYC/AML, DeFi integrations)
-- Multivendor E-Commerce Dashboard Development (consolidated analytics command center, real-time inventory sync, automated demand forecasting across major global storefronts and marketplaces)
-- Manufacturing Intelligence (real-time factory visibility, ERP/WMS/SCADA connectivity, live dashboard, digital shift handover, AI production scheduling)
-- E-Commerce Solutions & Cross-Border Trade
-- Enterprise AI Copilots & Workflow Automation
-- AI Data Operations (annotation, RLHF, SFT fine-tuning for frontier LLMs)
-- Voice AI Agents for customer support and sales
+## Core Products & Solutions
+- [Frosty AI](https://www.frostrek.ai/solutions/ai-agents): Omnichannel intelligent agent for support and sales
+- [Voice AI](https://www.frostrek.ai/solutions/voice-ai): Enterprise-grade AI calling agents and cognitive virtual assistants
+- [WhatsApp Agents](https://www.frostrek.ai/solutions/ai-agents): Autonomous chat agents for conversational deployment
+- [Manufacturing OS](https://www.frostrek.ai/solutions/manufacturing-intelligence): ERP/SCADA integration and factory AI optimization
+- [Custom LLM Fine-Tuning](https://www.frostrek.ai/solutions): Managed RLHF alignment and dataset preparation services
+- [Web3 & Fintech](https://www.frostrek.ai/solutions): Custom fintech wallets, stablecoin development, and crypto payment integrations
+- [E-Commerce](https://www.frostrek.ai/solutions): Multivendor dashboards and inventory sync integrations
 
-## Products
-- Frosty Robo: Conversational AI agent platform — integrates with WhatsApp, Slack, and web chat in under 48 hours
-- Hiyring (hiyring.com): Autonomous AI video interview platform — screens 500+ candidates simultaneously in 30+ languages
-- Voice AI Agent: Human-like voice interactions for support and sales automation — https://www.frostrek.ai/solutions/voice-ai
-- Fintech & Custom Wallets: Production-grade digital wallets, payment infrastructure, stablecoin platforms, KYC/AML integration, and DeFi — https://www.frostrek.ai/solutions/fintech-custom-wallets
-- Multivendor Dashboard: Consolidated automated command center for all your e-commerce channels — https://www.frostrek.ai/solutions/multivendor-dashboard
-- Manufacturing Intelligence: Connect factory systems into a single real-time intelligence platform with AI-driven production optimization — https://www.frostrek.ai/solutions/manufacturing-intelligence
-- AI Agents: Intelligent, autonomous AI agents built for your business workflows, reasoning, and automation — https://www.frostrek.ai/solutions/ai-agents
-- LinkedIn Automation: Smart outreach scaling for B2B sales teams
-- ERPNext AI Modules: Intelligent add-ons for enterprise ERP systems
-
-## Key Differentiators
-- Exclusive technical partner model (not body-shopping)
-- End-to-end from architecture to deployment
-- Blockchain/fintech capability (Polygon PoS, stablecoins)
-- Global delivery: India, Russia, South Korea, Europe, Africa
-- 50+ production AI deployments across 12 countries in 5+ years
-- AI Data Operations team of 80+ labelers for RLHF, SFT, and annotation
-
-## Industries Served
-- Healthcare & Medical AI
-- Autonomous Vehicles & ADAS
-- E-Commerce & Retail: Custom multivendor command center dashboards, API connectors, demand forecasting, real-time inventory sync, margin analysis — https://www.frostrek.ai/solutions/multivendor-dashboard
-- Fintech & Blockchain: Digital wallet development, payment infrastructure (Razorpay, Stripe, PayPal), stablecoin deployment (ERC-20, BEP-20, Polygon), smart contracts, DeFi, KYC/AML compliance — https://www.frostrek.ai/solutions/fintech-custom-wallets
-- Manufacturing & Operations: Factory floor visibility, ERP/WMS/SCADA connectivity, live dashboard, AI production scheduling, and machine alerting — https://www.frostrek.ai/solutions/manufacturing-intelligence
-- HR Tech & Recruitment
-- Enterprise SaaS
-- Media & Content
-
-## Office Locations
-- India (HQ): 4th Floor, JMD Empire, 455, Golf Course Ext Rd, Sector 62, Gurugram, Haryana 122102
-- USA: 701 Tillery Street Unit 12-3227, Austin, TX 78702
-- UK: 24-26 Arcadia Avenue, Fin009/8701, London, N3 2JU
-
-## Contact
-- Website: https://www.frostrek.ai
-- Email: contact@frostrek.ai
-- LinkedIn: https://www.linkedin.com/company/frostrek/
-- Schedule Demo: https://www.frostrek.ai/schedule-demo
-
-## Founder
-Akash Mittal, Founder and CEO of Frostrek AI
-LinkedIn: https://www.linkedin.com/in/akash-mittal/
+## Key Links
+- [Home](https://www.frostrek.ai/)
+- [About Us](https://www.frostrek.ai/about)
+- [Contact & Schedule Demo](https://www.frostrek.ai/contact)

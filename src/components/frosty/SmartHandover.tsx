@@ -152,7 +152,7 @@ const SmartHandover = () => {
                                                 {step.num}
                                             </span>
                                         </div>
-                                        <h4 className="font-serif text-lg font-bold text-[#2D6A4F] mb-2">{step.title}</h4>
+                                        <h3 className="font-serif text-lg font-bold text-[#2D6A4F] mb-2">{step.title}</h3>
                                         <p className="text-xs text-gray-500 font-medium leading-relaxed">{step.desc}</p>
 
                                         {step.isHub && (

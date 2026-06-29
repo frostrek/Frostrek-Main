@@ -22,7 +22,7 @@ const LinkedinOutreachDemo = () => {
                         JD
                     </div>
                     <div className="flex-1">
-                        <h4 className="font-semibold text-gray-900">John Doe</h4>
+                        <h3 className="font-semibold text-gray-900">John Doe</h3>
                         <p className="text-sm text-slate-500">CEO at TechCorp | Growth & Innovation</p>
                         <p className="text-xs text-slate-400 mt-1">Connect • 2nd degree connection</p>
                     </div>

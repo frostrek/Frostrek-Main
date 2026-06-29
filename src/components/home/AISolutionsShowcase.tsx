@@ -608,7 +608,7 @@ const AISolutionsShowcase = () => {
                                 {/* Body */}
                                 <div className="p-8 grid grid-cols-[1fr_1.1fr] gap-8 flex-1">
                                     <div className="space-y-4 pt-2">
-                                        <h4 className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: activeSolution.iconColorDark }}>Key Features</h4>
+                                        <h3 className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: activeSolution.iconColorDark }}>Key Features</h3>
                                         {activeSolution.features.map((feature, i) => (
                                             <div
                                                 key={i}

@@ -153,7 +153,7 @@ const ROIWidget = () => {
 
                         <div className="relative z-10 space-y-8">
                             <div>
-                                <h4 className="text-white/70 font-medium uppercase tracking-wider text-sm mb-2">Estimated Annual Savings</h4>
+                                <h3 className="text-white/70 font-medium uppercase tracking-wider text-sm mb-2">Estimated Annual Savings</h3>
                                 <motion.div
                                     key={annualSavings}
                                     initial={{ scale: 0.9, opacity: 0 }}

@@ -575,35 +575,35 @@ export default function AIAgentsPage() {
                                 <li className="flow-item flex items-start gap-3 md:gap-4">
                                     <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 text-xs md:text-sm font-bold flex-shrink-0 mt-0.5">1</div>
                                     <div>
-                                        <h4 className="font-bold text-[14px] md:text-base text-gray-800 mb-0.5 md:mb-1">Understand</h4>
+                                        <h3 className="font-bold text-[14px] md:text-base text-gray-800 mb-0.5 md:mb-1">Understand</h3>
                                         <p className="text-gray-600 text-[12px] md:text-sm leading-snug md:leading-relaxed">Every input — voice or text — passes through natural language understanding. The agent identifies intent, extracts entities, and determines what the user actually needs.</p>
                                     </div>
                                 </li>
                                 <li className="flow-item flex items-start gap-3 md:gap-4">
                                     <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-sky-100 flex items-center justify-center text-sky-700 text-xs md:text-sm font-bold flex-shrink-0 mt-0.5">2</div>
                                     <div>
-                                        <h4 className="font-bold text-[14px] md:text-base text-gray-800 mb-0.5 md:mb-1">Retrieve</h4>
+                                        <h3 className="font-bold text-[14px] md:text-base text-gray-800 mb-0.5 md:mb-1">Retrieve</h3>
                                         <p className="text-gray-600 text-[12px] md:text-sm leading-snug md:leading-relaxed">The agent queries your knowledge base, documents, and connected systems in real time using RAG. It retrieves only what's relevant — grounding every response in your actual data.</p>
                                     </div>
                                 </li>
                                 <li className="flow-item flex items-start gap-3 md:gap-4">
                                     <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700 text-xs md:text-sm font-bold flex-shrink-0 mt-0.5">3</div>
                                     <div>
-                                        <h4 className="font-bold text-[14px] md:text-base text-gray-800 mb-0.5 md:mb-1">Reason</h4>
+                                        <h3 className="font-bold text-[14px] md:text-base text-gray-800 mb-0.5 md:mb-1">Reason</h3>
                                         <p className="text-gray-600 text-[12px] md:text-sm leading-snug md:leading-relaxed">The LLM backbone reasons through the task — deciding what to do, what tools to use, what to say next. Complex multi-step decisions handled in milliseconds.</p>
                                     </div>
                                 </li>
                                 <li className="flow-item flex items-start gap-3 md:gap-4">
                                     <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-rose-100 flex items-center justify-center text-rose-700 text-xs md:text-sm font-bold flex-shrink-0 mt-0.5">4</div>
                                     <div>
-                                        <h4 className="font-bold text-[14px] md:text-base text-gray-800 mb-0.5 md:mb-1">Act</h4>
+                                        <h3 className="font-bold text-[14px] md:text-base text-gray-800 mb-0.5 md:mb-1">Act</h3>
                                         <p className="text-gray-600 text-[12px] md:text-sm leading-snug md:leading-relaxed">The agent calls the right tools — CRM lookup, calendar booking, database query, API call, email trigger — and completes the task autonomously or presents options to the user.</p>
                                     </div>
                                 </li>
                                 <li className="flow-item flex items-start gap-3 md:gap-4">
                                     <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-amber-100 flex items-center justify-center text-amber-700 text-xs md:text-sm font-bold flex-shrink-0 mt-0.5">5</div>
                                     <div>
-                                        <h4 className="font-bold text-[14px] md:text-base text-gray-800 mb-0.5 md:mb-1">Learn</h4>
+                                        <h3 className="font-bold text-[14px] md:text-base text-gray-800 mb-0.5 md:mb-1">Learn</h3>
                                         <p className="text-gray-600 text-[12px] md:text-sm leading-snug md:leading-relaxed">Every interaction is logged, evaluated, and used to improve the agent over time. We run continuous evaluation loops to catch errors, refine responses, and expand capability.</p>
                                     </div>
                                 </li>

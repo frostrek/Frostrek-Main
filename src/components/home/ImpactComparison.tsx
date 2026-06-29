@@ -196,9 +196,9 @@ const ImpactComparison = () => {
                                     <div className={`absolute top-0 left-0 w-full h-1 ${theme.topLine}`} />
 
                                     <div className="mb-4">
-                                        <h4 className="text-sm md:text-base lg:text-lg font-bold font-serif mb-1 leading-snug text-black">
+                                        <h3 className="text-sm md:text-base lg:text-lg font-bold font-serif mb-1 leading-snug text-black">
                                             {item.title}
-                                        </h4>
+                                        </h3>
                                         <div className="flex items-center gap-1 md:gap-1.5 mt-1.5 md:mt-2.5">
                                             <XCircle className={`w-3 h-3 md:w-3.5 md:h-3.5 ${theme.xIconColor}`} />
                                             <span className={`text-[10px] md:text-xs font-bold uppercase tracking-widest ${theme.titleColor}`}>The Old Way</span>
@@ -226,9 +226,9 @@ const ImpactComparison = () => {
                                         <CheckCircle2 className={`w-3.5 h-3.5 md:w-4 md:h-4 ${theme.checkIconColor}`} />
                                         <span className={`text-[10px] md:text-xs font-bold uppercase tracking-wider ${theme.labelColor}`}>With Frostrek</span>
                                     </div>
-                                    <h4 className={`text-xs md:text-[15px] text-black leading-relaxed relative z-10 ${theme.afterTextColor}`}>
+                                    <h3 className={`text-xs md:text-[15px] text-black leading-relaxed relative z-10 ${theme.afterTextColor}`}>
                                         {item.after}
-                                    </h4>
+                                    </h3>
                                 </div>
                             </motion.div>
                         );

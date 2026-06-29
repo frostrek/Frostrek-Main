@@ -222,11 +222,11 @@ const HeroSection = () => {
                       <span className="text-[10px] uppercase font-bold tracking-wide text-[#2D6A4F] px-2 py-0.5 rounded bg-[#E8F5EE] border border-[#2D6A4F]/10">
                         {item.badge}
                       </span>
-                      <Link to={item.link} className="text-gray-400 hover:text-[#2D6A4F] transition-colors">
+                      <Link to={item.link} aria-label={`Explore ${item.title}`} className="text-gray-400 hover:text-[#2D6A4F] transition-colors">
                         <ArrowUpRight size={16} />
                       </Link>
                     </div>
-                    <h4 className="font-serif font-black text-slate-900 text-[14px] leading-tight mb-0.5">{item.title}</h4>
+                    <h3 className="font-serif font-black text-slate-900 text-[14px] leading-tight mb-0.5">{item.title}</h3>
                     <p className="text-[11px] font-bold text-[#2D6A4F] mb-2">{item.tagline}</p>
                     <p className="text-[11px] text-slate-500 leading-relaxed font-semibold mb-3">{item.desc}</p>
                     <Link to={item.link} className="inline-flex items-center gap-1 text-[11px] font-bold text-[#2D6A4F] hover:underline">
@@ -272,11 +272,11 @@ const HeroSection = () => {
                       <span className="text-[10px] uppercase font-bold tracking-wide text-[#2D6A4F] px-2 py-0.5 rounded bg-[#E8F5EE] border border-[#2D6A4F]/10">
                         {item.badge}
                       </span>
-                      <Link to={item.link} className="text-gray-400 hover:text-[#2D6A4F] transition-colors">
+                      <Link to={item.link} aria-label={`Explore ${item.title}`} className="text-gray-400 hover:text-[#2D6A4F] transition-colors">
                         <ArrowUpRight size={16} />
                       </Link>
                     </div>
-                    <h4 className="font-serif font-black text-slate-900 text-[14px] leading-tight mb-0.5">{item.title}</h4>
+                    <h3 className="font-serif font-black text-slate-900 text-[14px] leading-tight mb-0.5">{item.title}</h3>
                     <p className="text-[11px] font-bold text-[#2D6A4F] mb-2">{item.tagline}</p>
                     <p className="text-[11px] text-slate-500 leading-relaxed font-semibold mb-3">{item.desc}</p>
                     <Link to={item.link} className="inline-flex items-center gap-1 text-[11px] font-bold text-[#2D6A4F] hover:underline">
@@ -303,35 +303,30 @@ const HeroSection = () => {
 
         {/* Heading */}
         <div className="flex flex-col items-center">
-          <SplitTextReveal
-            as="h1"
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-[1.1] tracking-[-0.01em]"
-            trigger="load"
-            type="chars"
-            stagger={0.03}
           >
             Intelligent agents
-          </SplitTextReveal>
-          <SplitTextReveal
-            as="h1"
+          </motion.h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-[1.1] tracking-[-0.01em]"
-            trigger="load"
-            type="chars"
-            stagger={0.03}
-            delay={0.4}
           >
             that run your operations.
-          </SplitTextReveal>
-          <SplitTextReveal
-            as="h1"
+          </motion.h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
             className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black mb-4 leading-[1.1] tracking-[-0.01em]"
-            trigger="load"
-            type="chars"
-            stagger={0.03}
-            delay={0.7}
           >
             Not just assist them.
-          </SplitTextReveal>
+          </motion.h1>
         </div>
 
         {/* Subtitles */}
@@ -379,9 +374,9 @@ const HeroSection = () => {
         transition={{ delay: 2.0 }}
         className="mt-auto pt-12 md:pt-15 w-[90vw] mx-auto z-10 relative flex flex-col items-center"
       >
-        <h3 className="font-serif text-[#2D6A4F] text-xl font-semibold mb-4 text-center">
+        <h2 className="font-serif text-[#2D6A4F] text-xl font-semibold mb-4 text-center">
           Trusted by Industry Leaders
-        </h3>
+        </h2>
         <div className="w-[87%] bg-white rounded-[32px] md:rounded-2xl py-1 md:py-2 px-6 md:px-12 lg:px-18 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 flex flex-wrap md:flex-nowrap items-center justify-center md:justify-between gap-8 md:gap-4">
           <img src="/vedashi-logo.png" alt="Vedashi" className="h-8 md:h-12 object-contain" width={512} height={512} />
           <div className="hidden md:block w-[1px] h-8 bg-gray-200"></div>

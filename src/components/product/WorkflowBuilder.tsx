@@ -52,7 +52,7 @@ const CanvasNode = ({
                         <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#2D6A4F]">{step.step}</span>
                         <MoreHorizontal className="w-4 h-4 text-slate-300 group-hover:text-slate-400 transition-colors" />
                     </div>
-                    <h4 className="font-serif font-bold text-gray-900 mb-1 text-sm leading-tight">{step.title}</h4>
+                    <h3 className="font-serif font-bold text-gray-900 mb-1 text-sm leading-tight">{step.title}</h3>
                     <p className="text-xs leading-relaxed line-clamp-2 text-slate-500 font-medium">{step.description}</p>
                 </div>
             </div>

@@ -464,7 +464,7 @@ const ManufacturingOSPage = () => {
                                         {item.value}
                                         {item.unit && <span className={`text-sm md:text-xl lg:text-2xl font-body font-bold tracking-normal opacity-70`}>{item.unit}</span>}
                                     </div>
-                                    <h4 className="text-sm md:text-lg font-bold text-gray-900 uppercase tracking-widest mb-2 md:mb-4">{item.label}</h4>
+                                    <h3 className="text-sm md:text-lg font-bold text-gray-900 uppercase tracking-widest mb-2 md:mb-4">{item.label}</h3>
                                     <p className="text-[12px] md:text-sm text-gray-600 leading-snug md:leading-relaxed max-w-xs">{item.description}</p>
                                 </div>
                             </SpotlightCard>

@@ -32,9 +32,9 @@ const FeatureNode = ({
                     {feature.icon && <feature.icon className="w-5 h-5" />}
                 </div>
                 <div>
-                    <h4 className="text-base font-serif font-bold text-gray-900 mb-1 leading-tight">
+                    <h3 className="text-base font-serif font-bold text-gray-900 mb-1 leading-tight">
                         {feature.title}
-                    </h4>
+                    </h3>
                     {/* FIXED: high-contrast text-slate-500 ensures description text is beautifully visible */}
                     <p className="text-xs text-slate-500 font-medium leading-relaxed">
                         {feature.description}

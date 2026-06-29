@@ -169,11 +169,11 @@ const ProductCard = ({ product, index, isActive, onMouseEnter, onMouseLeave }: {
 
                         <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2 mb-1">
-                                <h4 className={`text-lg font-bold transition-colors duration-300 text-gray-900 ${
+                                <h3 className={`text-lg font-bold transition-colors duration-300 text-gray-900 ${
                                     isActive ? 'text-[#2D6A4F]' : 'group-hover:text-[#2D6A4F]'
                                 }`}>
                                     {product.name}
-                                </h4>
+                                </h3>
                                 {product.liveBuild && (
                                     <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider bg-[#E8F5EE] text-[#2D6A4F] border border-[#2D6A4F]/25">
                                         <span className="w-1.5 h-1.5 rounded-full bg-[#2D6A4F] animate-pulse" />
@@ -392,11 +392,11 @@ const AllProductsSection = () => {
 
                                                 <div className="flex-1 min-w-0">
                                                     <div className="flex items-center gap-2 mb-1">
-                                                        <h4 className={`text-lg font-bold transition-colors text-gray-900 ${
+                                                        <h3 className={`text-lg font-bold transition-colors text-gray-900 ${
                                                             isActive ? 'text-[#2D6A4F]' : 'group-hover:text-[#2D6A4F]'
                                                         }`}>
                                                             {product.name}
-                                                        </h4>
+                                                        </h3>
                                                         <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider bg-[#E8F5EE] text-[#2D6A4F] border border-[#2D6A4F]/25">
                                                             <span className="w-1.5 h-1.5 rounded-full bg-[#2D6A4F] animate-pulse" />
                                                             Live Build
@@ -488,7 +488,7 @@ const AllProductsSection = () => {
                             <motion.div initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.8 }}
                                 className="mt-6 p-6 rounded-2xl border-2 border-dashed border-[#2D6A4F]/25 bg-[#E8F5EE]/30">
                                 <div className="text-center space-y-2">
-                                    <h4 className="font-serif font-bold text-gray-900 text-lg">Need a Custom Solution?</h4>
+                                    <h3 className="font-serif font-bold text-gray-900 text-lg">Need a Custom Solution?</h3>
                                     <p className="text-sm text-slate-600 font-medium">Let's build something tailored for your business.</p>
                                     <div className="pt-2">
                                         <Link to="/contact">

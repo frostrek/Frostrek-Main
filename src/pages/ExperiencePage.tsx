@@ -91,10 +91,10 @@ const ExperiencePage = () => {
                             <VoiceCallWidget />
 
                             <div className="rounded-2xl p-5 border bg-[#F0FDF4] border-[#BBF7D0] shadow-sm">
-                                <h4 className="font-serif font-bold text-gray-900 mb-2 flex items-center gap-2">
+                                <h3 className="font-serif font-bold text-gray-900 mb-2 flex items-center gap-2">
                                     <Zap className="w-4.5 h-4.5 text-[#1B4332]" />
                                     What to try:
-                                </h4>
+                                </h3>
                                 <ul className="text-sm space-y-1.5 text-slate-600 font-body">
                                     <li className="flex items-center gap-1.5">• Ask about Frostrek's services</li>
                                     <li className="flex items-center gap-1.5">• Request a demo or quote</li>
@@ -123,10 +123,10 @@ const ExperiencePage = () => {
                             <ChatbotDemo />
 
                             <div className="rounded-2xl p-5 border bg-gradient-to-r from-[#FDF4FA] to-white border-[#F2BAE4] shadow-sm">
-                                <h4 className="font-serif font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                                <h3 className="font-serif font-semibold text-gray-900 mb-2 flex items-center gap-2">
                                     <Sparkles className="w-4.5 h-4.5 text-[#D67CBA]" />
                                     Features:
-                                </h4>
+                                </h3>
                                 <ul className="text-sm space-y-1.5 text-slate-600 font-body">
                                     <li className="flex items-center gap-1.5">• Natural language understanding</li>
                                     <li className="flex items-center gap-1.5">• Voice message support</li>
@@ -162,10 +162,10 @@ const ExperiencePage = () => {
                             <LinkedinOutreachDemo />
 
                             <div className="rounded-2xl p-5 border bg-gradient-to-r from-[#E8F5EE]/30 to-white border-blue-100 shadow-sm">
-                                <h4 className="font-serif font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                                <h3 className="font-serif font-semibold text-gray-900 mb-2 flex items-center gap-2">
                                     <Zap className="w-4.5 h-4.5 text-[#0077B5]" />
                                     Features:
-                                </h4>
+                                </h3>
                                 <ul className="text-sm space-y-1.5 text-slate-600 font-body">
                                     <li className="flex items-center gap-1.5">• Target industry & location filtering</li>
                                     <li className="flex items-center gap-1.5">• Decision maker identification</li>

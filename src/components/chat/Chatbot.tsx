@@ -72,22 +72,27 @@ const Chatbot: React.FC = () => {
 
 
     const scrollToBottom = () => {
-        // Save page scroll position first
-        const scrollX = window.scrollX;
-        const scrollY = window.scrollY;
-        if (messagesEndRef.current) {
-            const parent = messagesEndRef.current.parentElement;
-            if (parent) {
-                parent.scrollTo({
-                    top: parent.scrollHeight,
-                    behavior: 'smooth'
-                });
+        // Defer execution to the macrotask queue to prevent "Forced Reflow" / Layout Thrashing.
+        // This allows the browser to paint the new chat message BEFORE we measure its scrollHeight.
+        setTimeout(() => {
+            // Save page scroll position first
+            const scrollX = window.scrollX;
+            const scrollY = window.scrollY;
+            
+            if (messagesEndRef.current) {
+                const parent = messagesEndRef.current.parentElement;
+                if (parent) {
+                    parent.scrollTo({
+                        top: parent.scrollHeight,
+                        behavior: 'smooth'
+                    });
+                }
             }
-        }
-        // Restore page scroll position to prevent page jump
-        requestAnimationFrame(() => {
-            window.scrollTo(scrollX, scrollY);
-        });
+            // Restore page scroll position to prevent page jump
+            requestAnimationFrame(() => {
+                window.scrollTo(scrollX, scrollY);
+            });
+        }, 0);
     };
 
     useEffect(() => {
@@ -658,9 +663,9 @@ const Chatbot: React.FC = () => {
                                             <div className="w-20 h-20 bg-transparent flex items-center justify-center mx-auto mb-6 overflow-hidden">
                                                 <img src="/chatbot.png" alt="Frosty" className="w-16 h-16 object-contain translate-y-2" loading="lazy" width={512} height={512} />
                                             </div>
-                                            <h4 className="text-2xl font-serif font-black text-gray-950">
+                                            <h3 className="text-2xl font-serif font-black text-gray-950">
                                                 Hi, I'm Frosty 👋
-                                            </h4>
+                                            </h3>
                                             <p className="text-sm mt-3 text-slate-500 font-medium font-body leading-relaxed">
                                                 Ask me anything about your business, support, or innovation.
                                             </p>

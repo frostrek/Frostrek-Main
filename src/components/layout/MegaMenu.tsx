@@ -102,9 +102,9 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ sections, onClose }) => {
 
                                                     <div className="relative z-10 min-w-0">
                                                         <div className="flex items-center gap-2">
-                                                            <h4 className="font-semibold text-[16px] text-gray-900 group-hover:text-[#2D6A4F] transition-colors font-serif">
+                                                            <h3 className="font-semibold text-[16px] text-gray-900 group-hover:text-[#2D6A4F] transition-colors font-serif">
                                                                 {item.name}
-                                                            </h4>
+                                                            </h3>
                                                             <ArrowRight size={14} className="opacity-0 -translate-x-3 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 text-[#2D6A4F]" />
                                                         </div>
                                                         <p className="text-[13px] text-slate-500/80 mt-1 leading-relaxed font-body line-clamp-1 group-hover:text-slate-600 transition-colors">

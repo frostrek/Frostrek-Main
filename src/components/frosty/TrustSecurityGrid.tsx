@@ -78,7 +78,7 @@ const TrustSecurityGrid = () => {
                                 <item.icon className="w-6 h-6" strokeWidth={1.5} />
                             </div>
                             <div>
-                                <h4 className="font-serif font-bold text-base text-[#2D6A4F]">{item.title}</h4>
+                                <h3 className="font-serif font-bold text-base text-[#2D6A4F]">{item.title}</h3>
                                 <p className="text-xs text-gray-500 mt-1 font-medium">{item.desc}</p>
                             </div>
                         </div>

@@ -241,9 +241,9 @@ const InnovationProcess = () => {
                                 className="space-y-6"
                             >
                                 <div className="space-y-3">
-                                    <h4 className="font-serif text-xl sm:text-2xl text-gray-950 font-bold">
+                                    <h3 className="font-serif text-xl sm:text-2xl text-gray-950 font-bold">
                                         {activeData.title}
-                                    </h4>
+                                    </h3>
                                     <p className="text-gray-600 font-body text-sm leading-relaxed max-w-xl">
                                         {activeData.description}
                                     </p>

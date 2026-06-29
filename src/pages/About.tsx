@@ -705,7 +705,7 @@ const ExpandableTechCategory = memo(({ category, delay }: { category: typeof TEC
                                     >
                                         <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-br ${category.color} mt-1.5 shrink-0`} />
                                         <div>
-                                            <h4 className="font-bold text-gray-900 text-sm">{tech.name}</h4>
+                                            <h3 className="font-bold text-gray-900 text-sm">{tech.name}</h3>
                                             <p className="text-gray-500 text-xs mt-0.5 leading-relaxed">{tech.desc}</p>
                                         </div>
                                     </div>

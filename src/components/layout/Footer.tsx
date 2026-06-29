@@ -147,10 +147,10 @@ const Footer = () => {
 
               {/* Social Icons */}
               <div className="flex items-center gap-3 flex-wrap">
-                <a href={COMPANY_INFO.socials.linkedin} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white border border-[#E6EFE6] text-[#2D6A4F] shadow-sm hover:shadow-md hover:-translate-y-1"><img src="/linkedin.png" alt="Linkedin" className="w-6 h-6 object-contain transition-all hover:scale-110" loading="lazy" width={512} height={512} /></a>
-                <a href={COMPANY_INFO.socials.instagram} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white border border-[#E6EFE6] text-[#2D6A4F] shadow-sm hover:shadow-md hover:-translate-y-1"><img src="/instagram.png" alt="Instagram" className="w-6 h-6 object-contain transition-all hover:scale-110" loading="lazy" width={512} height={512} /></a>
-                <a href="https://wa.me/17574722491" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white border border-[#E6EFE6] text-[#2D6A4F] shadow-sm hover:shadow-md hover:-translate-y-1"><img src="/whatsapp.png" alt="WhatsApp" className="w-6 h-6 object-contain transition-all hover:scale-110" loading="lazy" width={512} height={512} /></a>
-                <a href="mailto:contact@frostrek.ai" className="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white border border-[#E6EFE6] text-[#2D6A4F] shadow-sm hover:shadow-md hover:-translate-y-1"><img src="/gmail.png" alt="Gmail" className="w-8 h-8 object-contain transition-all hover:scale-110" loading="lazy" width={512} height={512} /></a>
+                <a href={COMPANY_INFO.socials.linkedin} target="_blank" rel="noopener noreferrer" aria-label="Visit our LinkedIn page" className="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white border border-[#E6EFE6] text-[#2D6A4F] shadow-sm hover:shadow-md hover:-translate-y-1"><img src="/linkedin.png" alt="Linkedin" className="w-6 h-6 object-contain transition-all hover:scale-110" loading="lazy" width={512} height={512} /></a>
+                <a href={COMPANY_INFO.socials.instagram} target="_blank" rel="noopener noreferrer" aria-label="Visit our Instagram page" className="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white border border-[#E6EFE6] text-[#2D6A4F] shadow-sm hover:shadow-md hover:-translate-y-1"><img src="/instagram.png" alt="Instagram" className="w-6 h-6 object-contain transition-all hover:scale-110" loading="lazy" width={512} height={512} /></a>
+                <a href="https://wa.me/17574722491" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp" className="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white border border-[#E6EFE6] text-[#2D6A4F] shadow-sm hover:shadow-md hover:-translate-y-1"><img src="/whatsapp.png" alt="WhatsApp" className="w-6 h-6 object-contain transition-all hover:scale-110" loading="lazy" width={512} height={512} /></a>
+                <a href="mailto:contact@frostrek.ai" aria-label="Send us an email" className="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white border border-[#E6EFE6] text-[#2D6A4F] shadow-sm hover:shadow-md hover:-translate-y-1"><img src="/gmail.png" alt="Gmail" className="w-8 h-8 object-contain transition-all hover:scale-110" loading="lazy" width={512} height={512} /></a>
               </div>
             </div>
 
@@ -158,7 +158,7 @@ const Footer = () => {
             <div className="lg:col-span-9 grid grid-cols-2 md:grid-cols-4 gap-8">
               {/* Products */}
               <div className="space-y-4">
-                <h4 className="section-title font-bold text-xs uppercase tracking-widest text-[#2D6A4F]">Products</h4>
+                <h3 className="section-title font-bold text-xs uppercase tracking-widest text-[#2D6A4F]">Products</h3>
                 <ul className="space-y-1.5">
                   {NAV_ITEMS.find(n => n.label === 'Products')?.megaMenu?.flatMap(s => s.items).slice(0, 5).map(item => (
                     <li key={item.name}>
@@ -172,7 +172,7 @@ const Footer = () => {
 
               {/* Solutions */}
               <div className="space-y-4">
-                <h4 className="section-title font-bold text-xs uppercase tracking-widest text-[#2D6A4F]">Solutions</h4>
+                <h3 className="section-title font-bold text-xs uppercase tracking-widest text-[#2D6A4F]">Solutions</h3>
                 <ul className="space-y-1.5">
                   {NAV_ITEMS.find(n => n.label === 'Solutions')?.megaMenu?.flatMap(s => s.items).map(item => (
                     <li key={item.name}>
@@ -187,7 +187,7 @@ const Footer = () => {
 
               {/* Company */}
               <div className="space-y-4">
-                <h4 className="section-title font-bold text-xs uppercase tracking-widest text-[#2D6A4F]">Company</h4>
+                <h3 className="section-title font-bold text-xs uppercase tracking-widest text-[#2D6A4F]">Company</h3>
                 <ul className="space-y-1.5">
                   <li><Link to="/about" className="footer-link text-[13px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>About Us</FlipText></Link></li>
                   <li><Link to="/experience" className="footer-link text-[13px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>Experience</FlipText></Link></li>
@@ -201,7 +201,7 @@ const Footer = () => {
 
               {/* Connect (Map only) */}
               <div className="space-y-4">
-                <h4 className="font-bold text-xs uppercase tracking-widest text-[#2D6A4F]">Location</h4>
+                <h3 className="font-bold text-xs uppercase tracking-widest text-[#2D6A4F]">Location</h3>
 
                 {/* Embedded Map */}
                 <div ref={locationRef} onClick={handleLocationClick} className="relative w-full h-40 md:h-48 rounded-2xl overflow-hidden shadow-sm border border-[#E6EFE6] bg-gray-50 hover:shadow-md cursor-pointer transition-all duration-300 group hover:border-[#2D6A4F]/20">

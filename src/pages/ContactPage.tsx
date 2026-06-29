@@ -190,7 +190,7 @@ ${formData.projectDetails}
                             {/* Call & Direct Contact Details */}
                             <div className="p-4 sm:p-6 rounded-3xl bg-white border border-[#2D6A4F]/10 shadow-xl shadow-gray-100/50 space-y-4">
                                 <div className="border-b border-gray-100 pb-3">
-                                    <h3 className="text-xl sm:text-2xl font-serif font-semibold text-gray-900">Direct Connect</h3>
+                                    <h2 className="text-xl sm:text-2xl font-serif font-semibold text-gray-900">Direct Connect</h2>
                                 </div>
 
                                 <div className="grid grid-cols-2 gap-2 sm:gap-3">
@@ -203,7 +203,7 @@ ${formData.projectDetails}
                                             <img src="/icons/phone-call.png" alt="Phone" className="w-4 h-4 sm:w-5 sm:h-5 object-contain" loading="lazy" width={512} height={512} />
                                         </div>
                                         <div className="w-full">
-                                            <h4 className="font-bold text-[9px] sm:text-xs text-[#EA580C] uppercase tracking-wider font-body leading-none mb-1 sm:mb-1.5 truncate">Call Us</h4>
+                                            <h3 className="font-bold text-[9px] sm:text-xs text-[#EA580C] uppercase tracking-wider font-body leading-none mb-1 sm:mb-1.5 truncate">Call Us</h3>
                                             <p className="font-serif font-bold text-[10px] sm:text-sm md:text-base text-gray-900 tracking-wide w-full truncate">+91 6399999955</p>
                                         </div>
                                     </a>
@@ -219,7 +219,7 @@ ${formData.projectDetails}
                                             <img src="/icons/chat.png" alt="Chat" className="w-4 h-4 sm:w-5 sm:h-5 object-contain" loading="lazy" width={512} height={512} />
                                         </div>
                                         <div className="w-full">
-                                            <h4 className="font-bold text-[9px] sm:text-xs text-[#2D6A4F] uppercase tracking-wider font-body leading-none mb-1 sm:mb-1.5 truncate">WhatsApp</h4>
+                                            <h3 className="font-bold text-[9px] sm:text-xs text-[#2D6A4F] uppercase tracking-wider font-body leading-none mb-1 sm:mb-1.5 truncate">WhatsApp</h3>
                                             <p className="font-serif font-bold text-[10px] sm:text-sm md:text-base text-gray-900 tracking-wide w-full truncate">+1 757 472 2491</p>
                                         </div>
                                     </a>
@@ -233,7 +233,7 @@ ${formData.projectDetails}
                                             <img src="/icons/email.png" alt="Email" className="w-4 h-4 sm:w-5 sm:h-5 object-contain" loading="lazy" width={512} height={512} />
                                         </div>
                                         <div className="w-full">
-                                            <h4 className="font-bold text-[9px] sm:text-xs text-[#0284C7] uppercase tracking-wider font-body leading-none mb-1 sm:mb-1.5 truncate">Email Us</h4>
+                                            <h3 className="font-bold text-[9px] sm:text-xs text-[#0284C7] uppercase tracking-wider font-body leading-none mb-1 sm:mb-1.5 truncate">Email Us</h3>
                                             <p className="font-serif font-bold text-[10px] sm:text-sm md:text-base text-gray-900 tracking-wide w-full truncate">contact@frostrek.ai</p>
                                         </div>
                                     </a>
@@ -243,9 +243,9 @@ ${formData.projectDetails}
                             {/* GLOBAL OFFICES Section */}
                             <div className="p-5 sm:p-8 rounded-3xl bg-white border border-[#2D6A4F]/10 shadow-xl shadow-gray-100/50">
                                 <div className="flex items-center gap-2 mb-6 border-b border-gray-100 pb-4">
-                                    <h3 className="text-2xl font-serif font-semibold text-gray-900">
+                                    <h2 className="text-2xl font-serif font-semibold text-gray-900">
                                         Global Offices
-                                    </h3>
+                                    </h2>
                                 </div>
                                 <div className="space-y-4">
                                     {[
@@ -280,9 +280,9 @@ ${formData.projectDetails}
                                             <>
                                                 <div className="flex-1 min-w-0">
                                                     <div className="flex items-center gap-2 mb-1">
-                                                        <h4 className={`font-serif font-bold text-base tracking-tight ${office.accentText} transition-colors`}>
+                                                        <h3 className={`font-serif font-bold text-base tracking-tight ${office.accentText} transition-colors`}>
                                                             {office.title}
-                                                        </h4>
+                                                        </h3>
                                                         {office.isHQ && (
                                                             <span className={`text-[9px] font-black px-2 py-0.5 rounded-full ${office.hqBadgeBg} border`}>
                                                                 HQ
@@ -338,7 +338,7 @@ ${formData.projectDetails}
                             {!isSuccess ? (
                                 <form onSubmit={handleSubmit} className="space-y-6">
                                     <div className="border-b border-gray-100 pb-4">
-                                        <h3 className="text-2xl font-serif font-semibold text-gray-900">Send Us a Message</h3>
+                                        <h2 className="text-2xl font-serif font-semibold text-gray-900">Send Us a Message</h2>
                                         <p className="text-xs text-slate-500 mt-1">Please fill in the form below and we'll connect shortly.</p>
                                     </div>
 
@@ -500,7 +500,7 @@ ${formData.projectDetails}
                                     <div className="w-20 h-20 rounded-full bg-[#E8F5EE] border border-[#2D6A4F]/20 flex items-center justify-center mb-6">
                                         <Check className="w-9 h-9 text-[#2D6A4F]" />
                                     </div>
-                                    <h3 className="text-2xl font-serif font-bold text-gray-900">Message Sent!</h3>
+                                    <h2 className="text-2xl font-serif font-bold text-gray-900">Message Sent!</h2>
                                     <p className="text-slate-500 text-sm max-w-xs mt-2.5">
                                         Thanks for reaching out! We have received your inquiry and will get back to you within 24 hours.
                                     </p>

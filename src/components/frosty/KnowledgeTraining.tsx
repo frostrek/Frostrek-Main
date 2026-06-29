@@ -100,7 +100,7 @@ const KnowledgeTraining = () => {
                                         <LinkIcon className="w-3.5 h-3.5 text-[#2D6A4F]" />
                                     </div>
                                 </div>
-                                <h4 className="font-serif text-lg font-bold text-[#2D6A4F] mb-2">Website URLs</h4>
+                                <h3 className="font-serif text-lg font-bold text-[#2D6A4F] mb-2">Website URLs</h3>
                                 <p className="text-xs text-gray-500 text-center mb-6 flex-grow font-medium">Enter URLs to sync your site content and knowledge base in real-time.</p>
 
                                 <div className="space-y-3 w-full mt-auto">
@@ -121,7 +121,7 @@ const KnowledgeTraining = () => {
                                         <Upload className="w-3 h-3 text-white" />
                                     </div>
                                 </div>
-                                <h4 className="font-serif text-lg font-bold text-[#2D6A4F] mb-2">File Uploads</h4>
+                                <h3 className="font-serif text-lg font-bold text-[#2D6A4F] mb-2">File Uploads</h3>
                                 <p className="text-xs text-gray-500 text-center mb-6 flex-grow font-medium">Upload PDFs, DOCXs, and other text documents.</p>
 
                                 <div className="space-y-3 w-full mt-auto">
@@ -142,7 +142,7 @@ const KnowledgeTraining = () => {
                                         <Settings className="w-3.5 h-3.5 text-[#2D6A4F]" />
                                     </div>
                                 </div>
-                                <h4 className="font-serif text-lg font-bold text-[#2D6A4F] mb-2">Database Connection</h4>
+                                <h3 className="font-serif text-lg font-bold text-[#2D6A4F] mb-2">Database Connection</h3>
                                 <p className="text-xs text-gray-500 text-center mb-6 flex-grow font-medium">Integrate with SQL databases and internal APIs.</p>
 
                                 <div className="space-y-3 w-full mt-auto">
