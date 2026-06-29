@@ -52,7 +52,11 @@ const SplitTextReveal = ({
         if (type === 'words') {
             return children.split(' ').map((word, i) => (
                 <span key={i} className="inline-block overflow-visible mr-[0.25em] last:mr-0">
-                    <span className="split-item inline-block" style={{ opacity: 0 }}>
+                    <span className="split-item inline-block" style={{ 
+                        opacity: 0,
+                        transform: `translateY(${y}px)`,
+                        filter: blur ? 'blur(10px)' : 'none'
+                    }}>
                         {word}
                     </span>
                 </span>
@@ -62,7 +66,11 @@ const SplitTextReveal = ({
         if (type === 'lines') {
             return children.split('\n').map((line, i) => (
                 <span key={i} className="block overflow-hidden py-1">
-                    <span className="split-item inline-block" style={{ opacity: 0 }}>
+                    <span className="split-item inline-block" style={{ 
+                        opacity: 0,
+                        transform: `translateY(${y}px)`,
+                        filter: blur ? 'blur(10px)' : 'none'
+                    }}>
                         {line}
                     </span>
                 </span>
@@ -76,7 +84,9 @@ const SplitTextReveal = ({
                     className="split-item inline-block"
                     style={{
                         opacity: 0,
-                        display: char === ' ' ? 'inline' : 'inline-block'
+                        display: char === ' ' ? 'inline' : 'inline-block',
+                        transform: `translateY(${y}px)`,
+                        filter: blur ? 'blur(10px)' : 'none'
                     }}
                 >
                     {char === ' ' ? '\u00A0' : char}
@@ -93,11 +103,7 @@ const SplitTextReveal = ({
         if (!items.length) return;
 
         // ─── Initial State ───
-        gsap.set(items, {
-            y: y,
-            opacity: 0,
-            filter: blur ? 'blur(10px)' : 'none',
-        });
+        // (Initial state is now handled by inline React styles to prevent layout thrashing)
 
         if (trigger === 'load') {
             gsap.to(items, {
