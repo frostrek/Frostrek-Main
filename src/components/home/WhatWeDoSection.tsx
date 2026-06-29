@@ -241,27 +241,29 @@ const WhatWeDoSection = () => {
 
         mm.add("(max-width: 767px)", () => {
             if (pinRef.current && scrollWrapperRef.current) {
-                const cards = scrollWrapperRef.current.children;
-                if (cards.length > 0) {
-                    const cardWidth = (cards[0] as HTMLElement).offsetWidth;
-                    const gap = 20; // gap-5 = 20px
-                    // Scroll distance needed to align the last card to the left edge
-                    const scrollAmount = (cardWidth + gap) * (cards.length - 1);
+                const wrapper = scrollWrapperRef.current;
+                const container = pinRef.current;
 
-                    if (scrollAmount > 0) {
-                        gsap.to(scrollWrapperRef.current, {
-                            x: -scrollAmount,
-                            ease: "none",
-                            scrollTrigger: {
-                                trigger: pinRef.current,
-                                start: "top 15%",
-                                end: () => `+=${scrollAmount}`,
-                                scrub: 1,
-                                pin: true,
-                                anticipatePin: 1
-                            }
-                        });
-                    }
+                // Total scrollable distance = full content width minus visible container width
+                const totalWidth = wrapper.scrollWidth;
+                const containerWidth = container.offsetWidth;
+                const scrollAmount = totalWidth - containerWidth;
+
+                if (scrollAmount > 0) {
+                    gsap.to(wrapper, {
+                        x: -scrollAmount,
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: container,
+                            start: "top 15%",
+                            end: () => `+=${scrollAmount * 1.5}`,
+                            scrub: 0.8,
+                            pin: true,
+                            anticipatePin: 1,
+                            invalidateOnRefresh: true,
+                            pinSpacing: true
+                        }
+                    });
                 }
             }
         });

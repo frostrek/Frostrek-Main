@@ -332,7 +332,7 @@ The era of static datasets is over. The companies that win in the agentic AI rac
 ---
 
 *Frostrek AI is an enterprise AI company headquartered in Gurugram, India, specializing in conversational AI agents, workflow automation, and custom LLM solutions.*`,
-        image: 'Blog1.png'
+        image: '/human_in_loop_1_1782710025990.png'
     },
     {
         id: 'blog-rlhf-explained',
@@ -386,7 +386,7 @@ The cost of RLHF is a fraction of the cost of a single compliance violation. For
 ---
 
 *Frostrek AI provides enterprise-grade AI safety and alignment services, including RLHF pipelines, SFT dataset creation, and continuous model monitoring. Contact us at contact@frostrek.ai.*`,
-        image: 'Blog2.png'
+        image: '/human_in_loop_2_1782710039075.png'
     },
     {
         id: 'blog-scaling-annotation',
@@ -436,7 +436,7 @@ The secret isn't hiring better annotators - it's building better systems around 
 ---
 
 *Frostrek AI operates managed AI data teams across India, serving global clients in autonomous driving, e-commerce, healthcare, and generative AI.*`,
-        image: 'Blog3.png'
+        image: '/human_in_loop_3_1782710052653.png'
     },
     {
         id: 'blog-ai-ethics',
@@ -480,7 +480,7 @@ Ethical AI isn't a cost center - it's the foundation of trustworthy, deployable 
 ---
 
 *Frostrek AI is ISO-compliant and implements enterprise-grade data security protocols across all operations.*`,
-        image: 'Blog4.png'
+        image: '/human_in_loop_4_1782710063950.png'
     },
     {
         id: 'blog-multimodal-trends',
@@ -518,7 +518,7 @@ The companies that invest in multimodal data infrastructure today will lead the 
 ---
 
 *Frostrek AI delivers production-ready multimodal data operations for enterprise AI companies worldwide.*`,
-        image: 'Blog5.png'
+        image: '/human_in_loop_5_1782710078493.png'
     },
     {
         id: 'blog-voice-ai',
@@ -561,7 +561,7 @@ Frostrek AI builds voice bots with sub-200ms response times that handle real acc
 ---
 
 *Frostrek AI's conversational voice AI agents are deployed across customer support, automated booking, and inbound dispatch systems.*`,
-        image: 'Blog6.png'
+        image: '/human_in_loop_6_1782710093642.png'
     },
     {
         id: 'blog-data-security',

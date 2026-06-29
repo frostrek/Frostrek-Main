@@ -1329,7 +1329,7 @@ const About = () => {
                         </motion.p>
                     </div>
 
-                    <div className="relative max-w-5xl mx-auto">
+                    <div className="relative max-w-6xl mx-auto">
                         {/* Vertical line with exact green gradient */}
                         <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#2D6A4F]/0 via-[#2D6A4F]/40 to-[#2D6A4F]/0 md:-translate-x-1/2" />
 
@@ -1343,7 +1343,7 @@ const About = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, margin: "-40px" }}
                                     transition={{ delay: i * 0.08, duration: 0.5 }}
-                                    className={`relative flex items-center gap-3 md:gap-8 mb-8 md:mb-16 last:mb-0 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} md:min-h-[280px]`}
+                                    className={`relative flex items-center gap-3 md:gap-8 mb-8 md:mb-16 last:mb-0 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} md:min-h-[320px]`}
                                 >
                                     {/* Timeline Dot */}
                                     <div
@@ -1362,7 +1362,7 @@ const About = () => {
                                     </div>
 
                                     {/* Content Card with perfect contrast */}
-                                    <div className={`ml-10 md:ml-0 md:w-1/2 ${i % 2 === 0 ? 'md:pr-12 text-left md:text-right' : 'md:pl-12 text-left'}`}>
+                                    <div className={`ml-10 md:ml-0 flex-1 min-w-0 ${i % 2 === 0 ? 'md:pr-12 text-left md:text-right' : 'md:pl-12 text-left'}`}>
                                         <motion.div
                                             className="bg-white rounded-xl md:rounded-2xl border border-gray-100 shadow-md p-4 md:p-6 cursor-pointer"
                                             whileHover={{ y: -3, boxShadow: '0 12px 30px rgba(45,106,79,0.08)' }}
@@ -1383,7 +1383,7 @@ const About = () => {
                                     </div>
 
                                     {/* Milestone visual block */}
-                                    <div className={`hidden md:flex md:w-1/2 items-center ${i % 2 === 0 ? 'md:pl-12 justify-start' : 'md:pr-12 justify-end'}`}>
+                                    <div className={`hidden md:flex flex-1 min-w-0 items-center ${i % 2 === 0 ? 'md:pl-12 justify-start' : 'md:pr-12 justify-end'}`}>
                                         <AnimatePresence mode="wait">
                                             {isActive && (
                                                 <motion.div
@@ -1391,13 +1391,13 @@ const About = () => {
                                                     animate={{ opacity: 1, scale: 1 }}
                                                     exit={{ opacity: 0, scale: 0.95 }}
                                                     transition={{ duration: 0.4 }}
-                                                    className="w-[400px] h-[220px] flex items-center justify-center"
+                                                    className="w-[500px] h-[280px] flex items-center justify-center"
                                                 >
                                                     <div className={`relative rounded-2xl shadow-lg border ${item.color.border} ${item.color.bg} p-4 flex items-center justify-center`}>
                                                         <img
                                                             src={item.image}
                                                             alt={item.title}
-                                                            className="max-w-[368px] max-h-[188px] rounded-xl"
+                                                            className="max-w-[468px] max-h-[248px] rounded-xl"
                                                             style={{ width: 'auto', height: 'auto' }}
                                                             loading="lazy"
                                                         />

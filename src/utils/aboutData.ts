@@ -224,7 +224,7 @@ export const TIMELINE_DATA: TimelineItem[] = [
         description: 'Frostrek founded with a vision to revolutionize enterprise AI adoption.',
         icon: Sparkles,
         image: '/inception.jpg',
-        color: { border: 'border-blue-200', shadow: 'shadow-blue-500/10', bg: 'bg-blue-50', text: 'text-blue-700', iconColor: 'text-blue-500' }
+        color: { border: 'border-blue-200', shadow: 'shadow-blue-500/10', bg: 'bg-[#CDE7FE]', text: 'text-blue-700', iconColor: 'text-blue-500' }
     },
     {
         year: '2025',
@@ -232,7 +232,7 @@ export const TIMELINE_DATA: TimelineItem[] = [
         description: 'Successfully deployed our first AI agent platform for a Fortune 500 partner.',
         icon: Building2,
         image: '/firstDeployment.jpg',
-        color: { border: 'border-emerald-200', shadow: 'shadow-emerald-500/10', bg: 'bg-emerald-50', text: 'text-emerald-700', iconColor: 'text-emerald-500' }
+        color: { border: 'border-emerald-200', shadow: 'shadow-emerald-500/10', bg: 'bg-emerald-200', text: 'text-emerald-700', iconColor: 'text-emerald-500' }
     },
     {
         year: '2025',
@@ -240,7 +240,7 @@ export const TIMELINE_DATA: TimelineItem[] = [
         description: 'Opened offices in 3 new continents to serve our growing international client base.',
         icon: Globe,
         image: '/global.jpg',
-        color: { border: 'border-rose-200', shadow: 'shadow-rose-500/10', bg: 'bg-rose-50', text: 'text-rose-700', iconColor: 'text-rose-500' }
+        color: { border: 'border-rose-200', shadow: 'shadow-rose-500/10', bg: 'bg-rose-200', text: 'text-rose-700', iconColor: 'text-rose-500' }
     },
     {
         year: '2025',
@@ -248,7 +248,7 @@ export const TIMELINE_DATA: TimelineItem[] = [
         description: 'Released Frostrek Agent V1, setting a new standard for autonomous enterprise agents.',
         icon: Zap,
         image: '/frostyAbout.jpg',
-        color: { border: 'border-violet-200', shadow: 'shadow-violet-500/10', bg: 'bg-violet-50', text: 'text-violet-700', iconColor: 'text-violet-500' }
+        color: { border: 'border-violet-200', shadow: 'shadow-violet-500/10', bg: 'bg-violet-200', text: 'text-violet-700', iconColor: 'text-violet-500' }
     },
     {
         year: 'Next Era',
@@ -256,6 +256,6 @@ export const TIMELINE_DATA: TimelineItem[] = [
         description: 'Recognized as a top AI innovator with over 1M+ active agents managed daily.',
         icon: Award,
         image: '/marketLeader.jpg',
-        color: { border: 'border-fuchsia-200', shadow: 'shadow-fuchsia-500/10', bg: 'bg-fuchsia-50', text: 'text-fuchsia-700', iconColor: 'text-fuchsia-500' }
+        color: { border: 'border-fuchsia-200', shadow: 'shadow-fuchsia-500/10', bg: 'bg-fuchsia-200', text: 'text-fuchsia-700', iconColor: 'text-fuchsia-500' }
     },
 ];
