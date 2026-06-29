@@ -16,7 +16,7 @@ if (endIndex === -1) {
 }
 
 if (startIndex !== -1 && endIndex !== -1) {
-    // Delete everything from markerStart up to but excluding the closing fragment tags
+    // Delete everything from markerStart ups to but excluding the closing fragment tags
     const before = code.substring(0, startIndex);
     // Include the closing tags
     const after = `        </>
