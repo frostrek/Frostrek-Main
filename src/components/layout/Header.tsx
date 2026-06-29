@@ -78,11 +78,9 @@ const Header = () => {
                 )}>
                     {/* 1. Logo (Left) */}
                     <Link to="/" className="flex items-center gap-2.5 group min-w-[120px] sm:min-w-[140px] shrink-0">
-                        <img
-                            src="/logonew.png"
+                        <img src="/logonew.png"
                             alt="Frostrek AI"
-                            className="h-8 sm:h-9 w-auto object-contain transition-all duration-300 group-hover:scale-110"
-                        />
+                            className="h-8 sm:h-9 w-auto object-contain transition-all duration-300 group-hover:scale-110" width={512} height={512} />
                         <FlipText className="text-xl sm:text-2xl font-black font-sans font-bold text-[#2D6A4F]">
                             frostrek
                         </FlipText>

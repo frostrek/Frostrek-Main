@@ -44,15 +44,19 @@ export default defineConfig({
   ],
   build: {
     chunkSizeWarningLimit: 1600,
+    cssCodeSplit: true,
     rollupOptions: {
       output: {
         manualChunks: {
           'vendor-react': ['react', 'react-dom', 'react-router-dom'],
-          'vendor-three': ['three', '@react-three/fiber', '@react-three/drei', 'maath'],
           'vendor-gsap': ['gsap', '@gsap/react'],
-          'vendor-ui': ['framer-motion', 'lucide-react', 'clsx', 'tailwind-merge'],
+          'vendor-motion': ['framer-motion'],
+          'vendor-icons': ['lucide-react'],
         },
       },
     },
+  },
+  esbuild: {
+    drop: ['console', 'debugger'],
   },
 })

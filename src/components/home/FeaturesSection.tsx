@@ -128,7 +128,7 @@ const FeaturesSection = () => {
                     >
                         <div className="relative z-10">
                             <div className="mb-4 md:mb-8 inline-flex items-center justify-center w-14 h-14 md:w-20 md:h-20 rounded-xl md:rounded-[1.25rem] border bg-white border-[#BBF7D0]/60 transition-all duration-300 group-hover:scale-110 shadow-sm">
-                                <img src="/icons/shield.png" alt="Enterprise Security" className="w-8 h-8 md:w-11 md:h-11 object-contain" />
+                                <img src="/icons/shield.png" alt="Enterprise Security" className="w-8 h-8 md:w-11 md:h-11 object-contain" loading="lazy" width={512} height={512} />
                             </div>
 
                             <h3 className="font-serif text-xl md:text-3xl font-bold mb-2 md:mb-4 text-[#047857]">
@@ -165,7 +165,7 @@ const FeaturesSection = () => {
                     >
                         <div className="flex flex-col sm:flex-row items-start gap-4 md:gap-5 relative z-10">
                             <div className="flex-shrink-0 w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl border flex items-center justify-center transition-all duration-300 bg-white border-[#FFEDD5]/60 group-hover:scale-110 shadow-sm">
-                                <img src="/icons/lightning.png" alt="Lightning Fast" className="w-6 h-6 md:w-8 md:h-8 object-contain" />
+                                <img src="/icons/lightning.png" alt="Lightning Fast" className="w-6 h-6 md:w-8 md:h-8 object-contain" loading="lazy" width={512} height={512} />
                             </div>
                             <div>
                                 <h3 className="font-serif text-[15px] md:text-2xl font-bold mb-1.5 md:mb-3 text-[#C2410C]">
@@ -185,7 +185,7 @@ const FeaturesSection = () => {
                     >
                         <div className="flex flex-col sm:flex-row items-start gap-4 md:gap-5 relative z-10">
                             <div className="flex-shrink-0 w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl border flex items-center justify-center transition-all duration-300 bg-white border-[#BAE6FD]/60 group-hover:scale-110 shadow-sm">
-                                <img src="/icons/data-analytics.png" alt="Real-time Analytics" className="w-6 h-6 md:w-8 md:h-8 object-contain" />
+                                <img src="/icons/data-analytics.png" alt="Real-time Analytics" className="w-6 h-6 md:w-8 md:h-8 object-contain" loading="lazy" width={512} height={512} />
                             </div>
                             <div>
                                 <h3 className="font-serif text-[15px] md:text-2xl font-bold mb-1.5 md:mb-3 text-[#0284C7]">
@@ -205,7 +205,7 @@ const FeaturesSection = () => {
                     >
                         <div className="flex flex-col sm:flex-row items-start gap-4 md:gap-5 relative z-10">
                             <div className="flex-shrink-0 w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl border flex items-center justify-center transition-all duration-300 bg-white border-[#FEF3C7]/60 group-hover:scale-110 shadow-sm">
-                                <img src="/icons/multivendor.png" alt="Multi-agent Orchestration" className="w-6 h-6 md:w-8 md:h-8 object-contain" />
+                                <img src="/icons/multivendor.png" alt="Multi-agent Orchestration" className="w-6 h-6 md:w-8 md:h-8 object-contain" loading="lazy" width={512} height={512} />
                             </div>
                             <div>
                                 <h3 className="font-serif text-[15px] md:text-2xl font-bold mb-1.5 md:mb-3 text-[#B45309]">

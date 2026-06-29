@@ -405,12 +405,10 @@ const VettEdgePage = () => {
                         {/* Right Side: Dashboard Visual */}
                         <div className="lg:col-span-7 relative w-full mt-8 lg:mt-0">
                             <div className="relative overflow-hidden group rounded-3xl lg:rounded-[2.2rem]">
-                                <img
-                                    src="/products/vettedge-home.png"
+                                <img src="/products/vettedge-home.png"
                                     alt="VettEdge AI Financial Due Diligence Platform"
                                     className="w-full h-auto rounded-3xl lg:rounded-[2.2rem] transition-transform duration-700 ease-out group-hover:scale-[1.02] shadow-[0_20px_50px_rgba(29,78,216,0.08)]"
-                                    onError={(e) => { (e.target as HTMLImageElement).src = '/products/WhatWeBuilt.png'; }}
-                                />
+                                    onError={(e) => { (e.target as HTMLImageElement).src = '/products/WhatWeBuilt.png'; }} loading="lazy" width={512} height={512} />
                             </div>
                         </div>
                     </div>
@@ -451,7 +449,7 @@ const VettEdgePage = () => {
                                     >
                                         <div className="relative z-10 flex gap-3 md:gap-5 items-center">
                                             <div className={`w-11 h-11 md:w-16 md:h-16 rounded-xl md:rounded-2xl border flex items-center justify-center flex-shrink-0 bg-white/40 ${problem.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
-                                                <img src={problem.icon} alt={problem.title} className="w-5 h-5 md:w-9 md:h-9 object-contain" />
+                                                <img src={problem.icon} alt={problem.title} className="w-5 h-5 md:w-9 md:h-9 object-contain" loading="lazy" width={512} height={512} />
                                             </div>
                                             <div className="flex-1">
                                                 <h3 className="font-serif text-[15px] md:text-xl font-bold mb-0.5 md:mb-1.5 text-black leading-tight">{problem.title}</h3>
@@ -466,11 +464,9 @@ const VettEdgePage = () => {
                         {/* Right: Illustration */}
                         <div className="lg:col-span-7 relative w-full mt-8 lg:mt-0">
                             <div className="relative overflow-hidden group rounded-3xl lg:rounded-[2.2rem]">
-                                <img
-                                    src="/products/ProblemSolved.png"
+                                <img src="/products/ProblemSolved.png"
                                     alt="Problems Solved by VettEdge"
-                                    className="w-full h-auto rounded-3xl lg:rounded-[2.2rem] transition-transform duration-700 ease-out group-hover:scale-[1.02] shadow-[0_20px_50px_rgba(45,106,79,0.06)]"
-                                />
+                                    className="w-full h-auto rounded-3xl lg:rounded-[2.2rem] transition-transform duration-700 ease-out group-hover:scale-[1.02] shadow-[0_20px_50px_rgba(45,106,79,0.06)]" loading="lazy" width={512} height={512} />
                             </div>
                         </div>
                     </div>
@@ -503,11 +499,9 @@ const VettEdgePage = () => {
                         {/* Left: Illustration */}
                         <div className="lg:col-span-7 order-2 lg:order-1 relative w-full mt-8 lg:mt-0">
                             <div className="relative overflow-hidden group rounded-3xl lg:rounded-[2.2rem]">
-                                <img
-                                    src="/products/WhatWeBuilt.png"
+                                <img src="/products/WhatWeBuilt.png"
                                     alt="What VettEdge Built"
-                                    className="w-full h-auto rounded-3xl lg:rounded-[2.2rem] transition-transform duration-700 ease-out group-hover:scale-[1.02] shadow-[0_20px_50px_rgba(45,106,79,0.06)]"
-                                />
+                                    className="w-full h-auto rounded-3xl lg:rounded-[2.2rem] transition-transform duration-700 ease-out group-hover:scale-[1.02] shadow-[0_20px_50px_rgba(45,106,79,0.06)]" loading="lazy" width={512} height={512} />
                             </div>
                         </div>
 
@@ -522,7 +516,7 @@ const VettEdgePage = () => {
                                     >
                                         <div className="relative z-10 flex gap-3 md:gap-5 items-center">
                                             <div className={`w-11 h-11 md:w-16 md:h-16 rounded-xl md:rounded-2xl border flex items-center justify-center flex-shrink-0 bg-white/40 ${feature.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
-                                                <img src={feature.icon} alt={feature.title} className="w-5 h-5 md:w-9 md:h-9 object-contain" />
+                                                <img src={feature.icon} alt={feature.title} className="w-5 h-5 md:w-9 md:h-9 object-contain" loading="lazy" width={512} height={512} />
                                             </div>
                                             <div className="flex-1">
                                                 <h3 className="font-serif text-[15px] md:text-xl font-bold mb-0.5 md:mb-1.5 text-black leading-tight">{feature.title}</h3>
@@ -592,7 +586,7 @@ const VettEdgePage = () => {
 
                                     {/* Icon */}
                                     <div className={`w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl border flex items-center justify-center mb-2 md:mb-5 bg-white/50 ${agent.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
-                                        <img src={agent.icon} alt={agent.title} className="w-6 h-6 md:w-8 md:h-8 object-contain" />
+                                        <img src={agent.icon} alt={agent.title} className="w-6 h-6 md:w-8 md:h-8 object-contain" loading="lazy" width={512} height={512} />
                                     </div>
 
                                     {/* Title */}
@@ -644,7 +638,7 @@ const VettEdgePage = () => {
                             >
                                 <div className="relative z-10 flex flex-row md:flex-col items-center md:items-start gap-4 md:gap-0 text-left">
                                     <div className={`w-12 h-12 md:w-12 md:h-12 rounded-xl border flex items-center justify-center shrink-0 mb-0 md:mb-4 bg-white/50 ${tile.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
-                                        <img src={tile.icon} alt={tile.title} className="w-6 h-6 md:w-7 md:h-7 object-contain" />
+                                        <img src={tile.icon} alt={tile.title} className="w-6 h-6 md:w-7 md:h-7 object-contain" loading="lazy" width={512} height={512} />
                                     </div>
                                     <div className="flex-1">
                                         <h3 className={`font-serif text-[15px] md:text-lg font-bold mb-1 md:mb-2 leading-tight ${tile.headingColor}`}>{tile.title}</h3>
@@ -676,7 +670,7 @@ const VettEdgePage = () => {
                         {[...TECH_STACK_MARQUEE, ...TECH_STACK_MARQUEE].map((tech, i) => (
                             <div key={i} className="flex flex-col items-center justify-center w-24 md:w-48 gap-3 md:gap-6 mx-3 md:mx-8 tech-badge">
                                 <div className="h-10 md:h-16 w-full flex items-center justify-center px-2 md:px-4">
-                                    <img src={tech.image} alt={tech.name} className="max-h-full max-w-full object-contain transition-all duration-300 drop-shadow-sm hover:scale-105" />
+                                    <img src={tech.image} alt={tech.name} className="max-h-full max-w-full object-contain transition-all duration-300 drop-shadow-sm hover:scale-105" loading="lazy" width={512} height={512} />
                                 </div>
                                 <div className="flex flex-col items-center text-center">
                                     <span className="text-[9px] md:text-[11px] font-bold uppercase tracking-widest text-black mb-1">{tech.category}</span>

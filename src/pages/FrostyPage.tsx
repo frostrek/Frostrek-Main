@@ -364,12 +364,10 @@ const FrostyPage = () => {
                         {/* Right Side: Image Showcase */}
                         <div className="lg:col-span-7 relative w-full mt-8 lg:mt-0">
                             <div className="relative overflow-hidden group rounded-3xl lg:rounded-[2.2rem]">
-                                <img
-                                    src="/products/frosty-home.png"
+                                <img src="/products/frosty-home.png"
                                     alt="Frosty AI Platform"
                                     className="w-full h-auto rounded-3xl lg:rounded-[2.2rem] transition-transform duration-700 ease-out group-hover:scale-[1.02] shadow-[0_20px_50px_rgba(45,106,79,0.06)]"
-                                    onError={(e) => { (e.target as HTMLImageElement).src = '/products/WhatWeBuilt.png'; }}
-                                />
+                                    onError={(e) => { (e.target as HTMLImageElement).src = '/products/WhatWeBuilt.png'; }} loading="lazy" width={512} height={512} />
                             </div>
                         </div>
                     </div>
@@ -411,7 +409,7 @@ const FrostyPage = () => {
                                         <div className="relative z-10 flex gap-3 md:gap-5 items-center justify-between">
                                             <div className="flex gap-3 md:gap-5 items-center flex-1">
                                                 <div className={`w-11 h-11 md:w-16 md:h-16 rounded-xl md:rounded-2xl border flex items-center justify-center flex-shrink-0 bg-white/40 ${problem.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
-                                                    <img src={problem.icon} alt={problem.title} className="w-5 h-5 md:w-9 md:h-9 object-contain" />
+                                                    <img src={problem.icon} alt={problem.title} className="w-5 h-5 md:w-9 md:h-9 object-contain" loading="lazy" width={512} height={512} />
                                                 </div>
                                                 <div className="flex-1">
                                                     <h3 className="font-serif text-[15px] md:text-xl font-bold mb-0.5 md:mb-1.5 leading-tight text-black">{problem.title}</h3>
@@ -427,11 +425,9 @@ const FrostyPage = () => {
                         {/* Right Side: Image Showcase */}
                         <div className="lg:col-span-7 relative w-full mt-8 lg:mt-0">
                             <div className="relative overflow-hidden group rounded-3xl lg:rounded-[2.2rem]">
-                                <img
-                                    src="/products/ProblemSolved.png"
+                                <img src="/products/ProblemSolved.png"
                                     alt="Problems Solved by Frosty"
-                                    className="w-full h-auto rounded-3xl lg:rounded-[2.2rem] transition-transform duration-700 ease-out group-hover:scale-[1.02] shadow-[0_20px_50px_rgba(45,106,79,0.06)]"
-                                />
+                                    className="w-full h-auto rounded-3xl lg:rounded-[2.2rem] transition-transform duration-700 ease-out group-hover:scale-[1.02] shadow-[0_20px_50px_rgba(45,106,79,0.06)]" loading="lazy" width={512} height={512} />
                             </div>
                         </div>
                     </div>
@@ -464,11 +460,9 @@ const FrostyPage = () => {
                         {/* Left Side: Image Showcase */}
                         <div className="lg:col-span-7 order-2 lg:order-1 relative w-full mt-8 lg:mt-0">
                             <div className="relative overflow-hidden group rounded-3xl lg:rounded-[2.2rem]">
-                                <img
-                                    src="/products/WhatWeBuilt.png"
+                                <img src="/products/WhatWeBuilt.png"
                                     alt="What Frosty Built"
-                                    className="w-full h-auto rounded-3xl lg:rounded-[2.2rem] transition-transform duration-700 ease-out group-hover:scale-[1.02] shadow-[0_20px_50px_rgba(45,106,79,0.06)]"
-                                />
+                                    className="w-full h-auto rounded-3xl lg:rounded-[2.2rem] transition-transform duration-700 ease-out group-hover:scale-[1.02] shadow-[0_20px_50px_rgba(45,106,79,0.06)]" loading="lazy" width={512} height={512} />
                             </div>
                         </div>
 
@@ -483,7 +477,7 @@ const FrostyPage = () => {
                                     >
                                         <div className="relative z-10 flex gap-3 md:gap-5 items-center">
                                             <div className={`w-11 h-11 md:w-16 md:h-16 rounded-xl md:rounded-2xl border flex items-center justify-center flex-shrink-0 bg-white/40 ${feature.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
-                                                <img src={feature.icon} alt={feature.title} className="w-5 h-5 md:w-9 md:h-9 object-contain" />
+                                                <img src={feature.icon} alt={feature.title} className="w-5 h-5 md:w-9 md:h-9 object-contain" loading="lazy" width={512} height={512} />
                                             </div>
                                             <div className="flex-1">
                                                 <h3 className="font-serif text-[15px] md:text-xl font-bold mb-0.5 md:mb-1.5 leading-tight text-black">{feature.title}</h3>
@@ -547,7 +541,7 @@ const FrostyPage = () => {
                             <div key={step.step} className="process-step flex flex-col items-center text-center relative group">
                                 {/* Icon Circle */}
                                 <div className={`w-16 h-16 md:w-24 md:h-24 rounded-full ${step.iconBg} border ${step.iconBorder} flex items-center justify-center mb-4 md:mb-6 shadow-sm transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-md relative z-10`}>
-                                    <img src={step.icon} alt={step.title} className="w-8 h-8 md:w-10 md:h-10 object-contain opacity-80" />
+                                    <img src={step.icon} alt={step.title} className="w-8 h-8 md:w-10 md:h-10 object-contain opacity-80" loading="lazy" width={512} height={512} />
                                 </div>
 
                                 {/* Text Content */}
@@ -583,7 +577,7 @@ const FrostyPage = () => {
                         {[...TECH_STACK_MARQUEE, ...TECH_STACK_MARQUEE].map((tech, i) => (
                             <div key={i} className="flex flex-col items-center justify-center w-24 md:w-48 gap-3 md:gap-6 mx-3 md:mx-8 tech-badge">
                                 <div className="h-10 md:h-16 w-full flex items-center justify-center px-2 md:px-4">
-                                    <img src={tech.image} alt={tech.name} className="max-h-full max-w-full object-contain transition-all duration-300 drop-shadow-sm hover:scale-105" />
+                                    <img src={tech.image} alt={tech.name} className="max-h-full max-w-full object-contain transition-all duration-300 drop-shadow-sm hover:scale-105" loading="lazy" width={512} height={512} />
                                 </div>
                                 <div className="flex flex-col items-center text-center">
                                     <span className="text-[9px] md:text-[11px] font-bold uppercase tracking-widest text-black mb-1">{tech.category}</span>

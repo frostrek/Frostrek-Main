@@ -235,11 +235,9 @@ const VedashiPage = () => {
                         {/* Right Side: Image Showcase */}
                         <div className="lg:col-span-7 relative w-full mt-8 lg:mt-0">
                             <div className="relative overflow-hidden group rounded-3xl lg:rounded-[2.2rem]">
-                                <img
-                                    src="/products/vedashi-home.png"
+                                <img src="/products/vedashi-home.png"
                                     alt="Vedashi E-Commerce Platform"
-                                    className="w-full h-auto rounded-3xl lg:rounded-[2.2rem] transition-transform duration-700 ease-out group-hover:scale-[1.02] shadow-[0_20px_50px_rgba(45,106,79,0.06)]"
-                                />
+                                    className="w-full h-auto rounded-3xl lg:rounded-[2.2rem] transition-transform duration-700 ease-out group-hover:scale-[1.02] shadow-[0_20px_50px_rgba(45,106,79,0.06)]" loading="lazy" width={512} height={512} />
                             </div>
                         </div>
                     </div>
@@ -282,7 +280,7 @@ const VedashiPage = () => {
                                             <div className="flex gap-3 md:gap-5 items-center flex-1">
                                                 <div className={`w-11 h-11 md:w-16 md:h-16 rounded-xl md:rounded-2xl border flex items-center justify-center flex-shrink-0 bg-white/40 ${problem.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
                                                     {typeof problem.icon === 'string' ? (
-                                                        <img src={problem.icon} alt={problem.title} className="w-5 h-5 md:w-9 md:h-9 object-contain" />
+                                                        <img src={problem.icon} alt={problem.title} className="w-5 h-5 md:w-9 md:h-9 object-contain" loading="lazy" width={512} height={512} />
                                                     ) : (
                                                         (() => {
                                                             const IconComponent = problem.icon as React.ComponentType<any>;
@@ -304,11 +302,9 @@ const VedashiPage = () => {
                         {/* Right Side: Image Showcase */}
                         <div className="lg:col-span-7 relative w-full mt-8 lg:mt-0">
                             <div className="relative overflow-hidden group rounded-3xl lg:rounded-[2.2rem]">
-                                <img
-                                    src="/products/ProblemSolved.png"
+                                <img src="/products/ProblemSolved.png"
                                     alt="Problems Solved by Vedashi"
-                                    className="w-full h-auto rounded-3xl lg:rounded-[2.2rem] transition-transform duration-700 ease-out group-hover:scale-[1.02] shadow-[0_20px_50px_rgba(45,106,79,0.06)]"
-                                />
+                                    className="w-full h-auto rounded-3xl lg:rounded-[2.2rem] transition-transform duration-700 ease-out group-hover:scale-[1.02] shadow-[0_20px_50px_rgba(45,106,79,0.06)]" loading="lazy" width={512} height={512} />
                             </div>
                         </div>
                     </div>
@@ -343,11 +339,9 @@ const VedashiPage = () => {
                         {/* Left Side: Image Showcase */}
                         <div className="lg:col-span-7 order-2 lg:order-1 relative w-full mt-8 lg:mt-0">
                             <div className="relative overflow-hidden group rounded-3xl lg:rounded-[2.2rem]">
-                                <img
-                                    src="/products/WhatWeBuilt.png"
+                                <img src="/products/WhatWeBuilt.png"
                                     alt="E-commerce Solutions Built by Frostrek"
-                                    className="w-full h-auto rounded-3xl lg:rounded-[2.2rem] transition-transform duration-700 ease-out group-hover:scale-[1.02] shadow-[0_20px_50px_rgba(45,106,79,0.06)]"
-                                />
+                                    className="w-full h-auto rounded-3xl lg:rounded-[2.2rem] transition-transform duration-700 ease-out group-hover:scale-[1.02] shadow-[0_20px_50px_rgba(45,106,79,0.06)]" loading="lazy" width={512} height={512} />
                             </div>
                         </div>
 
@@ -363,7 +357,7 @@ const VedashiPage = () => {
                                         <div className="relative z-10 flex gap-3 md:gap-5 items-center">
                                             <div className={`w-11 h-11 md:w-16 md:h-16 rounded-xl md:rounded-2xl border flex items-center justify-center flex-shrink-0 bg-white/40 ${feature.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
                                                 {typeof feature.icon === 'string' ? (
-                                                    <img src={feature.icon} alt={feature.title} className="w-5 h-5 md:w-9 md:h-9 object-contain" />
+                                                    <img src={feature.icon} alt={feature.title} className="w-5 h-5 md:w-9 md:h-9 object-contain" loading="lazy" width={512} height={512} />
                                                 ) : (
                                                     (() => {
                                                         const IconComponent = feature.icon as React.ComponentType<any>;
@@ -412,7 +406,7 @@ const VedashiPage = () => {
                         {[...TECH_STACK_MARQUEE, ...TECH_STACK_MARQUEE].map((tech, i) => (
                             <div key={i} className="flex flex-col items-center justify-center w-24 md:w-48 gap-3 md:gap-6 mx-3 md:mx-8">
                                 <div className="h-10 md:h-16 w-full flex items-center justify-center px-2 md:px-4">
-                                    <img src={tech.image} alt={tech.name} className="max-h-full max-w-full object-contain transition-all duration-300 drop-shadow-sm hover:scale-105" />
+                                    <img src={tech.image} alt={tech.name} className="max-h-full max-w-full object-contain transition-all duration-300 drop-shadow-sm hover:scale-105" loading="lazy" width={512} height={512} />
                                 </div>
                                 <div className="flex flex-col items-center">
                                     <span className="text-[9px] md:text-[11px] font-bold uppercase tracking-widest text-black">{tech.category}</span>

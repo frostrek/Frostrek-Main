@@ -502,7 +502,7 @@ export default function AIAgentsPage() {
                             >
                                 <div className="relative z-10 flex gap-3 md:gap-5 items-start">
                                     <div className={`w-9 h-9 md:w-14 md:h-14 rounded-lg md:rounded-2xl border flex items-center justify-center flex-shrink-0 bg-white/40 ${agent.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
-                                        <img src={agent.icon} alt={agent.title} className="w-4 h-4 md:w-6 md:h-6 object-contain" />
+                                        <img src={agent.icon} alt={agent.title} className="w-4 h-4 md:w-6 md:h-6 object-contain" loading="lazy" width={512} height={512} />
                                     </div>
                                     <div className="flex-1">
                                         <h3 className={`font-serif text-[14px] md:text-xl font-bold mb-1 md:mb-3 ${agent.headingColor}`}>{agent.title}</h3>
@@ -536,7 +536,7 @@ export default function AIAgentsPage() {
                             >
                                 <div className="relative z-10">
                                     <div className={`w-8 h-8 md:w-12 md:h-12 rounded-lg md:rounded-xl border flex items-center justify-center mb-2 md:mb-5 bg-white/40 ${cap.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
-                                        <img src={cap.icon} alt={cap.title} className="w-3.5 h-3.5 md:w-5 md:h-5 object-contain" />
+                                        <img src={cap.icon} alt={cap.title} className="w-3.5 h-3.5 md:w-5 md:h-5 object-contain" loading="lazy" width={512} height={512} />
                                     </div>
                                     <h3 className={`font-serif text-[13px] md:text-lg font-bold mb-1 md:mb-2 ${cap.headingColor}`}>{cap.title}</h3>
                                     <p className="text-gray-600 text-[10px] md:text-xs leading-snug md:leading-relaxed">{cap.description}</p>
@@ -674,7 +674,7 @@ export default function AIAgentsPage() {
                             >
                                 <div className="relative z-10">
                                     <div className={`w-8 h-8 md:w-12 md:h-12 rounded-lg md:rounded-xl border flex items-center justify-center mb-2 md:mb-5 bg-white/40 ${useCase.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
-                                        <img src={useCase.icon} alt={useCase.title} className="w-3.5 h-3.5 md:w-5 md:h-5 object-contain" />
+                                        <img src={useCase.icon} alt={useCase.title} className="w-3.5 h-3.5 md:w-5 md:h-5 object-contain" loading="lazy" width={512} height={512} />
                                     </div>
                                     <h3 className={`font-serif text-[13px] md:text-xl font-bold mb-1 md:mb-3 ${useCase.headingColor}`}>{useCase.title}</h3>
                                     <p className="text-gray-600 text-[10px] md:text-sm leading-snug md:leading-relaxed">{useCase.description}</p>
@@ -706,7 +706,7 @@ export default function AIAgentsPage() {
                             >
                                 <div className="relative z-10">
                                     <div className={`w-8 h-8 md:w-12 md:h-12 rounded-lg md:rounded-xl border flex items-center justify-center mb-2 md:mb-5 bg-white/40 ${ind.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
-                                        <img src={ind.icon} alt={ind.title} className="w-3.5 h-3.5 md:w-5 md:h-5 object-contain" />
+                                        <img src={ind.icon} alt={ind.title} className="w-3.5 h-3.5 md:w-5 md:h-5 object-contain" loading="lazy" width={512} height={512} />
                                     </div>
                                     <h3 className={`font-serif text-[13px] md:text-lg font-bold mb-1 md:mb-2 ${ind.headingColor}`}>{ind.title}</h3>
                                     <p className="text-gray-600 text-[10px] md:text-xs leading-snug md:leading-relaxed">{ind.description}</p>
@@ -747,7 +747,7 @@ export default function AIAgentsPage() {
                             <div key={step.step} className="process-step flex flex-col items-center text-center relative group">
                                 {/* Icon circle */}
                                 <div className={`w-16 h-16 md:w-24 md:h-24 rounded-full ${step.iconBg} border ${step.iconBorder} flex items-center justify-center mb-4 md:mb-6 shadow-sm transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-md relative z-10`}>
-                                    <img src={step.icon} alt={step.title} className="w-8 h-8 md:w-10 md:h-10 object-contain opacity-80" />
+                                    <img src={step.icon} alt={step.title} className="w-8 h-8 md:w-10 md:h-10 object-contain opacity-80" loading="lazy" width={512} height={512} />
                                 </div>
                                 <h3 className={`font-serif text-[15px] sm:text-lg md:text-xl font-bold mb-2 md:mb-3 ${step.headingColor}`}>{step.title}</h3>
                                 <p className="text-[13px] sm:text-sm leading-relaxed text-gray-500 px-1 sm:px-2 mb-4 md:mb-6 min-h-[5rem] md:min-h-[80px]">{step.description}</p>
@@ -797,12 +797,10 @@ export default function AIAgentsPage() {
                         {[...TECH_STACK_MARQUEE, ...TECH_STACK_MARQUEE].map((tech, i) => (
                             <div key={i} className="flex flex-col items-center justify-center w-24 md:w-48 gap-3 md:gap-6 mx-3 md:mx-8">
                                 <div className="h-10 md:h-16 w-full flex items-center justify-center px-2 md:px-4">
-                                    <img
-                                        src={tech.image}
+                                    <img src={tech.image}
                                         alt={tech.name}
                                         className="max-h-full max-w-full object-contain transition-all duration-300 drop-shadow-sm hover:scale-105"
-                                        onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-                                    />
+                                        onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} loading="lazy" width={512} height={512} />
                                 </div>
                                 <div className="flex flex-col items-center text-center">
                                     <span className="text-[9px] md:text-[11px] font-bold uppercase tracking-widest text-black/60 mb-1">{tech.category}</span>

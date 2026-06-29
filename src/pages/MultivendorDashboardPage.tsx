@@ -422,7 +422,7 @@ const MultivendorDashboardPage = () => {
                                 return (
                                     <div key={idx} className={`challenge-item flex items-center gap-3 md:gap-5 p-4 md:p-6 border rounded-[1.25rem] md:rounded-[1.5rem] shadow-sm hover:shadow-md transition-all duration-300 ${pt.bgColor} ${pt.borderColor}`}>
                                         <div className={`w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl flex items-center justify-center flex-shrink-0 border ${pt.iconBorder} ${pt.iconBg}`}>
-                                            <img src={pt.icon} alt={pt.title} className="w-5 h-5 md:w-6 md:h-6 object-contain" />
+                                            <img src={pt.icon} alt={pt.title} className="w-5 h-5 md:w-6 md:h-6 object-contain" loading="lazy" width={512} height={512} />
                                         </div>
                                         <div>
                                             <h3 className={`font-serif text-[15px] md:text-lg font-bold mb-1 ${pt.headingColor}`}>{pt.title}</h3>
@@ -451,11 +451,9 @@ const MultivendorDashboardPage = () => {
                                         frostrek-omnichannel.internal
                                     </div>
                                 </div>
-                                <img
-                                    src="/ecommerce-dashboard.png"
+                                <img src="/ecommerce-dashboard.png"
                                     alt="Frostrek Omnichannel E-commerce Analytics Dashboard"
-                                    className="w-full h-auto rounded-[1.2rem] border border-[#2D6A4F]/5 object-cover"
-                                />
+                                    className="w-full h-auto rounded-[1.2rem] border border-[#2D6A4F]/5 object-cover" loading="lazy" width={512} height={512} />
                             </div>
                         </div>
                     </div>
@@ -550,7 +548,7 @@ const MultivendorDashboardPage = () => {
                                     <div className="space-y-2">
                                         <div className="flex justify-between items-center text-[11px] bg-white/5 p-2.5 rounded-lg border border-white/5">
                                             <div className="flex items-center gap-2">
-                                                <img src="/icons/world.png" alt="Direct Consumer" className="w-3.5 h-3.5 object-contain invert opacity-90" />
+                                                <img src="/icons/world.png" alt="Direct Consumer" className="w-3.5 h-3.5 object-contain invert opacity-90" loading="lazy" width={512} height={512} />
                                                 <span className="text-white font-bold">Direct Consumer Site</span>
                                             </div>
                                             <span className="text-white/60 font-semibold">$241,890 sales</span>
@@ -558,7 +556,7 @@ const MultivendorDashboardPage = () => {
                                         </div>
                                         <div className="flex justify-between items-center text-[11px] bg-white/5 p-2.5 rounded-lg border border-white/5">
                                             <div className="flex items-center gap-2">
-                                                <img src="/icons/shopping-bag.png" alt="Marketplace" className="w-3.5 h-3.5 object-contain invert opacity-90" />
+                                                <img src="/icons/shopping-bag.png" alt="Marketplace" className="w-3.5 h-3.5 object-contain invert opacity-90" loading="lazy" width={512} height={512} />
                                                 <span className="text-white font-bold">Global Marketplace</span>
                                             </div>
                                             <span className="text-white/60 font-semibold">$184,310 sales</span>
@@ -594,7 +592,7 @@ const MultivendorDashboardPage = () => {
                                 >
                                     <div className="relative z-10 flex gap-3 md:gap-5 items-start">
                                         <div className={`w-9 h-9 md:w-14 md:h-14 rounded-lg md:rounded-2xl border flex items-center justify-center flex-shrink-0 bg-white/40 ${cap.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
-                                            <img src={cap.icon} alt={cap.title} className="w-4 h-4 md:w-6 md:h-6 object-contain" />
+                                            <img src={cap.icon} alt={cap.title} className="w-4 h-4 md:w-6 md:h-6 object-contain" loading="lazy" width={512} height={512} />
                                         </div>
                                         <div className="flex-1">
                                             <h3 className={`font-serif text-[14px] md:text-lg font-bold mb-1 md:mb-2 ${cap.headingColor}`}>{cap.title}</h3>
@@ -630,7 +628,7 @@ const MultivendorDashboardPage = () => {
                                 >
                                     <div className="relative z-10">
                                         <div className={`w-8 h-8 md:w-12 md:h-12 rounded-lg md:rounded-xl border flex items-center justify-center mb-2 md:mb-5 bg-white/40 ${aud.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
-                                            <img src={aud.icon} alt={aud.title} className="w-3.5 h-3.5 md:w-5 md:h-5 object-contain" />
+                                            <img src={aud.icon} alt={aud.title} className="w-3.5 h-3.5 md:w-5 md:h-5 object-contain" loading="lazy" width={512} height={512} />
                                         </div>
                                         <h3 className={`font-serif text-[13px] md:text-lg font-bold mb-1 md:mb-2 ${aud.headingColor}`}>{aud.title}</h3>
                                         <p className="text-gray-600 text-[10px] md:text-xs leading-snug md:leading-relaxed">{aud.description}</p>
@@ -665,12 +663,10 @@ const MultivendorDashboardPage = () => {
                         {[...TECH_STACK_MARQUEE, ...TECH_STACK_MARQUEE].map((tech, i) => (
                             <div key={i} className="flex flex-col items-center justify-center w-24 md:w-48 gap-3 md:gap-6 mx-3 md:mx-8">
                                 <div className="h-10 md:h-16 w-full flex items-center justify-center px-2 md:px-4">
-                                    <img
-                                        src={tech.image}
+                                    <img src={tech.image}
                                         alt={tech.name}
                                         className="max-h-full max-w-full object-contain transition-all duration-300 drop-shadow-sm hover:scale-105"
-                                        onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-                                    />
+                                        onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} loading="lazy" width={512} height={512} />
                                 </div>
                                 <div className="flex flex-col items-center text-center">
                                     <span className="text-[9px] md:text-[11px] font-bold uppercase tracking-widest text-[#2D6A4F]/60 mb-1">{tech.category}</span>

@@ -185,12 +185,10 @@ const InnovationProcess = () => {
                                 }`}
                         >
                             <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-xl transition-all duration-300 shrink-0 flex items-center justify-center border bg-white border-white shadow-sm shadow-black/5 group-hover:shadow-md">
-                                <img
-                                    src={step.icon}
+                                <img src={step.icon}
                                     alt={step.title}
                                     className={`w-6 h-6 lg:w-7 lg:h-7 object-contain transition-all duration-300 ${isSelected ? 'opacity-100 scale-105' : 'opacity-70 group-hover:opacity-100'
-                                        }`}
-                                />
+                                        }`} loading="lazy" width={512} height={512} />
                             </div>
 
                             <div className="space-y-0.5 lg:space-y-1 flex-1 min-w-0">

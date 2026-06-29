@@ -166,11 +166,9 @@ const BlogPostPage = () => {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="rounded-3xl overflow-hidden border border-gray-100 shadow-xl"
                     >
-                        <img
-                            src={post.image.startsWith('http') || post.image.startsWith('/') ? post.image : `/${post.image}`}
+                        <img src={post.image.startsWith('http') || post.image.startsWith('/') ? post.image : `/${post.image}`}
                             alt={post.title}
-                            className="w-full h-64 md:h-96 object-cover"
-                        />
+                            className="w-full h-64 md:h-96 object-cover" loading="lazy" width={512} height={512} />
                     </motion.div>
                 </div>
             )}

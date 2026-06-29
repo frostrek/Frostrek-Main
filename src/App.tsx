@@ -2,7 +2,7 @@ import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Loader2 } from 'lucide-react';
 import Header from './components/layout/Header';
-import Footer from './components/layout/Footer';
+const Footer = lazy(() => import('./components/layout/Footer'));
 import SmoothScrollProvider from './components/providers/SmoothScrollProvider';
 import { ThemeProvider } from './context/ThemeContext';
 import ScrollToTop from './components/ScrollToTop';
@@ -85,8 +85,8 @@ function App() {
                 </Routes>
               </Suspense>
             </main>
-            <Footer />
             <Suspense fallback={null}>
+              <Footer />
               <Chatbot />
             </Suspense>
           </div>

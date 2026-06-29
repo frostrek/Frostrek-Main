@@ -268,7 +268,7 @@ const Web3Demo = () => {
         <div className="rounded-2xl p-5 h-[240px] bg-brand-light-bg border border-[#E6EFE6] flex flex-col items-center justify-center relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-[#FFFBEB] to-transparent" />
             <div className="w-16 h-16 rounded-2xl bg-white shadow-lg border border-[#E6EFE6] flex items-center justify-center mb-4 z-10 relative">
-                <img src="/icons/payment-success.png" alt="Payment Success" className="w-10 h-10 object-contain" />
+                <img src="/icons/payment-success.png" alt="Payment Success" className="w-10 h-10 object-contain" loading="lazy" width={512} height={512} />
                 <div className="absolute -top-1 -right-1 w-5 h-5 bg-[#2D6A4F] rounded-full flex items-center justify-center">
                     <CheckCircle2 className="w-3.5 h-3.5 text-white" />
                 </div>
@@ -478,11 +478,9 @@ const AISolutionsShowcase = () => {
                                                 : 'border-white'
                                                 }`}
                                         >
-                                            <img
-                                                src={solution.icon}
+                                            <img src={solution.icon}
                                                 alt={solution.title}
-                                                className="w-7 h-7 object-contain transition-all duration-300"
-                                            />
+                                                className="w-7 h-7 object-contain transition-all duration-300" loading="lazy" width={512} height={512} />
                                         </div>
                                     </button>
                                 );
@@ -557,12 +555,10 @@ const AISolutionsShowcase = () => {
                                                 }`}
                                         >
                                             <div className="w-10 h-10 shrink-0 flex items-center justify-center transition-all duration-300">
-                                                <img
-                                                    src={solution.icon}
+                                                <img src={solution.icon}
                                                     alt={solution.title}
                                                     className="w-9 h-9 object-contain transition-all duration-300"
-                                                    style={{ filter: isActive ? 'none' : 'none' }}
-                                                />
+                                                    style={{ filter: isActive ? 'none' : 'none' }} loading="lazy" width={512} height={512} />
                                             </div>
                                             <div className="flex-1">
                                                 <div className="font-serif font-bold text-[17px] tracking-wide mb-1">
@@ -594,11 +590,9 @@ const AISolutionsShowcase = () => {
                                 >
                                     <div className="flex items-start gap-5">
                                         <div className="shrink-0 flex items-center justify-center pt-1">
-                                            <img
-                                                src={activeSolution.icon}
+                                            <img src={activeSolution.icon}
                                                 alt={activeSolution.title}
-                                                className="w-10 h-10 object-contain"
-                                            />
+                                                className="w-10 h-10 object-contain" loading="lazy" width={512} height={512} />
                                         </div>
                                         <div>
                                             <h3 className="font-serif text-3xl font-bold mb-2">

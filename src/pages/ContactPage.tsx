@@ -200,7 +200,7 @@ ${formData.projectDetails}
                                         className="flex flex-col items-center justify-center text-center gap-1.5 sm:gap-2 p-3 sm:p-4 rounded-2xl bg-[#FFF7ED] border border-[#FFEDD5] hover:border-[#EA580C]/35 shadow-sm hover:shadow-md transition-all duration-300 group"
                                     >
                                         <div className="p-1.5 sm:p-2 rounded-xl bg-white/40 border border-white/60 flex items-center justify-center shadow-sm backdrop-blur-[2px] transition-all duration-300 group-hover:scale-110">
-                                            <img src="/icons/phone-call.png" alt="Phone" className="w-4 h-4 sm:w-5 sm:h-5 object-contain" />
+                                            <img src="/icons/phone-call.png" alt="Phone" className="w-4 h-4 sm:w-5 sm:h-5 object-contain" loading="lazy" width={512} height={512} />
                                         </div>
                                         <div className="w-full">
                                             <h4 className="font-bold text-[9px] sm:text-xs text-[#EA580C] uppercase tracking-wider font-body leading-none mb-1 sm:mb-1.5 truncate">Call Us</h4>
@@ -216,7 +216,7 @@ ${formData.projectDetails}
                                         className="flex flex-col items-center justify-center text-center gap-1.5 sm:gap-2 p-3 sm:p-4 rounded-2xl bg-[#F0FDF4] border border-[#E8F5EE] hover:border-[#2D6A4F]/35 shadow-sm hover:shadow-md transition-all duration-300 group"
                                     >
                                         <div className="p-1.5 sm:p-2 rounded-xl bg-white/40 border border-white/60 flex items-center justify-center shadow-sm backdrop-blur-[2px] transition-all duration-300 group-hover:scale-110">
-                                            <img src="/icons/chat.png" alt="Chat" className="w-4 h-4 sm:w-5 sm:h-5 object-contain" />
+                                            <img src="/icons/chat.png" alt="Chat" className="w-4 h-4 sm:w-5 sm:h-5 object-contain" loading="lazy" width={512} height={512} />
                                         </div>
                                         <div className="w-full">
                                             <h4 className="font-bold text-[9px] sm:text-xs text-[#2D6A4F] uppercase tracking-wider font-body leading-none mb-1 sm:mb-1.5 truncate">WhatsApp</h4>
@@ -230,7 +230,7 @@ ${formData.projectDetails}
                                         className="col-span-2 flex flex-col items-center justify-center text-center gap-1.5 sm:gap-2 p-3 sm:p-4 rounded-2xl bg-[#F0F9FF] border border-[#E0F2FE] hover:border-[#0284C7]/35 shadow-sm hover:shadow-md transition-all duration-300 group"
                                     >
                                         <div className="p-1.5 sm:p-2 rounded-xl bg-white/40 border border-white/60 flex items-center justify-center shadow-sm backdrop-blur-[2px] transition-all duration-300 group-hover:scale-110">
-                                            <img src="/icons/email.png" alt="Email" className="w-4 h-4 sm:w-5 sm:h-5 object-contain" />
+                                            <img src="/icons/email.png" alt="Email" className="w-4 h-4 sm:w-5 sm:h-5 object-contain" loading="lazy" width={512} height={512} />
                                         </div>
                                         <div className="w-full">
                                             <h4 className="font-bold text-[9px] sm:text-xs text-[#0284C7] uppercase tracking-wider font-body leading-none mb-1 sm:mb-1.5 truncate">Email Us</h4>

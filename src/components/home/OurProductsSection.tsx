@@ -18,7 +18,7 @@ const PRODUCTS = [
         ],
         featureBgColor: "bg-[#E6EFE6]",
         featureIconColor: "text-[#2D6A4F]",
-        icon: <img src="/products/vedashi-logo.png" alt="Vedashi" className="w-8 h-8 md:w-12 md:h-12 object-contain" />,
+        icon: <img src="/products/vedashi-logo.png" alt="Vedashi" className="w-8 h-8 md:w-12 md:h-12 object-contain" loading="lazy" width={512} height={512} />,
         bgColor: 'bg-white',
         titleColor: 'text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-500',
         borderColor: 'border-green-200',
@@ -42,7 +42,7 @@ const PRODUCTS = [
         featureBgColor: "bg-sky-50",
         featureIconColor: "text-[#0284C7]",
         image: '/images/ai_agents_white_collar.png',
-        icon: <img src="/icons/ai-blue.png" alt="AI Agents" className="w-7 h-7 md:w-10 md:h-10 object-contain" />,
+        icon: <img src="/icons/ai-blue.png" alt="AI Agents" className="w-7 h-7 md:w-10 md:h-10 object-contain" loading="lazy" width={512} height={512} />,
         bgColor: 'bg-white',
         titleColor: 'text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-blue-600',
         borderColor: 'border-blue-200',
@@ -64,7 +64,7 @@ const PRODUCTS = [
         ],
         featureBgColor: "bg-orange-50",
         featureIconColor: "text-[#E95E1C]",
-        icon: <img src="/products/hiyring-logo.png" alt="Hiyring" className="w-8 h-8 md:w-12 md:h-12 object-contain p-0" />,
+        icon: <img src="/products/hiyring-logo.png" alt="Hiyring" className="w-8 h-8 md:w-12 md:h-12 object-contain p-0" loading="lazy" width={512} height={512} />,
         bgColor: 'bg-white',
         titleColor: 'text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-500',
         borderColor: 'border-orange-200',
@@ -85,7 +85,7 @@ const PRODUCTS = [
         ],
         featureBgColor: "bg-[#FDF4FA]",
         featureIconColor: "text-[#D67CBA]",
-        icon: <img src="/icons/machine-learning-lavender.png" alt="AI Model Training" className="w-7 h-7 md:w-10 md:h-10 object-contain" />,
+        icon: <img src="/icons/machine-learning-lavender.png" alt="AI Model Training" className="w-7 h-7 md:w-10 md:h-10 object-contain" loading="lazy" width={512} height={512} />,
         bgColor: 'bg-white',
         titleColor: 'text-[#D67CBA]',
         borderColor: 'border-[#F2BAE4]',
@@ -204,11 +204,9 @@ const SpotlightCard = ({ product, index }: { product: any, index: number }) => {
                             : 'w-full min-h-[200px] sm:min-h-[250px] md:min-h-[300px]'
                             }`}>
                             <div className={`absolute inset-0 p-4 md:p-6 h-full w-full`}>
-                                <img
-                                    src={product.image}
+                                <img src={product.image}
                                     alt=""
-                                    className="w-full h-full object-cover rounded-2xl shadow-lg transition-transform duration-700 group-hover:scale-105 relative z-10"
-                                />
+                                    className="w-full h-full object-cover rounded-2xl shadow-lg transition-transform duration-700 group-hover:scale-105 relative z-10" loading="lazy" width={512} height={512} />
                             </div>
                         </div>
                     )}

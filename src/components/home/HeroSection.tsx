@@ -202,7 +202,7 @@ const HeroSection = () => {
               <motion.div
                 className={`relative flex items-center justify-center rounded-2xl shadow-md w-10 h-10 lg:w-12 lg:h-12 border border-gray-100 bg-white backdrop-blur-sm transition-all duration-300 ${isHovered ? 'shadow-lg scale-105' : ''}`}
               >
-                <img src={item.icon} alt={item.title} className="w-5 h-5 lg:w-6 lg:h-6 relative z-10 object-contain" />
+                <img src={item.icon} alt={item.title} className="w-5 h-5 lg:w-6 lg:h-6 relative z-10 object-contain" width={512} height={512} />
               </motion.div>
               <span className="text-xs font-semibold text-gray-500 max-w-[130px] leading-snug">
                 {item.title}
@@ -252,7 +252,7 @@ const HeroSection = () => {
               <motion.div
                 className={`relative flex items-center justify-center rounded-2xl shadow-md w-10 h-10 lg:w-12 lg:h-12 border border-gray-100 bg-white backdrop-blur-sm transition-all duration-300 ${isHovered ? 'shadow-lg scale-105' : ''}`}
               >
-                <img src={item.icon} alt={item.title} className="w-5 h-5 lg:w-6 lg:h-6 relative z-10 object-contain" />
+                <img src={item.icon} alt={item.title} className="w-5 h-5 lg:w-6 lg:h-6 relative z-10 object-contain" width={512} height={512} />
               </motion.div>
               <span className="text-xs font-semibold text-gray-500 max-w-[130px] leading-snug text-right">
                 {item.title}
@@ -383,15 +383,15 @@ const HeroSection = () => {
           Trusted by Industry Leaders
         </h3>
         <div className="w-[87%] bg-white rounded-[32px] md:rounded-2xl py-1 md:py-2 px-6 md:px-12 lg:px-18 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 flex flex-wrap md:flex-nowrap items-center justify-center md:justify-between gap-8 md:gap-4">
-          <img src="/vedashi-logo.png" alt="Vedashi" className="h-8 md:h-12 object-contain" />
+          <img src="/vedashi-logo.png" alt="Vedashi" className="h-8 md:h-12 object-contain" width={512} height={512} />
           <div className="hidden md:block w-[1px] h-8 bg-gray-200"></div>
-          <img src="/clutch.png" alt="Clutch" className="h-7 md:h-10 object-contain" />
+          <img src="/clutch.png" alt="Clutch" className="h-7 md:h-10 object-contain" width={512} height={512} />
           <div className="hidden md:block w-[1px] h-8 bg-gray-200"></div>
-          <img src="/topDevelopers.webp" alt="TopDevelopers" className="h-7 md:h-10 object-contain" />
+          <img src="/topDevelopers.webp" alt="TopDevelopers" className="h-7 md:h-10 object-contain" width={512} height={512} />
           <div className="hidden md:block w-[1px] h-8 bg-gray-200"></div>
-          <img src="/goodfirms.png" alt="GoodFirms" className="h-7 md:h-10 object-contain" />
+          <img src="/goodfirms.png" alt="GoodFirms" className="h-7 md:h-10 object-contain" width={512} height={512} />
           <div className="hidden md:block w-[1px] h-8 bg-gray-200"></div>
-          <img src="/iso.webp" alt="ISO 9001" className="h-10 md:h-14 object-contain" />
+          <img src="/iso.webp" alt="ISO 9001" className="h-10 md:h-14 object-contain" width={512} height={512} />
         </div>
       </motion.div>
 

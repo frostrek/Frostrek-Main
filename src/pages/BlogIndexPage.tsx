@@ -26,11 +26,9 @@ const BlogCard = ({ post, index = 0 }: { post: BlogPost; index?: number }) => {
                 <div className={`rounded-3xl border shadow-xl ${color.bg} ${color.border} hover:shadow-2xl ${color.shadow} shadow-gray-100/50 transition-all duration-300 overflow-hidden flex flex-col h-full`}>
                     <div className="relative h-52 overflow-hidden">
                         {post.image && (
-                            <img
-                                src={post.image.startsWith('http') || post.image.startsWith('/') ? post.image : `/${post.image}`}
+                            <img src={post.image.startsWith('http') || post.image.startsWith('/') ? post.image : `/${post.image}`}
                                 alt={post.title}
-                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                            />
+                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" width={512} height={512} />
                         )}
                         <div className={`absolute top-4 left-4 backdrop-blur-sm bg-white/90 ${color.iconColor} border ${color.badgeBorder} px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider`}>
                             {post.category}

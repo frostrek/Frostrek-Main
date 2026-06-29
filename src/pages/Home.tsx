@@ -1,10 +1,11 @@
+import { lazy, Suspense } from 'react';
 import HeroSection from '../components/home/HeroSection';
-import OurProductsSection from '../components/home/OurProductsSection';
-import AISolutionsShowcase from '../components/home/AISolutionsShowcase';
-import WhatWeDoSection from '../components/home/WhatWeDoSection';
-import ImpactComparison from '../components/home/ImpactComparison';
+const OurProductsSection = lazy(() => import('../components/home/OurProductsSection'));
+const AISolutionsShowcase = lazy(() => import('../components/home/AISolutionsShowcase'));
+const WhatWeDoSection = lazy(() => import('../components/home/WhatWeDoSection'));
+const ImpactComparison = lazy(() => import('../components/home/ImpactComparison'));
+const FeaturesSection = lazy(() => import('../components/home/FeaturesSection'));
 
-import FeaturesSection from '../components/home/FeaturesSection';
 import SEO from '../components/seo/SEO';
 
 const organizationSchema = JSON.stringify({
@@ -113,17 +114,19 @@ const Home = () => {
         schema={[organizationSchema, websiteSchema, localBusinessSchema, personSchema]}
       />
       <HeroSection />
-      {/* Our Products Section */}
-      <OurProductsSection />
-      {/* 2. Our two flagship AI solutions */}
-      <AISolutionsShowcase />
-      {/* 3. What We Do & How We Transform */}
-      <WhatWeDoSection />
-      {/* 4. AI-Driven Outcomes We Deliver */}
-      <ImpactComparison />
+      <Suspense fallback={null}>
+        {/* Our Products Section */}
+        <OurProductsSection />
+        {/* 2. Our two flagship AI solutions */}
+        <AISolutionsShowcase />
+        {/* 3. What We Do & How We Transform */}
+        <WhatWeDoSection />
+        {/* 4. AI-Driven Outcomes We Deliver */}
+        <ImpactComparison />
 
-      {/* 6. Why Choose Frostrek */}
-      <FeaturesSection />
+        {/* 6. Why Choose Frostrek */}
+        <FeaturesSection />
+      </Suspense>
     </div>
   );
 };

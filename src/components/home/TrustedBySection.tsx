@@ -137,14 +137,12 @@ const TrustedBySection = () => {
                                 >
                                     <div className="relative p-6 md:p-8 transition-all duration-300 min-w-[180px] flex flex-col items-center justify-center">
                                         <div className="transition-all duration-300 relative">
-                                            <img
-                                                src={logo.src}
+                                            <img src={logo.src}
                                                 alt={logo.name}
                                                 className="logo-img h-12 md:h-16 w-auto object-contain transition-all duration-300"
                                                 style={{ opacity: 0.85 }}
                                                 loading="lazy"
-                                                draggable={false}
-                                            />
+                                                draggable={false} width={512} height={512} />
                                         </div>
                                     </div>
                                 </div>

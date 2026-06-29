@@ -466,7 +466,7 @@ const FintechWalletsPage = () => {
                             >
                                 <div className="relative z-10 flex gap-3 md:gap-5 items-start">
                                     <div className={`w-10 h-10 md:w-16 md:h-16 rounded-lg md:rounded-2xl border flex items-center justify-center flex-shrink-0 bg-white/40 ${item.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
-                                        <img src={item.icon} alt={item.title} className="w-5 h-5 md:w-9 md:h-9 object-contain" />
+                                        <img src={item.icon} alt={item.title} className="w-5 h-5 md:w-9 md:h-9 object-contain" loading="lazy" width={512} height={512} />
                                     </div>
                                     <div className="flex-1">
                                         <h3 className={`font-serif text-[15px] md:text-xl font-bold mb-1 md:mb-2 ${item.headingColor}`}>{item.title}</h3>
@@ -507,7 +507,7 @@ const FintechWalletsPage = () => {
                         <div className="bg-[#F0F9FF] border border-[#BAE6FD] rounded-[1.25rem] md:rounded-[2rem] p-4 md:p-10">
                             <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-8">
                                 <div className="w-9 h-9 md:w-12 md:h-12 rounded-lg md:rounded-2xl bg-[#0284C7]/10 border border-[#BAE6FD] flex items-center justify-center">
-                                    <img src="/icons/credit-card.png" alt="Wallet & Payments" className="w-4 h-4 md:w-6 md:h-6 object-contain" />
+                                    <img src="/icons/credit-card.png" alt="Wallet & Payments" className="w-4 h-4 md:w-6 md:h-6 object-contain" loading="lazy" width={512} height={512} />
                                 </div>
                                 <h3 className="font-serif text-[15px] md:text-xl font-bold text-[#0284C7]">Wallet & Payments</h3>
                             </div>
@@ -525,7 +525,7 @@ const FintechWalletsPage = () => {
                         <div className="bg-[#F0FDF4] border border-[#BBF7D0] rounded-[1.25rem] md:rounded-[2rem] p-4 md:p-10">
                             <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-8">
                                 <div className="w-9 h-9 md:w-12 md:h-12 rounded-lg md:rounded-2xl bg-[#166534]/10 border border-[#BBF7D0] flex items-center justify-center">
-                                    <img src="/icons/blockchain.png" alt="Blockchain" className="w-4 h-4 md:w-6 md:h-6 object-contain" />
+                                    <img src="/icons/blockchain.png" alt="Blockchain" className="w-4 h-4 md:w-6 md:h-6 object-contain" loading="lazy" width={512} height={512} />
                                 </div>
                                 <h3 className="font-serif text-[15px] md:text-xl font-bold text-[#166534]">Blockchain & Tokenization</h3>
                             </div>
@@ -573,7 +573,7 @@ const FintechWalletsPage = () => {
                             >
                                 <div className="relative z-10">
                                     <div className={`w-9 h-9 md:w-14 md:h-14 rounded-lg md:rounded-2xl border flex items-center justify-center mb-2 md:mb-5 bg-white/40 ${ind.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
-                                        <img src={ind.icon} alt={ind.title} className="w-4 h-4 md:w-7 md:h-7 object-contain" />
+                                        <img src={ind.icon} alt={ind.title} className="w-4 h-4 md:w-7 md:h-7 object-contain" loading="lazy" width={512} height={512} />
                                     </div>
                                     <h3 className={`font-serif text-[14px] md:text-xl font-bold mb-1 md:mb-2 ${ind.headingColor}`}>{ind.title}</h3>
                                     <p className="text-gray-600 text-[11px] md:text-sm leading-snug md:leading-relaxed">{ind.description}</p>
@@ -614,7 +614,7 @@ const FintechWalletsPage = () => {
                             <div key={step.step} className="process-step flex flex-col items-center text-center relative group">
                                 {/* Icon circle */}
                                 <div className={`w-14 h-14 md:w-24 md:h-24 rounded-full ${step.iconBg} border ${step.iconBorder} flex items-center justify-center mb-3 md:mb-6 shadow-sm transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-md relative z-10`}>
-                                    <img src={step.icon} alt={step.title} className="w-6 h-6 md:w-10 md:h-10 object-contain opacity-80" />
+                                    <img src={step.icon} alt={step.title} className="w-6 h-6 md:w-10 md:h-10 object-contain opacity-80" loading="lazy" width={512} height={512} />
                                 </div>
                                 <h3 className={`font-serif text-[14px] md:text-xl font-bold mb-1.5 md:mb-3 ${step.headingColor}`}>{step.title}</h3>
                                 <p className="text-[11px] md:text-sm leading-snug md:leading-relaxed text-gray-500 px-1 md:px-2 mb-3 md:mb-6 min-h-[5rem] md:min-h-[80px]">{step.description}</p>
@@ -661,12 +661,10 @@ const FintechWalletsPage = () => {
                         {[...TECH_STACK_MARQUEE, ...TECH_STACK_MARQUEE].map((tech, i) => (
                             <div key={i} className="flex flex-col items-center justify-center w-24 md:w-48 gap-3 md:gap-6 mx-3 md:mx-8">
                                 <div className="h-10 md:h-16 w-full flex items-center justify-center px-2 md:px-4">
-                                    <img
-                                        src={tech.image}
+                                    <img src={tech.image}
                                         alt={tech.name}
                                         className="max-h-full max-w-full object-contain transition-all duration-300 drop-shadow-sm hover:scale-105"
-                                        onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-                                    />
+                                        onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} loading="lazy" width={512} height={512} />
                                 </div>
                                 <div className="flex flex-col items-center text-center">
                                     <span className="text-[9px] md:text-[11px] font-bold uppercase tracking-widest text-black/60 mb-1">{tech.category}</span>

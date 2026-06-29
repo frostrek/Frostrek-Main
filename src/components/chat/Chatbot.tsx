@@ -537,7 +537,7 @@ const Chatbot: React.FC = () => {
                     <X className="w-6 h-6 text-[#2D6A4F] transition-colors duration-300" />
                 ) : (
                     <div className="w-16 h-16 sm:w-[72px] sm:h-[72px] relative flex items-center justify-center bg-transparent transition-all hover:scale-105">
-                        <img src="/chatbot.png" alt="Chat" className="w-full h-full object-contain" />
+                        <img src="/chatbot.png" alt="Chat" className="w-full h-full object-contain" loading="lazy" width={512} height={512} />
                         <motion.div
                             animate={{ scale: [1, 1.2, 1] }}
                             transition={{ duration: 2, repeat: Infinity }}
@@ -586,7 +586,7 @@ const Chatbot: React.FC = () => {
                             >
                                 <div className="flex items-center gap-3 pointer-events-none">
                                     <div className="w-12 h-12 bg-transparent flex items-center justify-center overflow-hidden">
-                                        <img src="/chatbot.png" alt="chatbot" className="w-10 h-10 object-contain translate-y-1" />
+                                        <img src="/chatbot.png" alt="chatbot" className="w-10 h-10 object-contain translate-y-1" loading="lazy" width={512} height={512} />
                                     </div>
                                     <div>
                                         <h3 className="font-serif font-bold text-base tracking-tight">Frostrek Assistant</h3>
@@ -656,7 +656,7 @@ const Chatbot: React.FC = () => {
                                             className="text-center px-6 py-6"
                                         >
                                             <div className="w-20 h-20 bg-transparent flex items-center justify-center mx-auto mb-6 overflow-hidden">
-                                                <img src="/chatbot.png" alt="Frosty" className="w-16 h-16 object-contain translate-y-2" />
+                                                <img src="/chatbot.png" alt="Frosty" className="w-16 h-16 object-contain translate-y-2" loading="lazy" width={512} height={512} />
                                             </div>
                                             <h4 className="text-2xl font-serif font-black text-gray-950">
                                                 Hi, I'm Frosty 👋
@@ -690,7 +690,7 @@ const Chatbot: React.FC = () => {
                                             {msg.type === 'user' ? (
                                                 <span>You</span>
                                             ) : (
-                                                <img src="/noddy.png" alt="Bot" className="w-6 h-6 object-contain translate-y-[2px]" />
+                                                <img src="/noddy.png" alt="Bot" className="w-6 h-6 object-contain translate-y-[2px]" loading="lazy" width={512} height={512} />
                                             )}
                                         </div>
                                         <div
@@ -730,7 +730,7 @@ const Chatbot: React.FC = () => {
                                             )}
                                             {msg.image && (
                                                 <div className="mt-2 rounded-lg overflow-hidden border border-gray-200">
-                                                    <img src={msg.image} alt="Generated" className="w-full h-auto" />
+                                                    <img src={msg.image} alt="Generated" className="w-full h-auto" loading="lazy" width={512} height={512} />
                                                 </div>
                                             )}
                                         </div>

@@ -25,12 +25,10 @@ const MobileCard = ({ challenge, index, total }: { challenge: Challenge; index: 
             {/* Image Banner without text overlay */}
             <div className="relative h-48 overflow-hidden bg-[#08150F] border-b border-[#2D6A4F]/10">
                 <div className="absolute inset-0 flex items-center justify-center p-4">
-                    <img
-                        src={IMAGES[index % IMAGES.length]}
+                    <img src={IMAGES[index % IMAGES.length]}
                         alt={challenge.title}
                         className="w-full h-full object-contain"
-                        loading="lazy"
-                    />
+                        loading="lazy" width={512} height={512} />
                 </div>
                 <div className="absolute top-3 left-3 z-10">
                     <span className="font-mono text-[10px] font-bold tracking-wider bg-white/10 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20 text-white shadow-sm">
@@ -96,7 +94,7 @@ const DesktopCard = ({ challenge, index, total }: { challenge: Challenge; index:
             {/* Left side: Image backdrop without text overlay */}
             <div className="relative h-full w-[45%] overflow-hidden bg-[#08150F]">
                 <div className="absolute inset-0 flex items-center justify-center p-6">
-                    <img src={IMAGES[index % IMAGES.length]} alt={challenge.title} className="w-full h-full object-contain" loading="lazy" />
+                    <img src={IMAGES[index % IMAGES.length]} alt={challenge.title} className="w-full h-full object-contain" loading="lazy" width={512} height={512} />
                 </div>
                 {/* Just the index pill floating */}
                 <div className="absolute top-6 left-6 z-10">

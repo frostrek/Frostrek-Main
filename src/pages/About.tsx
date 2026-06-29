@@ -462,7 +462,7 @@ const TechIcon = memo(({
                         : "bg-white border-gray-200 shadow-sm"
                 )}
             >
-                <img src={icon} alt={label} className="w-8 h-8 object-contain" />
+                <img src={icon} alt={label} className="w-8 h-8 object-contain" loading="lazy" width={512} height={512} />
             </div>
             <AnimatePresence>
                 {active && (
@@ -507,12 +507,10 @@ const TeamFlipCard = memo(({ member, delay }: { member: typeof TEAM_DATA[0]; del
                     style={{ backfaceVisibility: 'hidden' }}
                 >
                     <div className="relative w-full h-full">
-                        <img
-                            src={member.image}
+                        <img src={member.image}
                             alt={member.name}
                             className="w-full h-full object-cover"
-                            loading="lazy"
-                        />
+                            loading="lazy" width={512} height={512} />
                         <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/90 via-black/50 to-transparent">
                             <div className="bg-black/40 backdrop-blur-sm rounded-xl p-4 border border-white/10">
                                 <h3 className="text-xl font-serif font-bold text-white mb-1">{member.name}</h3>
@@ -533,11 +531,9 @@ const TeamFlipCard = memo(({ member, delay }: { member: typeof TEAM_DATA[0]; del
                     <div className="w-full h-full bg-white p-6 flex flex-col justify-between">
                         <div className="space-y-4">
                             <div className="flex items-center gap-4">
-                                <img
-                                    src={member.image}
+                                <img src={member.image}
                                     alt={member.name}
-                                    className="w-14 h-14 rounded-xl object-cover border border-[#2D6A4F]/30"
-                                />
+                                    className="w-14 h-14 rounded-xl object-cover border border-[#2D6A4F]/30" loading="lazy" width={512} height={512} />
                                 <div>
                                     <h3 className="text-lg font-serif font-bold text-gray-900">{member.name}</h3>
                                     <p className="text-[#2D6A4F] text-xs font-semibold font-body">{member.role}</p>
@@ -1212,12 +1208,10 @@ const About = () => {
                                     transition={{ duration: 0.7, delay: 0.0, ease: [0.16, 1, 0.3, 1] }}
                                     className="relative rounded-2xl overflow-hidden group shadow-lg mb-3 break-inside-avoid"
                                 >
-                                    <img
-                                        src="/office1.png"
+                                    <img src="/office1.png"
                                         alt="Frostrek Office"
                                         className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
-                                        loading="lazy"
-                                    />
+                                        loading="lazy" width={512} height={512} />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                                     {/* Team Frostrek badge */}
                                     <motion.div
@@ -1243,12 +1237,10 @@ const About = () => {
                                     transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
                                     className="relative rounded-2xl overflow-hidden group shadow-md break-inside-avoid"
                                 >
-                                    <img
-                                        src="/office2.jpeg"
+                                    <img src="/office2.jpeg"
                                         alt="Frostrek Workspace"
                                         className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
-                                        loading="lazy"
-                                    />
+                                        loading="lazy" width={512} height={512} />
                                     <div className="absolute inset-0 bg-[#2D6A4F]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                 </motion.div>
 
@@ -1260,12 +1252,10 @@ const About = () => {
                                     transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                                     className="relative rounded-2xl overflow-hidden group shadow-lg mb-3 break-inside-avoid"
                                 >
-                                    <img
-                                        src="/FrostrekTeam2.png"
+                                    <img src="/FrostrekTeam2.png"
                                         alt="Frostrek Team"
                                         className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
-                                        loading="lazy"
-                                    />
+                                        loading="lazy" width={512} height={512} />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                                 </motion.div>
 
@@ -1277,12 +1267,10 @@ const About = () => {
                                     transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
                                     className="relative rounded-2xl overflow-hidden group shadow-md break-inside-avoid"
                                 >
-                                    <img
-                                        src="/office5.jpeg"
+                                    <img src="/office5.jpeg"
                                         alt="Frostrek Culture"
                                         className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
-                                        loading="lazy"
-                                    />
+                                        loading="lazy" width={512} height={512} />
                                     <div className="absolute inset-0 bg-[#2D6A4F]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                 </motion.div>
                             </div>
@@ -1394,13 +1382,11 @@ const About = () => {
                                                     className="w-[500px] h-[280px] flex items-center justify-center"
                                                 >
                                                     <div className={`relative rounded-2xl shadow-lg border ${item.color.border} ${item.color.bg} p-4 flex items-center justify-center`}>
-                                                        <img
-                                                            src={item.image}
+                                                        <img src={item.image}
                                                             alt={item.title}
                                                             className="max-w-[468px] max-h-[248px] rounded-xl"
                                                             style={{ width: 'auto', height: 'auto' }}
-                                                            loading="lazy"
-                                                        />
+                                                            loading="lazy" width={512} height={512} />
                                                         <div className="absolute inset-0 bg-[#2D6A4F]/5 pointer-events-none rounded-2xl" />
                                                     </div>
                                                 </motion.div>
@@ -1450,11 +1436,9 @@ const About = () => {
                                             className={cn("w-12 h-12 rounded-2xl flex items-center justify-center mx-auto border shadow-sm transition-all duration-300", v.iconBg, v.iconBorder)}
                                             whileHover={{ rotate: 8, scale: 1.05 }}
                                         >
-                                            <img
-                                                src={v.icon}
+                                            <img src={v.icon}
                                                 alt={v.title}
-                                                className="w-6 h-6 object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300"
-                                            />
+                                                className="w-6 h-6 object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300" loading="lazy" width={512} height={512} />
                                         </motion.div>
                                         <div className="space-y-1 font-body">
                                             <h3 className="font-serif font-semibold text-gray-900 text-lg">{v.title}</h3>
@@ -1601,12 +1585,10 @@ const About = () => {
                                 >
                                     {/* Image block with hover directions */}
                                     <div className="h-[60%] overflow-hidden relative group">
-                                        <img
-                                            src={o.image}
+                                        <img src={o.image}
                                             alt={o.city}
                                             className="w-full h-full object-cover group-hover:scale-104 transition-transform duration-500"
-                                            loading="lazy"
-                                        />
+                                            loading="lazy" width={512} height={512} />
                                         <div className="absolute inset-0 bg-black/15 group-hover:bg-black/45 transition-colors duration-300" />
 
                                         {/* Hover map overlay */}
@@ -1633,7 +1615,7 @@ const About = () => {
                                     <div className="h-[40%] p-5 flex flex-col justify-between">
                                         <div className="space-y-1.5">
                                             <div className="flex items-center gap-1.5">
-                                                <img src={o.flagImg} alt="flag" className="w-5 h-3.5 rounded border border-gray-100 object-cover" />
+                                                <img src={o.flagImg} alt="flag" className="w-5 h-3.5 rounded border border-gray-100 object-cover" loading="lazy" width={512} height={512} />
                                                 <span className="text-[10px] font-bold uppercase tracking-wider text-[#2D6A4F] font-body">
                                                     {o.name}
                                                 </span>
