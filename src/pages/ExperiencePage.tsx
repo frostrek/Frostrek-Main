@@ -80,7 +80,7 @@ const ExperiencePage = () => {
                         >
                             <div className="flex items-center gap-4">
                                 <div className="w-12 h-12 rounded-2xl flex items-center justify-center shadow-sm bg-[#F0FDF4] border border-[#BBF7D0]">
-                                    <img src="/icons/Voice ai-green.png" alt="Voice AI" className="w-6 h-6 object-contain" loading="lazy" width={512} height={512} />
+                                    <img src="/optimized/Voice ai-green.webp" alt="Voice AI" className="w-6 h-6 object-contain" loading="lazy" width={512} height={512} />
                                 </div>
                                 <div className="space-y-0.5">
                                     <h2 className="text-2xl font-serif font-semibold text-gray-900 leading-none">Voice AI Agent</h2>

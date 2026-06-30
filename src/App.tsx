@@ -8,7 +8,7 @@ import { ThemeProvider } from './context/ThemeContext';
 import ScrollToTop from './components/ScrollToTop';
 
 // Lazy load pages to split code chunks and reduce initial bundle sizes
-const Home = lazy(() => import('./pages/Home'));
+import Home from './pages/Home';
 const About = lazy(() => import('./pages/About'));
 const ScheduleDemo = lazy(() => import('./pages/ScheduleDemo'));
 const HiyringPage = lazy(() => import('./pages/HiyringPage'));

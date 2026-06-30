@@ -1211,7 +1211,7 @@ const About = () => {
                                     <img src="/optimized/office1.webp"
                                         alt="Frostrek Office"
                                         className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
-                                        loading="lazy" width={460} height={346} />
+                                        loading="lazy" width={512} height={512} />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                                     {/* Team Frostrek badge */}
                                     <motion.div
@@ -1240,7 +1240,7 @@ const About = () => {
                                     <img src="/optimized/office2.webp"
                                         alt="Frostrek Workspace"
                                         className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
-                                        loading="lazy" width={460} height={346} />
+                                        loading="lazy" width={512} height={512} />
                                     <div className="absolute inset-0 bg-[#2D6A4F]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                 </motion.div>
 
@@ -1255,7 +1255,7 @@ const About = () => {
                                     <img src="/optimized/FrostrekTeam2.webp"
                                         alt="Frostrek Team"
                                         className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
-                                        loading="lazy" width={460} height={346} />
+                                        loading="lazy" width={512} height={512} />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                                 </motion.div>
 
@@ -1270,7 +1270,7 @@ const About = () => {
                                     <img src="/optimized/office5.webp"
                                         alt="Frostrek Culture"
                                         className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
-                                        loading="lazy" width={460} height={346} />
+                                        loading="lazy" width={512} height={512} />
                                     <div className="absolute inset-0 bg-[#2D6A4F]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                 </motion.div>
                             </div>

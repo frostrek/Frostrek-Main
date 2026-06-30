@@ -38,7 +38,7 @@ const SOLUTIONS: Solution[] = [
         title: 'Manufacturing Intelligence',
         tagline: 'Your factory. Finally, one screen.',
         description: 'Connect every system on your production floor - ERP, WMS, PLCs, SCADA - into a single real-time intelligence platform. Built in 8 weeks. No new hardware. No million-dollar MES licence.',
-        icon: "/icons/manufacturing-lavender.png",
+        icon: "/optimized/manufacturing-lavender.webp",
         demo: { type: 'manufacturing' },
         features: [
             'Disconnected systems: Unify ERP, WMS, and machine control',
@@ -59,7 +59,7 @@ const SOLUTIONS: Solution[] = [
         title: 'Fintech & Custom Wallets',
         tagline: 'Bypass commissions with closed-loop loyalty',
         description: 'A centralized, closed-loop digital currency engineered specifically for sports fans and affiliated clubs. Functioning as a next-generation digital loyalty programme that bypasses traditional gateway commissions.',
-        icon: "/icons/fintech-yellow.png",
+        icon: "/optimized/fintech-yellow.webp",
         demo: { type: 'web3' },
         features: [
             'Centralized, closed-loop digital fan currency',
@@ -79,7 +79,7 @@ const SOLUTIONS: Solution[] = [
         title: 'AI Agents',
         tagline: 'Intelligent Conversations',
         description: 'Deploy conversational AI agents that understand context, handle complex queries, and provide human-like support 24/7. From customer service to sales, our agents adapt to your business needs.',
-        icon: "/icons/ai agents-red.png",
+        icon: "/optimized/ai agents-red.webp",
         demo: { type: 'chat' },
         features: [
             'Natural language understanding with 98% accuracy',
@@ -99,7 +99,7 @@ const SOLUTIONS: Solution[] = [
         title: 'Voice AI',
         tagline: 'Natural Voice Interactions',
         description: 'Low-latency voice bots that sound natural and respond instantly. Perfect for customer support calls, appointment scheduling, and interactive voice responses.',
-        icon: "/icons/Voice ai-green.png",
+        icon: "/optimized/Voice ai-green.webp",
         demo: { type: 'voice' },
         features: [
             'Sub-200ms response latency',
@@ -140,7 +140,7 @@ const SOLUTIONS: Solution[] = [
         title: 'LLM Training & Data Services',
         tagline: 'High-quality data for robust models.',
         description: 'Accelerate your AI initiatives with our end-to-end data services. From data annotation and RLHF to model evaluation, we provide the high-quality datasets and human feedback needed to train, fine-tune, and align your Large Language Models.',
-        icon: "/icons/data-analytics-blue.png",
+        icon: "/optimized/data-analytics-blue.webp",
         demo: { type: 'llm' },
         features: [
             'Data Annotation: Precise labeling for computer vision and NLP',

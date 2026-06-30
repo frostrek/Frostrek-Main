@@ -27,7 +27,7 @@ const floatingIcons: FloatingIconItem[] = [
     id: 1,
     top: '20%',
     left: '15%',
-    icon: "/icons/machine-learning-green.png",
+    icon: "/optimized/machine-learning-green.webp",
     color: 'text-blue-500',
     bg: 'bg-blue-50/80',
     border: 'border-blue-100',
@@ -43,7 +43,7 @@ const floatingIcons: FloatingIconItem[] = [
     id: 2,
     top: '20%',
     left: '85%',
-    icon: "/icons/ai-green.png",
+    icon: "/optimized/ai-green.webp",
     color: 'text-emerald-500',
     bg: 'bg-emerald-50/80',
     border: 'border-emerald-100',
@@ -59,7 +59,7 @@ const floatingIcons: FloatingIconItem[] = [
     id: 3,
     top: '45%',
     left: '10%',
-    icon: "/icons/wallet-green.png",
+    icon: "/optimized/wallet-green.webp",
     color: 'text-purple-500',
     bg: 'bg-purple-50/80',
     border: 'border-purple-100',
@@ -76,7 +76,7 @@ const floatingIcons: FloatingIconItem[] = [
     id: 4,
     top: '75%',
     left: '20%',
-    icon: "/icons/manufacturing-green.png",
+    icon: "/optimized/manufacturing-green.webp",
     color: 'text-rose-500',
     bg: 'bg-rose-50/80',
     border: 'border-rose-100',
@@ -92,7 +92,7 @@ const floatingIcons: FloatingIconItem[] = [
     id: 5,
     top: '75%',
     left: '80%',
-    icon: "/icons/multivendor-green.png",
+    icon: "/optimized/multivendor-green.webp",
     color: 'text-indigo-500',
     bg: 'bg-indigo-50/80',
     border: 'border-indigo-100',
@@ -107,7 +107,7 @@ const floatingIcons: FloatingIconItem[] = [
   {
     id: 7,
     top: '0%', left: '0%',
-    icon: "/icons/chat-green.png",
+    icon: "/optimized/chat-green.webp",
     color: 'text-teal-500',
     bg: 'bg-teal-50/80',
     border: 'border-teal-100',
@@ -122,7 +122,7 @@ const floatingIcons: FloatingIconItem[] = [
   {
     id: 8,
     top: '0%', left: '0%',
-    icon: "/icons/architecture-green.png",
+    icon: "/optimized/architecture-green.webp",
     color: 'text-cyan-500',
     bg: 'bg-cyan-50/80',
     border: 'border-cyan-100',
@@ -137,7 +137,7 @@ const floatingIcons: FloatingIconItem[] = [
   {
     id: 9,
     top: '0%', left: '0%',
-    icon: "/icons/data-analytics-green.png",
+    icon: "/optimized/data-analytics-green.webp",
     color: 'text-amber-500',
     bg: 'bg-amber-50/80',
     border: 'border-amber-100',
@@ -152,7 +152,7 @@ const floatingIcons: FloatingIconItem[] = [
   {
     id: 10,
     top: '0%', left: '0%',
-    icon: "/icons/innovation-green.png",
+    icon: "/optimized/innovation-green.webp",
     color: 'text-fuchsia-500',
     bg: 'bg-fuchsia-50/80',
     border: 'border-fuchsia-100',
@@ -167,7 +167,7 @@ const floatingIcons: FloatingIconItem[] = [
   {
     id: 11,
     top: '0%', left: '0%',
-    icon: "/icons/valuation-green.png",
+    icon: "/optimized/valuation-green.webp",
     color: 'text-sky-500',
     bg: 'bg-sky-50/80',
     border: 'border-sky-100',
@@ -378,15 +378,15 @@ const HeroSection = () => {
           Trusted by Industry Leaders
         </h2>
         <div className="w-[87%] bg-white rounded-[32px] md:rounded-2xl py-1 md:py-2 px-6 md:px-12 lg:px-18 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 flex flex-wrap md:flex-nowrap items-center justify-center md:justify-between gap-8 md:gap-4">
-          <img src="/optimized/vedashi-logo.webp" alt="Vedashi" className="h-8 md:h-12 object-contain" width={230} height={80} />
+          <img src="/optimized/vedashi-logo.webp" alt="Vedashi" className="h-8 md:h-12 object-contain" width={512} height={512} />
           <div className="hidden md:block w-[1px] h-8 bg-gray-200"></div>
-          <img src="/optimized/clutch.webp" alt="Clutch" className="h-7 md:h-10 object-contain" width={172} height={70} />
+          <img src="/optimized/clutch.webp" alt="Clutch" className="h-7 md:h-10 object-contain" width={512} height={512} />
           <div className="hidden md:block w-[1px] h-8 bg-gray-200"></div>
-          <img src="/optimized/topDevelopers.webp" alt="TopDevelopers" className="h-7 md:h-10 object-contain" width={270} height={70} />
+          <img src="/optimized/topDevelopers.webp" alt="TopDevelopers" className="h-7 md:h-10 object-contain" width={512} height={512} />
           <div className="hidden md:block w-[1px] h-8 bg-gray-200"></div>
-          <img src="/optimized/goodfirms.webp" alt="GoodFirms" className="h-7 md:h-10 object-contain" width={262} height={70} />
+          <img src="/optimized/goodfirms.webp" alt="GoodFirms" className="h-7 md:h-10 object-contain" width={512} height={512} />
           <div className="hidden md:block w-[1px] h-8 bg-gray-200"></div>
-          <img src="/optimized/iso.webp" alt="ISO 9001" className="h-10 md:h-14 object-contain" width={100} height={100} />
+          <img src="/optimized/iso.webp" alt="ISO 9001" className="h-10 md:h-14 object-contain" width={512} height={512} />
         </div>
       </motion.div>
 
