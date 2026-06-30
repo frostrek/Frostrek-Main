@@ -185,7 +185,7 @@ const HeroSection = () => {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   return (
-    <section className="relative w-full min-h-[100vh] flex flex-col items-center justify-center overflow-hidden bg-brand-light-bg text-[#1f3e30] pt-24 lg:pt-28 pb-6 font-sans">
+    <section className="relative w-full min-h-[100vh] flex flex-col items-center justify-center overflow-hidden bg-brand-light-bg text-[#1f3e30] pt-16 lg:pt-20 pb-6 font-sans">
       {/* Background effect */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[70vw] h-[50vw] rounded-[100%] bg-gradient-to-r from-purple-50/40 via-red-50/40 to-blue-50/40 blur-[80px] opacity-70" />
@@ -372,21 +372,31 @@ const HeroSection = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 2.0 }}
-        className="mt-auto pt-12 md:pt-15 w-[90vw] mx-auto z-10 relative flex flex-col items-center"
+        className="mt-auto pt-4 md:pt-6 w-[95vw] md:w-[90vw] mx-auto z-10 relative flex flex-col items-center"
       >
-        <h2 className="font-serif text-[#2D6A4F] text-xl font-semibold mb-4 text-center">
-          Trusted by Industry Leaders
-        </h2>
-        <div className="w-[87%] bg-white rounded-[32px] md:rounded-2xl py-1 md:py-2 px-6 md:px-12 lg:px-18 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 flex flex-wrap md:flex-nowrap items-center justify-center md:justify-between gap-8 md:gap-4">
-          <img src="/optimized/vedashi-logo.webp" alt="Vedashi" className="h-8 md:h-12 object-contain" width={512} height={512} />
-          <div className="hidden md:block w-[1px] h-8 bg-gray-200"></div>
-          <img src="/optimized/clutch.webp" alt="Clutch" className="h-7 md:h-10 object-contain" width={512} height={512} />
-          <div className="hidden md:block w-[1px] h-8 bg-gray-200"></div>
-          <img src="/optimized/topDevelopers.webp" alt="TopDevelopers" className="h-7 md:h-10 object-contain" width={512} height={512} />
-          <div className="hidden md:block w-[1px] h-8 bg-gray-200"></div>
-          <img src="/optimized/goodfirms.webp" alt="GoodFirms" className="h-7 md:h-10 object-contain" width={512} height={512} />
-          <div className="hidden md:block w-[1px] h-8 bg-gray-200"></div>
-          <img src="/optimized/iso.webp" alt="ISO 9001" className="h-10 md:h-14 object-contain" width={512} height={512} />
+        <div className="w-[95%] xl:w-[75%] max-w-[1000px] bg-[#FAFCFF] rounded-2xl md:rounded-2xl py-4 md:py-5 px-4 md:px-8 lg:px-12 shadow-sm border border-[#D6E9FF] flex flex-col items-center">
+          
+          {/* Header Row */}
+          <div className="flex items-center justify-center w-full mb-3 md:mb-5 gap-3 md:gap-6">
+            <div className="flex-1 max-w-[60px] md:max-w-[120px] h-[2px] bg-[#D6E9FF]"></div>
+            <h2 className="font-sans text-[#1A65E6] text-[11px] md:text-[13px] font-bold uppercase tracking-[0.15em] text-center shrink-0">
+              Trusted by Industry Leaders
+            </h2>
+            <div className="flex-1 max-w-[60px] md:max-w-[120px] h-[2px] bg-[#D6E9FF]"></div>
+          </div>
+
+          {/* Logos Row */}
+          <div className="w-full flex flex-wrap md:flex-nowrap items-center justify-center md:justify-between gap-4 md:gap-4">
+            <img src="/optimized/vedashi-logo.webp" alt="Vedashi" className="h-6 md:h-8 object-contain" width={512} height={512} />
+            <div className="hidden md:block w-[1px] h-6 bg-gray-200"></div>
+            <img src="/optimized/clutch.webp" alt="Clutch" className="h-5 md:h-7 object-contain" width={512} height={512} />
+            <div className="hidden md:block w-[1px] h-6 bg-gray-200"></div>
+            <img src="/optimized/topDevelopers.webp" alt="TopDevelopers" className="h-5 md:h-7 object-contain" width={512} height={512} />
+            <div className="hidden md:block w-[1px] h-6 bg-gray-200"></div>
+            <img src="/optimized/goodfirms.webp" alt="GoodFirms" className="h-5 md:h-7 object-contain" width={512} height={512} />
+            <div className="hidden md:block w-[1px] h-6 bg-gray-200"></div>
+            <img src="/optimized/iso.webp" alt="ISO 9001" className="h-7 md:h-10 object-contain" width={512} height={512} />
+          </div>
         </div>
       </motion.div>
 
