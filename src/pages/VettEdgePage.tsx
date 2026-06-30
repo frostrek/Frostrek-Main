@@ -24,7 +24,7 @@ const PROBLEMS = [
     {
         title: 'Due Diligence Takes Weeks',
         description: 'Financial DD on a single company requires days of manual ratio computation, statement normalisation, and report writing. Time that kills deal velocity.',
-        icon: '/icons/data-analytics.png',
+        icon: '/optimized/data-analytics.webp',
         bgColor: 'bg-[#FFF7ED]',
         border: 'border-[#FFEDD5]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(249,115,22,0.05)]',
@@ -60,7 +60,7 @@ const FEATURES = [
     {
         title: '3-Layer Hybrid Extraction Pipeline',
         description: 'Smart router, Gemini Flash Vision, and validation engine combined. Every extracted number is linked to its exact source page and cell.',
-        icon: '/icons/architecture.png',
+        icon: '/optimized/architecture.webp',
         bgColor: 'bg-[#EFF6FF]',
         border: 'border-[#BFDBFE]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(37,99,235,0.05)]',
@@ -71,7 +71,7 @@ const FEATURES = [
     {
         title: '40+ Financial Ratios Engine',
         description: 'Liquidity, profitability, leverage, efficiency, valuation, and red flag ratios. All deterministic math, all formula-transparent.',
-        icon: '/icons/data-analytics.png',
+        icon: '/optimized/data-analytics.webp',
         bgColor: 'bg-[#F0F9FF]',
         border: 'border-[#BAE6FD]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(14,165,233,0.05)]',
@@ -109,7 +109,7 @@ const AGENTS = [
         title: 'Financial Due Diligence',
         description: 'Upload any financial statement (PDF, Excel, or Tally export). Get a 15-to-20 page DD report with 40+ ratios, red flag analysis, peer benchmarking, and full source traceability.',
         forAudience: 'CAs · NBFCs · M&A Advisors',
-        icon: '/icons/data-analytics.png',
+        icon: '/optimized/data-analytics.webp',
         tagBg: 'bg-[#EFF6FF]',
         tagText: 'text-[#1D4ED8]',
         tagBorder: 'border-[#BFDBFE]',
@@ -178,7 +178,7 @@ const AUDIENCE = [
     {
         title: 'Private Equity Firms',
         description: 'Deep financial analysis on targets with institutional-grade red flag detection.',
-        icon: '/icons/data-analytics.png',
+        icon: '/optimized/data-analytics.webp',
         bgColor: 'bg-[#F4F4F5]',
         border: 'border-[#E4E4E7]',
         headingColor: 'text-[#3F3F46]',

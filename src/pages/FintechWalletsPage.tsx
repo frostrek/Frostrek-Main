@@ -168,7 +168,7 @@ const HOW_WE_WORK = [
         title: 'Discovery & Scoping',
         description:
             'We audit your requirements, compliance needs, user flows, and existing systems to design the right architecture from Day 1.',
-        icon: '/icons/data-analytics.png',
+        icon: '/optimized/data-analytics.webp',
         iconBg: 'bg-[#F0F9FF]',
         iconBorder: 'border-[#BAE6FD]',
         headingColor: 'text-[#0284C7]',
@@ -178,7 +178,7 @@ const HOW_WE_WORK = [
         title: 'Architecture & Design',
         description:
             'We design payment flows, wallet schema, security models, and tech stack — with compliance, scalability, and user experience in mind.',
-        icon: '/icons/innovation.png',
+        icon: '/optimized/innovation.webp',
         iconBg: 'bg-[#F0FDF4]',
         iconBorder: 'border-[#BBF7D0]',
         headingColor: 'text-[#166534]',
@@ -188,7 +188,7 @@ const HOW_WE_WORK = [
         title: 'Build & Integrate',
         description:
             'We develop the platform, integrate payment rails and blockchain layers, run security audits, and deploy to production infrastructure.',
-        icon: '/icons/custom dev.png',
+        icon: '/optimized/custom-dev.webp',
         iconBg: 'bg-[#FFF7ED]',
         iconBorder: 'border-[#FFEDD5]',
         headingColor: 'text-[#C2410C]',

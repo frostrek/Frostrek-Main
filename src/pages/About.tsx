@@ -804,7 +804,7 @@ const About = () => {
 
     const values = useMemo(() => [
         {
-            icon: '/icons/innovation.png',
+            icon: '/optimized/innovation.webp',
             title: 'Innovation',
             desc: 'Cutting-edge AI solutions',
             glowColor: '#0284C7',
@@ -816,7 +816,7 @@ const About = () => {
             iconColor: 'text-[#0284C7]'
         },
         {
-            icon: '/icons/lightning.png',
+            icon: '/optimized/lightning.webp',
             title: 'Excellence',
             desc: 'ISO certified quality',
             glowColor: '#2D6A4F',
@@ -959,42 +959,42 @@ const About = () => {
 
     const tech = useMemo(() => [
         {
-            icon: '/icons/machine-learning.png',
+            icon: '/optimized/machine-learning.webp',
             label: 'AI/ML',
             hoverBg: 'bg-[#F0FDF4]',
             hoverBorder: 'border-[#2D6A4F]/40',
             hoverText: 'text-[#2D6A4F]'
         },
         {
-            icon: '/icons/custom dev.png',
+            icon: '/optimized/custom-dev.webp',
             label: 'Development',
             hoverBg: 'bg-[#FFF7ED]',
             hoverBorder: 'border-[#EA580C]/40',
             hoverText: 'text-[#EA580C]'
         },
         {
-            icon: '/icons/lightning.png',
+            icon: '/optimized/lightning.webp',
             label: 'Processing',
             hoverBg: 'bg-[#f0fbfeff]',
             hoverBorder: 'border-[#0284C7]/40',
             hoverText: 'text-[#0284C7]'
         },
         {
-            icon: '/icons/data-analytics.png',
+            icon: '/optimized/data-analytics.webp',
             label: 'Big Data',
             hoverBg: 'bg-[#FDF2F8]',
             hoverBorder: 'border-[#DB2777]/40',
             hoverText: 'text-[#DB2777]'
         },
         {
-            icon: '/icons/architecture.png',
+            icon: '/optimized/architecture.webp',
             label: 'Architecture',
             hoverBg: 'bg-[#FEF3C7]',
             hoverBorder: 'border-[#D97706]/40',
             hoverText: 'text-[#D97706]'
         },
         {
-            icon: '/icons/innovation.png',
+            icon: '/optimized/innovation.webp',
             label: 'Innovation',
             hoverBg: 'bg-[#F0FDFA]',
             hoverBorder: 'border-[#0D9488]/40',
@@ -1208,10 +1208,10 @@ const About = () => {
                                     transition={{ duration: 0.7, delay: 0.0, ease: [0.16, 1, 0.3, 1] }}
                                     className="relative rounded-2xl overflow-hidden group shadow-lg mb-3 break-inside-avoid"
                                 >
-                                    <img src="/office1.png"
+                                    <img src="/optimized/office1.webp"
                                         alt="Frostrek Office"
                                         className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
-                                        loading="lazy" width={512} height={512} />
+                                        loading="lazy" width={460} height={346} />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                                     {/* Team Frostrek badge */}
                                     <motion.div
@@ -1237,10 +1237,10 @@ const About = () => {
                                     transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
                                     className="relative rounded-2xl overflow-hidden group shadow-md break-inside-avoid"
                                 >
-                                    <img src="/office2.jpeg"
+                                    <img src="/optimized/office2.webp"
                                         alt="Frostrek Workspace"
                                         className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
-                                        loading="lazy" width={512} height={512} />
+                                        loading="lazy" width={460} height={346} />
                                     <div className="absolute inset-0 bg-[#2D6A4F]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                 </motion.div>
 
@@ -1252,10 +1252,10 @@ const About = () => {
                                     transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                                     className="relative rounded-2xl overflow-hidden group shadow-lg mb-3 break-inside-avoid"
                                 >
-                                    <img src="/FrostrekTeam2.png"
+                                    <img src="/optimized/FrostrekTeam2.webp"
                                         alt="Frostrek Team"
                                         className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
-                                        loading="lazy" width={512} height={512} />
+                                        loading="lazy" width={460} height={346} />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                                 </motion.div>
 
@@ -1267,10 +1267,10 @@ const About = () => {
                                     transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
                                     className="relative rounded-2xl overflow-hidden group shadow-md break-inside-avoid"
                                 >
-                                    <img src="/office5.jpeg"
+                                    <img src="/optimized/office5.webp"
                                         alt="Frostrek Culture"
                                         className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
-                                        loading="lazy" width={512} height={512} />
+                                        loading="lazy" width={460} height={346} />
                                     <div className="absolute inset-0 bg-[#2D6A4F]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                 </motion.div>
                             </div>

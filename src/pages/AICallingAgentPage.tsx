@@ -29,7 +29,7 @@ const PROBLEMS = [
     {
         title: 'Outbound Calling Does Not Scale',
         description: 'Sales teams burn hours on cold outreach, follow-ups, and repetitive qualification calls. Human reps cannot dial 500 leads a day. An AI agent can.',
-        icon: '/icons/data-analytics.png',
+        icon: '/optimized/data-analytics.webp',
         bgColor: 'bg-[#FFF7ED]',
         border: 'border-[#FFEDD5]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(249,115,22,0.05)]',
@@ -150,7 +150,7 @@ const INDUSTRIES = [
     {
         title: 'Real Estate',
         description: 'Follow up with every inquiry, qualify buyers and renters, and book site visits automatically the moment a lead comes in.',
-        icon: '/icons/architecture.png',
+        icon: '/optimized/architecture.webp',
         bgColor: 'bg-[#FFF7ED]',
         border: 'border-[#FFEDD5]',
         hoverBorder: 'hover:border-[#F97316]/30',
@@ -186,7 +186,7 @@ const INDUSTRIES = [
     {
         title: 'Sales and SDR Teams',
         description: 'Run outbound campaigns at 10x the volume. Let AI handle first contact and qualification while your reps own the close.',
-        icon: '/icons/data-analytics.png',
+        icon: '/optimized/data-analytics.webp',
         bgColor: 'bg-[#F0FDF4]',
         border: 'border-[#BBF7D0]',
         hoverBorder: 'hover:border-[#22C55E]/30',

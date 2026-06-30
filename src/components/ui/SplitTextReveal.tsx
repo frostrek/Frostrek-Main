@@ -32,7 +32,7 @@ const SplitTextReveal = ({
     children,
     className = '',
     as: Component = 'div',
-    type = 'chars',
+    type = 'words',
     stagger = 0.02,
     duration = 0.8,
     delay = 0,

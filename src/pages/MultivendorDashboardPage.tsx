@@ -29,7 +29,7 @@ const PROBLEM_POINTS = [
     {
         title: 'Manual Reconciliation',
         description: "You're downloading CSV exports, copying numbers into spreadsheets, and calculating totals by hand — wasting hours every week.",
-        icon: '/icons/custom dev.png',
+        icon: '/optimized/custom-dev.webp',
         bgColor: 'bg-[#FFF7ED]',
         borderColor: 'border-[#FFEDD5]',
         headingColor: 'text-[#C2410C]',
@@ -51,7 +51,7 @@ const PROBLEM_POINTS = [
     {
         title: 'No Predictive Intelligence',
         description: 'You react to demand spikes after they happen. No AI forecasting. No inventory alerts. No market trend signals.',
-        icon: '/icons/machine-learning.png',
+        icon: '/optimized/machine-learning.webp',
         bgColor: 'bg-[#FFF1F2]',
         borderColor: 'border-[#FECDD3]',
         headingColor: 'text-[#E11D48]',
@@ -109,7 +109,7 @@ const CAPABILITIES = [
     {
         title: 'Market Trend Intelligence',
         description: 'AI-powered trend analysis pulls search volume, competitor pricing, and category demand shifts. Spot opportunities before your competitors do.',
-        icon: '/icons/data-analytics.png',
+        icon: '/optimized/data-analytics.webp',
         bgColor: 'bg-[#FFFBEB]',
         border: 'border-[#FEF3C7]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(245,158,11,0.07)]',
@@ -120,7 +120,7 @@ const CAPABILITIES = [
     {
         title: 'Automated Reporting',
         description: 'Weekly and monthly performance reports auto-generated and emailed. Investor-ready P&L, SKU performance, channel breakdowns — all automated.',
-        icon: '/icons/custom dev.png',
+        icon: '/optimized/custom-dev.webp',
         bgColor: 'bg-[#FFF1F2]',
         border: 'border-[#FECDD3]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(225,29,72,0.07)]',
@@ -145,7 +145,7 @@ const AUDIENCE_CARDS = [
     {
         title: 'D2C Brands Scaling Fast',
         description: 'You\'re growing 30%+ month-over-month and manual inventory tracking is breaking down under volume.',
-        icon: '/icons/lightning.png',
+        icon: '/optimized/lightning.webp',
         bgColor: 'bg-[#F0FDF4]',
         border: 'border-[#BBF7D0]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(34,197,94,0.07)]',

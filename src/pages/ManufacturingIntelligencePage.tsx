@@ -51,7 +51,7 @@ const PROBLEM_POINTS = [
     {
         title: 'Gut-Feel Scheduling',
         description: 'Production sequences decided on Excel sheets and experience. The cost of inefficient sequencing is invisible — until you calculate it.',
-        icon: '/icons/custom dev.png',
+        icon: '/optimized/custom-dev.webp',
         bgColor: 'bg-[#FFF1F2]',
         borderColor: 'border-[#FECDD3]',
         headingColor: 'text-[#E11D48]',
@@ -77,7 +77,7 @@ const THREE_PHASES = [
         title: 'Cost & Alerting Intelligence',
         description: 'Activate a live cost-per-kg engine using ERP and machine data. Set configurable alert thresholds for immediate push notifications on parameter drifts.',
         timeline: 'Timeline: 4–6 weeks',
-        icon: '/icons/data-analytics.png',
+        icon: '/optimized/data-analytics.webp',
         iconBg: 'bg-[#F0FDF4]',
         iconBorder: 'border-[#BBF7D0]',
         headingColor: 'text-[#166534]',
@@ -98,7 +98,7 @@ const SYSTEMS_WE_CONNECT = [
     {
         title: 'ERP Systems',
         description: 'Direct read-only SQL connection to on-premise ERP databases. Pulls orders, job cards, inventory, raw material costs, and finished goods records. Pull frequency: every 10 minutes.',
-        icon: '/icons/architecture.png',
+        icon: '/optimized/architecture.webp',
         bgColor: 'bg-[#F0F9FF]',
         border: 'border-[#BAE6FD]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(14,165,233,0.07)]',
@@ -189,7 +189,7 @@ const KEY_CAPABILITIES = [
     {
         title: 'Sensor Alert System',
         description: 'Configurable thresholds per product per parameter. When any reading drifts out of range — push notification, email, and WhatsApp alert fired instantly to shift supervisor and management.',
-        icon: '/icons/lightning.png',
+        icon: '/optimized/lightning.webp',
         bgColor: 'bg-[#FFFBEB]',
         border: 'border-[#FEF3C7]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(245,158,11,0.07)]',
@@ -247,7 +247,7 @@ const AUDIENCE_CARDS = [
     {
         title: 'Factories Running on Excel & WhatsApp',
         description: 'Your systems exist — ERP, WMS, machine controllers — but nothing is connected. You\'re making decisions on data that\'s hours or days old. You need a live picture of your own factory.',
-        icon: '/icons/custom dev.png',
+        icon: '/optimized/custom-dev.webp',
         bgColor: 'bg-[#FFF7ED]',
         border: 'border-[#FFEDD5]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(249,115,22,0.07)]',

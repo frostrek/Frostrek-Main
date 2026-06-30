@@ -63,7 +63,7 @@ const FEATURES = [
     {
         title: 'Deep Lead Qualification Engine',
         description: 'Goes beyond basic form collection. The bot asks contextual follow-up questions, scores lead quality based on responses, and routes high-intent prospects to your sales team instantly.',
-        icon: '/icons/data-analytics.png',
+        icon: '/optimized/data-analytics.webp',
         bgColor: 'bg-[#F0F9FF]',
         border: 'border-[#BAE6FD]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(14,165,233,0.05)]',
@@ -111,7 +111,7 @@ const INDUSTRIES = [
     {
         title: 'Real Estate Agencies',
         description: 'Engage property inquiries instantly, qualify buyer or renter intent through conversation, and book site visits without a single manual follow-up.',
-        icon: '/icons/architecture.png',
+        icon: '/optimized/architecture.webp',
         bgColor: 'bg-[#F0F9FF]',
         border: 'border-[#BAE6FD]',
         hoverBorder: 'hover:border-[#0EA5E9]/30',
@@ -174,8 +174,8 @@ const TECH_STACK_MARQUEE = [
     { category: 'Messaging API', name: 'Meta WhatsApp Cloud API', image: '/techstack/Meta.svg' },
     { category: 'Backend', name: 'Node.js, Express', image: '/techstack/Node.js.svg' },
     { category: 'AI Layer', name: 'GPT-4o / Gemini Pro', image: '/techstack/gemini.png' },
-    { category: 'RAG Engine', name: 'Semantic KB', image: '/icons/data-analytics.png' },
-    { category: 'Flow Engine', name: 'Custom Builder', image: '/icons/architecture.png' },
+    { category: 'RAG Engine', name: 'Semantic KB', image: '/optimized/data-analytics.webp' },
+    { category: 'Flow Engine', name: 'Custom Builder', image: '/optimized/architecture.webp' },
     { category: 'Deployment', name: 'AWS', image: '/techstack/AWS.svg' },
 ];
 

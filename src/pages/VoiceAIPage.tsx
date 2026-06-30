@@ -115,7 +115,7 @@ const KEY_CAPABILITIES = [
     {
         title: 'Natural Language Understanding',
         description: 'Beyond transcription — the agent understands intent, extracts key information (name, account number, issue type), handles ambiguity, and knows when to ask a clarifying question vs when to act.',
-        icon: '/icons/innovation.png',
+        icon: '/optimized/innovation.webp',
         bgColor: 'bg-[#F5F3FF]',
         border: 'border-[#DDD6FE]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(124,58,237,0.07)]',
@@ -137,7 +137,7 @@ const KEY_CAPABILITIES = [
     {
         title: 'CRM & System Integration',
         description: 'Mid-call, the agent queries and updates your CRM, booking system, or database. It can pull a caller\'s account history, check appointment availability, log call outcomes, and trigger follow-up actions — all without human intervention.',
-        icon: '/icons/custom dev.png',
+        icon: '/optimized/custom-dev.webp',
         bgColor: 'bg-[#FFF7ED]',
         border: 'border-[#FFEDD5]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(249,115,22,0.07)]',
@@ -148,7 +148,7 @@ const KEY_CAPABILITIES = [
     {
         title: 'Call Recording & Transcription',
         description: 'Every call recorded, transcribed, and stored. Full searchable call logs. Sentiment analysis per call. Automatic flagging of calls that need human review. Complete audit trail.',
-        icon: '/icons/data-analytics.png',
+        icon: '/optimized/data-analytics.webp',
         bgColor: 'bg-[#FFFBEB]',
         border: 'border-[#FEF3C7]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(245,158,11,0.07)]',
@@ -173,7 +173,7 @@ const USE_CASES = [
     {
         title: 'Sales & Lead Qualification',
         description: 'Outbound agents call fresh leads within seconds of form submission. Qualify, pitch, handle objections, and book demo meetings — before your human sales team even sees the lead.',
-        icon: '/icons/innovation.png',
+        icon: '/optimized/innovation.webp',
         bgColor: 'bg-[#F0F9FF]',
         border: 'border-[#BAE6FD]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(14,165,233,0.07)]',
@@ -195,7 +195,7 @@ const USE_CASES = [
     {
         title: 'Debt Collection & Payment Follow-Up',
         description: 'Compliant, consistent outbound calls for payment reminders and collection workflows. Agents negotiate payment plans, confirm payment dates, and escalate only unresolved cases.',
-        icon: '/icons/data-analytics.png',
+        icon: '/optimized/data-analytics.webp',
         bgColor: 'bg-[#F0FDF4]',
         border: 'border-[#BBF7D0]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(34,197,94,0.07)]',
@@ -264,7 +264,7 @@ const INDUSTRIES = [
     {
         title: 'Real Estate',
         description: 'Instant callback on property enquiries, site visit scheduling, broker follow-up calls, and resale lead reactivation campaigns — running 24/7 without a dedicated calling team.',
-        icon: '/icons/architecture.png',
+        icon: '/optimized/architecture.webp',
         bgColor: 'bg-[#F0FDF4]',
         border: 'border-[#BBF7D0]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(34,197,94,0.07)]',
