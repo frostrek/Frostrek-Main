@@ -297,20 +297,10 @@ const FrostyPage = () => {
                             href="https://bot.frostrek.com/login?mode=register"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group font-extrabold rounded-2xl px-8 h-14 text-base shadow-lg transition-all duration-300 flex items-center gap-2 bg-[#0068FF] text-white hover:bg-[#0039A6] hover:shadow-xl hover:shadow-[#0068FF]/25 cursor-pointer border-none"
+                            className="group font-bold rounded-2xl px-8 h-14 text-base shadow-lg transition-all duration-300 flex items-center gap-2 bg-[#0068FF] text-white hover:bg-[#0039A6] hover:shadow-xl hover:shadow-[#0068FF]/25 cursor-pointer border-none"
                         >
                             <FlipText hoverColor="text-white">
                                 Try Frosty Free <ExternalLink className="w-4 h-4" />
-                            </FlipText>
-                        </a>
-                        <a
-                            href="https://bot.frostrek.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group font-extrabold rounded-2xl px-8 h-14 text-base transition-all duration-300 flex items-center gap-2 bg-white text-[#2D6A4F] border-2 border-[#2D6A4F]/20 hover:border-[#2D6A4F]/40 hover:bg-[#F0F9F5] cursor-pointer"
-                        >
-                            <FlipText>
-                                See it Live <ExternalLink className="w-4 h-4" />
                             </FlipText>
                         </a>
                     </motion.div>

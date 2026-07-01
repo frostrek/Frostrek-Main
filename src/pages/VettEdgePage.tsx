@@ -353,7 +353,7 @@ const VettEdgePage = () => {
                     >
                         <Link
                             to="/contact"
-                            className={`group font-extrabold rounded-2xl px-8 h-14 text-base shadow-lg transition-all duration-300 flex items-center gap-2 text-white cursor-pointer border-none`}
+                            className={`group font-bold rounded-2xl px-8 h-14 text-base shadow-lg transition-all duration-300 flex items-center gap-2 text-white cursor-pointer border-none`}
                             style={{ backgroundColor: A }}
                             onMouseEnter={e => (e.currentTarget.style.backgroundColor = AH)}
                             onMouseLeave={e => (e.currentTarget.style.backgroundColor = A)}

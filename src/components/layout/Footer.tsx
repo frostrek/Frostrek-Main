@@ -191,9 +191,9 @@ const Footer = () => {
                 <ul className="space-y-1.5">
                   <li><Link to="/about" className="footer-link text-[13px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>About Us</FlipText></Link></li>
                   <li><Link to="/experience" className="footer-link text-[13px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>Experience</FlipText></Link></li>
-                  <li><Link to="/resources" className="footer-link text-[13px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>Resources</FlipText></Link></li>
-                  <li><Link to="/blog" className="footer-link text-[13px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>Blog</FlipText></Link></li>
-                  <li><Link to="/faq" className="footer-link text-[13px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>FAQ</FlipText></Link></li>
+                  <li><Link to="/resources/case-studies" className="footer-link text-[13px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>Case Studies</FlipText></Link></li>
+                  <li><Link to="/resources/blog" className="footer-link text-[13px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>Blog</FlipText></Link></li>
+                  <li><Link to="/resources/faq" className="footer-link text-[13px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>FAQ</FlipText></Link></li>
                   <li><Link to="/schedule-demo" className="footer-link text-[13px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>Schedule Demo</FlipText></Link></li>
                   <li><Link to="/contact" className="footer-link text-[13px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>Contact</FlipText></Link></li>
                 </ul>

@@ -185,7 +185,7 @@ const VedashiPage = () => {
                             href="https://vedashi.com/in"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group font-extrabold rounded-2xl px-8 h-14 text-base shadow-lg transition-all duration-300 flex items-center gap-2 bg-[#2D6A4F] text-white hover:bg-[#1B4332] hover:shadow-xl hover:shadow-[#2D6A4F]/25 cursor-pointer border-none"
+                            className="group font-bold rounded-2xl px-8 h-14 text-base shadow-lg transition-all duration-300 flex items-center gap-2 bg-[#2D6A4F] text-white hover:bg-[#1B4332] hover:shadow-xl hover:shadow-[#2D6A4F]/25 cursor-pointer border-none"
                         >
                             <FlipText hoverColor="text-white">
                                 Visit Vedashi <ExternalLink className="w-4 h-4" />

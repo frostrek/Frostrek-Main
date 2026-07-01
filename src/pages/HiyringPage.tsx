@@ -239,7 +239,7 @@ const HiyringPage = () => {
                             href="https://hiyring.com"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group font-extrabold rounded-2xl px-8 h-14 text-base shadow-lg transition-all duration-300 flex items-center gap-2 bg-[#FF5722] text-white hover:bg-[#E64A19] hover:shadow-xl hover:shadow-[#FF5722]/25 cursor-pointer border-none"
+                            className="group font-bold rounded-2xl px-8 h-14 text-base shadow-lg transition-all duration-300 flex items-center gap-2 bg-[#FF5722] text-white hover:bg-[#E64A19] hover:shadow-xl hover:shadow-[#FF5722]/25 cursor-pointer border-none"
                         >
                             <FlipText hoverColor="text-white">
                                 Visit Hiyring <ExternalLink className="w-4 h-4" />

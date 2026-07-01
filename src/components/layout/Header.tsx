@@ -65,7 +65,7 @@ const Header = () => {
     return (
         <>
             <header className={cn(
-                "fixed left-1/2 -translate-x-1/2 z-[60] transition-[height,background-color,box-shadow,top,width] duration-500 backdrop-blur-xl border w-[92%] sm:w-[95%] max-w-7xl overflow-hidden flex flex-col",
+                "fixed left-1/2 -translate-x-1/2 z-[60] transition-[height,background-color,box-shadow,top,width] duration-500 backdrop-blur-xl border w-[92%] sm:w-[95%] max-w-7xl xl:overflow-visible overflow-hidden flex flex-col",
                 mobileMenuOpen
                     ? "top-3 sm:top-4 bg-white/95 border-gray-200 shadow-2xl rounded-xl sm:rounded-2xl"
                     : isScrolled
@@ -128,6 +128,47 @@ const Header = () => {
                                         />
                                     )}
                                 </Link>
+
+                                {/* Inline dropdown for Resources to position it directly underneath */}
+                                <AnimatePresence>
+                                    {item.label === 'Resources' && activeMegaMenu === item.label && item.megaMenu && (
+                                        <motion.div
+                                            initial={{ opacity: 0, y: 10 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, y: 10, transition: { duration: 0.2 } }}
+                                            className="absolute top-full pt-4 left-0 z-50 w-[300px]"
+                                        >
+                                            {/* Caret aligned with Resources link */}
+                                            <div className="relative h-2.5 z-10 -mb-[1px]">
+                                                <div className="absolute left-[44px] top-0.5 w-3 h-3 rotate-45 bg-white border-l border-t border-gray-100 rounded-sm" />
+                                            </div>
+                                            
+                                            {/* Dropdown Content */}
+                                            <div className="bg-white border border-gray-100/60 rounded-[2rem] shadow-[0_40px_100px_rgba(0,0,0,0.08)] overflow-hidden p-4 space-y-1.5 ring-1 ring-black/[0.02]">
+                                                {item.megaMenu.flatMap(s => s.items).map((subItem) => (
+                                                    <Link
+                                                        key={subItem.name}
+                                                        to={subItem.href}
+                                                        onClick={() => setActiveMegaMenu(null)}
+                                                        className={`group flex items-center gap-4.5 p-3 rounded-[1.25rem] transition-all duration-500 ${subItem.hoverBgClass || 'hover:bg-[#F4FAF7]'} hover:translate-x-1`}
+                                                    >
+                                                        <div className="p-1 shrink-0 flex items-center justify-center">
+                                                            <img src={subItem.icon} alt={subItem.name} className="w-5 h-5 object-contain" width={512} height={512} />
+                                                        </div>
+                                                        <div className="min-w-0">
+                                                            <h4 className="font-semibold text-[15px] text-gray-900 group-hover:text-[#2D6A4F] transition-colors font-serif">
+                                                                {subItem.name}
+                                                            </h4>
+                                                            <p className="text-[12px] text-slate-500/80 mt-0.5 leading-relaxed font-body line-clamp-1 group-hover:text-slate-600 transition-colors">
+                                                                {subItem.desc}
+                                                            </p>
+                                                        </div>
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
                             </div>
                         ))}
                     </nav>
@@ -280,7 +321,7 @@ const Header = () => {
             {/* CSS spec: transform on a parent creates a new containing block, breaking fixed children */}
             <AnimatePresence>
                 {NAV_ITEMS.map((item) => {
-                    if (!item.megaMenu || activeMegaMenu !== item.label) return null;
+                    if (!item.megaMenu || activeMegaMenu !== item.label || item.label === 'Resources') return null;
                     return (
                         <div
                             key={`mega-${item.label}`}

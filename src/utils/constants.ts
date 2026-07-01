@@ -52,7 +52,20 @@ export const NAV_ITEMS = [
             },
         ],
     },
-    { label: 'Blog', href: '/blog' },
+    {
+        label: 'Resources',
+        href: '/resources',
+        megaMenu: [
+            {
+                title: '',
+                items: [
+                    { name: 'Blog', href: '/resources/blog', desc: 'Read our latest articles and updates.', icon: '/icons/data-analytics-green.png', hoverBgClass: 'hover:bg-[#F0FDF4]' },
+                    { name: 'FAQ', href: '/resources/faq', desc: 'Frequently asked questions.', icon: '/optimized/architecture-green.webp', hoverBgClass: 'hover:bg-[#F0FDF4]' },
+                    { name: 'Case Studies', href: '/resources/case-studies', desc: 'Success stories and use cases.', icon: '/optimized/valuation-green.webp', hoverBgClass: 'hover:bg-[#FDF4FA]' },
+                ],
+            }
+        ]
+    },
     { label: 'Contact', href: '/contact' },
 ];
 
