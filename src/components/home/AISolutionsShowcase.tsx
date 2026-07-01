@@ -149,7 +149,7 @@ const SOLUTIONS: Solution[] = [
             'Custom Datasets: Tailored data collection for specialized domains',
             'Data Quality: Multi-stage QA processes for maximum accuracy'
         ],
-        link: '/solutions/data-services',
+        link: '/solutions/llm-model-training',
         gradient: 'from-[#2D6A4F] to-[#3D8B6E]',
         tabColor: '#EEF2FF',
         tabColorHover: '#E0E7FF',

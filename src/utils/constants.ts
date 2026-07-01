@@ -44,6 +44,12 @@ export const NAV_ITEMS = [
                     { name: 'Multivendor Dashboard', href: '/solutions/multivendor-dashboard', desc: 'Consolidated automated command center for all your e-commerce channels.', icon: '/icons/multivendor-blue.png', hoverBgClass: 'hover:bg-[#F0F9FF]' },
                 ],
             },
+            {
+                title: '03 AI/ML SERVICES',
+                items: [
+                    { name: 'LLM Model Training', href: '/solutions/llm-model-training', desc: 'Custom LLM fine-tuning, RLHF alignment, and RAG for enterprises.', icon: '/optimized/machine-learning-green.webp', hoverBgClass: 'hover:bg-[#F0FDF4]' },
+                ],
+            },
         ],
     },
     { label: 'Blog', href: '/blog' },
