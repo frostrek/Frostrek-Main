@@ -55,19 +55,20 @@ const SOLUTIONS: Solution[] = [
         iconColorDark: '#D67CBA'
     },
     {
-        id: 'frostrek-web3-commerce',
-        title: 'Fintech & Custom Wallets',
-        tagline: 'Bypass commissions with closed-loop loyalty',
-        description: 'A centralized, closed-loop digital currency engineered specifically for sports fans and affiliated clubs. Functioning as a next-generation digital loyalty programme that bypasses traditional gateway commissions.',
-        icon: "/optimized/fintech-yellow.webp",
-        demo: { type: 'web3' },
+        id: 'llm-training',
+        title: 'LLM Fine-Tuning & Model Training',
+        tagline: 'High-quality data for robust models.',
+        description: 'Train and align custom foundation models. Backed by a managed workforce for expert data services.',
+        icon: "/optimized/innovation-green.webp",
+        demo: { type: 'llm' },
         features: [
-            'Centralized, closed-loop digital fan currency',
-            'Bypass gateway transaction commissions completely',
-            'Next-generation digital loyalty program engine',
-            'Custom programmable wallets for sports merchandising'
+            'Data Annotation: Precise labeling for computer vision and NLP',
+            'RLHF: Human feedback to align model behavior with human intent',
+            'Model Evaluation: Rigorous benchmarking against industry standards',
+            'Custom Datasets: Tailored data collection for specialized domains',
+            'Data Quality: Multi-stage QA processes for maximum accuracy'
         ],
-        link: '/solutions/fintech-custom-wallets',
+        link: '/solutions/llm-model-training',
         gradient: 'from-[#2D6A4F] to-[#3D8B6E]',
         tabColor: '#FFFBEB',
         tabColorHover: '#FEF3C7',

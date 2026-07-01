@@ -90,6 +90,27 @@ const FAQ_CATEGORIES: FAQCategory[] = [
                 answer: "Yes. We've successfully scaled teams from 10 to 85+ people within 3 weeks with zero productivity loss. Our rapid onboarding protocols include pre-built training modules, calibration exercises, and graduated complexity workflows. For our Urgent High-Volume Data Delivery program, we deployed 60 annotators and delivered 400,000+ labeled data points in just 6 weeks."
             }
         ]
+    },
+    {
+        title: 'LLM Model Training',
+        faqs: [
+            {
+                question: "Do we need our own data to start?",
+                answer: "Not necessarily — we can help identify, source, or synthetically generate training data if your existing dataset isn't sufficient."
+            },
+            {
+                question: "Which is right for us — fine-tuning or RAG?",
+                answer: "Often both. RAG grounds the model in your current knowledge base; fine-tuning changes how the model reasons and responds. We'll recommend the right mix based on your use case."
+            },
+            {
+                question: "Can you work with closed models like GPT or Claude?",
+                answer: "Yes — we support fine-tuning and RAG setups on both open-weight models and commercial APIs that support customization."
+            },
+            {
+                question: "How do you handle safety and compliance?",
+                answer: "Every model goes through red-teaming and bias/safety evaluation before deployment, with monitoring in place post-launch."
+            }
+        ]
     }
 ];
 

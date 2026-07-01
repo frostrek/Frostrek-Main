@@ -289,7 +289,7 @@ const Header = () => {
                             className={cn(
                                 "fixed left-1/2 -translate-x-1/2 z-[70] pt-2 max-w-[95vw]",
                                 isScrolled ? "top-[60px] sm:top-[68px]" : "top-[72px] sm:top-[88px]",
-                                item.label === 'Products' ? 'w-[1140px]' : 'w-[720px]'
+                                item.label === 'Products' ? 'w-[1140px]' : 'w-[960px]'
                             )}
                         >
                             <MegaMenu sections={item.megaMenu} onClose={() => setActiveMegaMenu(null)} />

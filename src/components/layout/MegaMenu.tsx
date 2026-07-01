@@ -71,7 +71,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ sections, onClose }) => {
                                 >
                                     {/* Section header with high-end typography */}
                                     <div className="flex items-center gap-4 group/title">
-                                        <div className="flex items-center justify-center w-7 h-7 rounded-full bg-[#E8F5EE] text-[#2D6A4F] text-[11px] font-black font-serif shadow-sm group-hover/title:scale-110 group-hover/title:bg-[#2D6A4F] group-hover/title:text-white transition-all duration-500">
+                                        <div className="flex flex-shrink-0 items-center justify-center w-7 h-7 min-w-[28px] min-h-[28px] rounded-full bg-[#E8F5EE] text-[#2D6A4F] text-[11px] font-black font-serif shadow-sm group-hover/title:scale-110 group-hover/title:bg-[#2D6A4F] group-hover/title:text-white transition-all duration-500">
                                             {displayNum}
                                         </div>
                                         <h3 className="text-[12px] font-bold text-[#2D6A4F]/70 uppercase tracking-[0.2em] font-body relative">
