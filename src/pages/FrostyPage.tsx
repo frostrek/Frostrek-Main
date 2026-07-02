@@ -33,7 +33,7 @@ const PROBLEMS = [
     {
         title: "Teams Can't Scale 24/7",
         description: "Human sales and support teams can't be available round the clock across every channel without spiralling costs.",
-        icon: '/optimized/machine-learning.webp',
+        icon: '/icons/machine-learning.png',
         bgColor: 'bg-[#F0F9FF]',
         hoverBg: 'hover:bg-[#E0F2FE]',
         border: 'border-[#BAE6FD]',
@@ -47,7 +47,7 @@ const PROBLEMS = [
     {
         title: "Generic Bots Don't Convert",
         description: "Rule-based chatbots frustrate users with scripted responses — they can't think, act, or close deals.",
-        icon: '/icons/ai agents.png',
+        icon: '/icons/ai agents.webp',
         bgColor: 'bg-[#FFF1F2]',
         hoverBg: 'hover:bg-[#FFE4E6]',
         border: 'border-[#FFE4E6]',
@@ -100,7 +100,7 @@ const FEATURES = [
     {
         title: 'Lead CRM & Auto-Sync',
         description: 'Frosty intelligently captures contact info and intent during natural conversations and syncs qualified leads directly to your dashboard.',
-        icon: '/optimized/data-analytics.webp',
+        icon: '/icons/data-analytics.png',
         bgColor: 'bg-[#FFF1F2]',
         border: 'border-[#FECDD3]',
         hoverBorder: 'hover:border-[#E11D48]/30',
@@ -124,7 +124,7 @@ const FEATURES = [
     {
         title: 'Tool Integrations',
         description: 'Google Calendar for bookings, Gmail for follow-ups, Slack for team notifications, WhatsApp for direct messaging — Frosty acts, not just responds.',
-        icon: '/optimized/innovation.webp',
+        icon: '/icons/innovation.png',
         bgColor: 'bg-[#F0FDF4]',
         border: 'border-[#BBF7D0]',
         hoverBorder: 'hover:border-[#22C55E]/30',
@@ -140,7 +140,7 @@ const PROCESS_STEPS = [
         step: '1',
         title: 'Install in 60 Seconds',
         description: 'Paste one line of code on your website, or connect your WhatsApp number. Zero DevOps required.',
-        icon: '/optimized/lightning.webp',
+        icon: '/icons/lightning.png',
         iconBg: 'bg-[#F0F9FF]',
         iconBorder: 'border-[#BAE6FD]',
         headingColor: 'text-[#0284C7]',
@@ -158,7 +158,7 @@ const PROCESS_STEPS = [
         step: '3',
         title: 'Convert at Scale',
         description: 'Frosty works around the clock — capturing leads, scheduling meetings, and closing deals while you sleep.',
-        icon: '/optimized/data-analytics.webp',
+        icon: '/icons/data-analytics.png',
         iconBg: 'bg-[#FFF1F2]',
         iconBorder: 'border-[#FECDD3]',
         headingColor: 'text-[#E11D48]',

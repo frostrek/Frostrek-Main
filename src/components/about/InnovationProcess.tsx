@@ -45,7 +45,7 @@ const STEPS: ProcessStep[] = [
             'LLM model viability assessment',
             'Custom data connector checklist'
         ],
-        icon: '/optimized/innovation.webp',
+        icon: '/icons/innovation.png',
         tabColor: 'bg-[#FFF7ED]',
         tabColorActive: 'bg-[#FFEDD5]',
         activeBorder: 'border-[#F97316]/20',
@@ -73,7 +73,7 @@ const STEPS: ProcessStep[] = [
             'Connecting context retrieval databases',
             'Configuring fallback safety guardrails'
         ],
-        icon: '/optimized/architecture.webp',
+        icon: '/icons/architecture.png',
         tabColor: 'bg-[#F0F9FF]',
         tabColorActive: 'bg-[#E0F2FE]',
         activeBorder: 'border-[#0284C7]/20',
@@ -129,7 +129,7 @@ const STEPS: ProcessStep[] = [
             'Feedback loop integration',
             'Continuous post-deploy training'
         ],
-        icon: '/optimized/data-analytics.webp',
+        icon: '/icons/data-analytics.png',
         tabColor: 'bg-[#FEF2F2]',
         tabColorActive: 'bg-[#FEE2E2]',
         activeBorder: 'border-[#E11D48]/20',

@@ -225,7 +225,7 @@ const ChatbotDemo: React.FC = () => {
             {/* Header - Pink Theme */}
             <div className="p-4 text-gray-900 flex items-center gap-3 bg-[#FDF4FA] border-b border-[#F2BAE4]">
                 <div className="w-9 h-9 bg-white border border-[#F2BAE4] rounded-full flex items-center justify-center shadow-sm overflow-hidden">
-                    <img src="/optimized/chatbot.webp" alt="Noddy" className="w-7 h-7 object-contain translate-y-1" loading="lazy" width={512} height={512} />
+                    <img src="/chatbot.png" alt="Noddy" className="w-7 h-7 object-contain translate-y-1" loading="lazy" width={512} height={512} />
                 </div>
                 <div>
                     <h3 className="font-serif font-extrabold text-sm tracking-wide">Chat with Frosty</h3>

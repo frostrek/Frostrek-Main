@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import FlipText from '../ui/FlipText';
-import SplitTextReveal from '../ui/SplitTextReveal';
 
 interface FloatingIconItem {
   id: number;
@@ -27,7 +26,7 @@ const floatingIcons: FloatingIconItem[] = [
     id: 1,
     top: '20%',
     left: '15%',
-    icon: "/optimized/machine-learning-green.webp",
+    icon: "/icons/machine-learning-green.png",
     color: 'text-blue-500',
     bg: 'bg-blue-50/80',
     border: 'border-blue-100',
@@ -43,7 +42,7 @@ const floatingIcons: FloatingIconItem[] = [
     id: 2,
     top: '20%',
     left: '85%',
-    icon: "/optimized/ai-green.webp",
+    icon: "/icons/ai-green.png",
     color: 'text-emerald-500',
     bg: 'bg-emerald-50/80',
     border: 'border-emerald-100',
@@ -59,7 +58,7 @@ const floatingIcons: FloatingIconItem[] = [
     id: 3,
     top: '45%',
     left: '10%',
-    icon: "/optimized/wallet-green.webp",
+    icon: "/icons/wallet-green.png",
     color: 'text-purple-500',
     bg: 'bg-purple-50/80',
     border: 'border-purple-100',
@@ -76,7 +75,7 @@ const floatingIcons: FloatingIconItem[] = [
     id: 4,
     top: '75%',
     left: '20%',
-    icon: "/optimized/manufacturing-green.webp",
+    icon: "/icons/manufacturing-green.png",
     color: 'text-rose-500',
     bg: 'bg-rose-50/80',
     border: 'border-rose-100',
@@ -92,7 +91,7 @@ const floatingIcons: FloatingIconItem[] = [
     id: 5,
     top: '75%',
     left: '80%',
-    icon: "/optimized/multivendor-green.webp",
+    icon: "/icons/multivendor-green.png",
     color: 'text-indigo-500',
     bg: 'bg-indigo-50/80',
     border: 'border-indigo-100',
@@ -107,7 +106,7 @@ const floatingIcons: FloatingIconItem[] = [
   {
     id: 7,
     top: '0%', left: '0%',
-    icon: "/optimized/chat-green.webp",
+    icon: "/icons/chat-green.png",
     color: 'text-teal-500',
     bg: 'bg-teal-50/80',
     border: 'border-teal-100',
@@ -122,7 +121,7 @@ const floatingIcons: FloatingIconItem[] = [
   {
     id: 8,
     top: '0%', left: '0%',
-    icon: "/optimized/architecture-green.webp",
+    icon: "/icons/architecture-green.png",
     color: 'text-cyan-500',
     bg: 'bg-cyan-50/80',
     border: 'border-cyan-100',
@@ -137,7 +136,7 @@ const floatingIcons: FloatingIconItem[] = [
   {
     id: 9,
     top: '0%', left: '0%',
-    icon: "/optimized/data-analytics-green.webp",
+    icon: "/icons/data-analytics-green.png",
     color: 'text-amber-500',
     bg: 'bg-amber-50/80',
     border: 'border-amber-100',
@@ -152,7 +151,7 @@ const floatingIcons: FloatingIconItem[] = [
   {
     id: 10,
     top: '0%', left: '0%',
-    icon: "/optimized/innovation-green.webp",
+    icon: "/icons/innovation-green.png",
     color: 'text-fuchsia-500',
     bg: 'bg-fuchsia-50/80',
     border: 'border-fuchsia-100',
@@ -167,7 +166,7 @@ const floatingIcons: FloatingIconItem[] = [
   {
     id: 11,
     top: '0%', left: '0%',
-    icon: "/optimized/valuation-green.webp",
+    icon: "/icons/valuation-green.png",
     color: 'text-sky-500',
     bg: 'bg-sky-50/80',
     border: 'border-sky-100',
@@ -301,44 +300,35 @@ const HeroSection = () => {
           <span className="text-lg leading-none"></span> ENTERPRISE AI · GURUGRAM, INDIA
         </motion.div> */}
 
-        {/* Heading */}
+        {/* Heading — CSS animation instead of Framer Motion for instant LCP */}
         <div className="flex flex-col items-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-[1.1] tracking-[-0.01em]"
+          <h1
+            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-[1.1] tracking-[-0.01em] hero-fade-in"
           >
             Intelligent agents
-          </motion.h1>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-[1.1] tracking-[-0.01em]"
+          </h1>
+          <h1
+            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-[1.1] tracking-[-0.01em] hero-fade-in"
+            style={{ animationDelay: '0.1s' }}
           >
             that run your operations.
-          </motion.h1>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black mb-4 leading-[1.1] tracking-[-0.01em]"
+          </h1>
+          <h1
+            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black mb-4 leading-[1.1] tracking-[-0.01em] hero-fade-in"
+            style={{ animationDelay: '0.1s' }}
           >
             Not just assist them.
-          </motion.h1>
+          </h1>
         </div>
 
-        {/* Subtitles */}
-        <SplitTextReveal
-          as="p"
-          className="text-lg text-gray-500 max-w-2xl mx-auto mb-6 leading-relaxed"
-          type="words"
-          stagger={0.02}
-          delay={0.5}
+        {/* Subtitles - Answer First SEO */}
+        <p
+          className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed font-medium hero-fade-in text-balance"
+          style={{ animationDelay: '0.2s' }}
+          itemProp="description"
         >
-          Frostrek AI deploys autonomous AI agents across manufacturing, support, and sales - serving 40+ enterprise clients across India, USA, and the UK with sub-200ms response times.
-        </SplitTextReveal>
+          Frostrek AI is an enterprise AI development firm building autonomous agents and custom workflow automation. We help global enterprises across manufacturing, fintech, and e-commerce scale operations without expanding headcount. Our custom AI integrations deliver measurable cost reductions and sub-200ms response times.
+        </p>
 
         {/* Buttons */}
         <motion.div
@@ -375,7 +365,7 @@ const HeroSection = () => {
         className="mt-auto pt-4 md:pt-6 w-[95vw] md:w-[90vw] mx-auto z-10 relative flex flex-col items-center"
       >
         <div className="w-[95%] xl:w-[75%] max-w-[1000px] bg-[#FAFCFF] rounded-2xl md:rounded-2xl py-4 md:py-5 px-4 md:px-8 lg:px-12 shadow-sm border border-[#D6E9FF] flex flex-col items-center">
-          
+
           {/* Header Row */}
           <div className="flex items-center justify-center w-full mb-3 md:mb-5 gap-3 md:gap-6">
             <div className="flex-1 max-w-[60px] md:max-w-[120px] h-[2px] bg-[#D6E9FF]"></div>
@@ -387,13 +377,13 @@ const HeroSection = () => {
 
           {/* Logos Row */}
           <div className="w-full flex flex-wrap md:flex-nowrap items-center justify-center md:justify-between gap-4 md:gap-4">
-            <img src="/optimized/vedashi-logo.webp" alt="Vedashi" className="h-6 md:h-8 object-contain" width={512} height={512} />
+            <img src="/vedashi-logo.png" alt="Vedashi" className="h-6 md:h-8 object-contain" width={512} height={512} />
             <div className="hidden md:block w-[1px] h-6 bg-gray-200"></div>
-            <img src="/optimized/clutch.webp" alt="Clutch" className="h-5 md:h-7 object-contain" width={512} height={512} />
+            <img src="/clutch.png" alt="Clutch" className="h-5 md:h-7 object-contain" width={512} height={512} />
             <div className="hidden md:block w-[1px] h-6 bg-gray-200"></div>
             <img src="/optimized/topDevelopers.webp" alt="TopDevelopers" className="h-5 md:h-7 object-contain" width={512} height={512} />
             <div className="hidden md:block w-[1px] h-6 bg-gray-200"></div>
-            <img src="/optimized/goodfirms.webp" alt="GoodFirms" className="h-5 md:h-7 object-contain" width={512} height={512} />
+            <img src="/goodfirms.png" alt="GoodFirms" className="h-5 md:h-7 object-contain" width={512} height={512} />
             <div className="hidden md:block w-[1px] h-6 bg-gray-200"></div>
             <img src="/optimized/iso.webp" alt="ISO 9001" className="h-7 md:h-10 object-contain" width={512} height={512} />
           </div>

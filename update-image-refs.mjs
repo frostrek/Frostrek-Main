@@ -1,101 +1,52 @@
-import fs from 'fs';
-import path from 'path';
-import { globSync } from 'glob';
+import { readFileSync, writeFileSync, readdirSync, statSync } from 'fs';
+import { join } from 'path';
 
-// Use forward slashes for glob on Windows
-const srcDir = 'src';
+const SRC_DIR = './src';
+let modifiedFiles = 0;
 
-// Simple find -> replace pairs for src attributes
-const srcReplacements = [
-    ['"/chatbot.png"', '"/optimized/chatbot.webp"'],
-    ['"/vedashi-logo.png"', '"/optimized/vedashi-logo.webp"'],
-    ['"/logonew.png"', '"/optimized/logonew.webp"'],
-    ['"/products/vedashi-logo.png"', '"/optimized/vedashi-logo-sm.webp"'],
-    ['"/iso.webp"', '"/optimized/iso.webp"'],
-    ['"/goodfirms.png"', '"/optimized/goodfirms.webp"'],
-    ['"/icons/ai-blue.png"', '"/optimized/ai-blue.webp"'],
-    ['"/clutch.png"', '"/optimized/clutch.webp"'],
-    ['"/whatsapp.png"', '"/optimized/whatsapp.webp"'],
-    ['"/instagram.png"', '"/optimized/instagram.webp"'],
-    ['"/linkedin.png"', '"/optimized/linkedin.webp"'],
-    ['"/icons/machine-learning-lavender.png"', '"/optimized/machine-learning-lavender.webp"'],
-    ['"/gmail.png"', '"/optimized/gmail.webp"'],
-    ['"/topDevelopers.webp"', '"/optimized/topDevelopers.webp"'],
-    // Lighthouse replacements:
-    ['"/images/ai_agents_white_collar.png"', '"/optimized/ai_agents_white_collar.webp"'],
-    ['"/vedashi-info1.jpeg"', '"/optimized/vedashi-info1.webp"'],
-    ['"/icons/valuation-green.png"', '"/optimized/valuation-green.webp"'],
-    ['"/icons/multivendor-green.png"', '"/optimized/multivendor-green.webp"'],
-    ['"/icons/ai-green.png"', '"/optimized/ai-green.webp"'],
-    ['"/icons/innovation-green.png"', '"/optimized/innovation-green.webp"'],
-    ['"/icons/fintech-yellow.png"', '"/optimized/fintech-yellow.webp"'],
-    ['"/icons/manufacturing-lavender.png"', '"/optimized/manufacturing-lavender.webp"'],
-    ['"/icons/data-analytics-blue.png"', '"/optimized/data-analytics-blue.webp"'],
-    ['"/icons/Voice ai-green.png"', '"/optimized/Voice ai-green.webp"'],
-    ['"/icons/architecture-green.png"', '"/optimized/architecture-green.webp"'],
-    ['"/icons/ai agents-red.png"', '"/optimized/ai agents-red.webp"'],
-    ['"/icons/data-analytics-green.png"', '"/optimized/data-analytics-green.webp"'],
-    ['"/icons/machine-learning-lavender-filled.png"', '"/optimized/machine-learning-lavender-filled.webp"'],
-    ['"/icons/wallet-green.png"', '"/optimized/wallet-green.webp"'],
-    ['"/icons/manufacturing-green.png"', '"/optimized/manufacturing-green.webp"'],
-    ['"/icons/chat-green.png"', '"/optimized/chat-green.webp"'],
-    ['"/icons/machine-learning-green.png"', '"/optimized/machine-learning-green.webp"'],
-    // Single-quoted versions (e.g. in constants.ts)
-    ["'/chatbot.png'", "'/optimized/chatbot.webp'"],
-    ["'/vedashi-logo.png'", "'/optimized/vedashi-logo.webp'"],
-    ["'/logonew.png'", "'/optimized/logonew.webp'"],
-    ["'/products/vedashi-logo.png'", "'/optimized/vedashi-logo-sm.webp'"],
-    ["'/iso.webp'", "'/optimized/iso.webp'"],
-    ["'/goodfirms.png'", "'/optimized/goodfirms.webp'"],
-    ["'/icons/ai-blue.png'", "'/optimized/ai-blue.webp'"],
-    ["'/clutch.png'", "'/optimized/clutch.webp'"],
-    ["'/whatsapp.png'", "'/optimized/whatsapp.webp'"],
-    ["'/instagram.png'", "'/optimized/instagram.webp'"],
-    ["'/linkedin.png'", "'/optimized/linkedin.webp'"],
-    ["'/icons/machine-learning-lavender.png'", "'/optimized/machine-learning-lavender.webp'"],
-    ["'/gmail.png'", "'/optimized/gmail.webp'"],
-    ["'/topDevelopers.webp'", "'/optimized/topDevelopers.webp'"],
-    // Lighthouse replacements:
-    ["'/images/ai_agents_white_collar.png'", "'/optimized/ai_agents_white_collar.webp'"],
-    ["'/vedashi-info1.jpeg'", "'/optimized/vedashi-info1.webp'"],
-    ["'/icons/valuation-green.png'", "'/optimized/valuation-green.webp'"],
-    ["'/icons/multivendor-green.png'", "'/optimized/multivendor-green.webp'"],
-    ["'/icons/ai-green.png'", "'/optimized/ai-green.webp'"],
-    ["'/icons/innovation-green.png'", "'/optimized/innovation-green.webp'"],
-    ["'/icons/fintech-yellow.png'", "'/optimized/fintech-yellow.webp'"],
-    ["'/icons/manufacturing-lavender.png'", "'/optimized/manufacturing-lavender.webp'"],
-    ["'/icons/data-analytics-blue.png'", "'/optimized/data-analytics-blue.webp'"],
-    ["'/icons/Voice ai-green.png'", "'/optimized/Voice ai-green.webp'"],
-    ["'/icons/architecture-green.png'", "'/optimized/architecture-green.webp'"],
-    ["'/icons/ai agents-red.png'", "'/optimized/ai agents-red.webp'"],
-    ["'/icons/data-analytics-green.png'", "'/optimized/data-analytics-green.webp'"],
-    ["'/icons/machine-learning-lavender-filled.png'", "'/optimized/machine-learning-lavender-filled.webp'"],
-    ["'/icons/wallet-green.png'", "'/optimized/wallet-green.webp'"],
-    ["'/icons/manufacturing-green.png'", "'/optimized/manufacturing-green.webp'"],
-    ["'/icons/chat-green.png'", "'/optimized/chat-green.webp'"],
-    ["'/icons/machine-learning-green.png'", "'/optimized/machine-learning-green.webp'"],
-];
+// The images we want to skip updating (because they weren't converted)
+const SKIP_REFS = ['logo.png', 'logonew.png'];
 
-const files = globSync('src/**/*.tsx').concat(globSync('src/**/*.ts'));
-console.log('Found', files.length, 'files');
-
-let totalModified = 0;
-
-for (const filePath of files) {
-    let content = fs.readFileSync(filePath, 'utf8');
-    const original = content;
-
-    for (const [find, replace] of srcReplacements) {
-        if (content.includes(find)) {
-            content = content.replaceAll(find, replace);
-        }
+function walkDir(dir) {
+  const files = readdirSync(dir);
+  
+  for (const file of files) {
+    const fullPath = join(dir, file);
+    if (statSync(fullPath).isDirectory()) {
+      walkDir(fullPath);
+    } else if (file.endsWith('.ts') || file.endsWith('.tsx')) {
+      processFile(fullPath);
     }
-
-    if (content !== original) {
-        fs.writeFileSync(filePath, content, 'utf8');
-        totalModified++;
-        console.log('✅ Updated:', filePath);
-    }
+  }
 }
 
-console.log('\n🎉 Modified ' + totalModified + ' files.');
+function processFile(file) {
+  const content = readFileSync(file, 'utf8');
+  
+  // Replace .png, .jpg, .jpeg with .webp, UNLESS it's in the skip list
+  let newContent = content.replace(/([a-zA-Z0-9_/-]+)\.(png|jpg|jpeg)/gi, (match, path, ext) => {
+    const filename = `${path.split('/').pop()}.${ext}`;
+    
+    // Ignore skip files
+    if (SKIP_REFS.includes(filename.toLowerCase())) {
+      return match;
+    }
+    
+    return `${path}.webp`;
+  });
+
+  // Also replace whitespace encoded versions (e.g. "Space Case.png" -> "Space Case.webp" handled differently or just literal .png)
+  newContent = newContent.replace(/\.(png|jpg|jpeg)/gi, (match, ext) => {
+     // A slightly riskier blind replace if the file has spaces, but we mostly just need to target strings.
+     return match; // Actually the first regex works fine for normal paths
+  });
+
+  if (content !== newContent) {
+    writeFileSync(file, newContent, 'utf8');
+    modifiedFiles++;
+    console.log(`Updated ${file}`);
+  }
+}
+
+walkDir(SRC_DIR);
+console.log(`\nUpdated ${modifiedFiles} files with WebP references.`);

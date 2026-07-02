@@ -3,13 +3,13 @@
 > Frostrek AI delivers production-ready autonomous AI agents, LLM training, customized applications, workflow automation, and data annotation services for enterprises.
 
 ## Core Products & Solutions
-- [Frosty AI](https://www.frostrek.ai/solutions/ai-agents): Omnichannel intelligent agent for support and sales
+- [Frosty AI](https://www.frostrek.ai/products/frosty-ai): Omnichannel intelligent agent for support and sales
 - [Voice AI](https://www.frostrek.ai/solutions/voice-ai): Enterprise-grade AI calling agents and cognitive virtual assistants
-- [WhatsApp Agents](https://www.frostrek.ai/solutions/ai-agents): Autonomous chat agents for conversational deployment
-- [Manufacturing OS](https://www.frostrek.ai/solutions/manufacturing-intelligence): ERP/SCADA integration and factory AI optimization
-- [Custom LLM Fine-Tuning](https://www.frostrek.ai/solutions): Managed RLHF alignment and dataset preparation services
-- [Web3 & Fintech](https://www.frostrek.ai/solutions): Custom fintech wallets, stablecoin development, and crypto payment integrations
-- [E-Commerce](https://www.frostrek.ai/solutions): Multivendor dashboards and inventory sync integrations
+- [WhatsApp Agents](https://www.frostrek.ai/products/whatsapp-bot): Autonomous chat agents for conversational deployment
+- [Manufacturing OS](https://www.frostrek.ai/products/frostrek-manufacturing-os): ERP/SCADA integration and factory AI optimization
+- [Custom LLM Fine-Tuning](https://www.frostrek.ai/solutions/llm-model-training): Managed RLHF alignment and dataset preparation services
+- [Web3 & Fintech](https://www.frostrek.ai/solutions/fintech-custom-wallets): Custom fintech wallets, stablecoin development, and crypto payment integrations
+- [E-Commerce](https://www.frostrek.ai/products/vedashi-ecommerce): Multivendor dashboards and inventory sync integrations
 
 ## Key Links
 - [Home](https://www.frostrek.ai/)

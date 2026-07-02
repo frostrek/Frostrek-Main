@@ -152,7 +152,7 @@ const FeaturesSection = () => {
 
                             <Link to="/contact" className="group inline-flex items-center gap-2 text-[15px] font-medium text-[#047857] hover:text-[#065F46] transition-colors">
                                 <FlipText>
-                                    Learn More <ArrowRight size={18} />
+                                    Explore Enterprise Security <ArrowRight size={18} />
                                 </FlipText>
                             </Link>
                         </div>
@@ -165,7 +165,7 @@ const FeaturesSection = () => {
                     >
                         <div className="flex flex-col sm:flex-row items-start gap-4 md:gap-5 relative z-10">
                             <div className="flex-shrink-0 w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl border flex items-center justify-center transition-all duration-300 bg-white border-[#FFEDD5]/60 group-hover:scale-110 shadow-sm">
-                                <img src="/optimized/lightning.webp" alt="Lightning Fast" className="w-6 h-6 md:w-8 md:h-8 object-contain" loading="lazy" width={512} height={512} />
+                                <img src="/icons/lightning.png" alt="Lightning Fast" className="w-6 h-6 md:w-8 md:h-8 object-contain" loading="lazy" width={512} height={512} />
                             </div>
                             <div>
                                 <h3 className="font-serif text-[15px] md:text-2xl font-bold mb-1.5 md:mb-3 text-[#C2410C]">
@@ -185,7 +185,7 @@ const FeaturesSection = () => {
                     >
                         <div className="flex flex-col sm:flex-row items-start gap-4 md:gap-5 relative z-10">
                             <div className="flex-shrink-0 w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl border flex items-center justify-center transition-all duration-300 bg-white border-[#BAE6FD]/60 group-hover:scale-110 shadow-sm">
-                                <img src="/optimized/data-analytics.webp" alt="Real-time Analytics" className="w-6 h-6 md:w-8 md:h-8 object-contain" loading="lazy" width={512} height={512} />
+                                <img src="/icons/data-analytics.png" alt="Real-time Analytics" className="w-6 h-6 md:w-8 md:h-8 object-contain" loading="lazy" width={512} height={512} />
                             </div>
                             <div>
                                 <h3 className="font-serif text-[15px] md:text-2xl font-bold mb-1.5 md:mb-3 text-[#0284C7]">

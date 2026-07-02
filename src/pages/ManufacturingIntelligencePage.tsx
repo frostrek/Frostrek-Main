@@ -77,7 +77,7 @@ const THREE_PHASES = [
         title: 'Cost & Alerting Intelligence',
         description: 'Activate a live cost-per-kg engine using ERP and machine data. Set configurable alert thresholds for immediate push notifications on parameter drifts.',
         timeline: 'Timeline: 4–6 weeks',
-        icon: '/optimized/data-analytics.webp',
+        icon: '/icons/data-analytics.png',
         iconBg: 'bg-[#F0FDF4]',
         iconBorder: 'border-[#BBF7D0]',
         headingColor: 'text-[#166534]',
@@ -98,7 +98,7 @@ const SYSTEMS_WE_CONNECT = [
     {
         title: 'ERP Systems',
         description: 'Direct read-only SQL connection to on-premise ERP databases. Pulls orders, job cards, inventory, raw material costs, and finished goods records. Pull frequency: every 10 minutes.',
-        icon: '/optimized/architecture.webp',
+        icon: '/icons/architecture.png',
         bgColor: 'bg-[#F0F9FF]',
         border: 'border-[#BAE6FD]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(14,165,233,0.07)]',
@@ -120,7 +120,7 @@ const SYSTEMS_WE_CONNECT = [
     {
         title: 'PLC-Controlled Production Machines',
         description: 'EtherNet/IP protocol connection to Allen Bradley and compatible PLCs over factory LAN. Reads machine parameters — screw speed, temperatures, watt readings, throughput, downtime events. Pull frequency: every 30 seconds. Read-only.',
-        icon: '/icons/ai agents.png',
+        icon: '/icons/ai agents.webp',
         bgColor: 'bg-[#F0FDF4]',
         border: 'border-[#BBF7D0]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(34,197,94,0.07)]',
@@ -189,7 +189,7 @@ const KEY_CAPABILITIES = [
     {
         title: 'Sensor Alert System',
         description: 'Configurable thresholds per product per parameter. When any reading drifts out of range — push notification, email, and WhatsApp alert fired instantly to shift supervisor and management.',
-        icon: '/optimized/lightning.webp',
+        icon: '/icons/lightning.png',
         bgColor: 'bg-[#FFFBEB]',
         border: 'border-[#FEF3C7]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(245,158,11,0.07)]',
@@ -200,7 +200,7 @@ const KEY_CAPABILITIES = [
     {
         title: 'AI Production Scheduler',
         description: 'Constraint optimisation engine analyses historical changeover data and generates the weekly production sequence that minimises total changeover time while meeting all delivery deadlines. Human approval always required.',
-        icon: '/icons/ai agents.png',
+        icon: '/icons/ai agents.webp',
         bgColor: 'bg-[#FFF1F2]',
         border: 'border-[#FECDD3]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(225,29,72,0.07)]',
@@ -474,14 +474,13 @@ const ManufacturingIntelligencePage = () => {
                             </SplitTextReveal>
                         </div>
 
-                        {/* Subtext */}
-                        <SplitTextReveal
-                            as="p"
-                            className="text-lg md:text-xl mb-10 max-w-4xl mx-auto leading-relaxed text-gray-500"
-                            type="words" stagger={0.015} once={false} delay={0.5}
+                        {/* Answer-First SEO Subtext */}
+                        <p
+                            className="text-base md:text-lg mb-10 max-w-4xl mx-auto leading-relaxed text-gray-600 font-medium"
+                            itemProp="description"
                         >
-                            Most factories aren't limited by their machines — they're limited by what they can't see. We connect your existing ERP, WMS, PLC, and SCADA systems into a single real-time intelligence platform that eliminates guesswork, replaces WhatsApp operations, and unlocks capacity you already own.
-                        </SplitTextReveal>
+                            Our manufacturing intelligence platform connects your existing ERP, PLC, and SCADA systems into a real-time dashboard—without requiring new hardware. Built for plant managers, it eliminates blind spots and manual logs on the factory floor. Unify machine telemetry with live cost engines to instantly increase Overall Equipment Effectiveness (OEE).
+                        </p>
 
                         {/* Single CTA Button */}
                         <motion.div

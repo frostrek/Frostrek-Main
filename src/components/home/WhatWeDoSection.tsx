@@ -109,7 +109,7 @@ const Web3Demo = () => {
             <div className="bg-[#FEFCE8] border-[#FEF08A] rounded-xl px-4 py-3 flex items-center justify-between">
                 <div><div className="text-gray-400 text-[10px] uppercase tracking-widest mb-1">Wallet Balance</div><div className="text-[#CA8A04] font-bold text-base">1,450 <span className="text-xs text-gray-400">$TOKEN</span></div></div>
                 <div className="w-9 h-9 rounded-full bg-[#FEF9C3] border border-[#FEF9C3] flex items-center justify-center">
-                    <img src="/optimized/fintech-yellow.webp" alt="Fintech" className="w-5 h-5 object-contain" loading="lazy" width={512} height={512} />
+                    <img src="/icons/fintech-yellow.png" alt="Fintech" className="w-5 h-5 object-contain" loading="lazy" width={512} height={512} />
                 </div>
             </div>
             <div className="flex gap-2">
@@ -152,7 +152,7 @@ const AIAgentDemo = () => {
         <div className="w-full font-body text-xs select-none space-y-2">
             <div className="flex items-center gap-2 bg-[#FDF4FA] border border-[#F2BAE4] rounded-xl px-3 py-2 mb-3">
                 <div className="w-7 h-7 rounded-full bg-white border border-[#F2BAE4] flex items-center justify-center">
-                    <img src="/optimized/machine-learning-lavender-filled.webp" alt="AI Agent" className="w-4 h-4 object-contain" loading="lazy" width={512} height={512} />
+                    <img src="/icons/machine-learning-lavender-filled.png" alt="AI Agent" className="w-4 h-4 object-contain" loading="lazy" width={512} height={512} />
                 </div>
                 <div><div className="text-gray-800 text-[10px] font-semibold">Frosty AI Agent</div><div className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-[#D67CBA] animate-pulse" /><span className="text-[#D67CBA] text-[9px]">Online</span></div></div>
                 <div className="ml-auto flex gap-1.5"><Mic className="w-3.5 h-3.5 text-[#D67CBA]" /><MessageSquare className="w-3.5 h-3.5 text-[#D67CBA]" /></div>
@@ -170,7 +170,7 @@ const AIAgentDemo = () => {
 // ─── Cards data ───────────────────────────────────────────────────────────────
 const CARDS = [
     {
-        icon: "/optimized/manufacturing-green.webp",
+        icon: "/icons/manufacturing-green.png",
         label: 'MANUFACTURING OS',
         title: 'Frostrek Manufacturing OS',
         desc: 'A unified operating system for smart factories. Real-time visibility, predictive insights, and seamless automation across your shop floor.',
@@ -180,7 +180,7 @@ const CARDS = [
         Demo: ManufacturingDemo
     },
     {
-        icon: "/optimized/fintech-yellow.webp",
+        icon: "/icons/fintech-yellow.png",
         label: 'FINTECH PLATFORM',
         title: 'Fintech & Custom Wallets',
         desc: 'Secure, compliant, and scalable fintech solutions. Digital wallets, KYC, transactions and beyond.',
@@ -190,7 +190,7 @@ const CARDS = [
         Demo: Web3Demo
     },
     {
-        icon: "/optimized/machine-learning-lavender-filled.webp",
+        icon: "/icons/machine-learning-lavender-filled.png",
         label: 'AI AGENTS PLATFORM',
         title: 'Frostrek AI Agents',
         desc: 'Autonomous AI agents that handle tasks, answer queries, and drive outcomes across your business.',

@@ -804,7 +804,7 @@ const About = () => {
 
     const values = useMemo(() => [
         {
-            icon: '/optimized/innovation.webp',
+            icon: '/icons/innovation.png',
             title: 'Innovation',
             desc: 'Cutting-edge AI solutions',
             glowColor: '#0284C7',
@@ -816,7 +816,7 @@ const About = () => {
             iconColor: 'text-[#0284C7]'
         },
         {
-            icon: '/optimized/lightning.webp',
+            icon: '/icons/lightning.png',
             title: 'Excellence',
             desc: 'ISO certified quality',
             glowColor: '#2D6A4F',
@@ -929,7 +929,7 @@ const About = () => {
             name: 'India',
             city: 'Gurugram',
             country: 'India',
-            flagImg: 'https://flagcdn.com/w40/in.png',
+            flagImg: 'https://flagcdn.com/w40/in.webp',
             image: '/CompanyOffice.webp',
             companyName: 'India Office',
             address: '4th Floor, Unit No. 455 JMD Empire, Sector 62, Gurugram',
@@ -939,8 +939,8 @@ const About = () => {
             name: 'USA',
             city: 'Austin',
             country: 'United States',
-            flagImg: 'https://flagcdn.com/w40/us.png',
-            image: '/701 Tillery St 12 3227, Austin, TX 78702, USA.jpg',
+            flagImg: 'https://flagcdn.com/w40/us.webp',
+            image: '/701 Tillery St 12 3227, Austin, TX 78702, USA.webp',
             companyName: 'USA Office',
             address: '701 Tillery Street Unit 12-3227, Austin, Texas 78702, United States',
             mapUrl: undefined
@@ -949,7 +949,7 @@ const About = () => {
             name: 'UK',
             city: 'London',
             country: 'United Kingdom',
-            flagImg: 'https://flagcdn.com/w40/gb.png',
+            flagImg: 'https://flagcdn.com/w40/gb.webp',
             image: '/24-26-Arcadia-Ave-London-Primary-Photo-1-LargeHighDefinition.jpg',
             companyName: 'UK Office',
             address: '24-26 Arcadia Avenue, Fin009/8701, London, United Kingdom, N3 2JU',
@@ -959,7 +959,7 @@ const About = () => {
 
     const tech = useMemo(() => [
         {
-            icon: '/optimized/machine-learning.webp',
+            icon: '/icons/machine-learning.png',
             label: 'AI/ML',
             hoverBg: 'bg-[#F0FDF4]',
             hoverBorder: 'border-[#2D6A4F]/40',
@@ -973,28 +973,28 @@ const About = () => {
             hoverText: 'text-[#EA580C]'
         },
         {
-            icon: '/optimized/lightning.webp',
+            icon: '/icons/lightning.png',
             label: 'Processing',
             hoverBg: 'bg-[#f0fbfeff]',
             hoverBorder: 'border-[#0284C7]/40',
             hoverText: 'text-[#0284C7]'
         },
         {
-            icon: '/optimized/data-analytics.webp',
+            icon: '/icons/data-analytics.png',
             label: 'Big Data',
             hoverBg: 'bg-[#FDF2F8]',
             hoverBorder: 'border-[#DB2777]/40',
             hoverText: 'text-[#DB2777]'
         },
         {
-            icon: '/optimized/architecture.webp',
+            icon: '/icons/architecture.png',
             label: 'Architecture',
             hoverBg: 'bg-[#FEF3C7]',
             hoverBorder: 'border-[#D97706]/40',
             hoverText: 'text-[#D97706]'
         },
         {
-            icon: '/optimized/innovation.webp',
+            icon: '/icons/innovation.png',
             label: 'Innovation',
             hoverBg: 'bg-[#F0FDFA]',
             hoverBorder: 'border-[#0D9488]/40',
@@ -1058,7 +1058,7 @@ const About = () => {
                                 </span>
                             </MagneticButton>
                             <MagneticButton variant="secondary" className="px-8 py-4 text-sm" onClick={() => document.getElementById('stats')?.scrollIntoView({ behavior: 'smooth' })}>
-                                <span className="font-body font-bold">Learn More</span>
+                                <span className="font-body font-bold">Discover Our Story</span>
                             </MagneticButton>
                         </div>
                     </motion.div>
@@ -1208,7 +1208,7 @@ const About = () => {
                                     transition={{ duration: 0.7, delay: 0.0, ease: [0.16, 1, 0.3, 1] }}
                                     className="relative rounded-2xl overflow-hidden group shadow-lg mb-3 break-inside-avoid"
                                 >
-                                    <img src="/optimized/office1.webp"
+                                    <img src="/office1.png"
                                         alt="Frostrek Office"
                                         className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
                                         loading="lazy" width={512} height={512} />
@@ -1237,7 +1237,7 @@ const About = () => {
                                     transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
                                     className="relative rounded-2xl overflow-hidden group shadow-md break-inside-avoid"
                                 >
-                                    <img src="/optimized/office2.webp"
+                                    <img src="/office2.jpeg"
                                         alt="Frostrek Workspace"
                                         className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
                                         loading="lazy" width={512} height={512} />
@@ -1252,7 +1252,7 @@ const About = () => {
                                     transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                                     className="relative rounded-2xl overflow-hidden group shadow-lg mb-3 break-inside-avoid"
                                 >
-                                    <img src="/optimized/FrostrekTeam2.webp"
+                                    <img src="/FrostrekTeam2.png"
                                         alt="Frostrek Team"
                                         className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
                                         loading="lazy" width={512} height={512} />
@@ -1267,7 +1267,7 @@ const About = () => {
                                     transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
                                     className="relative rounded-2xl overflow-hidden group shadow-md break-inside-avoid"
                                 >
-                                    <img src="/optimized/office5.webp"
+                                    <img src="/office5.jpeg"
                                         alt="Frostrek Culture"
                                         className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
                                         loading="lazy" width={512} height={512} />

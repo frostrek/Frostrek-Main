@@ -51,7 +51,7 @@ const WHAT_WE_BUILD = [
     {
         title: 'Domain-Specific Cognitive Assistants',
         description: 'Deeply specialised agents fine-tuned for a specific domain — a sports intelligence assistant, a financial advisory bot, an HR onboarding agent. Built on your proprietary data, trained on your processes, and designed to sound like an expert in your field.',
-        icon: '/icons/ai agents.png',
+        icon: '/icons/ai agents.webp',
         bgColor: 'bg-[#FFF1F2]',
         border: 'border-[#FECDD3]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(225,29,72,0.07)]',
@@ -65,7 +65,7 @@ const KEY_CAPABILITIES = [
     {
         title: 'Large Language Model Backbone',
         description: 'Our agents are built on leading LLMs — GPT-4, Claude, Gemini, or open-source models like LLaMA — selected and configured based on your latency, cost, and compliance requirements.',
-        icon: '/optimized/innovation.webp',
+        icon: '/icons/innovation.png',
         bgColor: 'bg-[#F0F9FF]',
         border: 'border-[#BAE6FD]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(14,165,233,0.07)]',
@@ -76,7 +76,7 @@ const KEY_CAPABILITIES = [
     {
         title: 'Retrieval-Augmented Generation (RAG)',
         description: 'Agents query your knowledge base, documents, and internal data in real time to give accurate, grounded answers — not hallucinated ones. Your data stays yours.',
-        icon: '/optimized/data-analytics.webp',
+        icon: '/icons/data-analytics.png',
         bgColor: 'bg-[#F5F3FF]',
         border: 'border-[#DDD6FE]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(124,58,237,0.07)]',
@@ -87,7 +87,7 @@ const KEY_CAPABILITIES = [
     {
         title: 'Voice & Speech Integration',
         description: 'Production-grade voice pipelines with real-time speech-to-text, natural language understanding, and text-to-speech. Indistinguishable from a trained human caller in most scenarios.',
-        icon: '/icons/Voice ai.png',
+        icon: '/icons/Voice /icons/ai.png',
         bgColor: 'bg-[#F0FDF4]',
         border: 'border-[#BBF7D0]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(34,197,94,0.07)]',
@@ -134,7 +134,7 @@ const USE_CASES = [
     {
         title: 'Sales',
         description: 'Inbound lead qualification, outbound prospecting calls, demo scheduling, follow-up sequences, CRM enrichment — all automated. Your sales team focuses on closing, not chasing.',
-        icon: '/optimized/innovation.webp',
+        icon: '/icons/innovation.png',
         bgColor: 'bg-[#F0F9FF]',
         border: 'border-[#BAE6FD]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(14,165,233,0.07)]',
@@ -178,7 +178,7 @@ const USE_CASES = [
     {
         title: 'Finance',
         description: 'Payment follow-up calls, invoice query resolution, expense pre-approval, financial report Q&A, and compliance check automation — agents that speak the language of your finance team.',
-        icon: '/optimized/data-analytics.webp',
+        icon: '/icons/data-analytics.png',
         bgColor: 'bg-[#F5F3FF]',
         border: 'border-[#DDD6FE]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(124,58,237,0.07)]',
@@ -236,7 +236,7 @@ const INDUSTRIES = [
     {
         title: 'Real Estate',
         description: 'Property enquiry handling, viewing scheduling, lead qualification, buyer follow-up, and rental management agents — working across WhatsApp, web, and phone.',
-        icon: '/optimized/architecture.webp',
+        icon: '/icons/architecture.png',
         bgColor: 'bg-[#FFF1F2]',
         border: 'border-[#FECDD3]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(225,29,72,0.07)]',
@@ -273,7 +273,7 @@ const HOW_WE_BUILD = [
         step: '1',
         title: 'Discovery & Agent Design',
         description: 'We map your use case, define the agent\'s scope, personality, escalation rules, and success metrics. We identify which systems it needs to connect to and what data it needs to be accurate.',
-        icon: '/optimized/innovation.webp',
+        icon: '/icons/innovation.png',
         iconBg: 'bg-[#F0F9FF]',
         iconBorder: 'border-[#BAE6FD]',
         headingColor: 'text-[#0284C7]',
@@ -282,7 +282,7 @@ const HOW_WE_BUILD = [
         step: '2',
         title: 'Data & Knowledge Base Setup',
         description: 'We ingest your documents, FAQs, product data, policies, and system records. We build and test the RAG pipeline to ensure the agent retrieves the right information reliably.',
-        icon: '/optimized/data-analytics.webp',
+        icon: '/icons/data-analytics.png',
         iconBg: 'bg-[#F0FDF4]',
         iconBorder: 'border-[#BBF7D0]',
         headingColor: 'text-[#166534]',
@@ -310,7 +310,7 @@ const HOW_WE_BUILD = [
 const TECH_STACK_MARQUEE = [
     { category: 'LLM Providers', name: 'Meta LLaMA', image: '/techstack/Meta.svg' },
     { category: 'Voice & Telephony', name: 'Twilio', image: '/techstack/Twilio.png' },
-    { category: 'Voice & Telephony', name: 'ElevenLabs', image: '/icons/Voice ai.png' },
+    { category: 'Voice & Telephony', name: 'ElevenLabs', image: '/icons/Voice /icons/ai.png' },
     { category: 'RAG & Vector Search', name: 'Pinecone', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg' },
     { category: 'Integrations', name: 'HubSpot', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/salesforce/salesforce-original.svg' },
     { category: 'Backend', name: 'Python', image: '/techstack/Python.svg' },
@@ -442,13 +442,13 @@ export default function AIAgentsPage() {
                             AI Agents — Intelligent, Autonomous, Built for Your Business
                         </SplitTextReveal>
 
-                        <SplitTextReveal
-                            as="p"
-                            className="hero-el text-lg md:text-xl text-gray-600 leading-relaxed mb-10 max-w-3xl"
-                            type="words" stagger={0.015} once={false} delay={0.5}
+                        {/* Answer-First SEO Subtext */}
+                        <p
+                            className="hero-el text-base md:text-lg text-gray-600 leading-relaxed mb-10 max-w-3xl font-medium"
+                            itemProp="description"
                         >
-                            We design and deploy custom AI agents that think, respond, and act — handling calls, conversations, workflows, and decisions at scale. Not off-the-shelf chatbots. Purpose-built agents trained on your data, integrated into your systems, and working 24/7 so your team doesn't have to.
-                        </SplitTextReveal>
+                            We design autonomous AI agents capable of reasoning, planning, and executing complex workflows. Built for enterprise teams, our agents automate customer support, qualify sales leads, and streamline internal operations. Connected securely to your APIs, they resolve queries instantly without human intervention.
+                        </p>
 
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}

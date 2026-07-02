@@ -48,11 +48,11 @@ const CurlyArrow = ({ className = '', flip = false }: { className?: string, flip
 gsap.registerPlugin(ScrollTrigger);
 
 const LOGOS = [
-    { name: 'Clutch', src: '/clutch.webp', rating: '4.9', reviews: '50+ reviews' },
+    { name: 'Clutch', src: '/clutch.png', rating: '4.9', reviews: '50+ reviews' },
     { name: 'Top Developers', src: '/optimized/topDevelopers.webp', rating: '5.0', reviews: '30+ reviews' },
-    { name: 'GoodFirms', src: '/goodfirms.webp', rating: '4.8', reviews: '45+ reviews' },
+    { name: 'GoodFirms', src: '/goodfirms.png', rating: '4.8', reviews: '45+ reviews' },
     { name: 'ISO Certified', src: '/optimized/iso.webp', rating: 'ISO', reviews: '9001 Certified' },
-    { name: 'Vedashi', src: '/optimized/vedashi-logo.webp', rating: '★★★★★', reviews: 'Trusted Client' },
+    { name: 'Vedashi', src: '/vedashi-logo.png', rating: '★★★★★', reviews: 'Trusted Client' },
 ];
 
 const TrustedBySection = () => {

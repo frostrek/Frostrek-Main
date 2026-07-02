@@ -355,7 +355,7 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
                         ) : isListening ? (
                             <Mic className="w-10 h-10 text-white animate-pulse" />
                         ) : (
-                            <img src="/optimized/Voice ai-green.webp" alt="Voice AI" className={`w-10 h-10 object-contain transition-all duration-300 ${isCallActive ? 'brightness-0 invert' : ''}`} loading="lazy" width={512} height={512} />
+                            <img src="/optimized/Voice /icons/ai-green.png" alt="Voice AI" className={`w-10 h-10 object-contain transition-all duration-300 ${isCallActive ? 'brightness-0 invert' : ''}`} loading="lazy" width={512} height={512} />
                         )}
                     </motion.div>
                 </div>

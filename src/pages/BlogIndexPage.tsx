@@ -75,6 +75,7 @@ const BlogIndexPage = () => {
                 title="Blog | Frostrek AI Insights"
                 description="Read the latest insights, technical deep dives, and industry trends on Artificial Intelligence, Workflow Automation, and Data Operations from the Frostrek team."
                 path="/blog"
+                noindex={true}
             />
 
             <section className="relative min-h-[45vh] flex items-center pt-32 pb-16 overflow-hidden bg-gradient-to-b from-white via-[#FAFCFB] to-white">

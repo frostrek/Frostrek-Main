@@ -92,7 +92,7 @@ const PROCESS_STEPS = [
         step: '3',
         title: 'Smart Ranking',
         description: 'Score and rank candidate assessments and create shortlists accurately.',
-        icon: '/optimized/data-analytics.webp',
+        icon: '/icons/data-analytics.png',
         iconBg: 'bg-[#FFF1F2]',
         iconBorder: 'border-[#FECDD3]',
         headingColor: 'text-[#E11D48]'

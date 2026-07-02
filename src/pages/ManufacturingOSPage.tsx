@@ -18,7 +18,7 @@ const PROBLEMS = [
     {
         title: '20 Changeovers a Week, Zero Intelligence',
         description: "The manufacturing plant lost 20–42 tons of weekly production from product changeovers decided by Excel sheets and gut feel — no one was sequencing products intelligently to minimise downtime.",
-        icon: '/optimized/data-analytics.webp',
+        icon: '/icons/data-analytics.png',
         bgColor: 'bg-[#FFF7ED]',
         border: 'border-[#FFEDD5]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(249,115,22,0.05)]',
@@ -54,7 +54,7 @@ const FEATURES = [
     {
         title: 'Four-System Integration Layer',
         description: 'Connected Syspro ERP (SQL), Fusion WMS (REST API), CFAM TX80 Extruder (PLC via EtherNet/IP), and Famsun Plant (MQTT) — all read-only, zero changes to existing systems.',
-        icon: '/optimized/architecture.webp',
+        icon: '/icons/architecture.png',
         bgColor: 'bg-[#EFF6FF]',
         border: 'border-[#BFDBFE]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(37,99,235,0.05)]',

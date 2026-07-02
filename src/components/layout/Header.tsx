@@ -7,7 +7,6 @@ import Button from '../ui/Button';
 import { cn } from '../../utils/cn';
 import MegaMenu from './MegaMenu';
 import { useTheme } from '../../context/ThemeContext';
-import { useLenis } from '../providers/SmoothScrollProvider';
 import FlipText from '../ui/FlipText';
 
 
@@ -21,7 +20,6 @@ const Header = () => {
     const location = useLocation();
     const { theme } = useTheme();
     const ticking = useRef(false);
-    const lenis = useLenis();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -37,23 +35,20 @@ const Header = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Lock body scroll AND stop Lenis when mobile menu is open
+    // Lock body scroll when mobile menu is open
     useEffect(() => {
         if (mobileMenuOpen) {
             document.body.style.overflow = 'hidden';
             document.body.style.touchAction = 'none';
-            lenis?.stop();
         } else {
             document.body.style.overflow = '';
             document.body.style.touchAction = '';
-            lenis?.start();
         }
         return () => {
             document.body.style.overflow = '';
             document.body.style.touchAction = '';
-            lenis?.start();
         };
-    }, [mobileMenuOpen, lenis]);
+    }, [mobileMenuOpen]);
 
     // Close mobile menu on route change
     useEffect(() => {
@@ -78,7 +73,7 @@ const Header = () => {
                 )}>
                     {/* 1. Logo (Left) */}
                     <Link to="/" className="flex items-center gap-2.5 group min-w-[120px] sm:min-w-[140px] shrink-0">
-                        <img src="/optimized/logonew.webp"
+                        <img src="/logonew.png"
                             alt="Frostrek AI"
                             className="h-8 sm:h-9 w-auto object-contain transition-all duration-300 group-hover:scale-110" width={512} height={512} />
                         <FlipText className="text-xl sm:text-2xl font-black font-sans font-bold text-[#2D6A4F]">

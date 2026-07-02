@@ -59,6 +59,7 @@
 
   <!-- Preconnect to Google Fonts for faster font loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   
   <!-- Preconnect to OpenStreetMap for faster map tiles loading -->
   <link rel="preconnect" href="https://www.openstreetmap.org" crossorigin />
@@ -75,24 +76,21 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap" />
   </noscript>
 
-  <!-- Preload critical LCP images with high priority -->
-  <link rel="preload" as="image" href="/optimized/chatbot-rafiki.webp" fetchpriority="high" />
-  <link rel="preload" as="image" href="/optimized/bg-optimized.webp" />
 
   <!-- DNS Prefetch for external resources -->
   <link rel="dns-prefetch" href="//fonts.googleapis.com" />
   <link rel="dns-prefetch" href="//fonts.gstatic.com" />
-
-
-  <!-- Critical above-the-fold CSS inlined to prevent FOUC when main stylesheet loads async -->
+  
   <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    html{-webkit-text-size-adjust:100%;line-height:1.5}
-    body{background-color:#Fcfcfc;color:#2D6A4F;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-    #root{min-height:100vh;width:100%}
+    /* Critical CSS */
+    :root{--brand-light-bg:#Fcfcfc;--brand-badge-bg:#E6EFE6;--brand-green-200:#83c5be;--dark-bg:#000000;--dark-card:#1a1a1a}
+    body{margin:0;padding:0;background-color:var(--brand-light-bg);font-family:Quicksand,system-ui,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    .dark body{background-color:var(--dark-bg);color:#f9fafb}
     img,video{max-width:100%;height:auto;display:block}
-    h1,h2,h3,h4,h5,h6{font-family:Inter,system-ui,sans-serif}
-    .font-serif{font-family:'Cormorant Garamond',serif}
+    h1,h2,h3,h4,h5,h6{font-family:Raleway,system-ui,sans-serif}
+    .font-serif{font-family:'Playfair Display',serif}
+    @keyframes heroFadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .hero-fade-in{animation:heroFadeIn .4s ease-out both}
   </style>
 </head>
 

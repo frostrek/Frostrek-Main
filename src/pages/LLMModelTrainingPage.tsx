@@ -227,7 +227,7 @@ const HOW_WE_WORK = [
         title: 'Discovery & Data Audit',
         description:
             'We assess your use case, existing data assets, compute constraints, and success metrics to scope the right training approach.',
-        icon: '/optimized/data-analytics.webp',
+        icon: '/icons/data-analytics.png',
         iconBg: 'bg-[#F0F9FF]',
         iconBorder: 'border-[#BAE6FD]',
         headingColor: 'text-[#0284C7]',
@@ -237,7 +237,7 @@ const HOW_WE_WORK = [
         title: 'Dataset Curation & Annotation',
         description:
             'We build a clean, labeled, training-ready dataset — sourcing additional data or generating synthetic examples where gaps exist.',
-        icon: '/optimized/innovation.webp',
+        icon: '/icons/innovation.png',
         iconBg: 'bg-[#F0FDF4]',
         iconBorder: 'border-[#BBF7D0]',
         headingColor: 'text-[#166534]',
@@ -485,14 +485,13 @@ const LLMModelTrainingPage = () => {
                             </SplitTextReveal>
                         </div>
 
-                        {/* Subtext */}
-                        <SplitTextReveal
-                            as="p"
-                            className="text-lg md:text-xl mb-10 max-w-3xl mx-auto leading-relaxed text-gray-500"
-                            type="words" stagger={0.015} once={false} delay={0.6}
+                        {/* Answer-First SEO Subtext */}
+                        <p
+                            className="text-base md:text-lg mb-10 max-w-3xl mx-auto leading-relaxed text-gray-600 font-medium"
+                            itemProp="description"
                         >
-                            We take foundation models from generic to genuinely useful — fine-tuned on your data, aligned to your standards, and deployed at production scale. From dataset curation to RLHF to evaluation, Frostrek handles the full model training pipeline so your team doesn't have to build ML infrastructure from scratch.
-                        </SplitTextReveal>
+                            We provide end-to-end LLM fine-tuning, RLHF alignment, and dataset preparation services. Tailored for enterprise teams, we transform generic foundation models into highly specialized, domain-specific AI. By rigorously preparing your proprietary data, we ensure your deployments are accurate, safe, and production-ready.
+                        </p>
 
                         {/* CTA buttons */}
                         <motion.div

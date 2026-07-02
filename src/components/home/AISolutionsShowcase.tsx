@@ -38,7 +38,7 @@ const SOLUTIONS: Solution[] = [
         title: 'Manufacturing Intelligence',
         tagline: 'Your factory. Finally, one screen.',
         description: 'Connect every system on your production floor - ERP, WMS, PLCs, SCADA - into a single real-time intelligence platform. Built in 8 weeks. No new hardware. No million-dollar MES licence.',
-        icon: "/optimized/manufacturing-lavender.webp",
+        icon: "/icons/manufacturing-lavender.png",
         demo: { type: 'manufacturing' },
         features: [
             'Disconnected systems: Unify ERP, WMS, and machine control',
@@ -59,7 +59,7 @@ const SOLUTIONS: Solution[] = [
         title: 'Fintech & Custom Wallets',
         tagline: 'Bypass commissions with closed-loop loyalty',
         description: 'A centralized, closed-loop digital currency engineered specifically for sports fans and affiliated clubs. Functioning as a next-generation digital loyalty programme that bypasses traditional gateway commissions.',
-        icon: "/optimized/fintech-yellow.webp",
+        icon: "/icons/fintech-yellow.png",
         demo: { type: 'web3' },
         features: [
             'Centralized, closed-loop digital fan currency',
@@ -99,7 +99,7 @@ const SOLUTIONS: Solution[] = [
         title: 'Voice AI',
         tagline: 'Natural Voice Interactions',
         description: 'Low-latency voice bots that sound natural and respond instantly. Perfect for customer support calls, appointment scheduling, and interactive voice responses.',
-        icon: "/optimized/Voice ai-green.webp",
+        icon: "/optimized/Voice /icons/ai-green.png",
         demo: { type: 'voice' },
         features: [
             'Sub-200ms response latency',
@@ -140,7 +140,7 @@ const SOLUTIONS: Solution[] = [
         title: 'LLM Training & Data Services',
         tagline: 'High-quality data for robust models.',
         description: 'Accelerate your AI initiatives with our end-to-end data services. From data annotation and RLHF to model evaluation, we provide the high-quality datasets and human feedback needed to train, fine-tune, and align your Large Language Models.',
-        icon: "/optimized/data-analytics-blue.webp",
+        icon: "/icons/data-analytics-blue.png",
         demo: { type: 'llm' },
         features: [
             'Data Annotation: Precise labeling for computer vision and NLP',
@@ -149,7 +149,7 @@ const SOLUTIONS: Solution[] = [
             'Custom Datasets: Tailored data collection for specialized domains',
             'Data Quality: Multi-stage QA processes for maximum accuracy'
         ],
-        link: '/solutions/llm-model-training',
+        link: '/solutions/data-services',
         gradient: 'from-[#2D6A4F] to-[#3D8B6E]',
         tabColor: '#EEF2FF',
         tabColorHover: '#E0E7FF',
@@ -519,7 +519,7 @@ const AISolutionsShowcase = () => {
                                     style={{ backgroundColor: activeSolution.tabColor }}
                                     className="inline-flex items-center justify-center gap-2 px-6 py-3 text-gray-600 rounded-2xl font-bold text-sm transition-all shadow-sm hover:shadow-md border border-gray-200"
                                 >
-                                    Learn More <ArrowRight className="w-4 h-4" />
+                                    Explore {activeSolution.title} <ArrowRight className="w-4 h-4" />
                                 </Link>
                                 <Link
                                     to="/contact"
@@ -642,7 +642,7 @@ const AISolutionsShowcase = () => {
                                         onMouseLeave={() => setHoveredIndex(null)}
                                         className="inline-flex items-center gap-2 px-7 py-3.5 text-gray-600 rounded-xl font-bold transition-all shadow-sm hover:shadow-md border border-gray-200"
                                     >
-                                        Learn More <ArrowRight className="w-4 h-4" />
+                                        Explore {activeSolution.title} <ArrowRight className="w-4 h-4" />
                                     </Link>
                                     <Link
                                         to="/contact"

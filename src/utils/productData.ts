@@ -67,8 +67,8 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
         badge: 'Fintech · Underwriting · Compliance',
         keywords: 'autonomous credit underwriting AI, investment vetting platform, automated financial due diligence, AI finance compliance software',
         isCaseStudy: true,
-        heroImage: '/saf-hero.png',
-        demoImage: '/saf-dashboard.png',
+        heroImage: '/saf-hero.webp',
+        demoImage: '/saf-dashboard.webp',
 
         statistics: [
             {
@@ -188,8 +188,8 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
         badge: 'E-Commerce · Personalization · Conversions',
         keywords: 'hyper-personalized ecommerce AI platform, bespoke retail recommendation engine, WhatsApp shopping cart recovery, premium GSAP online storefronts',
         isCaseStudy: true,
-        heroImage: '/pcc-hero.png',
-        demoImage: '/pcc-dashboard.png',
+        heroImage: '/pcc-hero.webp',
+        demoImage: '/pcc-dashboard.webp',
 
         statistics: [
             {
@@ -310,8 +310,8 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
         badge: 'Enterprise Platform',
         keywords: 'manufacturing telemetry AI integration USA, AI production scheduling engine UK, real-time factory floor analytics India, predictive maintenance AI globally',
         isCaseStudy: true,
-        heroImage: '/saf-hero.png',        // replace with your actual image path
-        demoImage: '/saf-dashboard.png',   // replace with your actual image path
+        heroImage: '/saf-hero.webp',        // replace with your actual image path
+        demoImage: '/saf-dashboard.webp',   // replace with your actual image path
 
         statistics: [
             {
@@ -477,7 +477,7 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
         description: 'Empower your support team with a next-gen AI agent that understands context, sentiment, and intent. Resolve up to 80% of inquiries instantly without human intervention.',
         badge: 'Top Rated Support AI',
         keywords: 'enterprise customer support AI bots USA, automated ticket triage system UK, multilingual conversational AI agents India, custom knowledge base chatbots globally',
-        heroImage: '/agent1.png',
+        heroImage: '/agent1.webp',
         demoImage: '/optimized/chatbot-rafiki.webp',
         statistics: [
             { value: '80%', label: 'Automated Resolutions', icon: Zap },
@@ -520,7 +520,7 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
         badge: 'Low Latency Voice',
         keywords: 'low-latency voice AI agents USA, human-like outbound sales AI UK, automated inbound voice support India, compliant AI debt collection bots globally',
         heroImage: '/optimized/frostrek_VA.webp',
-        demoImage: '/vn1.png',
+        demoImage: '/vn1.webp',
         statistics: [
             { value: '50%', label: 'Reduction in Costs', icon: BarChart },
             { value: '90%', label: 'Call Automation', icon: Phone },
@@ -561,8 +561,8 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
         description: 'Unlock the power of the world\'s most popular messaging app. Automate notifications, support, and sales directly in WhatsApp with official API integration.',
         badge: 'Meta Business Partner',
         keywords: 'WhatsApp API automation India, automated WhatsApp sales funnels UK, meta verified business bots USA, WhatsApp cart recovery AI globally',
-        heroImage: '/wp1.png', // Placeholder
-        demoImage: '/wp2.png',
+        heroImage: '/wp1.webp', // Placeholder
+        demoImage: '/wp2.webp',
         statistics: [
             { value: '98%', label: 'Open Rate', icon: Eye },
             { value: '45%', label: 'Click-Through Rate', icon: MousePointerClick },
@@ -603,7 +603,7 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
         description: 'Leverage our full suite of AI tools to modernize your entire operation. From ERP automation to predictive analytics, we build the future of your business.',
         badge: 'Enterprise Grade',
         keywords: 'scalable enterprise AI suite USA, full-stack AI digital transformation UK, bespoke predictive analytics India, enterprise AI development globally',
-        heroImage: '/enterprise_ai_suite.png',
+        heroImage: '/enterprise_ai_suite.webp',
         statistics: [
             {
                 value: '100%',

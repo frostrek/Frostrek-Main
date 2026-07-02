@@ -51,7 +51,7 @@ const PROBLEM_POINTS = [
     {
         title: 'No Predictive Intelligence',
         description: 'You react to demand spikes after they happen. No AI forecasting. No inventory alerts. No market trend signals.',
-        icon: '/optimized/machine-learning.webp',
+        icon: '/icons/machine-learning.png',
         bgColor: 'bg-[#FFF1F2]',
         borderColor: 'border-[#FECDD3]',
         headingColor: 'text-[#E11D48]',
@@ -109,7 +109,7 @@ const CAPABILITIES = [
     {
         title: 'Market Trend Intelligence',
         description: 'AI-powered trend analysis pulls search volume, competitor pricing, and category demand shifts. Spot opportunities before your competitors do.',
-        icon: '/optimized/data-analytics.webp',
+        icon: '/icons/data-analytics.png',
         bgColor: 'bg-[#FFFBEB]',
         border: 'border-[#FEF3C7]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(245,158,11,0.07)]',
@@ -145,7 +145,7 @@ const AUDIENCE_CARDS = [
     {
         title: 'D2C Brands Scaling Fast',
         description: 'You\'re growing 30%+ month-over-month and manual inventory tracking is breaking down under volume.',
-        icon: '/optimized/lightning.webp',
+        icon: '/icons/lightning.png',
         bgColor: 'bg-[#F0FDF4]',
         border: 'border-[#BBF7D0]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(34,197,94,0.07)]',
@@ -371,14 +371,13 @@ const MultivendorDashboardPage = () => {
                             </SplitTextReveal>
                         </div>
 
-                        {/* Subtext */}
-                        <SplitTextReveal
-                            as="p"
-                            className="text-lg md:text-xl mb-10 max-w-4xl mx-auto leading-relaxed text-gray-500"
-                            type="words" stagger={0.015} once={false} delay={0.5}
+                        {/* Answer-First SEO Subtext */}
+                        <p
+                            className="text-base md:text-lg mb-10 max-w-4xl mx-auto leading-relaxed text-gray-600 font-medium"
+                            itemProp="description"
                         >
-                            Stop juggling multiple platform dashboards. We build unified AI-powered control centers that consolidate revenue, inventory, orders, and market intelligence across every storefront and marketplace you operate in real-time.
-                        </SplitTextReveal>
+                            We build unified AI dashboards that aggregate real-time sales, inventory, and profit data across all your global storefronts. Engineered for multi-channel brands and aggregators, this platform eliminates manual reporting. Gain total visibility and deploy AI demand forecasting to prevent stockouts and protect profit margins.
+                        </p>
 
                         {/* Single CTA Button */}
                         <motion.div

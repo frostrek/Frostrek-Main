@@ -8,6 +8,7 @@ interface SEOProps {
   type?: string;
   schema?: string | string[];
   keywords?: string;
+  noindex?: boolean;
 }
 
 export default function SEO({ 
@@ -17,7 +18,8 @@ export default function SEO({
   name = "Frostrek AI", 
   type = "website",
   schema,
-  keywords
+  keywords,
+  noindex = false
 }: SEOProps) {
   const url = `https://www.frostrek.ai${path}`;
   const image = "https://www.frostrek.ai/logo.png";
@@ -66,6 +68,7 @@ export default function SEO({
       <title>{title}</title>
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
+      {noindex && <meta name="robots" content="noindex" />}
       
       {/* Canonical Link */}
       <link rel="canonical" href={url} />

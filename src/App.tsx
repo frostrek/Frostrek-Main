@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Loader2 } from 'lucide-react';
 import Header from './components/layout/Header';
 const Footer = lazy(() => import('./components/layout/Footer'));
-import SmoothScrollProvider from './components/providers/SmoothScrollProvider';
+const SmoothScrollProvider = lazy(() => import('./components/providers/SmoothScrollProvider'));
 import { ThemeProvider } from './context/ThemeContext';
 import ScrollToTop from './components/ScrollToTop';
 

@@ -42,7 +42,7 @@ const PROBLEMS = [
     {
         title: 'Follow-Up Falls Through',
         description: "Outbound follow-up campaigns require dedicated dialers. Most businesses under-resource it. Leads go cold. Pipeline shrinks. Revenue leaks.",
-        icon: '/icons/Voice ai.png',
+        icon: '/icons/Voice /icons/ai.png',
         bgColor: 'bg-[#F0FDF4]',
         hoverBg: 'hover:bg-[#DCFCE7]',
         border: 'border-[#BBF7D0]',
@@ -68,7 +68,7 @@ const WHAT_WE_BUILD = [
     {
         title: 'Outbound Calling Agents',
         description: 'Autonomous outbound agents that dial your lead list, qualify prospects, deliver messages, collect responses, and book meetings — all in natural conversational voice. Run campaigns at scale without a single human dialler.',
-        icon: '/icons/Voice ai.png',
+        icon: '/icons/Voice /icons/ai.png',
         bgColor: 'bg-[#FFF7ED]',
         border: 'border-[#FFEDD5]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(249,115,22,0.07)]',
@@ -104,7 +104,7 @@ const KEY_CAPABILITIES = [
     {
         title: 'Real-Time Speech Recognition',
         description: 'Industry-leading STT engines (Deepgram, Whisper, AssemblyAI) with low word-error rates across accents, noise conditions, and call quality levels. What callers say is always understood accurately.',
-        icon: '/icons/Voice ai.png',
+        icon: '/icons/Voice /icons/ai.png',
         bgColor: 'bg-[#F0F9FF]',
         border: 'border-[#BAE6FD]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(14,165,233,0.07)]',
@@ -115,7 +115,7 @@ const KEY_CAPABILITIES = [
     {
         title: 'Natural Language Understanding',
         description: 'Beyond transcription — the agent understands intent, extracts key information (name, account number, issue type), handles ambiguity, and knows when to ask a clarifying question vs when to act.',
-        icon: '/optimized/innovation.webp',
+        icon: '/icons/innovation.png',
         bgColor: 'bg-[#F5F3FF]',
         border: 'border-[#DDD6FE]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(124,58,237,0.07)]',
@@ -148,7 +148,7 @@ const KEY_CAPABILITIES = [
     {
         title: 'Call Recording & Transcription',
         description: 'Every call recorded, transcribed, and stored. Full searchable call logs. Sentiment analysis per call. Automatic flagging of calls that need human review. Complete audit trail.',
-        icon: '/optimized/data-analytics.webp',
+        icon: '/icons/data-analytics.png',
         bgColor: 'bg-[#FFFBEB]',
         border: 'border-[#FEF3C7]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(245,158,11,0.07)]',
@@ -173,7 +173,7 @@ const USE_CASES = [
     {
         title: 'Sales & Lead Qualification',
         description: 'Outbound agents call fresh leads within seconds of form submission. Qualify, pitch, handle objections, and book demo meetings — before your human sales team even sees the lead.',
-        icon: '/optimized/innovation.webp',
+        icon: '/icons/innovation.png',
         bgColor: 'bg-[#F0F9FF]',
         border: 'border-[#BAE6FD]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(14,165,233,0.07)]',
@@ -195,7 +195,7 @@ const USE_CASES = [
     {
         title: 'Debt Collection & Payment Follow-Up',
         description: 'Compliant, consistent outbound calls for payment reminders and collection workflows. Agents negotiate payment plans, confirm payment dates, and escalate only unresolved cases.',
-        icon: '/optimized/data-analytics.webp',
+        icon: '/icons/data-analytics.png',
         bgColor: 'bg-[#F0FDF4]',
         border: 'border-[#BBF7D0]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(34,197,94,0.07)]',
@@ -264,7 +264,7 @@ const INDUSTRIES = [
     {
         title: 'Real Estate',
         description: 'Instant callback on property enquiries, site visit scheduling, broker follow-up calls, and resale lead reactivation campaigns — running 24/7 without a dedicated calling team.',
-        icon: '/optimized/architecture.webp',
+        icon: '/icons/architecture.png',
         bgColor: 'bg-[#F0FDF4]',
         border: 'border-[#BBF7D0]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(34,197,94,0.07)]',
@@ -312,7 +312,7 @@ const TECH_STACK_MARQUEE = [
     { category: 'Telephony', name: 'Twilio', image: '/techstack/Twilio.png' },
     { category: 'Telephony', name: 'Vonage', image: '/techstack/AWS.svg' },
     { category: 'Speech-to-Text', name: 'Deepgram', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg' },
-    { category: 'Text-to-Speech', name: 'ElevenLabs', image: '/icons/Voice ai.png' },
+    { category: 'Text-to-Speech', name: 'ElevenLabs', image: '/icons/Voice /icons/ai.png' },
     { category: 'LLM Backbone', name: 'Gemini', image: '/techstack/gemini.png' },
     { category: 'Agent Frameworks', name: 'LangChain', image: '/techstack/Python.svg' },
     { category: 'Backend', name: 'Python', image: '/techstack/Python.svg' },
@@ -429,13 +429,13 @@ export default function VoiceAIPage() {
                             Voice AI — Every Call Handled. Every Lead Followed Up. Always On.
                         </SplitTextReveal>
 
-                        <SplitTextReveal
-                            as="p"
-                            className="hero-el text-lg md:text-xl text-gray-600 leading-relaxed mb-10 max-w-3xl"
-                            type="words" stagger={0.015} once={false} delay={0.5}
+                        {/* Answer-First SEO Subtext */}
+                        <p
+                            className="hero-el text-base md:text-lg text-gray-600 leading-relaxed mb-10 max-w-3xl font-medium"
+                            itemProp="description"
                         >
-                            We build custom Voice AI systems that handle inbound calls, run outbound campaigns, replace legacy IVR, and conduct voice interactions at any scale — in natural, human-sounding speech, 24/7, without a call centre.
-                        </SplitTextReveal>
+                            Our Voice AI service develops custom conversational systems for inbound support and outbound campaigns. We empower call centers, healthcare, and logistics firms to replace legacy IVR with natural, human-like voice interactions. Automate routine workflows with zero wait times and dramatically improve customer satisfaction.
+                        </p>
 
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}

@@ -21,7 +21,7 @@
   ],
   "rewrites": [
     {
-      "source": "/((?!llms\\.txt|robots\\.txt|sitemap\\.xml|manifest\\.json|googleae3090eeea2c3c2e\\.html).*)",
+      "source": "/((?!llms\\.txt|robots\\.txt|sitemap\\.xml|manifest\\.json|googleae3090eeea2c3c2e\\.html|BingSiteAuth\\.xml).*)",
       "destination": "/index.html"
     }
   ]

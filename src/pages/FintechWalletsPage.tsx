@@ -168,7 +168,7 @@ const HOW_WE_WORK = [
         title: 'Discovery & Scoping',
         description:
             'We audit your requirements, compliance needs, user flows, and existing systems to design the right architecture from Day 1.',
-        icon: '/optimized/data-analytics.webp',
+        icon: '/icons/data-analytics.png',
         iconBg: 'bg-[#F0F9FF]',
         iconBorder: 'border-[#BAE6FD]',
         headingColor: 'text-[#0284C7]',
@@ -178,7 +178,7 @@ const HOW_WE_WORK = [
         title: 'Architecture & Design',
         description:
             'We design payment flows, wallet schema, security models, and tech stack — with compliance, scalability, and user experience in mind.',
-        icon: '/optimized/innovation.webp',
+        icon: '/icons/innovation.png',
         iconBg: 'bg-[#F0FDF4]',
         iconBorder: 'border-[#BBF7D0]',
         headingColor: 'text-[#166534]',
@@ -403,14 +403,13 @@ const FintechWalletsPage = () => {
                             </SplitTextReveal>
                         </div>
 
-                        {/* Subtext */}
-                        <SplitTextReveal
-                            as="p"
-                            className="text-lg md:text-xl mb-10 max-w-3xl mx-auto leading-relaxed text-gray-500"
-                            type="words" stagger={0.015} once={false} delay={0.6}
+                        {/* Answer-First SEO Subtext */}
+                        <p
+                            className="text-base md:text-lg mb-10 max-w-3xl mx-auto leading-relaxed text-gray-600 font-medium"
+                            itemProp="description"
                         >
-                            We build production-grade digital wallets, payment infrastructure, and stablecoin platforms that handle real money, real compliance, and real users — engineered from the ground up by Frostrek.
-                        </SplitTextReveal>
+                            We build production-grade digital wallets, custom stablecoin platforms, and secure payment infrastructure. Designed for sports franchises, marketplaces, and SaaS companies, our multi-currency architecture allows you to bypass traditional gateway fees. Take full ownership of your transaction data and significantly reduce commission costs.
+                        </p>
 
                         {/* CTA buttons */}
                         <motion.div
