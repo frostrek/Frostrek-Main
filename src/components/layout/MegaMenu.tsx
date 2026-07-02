@@ -21,9 +21,9 @@ const iconMap: Record<string, React.FC<any>> = {
 
 interface SubItem { name: string; href: string; desc: string; icon?: string; hoverBgClass?: string; }
 interface Section { title: string; items: SubItem[]; }
-interface MegaMenuProps { sections: Section[]; onClose?: () => void; }
+interface MegaMenuProps { sections: Section[]; onClose?: () => void; isCompact?: boolean; }
 
-const MegaMenu: React.FC<MegaMenuProps> = ({ sections, onClose }) => {
+const MegaMenu: React.FC<MegaMenuProps> = ({ sections, onClose, isCompact }) => {
     // Layout: 2 cols for ≤2 sections, 3 cols for 3+
     const cols =
         sections.length >= 3 ? 'grid-cols-3' :
@@ -44,7 +44,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ sections, onClose }) => {
             </div>
 
             <div
-                className="bg-white border border-gray-100/60 rounded-[3rem] shadow-[0_40px_100px_rgba(0,0,0,0.08)] overflow-hidden flex flex-col ring-1 ring-black/[0.02]"
+                className="w-full bg-white border border-gray-100/60 rounded-[3rem] shadow-[0_40px_100px_rgba(0,0,0,0.08)] overflow-hidden flex flex-col ring-1 ring-black/[0.02]"
                 style={{ maxHeight: 'min(85vh, 850px)' }}
             >
                 {/* Top decorative accent bar */}
@@ -52,10 +52,10 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ sections, onClose }) => {
 
                 {/* Custom Scrollable Content - Increased padding for "Elegance" */}
                 <div
-                    className="p-10 md:p-12 overflow-y-auto flex-1 custom-scrollbar scroll-smooth overscroll-contain"
+                    className={cn("overflow-y-auto flex-1 custom-scrollbar scroll-smooth overscroll-contain", isCompact ? "p-4 md:p-6" : "p-10 md:p-12")}
                     onWheel={(e) => e.stopPropagation()}
                 >
-                    <div className={cn("grid gap-x-16 gap-y-12", cols)}>
+                    <div className={cn("grid", isCompact ? "gap-x-8 gap-y-6" : "gap-x-16 gap-y-12", cols)}>
                         {sections.map((section, idx) => {
                             const numberMatch = section.title.match(/^(\d+)\s+(.+)$/);
                             const displayNum = numberMatch ? numberMatch[1] : `0${idx + 1}`;
@@ -64,23 +64,25 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ sections, onClose }) => {
                             return (
                                 <motion.div
                                     key={idx}
-                                    className="space-y-8"
+                                    className={cn(isCompact ? "space-y-4" : "space-y-8")}
                                     initial={{ opacity: 0, y: 15 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: idx * 0.08, duration: 0.5 }}
                                 >
                                     {/* Section header with high-end typography */}
-                                    <div className="flex items-center gap-4 group/title">
-                                        <div className="flex items-center justify-center w-7 h-7 rounded-full bg-[#E8F5EE] text-[#2D6A4F] text-[11px] font-black font-serif shadow-sm group-hover/title:scale-110 group-hover/title:bg-[#2D6A4F] group-hover/title:text-white transition-all duration-500">
-                                            {displayNum}
+                                    {section.title && (
+                                        <div className="flex items-center gap-4 group/title">
+                                            <div className="flex flex-shrink-0 items-center justify-center w-7 h-7 min-w-[28px] min-h-[28px] rounded-full bg-[#E8F5EE] text-[#2D6A4F] text-[11px] font-black font-serif shadow-sm group-hover/title:scale-110 group-hover/title:bg-[#2D6A4F] group-hover/title:text-white transition-all duration-500">
+                                                {displayNum}
+                                            </div>
+                                            <h3 className="text-[12px] font-bold text-[#2D6A4F]/70 uppercase tracking-[0.2em] font-body relative">
+                                                {displayTitle}
+                                                <span className="absolute -bottom-2 left-0 w-8 h-[2px] bg-[#2D6A4F]/20 transition-all duration-500 group-hover/title:w-full" />
+                                            </h3>
                                         </div>
-                                        <h3 className="text-[12px] font-bold text-[#2D6A4F]/70 uppercase tracking-[0.2em] font-body relative">
-                                            {displayTitle}
-                                            <span className="absolute -bottom-2 left-0 w-8 h-[2px] bg-[#2D6A4F]/20 transition-all duration-500 group-hover/title:w-full" />
-                                        </h3>
-                                    </div>
+                                    )}
 
-                                    <div className="space-y-3">
+                                    <div className={cn(isCompact ? "space-y-1.5" : "space-y-3")}>
                                         {section.items.map((item, itemIdx) => {
                                             const isImageIcon = item.icon && item.icon.startsWith('/');
                                             const IconComponent = !isImageIcon && item.icon ? iconMap[item.icon] : Bot;

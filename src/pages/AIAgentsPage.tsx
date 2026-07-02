@@ -51,7 +51,7 @@ const WHAT_WE_BUILD = [
     {
         title: 'Domain-Specific Cognitive Assistants',
         description: 'Deeply specialised agents fine-tuned for a specific domain — a sports intelligence assistant, a financial advisory bot, an HR onboarding agent. Built on your proprietary data, trained on your processes, and designed to sound like an expert in your field.',
-        icon: '/icons/ai agents.webp',
+        icon: '/icons/ai-agents.png',
         bgColor: 'bg-[#FFF1F2]',
         border: 'border-[#FECDD3]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(225,29,72,0.07)]',
@@ -87,7 +87,7 @@ const KEY_CAPABILITIES = [
     {
         title: 'Voice & Speech Integration',
         description: 'Production-grade voice pipelines with real-time speech-to-text, natural language understanding, and text-to-speech. Indistinguishable from a trained human caller in most scenarios.',
-        icon: '/icons/Voice /icons/ai.png',
+        icon: '/icons/Voice-ai.png',
         bgColor: 'bg-[#F0FDF4]',
         border: 'border-[#BBF7D0]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(34,197,94,0.07)]',
@@ -310,7 +310,7 @@ const HOW_WE_BUILD = [
 const TECH_STACK_MARQUEE = [
     { category: 'LLM Providers', name: 'Meta LLaMA', image: '/techstack/Meta.svg' },
     { category: 'Voice & Telephony', name: 'Twilio', image: '/techstack/Twilio.png' },
-    { category: 'Voice & Telephony', name: 'ElevenLabs', image: '/icons/Voice /icons/ai.png' },
+    { category: 'Voice & Telephony', name: 'ElevenLabs', image: '/icons/Voice-ai.png' },
     { category: 'RAG & Vector Search', name: 'Pinecone', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg' },
     { category: 'Integrations', name: 'HubSpot', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/salesforce/salesforce-original.svg' },
     { category: 'Backend', name: 'Python', image: '/techstack/Python.svg' },

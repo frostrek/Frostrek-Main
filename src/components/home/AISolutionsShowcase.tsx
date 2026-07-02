@@ -55,31 +55,32 @@ const SOLUTIONS: Solution[] = [
         iconColorDark: '#D67CBA'
     },
     {
-        id: 'frostrek-web3-commerce',
-        title: 'Fintech & Custom Wallets',
-        tagline: 'Bypass commissions with closed-loop loyalty',
-        description: 'A centralized, closed-loop digital currency engineered specifically for sports fans and affiliated clubs. Functioning as a next-generation digital loyalty programme that bypasses traditional gateway commissions.',
-        icon: "/icons/fintech-yellow.png",
-        demo: { type: 'web3' },
+        id: 'llm-training-data',
+        title: 'LLM Training & Data Services',
+        tagline: 'High-quality data for robust models.',
+        description: 'Accelerate your AI initiatives with our end-to-end data services. From data annotation and RLHF to model evaluation, we provide the high-quality datasets and human feedback needed to train, fine-tune, and align your Large Language Models.',
+        icon: "/optimized/data-analytics-blue.webp",
+        demo: { type: 'llm' },
         features: [
-            'Centralized, closed-loop digital fan currency',
-            'Bypass gateway transaction commissions completely',
-            'Next-generation digital loyalty program engine',
-            'Custom programmable wallets for sports merchandising'
+            'Data Annotation: Precise labeling for computer vision and NLP',
+            'RLHF: Human feedback to align model behavior with human intent',
+            'Model Evaluation: Rigorous benchmarking against industry standards',
+            'Custom Datasets: Tailored data collection for specialized domains',
+            'Data Quality: Multi-stage QA processes for maximum accuracy'
         ],
-        link: '/solutions/fintech-custom-wallets',
+        link: '/solutions/llm-model-training',
         gradient: 'from-[#2D6A4F] to-[#3D8B6E]',
-        tabColor: '#FFFBEB',
-        tabColorHover: '#FEF3C7',
-        iconBgIdle: '#FFEDD5',
-        iconColorDark: '#EAA30C'
+        tabColor: '#EEF2FF',
+        tabColorHover: '#E0E7FF',
+        iconBgIdle: '#E0E7FF',
+        iconColorDark: '#4F46E5'
     },
     {
         id: 'ai-agents',
         title: 'AI Agents',
         tagline: 'Intelligent Conversations',
         description: 'Deploy conversational AI agents that understand context, handle complex queries, and provide human-like support 24/7. From customer service to sales, our agents adapt to your business needs.',
-        icon: "/optimized/ai agents-red.webp",
+        icon: "/icons/ai-agents-red.png",
         demo: { type: 'chat' },
         features: [
             'Natural language understanding with 98% accuracy',
@@ -99,7 +100,7 @@ const SOLUTIONS: Solution[] = [
         title: 'Voice AI',
         tagline: 'Natural Voice Interactions',
         description: 'Low-latency voice bots that sound natural and respond instantly. Perfect for customer support calls, appointment scheduling, and interactive voice responses.',
-        icon: "/optimized/Voice /icons/ai-green.png",
+        icon: "/icons/Voice-ai-green.png",
         demo: { type: 'voice' },
         features: [
             'Sub-200ms response latency',
@@ -136,25 +137,24 @@ const SOLUTIONS: Solution[] = [
         iconColorDark: '#0284C7'
     },
     {
-        id: 'llm-training-data',
-        title: 'LLM Training & Data Services',
-        tagline: 'High-quality data for robust models.',
-        description: 'Accelerate your AI initiatives with our end-to-end data services. From data annotation and RLHF to model evaluation, we provide the high-quality datasets and human feedback needed to train, fine-tune, and align your Large Language Models.',
-        icon: "/icons/data-analytics-blue.png",
-        demo: { type: 'llm' },
+        id: 'fintech-wallets',
+        title: 'Fintech & Custom Wallets',
+        tagline: 'Bypass commissions with closed-loop loyalty',
+        description: 'A centralized, closed-loop digital currency engineered specifically for sports fans and affiliated clubs. Functioning as a next-generation digital loyalty programme that bypasses traditional gateway commissions.',
+        icon: "/optimized/fintech-yellow.webp",
+        demo: { type: 'web3' },
         features: [
-            'Data Annotation: Precise labeling for computer vision and NLP',
-            'RLHF: Human feedback to align model behavior with human intent',
-            'Model Evaluation: Rigorous benchmarking against industry standards',
-            'Custom Datasets: Tailored data collection for specialized domains',
-            'Data Quality: Multi-stage QA processes for maximum accuracy'
+            'Centralized, closed-loop digital fan currency',
+            'Bypass gateway transaction commissions completely',
+            'Next-generation digital loyalty program engine',
+            'Custom programmable wallets for sports merchandising'
         ],
-        link: '/solutions/data-services',
+        link: '/solutions/fintech-custom-wallets',
         gradient: 'from-[#2D6A4F] to-[#3D8B6E]',
-        tabColor: '#EEF2FF',
-        tabColorHover: '#E0E7FF',
-        iconBgIdle: '#E0E7FF',
-        iconColorDark: '#4F46E5'
+        tabColor: '#FFFBEB',
+        tabColorHover: '#FEF3C7',
+        iconBgIdle: '#FEF3C7',
+        iconColorDark: '#D97706'
     }
 ];
 

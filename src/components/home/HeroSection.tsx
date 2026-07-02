@@ -58,17 +58,17 @@ const floatingIcons: FloatingIconItem[] = [
     id: 3,
     top: '45%',
     left: '10%',
-    icon: "/icons/wallet-green.png",
-    color: 'text-purple-500',
-    bg: 'bg-purple-50/80',
-    border: 'border-purple-100',
-    shadow: 'shadow-purple-500/20',
+    icon: "/optimized/innovation-green.webp",
+    color: 'text-amber-600',
+    bg: 'bg-amber-50/90',
+    border: 'border-amber-200/60',
+    shadow: 'shadow-amber-500/25',
     delay: 2,
-    title: "Fintech & Custom Wallets",
-    tagline: "Save commissions with closed-loop loyalty",
-    desc: "A centralized, closed-loop digital currency engineered specifically for sports fans and affiliated clubs. Functioning as a next-generation digital loyalty programme to completely save on commissions.",
-    badge: "Save Commissions",
-    link: "/products/frostrek-web3-commerce"
+    title: "LLM Fine-Tuning & Model Training",
+    tagline: "From generic to genuinely useful",
+    desc: "We train and align custom foundation models that are actually ready for production. Backed by a managed workforce for expert data services.",
+    badge: "Specialized AI",
+    link: "/solutions/llm-model-training"
   },
 
   {
@@ -184,7 +184,7 @@ const HeroSection = () => {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   return (
-    <section className="relative w-full min-h-[100vh] flex flex-col items-center justify-center overflow-hidden bg-brand-light-bg text-[#1f3e30] pt-16 lg:pt-20 pb-6 font-sans">
+    <section className="relative w-full min-h-[100vh] flex flex-col items-center justify-center bg-brand-light-bg text-[#1f3e30] pt-16 lg:pt-20 pb-6 font-sans overflow-x-clip">
       {/* Background effect */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[70vw] h-[50vw] rounded-[100%] bg-gradient-to-r from-purple-50/40 via-red-50/40 to-blue-50/40 blur-[80px] opacity-70" />
@@ -345,14 +345,6 @@ const HeroSection = () => {
               Book a Demo <span className="text-xl font-light">→</span>
             </FlipText>
           </Link>
-          <Link
-            to="/solutions"
-            className="group w-full sm:w-auto px-10 py-4 rounded-xl border-2 border-gray-100 bg-white text-[#2D6A4F] font-medium tracking-wide hover:border-[#2D6A4F] hover:bg-gray-50 transition-all duration-300 shadow-sm active:translate-y-0.5"
-          >
-            <FlipText>
-              Explore Solutions
-            </FlipText>
-          </Link>
         </motion.div>
 
       </div>
@@ -364,10 +356,10 @@ const HeroSection = () => {
         transition={{ delay: 2.0 }}
         className="mt-auto pt-4 md:pt-6 w-[95vw] md:w-[90vw] mx-auto z-10 relative flex flex-col items-center"
       >
-        <div className="w-[95%] xl:w-[75%] max-w-[1000px] bg-[#FAFCFF] rounded-2xl md:rounded-2xl py-4 md:py-5 px-4 md:px-8 lg:px-12 shadow-sm border border-[#D6E9FF] flex flex-col items-center">
+        <div className="w-[100%] xl:w-[100%] max-w-[1100px] bg-[#FAFCFF] rounded-2xl md:rounded-2xl py-3 md:py-4 px-4 md:px-8 lg:px-12 shadow-sm border border-[#D6E9FF] flex flex-col items-center">
 
           {/* Header Row */}
-          <div className="flex items-center justify-center w-full mb-3 md:mb-5 gap-3 md:gap-6">
+          <div className="flex items-center justify-center w-full mb-2 md:mb-3 gap-3 md:gap-6">
             <div className="flex-1 max-w-[60px] md:max-w-[120px] h-[2px] bg-[#D6E9FF]"></div>
             <h2 className="font-sans text-[#1A65E6] text-[11px] md:text-[13px] font-bold uppercase tracking-[0.15em] text-center shrink-0">
               Trusted by Industry Leaders

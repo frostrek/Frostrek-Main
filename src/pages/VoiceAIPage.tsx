@@ -42,7 +42,7 @@ const PROBLEMS = [
     {
         title: 'Follow-Up Falls Through',
         description: "Outbound follow-up campaigns require dedicated dialers. Most businesses under-resource it. Leads go cold. Pipeline shrinks. Revenue leaks.",
-        icon: '/icons/Voice /icons/ai.png',
+        icon: '/icons/Voice-ai.png',
         bgColor: 'bg-[#F0FDF4]',
         hoverBg: 'hover:bg-[#DCFCE7]',
         border: 'border-[#BBF7D0]',
@@ -68,7 +68,7 @@ const WHAT_WE_BUILD = [
     {
         title: 'Outbound Calling Agents',
         description: 'Autonomous outbound agents that dial your lead list, qualify prospects, deliver messages, collect responses, and book meetings — all in natural conversational voice. Run campaigns at scale without a single human dialler.',
-        icon: '/icons/Voice /icons/ai.png',
+        icon: '/icons/Voice-ai.png',
         bgColor: 'bg-[#FFF7ED]',
         border: 'border-[#FFEDD5]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(249,115,22,0.07)]',
@@ -104,7 +104,7 @@ const KEY_CAPABILITIES = [
     {
         title: 'Real-Time Speech Recognition',
         description: 'Industry-leading STT engines (Deepgram, Whisper, AssemblyAI) with low word-error rates across accents, noise conditions, and call quality levels. What callers say is always understood accurately.',
-        icon: '/icons/Voice /icons/ai.png',
+        icon: '/icons/Voice-ai.png',
         bgColor: 'bg-[#F0F9FF]',
         border: 'border-[#BAE6FD]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(14,165,233,0.07)]',
@@ -312,7 +312,7 @@ const TECH_STACK_MARQUEE = [
     { category: 'Telephony', name: 'Twilio', image: '/techstack/Twilio.png' },
     { category: 'Telephony', name: 'Vonage', image: '/techstack/AWS.svg' },
     { category: 'Speech-to-Text', name: 'Deepgram', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg' },
-    { category: 'Text-to-Speech', name: 'ElevenLabs', image: '/icons/Voice /icons/ai.png' },
+    { category: 'Text-to-Speech', name: 'ElevenLabs', image: '/icons/Voice-ai.png' },
     { category: 'LLM Backbone', name: 'Gemini', image: '/techstack/gemini.png' },
     { category: 'Agent Frameworks', name: 'LangChain', image: '/techstack/Python.svg' },
     { category: 'Backend', name: 'Python', image: '/techstack/Python.svg' },

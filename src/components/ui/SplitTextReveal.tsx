@@ -78,19 +78,30 @@ const SplitTextReveal = ({
         }
 
         // Characters (default) - Most premium feel
-        return children.split('').map((char, i) => (
-            <span key={i} className="inline-block overflow-visible">
-                <span
-                    className="split-item inline-block"
-                    style={{
-                        opacity: 0,
-                        display: char === ' ' ? 'inline' : 'inline-block',
-                        transform: `translateY(${y}px)`,
-                        filter: blur ? 'blur(10px)' : 'none'
-                    }}
-                >
-                    {char === ' ' ? '\u00A0' : char}
+        const words = children.split(' ');
+        let charIndex = 0;
+        return words.map((word, wordIdx) => (
+            <span key={wordIdx}>
+                <span className="inline-block whitespace-nowrap">
+                    {word.split('').map((char) => {
+                        const i = charIndex++;
+                        return (
+                            <span key={i} className="inline-block overflow-visible">
+                                <span
+                                    className="split-item inline-block"
+                                    style={{
+                                        opacity: 0,
+                                        transform: `translateY(${y}px)`,
+                                        filter: blur ? 'blur(10px)' : 'none'
+                                    }}
+                                >
+                                    {char}
+                                </span>
+                            </span>
+                        );
+                    })}
                 </span>
+                {wordIdx !== words.length - 1 && ' '}
             </span>
         ));
     }, [children, type]);

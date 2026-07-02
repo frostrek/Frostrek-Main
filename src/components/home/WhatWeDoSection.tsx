@@ -4,7 +4,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { Link } from 'react-router-dom';
-import { CheckCircle, ArrowRight, Mic, MessageSquare, Sparkles } from 'lucide-react';
+import { CheckCircle, ArrowRight, Mic, MessageSquare, Sparkles, BrainCircuit } from 'lucide-react';
 import SplitTextReveal from '../ui/SplitTextReveal';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -94,40 +94,35 @@ const ManufacturingDemo = () => {
     );
 };
 
-// ─── Card 2: Web3 Commerce ────────────────────────────────────────────────────
-const Web3Demo = () => {
-    const [phase, setPhase] = useState(0);
-    useEffect(() => { const t = setInterval(() => setPhase(v => (v + 1) % 4), 1600); return () => clearInterval(t); }, []);
-    const clubs = [
-        { name: 'Real Madrid', logo: '/icons/real-madrid.png' },
-        { name: 'FC Barcelona', logo: '/icons/barcelona.png' },
-        { name: 'Man City', logo: '/icons/manchester-city.png' }
-    ];
-    const steps = [{ label: 'Wallet provisioned', done: true }, { label: 'Cart validated', done: phase >= 1 }, { label: 'On-chain settlement', done: phase >= 2 }, { label: 'Treasury updated', done: phase >= 3 }];
+// ─── Card 2: Model Training ────────────────────────────────────────────────────
+const ModelTrainingDemo = () => {
+    const [epoch, setEpoch] = useState(0);
+    useEffect(() => { const t = setInterval(() => setEpoch(v => (v + 1) % 5), 1200); return () => clearInterval(t); }, []);
+    const loss = (1.5 - epoch * 0.25).toFixed(2);
     return (
         <div className="w-full font-body text-xs select-none space-y-3">
-            <div className="bg-[#FEFCE8] border-[#FEF08A] rounded-xl px-4 py-3 flex items-center justify-between">
-                <div><div className="text-gray-400 text-[10px] uppercase tracking-widest mb-1">Wallet Balance</div><div className="text-[#CA8A04] font-bold text-base">1,450 <span className="text-xs text-gray-400">$TOKEN</span></div></div>
-                <div className="w-9 h-9 rounded-full bg-[#FEF9C3] border border-[#FEF9C3] flex items-center justify-center">
-                    <img src="/icons/fintech-yellow.png" alt="Fintech" className="w-5 h-5 object-contain" loading="lazy" width={512} height={512} />
+            <div className="bg-[#FFFBEB] border border-[#FEF3C7] rounded-xl px-4 py-3 flex items-center justify-between">
+                <div>
+                    <div className="text-gray-400 text-[10px] uppercase tracking-widest mb-1">Training Loss</div>
+                    <div className="text-[#B45309] font-bold text-base">{loss} <span className="text-xs text-gray-400">Epoch {epoch}/4</span></div>
+                </div>
+                <div className="w-9 h-9 rounded-full bg-[#FEF3C7] border border-[#FEF3C7] flex items-center justify-center">
+                    <Sparkles className="w-4 h-4 text-[#B45309]" />
                 </div>
             </div>
-            <div className="flex gap-2">
-                {clubs.map((c, i) => (
-                    <div
-                        key={c.name}
-                        className={`flex-1 border rounded-xl p-2 text-center transition-all duration-500 flex flex-col items-center justify-center ${i === phase % 3 ? 'border-[#CA8A04]/40 bg-[#FEFCE8]' : 'border-gray-100 bg-white'
-                            }`}
-                    >
-                        <div className="h-6 w-6 flex items-center justify-center">
-                            <img src={c.logo} alt={c.name} className="h-6 w-6 object-contain" loading="lazy" width={512} height={512} />
-                        </div>
-                        <div className="text-gray-500 text-[9px] mt-1.5 truncate w-full">{c.name}</div>
-                    </div>
-                ))}
+            <div className="space-y-2">
+                <div className="w-full bg-gray-100 h-1.5 rounded-full overflow-hidden">
+                    <motion.div className="h-full bg-[#B45309]" animate={{ width: `${(epoch / 4) * 100}%` }} transition={{ duration: 0.5 }} />
+                </div>
+                <div className="flex justify-between text-[9px] text-gray-400 uppercase tracking-widest">
+                    <span>Base Model</span>
+                    <span>Aligned Model</span>
+                </div>
             </div>
-            <div className="bg-white border border-gray-100 rounded-xl px-4 py-3 space-y-2 shadow-sm">
-                {steps.map(s => (<div key={s.label} className="flex items-center gap-2"><div className={`w-3.5 h-3.5 rounded-full flex items-center justify-center transition-all duration-500 flex-shrink-0 ${s.done ? 'bg-[#CA8A04]' : 'bg-gray-100'}`}>{s.done && <CheckCircle className="w-2.5 h-2.5 text-white" />}</div><span className={`text-[10px] transition-colors duration-300 ${s.done ? 'text-gray-700' : 'text-gray-300'}`}>{s.label}</span></div>))}
+            <div className="bg-white border border-gray-100 rounded-xl px-4 py-3 shadow-sm flex flex-col gap-2">
+                <div className="flex items-center gap-2"><div className={`w-3.5 h-3.5 rounded-full flex items-center justify-center transition-all duration-500 flex-shrink-0 ${epoch >= 1 ? 'bg-[#D97706]' : 'bg-gray-100'}`}>{epoch >= 1 && <CheckCircle className="w-2.5 h-2.5 text-white" />}</div><span className={`text-[10px] transition-colors duration-300 ${epoch >= 1 ? 'text-gray-700' : 'text-gray-300'}`}>Dataset Curation</span></div>
+                <div className="flex items-center gap-2"><div className={`w-3.5 h-3.5 rounded-full flex items-center justify-center transition-all duration-500 flex-shrink-0 ${epoch >= 2 ? 'bg-[#D97706]' : 'bg-gray-100'}`}>{epoch >= 2 && <CheckCircle className="w-2.5 h-2.5 text-white" />}</div><span className={`text-[10px] transition-colors duration-300 ${epoch >= 2 ? 'text-gray-700' : 'text-gray-300'}`}>Supervised Fine-Tuning</span></div>
+                <div className="flex items-center gap-2"><div className={`w-3.5 h-3.5 rounded-full flex items-center justify-center transition-all duration-500 flex-shrink-0 ${epoch >= 3 ? 'bg-[#D97706]' : 'bg-gray-100'}`}>{epoch >= 3 && <CheckCircle className="w-2.5 h-2.5 text-white" />}</div><span className={`text-[10px] transition-colors duration-300 ${epoch >= 3 ? 'text-gray-700' : 'text-gray-300'}`}>RLHF Alignment</span></div>
             </div>
         </div>
     );
@@ -180,14 +175,14 @@ const CARDS = [
         Demo: ManufacturingDemo
     },
     {
-        icon: "/icons/fintech-yellow.png",
-        label: 'FINTECH PLATFORM',
-        title: 'Fintech & Custom Wallets',
-        desc: 'Secure, compliant, and scalable fintech solutions. Digital wallets, KYC, transactions and beyond.',
-        features: ['Digital wallets & payments', 'KYC & compliance engine', 'Transaction monitoring'],
-        href: '/products/frostrek-web3-commerce',
-        exploreText: 'Explore Fintech Platform',
-        Demo: Web3Demo
+        LucideIcon: BrainCircuit,
+        label: 'SPECIALIZED AI',
+        title: 'LLM Fine-Tuning & Model Training',
+        desc: 'We train and align custom foundation models. Backed by a managed workforce for expert data services.',
+        features: ['Custom model alignment', 'RLHF & data curation', 'Managed expert workforce'],
+        href: '/solutions/llm-model-training',
+        exploreText: 'Explore LLM Training',
+        Demo: ModelTrainingDemo
     },
     {
         icon: "/icons/machine-learning-lavender-filled.png",
@@ -358,7 +353,11 @@ const WhatWeDoSection = () => {
                                             <div>
                                                 <div className="flex items-center gap-3 mb-5">
                                                     <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${styles.iconBg}`}>
-                                                        <img src={card.icon} alt={card.label} className="w-6 h-6 object-contain" loading="lazy" width={512} height={512} />
+                                                        {card.LucideIcon ? (
+                                                            <card.LucideIcon className={`w-6 h-6 ${styles.labelColor}`} />
+                                                        ) : (
+                                                            <img src={card.icon} alt={card.label} className="w-6 h-6 object-contain" loading="lazy" width={512} height={512} />
+                                                        )}
                                                     </div>
                                                     <span className={`text-[11px] font-bold tracking-widest ${styles.labelColor}`}>{card.label}</span>
                                                 </div>

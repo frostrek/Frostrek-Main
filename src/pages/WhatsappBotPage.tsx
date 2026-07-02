@@ -52,7 +52,7 @@ const FEATURES = [
     {
         title: 'AI Sales Conversations',
         description: 'The bot engages inbound leads with natural, intent-aware conversation, pitches the right product or service, handles objections, and moves the prospect toward a decision.',
-        icon: '/icons/ai agents.webp',
+        icon: '/icons/ai-agents.png',
         bgColor: 'bg-[#FFF7ED]',
         border: 'border-[#FFEDD5]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(249,115,22,0.05)]',

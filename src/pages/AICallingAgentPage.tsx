@@ -200,7 +200,7 @@ const INDUSTRIES = [
 const TECH_STACK_MARQUEE = [
     { category: 'Frontend', name: 'Next.js, Tailwind CSS', image: '/techstack/Next.js.svg' },
     { category: 'Backend', name: 'Node.js, Express / FastAPI', image: '/techstack/Node.js.svg' },
-    { category: 'Voice AI', name: 'ElevenLabs / Deepgram', image: '/icons/Voice /icons/ai.png' },
+    { category: 'Voice AI', name: 'ElevenLabs / Deepgram', image: '/icons/Voice-ai.png' },
     { category: 'LLM Layer', name: 'GPT-4o / Gemini Pro', image: '/techstack/gemini.png' },
     { category: 'Telephony', name: 'Twilio Voice', image: '/techstack/Twilio.png' },
     { category: 'CRM Sync', name: 'REST API / Webhooks', image: '/icons/collaboration.png' },

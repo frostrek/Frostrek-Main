@@ -120,7 +120,7 @@ const SYSTEMS_WE_CONNECT = [
     {
         title: 'PLC-Controlled Production Machines',
         description: 'EtherNet/IP protocol connection to Allen Bradley and compatible PLCs over factory LAN. Reads machine parameters — screw speed, temperatures, watt readings, throughput, downtime events. Pull frequency: every 30 seconds. Read-only.',
-        icon: '/icons/ai agents.webp',
+        icon: '/icons/ai-agents.png',
         bgColor: 'bg-[#F0FDF4]',
         border: 'border-[#BBF7D0]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(34,197,94,0.07)]',
@@ -200,7 +200,7 @@ const KEY_CAPABILITIES = [
     {
         title: 'AI Production Scheduler',
         description: 'Constraint optimisation engine analyses historical changeover data and generates the weekly production sequence that minimises total changeover time while meeting all delivery deadlines. Human approval always required.',
-        icon: '/icons/ai agents.webp',
+        icon: '/icons/ai-agents.png',
         bgColor: 'bg-[#FFF1F2]',
         border: 'border-[#FECDD3]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(225,29,72,0.07)]',

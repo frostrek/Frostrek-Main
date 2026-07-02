@@ -18,7 +18,7 @@ const WHAT_WE_BUILD = [
     {
         title: 'Supervised Fine-Tuning (SFT)',
         description:
-            'Instruction-tune base models on your proprietary data using LoRA, QLoRA, or full fine-tuning — whichever fits your compute budget and accuracy requirements.',
+            'Hit your accuracy targets within your compute budget by instruction-tuning base models on proprietary data via LoRA, QLoRA, or full fine-tuning.',
         icon: '/icons/machine-learning-green.png',
         bgColor: 'bg-[#F0FDF4]',
         border: 'border-[#BBF7D0]',
@@ -30,7 +30,7 @@ const WHAT_WE_BUILD = [
     {
         title: 'RLHF & Preference Alignment',
         description:
-            'Reward modeling, RLHF, and DPO pipelines that align model behavior with your business rules, tone, and safety requirements — not just generic helpfulness.',
+            'Lock in your exact business rules, tone, and safety requirements—not just generic helpfulness—through custom reward modeling, RLHF, and DPO pipelines.',
         icon: '/icons/ai-green.png',
         bgColor: 'bg-[#F0F9FF]',
         border: 'border-[#BAE6FD]',
@@ -42,7 +42,7 @@ const WHAT_WE_BUILD = [
     {
         title: 'Dataset Preparation & Annotation',
         description:
-            'Sourcing, cleaning, deduplication, labeling, and synthetic data generation to turn raw or messy data into training-ready datasets.',
+            'Turn raw, messy data into high-signal, training-ready datasets through expert sourcing, cleaning, deduplication, labeling, and synthetic generation.',
         icon: '/icons/data-analytics-green.png',
         bgColor: 'bg-[#FFF7ED]',
         border: 'border-[#FFEDD5]',
@@ -54,7 +54,7 @@ const WHAT_WE_BUILD = [
     {
         title: 'Retrieval-Augmented Generation (RAG)',
         description:
-            'Custom retrieval pipelines and vector store integration to ground model outputs in your proprietary knowledge base, reducing hallucination without retraining.',
+            'Eliminate hallucination without retraining by grounding model outputs in your proprietary knowledge base using custom retrieval pipelines and vector stores.',
         icon: '/icons/architecture-green.png',
         bgColor: 'bg-[#F5F3FF]',
         border: 'border-[#DDD6FE]',
@@ -66,7 +66,7 @@ const WHAT_WE_BUILD = [
     {
         title: 'Model Evaluation & Red-Teaming',
         description:
-            'Custom eval harnesses, benchmark suites, adversarial red-teaming, and bias/safety testing before any model reaches production.',
+            'Prove your model is safe and production-ready before launch through custom eval harnesses, benchmark suites, adversarial red-teaming, and bias testing.',
         icon: '/icons/shield.png',
         bgColor: 'bg-[#FFF1F2]',
         border: 'border-[#FECDD3]',
@@ -78,7 +78,7 @@ const WHAT_WE_BUILD = [
     {
         title: 'Deployment & MLOps',
         description:
-            'Quantization, optimized inference serving, monitoring, and continuous retraining pipelines to keep your model performant and current post-launch.',
+            'Keep your model performant and current post-launch with quantization, optimized inference serving, active drift monitoring, and continuous retraining pipelines.',
         icon: '/icons/innovation-green.png',
         bgColor: 'bg-[#FFFBEB]',
         border: 'border-[#FEF3C7]',
@@ -114,7 +114,7 @@ const CAPABILITIES_RIGHT = [
 const USE_CASES = [
     {
         title: 'Customer Support Automation',
-        description: 'Domain-tuned agents that resolve tickets using your product knowledge and tone, not generic scripts.',
+        description: 'Stop relying on generic scripts. We train domain-tuned agents to resolve tickets using your exact product knowledge and brand tone.',
         icon: '/icons/chat-green.png',
         bgColor: 'bg-[#F0FDF4]',
         border: 'border-[#BBF7D0]',
@@ -126,7 +126,7 @@ const USE_CASES = [
     },
     {
         title: 'Legal & Compliance Review',
-        description: 'Models fine-tuned to flag clauses, summarize contracts, and apply firm-specific review standards.',
+        description: 'By fine-tuning models on firm-specific review standards, we automate the flagging of risky clauses and complex contract summarization.',
         icon: '/icons/shield.png',
         bgColor: 'bg-[#F0F9FF]',
         border: 'border-[#BAE6FD]',
@@ -138,7 +138,7 @@ const USE_CASES = [
     },
     {
         title: 'Financial Research Copilots',
-        description: 'Models grounded in proprietary research and market data via RAG, tuned for analyst workflows.',
+        description: 'Accelerate analyst workflows with custom RAG setups that ground answers directly in your proprietary market data and internal research.',
         icon: '/icons/valuation-green.png',
         bgColor: 'bg-[#FFFBEB]',
         border: 'border-[#FEF3C7]',
@@ -150,7 +150,7 @@ const USE_CASES = [
     },
     {
         title: 'Healthcare Documentation',
-        description: 'Fine-tuned models for clinical note summarization and documentation support, with strict safety evaluation.',
+        description: 'Clinical note summarization and documentation support you can actually trust, backed by rigorous safety evaluations and compliance checks.',
         icon: '/icons/health-care.png',
         bgColor: 'bg-[#FFF1F2]',
         border: 'border-[#FECDD3]',
@@ -162,7 +162,7 @@ const USE_CASES = [
     },
     {
         title: 'Internal Knowledge Assistants',
-        description: 'Models trained on internal wikis, SOPs, and tickets so employees get accurate, sourced answers instantly.',
+        description: 'Give your employees instant, sourced answers. We train models on your internal wikis, SOPs, and past tickets to cut through the noise.',
         icon: '/icons/collaboration.png',
         bgColor: 'bg-[#F5F3FF]',
         border: 'border-[#DDD6FE]',
@@ -172,12 +172,24 @@ const USE_CASES = [
         iconBorder: 'border-[#DDD6FE]/60',
         spotlight: 'rgba(124, 58, 237, 0.025)',
     },
+    {
+        title: 'Frontier Model Refinement',
+        description: 'Build AI that actually solves hard problems. We deliver the specialized fine-tuning required for complex coding assistants, reasoning models, and refined AI avatars.',
+        icon: '/icons/innovation-green.png',
+        bgColor: 'bg-[#FFF7ED]',
+        border: 'border-[#FFEDD5]',
+        hoverBorder: 'hover:border-[#F97316]/30',
+        hoverShadow: 'hover:shadow-[0_15px_40px_rgba(249,115,22,0.07)]',
+        headingColor: 'text-[#C2410C]',
+        iconBorder: 'border-[#FFEDD5]/60',
+        spotlight: 'rgba(249, 115, 22, 0.025)',
+    },
 ];
 
 const WHY_FROSTREK = [
     {
         title: '200+ Managed Resources',
-        description: 'A dedicated, in-house workforce of 200+ annotators, reviewers, and ML engineers — not a revolving door of freelancers. Same team, consistent quality, full accountability.',
+        description: 'A dedicated, in-house workforce of 200+ annotators, reviewers, and ML engineers — not a revolving door of freelancers. Same team, rigorous oversight, zero excuses.',
         icon: '/icons/collaboration.png',
         bgColor: 'bg-[#F0FDF4]',
         border: 'border-[#BBF7D0]',
@@ -199,7 +211,7 @@ const WHY_FROSTREK = [
     },
     {
         title: 'Multi-Level Quality Control',
-        description: 'Every dataset and model output passes through a structured review hierarchy — annotator → reviewer → QA lead — catching errors before they ever reach training data or production.',
+        description: 'Every single dataset and model output survives a strict review hierarchy — annotator → reviewer → QA lead. We catch hallucinations and errors long before they hit production.',
         icon: '/icons/shield.png',
         bgColor: 'bg-[#FFFBEB]',
         border: 'border-[#FEF3C7]',
@@ -210,7 +222,7 @@ const WHY_FROSTREK = [
     },
     {
         title: 'Lower Cost Than Freelancer Models',
-        description: 'A managed, in-house team trained on your project standards costs less than stitching together freelancers — while delivering more consistent quality and faster iteration cycles.',
+        description: 'A managed, in-house team trained on your standards is inherently more efficient than stitching together anonymous freelancers. You get faster iteration cycles and superior results, for less.',
         icon: '/icons/investment.png',
         bgColor: 'bg-[#FFF1F2]',
         border: 'border-[#FECDD3]',
@@ -226,8 +238,8 @@ const HOW_WE_WORK = [
         step: '1',
         title: 'Discovery & Data Audit',
         description:
-            'We assess your use case, existing data assets, compute constraints, and success metrics to scope the right training approach.',
-        icon: '/icons/data-analytics.png',
+            'First, our ML engineers assess your use case, existing data assets, compute constraints, and success metrics to scope the optimal training approach.',
+        icon: '/optimized/data-analytics.webp',
         iconBg: 'bg-[#F0F9FF]',
         iconBorder: 'border-[#BAE6FD]',
         headingColor: 'text-[#0284C7]',
@@ -236,8 +248,8 @@ const HOW_WE_WORK = [
         step: '2',
         title: 'Dataset Curation & Annotation',
         description:
-            'We build a clean, labeled, training-ready dataset — sourcing additional data or generating synthetic examples where gaps exist.',
-        icon: '/icons/innovation.png',
+            'Next comes the ground truth. This phase delivers a clean, labeled, training-ready dataset by sourcing additional data or generating synthetic examples to cover edge cases.',
+        icon: '/optimized/innovation.webp',
         iconBg: 'bg-[#F0FDF4]',
         iconBorder: 'border-[#BBF7D0]',
         headingColor: 'text-[#166534]',
@@ -246,7 +258,7 @@ const HOW_WE_WORK = [
         step: '3',
         title: 'Fine-Tuning & Alignment',
         description:
-            'We run SFT and, where needed, RLHF/DPO alignment cycles, iterating against your defined quality and safety benchmarks.',
+            'With data in hand, training begins. The model undergoes SFT and targeted RLHF/DPO alignment cycles, iterating strictly against your defined quality benchmarks.',
         icon: '/optimized/custom-dev.webp',
         iconBg: 'bg-[#FFF7ED]',
         iconBorder: 'border-[#FFEDD5]',
@@ -256,7 +268,7 @@ const HOW_WE_WORK = [
         step: '4',
         title: 'Evaluation & Red-Teaming',
         description:
-            'We stress-test the model against custom eval suites, adversarial prompts, and bias/safety checks before sign-off.',
+            'Before any deployment, the candidate model is aggressively stress-tested against custom eval suites, adversarial prompts, and bias checks to guarantee safety.',
         icon: '/icons/shield.png',
         iconBg: 'bg-[#FFF1F2]',
         iconBorder: 'border-[#FECDD3]',
@@ -266,7 +278,7 @@ const HOW_WE_WORK = [
         step: '5',
         title: 'Deployment & Monitoring',
         description:
-            'We deploy the model into your infrastructure with quantization and serving optimizations, plus monitoring for drift and a retraining cadence.',
+            'Finally, the optimized model drops into your infrastructure alongside quantization, serving enhancements, active drift monitoring, and a continuous retraining schedule.',
         icon: '/icons/collaboration.png',
         iconBg: 'bg-[#F5F3FF]',
         iconBorder: 'border-[#DDD6FE]',
@@ -274,22 +286,7 @@ const HOW_WE_WORK = [
     },
 ];
 
-const TECH_STACK_MARQUEE = [
-    { category: 'Training', name: 'PyTorch', image: '/techstack/Python.svg' },
-    { category: 'Training', name: 'Hugging Face', image: '/icons/machine-learning-green.png' },
-    { category: 'Training', name: 'DeepSpeed', image: '/icons/ai-green.png' },
-    { category: 'Base Models', name: 'Llama', image: '/techstack/Meta.svg' },
-    { category: 'Base Models', name: 'Mistral', image: '/icons/ai-blue.png' },
-    { category: 'Base Models', name: 'GPT / Claude', image: '/icons/ai.png' },
-    { category: 'Serving', name: 'vLLM', image: '/icons/lightning.png' },
-    { category: 'RAG', name: 'Pinecone', image: '/icons/data-analytics-green.png' },
-    { category: 'RAG', name: 'LangChain', image: '/icons/architecture-green.png' },
-    { category: 'Tracking', name: 'Weights & Biases', image: '/icons/data-analytics-blue.png' },
-    { category: 'Infrastructure', name: 'AWS', image: '/techstack/AWS.svg' },
-    { category: 'Infrastructure', name: 'Kubernetes', image: '/techstack/Kubernetes.svg' },
-    { category: 'Backend', name: 'FastAPI', image: '/techstack/FastAPI.svg' },
-    { category: 'Backend', name: 'PostgreSQL', image: '/techstack/PostgresSQL.svg' },
-];
+
 
 const RESULTS = [
     { metric: '40%', label: 'Reduction in hallucination rate after domain-specific fine-tuning vs. base model' },
@@ -298,24 +295,7 @@ const RESULTS = [
     { metric: '24/7', label: 'Continuous monitoring pipelines to catch drift before it impacts users' },
 ];
 
-const FAQS = [
-    {
-        q: 'Do we need our own data to start?',
-        a: "Not necessarily — we can help identify, source, or synthetically generate training data if your existing dataset isn't sufficient.",
-    },
-    {
-        q: 'Which is right for us — fine-tuning or RAG?',
-        a: "Often both. RAG grounds the model in your current knowledge base; fine-tuning changes how the model reasons and responds. We'll recommend the right mix based on your use case.",
-    },
-    {
-        q: 'Can you work with closed models like GPT or Claude?',
-        a: 'Yes — we support fine-tuning and RAG setups on both open-weight models and commercial APIs that support customization.',
-    },
-    {
-        q: 'How do you handle safety and compliance?',
-        a: 'Every model goes through red-teaming and bias/safety evaluation before deployment, with monitoring in place post-launch.',
-    },
-];
+
 
 /* ──────────────────── COMPONENT ──────────────────── */
 
@@ -325,7 +305,7 @@ const LLMModelTrainingPage = () => {
     const useCasesRef = useRef<HTMLDivElement>(null);
     const whyFrostrekRef = useRef<HTMLDivElement>(null);
     const processRef = useRef<HTMLDivElement>(null);
-    const techRef = useRef<HTMLDivElement>(null);
+
     const resultsRef = useRef<HTMLDivElement>(null);
     const ctaButtonsRef = useRef<HTMLDivElement>(null);
     const processSection = useRef<HTMLElement>(null);
@@ -404,8 +384,8 @@ const LLMModelTrainingPage = () => {
         <div className="relative min-h-screen bg-white text-[#2D6A4F] font-body">
             <SEO
                 title="LLM Fine-Tuning & Model Training Services | Frostrek AI"
-                description="Frostrek AI delivers custom LLM fine-tuning, RLHF alignment, dataset preparation, and RAG implementation for enterprises and frontier AI teams. From data to deployment."
-                keywords="custom LLM fine-tuning enterprise India, managed RLHF alignment services, supervised fine-tuning dataset creation, LLM dataset preparation services, custom Retrieval Augmented Generation setup, model evaluation and red-teaming, LoRA QLoRA fine-tuning, open-source LLM deployment, domain-specific AI model training"
+                description="We take foundation models from generic to genuinely useful. Expert LLM fine-tuning, RLHF alignment, and RAG deployment for enterprises and frontier AI teams."
+                keywords="custom LLM fine-tuning, enterprise RLHF alignment, supervised fine-tuning data, RAG implementation, model red-teaming, LoRA QLoRA training, open-source LLM deployment, domain-specific AI"
                 path="/solutions/llm-model-training"
                 schema={[
                     JSON.stringify({
@@ -435,18 +415,6 @@ const LLMModelTrainingPage = () => {
                         "serviceType": ["LLM Fine-Tuning", "RLHF Alignment", "Dataset Preparation", "RAG Implementation", "Model Evaluation", "MLOps"],
                         "areaServed": ["IN", "US", "GB", "AE", "SG"],
                         "url": "https://www.frostrek.ai/solutions/llm-model-training"
-                    }),
-                    JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "FAQPage",
-                        "mainEntity": FAQS.map(faq => ({
-                            "@type": "Question",
-                            "name": faq.q,
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": faq.a
-                            }
-                        }))
                     })
                 ]}
             />
@@ -477,11 +445,11 @@ const LLMModelTrainingPage = () => {
                         {/* Headline */}
                         <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif mb-8 tracking-tight max-w-5xl mx-auto leading-tight text-[#2D6A4F]">
                             <SplitTextReveal as="span" className="text-[#2D6A4F]" type="chars" stagger={0.02} once={false}>
-                                Custom LLM Training & Model Alignment
+                                We Train and Align Custom LLMs
                             </SplitTextReveal>
                             <br />
                             <SplitTextReveal as="span" className="text-[#2D6A4F]" type="chars" stagger={0.02} once={false} delay={0.2}>
-                                Built for Production
+                                That Are Actually Ready for Production
                             </SplitTextReveal>
                         </div>
 
@@ -508,12 +476,6 @@ const LLMModelTrainingPage = () => {
                                 Talk to Our ML Team
                                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                             </Link>
-                            <button
-                                onClick={() => processSection.current?.scrollIntoView({ behavior: 'smooth' })}
-                                className="group w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 bg-white text-[#2D6A4F] rounded-full font-medium text-lg transition-all border border-[#2D6A4F]/20 hover:border-[#2D6A4F]/40 hover:bg-[#F0FDF4] shadow-sm hover:-translate-y-0.5"
-                            >
-                                See Our Process
-                            </button>
                         </motion.div>
                     </div>
                 </div>
@@ -531,7 +493,7 @@ const LLMModelTrainingPage = () => {
                             className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
                             type="chars" stagger={0.02} once={false}
                         >
-                            What We Build
+                            What We Offer
                         </SplitTextReveal>
                         <div className="mt-4">
                             <SplitTextReveal
@@ -759,54 +721,6 @@ const LLMModelTrainingPage = () => {
                 </div>
             </section>
 
-            {/* ═══════ SECTION 6 — TECH STACK & INTEGRATIONS (Marquee) ═══════ */}
-            <section className="py-16 lg:py-24 bg-brand-light-bg relative z-10 overflow-hidden">
-                <div className="container mx-auto px-4 md:px-6 max-w-4xl">
-                    <div className="text-center mb-16">
-                        <SplitTextReveal
-                            as="h2"
-                            className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
-                            type="chars" stagger={0.02} once={false}
-                        >
-                            Tools & Frameworks We Work With
-                        </SplitTextReveal>
-                        <div className="mt-4">
-                            <SplitTextReveal
-                                as="p"
-                                className="max-w-2xl mx-auto text-lg text-gray-500"
-                                type="words" stagger={0.02} once={false} delay={0.3}
-                            >
-                                Industry-standard ML tooling and infrastructure, selected for reliability and performance at scale.
-                            </SplitTextReveal>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Marquee reel */}
-                <div ref={techRef} className="relative w-full overflow-hidden py-8 group">
-                    {/* Left / right fade masks */}
-                    <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#Fcfcfc] to-transparent z-10 pointer-events-none" />
-                    <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#Fcfcfc] to-transparent z-10 pointer-events-none" />
-
-                    <div className="flex animate-[marquee_40s_linear_infinite] w-max group-hover:[animation-play-state:paused]">
-                        {[...TECH_STACK_MARQUEE, ...TECH_STACK_MARQUEE].map((tech, i) => (
-                            <div key={i} className="flex flex-col items-center justify-center w-24 md:w-48 gap-3 md:gap-6 mx-3 md:mx-8">
-                                <div className="h-10 md:h-16 w-full flex items-center justify-center px-2 md:px-4">
-                                    <img src={tech.image}
-                                        alt={tech.name}
-                                        className="max-h-full max-w-full object-contain transition-all duration-300 drop-shadow-sm hover:scale-105"
-                                        onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} loading="lazy" width={512} height={512} />
-                                </div>
-                                <div className="flex flex-col items-center text-center">
-                                    <span className="text-[9px] md:text-[11px] font-bold uppercase tracking-widest text-black/60 mb-1">{tech.category}</span>
-                                    <span className="text-[10px] md:text-xs font-semibold text-gray-700">{tech.name}</span>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
             {/* ═══════ SECTION 7 — RESULTS / METRICS ═══════ */}
             <section className="py-16 lg:py-24 bg-white relative z-10 overflow-hidden">
                 <div className="container mx-auto px-4 md:px-6 max-w-7xl">
@@ -824,7 +738,7 @@ const LLMModelTrainingPage = () => {
                                 className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
-                                Directional outcomes from our model training engagements.
+                                The track record we bring to every new model deployment.
                             </SplitTextReveal>
                         </div>
                     </div>
@@ -840,29 +754,7 @@ const LLMModelTrainingPage = () => {
                 </div>
             </section>
 
-            {/* ═══════ SECTION 8 — FAQ ═══════ */}
-            <section className="py-16 lg:py-24 bg-brand-light-bg relative z-10 overflow-hidden">
-                <div className="container mx-auto px-4 md:px-6 max-w-4xl">
-                    <div className="text-center mb-16">
-                        <SplitTextReveal
-                            as="h2"
-                            className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
-                            type="chars" stagger={0.02} once={false}
-                        >
-                            Frequently Asked Questions
-                        </SplitTextReveal>
-                    </div>
 
-                    <div className="space-y-4 md:space-y-6">
-                        {FAQS.map((faq, i) => (
-                            <div key={i} className="bg-white border border-gray-100 rounded-[1.25rem] md:rounded-[1.5rem] p-5 md:p-8 shadow-sm">
-                                <h3 className="font-serif text-[15px] md:text-xl font-bold text-[#2D6A4F] mb-2 md:mb-3">{faq.q}</h3>
-                                <p className="text-[12px] md:text-sm text-gray-600 leading-snug md:leading-relaxed">{faq.a}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
 
             {/* ═══════ SECTION 9 — CLOSING CTA ═══════ */}
             <section className="py-16 lg:py-24 relative overflow-hidden bg-white font-sans">

@@ -940,7 +940,7 @@ const About = () => {
             city: 'Austin',
             country: 'United States',
             flagImg: 'https://flagcdn.com/w40/us.webp',
-            image: '/701 Tillery St 12 3227, Austin, TX 78702, USA.webp',
+            image: '/701 Tillery St 12 3227, Austin, TX 78702, USA.jpg',
             companyName: 'USA Office',
             address: '701 Tillery Street Unit 12-3227, Austin, Texas 78702, United States',
             mapUrl: undefined

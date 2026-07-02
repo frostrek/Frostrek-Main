@@ -71,7 +71,7 @@ const Footer = () => {
 
       {/* Careers Card - Hide on contact page */}
       {location.pathname !== '/contact' && (
-        <div className="py-12 bg-brand-light-bg transition-colors duration-300 font-sans">
+        <div id="footer-careers-cta" className="py-12 bg-brand-light-bg transition-colors duration-300 font-sans">
           <div className="container mx-auto px-4 md:px-6">
             <Link to="/contact" className="block max-w-4xl mx-auto">
               <div className="careers-card border-2 rounded-[2rem] p-8 md:p-10 cursor-pointer bg-white border-[#BAE6FD] hover:border-[#7DD3FC]/40">
@@ -160,7 +160,7 @@ const Footer = () => {
               <div className="space-y-4">
                 <h3 className="section-title font-bold text-xs uppercase tracking-widest text-[#2D6A4F]">Products</h3>
                 <ul className="space-y-1.5">
-                  {NAV_ITEMS.find(n => n.label === 'Products')?.megaMenu?.flatMap(s => s.items).slice(0, 5).map(item => (
+                  {NAV_ITEMS.find(n => n.label === 'Products')?.megaMenu?.flatMap(s => s.items).slice(0, 7).map(item => (
                     <li key={item.name}>
                       <Link to={item.href} className="footer-link text-[13px] font-medium text-gray-500 hover:text-[#2D6A4F] group">
                         <FlipText>{item.name}</FlipText>
@@ -191,9 +191,9 @@ const Footer = () => {
                 <ul className="space-y-1.5">
                   <li><Link to="/about" className="footer-link text-[13px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>About Us</FlipText></Link></li>
                   <li><Link to="/experience" className="footer-link text-[13px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>Experience</FlipText></Link></li>
-                  <li><Link to="/resources" className="footer-link text-[13px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>Resources</FlipText></Link></li>
-                  <li><Link to="/blog" className="footer-link text-[13px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>Blog</FlipText></Link></li>
-                  <li><Link to="/faq" className="footer-link text-[13px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>FAQ</FlipText></Link></li>
+                  <li><Link to="/resources/case-studies" className="footer-link text-[13px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>Case Studies</FlipText></Link></li>
+                  <li><Link to="/resources/blog" className="footer-link text-[13px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>Blog</FlipText></Link></li>
+                  <li><Link to="/resources/faq" className="footer-link text-[13px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>FAQ</FlipText></Link></li>
                   <li><Link to="/schedule-demo" className="footer-link text-[13px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>Schedule Demo</FlipText></Link></li>
                   <li><Link to="/contact" className="footer-link text-[13px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>Contact</FlipText></Link></li>
                 </ul>

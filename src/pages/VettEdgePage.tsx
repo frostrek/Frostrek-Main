@@ -15,8 +15,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 /* ──────────────────── ACCENT ──────────────────── */
 // VettEdge accent: rich purple
-const A = '#800080';   // primary accent
-const AH = '#600060';  // hover
+const A = '#5B21B6';   // primary accent
+const AH = '#4C1D95';  // hover
 
 /* ──────────────────── DATA ──────────────────── */
 
@@ -168,7 +168,7 @@ const AUDIENCE = [
     {
         title: 'Venture Capital Funds',
         description: 'Screen more deals faster with AI-generated memos and configurable scoring.',
-        icon: '/icons/venture cap.webp',
+        icon: '/icons/venture cap.png',
         bgColor: 'bg-[#FFFBEB]',
         border: 'border-[#FEF3C7]',
         headingColor: 'text-[#B45309]',
@@ -322,7 +322,7 @@ const VettEdgePage = () => {
 
                     {/* Headline */}
                     <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif mb-8 tracking-tight max-w-5xl mx-auto leading-tight text-[#2D6A4F]">
-                        <SplitTextReveal as="span" className="text-[#800080]" type="chars" stagger={0.02} once={false}>
+                        <SplitTextReveal as="span" className="text-[#5B21B6]" type="chars" stagger={0.02} once={false}>
                             VettEdge
                         </SplitTextReveal>
                         {' '}
@@ -353,7 +353,7 @@ const VettEdgePage = () => {
                     >
                         <Link
                             to="/contact"
-                            className={`group font-extrabold rounded-2xl px-8 h-14 text-base shadow-lg transition-all duration-300 flex items-center gap-2 text-white cursor-pointer border-none`}
+                            className={`group font-bold rounded-2xl px-8 h-14 text-base shadow-lg transition-all duration-300 flex items-center gap-2 text-white cursor-pointer border-none`}
                             style={{ backgroundColor: A }}
                             onMouseEnter={e => (e.currentTarget.style.backgroundColor = AH)}
                             onMouseLeave={e => (e.currentTarget.style.backgroundColor = A)}
@@ -387,7 +387,7 @@ const VettEdgePage = () => {
                                     What is
                                 </SplitTextReveal>
                                 {' '}
-                                <SplitTextReveal as="span" className="text-[#800080]" type="chars" stagger={0.02} once={false}>
+                                <SplitTextReveal as="span" className="text-[#5B21B6]" type="chars" stagger={0.02} once={false}>
                                     VettEdge?
                                 </SplitTextReveal>
                             </h2>
@@ -546,7 +546,7 @@ const VettEdgePage = () => {
                         <span className="relative inline-block">
                             <SplitTextReveal
                                 as="span"
-                                className="font-serif text-3xl md:text-4xl lg:text-5xl leading-[1.15] tracking-[-0.01em] text-[#800080]"
+                                className="font-serif text-3xl md:text-4xl lg:text-5xl leading-[1.15] tracking-[-0.01em] text-[#5B21B6]"
                                 type="chars" stagger={0.02} once={false}
                             >
                                 One Platform.

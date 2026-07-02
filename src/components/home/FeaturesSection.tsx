@@ -123,12 +123,12 @@ const FeaturesSection = () => {
                 <div ref={gridRef} className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
                     {/* Hero Card - Enterprise Security (Light Green Theme) */}
                     <SpotlightCard
-                        className="bento-card col-span-2 sm:col-span-1 lg:row-span-2 group relative overflow-hidden rounded-2xl md:rounded-[2.5rem] border p-5 md:p-8 lg:p-10 transition-all duration-500 bg-white border-[#BBF7D0] hover:border-[#047857]/30 hover:shadow-[0_20px_50px_rgba(4,120,87,0.06)]"
+                        className="bento-card col-span-2 sm:col-span-1 lg:row-span-2 group relative overflow-hidden rounded-2xl md:rounded-[2.5rem] border p-4 md:p-6 lg:p-8 transition-all duration-500 bg-white border-[#BBF7D0] hover:border-[#047857]/30 hover:shadow-[0_20px_50px_rgba(4,120,87,0.06)]"
                         spotlightColor="rgba(4, 120, 87, 0.02)"
                     >
                         <div className="relative z-10">
-                            <div className="mb-4 md:mb-8 inline-flex items-center justify-center w-14 h-14 md:w-20 md:h-20 rounded-xl md:rounded-[1.25rem] border bg-white border-[#BBF7D0]/60 transition-all duration-300 group-hover:scale-110 shadow-sm">
-                                <img src="/icons/shield.png" alt="Enterprise Security" className="w-8 h-8 md:w-11 md:h-11 object-contain" loading="lazy" width={512} height={512} />
+                            <div className="mb-4 md:mb-6 inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-[1.25rem] border bg-white border-[#BBF7D0]/60 transition-all duration-300 group-hover:scale-110 shadow-sm">
+                                <img src="/icons/shield.png" alt="Enterprise Security" className="w-7 h-7 md:w-9 md:h-9 object-contain" loading="lazy" width={512} height={512} />
                             </div>
 
                             <h3 className="font-serif text-xl md:text-3xl font-bold mb-2 md:mb-4 text-[#047857]">
@@ -160,12 +160,12 @@ const FeaturesSection = () => {
 
                     {/* Lightning Fast (Light Orange Theme) */}
                     <SpotlightCard
-                        className="bento-card group relative overflow-hidden rounded-2xl md:rounded-[2rem] border p-5 md:p-8 transition-all duration-300 bg-white border-[#FFEDD5] hover:border-[#F97316]/30 hover:shadow-[0_15px_40px_rgba(249,115,22,0.05)] hover:-translate-y-1"
+                        className="bento-card group relative overflow-hidden rounded-2xl md:rounded-[2rem] border p-4 md:p-6 transition-all duration-300 bg-white border-[#FFEDD5] hover:border-[#F97316]/30 hover:shadow-[0_15px_40px_rgba(249,115,22,0.05)] hover:-translate-y-1"
                         spotlightColor="rgba(249, 115, 22, 0.02)"
                     >
                         <div className="flex flex-col sm:flex-row items-start gap-4 md:gap-5 relative z-10">
-                            <div className="flex-shrink-0 w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl border flex items-center justify-center transition-all duration-300 bg-white border-[#FFEDD5]/60 group-hover:scale-110 shadow-sm">
-                                <img src="/icons/lightning.png" alt="Lightning Fast" className="w-6 h-6 md:w-8 md:h-8 object-contain" loading="lazy" width={512} height={512} />
+                            <div className="flex-shrink-0 w-8 h-8 md:w-11 md:h-11 rounded-xl md:rounded-2xl border flex items-center justify-center transition-all duration-300 bg-white border-[#FFEDD5]/60 group-hover:scale-110 shadow-sm">
+                                <img src="/optimized/lightning.webp" alt="Lightning Fast" className="w-5 h-5 md:w-6 md:h-6 object-contain" loading="lazy" width={512} height={512} />
                             </div>
                             <div>
                                 <h3 className="font-serif text-[15px] md:text-2xl font-bold mb-1.5 md:mb-3 text-[#C2410C]">
@@ -178,37 +178,57 @@ const FeaturesSection = () => {
                         </div>
                     </SpotlightCard>
 
-                    {/* Real-time Analytics (Light Sky Blue Theme) */}
+                    {/* Adhoc Delivery (Light Purple Theme) */}
                     <SpotlightCard
-                        className="bento-card group relative overflow-hidden rounded-2xl md:rounded-[2rem] border p-5 md:p-8 transition-all duration-300 bg-white border-[#BAE6FD] hover:border-[#0EA5E9]/30 hover:shadow-[0_15px_40px_rgba(14,165,233,0.05)] hover:-translate-y-1"
-                        spotlightColor="rgba(14, 165, 233, 0.02)"
+                        className="bento-card group relative overflow-hidden rounded-2xl md:rounded-[2rem] border p-4 md:p-6 transition-all duration-300 bg-white border-[#E9D5FF] hover:border-[#A855F7]/30 hover:shadow-[0_15px_40px_rgba(168,85,247,0.05)] hover:-translate-y-1"
+                        spotlightColor="rgba(168, 85, 247, 0.02)"
                     >
                         <div className="flex flex-col sm:flex-row items-start gap-4 md:gap-5 relative z-10">
-                            <div className="flex-shrink-0 w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl border flex items-center justify-center transition-all duration-300 bg-white border-[#BAE6FD]/60 group-hover:scale-110 shadow-sm">
-                                <img src="/icons/data-analytics.png" alt="Real-time Analytics" className="w-6 h-6 md:w-8 md:h-8 object-contain" loading="lazy" width={512} height={512} />
+                            <div className="flex-shrink-0 w-8 h-8 md:w-11 md:h-11 rounded-xl md:rounded-2xl border flex items-center justify-center transition-all duration-300 bg-white border-[#E9D5FF]/60 group-hover:scale-110 shadow-sm">
+                                <img src="/optimized/architecture-green.webp" alt="Adhoc Delivery" className="w-5 h-5 md:w-6 md:h-6 object-contain brightness-0" loading="lazy" width={512} height={512} />
                             </div>
                             <div>
-                                <h3 className="font-serif text-[15px] md:text-2xl font-bold mb-1.5 md:mb-3 text-[#0284C7]">
-                                    Real-time Analytics
+                                <h3 className="font-serif text-[15px] md:text-2xl font-bold mb-1.5 md:mb-3 text-[#7E22CE]">
+                                    Adhoc Delivery
                                 </h3>
                                 <p className="text-[11px] md:text-[15px] leading-relaxed text-gray-600">
-                                    Track KPIs, conversation quality, and user satisfaction metrics live.
+                                    Scale instantly with 200+ trained resources providing flexible, adhoc delivery support.
                                 </p>
                             </div>
                         </div>
                     </SpotlightCard>
 
-                    {/* Multi-agent Orchestration (Light Yellow Theme) */}
+                    {/* Quality & Cost Control (Light Sky Blue Theme) */}
                     <SpotlightCard
-                        className="bento-card group relative overflow-hidden rounded-2xl md:rounded-[2rem] border p-5 md:p-8 transition-all duration-300 bg-white border-[#FEF3C7] hover:border-[#F59E0B]/30 hover:shadow-[0_15px_40px_rgba(245,158,11,0.05)] hover:-translate-y-1"
-                        spotlightColor="rgba(245, 158, 11, 0.02)"
+                        className="bento-card group relative overflow-hidden rounded-2xl md:rounded-[2rem] border p-4 md:p-6 transition-all duration-300 bg-white border-[#BAE6FD] hover:border-[#0EA5E9]/30 hover:shadow-[0_15px_40px_rgba(14,165,233,0.05)] hover:-translate-y-1"
+                        spotlightColor="rgba(14, 165, 233, 0.02)"
                     >
                         <div className="flex flex-col sm:flex-row items-start gap-4 md:gap-5 relative z-10">
-                            <div className="flex-shrink-0 w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl border flex items-center justify-center transition-all duration-300 bg-white border-[#FEF3C7]/60 group-hover:scale-110 shadow-sm">
-                                <img src="/icons/multivendor.png" alt="Multi-agent Orchestration" className="w-6 h-6 md:w-8 md:h-8 object-contain" loading="lazy" width={512} height={512} />
+                            <div className="flex-shrink-0 w-8 h-8 md:w-11 md:h-11 rounded-xl md:rounded-2xl border flex items-center justify-center transition-all duration-300 bg-white border-[#BAE6FD]/60 group-hover:scale-110 shadow-sm">
+                                <img src="/optimized/data-analytics.webp" alt="Quality & Cost Control" className="w-5 h-5 md:w-6 md:h-6 object-contain hue-rotate-180" loading="lazy" width={512} height={512} />
                             </div>
                             <div>
-                                <h3 className="font-serif text-[15px] md:text-2xl font-bold mb-1.5 md:mb-3 text-[#B45309]">
+                                <h3 className="font-serif text-[15px] md:text-2xl font-bold mb-1.5 md:mb-3 text-[#0284C7]">
+                                    Quality & Cost Control
+                                </h3>
+                                <p className="text-[11px] md:text-[15px] leading-relaxed text-gray-600">
+                                    Multi-level hierarchy QA ensures high quality with significant cost reduction compared to freelancers.
+                                </p>
+                            </div>
+                        </div>
+                    </SpotlightCard>
+
+                    {/* Multi-agent Orchestration (Light Rose Theme) */}
+                    <SpotlightCard
+                        className="bento-card group relative overflow-hidden rounded-2xl md:rounded-[2rem] border p-4 md:p-6 transition-all duration-300 bg-white border-[#FECDD3] hover:border-[#E11D48]/30 hover:shadow-[0_15px_40px_rgba(225,29,72,0.05)] hover:-translate-y-1"
+                        spotlightColor="rgba(225, 29, 72, 0.02)"
+                    >
+                        <div className="flex flex-col sm:flex-row items-start gap-4 md:gap-5 relative z-10">
+                            <div className="flex-shrink-0 w-8 h-8 md:w-11 md:h-11 rounded-xl md:rounded-2xl border flex items-center justify-center transition-all duration-300 bg-white border-[#FECDD3]/60 group-hover:scale-110 shadow-sm">
+                                <img src="/icons/multivendor.png" alt="Multi-agent Orchestration" className="w-5 h-5 md:w-6 md:h-6 object-contain hue-rotate-[270deg]" loading="lazy" width={512} height={512} />
+                            </div>
+                            <div>
+                                <h3 className="font-serif text-[15px] md:text-2xl font-bold mb-1.5 md:mb-3 text-[#BE123C]">
                                     Multi-agent Orchestration
                                 </h3>
                                 <p className="text-[11px] md:text-[15px] leading-relaxed text-gray-600">

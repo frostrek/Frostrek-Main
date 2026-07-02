@@ -32,6 +32,7 @@ const VoiceAIPage = lazy(() => import('./pages/VoiceAIPage'));
 const LLMModelTrainingPage = lazy(() => import('./pages/LLMModelTrainingPage'));
 // Lazy load Chatbot to improve LCP - defers 705KB GIF and JS bundle
 const Chatbot = lazy(() => import('./components/chat/Chatbot'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 // Placeholder for internal pages
 const PlaceholderPage = ({ title }: { title: string }) => (
@@ -76,14 +77,14 @@ function App() {
                   <Route path="/solutions/llm-model-training" element={<LLMModelTrainingPage />} />
 
                   <Route path="/resources/blog/:slug" element={<BlogPostPage />} />
-                  <Route path="/resources" element={<ResourcesPage />} />
-                  <Route path="/blog" element={<BlogIndexPage />} />
+                  <Route path="/resources/case-studies" element={<ResourcesPage />} />
+                  <Route path="/resources/blog" element={<BlogIndexPage />} />
                   <Route path="/about" element={<About />} />
                   <Route path="/experience" element={<ExperiencePage />} />
                   <Route path="/careers" element={<PlaceholderPage title="Careers" />} />
                   <Route path="/contact" element={<ContactPage />} />
-                  <Route path="/faq" element={<FAQPage />} />
-                  <Route path="*" element={<PlaceholderPage title="Page Not Found" />} />
+                  <Route path="/resources/faq" element={<FAQPage />} />
+                  <Route path="*" element={<NotFoundPage />} />
                 </Routes>
               </Suspense>
             </main>

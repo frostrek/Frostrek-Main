@@ -9,8 +9,8 @@ export const NAV_ITEMS = [
             {
                 title: '01 CORE AI AGENTS',
                 items: [
-                    { name: 'AI Calling Agent', href: '/products/ai-calling-agent', desc: 'Outbound & inbound voice AI for high-volume reminders and support.', icon: '/optimized/Voice /icons/ai-green.png', hoverBgClass: 'hover:bg-[#F0FDF4]' },
-                    { name: 'WhatsApp Bot', href: '/products/whatsapp-bot', desc: 'Automated conversational flows on WhatsApp Business for leads.', icon: '/optimized/ai agents-red.webp', hoverBgClass: 'hover:bg-[#FEF2F2]' },
+                    { name: 'AI Calling Agent', href: '/products/ai-calling-agent', desc: 'Outbound & inbound voice AI for high-volume reminders and support.', icon: '/icons/Voice-ai-green.png', hoverBgClass: 'hover:bg-[#F0FDF4]' },
+                    { name: 'WhatsApp Bot', href: '/products/whatsapp-bot', desc: 'Automated conversational flows on WhatsApp Business for leads.', icon: '/optimized/ai-agents-red.webp', hoverBgClass: 'hover:bg-[#FEF2F2]' },
                     { name: 'Website Chatbot (Frosty)', href: '/products/frosty-ai', desc: 'Embedded AI assistant trained on your docs for 24/7 support.', icon: '/icons/machine-learning-lavender.png', hoverBgClass: 'hover:bg-[#FDF4FA]' },
                 ],
             },
@@ -32,9 +32,9 @@ export const NAV_ITEMS = [
             {
                 title: '01 INTELLIGENT AUTOMATION',
                 items: [
-                    { name: 'AI Agents', href: '/solutions/ai-agents', desc: 'Intelligent, autonomous AI agents built for your business workflows.', icon: '/optimized/ai agents-red.webp', hoverBgClass: 'hover:bg-[#FEF2F2]' },
+                    { name: 'AI Agents', href: '/solutions/ai-agents', desc: 'Intelligent, autonomous AI agents built for your business workflows.', icon: '/optimized/ai-agents-red.webp', hoverBgClass: 'hover:bg-[#FEF2F2]' },
                     { name: 'Manufacturing Intelligence', href: '/solutions/manufacturing-intelligence', desc: 'Real-time factory optimization and production AI.', icon: '/icons/manufacturing-lavender.png', hoverBgClass: 'hover:bg-[#FDF4FA]' },
-                    { name: 'Voice AI', href: '/solutions/voice-ai', desc: 'Custom Voice AI systems for high-volume inbound and outbound calls.', icon: '/optimized/Voice /icons/ai-green.png', hoverBgClass: 'hover:bg-[#F0FDF4]' },
+                    { name: 'Voice AI', href: '/solutions/voice-ai', desc: 'Custom Voice AI systems for high-volume inbound and outbound calls.', icon: '/icons/Voice-ai-green.png', hoverBgClass: 'hover:bg-[#F0FDF4]' },
                 ],
             },
             {
@@ -52,7 +52,20 @@ export const NAV_ITEMS = [
             },
         ],
     },
-    { label: 'Blog', href: '/blog' },
+    {
+        label: 'Resources',
+        href: '/resources',
+        megaMenu: [
+            {
+                title: '',
+                items: [
+                    { name: 'Blog', href: '/resources/blog', desc: 'Read our latest articles and updates.', icon: '/icons/data-analytics-green.png', hoverBgClass: 'hover:bg-[#F0FDF4]' },
+                    { name: 'FAQ', href: '/resources/faq', desc: 'Frequently asked questions.', icon: '/optimized/architecture-green.webp', hoverBgClass: 'hover:bg-[#F0FDF4]' },
+                    { name: 'Case Studies', href: '/resources/case-studies', desc: 'Success stories and use cases.', icon: '/optimized/valuation-green.webp', hoverBgClass: 'hover:bg-[#FDF4FA]' },
+                ],
+            }
+        ]
+    },
     { label: 'Contact', href: '/contact' },
 ];
 
