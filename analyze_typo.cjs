@@ -19,27 +19,27 @@ components.forEach(file => {
   if (fs.existsSync(p)) {
     const content = fs.readFileSync(p, 'utf-8');
     output += '\n--- ' + path.basename(file) + ' ---\n';
-    
+
     const lines = content.split('\n');
     lines.forEach((line, i) => {
       // Find lines that have a tag and text/font classes
       if (line.match(/className=.*(text-[a-z0-9\[\]\-]+|font-[a-z0-9\[\]\-]+)/) && line.match(/<(h[1-6]|p|span|div|a|button|li)/)) {
-        
+
         let cleaned = line.trim();
         // Remove trailing tags
         cleaned = cleaned.replace(/<\/[^>]+>.*$/, '');
-        // Extract content and classes
+        // Extract content and classe
         let match = cleaned.match(/<([a-zA-Z0-9]+)[^>]*className=[\"\'\`]([^\`\"\'\}]+)[\"\'\`\}][^>]*>(.*)/);
-        
+
         if (match) {
-            const tag = match[1];
-            const classes = match[2];
-            const innerText = match[3] ? match[3].substring(0, 40) : '';
-            
-            const relevant = classes.split(' ').filter(c => c.startsWith('text-') || c.startsWith('font-')).join(' ');
-            if (relevant) {
-                output += `<${tag}> uses [${relevant}] => "${innerText}"\n`;
-            }
+          const tag = match[1];
+          const classes = match[2];
+          const innerText = match[3] ? match[3].substring(0, 40) : '';
+
+          const relevant = classes.split(' ').filter(c => c.startsWith('text-') || c.startsWith('font-')).join(' ');
+          if (relevant) {
+            output += `<${tag}> uses [${relevant}] => "${innerText}"\n`;
+          }
         }
       }
     });
