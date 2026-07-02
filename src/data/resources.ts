@@ -385,7 +385,7 @@ The cost of RLHF is a fraction of the cost of a single compliance violation. For
 
 ---
 
-*Frostrek AI provides enterprise-grade AI safety and alignment services, including RLHF pipelines, SFT dataset creation, and continuous model monitoring. Contact us at contact@frostrek.ai.*`,
+*Frostrek AI provides enterprise-grade AI safety and alignment services, including RLHF pipelines, SFT dataset creation, and continuous model monitoring. Contact us at contact@frostrek.com.*`,
         image: '/human_in_loop_2_1782710039075.png'
     },
     {
@@ -613,7 +613,7 @@ Security is the foundation that makes everything else possible.
 
 ---
 
-*Contact Frostrek AI at contact@frostrek.ai to learn about our enterprise security protocols.*`,
+*Contact Frostrek AI at contact@frostrek.com to learn about our enterprise security protocols.*`,
         image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1000&auto=format&fit=crop'
     },
     {
