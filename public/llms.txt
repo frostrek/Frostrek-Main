@@ -5,11 +5,17 @@
 ## Core Products & Solutions
 - [Frosty AI](https://www.frostrek.ai/products/frosty-ai): Omnichannel intelligent agent for support and sales
 - [Voice AI](https://www.frostrek.ai/solutions/voice-ai): Enterprise-grade AI calling agents and cognitive virtual assistants
-- [WhatsApp Agents](https://www.frostrek.ai/products/whatsapp-bot): Autonomous chat agents for conversational deployment
+- [AI Calling Agent](https://www.frostrek.ai/products/ai-calling-agent): Outbound and inbound voice AI for high-volume support
+- [WhatsApp Bot](https://www.frostrek.ai/products/whatsapp-bot): Autonomous chat agents for conversational deployment
 - [Manufacturing OS](https://www.frostrek.ai/products/frostrek-manufacturing-os): ERP/SCADA integration and factory AI optimization
+- [Manufacturing Intelligence](https://www.frostrek.ai/solutions/manufacturing-intelligence): AI-driven operational intelligence for factories
 - [Custom LLM Fine-Tuning](https://www.frostrek.ai/solutions/llm-model-training): Managed RLHF alignment and dataset preparation services
+- [AI Agents](https://www.frostrek.ai/solutions/ai-agents): End-to-end intelligent agent development
+- [Hiyring](https://www.frostrek.ai/products/hiyring): Next-generation AI recruitment and hiring platform
+- [VettEdge](https://www.frostrek.ai/products/vettedge): AI-powered resume and candidate vetting system
 - [Web3 & Fintech](https://www.frostrek.ai/solutions/fintech-custom-wallets): Custom fintech wallets, stablecoin development, and crypto payment integrations
-- [E-Commerce](https://www.frostrek.ai/products/vedashi-ecommerce): Multivendor dashboards and inventory sync integrations
+- [E-Commerce (Vedashi)](https://www.frostrek.ai/products/vedashi-ecommerce): Multi-tenant ecommerce and ERP integrations
+- [Multivendor Dashboard](https://www.frostrek.ai/solutions/multivendor-dashboard): Centralized management for multivendor ecommerce platforms
 
 ## Key Links
 - [Home](https://www.frostrek.ai/)
