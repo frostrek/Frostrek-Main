@@ -80,7 +80,7 @@ const SOLUTIONS: Solution[] = [
         title: 'AI Agents',
         tagline: 'Intelligent Conversations',
         description: 'Deploy conversational AI agents that understand context, handle complex queries, and provide human-like support 24/7. From customer service to sales, our agents adapt to your business needs.',
-        icon: "/icons/ai-agents-red.png",
+        icon: "/optimized/ai-agents-red.webp",
         demo: { type: 'chat' },
         features: [
             'Natural language understanding with 98% accuracy',
