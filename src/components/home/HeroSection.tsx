@@ -355,14 +355,6 @@ const HeroSection = () => {
               Book a Demo <span className="text-xl font-light">→</span>
             </FlipText>
           </Link>
-          <Link
-            to="/solutions"
-            className="group w-full sm:w-auto px-10 py-4 rounded-xl border-2 border-gray-100 bg-white text-[#2D6A4F] font-medium tracking-wide hover:border-[#2D6A4F] hover:bg-gray-50 transition-all duration-300 shadow-sm active:translate-y-0.5"
-          >
-            <FlipText>
-              Explore Solutions
-            </FlipText>
-          </Link>
         </motion.div>
 
       </div>

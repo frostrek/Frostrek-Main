@@ -150,7 +150,7 @@ const Header = () => {
                                                         key={subItem.name}
                                                         to={subItem.href}
                                                         onClick={() => setActiveMegaMenu(null)}
-                                                        className={`group flex items-center gap-4.5 p-3 rounded-[1.25rem] transition-all duration-500 ${subItem.hoverBgClass || 'hover:bg-[#F4FAF7]'} hover:translate-x-1`}
+                                                        className={`group flex items-center gap-6 p-3 rounded-[1.25rem] transition-all duration-500 ${subItem.hoverBgClass || 'hover:bg-[#F4FAF7]'} hover:translate-x-1`}
                                                     >
                                                         <div className="p-1 shrink-0 flex items-center justify-center">
                                                             <img src={subItem.icon} alt={subItem.name} className="w-5 h-5 object-contain" width={512} height={512} />

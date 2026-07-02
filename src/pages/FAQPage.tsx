@@ -314,7 +314,7 @@ const FAQPage = () => {
                                     {category.faqs.map((faq, index) => {
                                         const faqKey = `${category.title}-${index}`;
                                         const isActive = activeIndex === faqKey;
-                                        const globalIndex = FAQ_CATEGORIES.slice(0, FAQ_CATEGORIES.indexOf(category)).reduce((acc, c) => acc + c.faqs.length, 0) + index;
+                                        const globalIndex = FAQ_CATEGORIES.slice(0, FAQ_CATEGORIES.findIndex(c => c.title === category.title)).reduce((acc, c) => acc + c.faqs.length, 0) + index;
                                         const theme = FAQ_THEMES[globalIndex % FAQ_THEMES.length];
 
                                         return (

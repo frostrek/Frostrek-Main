@@ -4,7 +4,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { Link } from 'react-router-dom';
-import { CheckCircle, ArrowRight, Mic, MessageSquare, Sparkles } from 'lucide-react';
+import { CheckCircle, ArrowRight, Mic, MessageSquare, Sparkles, BrainCircuit } from 'lucide-react';
 import SplitTextReveal from '../ui/SplitTextReveal';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -175,7 +175,7 @@ const CARDS = [
         Demo: ManufacturingDemo
     },
     {
-        icon: "/optimized/innovation-green.webp",
+        LucideIcon: BrainCircuit,
         label: 'SPECIALIZED AI',
         title: 'LLM Fine-Tuning & Model Training',
         desc: 'We train and align custom foundation models. Backed by a managed workforce for expert data services.',
@@ -353,7 +353,11 @@ const WhatWeDoSection = () => {
                                             <div>
                                                 <div className="flex items-center gap-3 mb-5">
                                                     <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${styles.iconBg}`}>
-                                                        <img src={card.icon} alt={card.label} className="w-6 h-6 object-contain" loading="lazy" width={512} height={512} />
+                                                        {card.LucideIcon ? (
+                                                            <card.LucideIcon className={`w-6 h-6 ${styles.labelColor}`} />
+                                                        ) : (
+                                                            <img src={card.icon} alt={card.label} className="w-6 h-6 object-contain" loading="lazy" width={512} height={512} />
+                                                        )}
                                                     </div>
                                                     <span className={`text-[11px] font-bold tracking-widest ${styles.labelColor}`}>{card.label}</span>
                                                 </div>

@@ -264,7 +264,7 @@ const FrostyPage = () => {
 
                     {/* Headline */}
                     <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif mb-8 tracking-tight max-w-5xl mx-auto leading-tight text-[#2D6A4F]">
-                        <SplitTextReveal as="span" className="text-[#0068FF]" type="chars" stagger={0.02} once={false}>
+                        <SplitTextReveal as="span" className="text-[#E76F51]" type="chars" stagger={0.02} once={false}>
                             Frosty
                         </SplitTextReveal>
                         {' '}
@@ -297,7 +297,7 @@ const FrostyPage = () => {
                             href="https://bot.frostrek.com/login?mode=register"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group font-bold rounded-2xl px-8 h-14 text-base shadow-lg transition-all duration-300 flex items-center gap-2 bg-[#0068FF] text-white hover:bg-[#0039A6] hover:shadow-xl hover:shadow-[#0068FF]/25 cursor-pointer border-none"
+                            className="group font-bold rounded-2xl px-8 h-14 text-base shadow-lg transition-all duration-300 flex items-center gap-2 bg-[#E76F51] text-white hover:bg-[#D8583B] hover:shadow-xl hover:shadow-[#E76F51]/25 cursor-pointer border-none"
                         >
                             <FlipText hoverColor="text-white">
                                 Try Frosty Free <ExternalLink className="w-4 h-4" />
@@ -334,7 +334,7 @@ const FrostyPage = () => {
                                 {' '}
                                 <SplitTextReveal
                                     as="span"
-                                    className="text-[#0068FF]"
+                                    className="text-[#E76F51]"
                                     type="chars" stagger={0.02} once={false}
                                 >
                                     Frosty?
@@ -498,13 +498,13 @@ const FrostyPage = () => {
                             <span className="relative inline-block mt-1">
                                 <SplitTextReveal
                                     as="span"
-                                    className="text-[#0068FF]"
+                                    className="text-[#E76F51]"
                                     type="chars" stagger={0.02} once={false}
                                 >
                                     Minutes
                                 </SplitTextReveal>
                                 <motion.span
-                                    className="absolute -bottom-1 left-0 h-1 bg-gradient-to-r from-[#0068FF] to-[#0068FF]/40 rounded-full"
+                                    className="absolute -bottom-1 left-0 h-1 bg-gradient-to-r from-[#E76F51] to-[#E76F51]/40 rounded-full"
                                     initial={{ width: 0 }}
                                     whileInView={{ width: '100%' }}
                                     viewport={{ once: false }}
@@ -525,7 +525,7 @@ const FrostyPage = () => {
 
                     <div ref={processRef} className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 relative">
                         {/* Connecting Line (Desktop Only) */}
-                        <div className="hidden md:block absolute top-12 left-[16.67%] right-[16.67%] h-[1px] bg-gradient-to-r from-transparent via-[#0068FF]/40 to-transparent border-t border-dashed border-[#0068FF]/50 -z-10" />
+                        <div className="hidden md:block absolute top-12 left-[16.67%] right-[16.67%] h-[1px] bg-gradient-to-r from-transparent via-[#E76F51]/40 to-transparent border-t border-dashed border-[#E76F51]/50 -z-10" />
 
                         {PROCESS_STEPS.map((step) => (
                             <div key={step.step} className="process-step flex flex-col items-center text-center relative group">
@@ -539,7 +539,7 @@ const FrostyPage = () => {
                                 <p className="text-[13px] sm:text-sm leading-relaxed text-gray-500 px-1 sm:px-2 mb-4 md:mb-6 min-h-[5rem] md:h-20">{step.description}</p>
 
                                 {/* Step Number */}
-                                <div className="w-7 h-7 md:w-8 md:h-8 rounded-full border border-[#0068FF]/30 flex items-center justify-center text-[#0068FF] text-xs md:text-sm font-bold bg-[#0068FF]/5 mt-auto shadow-sm">
+                                <div className="w-7 h-7 md:w-8 md:h-8 rounded-full border border-[#E76F51]/30 flex items-center justify-center text-[#E76F51] text-xs md:text-sm font-bold bg-[#E76F51]/5 mt-auto shadow-sm">
                                     {step.step}
                                 </div>
                             </div>

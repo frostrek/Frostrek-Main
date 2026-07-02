@@ -477,12 +477,6 @@ const LLMModelTrainingPage = () => {
                                 Talk to Our ML Team
                                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                             </Link>
-                            <button
-                                onClick={() => processSection.current?.scrollIntoView({ behavior: 'smooth' })}
-                                className="group w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 bg-white text-[#2D6A4F] rounded-full font-medium text-lg transition-all border border-[#2D6A4F]/20 hover:border-[#2D6A4F]/40 hover:bg-[#F0FDF4] shadow-sm hover:-translate-y-0.5"
-                            >
-                                See Our Process
-                            </button>
                         </motion.div>
                     </div>
                 </div>
