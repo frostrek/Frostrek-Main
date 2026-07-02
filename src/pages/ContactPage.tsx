@@ -84,7 +84,7 @@ ${formData.projectDetails}
                 'service_jia14ic',
                 'template_hygc11p',
                 {
-                    to_email: 'contact@frostrek.ai',
+                    to_email: 'contact@frostrek.com',
                     from_name: fullName,
                     user_name: fullName,
                     name: fullName,
@@ -226,7 +226,7 @@ ${formData.projectDetails}
 
                                     {/* EMAIL US */}
                                     <a
-                                        href="mailto:contact@frostrek.ai"
+                                        href="mailto:contact@frostrek.com"
                                         className="col-span-2 flex flex-col items-center justify-center text-center gap-1.5 sm:gap-2 p-3 sm:p-4 rounded-2xl bg-[#F0F9FF] border border-[#E0F2FE] hover:border-[#0284C7]/35 shadow-sm hover:shadow-md transition-all duration-300 group"
                                     >
                                         <div className="p-1.5 sm:p-2 rounded-xl bg-white/40 border border-white/60 flex items-center justify-center shadow-sm backdrop-blur-[2px] transition-all duration-300 group-hover:scale-110">
@@ -234,7 +234,7 @@ ${formData.projectDetails}
                                         </div>
                                         <div className="w-full">
                                             <h3 className="font-bold text-[9px] sm:text-xs text-[#0284C7] uppercase tracking-wider font-body leading-none mb-1 sm:mb-1.5 truncate">Email Us</h3>
-                                            <p className="font-serif font-bold text-[10px] sm:text-sm md:text-base text-gray-900 tracking-wide w-full truncate">contact@frostrek.ai</p>
+                                            <p className="font-serif font-bold text-[10px] sm:text-sm md:text-base text-gray-900 tracking-wide w-full truncate">contact@frostrek.com</p>
                                         </div>
                                     </a>
                                 </div>

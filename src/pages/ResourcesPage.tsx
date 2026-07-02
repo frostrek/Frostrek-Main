@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ArrowUpRight, Clock } from 'lucide-react';
+import { X, ArrowUpRight, Clock, Download } from 'lucide-react';
 import { CASE_STUDIES } from '../data/resources';
 import type { CaseStudy } from '../data/resources';
 import SEO from '../components/seo/SEO';
@@ -97,6 +97,10 @@ const CaseStudyCard = ({ study, onClick, index = 0 }: { study: CaseStudy; onClic
     return (
         <motion.div
             layoutId={`card-${study.id}`}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
             whileHover={{ y: -6, transition: { duration: 0.2 } }}
             onClick={onClick}
             className="group cursor-pointer h-full"
@@ -184,6 +188,178 @@ export const ResourcesPage = () => {
                     ))}
                 </div>
             </div>
+
+            {/* ─── PDF Casebooks Section ─── */}
+            <section className="pt-10 pb-4 bg-gradient-to-b from-white to-[#FAF9F6] relative z-10">
+                <div className="container mx-auto px-4 md:px-6">
+                    <style>{`
+                        .pdf-iframe-wrapper iframe::-webkit-scrollbar { display: none; }
+                        .pdf-iframe-wrapper iframe { scrollbar-width: none; -ms-overflow-style: none; }
+                        .pdf-iframe-wrapper { overflow: hidden; }
+                    `}</style>
+                    <div className="text-center mb-14">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                        >
+                            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6 bg-[#E8F5EE] border border-[#2D6A4F]/20 text-[#2D6A4F] font-bold text-xs uppercase tracking-wider">
+                                <span className="flex h-2 w-2 rounded-full bg-[#2D6A4F] animate-pulse" />
+                                Downloadable Casebooks
+                            </span>
+                        </motion.div>
+                        
+                        <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-tight tracking-tight mb-4">
+                            <SplitTextReveal
+                                as="span"
+                                type="chars"
+                                stagger={0.03}
+                                once={false}
+                            >
+                                Explore Our Detailed Casebooks
+                            </SplitTextReveal>
+                        </h2>
+                        
+                        <SplitTextReveal
+                            as="p"
+                            className="text-base sm:text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed"
+                            type="words"
+                            stagger={0.015}
+                            once={false}
+                            delay={0.2}
+                        >
+                            In-depth documentation of our enterprise AI engagements — from strategy to deployment outcomes.
+                        </SplitTextReveal>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-20 max-w-5xl mx-auto items-stretch">
+                        {/* AI Agent Casebook */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 40 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                            whileHover={{ y: -6, transition: { duration: 0.2 } }}
+                            className="group h-full"
+                        >
+                            <div className="rounded-3xl border border-[#0284C7]/20 hover:border-[#0284C7]/40 bg-white shadow-[0_15px_40px_-15px_rgba(0,0,0,0.15)] hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.25)] hover:shadow-[#0284C7]/10 transition-all duration-300 overflow-hidden relative" style={{ height: 560 }}>
+                                {/* PDF Preview — fills entire card */}
+                                <a
+                                    href="/pdf/AI Agent CASEBOOK — Frostrek LLP (2).pdf"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="block absolute inset-0 cursor-pointer"
+                                >
+                                    <div className="pdf-iframe-wrapper w-full h-full" style={{ overflow: 'hidden', margin: 0, padding: 0 }}>
+                                        <iframe
+                                            src="/pdf/AI Agent CASEBOOK — Frostrek LLP (2).pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH&zoom=100"
+                                            style={{ width: 'calc(100% + 40px)', height: 'calc(100% + 30px)', border: 'none', display: 'block', margin: '-16px 0 0 -16px', padding: 0, overflow: 'hidden', pointerEvents: 'none' }}
+                                            title="AI Agent Casebook Preview"
+                                            scrolling="no"
+                                        />
+                                    </div>
+                                    {/* Progressive blur overlay — clear at top, blurry after title */}
+                                    <div className="absolute inset-0 pointer-events-none" style={{
+                                        background: 'linear-gradient(to bottom, transparent 45%, rgba(255,255,255,0.1) 60%, rgba(255,255,255,0.3) 75%, rgba(255,255,255,0.5) 85%, rgba(255,255,255,0.7) 100%)',
+                                    }} />
+                                    <div className="absolute inset-0 pointer-events-none" style={{
+                                        maskImage: 'linear-gradient(to bottom, transparent 45%, black 100%)',
+                                        WebkitMaskImage: 'linear-gradient(to bottom, transparent 45%, black 100%)',
+                                        backdropFilter: 'blur(2px)',
+                                    }} />
+                                    <div className="absolute inset-0 pointer-events-none" style={{
+                                        maskImage: 'linear-gradient(to bottom, transparent 65%, black 100%)',
+                                        WebkitMaskImage: 'linear-gradient(to bottom, transparent 65%, black 100%)',
+                                        backdropFilter: 'blur(4px)',
+                                    }} />
+                                    {/* Hover overlay with preview icon */}
+                                    <div className="absolute inset-0 bg-[#0284C7]/0 group-hover:bg-[#0284C7]/10 transition-colors duration-300 flex items-center justify-center">
+                                        <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 bg-white/90 backdrop-blur-sm text-[#0284C7] font-bold text-sm px-5 py-2.5 rounded-xl shadow-lg flex items-center gap-2">
+                                            <ArrowUpRight className="w-4 h-4" />
+                                            Open Full Preview
+                                        </span>
+                                    </div>
+                                </a>
+
+                                {/* Download Button — centered, theme green */}
+                                <div className="absolute bottom-6 left-0 right-0 flex justify-center z-10">
+                                    <a
+                                        href="/pdf/AI Agent CASEBOOK — Frostrek LLP (2).pdf"
+                                        download
+                                        className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#2D6A4F] text-white text-sm font-semibold hover:bg-[#1B4332] hover:-translate-y-0.5 transition-all duration-200 shadow-lg shadow-[#2D6A4F]/25"
+                                    >
+                                        <Download className="w-4 h-4" />
+                                        Download Full PDF
+                                    </a>
+                                </div>
+                            </div>
+                        </motion.div>
+
+                        {/* LLM Model Casebook */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 40 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+                            whileHover={{ y: -6, transition: { duration: 0.2 } }}
+                            className="group h-full"
+                        >
+                            <div className="rounded-3xl border border-[#7C3AED]/20 hover:border-[#7C3AED]/40 bg-white shadow-[0_15px_40px_-15px_rgba(0,0,0,0.15)] hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.25)] hover:shadow-[#7C3AED]/10 transition-all duration-300 overflow-hidden relative" style={{ height: 560 }}>
+                                {/* PDF Preview — fills entire card */}
+                                <a
+                                    href="/pdf/LLM Model CASEBOOK — Frostrek LLP (1).pdf"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="block absolute inset-0 cursor-pointer"
+                                >
+                                    <div className="pdf-iframe-wrapper w-full h-full" style={{ overflow: 'hidden', margin: 0, padding: 0 }}>
+                                        <iframe
+                                            src="/pdf/LLM Model CASEBOOK — Frostrek LLP (1).pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH&zoom=100"
+                                            style={{ width: 'calc(100% + 40px)', height: 'calc(100% + 30px)', border: 'none', display: 'block', margin: '-16px 0 0 -16px', padding: 0, overflow: 'hidden', pointerEvents: 'none' }}
+                                            title="LLM Model Casebook Preview"
+                                            scrolling="no"
+                                        />
+                                    </div>
+                                    {/* Progressive blur overlay — clear at top, blurry after title */}
+                                    <div className="absolute inset-0 pointer-events-none" style={{
+                                        background: 'linear-gradient(to bottom, transparent 45%, rgba(255,255,255,0.1) 60%, rgba(255,255,255,0.3) 75%, rgba(255,255,255,0.5) 85%, rgba(255,255,255,0.7) 100%)',
+                                    }} />
+                                    <div className="absolute inset-0 pointer-events-none" style={{
+                                        maskImage: 'linear-gradient(to bottom, transparent 45%, black 100%)',
+                                        WebkitMaskImage: 'linear-gradient(to bottom, transparent 45%, black 100%)',
+                                        backdropFilter: 'blur(2px)',
+                                    }} />
+                                    <div className="absolute inset-0 pointer-events-none" style={{
+                                        maskImage: 'linear-gradient(to bottom, transparent 65%, black 100%)',
+                                        WebkitMaskImage: 'linear-gradient(to bottom, transparent 65%, black 100%)',
+                                        backdropFilter: 'blur(4px)',
+                                    }} />
+                                    {/* Hover overlay with preview icon */}
+                                    <div className="absolute inset-0 bg-[#7C3AED]/0 group-hover:bg-[#7C3AED]/10 transition-colors duration-300 flex items-center justify-center">
+                                        <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 bg-white/90 backdrop-blur-sm text-[#7C3AED] font-bold text-sm px-5 py-2.5 rounded-xl shadow-lg flex items-center gap-2">
+                                            <ArrowUpRight className="w-4 h-4" />
+                                            Open Full Preview
+                                        </span>
+                                    </div>
+                                </a>
+
+                                {/* Download Button — centered, theme green */}
+                                <div className="absolute bottom-6 left-0 right-0 flex justify-center z-10">
+                                    <a
+                                        href="/pdf/LLM Model CASEBOOK — Frostrek LLP (1).pdf"
+                                        download
+                                        className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#2D6A4F] text-white text-sm font-semibold hover:bg-[#1B4332] hover:-translate-y-0.5 transition-all duration-200 shadow-lg shadow-[#2D6A4F]/25"
+                                    >
+                                        <Download className="w-4 h-4" />
+                                        Download Full PDF
+                                    </a>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </div>
+                </div>
+            </section>
 
             {/* Case Study Modal */}
             <AnimatePresence>

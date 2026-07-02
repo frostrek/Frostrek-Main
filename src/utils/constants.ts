@@ -72,7 +72,7 @@ export const NAV_ITEMS = [
 export const COMPANY_INFO = {
     name: 'Frostrek AI',
     address: '4th Floor, Unit No. 455, JMD Empire, Sector 62, Gurugram',
-    contact: 'contact@frostrek.ai',
+    contact: 'contact@frostrek.com',
     socials: {
         linkedin: 'https://www.linkedin.com/company/frostrek/',
         instagram: 'https://www.instagram.com/frostrekai?igsh=bndyYWZ1NTA4NWR1',
