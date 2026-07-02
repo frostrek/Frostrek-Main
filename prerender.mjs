@@ -275,6 +275,13 @@ async function main() {
 }
 
 main().catch((err) => {
+  // If Chrome/Puppeteer isn't available (e.g. Vercel CI), skip prerendering gracefully
+  if (err.message && (err.message.includes('Could not find Chrome') || err.message.includes('Could not find Chromium'))) {
+    console.warn('\n⚠️  Skipping prerender: Chrome not available in this environment.');
+    console.warn('   The SPA will still work via client-side rendering.');
+    console.warn('   To prerender locally, run: npx puppeteer browsers install chrome\n');
+    process.exit(0); // Don't fail the build
+  }
   console.error('Prerender failed:', err);
   process.exit(1);
 });
