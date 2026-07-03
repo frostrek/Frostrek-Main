@@ -151,7 +151,6 @@ const faqSchema = JSON.stringify({
   ]
 });
 
-import LazySection from '../components/ui/LazySection';
 
 const Home = () => {
   return (

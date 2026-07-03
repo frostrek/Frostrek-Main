@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ChevronRight, ArrowRight, ExternalLink, CheckCircle2, Play, Users, Bot, Globe, Shield, Zap, Sparkles, MessageSquare, Menu, Layout, PlayCircle, BarChart3, Cloud, Lock, ShieldCheck, Settings, Database, Brain, Focus } from 'lucide-react';
+import { ChevronRight, ArrowRight, ExternalLink } from 'lucide-react';
 import CuteBackground from '../components/ui/CuteBackground';
 import SpotlightCard from '../components/ui/SpotlightCard';
 import SplitTextReveal from '../components/ui/SplitTextReveal';
