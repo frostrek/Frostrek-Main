@@ -38,7 +38,7 @@ const SplitTextReveal = ({
     delay = 0,
     y = 30,
     blur = true,
-    once = false, // Default to false for "appear/disappear" behavior
+    once = true, // Default to true to prevent mobile viewport resize (address bar) from triggering unintended reverse animations
     scrub = false,
     trigger = 'scroll',
     start = 'top 85%',
@@ -144,15 +144,20 @@ const SplitTextReveal = ({
                     ease: 'none',
                 });
             } else {
-                // Reveal behavior with "appear and disappear" (toggleActions)
+                // Reveal behavior
+                // Restored 'play reverse play reverse' now that the LazySection layout bug is fixed.
+                // This brings back the beautiful transitions when scrolling both up and down!
+                const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+                const effectiveOnce = isMobile ? true : once;
+                
                 gsap.to(items, {
                     scrollTrigger: {
                         trigger: container,
                         start: start,
                         end: end,
-                        toggleActions: once 
+                        toggleActions: effectiveOnce 
                             ? 'play none none none' 
-                            : 'play reverse play reverse', // Reverses on scroll out
+                            : 'play reverse play reverse',
                         markers: false,
                     },
                     y: 0,

@@ -3,8 +3,9 @@ import { CalendarIcon, Clock, MapPin, ArrowRight, Sparkles, type LucideIcon } fr
 import { trackEvent } from '../utils/analytics';
 import SEO from '../components/seo/SEO';
 import SplitTextReveal from '../components/ui/SplitTextReveal';
+import { EXTERNAL_LINKS } from '../utils/constants';
 
-const CALENDLY_URL = 'https://calendly.com/akash-mittal-frostrek/30min';
+const CALENDLY_URL = EXTERNAL_LINKS.calendly;
 
 /* ── Skeleton placeholder mimicking a light, beautiful calendar widget ── */
 const CalendarSkeleton = () => {

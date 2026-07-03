@@ -10,6 +10,7 @@ import SpotlightCard from '../components/ui/SpotlightCard';
 import SplitTextReveal from '../components/ui/SplitTextReveal';
 import FlipText from '../components/ui/FlipText';
 import SEO from '../components/seo/SEO';
+import { EXTERNAL_LINKS } from '../utils/constants';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -236,7 +237,7 @@ const HiyringPage = () => {
                         className="flex flex-col sm:flex-row items-center gap-4"
                     >
                         <a
-                            href="https://hiyring.com"
+                            href={EXTERNAL_LINKS.hiyring}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="group font-bold rounded-2xl px-8 h-14 text-base shadow-lg transition-all duration-300 flex items-center gap-2 bg-[#FF5722] text-white hover:bg-[#E64A19] hover:shadow-xl hover:shadow-[#FF5722]/25 cursor-pointer border-none"

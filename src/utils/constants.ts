@@ -69,12 +69,30 @@ export const NAV_ITEMS = [
     { label: 'Contact', href: '/contact' },
 ];
 
+export const EXTERNAL_LINKS = {
+    linkedin: 'https://www.linkedin.com/company/frostrek/',
+    instagram: 'https://www.instagram.com/frostrekai?igsh=bndyYWZ1NTA4NWR1',
+    twitter: 'https://twitter.com/frostrek',
+    youtube: 'https://www.youtube.com/@frostrekai',
+    facebook: 'https://www.facebook.com/people/Frostrek-Ai/pfbid0VWudotryavaCWUi3utjYrUJYh35mGbSHmq73RnhksigdjJA28XQVBgNLz1Nryympl/',
+    whatsapp: 'https://wa.me/17574722491',
+    calendly: 'https://calendly.com/akash-mittal-frostrek/30min',
+    hiyring: 'https://hiyring.com',
+    vedashi: 'https://vedashi.com/in',
+    akashLinkedin: 'https://www.linkedin.com/in/akash-mittal/',
+    frosty: 'https://spy.bot.candoramigo.com'
+};
+
 export const COMPANY_INFO = {
     name: 'Frostrek AI',
     address: '4th Floor, Unit No. 455, JMD Empire, Sector 62, Gurugram',
     contact: 'contact@frostrek.com',
     socials: {
-        linkedin: 'https://www.linkedin.com/company/frostrek/',
-        instagram: 'https://www.instagram.com/frostrekai?igsh=bndyYWZ1NTA4NWR1',
+        linkedin: EXTERNAL_LINKS.linkedin,
+        instagram: EXTERNAL_LINKS.instagram,
+        twitter: EXTERNAL_LINKS.twitter,
+        youtube: EXTERNAL_LINKS.youtube,
+        facebook: EXTERNAL_LINKS.facebook,
+        whatsapp: EXTERNAL_LINKS.whatsapp,
     }
 };

@@ -4,12 +4,13 @@ import { motion } from 'framer-motion';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ChevronRight, ArrowRight, ExternalLink } from 'lucide-react';
+import { ChevronRight, ArrowRight, ExternalLink, CheckCircle2, Play, Users, Bot, Globe, Shield, Zap, Sparkles, MessageSquare, Menu, Layout, PlayCircle, BarChart3, Cloud, Lock, ShieldCheck, Settings, Database, Brain, Focus } from 'lucide-react';
 import CuteBackground from '../components/ui/CuteBackground';
 import SpotlightCard from '../components/ui/SpotlightCard';
 import SplitTextReveal from '../components/ui/SplitTextReveal';
 import FlipText from '../components/ui/FlipText';
 import SEO from '../components/seo/SEO';
+import { EXTERNAL_LINKS } from '../utils/constants';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -294,7 +295,7 @@ const FrostyPage = () => {
                         className="flex flex-col sm:flex-row items-center gap-4"
                     >
                         <a
-                            href="https://bot.frostrek.com/login?mode=register"
+                            href={EXTERNAL_LINKS.frosty}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="group font-bold rounded-2xl px-8 h-14 text-base shadow-lg transition-all duration-300 flex items-center gap-2 bg-[#E76F51] text-white hover:bg-[#D8583B] hover:shadow-xl hover:shadow-[#E76F51]/25 cursor-pointer border-none"

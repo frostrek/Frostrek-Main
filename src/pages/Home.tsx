@@ -166,29 +166,19 @@ const Home = () => {
       <HeroSection />
       
       {/* Our Products Section */}
-      <LazySection>
-        <OurProductsSection />
-      </LazySection>
+      <OurProductsSection />
       
       {/* 2. Our two flagship AI solutions */}
-      <LazySection>
-        <AISolutionsShowcase />
-      </LazySection>
+      <AISolutionsShowcase />
       
       {/* 3. What We Do & How We Transform */}
-      <LazySection>
-        <WhatWeDoSection />
-      </LazySection>
+      <WhatWeDoSection />
       
       {/* 4. AI-Driven Outcomes We Deliver */}
-      <LazySection>
-        <ImpactComparison />
-      </LazySection>
+      <ImpactComparison />
 
       {/* 6. Why Choose Frostrek */}
-      <LazySection>
-        <FeaturesSection />
-      </LazySection>
+      <FeaturesSection />
     </div>
   );
 };

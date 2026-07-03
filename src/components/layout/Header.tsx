@@ -61,17 +61,25 @@ const Header = () => {
 
     return (
         <>
+            {/* Mask to prevent text from scrolling above the floating navbar */}
+            <div 
+                className={cn(
+                    "fixed top-0 left-0 w-full z-[55] pointer-events-none transition-opacity duration-500 bg-white",
+                    isScrolled ? "opacity-100" : "opacity-0"
+                )}
+                style={{ height: '16px' }}
+            />
+
             <header className={cn(
-                "fixed left-1/2 -translate-x-1/2 z-[60] transition-[height,background-color,box-shadow,top,width] duration-500 backdrop-blur-xl border w-[92%] sm:w-[95%] max-w-7xl xl:overflow-visible overflow-hidden flex flex-col",
+                "fixed left-1/2 -translate-x-1/2 z-[60] transition-all duration-500 backdrop-blur-xl border flex flex-col overflow-hidden xl:overflow-visible",
+                "top-3 sm:top-4 w-[92%] sm:w-[95%] max-w-7xl rounded-xl sm:rounded-2xl",
                 mobileMenuOpen
-                    ? "top-3 sm:top-4 bg-white/95 border-gray-200 shadow-2xl rounded-xl sm:rounded-2xl"
-                    : isScrolled
-                        ? "top-3 sm:top-4 bg-white/80 border-gray-200 shadow-md rounded-xl sm:rounded-2xl"
-                        : "top-4 sm:top-6 bg-transparent border-transparent rounded-xl sm:rounded-2xl"
+                    ? "bg-white/95 border-gray-200 shadow-2xl"
+                    : "bg-white/90 border-gray-200 shadow-md"
             )}>
                 <div className={cn(
                     "flex items-center justify-between px-4 sm:px-5 md:px-6 w-full shrink-0 transition-all duration-500",
-                    isScrolled || mobileMenuOpen ? "h-14 sm:h-16" : "h-16 sm:h-20"
+                    "h-14 sm:h-16"
                 )}>
                     {/* 1. Logo (Left) */}
                     <div className="flex-1 flex items-center justify-start">

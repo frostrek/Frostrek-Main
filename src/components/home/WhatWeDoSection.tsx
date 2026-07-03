@@ -188,7 +188,7 @@ const CARDS = [
         title: 'Fintech & Custom Wallets',
         desc: 'Secure, compliant, and scalable fintech solutions. Digital wallets, KYC, transactions and beyond.',
         features: ['Digital wallets & payments', 'KYC & compliance engine', 'Transaction monitoring'],
-        href: '/products/fintech-platform',
+        href: '/solutions/fintech-custom-wallets',
         exploreText: 'Explore Fintech Platform',
         Demo: FintechDemo
     },
@@ -247,27 +247,32 @@ const WhatWeDoSection = () => {
                 const wrapper = scrollWrapperRef.current;
                 const container = pinRef.current;
 
-                // Total scrollable distance = full content width minus visible container width
-                const totalWidth = wrapper.scrollWidth;
-                const containerWidth = container.offsetWidth;
-                const scrollAmount = totalWidth - containerWidth;
+                const getScrollAmount = () => {
+                    // Bypass iOS Safari flexbox scrollWidth bugs by mathematically calculating the exact distance.
+                    // Cards are w-[85vw] on mobile, w-[60vw] on sm screens.
+                    const isSm = window.innerWidth >= 640;
+                    const cardWidth = isSm ? window.innerWidth * 0.60 : window.innerWidth * 0.85;
+                    const gapWidth = 20; // gap-5 = 20px
+                    const totalWidth = (cardWidth * 3) + (gapWidth * 2);
+                    
+                    // We want to translate left by (totalWidth - viewportWidth) + some extra right padding
+                    return Math.max(0, totalWidth - window.innerWidth + 64);
+                };
 
-                if (scrollAmount > 0) {
-                    gsap.to(wrapper, {
-                        x: -scrollAmount,
-                        ease: "none",
-                        scrollTrigger: {
-                            trigger: container,
-                            start: "top 15%",
-                            end: () => `+=${scrollAmount * 1.5}`,
-                            scrub: 0.8,
-                            pin: true,
-                            anticipatePin: 1,
-                            invalidateOnRefresh: true,
-                            pinSpacing: true
-                        }
-                    });
-                }
+                gsap.to(wrapper, {
+                    x: () => -getScrollAmount(),
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: container,
+                        start: "top 15%",
+                        end: () => `+=${getScrollAmount()}`,
+                        scrub: 0.8,
+                        pin: true,
+                        anticipatePin: 1,
+                        invalidateOnRefresh: true,
+                        pinSpacing: true
+                    }
+                });
             }
         });
 
