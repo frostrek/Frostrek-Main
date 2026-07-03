@@ -121,11 +121,11 @@ const Footer = () => {
             <div className="lg:col-span-3 space-y-6">
               <div className="space-y-4">
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-3 group">
-                  <Link to="/" className="flex items-center gap-3">
+                  <Link to="/" className="flex items-center gap-1">
                     <img src="/logonew.png"
                       alt="Frostrek AI Logo"
                       className="h-9 w-auto transition-transform group-hover:scale-110" loading="lazy" width={512} height={512} />
-                    <FlipText className="text-[1.35rem] font-black font-sans font-bold text-[#2D6A4F]">
+                    <FlipText className="text-[1.35rem] font-black font-sans font-bold text-black">
                       frostrek
                     </FlipText>
                   </Link>
@@ -138,17 +138,17 @@ const Footer = () => {
 
               {/* Social Icons */}
               <div className="flex items-center justify-center gap-3 flex-wrap max-w-[340px]">
-                <a href={COMPANY_INFO.socials.linkedin} target="_blank" rel="noopener noreferrer" aria-label="Visit our LinkedIn page" className="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white border border-[#E6EFE6] text-[#2D6A4F] shadow-sm hover:shadow-md hover:-translate-y-1"><img src="/linkedin.png" alt="Linkedin" className="w-6 h-6 object-contain transition-all hover:scale-110" loading="lazy" width={512} height={512} /></a>
-                <a href={COMPANY_INFO.socials.instagram} target="_blank" rel="noopener noreferrer" aria-label="Visit our Instagram page" className="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white border border-[#E6EFE6] text-[#2D6A4F] shadow-sm hover:shadow-md hover:-translate-y-1"><img src="/instagram.png" alt="Instagram" className="w-6 h-6 object-contain transition-all hover:scale-110" loading="lazy" width={512} height={512} /></a>
-                <a href="https://wa.me/17574722491" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp" className="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white border border-[#E6EFE6] text-[#2D6A4F] shadow-sm hover:shadow-md hover:-translate-y-1"><img src="/whatsapp.png" alt="WhatsApp" className="w-6 h-6 object-contain transition-all hover:scale-110" loading="lazy" width={512} height={512} /></a>
-                <a href="mailto:contact@frostrek.ai" aria-label="Send us an email" className="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white border border-[#E6EFE6] text-[#2D6A4F] shadow-sm hover:shadow-md hover:-translate-y-1"><img src="/gmail.png" alt="Gmail" className="w-8 h-8 object-contain transition-all hover:scale-110" loading="lazy" width={512} height={512} /></a>
-                <a href="https://www.facebook.com/people/Frostrek-Ai/pfbid0VWudotryavaCWUi3utjYrUJYh35mGbSHmq73RnhksigdjJA28XQVBgNLz1Nryympl/" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook page" className="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white border border-[#E6EFE6] shadow-sm hover:shadow-md hover:-translate-y-1">
+                <a href={COMPANY_INFO.socials.linkedin} target="_blank" rel="noopener noreferrer" aria-label="Visit our LinkedIn page" className="w-10 h-10 rounded-full flex items-center justify-center transition-all text-[#2D6A4F] hover:-translate-y-1"><img src="/linkedin.png" alt="Linkedin" className="w-6 h-6 object-contain transition-all hover:scale-110" loading="lazy" width={512} height={512} /></a>
+                <a href={COMPANY_INFO.socials.instagram} target="_blank" rel="noopener noreferrer" aria-label="Visit our Instagram page" className="w-10 h-10 rounded-full flex items-center justify-center transition-all text-[#2D6A4F] hover:-translate-y-1"><img src="/instagram.png" alt="Instagram" className="w-6 h-6 object-contain transition-all hover:scale-110" loading="lazy" width={512} height={512} /></a>
+                <a href="https://wa.me/17574722491" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp" className="w-10 h-10 rounded-full flex items-center justify-center transition-all text-[#2D6A4F] hover:-translate-y-1"><img src="/whatsapp.png" alt="WhatsApp" className="w-6 h-6 object-contain transition-all hover:scale-110" loading="lazy" width={512} height={512} /></a>
+                <a href="mailto:contact@frostrek.ai" aria-label="Send us an email" className="w-10 h-10 rounded-full flex items-center justify-center transition-all text-[#2D6A4F] hover:-translate-y-1"><img src="/gmail.png" alt="Gmail" className="w-8 h-8 object-contain transition-all hover:scale-110" loading="lazy" width={512} height={512} /></a>
+                <a href="https://www.facebook.com/people/Frostrek-Ai/pfbid0VWudotryavaCWUi3utjYrUJYh35mGbSHmq73RnhksigdjJA28XQVBgNLz1Nryympl/" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook page" className="w-10 h-10 rounded-full flex items-center justify-center transition-all hover:-translate-y-1">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" className="transition-all hover:scale-110">
                     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#1877F2"/>
                     <path d="M16.671 15.542l.532-3.469h-3.328v-2.25c0-.949.465-1.874 1.956-1.874h1.514V5.006s-1.375-.235-2.686-.235c-2.741 0-4.533 1.662-4.533 4.669v2.633H7.078v3.469h3.047v8.385a12.09 12.09 0 003.75 0v-8.385h2.796z" fill="#FFF"/>
                   </svg>
                 </a>
-                <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit our YouTube channel" className="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white border border-[#E6EFE6] shadow-sm hover:shadow-md hover:-translate-y-1">
+                <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit our YouTube channel" className="w-10 h-10 rounded-full flex items-center justify-center transition-all hover:-translate-y-1">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" className="transition-all hover:scale-110">
                     <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z" fill="#FF0000"/>
                     <path d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="#FFF"/>
@@ -157,10 +157,10 @@ const Footer = () => {
               </div>
 
               {/* ISO Logo Images */}
-              <div className="flex items-center justify-center gap-3 mt-8 w-full max-w-[340px]">
-                <img src="/images/ISO 27001.png" alt="ISO 27001 Certified" className="w-[104px] h-[70px] object-contain mix-blend-multiply drop-shadow-sm hover:scale-105 transition-transform" loading="lazy" />
-                <img src="/images/gdpr logo.jpg" alt="GDPR Compliant" className="w-[88px] h-[64px] object-contain mix-blend-multiply drop-shadow-sm hover:scale-105 transition-transform" loading="lazy" />
-                <img src="/images/ISO_9001-2015.svg.webp" alt="ISO 9001 Certified" className="w-[88px] h-[64px] object-contain mix-blend-multiply drop-shadow-sm hover:scale-105 transition-transform" loading="lazy" />
+              <div className="flex items-center justify-center gap-5 mt-8 w-full max-w-[340px]">
+                <img src="/images/ISO 27001.png" alt="ISO 27001 Certified" className="h-[48px] w-auto object-contain mix-blend-multiply drop-shadow-sm hover:scale-105 transition-transform" loading="lazy" />
+                <img src="/images/gdpr logo.jpg" alt="GDPR Compliant" className="h-[42px] w-auto object-contain mix-blend-multiply drop-shadow-sm hover:scale-105 transition-transform" loading="lazy" />
+                <img src="/images/ISO_9001-2015.svg.webp" alt="ISO 9001 Certified" className="h-[42px] w-auto object-contain mix-blend-multiply drop-shadow-sm hover:scale-105 transition-transform" loading="lazy" />
               </div>
             </div>
 

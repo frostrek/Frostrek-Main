@@ -189,8 +189,10 @@ const HeroSection = () => {
         <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[70vw] h-[50vw] rounded-[100%] bg-gradient-to-r from-purple-50/40 via-red-50/40 to-blue-50/40 blur-[80px] opacity-70" />
       </div>
 
-      {/* Left Icons Column */}
-      <div className="absolute hidden lg:flex flex-col gap-8 left-6 lg:left-10 xl:left-20 2xl:left-40 top-[50%] -translate-y-1/2 z-40">
+      {/* Floating Icons Wrapper matched to Navbar width */}
+      <div className="absolute inset-0 w-[92%] sm:w-[95%] max-w-7xl mx-auto pointer-events-none z-40">
+        {/* Left Icons Column */}
+        <div className="absolute hidden lg:flex flex-col gap-8 left-4 md:left-6 top-[50%] -translate-y-1/2 pointer-events-auto">
         {floatingIcons.filter(item => [1, 3, 5, 7, 8].includes(item.id)).map((item) => {
           const isHovered = hoveredId === item.id;
           return (
@@ -233,8 +235,8 @@ const HeroSection = () => {
         })}
       </div>
 
-      {/* Right Icons Column */}
-      <div className="absolute hidden lg:flex flex-col gap-8 right-6 lg:right-10 xl:right-20 2xl:right-40 top-[50%] -translate-y-1/2 z-40">
+        {/* Right Icons Column */}
+        <div className="absolute hidden lg:flex flex-col gap-8 right-4 md:right-6 top-[50%] -translate-y-1/2 pointer-events-auto">
         {floatingIcons.filter(item => [2, 4, 6, 9, 10, 11].includes(item.id)).map((item) => {
           const isHovered = hoveredId === item.id;
           return (
@@ -275,6 +277,7 @@ const HeroSection = () => {
             </div>
           );
         })}
+        </div>
       </div>
 
       <div className="relative z-10 w-full mt-20 max-w-5xl mx-auto px-4 sm:px-6 text-center flex flex-col items-center flex-1 justify-center ">
@@ -330,6 +333,36 @@ const HeroSection = () => {
               Book a Demo <span className="text-xl font-light">→</span>
             </FlipText>
           </Link>
+        </div>
+
+        {/* Mobile Features Marquee (Hidden on Desktop) */}
+        <div className="w-[100vw] max-w-[100vw] shrink-0 mt-10 sm:mt-12 lg:hidden hero-fade-in overflow-hidden" style={{ animationDelay: '0.4s' }}>
+          <style dangerouslySetInnerHTML={{ __html: `
+            @keyframes mobile-marquee {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+            .animate-mobile-marquee {
+              animation: mobile-marquee 30s linear infinite;
+              will-change: transform;
+            }
+            .animate-mobile-marquee:active {
+              animation-play-state: paused;
+            }
+          `}} />
+          <div className="flex w-max animate-mobile-marquee gap-3 pb-4 pt-2">
+            {[...floatingIcons, ...floatingIcons].map((item, index) => (
+              <div 
+                key={`${item.id}-${index}`} 
+                className="shrink-0 flex items-center gap-3 bg-white/90 backdrop-blur-md border border-[#2D6A4F]/10 p-2 pr-5 rounded-full shadow-[0_8px_20px_rgba(45,106,79,0.06)]"
+              >
+                <div className="w-9 h-9 rounded-full bg-white shadow-sm border border-gray-50 flex items-center justify-center shrink-0">
+                  <img src={item.icon} alt={item.title} className="w-5 h-5 object-contain" loading="lazy" />
+                </div>
+                <span className="text-[12px] font-bold text-[#1f3e30] whitespace-nowrap tracking-wide">{item.title}</span>
+              </div>
+            ))}
+          </div>
         </div>
 
       </div>

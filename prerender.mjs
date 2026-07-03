@@ -248,6 +248,7 @@ async function main() {
 
   const browser = await puppeteer.launch({
     headless: true,
+    channel: 'chrome',
     protocolTimeout: 60000, // Prevent CDP protocol timeouts
     args: [
       '--no-sandbox',

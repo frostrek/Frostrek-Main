@@ -4,7 +4,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { Link } from 'react-router-dom';
-import { CheckCircle, ArrowRight, Mic, MessageSquare, Sparkles, BrainCircuit } from 'lucide-react';
+import { CheckCircle, ArrowRight, Sparkles, BrainCircuit } from 'lucide-react';
 import SplitTextReveal from '../ui/SplitTextReveal';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -94,25 +94,67 @@ const ManufacturingDemo = () => {
     );
 };
 
-// ─── Card 2: Model Training ────────────────────────────────────────────────────
+// ─── Card 2: Fintech Platform ────────────────────────────────────────────────────
+const FintechDemo = () => {
+    const [step, setStep] = useState(0);
+    useEffect(() => { const t = setInterval(() => setStep(v => (v + 1) % 5), 1200); return () => clearInterval(t); }, []);
+    
+    return (
+        <div className="w-full font-body text-xs select-none space-y-3">
+            <div className="bg-[#FFFBEB] border border-[#FEF3C7] rounded-xl px-4 py-3 flex items-center justify-between">
+                <div>
+                    <div className="text-gray-400 text-[10px] uppercase tracking-widest mb-1">Wallet Balance</div>
+                    <div className="text-[#B45309] font-bold text-base">1,450 <span className="text-[10px] text-gray-400 font-semibold">$TOKEN</span></div>
+                </div>
+                <div className="w-9 h-9 rounded-full bg-[#FEF9C3] border border-[#FEF3C7] flex items-center justify-center">
+                    <img src="/icons/fintech-yellow.png" alt="Fintech" className="w-4 h-4 object-contain" />
+                </div>
+            </div>
+            
+            <div className="grid grid-cols-3 gap-2">
+                <div className={`border rounded-xl p-2 flex flex-col items-center justify-center gap-1.5 transition-all duration-300 ${step === 0 ? 'bg-[#FEF9C3] border-[#FEF08A] shadow-sm' : 'bg-white border-gray-100'}`}>
+                    <div className="w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center overflow-hidden"><img src="/icons/real-madrid.png" alt="Real Madrid" className="w-full h-full object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-[8px] font-bold text-blue-800">RM</span>'; }} /></div>
+                    <span className="text-[9px] text-gray-500 whitespace-nowrap">Real Madrid</span>
+                </div>
+                <div className={`border rounded-xl p-2 flex flex-col items-center justify-center gap-1.5 transition-all duration-300 ${step === 1 ? 'bg-[#FEF9C3] border-[#FEF08A] shadow-sm' : 'bg-white border-gray-100'}`}>
+                    <div className="w-6 h-6 rounded-full bg-red-50 flex items-center justify-center overflow-hidden"><img src="/icons/barcelona.png" alt="FC Barcelona" className="w-full h-full object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-[8px] font-bold text-red-800">FCB</span>'; }} /></div>
+                    <span className="text-[9px] text-gray-500 whitespace-nowrap">FC Barcelona</span>
+                </div>
+                <div className={`border rounded-xl p-2 flex flex-col items-center justify-center gap-1.5 transition-all duration-300 ${step === 2 ? 'bg-[#FEF9C3] border-[#FEF08A] shadow-sm' : 'bg-white border-gray-100'}`}>
+                    <div className="w-6 h-6 rounded-full bg-sky-50 flex items-center justify-center overflow-hidden"><img src="/icons/manchester-city.png" alt="Man City" className="w-full h-full object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-[8px] font-bold text-sky-800">MC</span>'; }} /></div>
+                    <span className="text-[9px] text-gray-500 whitespace-nowrap">Man City</span>
+                </div>
+            </div>
+
+            <div className="bg-white border border-gray-100 rounded-xl px-4 py-3 shadow-sm flex flex-col gap-2">
+                <div className="flex items-center gap-2"><div className={`w-3.5 h-3.5 rounded-full flex items-center justify-center transition-all duration-500 flex-shrink-0 ${step >= 1 ? 'bg-[#D97706]' : 'bg-gray-100'}`}>{step >= 1 && <CheckCircle className="w-2.5 h-2.5 text-white" />}</div><span className={`text-[10px] transition-colors duration-300 ${step >= 1 ? 'text-gray-700' : 'text-gray-300'}`}>Wallet provisioned</span></div>
+                <div className="flex items-center gap-2"><div className={`w-3.5 h-3.5 rounded-full flex items-center justify-center transition-all duration-500 flex-shrink-0 ${step >= 2 ? 'bg-[#D97706]' : 'bg-gray-100'}`}>{step >= 2 && <CheckCircle className="w-2.5 h-2.5 text-white" />}</div><span className={`text-[10px] transition-colors duration-300 ${step >= 2 ? 'text-gray-700' : 'text-gray-300'}`}>Cart validated</span></div>
+                <div className="flex items-center gap-2"><div className={`w-3.5 h-3.5 rounded-full flex items-center justify-center transition-all duration-500 flex-shrink-0 ${step >= 3 ? 'bg-[#D97706]' : 'bg-gray-100'}`}>{step >= 3 && <CheckCircle className="w-2.5 h-2.5 text-white" />}</div><span className={`text-[10px] transition-colors duration-300 ${step >= 3 ? 'text-gray-700' : 'text-gray-300'}`}>On-chain settlement</span></div>
+                <div className="flex items-center gap-2"><div className={`w-3.5 h-3.5 rounded-full flex items-center justify-center transition-all duration-500 flex-shrink-0 ${step >= 4 ? 'bg-[#D97706]' : 'bg-gray-100'}`}>{step >= 4 && <CheckCircle className="w-2.5 h-2.5 text-white" />}</div><span className={`text-[10px] transition-colors duration-300 ${step >= 4 ? 'text-gray-700' : 'text-gray-300'}`}>Treasury updated</span></div>
+            </div>
+        </div>
+    );
+};
+
+// ─── Card 3: Model Training (Pink Theme) ────────────────────────────────────────────────────────
 const ModelTrainingDemo = () => {
     const [epoch, setEpoch] = useState(0);
     useEffect(() => { const t = setInterval(() => setEpoch(v => (v + 1) % 5), 1200); return () => clearInterval(t); }, []);
     const loss = (1.5 - epoch * 0.25).toFixed(2);
     return (
         <div className="w-full font-body text-xs select-none space-y-3">
-            <div className="bg-[#FFFBEB] border border-[#FEF3C7] rounded-xl px-4 py-3 flex items-center justify-between">
+            <div className="bg-[#FDF4FA] border border-[#F2BAE4] rounded-xl px-4 py-3 flex items-center justify-between">
                 <div>
                     <div className="text-gray-400 text-[10px] uppercase tracking-widest mb-1">Training Loss</div>
-                    <div className="text-[#B45309] font-bold text-base">{loss} <span className="text-xs text-gray-400">Epoch {epoch}/4</span></div>
+                    <div className="text-[#B84A97] font-bold text-base">{loss} <span className="text-xs text-gray-400">Epoch {epoch}/4</span></div>
                 </div>
-                <div className="w-9 h-9 rounded-full bg-[#FEF3C7] border border-[#FEF3C7] flex items-center justify-center">
-                    <Sparkles className="w-4 h-4 text-[#B45309]" />
+                <div className="w-9 h-9 rounded-full bg-white border border-[#F2BAE4] flex items-center justify-center">
+                    <Sparkles className="w-4 h-4 text-[#D67CBA]" />
                 </div>
             </div>
             <div className="space-y-2">
                 <div className="w-full bg-gray-100 h-1.5 rounded-full overflow-hidden">
-                    <motion.div className="h-full bg-[#B45309]" animate={{ width: `${(epoch / 4) * 100}%` }} transition={{ duration: 0.5 }} />
+                    <motion.div className="h-full bg-[#D67CBA]" animate={{ width: `${(epoch / 4) * 100}%` }} transition={{ duration: 0.5 }} />
                 </div>
                 <div className="flex justify-between text-[9px] text-gray-400 uppercase tracking-widest">
                     <span>Base Model</span>
@@ -120,43 +162,9 @@ const ModelTrainingDemo = () => {
                 </div>
             </div>
             <div className="bg-white border border-gray-100 rounded-xl px-4 py-3 shadow-sm flex flex-col gap-2">
-                <div className="flex items-center gap-2"><div className={`w-3.5 h-3.5 rounded-full flex items-center justify-center transition-all duration-500 flex-shrink-0 ${epoch >= 1 ? 'bg-[#D97706]' : 'bg-gray-100'}`}>{epoch >= 1 && <CheckCircle className="w-2.5 h-2.5 text-white" />}</div><span className={`text-[10px] transition-colors duration-300 ${epoch >= 1 ? 'text-gray-700' : 'text-gray-300'}`}>Dataset Curation</span></div>
-                <div className="flex items-center gap-2"><div className={`w-3.5 h-3.5 rounded-full flex items-center justify-center transition-all duration-500 flex-shrink-0 ${epoch >= 2 ? 'bg-[#D97706]' : 'bg-gray-100'}`}>{epoch >= 2 && <CheckCircle className="w-2.5 h-2.5 text-white" />}</div><span className={`text-[10px] transition-colors duration-300 ${epoch >= 2 ? 'text-gray-700' : 'text-gray-300'}`}>Supervised Fine-Tuning</span></div>
-                <div className="flex items-center gap-2"><div className={`w-3.5 h-3.5 rounded-full flex items-center justify-center transition-all duration-500 flex-shrink-0 ${epoch >= 3 ? 'bg-[#D97706]' : 'bg-gray-100'}`}>{epoch >= 3 && <CheckCircle className="w-2.5 h-2.5 text-white" />}</div><span className={`text-[10px] transition-colors duration-300 ${epoch >= 3 ? 'text-gray-700' : 'text-gray-300'}`}>RLHF Alignment</span></div>
-            </div>
-        </div>
-    );
-};
-
-// ─── Card 3: AI Agents ────────────────────────────────────────────────────────
-const AIAgentDemo = () => {
-    const [msgs, setMsgs] = useState<{ id: number; who: string; text: string }[]>([{ id: 0, who: 'user', text: 'I need to reschedule my appointment.' }]);
-    const [typing, setTyping] = useState(false);
-    const replies = [{ who: 'bot', text: 'Sure! I can handle that for you instantly.' }, { who: 'bot', text: 'What date works best for you?' }, { who: 'user', text: 'Next Tuesday at 2pm please.' }, { who: 'bot', text: '✅ Confirmed! Reminder set for Monday.' }];
-    const idx = useRef(0);
-    useEffect(() => {
-        const loop = () => {
-            if (idx.current >= replies.length) { setTimeout(() => { setMsgs([{ id: 0, who: 'user', text: 'I need to reschedule my appointment.' }]); idx.current = 0; }, 2500); return; }
-            setTyping(true);
-            setTimeout(() => { setTyping(false); const r = replies[idx.current]; setMsgs(prev => [...prev, { id: prev.length, ...r }]); idx.current++; }, 900);
-        };
-        const t = setInterval(loop, 1800);
-        return () => clearInterval(t);
-    }, []);
-    return (
-        <div className="w-full font-body text-xs select-none space-y-2">
-            <div className="flex items-center gap-2 bg-[#FDF4FA] border border-[#F2BAE4] rounded-xl px-3 py-2 mb-3">
-                <div className="w-7 h-7 rounded-full bg-white border border-[#F2BAE4] flex items-center justify-center">
-                    <img src="/icons/machine-learning-lavender-filled.png" alt="AI Agent" className="w-4 h-4 object-contain" loading="lazy" width={512} height={512} />
-                </div>
-                <div><div className="text-gray-800 text-[10px] font-semibold">Frosty AI Agent</div><div className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-[#D67CBA] animate-pulse" /><span className="text-[#D67CBA] text-[9px]">Online</span></div></div>
-                <div className="ml-auto flex gap-1.5"><Mic className="w-3.5 h-3.5 text-[#D67CBA]" /><MessageSquare className="w-3.5 h-3.5 text-[#D67CBA]" /></div>
-            </div>
-            <div className="space-y-2 min-h-[140px]">
-                <AnimatePresence>
-                    {msgs.map(m => (<motion.div key={m.id} initial={{ opacity: 0, y: 8, scale: 0.95 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 0.3 }} className={`flex ${m.who === 'user' ? 'justify-end' : 'justify-start'}`}><div className={`max-w-[80%] px-3 py-2 rounded-2xl text-[11px] leading-snug ${m.who === 'user' ? 'bg-gray-100 text-gray-700 rounded-br-sm' : 'bg-[#FDF4FA] border border-[#F2BAE4] text-gray-800 rounded-bl-sm'}`}>{m.text}</div></motion.div>))}
-                </AnimatePresence>
-                {typing && (<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex justify-start"><div className="bg-[#FDF4FA] border border-[#F2BAE4] rounded-2xl rounded-bl-sm px-3 py-2 flex gap-1 items-center">{[0, 0.15, 0.3].map((d, i) => (<span key={i} className="w-1.5 h-1.5 rounded-full bg-[#D67CBA] animate-bounce" style={{ animationDelay: `${d}s` }} />))}</div></motion.div>)}
+                <div className="flex items-center gap-2"><div className={`w-3.5 h-3.5 rounded-full flex items-center justify-center transition-all duration-500 flex-shrink-0 ${epoch >= 1 ? 'bg-[#D67CBA]' : 'bg-gray-100'}`}>{epoch >= 1 && <CheckCircle className="w-2.5 h-2.5 text-white" />}</div><span className={`text-[10px] transition-colors duration-300 ${epoch >= 1 ? 'text-gray-700' : 'text-gray-300'}`}>Dataset Curation</span></div>
+                <div className="flex items-center gap-2"><div className={`w-3.5 h-3.5 rounded-full flex items-center justify-center transition-all duration-500 flex-shrink-0 ${epoch >= 2 ? 'bg-[#D67CBA]' : 'bg-gray-100'}`}>{epoch >= 2 && <CheckCircle className="w-2.5 h-2.5 text-white" />}</div><span className={`text-[10px] transition-colors duration-300 ${epoch >= 2 ? 'text-gray-700' : 'text-gray-300'}`}>Supervised Fine-Tuning</span></div>
+                <div className="flex items-center gap-2"><div className={`w-3.5 h-3.5 rounded-full flex items-center justify-center transition-all duration-500 flex-shrink-0 ${epoch >= 3 ? 'bg-[#D67CBA]' : 'bg-gray-100'}`}>{epoch >= 3 && <CheckCircle className="w-2.5 h-2.5 text-white" />}</div><span className={`text-[10px] transition-colors duration-300 ${epoch >= 3 ? 'text-gray-700' : 'text-gray-300'}`}>RLHF Alignment</span></div>
             </div>
         </div>
     );
@@ -175,6 +183,16 @@ const CARDS = [
         Demo: ManufacturingDemo
     },
     {
+        icon: "/icons/fintech-yellow.png",
+        label: 'FINTECH PLATFORM',
+        title: 'Fintech & Custom Wallets',
+        desc: 'Secure, compliant, and scalable fintech solutions. Digital wallets, KYC, transactions and beyond.',
+        features: ['Digital wallets & payments', 'KYC & compliance engine', 'Transaction monitoring'],
+        href: '/products/fintech-platform',
+        exploreText: 'Explore Fintech Platform',
+        Demo: FintechDemo
+    },
+    {
         LucideIcon: BrainCircuit,
         label: 'SPECIALIZED AI',
         title: 'LLM Fine-Tuning & Model Training',
@@ -183,16 +201,6 @@ const CARDS = [
         href: '/solutions/llm-model-training',
         exploreText: 'Explore LLM Training',
         Demo: ModelTrainingDemo
-    },
-    {
-        icon: "/icons/machine-learning-lavender-filled.png",
-        label: 'AI AGENTS PLATFORM',
-        title: 'Frostrek AI Agents',
-        desc: 'Autonomous AI agents that handle tasks, answer queries, and drive outcomes across your business.',
-        features: ['Multi-agent orchestration', 'Context-aware automation', 'Human-in-the-loop control'],
-        href: '/products/frosty-ai',
-        exploreText: 'Explore AI Agents',
-        Demo: AIAgentDemo
     },
 ];
 

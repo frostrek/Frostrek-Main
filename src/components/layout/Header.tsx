@@ -74,17 +74,19 @@ const Header = () => {
                     isScrolled || mobileMenuOpen ? "h-14 sm:h-16" : "h-16 sm:h-20"
                 )}>
                     {/* 1. Logo (Left) */}
-                    <Link to="/" className="flex items-center gap-2.5 group min-w-[120px] sm:min-w-[140px] shrink-0">
-                        <img src="/optimized/logonew.webp"
-                            alt="Frostrek AI"
-                            className="h-8 sm:h-9 w-auto object-contain transition-all duration-300 group-hover:scale-110" width={36} height={36} fetchPriority="high" />
-                        <FlipText className="text-xl sm:text-2xl font-black font-sans font-bold text-[#2D6A4F]">
-                            frostrek
-                        </FlipText>
-                    </Link>
+                    <div className="flex-1 flex items-center justify-start">
+                        <Link to="/" className="flex items-center gap-1 group shrink-0">
+                            <img src="/optimized/logonew.webp"
+                                alt="Frostrek AI"
+                                className="h-8 sm:h-9 w-auto object-contain transition-all duration-300 group-hover:scale-110" width={36} height={36} fetchPriority="high" />
+                            <FlipText className="text-xl sm:text-2xl font-black font-sans font-bold text-black">
+                                frostrek
+                            </FlipText>
+                        </Link>
+                    </div>
 
                     {/* 2. Desktop Nav (Center) */}
-                    <nav className="hidden xl:flex items-center justify-center gap-5 flex-1">
+                    <nav className="hidden xl:flex items-center justify-center gap-5 shrink-0">
                         {NAV_ITEMS.map((item) => (
                             <div
                                 key={item.label}
@@ -171,7 +173,7 @@ const Header = () => {
                     </nav>
 
                     {/* 3. CTAs & Mobile Toggle (Right) */}
-                    <div className="flex items-center justify-end gap-2 sm:gap-3 xl:min-w-[160px] shrink-0">
+                    <div className="flex-1 flex items-center justify-end gap-2 sm:gap-3 shrink-0">
                         {/* Desktop CTA */}
                         <Link 
                             to="/schedule-demo" 
