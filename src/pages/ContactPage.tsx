@@ -3,6 +3,7 @@ import { Send, Check, Loader2, ArrowRight, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 import SEO from '../components/seo/SEO';
 import emailjs from '@emailjs/browser';
+import { trackEvent } from '../utils/analytics';
 import FlipText from '../components/ui/FlipText';
 import SplitTextReveal from '../components/ui/SplitTextReveal';
 
@@ -106,6 +107,12 @@ ${formData.projectDetails}
             );
 
             setIsSuccess(true);
+            
+            // Push accurate generate_lead event to GTM
+            trackEvent('generate_lead', { 
+                source: 'contact_page',
+                reach_type: formData.reachType
+            });
             setFormData({
                 firstName: '',
                 lastName: '',

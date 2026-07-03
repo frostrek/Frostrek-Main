@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
-import { MapPin, Clock, Calendar as CalendarIcon, Sparkles, ArrowRight, type LucideIcon } from 'lucide-react';
+import { CalendarIcon, Clock, MapPin, ArrowRight, Sparkles, type LucideIcon } from 'lucide-react';
+import { trackEvent } from '../utils/analytics';
 import SEO from '../components/seo/SEO';
 import SplitTextReveal from '../components/ui/SplitTextReveal';
 
@@ -151,13 +152,21 @@ const ScheduleDemo = () => {
                 parentElement: container,
             });
 
-            // Listen for Calendly ready event
+            // Listen for Calendly events
             const onMessage = (e: MessageEvent) => {
+                const eventName = e.data?.event;
+                
+                // Track Calendly initialization to remove skeleton
                 if (
-                    e.data?.event === 'calendly.page_height' ||
-                    e.data?.event === 'calendly.event_type_viewed'
+                    eventName === 'calendly.page_height' ||
+                    eventName === 'calendly.event_type_viewed'
                 ) {
                     setWidgetReady(true);
+                }
+                
+                // Track successful demo scheduled conversion
+                if (eventName === 'calendly.event_scheduled') {
+                    trackEvent('demo_scheduled', { source: 'calendly_inline' });
                 }
             };
             messageListenerRef.current = onMessage;

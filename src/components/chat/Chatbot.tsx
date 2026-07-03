@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, useDragControls } from 'framer-motion';
+import { trackEvent } from '../../utils/analytics';
 import { X, Send, Mic, Square, Paperclip, Trash2, Minus } from 'lucide-react';
 import {
     buildVoiceFormData,
@@ -112,7 +113,12 @@ const Chatbot: React.FC = () => {
     }, [isOpen]);
 
 
-    const toggleChat = () => setIsOpen(!isOpen);
+    const toggleChat = () => {
+        if (!isOpen) {
+            trackEvent('chat_opened');
+        }
+        setIsOpen(!isOpen);
+    };
 
     const clearChat = () => {
         setMessages([]);

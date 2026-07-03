@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
+import { trackEvent } from '../../utils/analytics';
 import { AnimatePresence, motion } from 'framer-motion';
 import { NAV_ITEMS } from '../../utils/constants';
 import Button from '../ui/Button';
@@ -172,14 +173,22 @@ const Header = () => {
                     {/* 3. CTAs & Mobile Toggle (Right) */}
                     <div className="flex items-center justify-end gap-2 sm:gap-3 xl:min-w-[160px] shrink-0">
                         {/* Desktop CTA */}
-                        <Link to="/schedule-demo" className="hidden xl:block">
+                        <Link 
+                            to="/schedule-demo" 
+                            className="hidden xl:block"
+                            onClick={() => trackEvent('contact_intent', { location: 'header_desktop' })}
+                        >
                             <Button size="sm" className="px-6 py-2.5 text-sm rounded-xl font-medium border-none shadow-sm whitespace-nowrap bg-[#336B55] text-white hover:bg-[#1a2d24] transition-colors">
                                 Book a demo
                             </Button>
                         </Link>
 
                         {/* Mobile Pill CTA */}
-                        <Link to="/schedule-demo" className="flex xl:hidden items-center">
+                        <Link 
+                            to="/schedule-demo" 
+                            className="flex xl:hidden items-center"
+                            onClick={() => trackEvent('contact_intent', { location: 'header_mobile' })}
+                        >
                             <div className="px-3 py-2 sm:px-4 sm:py-2 text-[12px] sm:text-xs font-bold uppercase tracking-wider rounded-xl bg-[#2D6A4F] text-white shadow-sm whitespace-nowrap flex items-center justify-center transition-all active:scale-95">
                                 Book a demo
                             </div>

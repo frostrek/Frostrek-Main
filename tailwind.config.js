@@ -75,7 +75,7 @@ export default {
             fontFamily: {
                 sans: ['Inter', 'system-ui', 'sans-serif'],
                 body: ['Inter', 'system-ui', 'sans-serif'],
-                serif: ['Comorant Garamond', 'serif'],
+                serif: ['Cormorant Garamond', 'serif'],
             },
 
             backgroundImage: {
