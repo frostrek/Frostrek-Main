@@ -178,4 +178,12 @@
   .animate-shimmer {
     animation: shimmer 2s infinite;
   }
+
+  /* FlipText CSS-only hover animation */
+  .flip-text-root:hover .flip-text-top {
+    transform: translateY(-150%);
+  }
+  .flip-text-root:hover .flip-text-bottom {
+    transform: translateY(0);
+  }
 }

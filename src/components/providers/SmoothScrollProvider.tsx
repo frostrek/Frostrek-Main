@@ -6,9 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-interface SmoothScrollProviderProps {
-    children: React.ReactNode;
-}
+
 
 // Create context to share Lenis instance
 const LenisContext = createContext<Lenis | null>(null);
@@ -17,7 +15,7 @@ const LenisContext = createContext<Lenis | null>(null);
  * SmoothScrollProvider with Lenis for premium smooth scrolling.
  * Integrates with GSAP ScrollTrigger for synchronized animations.
  */
-const SmoothScrollProvider = ({ children }: SmoothScrollProviderProps) => {
+const SmoothScrollProvider = () => {
     const lenisRef = useRef<Lenis | null>(null);
     const location = useLocation();
 
@@ -63,11 +61,7 @@ const SmoothScrollProvider = ({ children }: SmoothScrollProviderProps) => {
         }
     }, [location.pathname]);
 
-    return (
-        <LenisContext.Provider value={lenisRef.current}>
-            {children}
-        </LenisContext.Provider>
-    );
+    return null;
 };
 
 export default SmoothScrollProvider;

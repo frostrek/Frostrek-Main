@@ -5,7 +5,8 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { NAV_ITEMS } from '../../utils/constants';
 import Button from '../ui/Button';
 import { cn } from '../../utils/cn';
-import MegaMenu from './MegaMenu';
+import { lazy, Suspense } from 'react';
+const MegaMenu = lazy(() => import('./MegaMenu'));
 import { useTheme } from '../../context/ThemeContext';
 import FlipText from '../ui/FlipText';
 
@@ -73,9 +74,9 @@ const Header = () => {
                 )}>
                     {/* 1. Logo (Left) */}
                     <Link to="/" className="flex items-center gap-2.5 group min-w-[120px] sm:min-w-[140px] shrink-0">
-                        <img src="/logonew.png"
+                        <img src="/optimized/logonew.webp"
                             alt="Frostrek AI"
-                            className="h-8 sm:h-9 w-auto object-contain transition-all duration-300 group-hover:scale-110" width={512} height={512} />
+                            className="h-8 sm:h-9 w-auto object-contain transition-all duration-300 group-hover:scale-110" width={36} height={36} fetchPriority="high" />
                         <FlipText className="text-xl sm:text-2xl font-black font-sans font-bold text-[#2D6A4F]">
                             frostrek
                         </FlipText>
@@ -148,7 +149,7 @@ const Header = () => {
                                                         className={`group flex items-center gap-6 p-3 rounded-[1.25rem] transition-all duration-500 ${subItem.hoverBgClass || 'hover:bg-[#F4FAF7]'} hover:translate-x-1`}
                                                     >
                                                         <div className="p-1 shrink-0 flex items-center justify-center">
-                                                            <img src={subItem.icon} alt={subItem.name} className="w-5 h-5 object-contain" width={512} height={512} />
+                                                            <img src={subItem.icon} alt={subItem.name} className="w-5 h-5 object-contain" width={20} height={20} loading="lazy" />
                                                         </div>
                                                         <div className="min-w-0">
                                                             <h4 className="font-semibold text-[15px] text-gray-900 group-hover:text-[#2D6A4F] transition-colors font-serif">
@@ -328,7 +329,9 @@ const Header = () => {
                                 item.label === 'Products' ? 'w-[1140px]' : 'w-[960px]'
                             )}
                         >
-                            <MegaMenu sections={item.megaMenu} onClose={() => setActiveMegaMenu(null)} />
+                            <Suspense fallback={null}>
+                                <MegaMenu sections={item.megaMenu} onClose={() => setActiveMegaMenu(null)} />
+                            </Suspense>
                         </div>
                     );
                 })}

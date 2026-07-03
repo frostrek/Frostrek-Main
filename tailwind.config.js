@@ -73,9 +73,9 @@ export default {
                 'brand-light-green': '#EBF2F0',
             },
             fontFamily: {
-                sans: ['Raleway', 'system-ui', 'sans-serif'],
-                body: ['Quicksand', 'system-ui', 'sans-serif'],
-                serif: ['Playfair Display', 'serif'],
+                sans: ['Inter', 'system-ui', 'sans-serif'],
+                body: ['Inter', 'system-ui', 'sans-serif'],
+                serif: ['Comorant Garamond', 'serif'],
             },
 
             backgroundImage: {

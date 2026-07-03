@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy } from 'react';
 import HeroSection from '../components/home/HeroSection';
 const OurProductsSection = lazy(() => import('../components/home/OurProductsSection'));
 const AISolutionsShowcase = lazy(() => import('../components/home/AISolutionsShowcase'));
@@ -151,6 +151,8 @@ const faqSchema = JSON.stringify({
   ]
 });
 
+import LazySection from '../components/ui/LazySection';
+
 const Home = () => {
   return (
     <div className="min-h-screen relative bg-brand-light-bg">
@@ -162,19 +164,31 @@ const Home = () => {
         schema={[organizationSchema, websiteSchema, localBusinessSchema, personSchema, faqSchema]}
       />
       <HeroSection />
-      <Suspense fallback={null}>
-        {/* Our Products Section */}
+      
+      {/* Our Products Section */}
+      <LazySection>
         <OurProductsSection />
-        {/* 2. Our two flagship AI solutions */}
+      </LazySection>
+      
+      {/* 2. Our two flagship AI solutions */}
+      <LazySection>
         <AISolutionsShowcase />
-        {/* 3. What We Do & How We Transform */}
+      </LazySection>
+      
+      {/* 3. What We Do & How We Transform */}
+      <LazySection>
         <WhatWeDoSection />
-        {/* 4. AI-Driven Outcomes We Deliver */}
+      </LazySection>
+      
+      {/* 4. AI-Driven Outcomes We Deliver */}
+      <LazySection>
         <ImpactComparison />
+      </LazySection>
 
-        {/* 6. Why Choose Frostrek */}
+      {/* 6. Why Choose Frostrek */}
+      <LazySection>
         <FeaturesSection />
-      </Suspense>
+      </LazySection>
     </div>
   );
 };

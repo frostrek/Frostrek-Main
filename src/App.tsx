@@ -1,7 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Loader2 } from 'lucide-react';
-import Header from './components/layout/Header';
+const Header = lazy(() => import('./components/layout/Header'));
 const Footer = lazy(() => import('./components/layout/Footer'));
 const SmoothScrollProvider = lazy(() => import('./components/providers/SmoothScrollProvider'));
 import { ThemeProvider } from './context/ThemeContext';
@@ -53,9 +53,13 @@ function App() {
   return (
     <Router>
       <ThemeProvider>
-        <SmoothScrollProvider>
-          <div className="min-h-screen text-primary flex flex-col font-body">
-            <Header />
+        <div className="min-h-screen text-primary flex flex-col font-body">
+          <Suspense fallback={null}>
+            <SmoothScrollProvider />
+          </Suspense>
+            <Suspense fallback={null}>
+              <Header />
+            </Suspense>
             <main className="flex-grow">
               <Suspense fallback={<PageLoader />}>
                 <ScrollToTop />
@@ -93,7 +97,6 @@ function App() {
               <Chatbot />
             </Suspense>
           </div>
-        </SmoothScrollProvider>
       </ThemeProvider>
     </Router>
   );

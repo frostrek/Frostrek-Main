@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import FlipText from '../ui/FlipText';
@@ -198,43 +197,37 @@ const HeroSection = () => {
             <div key={item.id} className="relative flex items-center gap-4 group cursor-pointer"
               onMouseEnter={() => setHoveredId(item.id)}
               onMouseLeave={() => setHoveredId(null)}>
-              <motion.div
+              <div
                 className={`relative flex items-center justify-center rounded-2xl shadow-md w-10 h-10 lg:w-12 lg:h-12 border border-gray-100 bg-white backdrop-blur-sm transition-all duration-300 ${isHovered ? 'shadow-lg scale-105' : ''}`}
               >
-                <img src={item.icon} alt={item.title} className="w-5 h-5 lg:w-6 lg:h-6 relative z-10 object-contain" width={512} height={512} />
-              </motion.div>
+                <img src={item.icon} alt={item.title} className="w-5 h-5 lg:w-6 lg:h-6 relative z-10 object-contain" width={24} height={24} loading="lazy" />
+              </div>
               <span className="text-xs font-semibold text-gray-500 max-w-[130px] leading-snug">
                 {item.title}
               </span>
 
-              {/* Premium Solution Tooltip */}
-              <AnimatePresence>
-                {isHovered && (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.9, x: -10 }}
-                    animate={{ opacity: 1, scale: 1, x: 0 }}
-                    exit={{ opacity: 0, scale: 0.9, x: -10 }}
-                    transition={{ duration: 0.25, ease: "easeOut" }}
-                    className="absolute left-full ml-4 p-5 w-80 rounded-2xl bg-white border border-[#2D6A4F]/15 shadow-[0_20px_50px_rgba(45,106,79,0.15)] backdrop-blur-md pointer-events-auto text-left z-[100] top-1/2 -translate-y-1/2"
-                  >
-                    <div className="flex items-center justify-between mb-2.5">
-                      <span className="text-[10px] uppercase font-bold tracking-wide text-[#2D6A4F] px-2 py-0.5 rounded bg-[#E8F5EE] border border-[#2D6A4F]/10">
-                        {item.badge}
-                      </span>
-                      <Link to={item.link} aria-label={`Explore ${item.title}`} className="text-gray-400 hover:text-[#2D6A4F] transition-colors">
-                        <ArrowUpRight size={16} />
-                      </Link>
-                    </div>
-                    <h3 className="font-serif font-black text-slate-900 text-[14px] leading-tight mb-0.5">{item.title}</h3>
-                    <p className="text-[11px] font-bold text-[#2D6A4F] mb-2">{item.tagline}</p>
-                    <p className="text-[11px] text-slate-500 leading-relaxed font-semibold mb-3">{item.desc}</p>
-                    <Link to={item.link} className="inline-flex items-center gap-1 text-[11px] font-bold text-[#2D6A4F] hover:underline">
-                      Explore Solution
-                      <ArrowUpRight size={12} />
+              {/* Premium Solution Tooltip — CSS transition */}
+              {isHovered && (
+                <div
+                  className="absolute left-full ml-4 p-5 w-80 rounded-2xl bg-white border border-[#2D6A4F]/15 shadow-[0_20px_50px_rgba(45,106,79,0.15)] backdrop-blur-md pointer-events-auto text-left z-[100] top-1/2 -translate-y-1/2 animate-fade-in"
+                >
+                  <div className="flex items-center justify-between mb-2.5">
+                    <span className="text-[10px] uppercase font-bold tracking-wide text-[#2D6A4F] px-2 py-0.5 rounded bg-[#E8F5EE] border border-[#2D6A4F]/10">
+                      {item.badge}
+                    </span>
+                    <Link to={item.link} aria-label={`Explore ${item.title}`} className="text-gray-400 hover:text-[#2D6A4F] transition-colors">
+                      <ArrowUpRight size={16} />
                     </Link>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                  </div>
+                  <h3 className="font-serif font-black text-slate-900 text-[14px] leading-tight mb-0.5">{item.title}</h3>
+                  <p className="text-[11px] font-bold text-[#2D6A4F] mb-2">{item.tagline}</p>
+                  <p className="text-[11px] text-slate-500 leading-relaxed font-semibold mb-3">{item.desc}</p>
+                  <Link to={item.link} className="inline-flex items-center gap-1 text-[11px] font-bold text-[#2D6A4F] hover:underline">
+                    Explore Solution
+                    <ArrowUpRight size={12} />
+                  </Link>
+                </div>
+              )}
             </div>
           );
         })}
@@ -248,43 +241,37 @@ const HeroSection = () => {
             <div key={item.id} className="relative flex items-center flex-row-reverse gap-4 group cursor-pointer"
               onMouseEnter={() => setHoveredId(item.id)}
               onMouseLeave={() => setHoveredId(null)}>
-              <motion.div
+              <div
                 className={`relative flex items-center justify-center rounded-2xl shadow-md w-10 h-10 lg:w-12 lg:h-12 border border-gray-100 bg-white backdrop-blur-sm transition-all duration-300 ${isHovered ? 'shadow-lg scale-105' : ''}`}
               >
-                <img src={item.icon} alt={item.title} className="w-5 h-5 lg:w-6 lg:h-6 relative z-10 object-contain" width={512} height={512} />
-              </motion.div>
+                <img src={item.icon} alt={item.title} className="w-5 h-5 lg:w-6 lg:h-6 relative z-10 object-contain" width={24} height={24} loading="lazy" />
+              </div>
               <span className="text-xs font-semibold text-gray-500 max-w-[130px] leading-snug text-right">
                 {item.title}
               </span>
 
-              {/* Premium Solution Tooltip */}
-              <AnimatePresence>
-                {isHovered && (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.9, x: 10 }}
-                    animate={{ opacity: 1, scale: 1, x: 0 }}
-                    exit={{ opacity: 0, scale: 0.9, x: 10 }}
-                    transition={{ duration: 0.25, ease: "easeOut" }}
-                    className="absolute right-full mr-4 p-5 w-80 rounded-2xl bg-white border border-[#2D6A4F]/15 shadow-[0_20px_50px_rgba(45,106,79,0.15)] backdrop-blur-md pointer-events-auto text-left z-[100] top-1/2 -translate-y-1/2"
-                  >
-                    <div className="flex items-center justify-between mb-2.5">
-                      <span className="text-[10px] uppercase font-bold tracking-wide text-[#2D6A4F] px-2 py-0.5 rounded bg-[#E8F5EE] border border-[#2D6A4F]/10">
-                        {item.badge}
-                      </span>
-                      <Link to={item.link} aria-label={`Explore ${item.title}`} className="text-gray-400 hover:text-[#2D6A4F] transition-colors">
-                        <ArrowUpRight size={16} />
-                      </Link>
-                    </div>
-                    <h3 className="font-serif font-black text-slate-900 text-[14px] leading-tight mb-0.5">{item.title}</h3>
-                    <p className="text-[11px] font-bold text-[#2D6A4F] mb-2">{item.tagline}</p>
-                    <p className="text-[11px] text-slate-500 leading-relaxed font-semibold mb-3">{item.desc}</p>
-                    <Link to={item.link} className="inline-flex items-center gap-1 text-[11px] font-bold text-[#2D6A4F] hover:underline">
-                      Explore Solution
-                      <ArrowUpRight size={12} />
+              {/* Premium Solution Tooltip — CSS transition */}
+              {isHovered && (
+                <div
+                  className="absolute right-full mr-4 p-5 w-80 rounded-2xl bg-white border border-[#2D6A4F]/15 shadow-[0_20px_50px_rgba(45,106,79,0.15)] backdrop-blur-md pointer-events-auto text-left z-[100] top-1/2 -translate-y-1/2 animate-fade-in"
+                >
+                  <div className="flex items-center justify-between mb-2.5">
+                    <span className="text-[10px] uppercase font-bold tracking-wide text-[#2D6A4F] px-2 py-0.5 rounded bg-[#E8F5EE] border border-[#2D6A4F]/10">
+                      {item.badge}
+                    </span>
+                    <Link to={item.link} aria-label={`Explore ${item.title}`} className="text-gray-400 hover:text-[#2D6A4F] transition-colors">
+                      <ArrowUpRight size={16} />
                     </Link>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                  </div>
+                  <h3 className="font-serif font-black text-slate-900 text-[14px] leading-tight mb-0.5">{item.title}</h3>
+                  <p className="text-[11px] font-bold text-[#2D6A4F] mb-2">{item.tagline}</p>
+                  <p className="text-[11px] text-slate-500 leading-relaxed font-semibold mb-3">{item.desc}</p>
+                  <Link to={item.link} className="inline-flex items-center gap-1 text-[11px] font-bold text-[#2D6A4F] hover:underline">
+                    Explore Solution
+                    <ArrowUpRight size={12} />
+                  </Link>
+                </div>
+              )}
             </div>
           );
         })}
@@ -331,11 +318,9 @@ const HeroSection = () => {
         </p>
 
         {/* Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.7 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto"
+        <div
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto hero-fade-in"
+          style={{ animationDelay: '0.3s' }}
         >
           <Link
             to="/schedule-demo"
@@ -345,16 +330,14 @@ const HeroSection = () => {
               Book a Demo <span className="text-xl font-light">→</span>
             </FlipText>
           </Link>
-        </motion.div>
+        </div>
 
       </div>
 
       {/* Trusted By Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 2.0 }}
-        className="mt-auto pt-4 md:pt-6 w-[95vw] md:w-[90vw] mx-auto z-10 relative flex flex-col items-center"
+      <div
+        className="mt-auto pt-4 md:pt-6 w-[95vw] md:w-[90vw] mx-auto z-10 relative flex flex-col items-center hero-fade-in"
+        style={{ animationDelay: '0.4s' }}
       >
         <div className="w-[100%] xl:w-[100%] max-w-[1100px] bg-[#FAFCFF] rounded-2xl md:rounded-2xl py-3 md:py-4 px-4 md:px-8 lg:px-12 shadow-sm border border-[#D6E9FF] flex flex-col items-center">
 
@@ -369,18 +352,18 @@ const HeroSection = () => {
 
           {/* Logos Row */}
           <div className="w-full flex flex-wrap md:flex-nowrap items-center justify-center md:justify-between gap-4 md:gap-4">
-            <img src="/vedashi-logo.png" alt="Vedashi" className="h-6 md:h-8 object-contain" width={512} height={512} />
+            <img src="/optimized/vedashi-logo.webp" alt="Vedashi" className="h-6 md:h-8 object-contain" width={160} height={32} loading="lazy" />
             <div className="hidden md:block w-[1px] h-6 bg-gray-200"></div>
-            <img src="/clutch.png" alt="Clutch" className="h-5 md:h-7 object-contain" width={512} height={512} />
+            <img src="/optimized/clutch.webp" alt="Clutch" className="h-5 md:h-7 object-contain" width={120} height={28} loading="lazy" />
             <div className="hidden md:block w-[1px] h-6 bg-gray-200"></div>
-            <img src="/optimized/topDevelopers.webp" alt="TopDevelopers" className="h-5 md:h-7 object-contain" width={512} height={512} />
+            <img src="/optimized/topDevelopers.webp" alt="TopDevelopers" className="h-5 md:h-7 object-contain" width={120} height={28} loading="lazy" />
             <div className="hidden md:block w-[1px] h-6 bg-gray-200"></div>
-            <img src="/goodfirms.png" alt="GoodFirms" className="h-5 md:h-7 object-contain" width={512} height={512} />
+            <img src="/optimized/goodfirms.webp" alt="GoodFirms" className="h-5 md:h-7 object-contain" width={120} height={28} loading="lazy" />
             <div className="hidden md:block w-[1px] h-6 bg-gray-200"></div>
-            <img src="/optimized/iso.webp" alt="ISO 9001" className="h-7 md:h-10 object-contain" width={512} height={512} />
+            <img src="/optimized/iso.webp" alt="ISO 9001" className="h-7 md:h-10 object-contain" width={80} height={40} loading="lazy" />
           </div>
         </div>
-      </motion.div>
+      </div>
 
       <div className="absolute bottom-0 w-full h-[12vh] bg-gradient-to-t from-orange-600/90 via-red-500/50 to-transparent blur-3xl pointer-events-none -z-10" />
     </section>
