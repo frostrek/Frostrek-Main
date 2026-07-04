@@ -178,9 +178,7 @@ const SpotlightCard = ({ product, index }: { product: any, index: number }) => {
                                 <div className="mt-3.5 md:mt-5 space-y-1.5">
                                     {product.features.map((feature: string, idx: number) => (
                                         <div key={idx} className="flex items-center gap-2">
-                                            <div className={`flex-shrink-0 w-4 h-4 rounded-full ${product.featureBgColor || 'bg-[#E6EFE6]'} flex items-center justify-center`}>
-                                                <CheckCircle2 className={`w-3 h-3 ${product.featureIconColor || 'text-[#2D6A4F]'}`} />
-                                            </div>
+                                            <CheckCircle2 className={`w-4 h-4 rounded-full p-0.5 flex-shrink-0 ${product.featureBgColor || 'bg-[#E6EFE6]'} ${product.featureIconColor || 'text-[#2D6A4F]'}`} />
                                             <span className="text-[12px] md:text-[13px] text-gray-600">{feature}</span>
                                         </div>
                                     ))}
@@ -205,7 +203,9 @@ const SpotlightCard = ({ product, index }: { product: any, index: number }) => {
                             }`}>
                             <div className={`absolute inset-0 p-4 md:p-6 h-full w-full`}>
                                 <img src={product.image}
-                                    alt=""
+                                    srcSet={`${product.image} 800w, ${product.image} 400w`}
+                                    sizes="(max-width: 768px) 400px, 800px"
+                                    alt={product.title}
                                     className="w-full h-full object-cover rounded-2xl shadow-lg transition-transform duration-700 group-hover:scale-105 relative z-10" loading="lazy" width={512} height={512} />
                             </div>
                         </div>

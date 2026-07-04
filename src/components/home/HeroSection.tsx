@@ -199,11 +199,7 @@ const HeroSection = () => {
             <div key={item.id} className="relative flex items-center gap-4 group cursor-pointer"
               onMouseEnter={() => setHoveredId(item.id)}
               onMouseLeave={() => setHoveredId(null)}>
-              <div
-                className={`relative flex items-center justify-center rounded-2xl shadow-md w-10 h-10 lg:w-12 lg:h-12 border border-gray-100 bg-white backdrop-blur-sm transition-all duration-300 ${isHovered ? 'shadow-lg scale-105' : ''}`}
-              >
-                <img src={item.icon} alt={item.title} className="w-5 h-5 lg:w-6 lg:h-6 relative z-10 object-contain" width={24} height={24} loading="lazy" />
-              </div>
+                <img src={item.icon} alt={item.title} className={`w-10 h-10 lg:w-12 lg:h-12 p-2.5 rounded-2xl shadow-md border border-gray-100 bg-white backdrop-blur-sm object-contain transition-all duration-300 relative z-10 shrink-0 ${isHovered ? 'shadow-lg scale-105' : ''}`} width={48} height={48} loading="lazy" />
               <span className="text-xs font-semibold text-gray-500 max-w-[130px] leading-snug">
                 {item.title}
               </span>
@@ -243,11 +239,7 @@ const HeroSection = () => {
             <div key={item.id} className="relative flex items-center flex-row-reverse gap-4 group cursor-pointer"
               onMouseEnter={() => setHoveredId(item.id)}
               onMouseLeave={() => setHoveredId(null)}>
-              <div
-                className={`relative flex items-center justify-center rounded-2xl shadow-md w-10 h-10 lg:w-12 lg:h-12 border border-gray-100 bg-white backdrop-blur-sm transition-all duration-300 ${isHovered ? 'shadow-lg scale-105' : ''}`}
-              >
-                <img src={item.icon} alt={item.title} className="w-5 h-5 lg:w-6 lg:h-6 relative z-10 object-contain" width={24} height={24} loading="lazy" />
-              </div>
+                <img src={item.icon} alt={item.title} className={`w-10 h-10 lg:w-12 lg:h-12 p-2.5 rounded-2xl shadow-md border border-gray-100 bg-white backdrop-blur-sm object-contain transition-all duration-300 relative z-10 shrink-0 ${isHovered ? 'shadow-lg scale-105' : ''}`} width={48} height={48} loading="lazy" />
               <span className="text-xs font-semibold text-gray-500 max-w-[130px] leading-snug text-right">
                 {item.title}
               </span>
@@ -356,9 +348,7 @@ const HeroSection = () => {
                 key={`${item.id}-${index}`} 
                 className="shrink-0 flex items-center gap-3 bg-white/90 backdrop-blur-md border border-[#2D6A4F]/10 p-2 pr-5 rounded-full shadow-[0_8px_20px_rgba(45,106,79,0.06)]"
               >
-                <div className="w-9 h-9 rounded-full bg-white shadow-sm border border-gray-50 flex items-center justify-center shrink-0">
-                  <img src={item.icon} alt={item.title} className="w-5 h-5 object-contain" loading="lazy" />
-                </div>
+                  <img src={item.icon} alt={item.title} className="w-9 h-9 p-2 rounded-full bg-white shadow-sm border border-gray-50 object-contain shrink-0" loading="lazy" />
                 <span className="text-[12px] font-bold text-[#1f3e30] whitespace-nowrap tracking-wide">{item.title}</span>
               </div>
             ))}
@@ -369,10 +359,9 @@ const HeroSection = () => {
 
       {/* Trusted By Section */}
       <div
-        className="mt-auto pt-4 md:pt-6 w-[95vw] md:w-[90vw] mx-auto z-10 relative flex flex-col items-center hero-fade-in"
+        className="mt-auto pt-4 md:pt-6 w-[95vw] md:w-[90vw] max-w-[1100px] mx-auto z-10 relative flex flex-col items-center hero-fade-in bg-[#FAFCFF] rounded-2xl md:rounded-2xl py-3 md:py-4 px-4 md:px-8 lg:px-12 shadow-sm border border-[#D6E9FF]"
         style={{ animationDelay: '0.4s' }}
       >
-        <div className="w-[100%] xl:w-[100%] max-w-[1100px] bg-[#FAFCFF] rounded-2xl md:rounded-2xl py-3 md:py-4 px-4 md:px-8 lg:px-12 shadow-sm border border-[#D6E9FF] flex flex-col items-center">
 
           {/* Header Row */}
           <div className="flex items-center justify-center w-full mb-2 md:mb-3 gap-3 md:gap-6">
@@ -385,17 +374,16 @@ const HeroSection = () => {
 
           {/* Logos Row */}
           <div className="w-full flex flex-wrap md:flex-nowrap items-center justify-center md:justify-between gap-4 md:gap-4">
-            <img src="/optimized/vedashi-logo.webp" alt="Vedashi" className="h-6 md:h-8 object-contain" width={160} height={32} loading="lazy" />
+            <img src="/optimized/vedashi-logo.webp" alt="Vedashi" className="h-6 md:h-8 w-auto object-contain" width={160} height={32} loading="lazy" />
             <div className="hidden md:block w-[1px] h-6 bg-gray-200"></div>
-            <img src="/optimized/clutch.webp" alt="Clutch" className="h-5 md:h-7 object-contain" width={120} height={28} loading="lazy" />
+            <img src="/optimized/clutch.webp" alt="Clutch" className="h-5 md:h-7 w-auto object-contain" width={120} height={28} loading="lazy" />
             <div className="hidden md:block w-[1px] h-6 bg-gray-200"></div>
-            <img src="/optimized/topDevelopers.webp" alt="TopDevelopers" className="h-5 md:h-7 object-contain" width={120} height={28} loading="lazy" />
+            <img src="/optimized/topDevelopers.webp" alt="TopDevelopers" className="h-5 md:h-7 w-auto object-contain" width={120} height={28} loading="lazy" />
             <div className="hidden md:block w-[1px] h-6 bg-gray-200"></div>
-            <img src="/optimized/goodfirms.webp" alt="GoodFirms" className="h-5 md:h-7 object-contain" width={120} height={28} loading="lazy" />
+            <img src="/optimized/goodfirms.webp" alt="GoodFirms" className="h-5 md:h-7 w-auto object-contain" width={120} height={28} loading="lazy" />
             <div className="hidden md:block w-[1px] h-6 bg-gray-200"></div>
-            <img src="/optimized/iso.webp" alt="ISO 9001" className="h-7 md:h-10 object-contain" width={80} height={40} loading="lazy" />
+            <img src="/optimized/iso.webp" alt="ISO 9001" className="h-7 md:h-10 w-auto object-contain" width={80} height={40} loading="lazy" />
           </div>
-        </div>
       </div>
 
       <div className="absolute bottom-0 w-full h-[12vh] bg-gradient-to-t from-orange-600/90 via-red-500/50 to-transparent blur-3xl pointer-events-none -z-10" />
