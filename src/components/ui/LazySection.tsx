@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, Suspense } from 'react';
 import type { ReactNode } from 'react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 interface LazySectionProps {
   children: ReactNode;
@@ -24,6 +25,12 @@ export default function LazySection({
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
+          
+          // Force GSAP to recalculate all scroll triggers after the DOM has had a chance to render the new section
+          setTimeout(() => {
+            ScrollTrigger.refresh();
+          }, 150);
+          
           if (ref.current) observer.unobserve(ref.current);
         }
       },
