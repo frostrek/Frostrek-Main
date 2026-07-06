@@ -107,13 +107,13 @@ const FintechDemo = () => {
                     <div className="text-[#B45309] font-bold text-base">1,450 <span className="text-[10px] text-gray-400 font-semibold">$TOKEN</span></div>
                 </div>
                 <div className="w-9 h-9 rounded-full bg-[#FEF9C3] border border-[#FEF3C7] flex items-center justify-center">
-                    <img src="/icons/fintech-yellow.png" alt="Fintech" className="w-4 h-4 object-contain" />
+                    <img src="/icons/fintech-yellow.webp" alt="Fintech" className="w-4 h-4 object-contain" />
                 </div>
             </div>
             
             <div className="grid grid-cols-3 gap-2">
                 <div className={`border rounded-xl p-2 flex flex-col items-center justify-center gap-1.5 transition-all duration-300 ${step === 0 ? 'bg-[#FEF9C3] border-[#FEF08A] shadow-sm' : 'bg-white border-gray-100'}`}>
-                    <div className="w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center overflow-hidden"><img src="/icons/real-madrid.png" alt="Real Madrid" className="w-full h-full object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-[8px] font-bold text-blue-800">RM</span>'; }} /></div>
+                    <div className="w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center overflow-hidden"><img src="/icons/real-madrid.webp" alt="Real Madrid" className="w-full h-full object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-[8px] font-bold text-blue-800">RM</span>'; }} /></div>
                     <span className="text-[9px] text-gray-500 whitespace-nowrap">Real Madrid</span>
                 </div>
                 <div className={`border rounded-xl p-2 flex flex-col items-center justify-center gap-1.5 transition-all duration-300 ${step === 1 ? 'bg-[#FEF9C3] border-[#FEF08A] shadow-sm' : 'bg-white border-gray-100'}`}>
@@ -173,7 +173,7 @@ const ModelTrainingDemo = () => {
 // ─── Cards data ───────────────────────────────────────────────────────────────
 const CARDS = [
     {
-        icon: "/icons/manufacturing-green.png",
+        icon: "/icons/manufacturing-green.webp",
         label: 'MANUFACTURING OS',
         title: 'Frostrek Manufacturing OS',
         desc: 'A unified operating system for smart factories. Real-time visibility, predictive insights, and seamless automation across your shop floor.',
@@ -183,7 +183,7 @@ const CARDS = [
         Demo: ManufacturingDemo
     },
     {
-        icon: "/icons/fintech-yellow.png",
+        icon: "/icons/fintech-yellow.webp",
         label: 'FINTECH PLATFORM',
         title: 'Fintech & Custom Wallets',
         desc: 'Secure, compliant, and scalable fintech solutions. Digital wallets, KYC, transactions and beyond.',

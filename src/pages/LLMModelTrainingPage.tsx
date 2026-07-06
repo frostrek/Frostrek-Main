@@ -19,7 +19,7 @@ const WHAT_WE_BUILD = [
         title: 'Supervised Fine-Tuning (SFT)',
         description:
             'Hit your accuracy targets within your compute budget by instruction-tuning base models on proprietary data via LoRA, QLoRA, or full fine-tuning.',
-        icon: '/icons/machine-learning-green.png',
+        icon: '/icons/machine-learning-green.webp',
         bgColor: 'bg-[#F0FDF4]',
         border: 'border-[#BBF7D0]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(34,197,94,0.07)]',
@@ -31,7 +31,7 @@ const WHAT_WE_BUILD = [
         title: 'RLHF & Preference Alignment',
         description:
             'Lock in your exact business rules, tone, and safety requirements—not just generic helpfulness—through custom reward modeling, RLHF, and DPO pipelines.',
-        icon: '/icons/ai-green.png',
+        icon: '/icons/ai-green.webp',
         bgColor: 'bg-[#F0F9FF]',
         border: 'border-[#BAE6FD]',
         hoverShadow: 'hover:shadow-[0_15px_40px_rgba(14,165,233,0.07)]',
@@ -556,7 +556,7 @@ const LLMModelTrainingPage = () => {
                         <div className="bg-[#F0FDF4] border border-[#BBF7D0] rounded-[1.25rem] md:rounded-[2rem] p-4 md:p-10">
                             <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-8">
                                 <div className="w-9 h-9 md:w-12 md:h-12 rounded-lg md:rounded-2xl bg-[#166534]/10 border border-[#BBF7D0] flex items-center justify-center">
-                                    <img src="/icons/machine-learning-green.png" alt="Training" className="w-4 h-4 md:w-6 md:h-6 object-contain" loading="lazy" width={512} height={512} />
+                                    <img src="/icons/machine-learning-green.webp" alt="Training" className="w-4 h-4 md:w-6 md:h-6 object-contain" loading="lazy" width={512} height={512} />
                                 </div>
                                 <h3 className="font-serif text-[15px] md:text-xl font-bold text-[#166534]">Training & Alignment</h3>
                             </div>

@@ -38,7 +38,7 @@ const SOLUTIONS: Solution[] = [
         title: 'Manufacturing Intelligence',
         tagline: 'Your factory. Finally, one screen.',
         description: 'Connect every system on your production floor - ERP, WMS, PLCs, SCADA - into a single real-time intelligence platform. Built in 8 weeks. No new hardware. No million-dollar MES licence.',
-        icon: "/icons/manufacturing-lavender.png",
+        icon: "/icons/manufacturing-lavender.webp",
         demo: { type: 'manufacturing' },
         features: [
             'Disconnected systems: Unify ERP, WMS, and machine control',
@@ -100,7 +100,7 @@ const SOLUTIONS: Solution[] = [
         title: 'Voice AI',
         tagline: 'Natural Voice Interactions',
         description: 'Low-latency voice bots that sound natural and respond instantly. Perfect for customer support calls, appointment scheduling, and interactive voice responses.',
-        icon: "/icons/Voice-ai-green.png",
+        icon: "/icons/Voice-ai-green.webp",
         demo: { type: 'voice' },
         features: [
             'Sub-200ms response latency',
@@ -120,7 +120,7 @@ const SOLUTIONS: Solution[] = [
         title: 'Multivendor Dashboard',
         tagline: 'Track revenue, products & trends in one place.',
         description: 'Consolidate multiple storefronts and marketplaces-Amazon, Shopify, WooCommerce, eBay-into a single automated AI command center. Track total e-commerce revenue, analyze product metrics, and forecast global market trends in real-time.',
-        icon: "/icons/multivendor-blue.png",
+        icon: "/icons/multivendor-blue.webp",
         demo: { type: 'multivendor' },
         features: [
             'Unified monitoring for Amazon, Shopify, WooCommerce, & eBay',
