@@ -80,6 +80,9 @@ export default function SEO({
       <meta property="og:description" content={description} />
       <meta property="og:site_name" content={name} />
       <meta property="og:image" content={image} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:locale" content="en_US" />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -93,6 +96,34 @@ export default function SEO({
       {customSchemas.map((s, i) => (
         <script key={i} type="application/ld+json">{s}</script>
       ))}
+
+      {/* Organization Schema for Siri & Spotlight */}
+      {path === '/' && (
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Frostrek AI",
+          "url": "https://www.frostrek.ai",
+          "logo": "https://www.frostrek.ai/logo.png",
+          "description": "Frostrek AI delivers AI agents, LLM training, customized applications, workflow automation, and data annotation services for enterprises and frontier AI teams.",
+          "foundingDate": "2023",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Gurugram",
+            "addressRegion": "Haryana",
+            "addressCountry": "IN"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "sales",
+            "url": "https://www.frostrek.ai/schedule-demo"
+          },
+          "sameAs": [
+            "https://www.linkedin.com/company/frostrek",
+            "https://www.instagram.com/frostrek.ai"
+          ]
+        })}</script>
+      )}
     </Helmet>
   );
 }
