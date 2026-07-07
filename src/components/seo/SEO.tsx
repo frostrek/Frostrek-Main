@@ -119,6 +119,7 @@ export default function SEO({
             "url": "https://www.frostrek.ai/schedule-demo"
           },
           "sameAs": [
+            "https://www.wikidata.org/wiki/Q140454089",
             "https://www.linkedin.com/company/frostrek",
             "https://www.instagram.com/frostrek.ai"
           ]
