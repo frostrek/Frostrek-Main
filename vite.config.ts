@@ -8,9 +8,10 @@ const routes = [
   '/schedule-demo',
   '/contact',
   '/experience',
-  '/faq',
-  '/blog',
-  '/resources',
+  '/careers',
+  '/resources/faq',
+  '/resources/blog',
+  '/resources/case-studies',
   // Products
   '/products/hiyring',
   '/products/vedashi-ecommerce',

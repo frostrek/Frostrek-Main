@@ -15,6 +15,9 @@ RewriteCond %{HTTP_HOST} ^frostrek\.ai [NC]
 RewriteRule ^(.*)$ https://www.frostrek.ai/$1 [L,R=301]
 
 # ── 3. SPA Routing & Prerender serving ────────────────────────────
+# Prevent Apache from automatically appending a trailing slash to directories
+DirectorySlash Off
+
 RewriteBase /
 RewriteRule ^index\.html$ - [L]
 
