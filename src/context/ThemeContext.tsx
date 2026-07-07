@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, type ReactNode } from 'react';
 
-type Theme = 'dark';
+type Theme = 'light' | 'dark';
 
 interface ThemeContextType {
     theme: Theme;
@@ -22,17 +22,17 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
-    const theme: Theme = 'dark';
+    const theme: Theme = 'light';
 
     useEffect(() => {
-        // Ensure the dark class is always present
+        // Remove the dark class to prevent black screen flashes on reload
         const root = document.documentElement;
-        root.classList.add('dark');
-        localStorage.setItem('frostrek-theme', 'dark');
+        root.classList.remove('dark');
+        localStorage.setItem('frostrek-theme', 'light');
     }, []);
 
     const toggleTheme = () => {
-        // Do nothing, light mode is removed
+        // Do nothing, dark mode is removed
     };
 
     return (
