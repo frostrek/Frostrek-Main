@@ -1,6 +1,6 @@
 /** Frosty bot API — shared config and helpers for chat, voice, and TTS. */
 
-export const FROSTY_API_BASE = 'https://bot.frostrek.com/bot-api';
+export const FROSTY_API_BASE = 'https://bot.candoramigo.com/bot-api';
 export const FROSTY_API_KEY = import.meta.env.VITE_FROSTREK_BOT_API_KEY || '';
 
 let cachedTenantId: string | null = null;
@@ -28,7 +28,7 @@ export function getWebsiteSessionId(tenantId: string, sessionId: string): string
 }
 
 export function getVoiceCallWsUrl(bridgedSessionId: string): string {
-    return `wss://bot.frostrek.com/bot-api/ws/voice-call/${encodeURIComponent(bridgedSessionId)}`;
+    return `wss://bot.candoramigo.com/bot-api/ws/voice-call/${encodeURIComponent(bridgedSessionId)}`;
 }
 
 export type ChatStreamCallbacks = {
