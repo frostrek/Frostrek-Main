@@ -6,7 +6,7 @@ function contactApiDevPlugin() {
   return {
     name: 'contact-api-dev-plugin',
     configureServer(server: any) {
-      server.middlewares.use('/api/contact.php', (req: any, res: any, next: any) => {
+      server.middlewares.use('/api/contact.php', (req: any, res: any, _next: any) => {
         if (req.method !== 'POST') {
           res.statusCode = 405;
           res.setHeader('Content-Type', 'application/json');
@@ -22,7 +22,19 @@ function contactApiDevPlugin() {
         req.on('end', async () => {
           try {
             const data = JSON.parse(body);
-            const resendApiKey = 're_AqHk2y24_C7LYQDfLwyxp74WTKwcvBWnS';
+            let resendApiKey = process.env.RESEND_API_KEY || '';
+            if (!resendApiKey) {
+              try {
+                const fs = await import('fs');
+                const path = await import('path');
+                const configPath = path.resolve('public/api/config.php');
+                if (fs.existsSync(configPath)) {
+                  const content = fs.readFileSync(configPath, 'utf-8');
+                  const match = content.match(/'resend_api_key'\s*=>\s*'([^']+)'/);
+                  if (match) resendApiKey = match[1];
+                }
+              } catch (e) { /* ignore */ }
+            }
             const recipientEmail = 'contact@frostrek.com';
             const senderEmail = 'Frostrek AI Portal <contact@frostrek.com>';
 
@@ -79,7 +91,7 @@ function contactApiDevPlugin() {
               })
             });
 
-            const resendData = await resendResponse.json();
+            const resendData: any = await resendResponse.json();
             res.statusCode = resendResponse.status;
             res.setHeader('Content-Type', 'application/json');
             if (resendResponse.ok) {

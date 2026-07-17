@@ -23,8 +23,23 @@ dist-ssr
 *.sln
 *.sw?
 
-# Environment variables
+# Environment variables & Secret API Configs
 .env
-.env.local
 .env.*
+*.env
+!.env.example
+public/api/config.php
+src/api/config.ts
+config.secrets.*
+secrets.*
+*.pem
+*.key
+*.cert
+
+# AI / Agent IDE artifacts
+.gemini
+.agents
+
+# OS generated files
+Thumbs.db
 

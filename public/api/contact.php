@@ -26,8 +26,14 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 // Resend API Configuration
-// API Key provided for Frostrek AI domain (frostrek.com)
-$resendApiKey = 're_AqHk2y24_C7LYQDfLwyxp74WTKwcvBWnS';
+// Load secret API key from gitignored config.php or environment variable
+$resendApiKey = getenv('RESEND_API_KEY') ?: '';
+if (file_exists(__DIR__ . '/config.php')) {
+    $config = require __DIR__ . '/config.php';
+    if (is_array($config) && isset($config['resend_api_key'])) {
+        $resendApiKey = $config['resend_api_key'];
+    }
+}
 $recipientEmail = 'contact@frostrek.com';
 $senderEmail = 'Frostrek AI Portal <contact@frostrek.com>';
 
