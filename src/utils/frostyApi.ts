@@ -1,7 +1,7 @@
 /** Frosty bot API — shared config and helpers for chat, voice, and TTS. */
 
 export const FROSTY_API_BASE = 'https://bot.candoramigo.com/bot-api';
-export const FROSTY_API_KEY = import.meta.env.VITE_FROSTREK_BOT_API_KEY || '';
+export const FROSTY_API_KEY = import.meta.env.VITE_FROSTREK_BOT_API_KEY || 'frosty_fb6a163c_ORgt6dPP6D5RGKxv-4s-4kJ1kwM-iq_K';
 
 let cachedTenantId: string | null = null;
 
