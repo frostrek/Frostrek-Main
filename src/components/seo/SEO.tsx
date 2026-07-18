@@ -22,7 +22,7 @@ export default function SEO({
   noindex = false
 }: SEOProps) {
   const url = `https://www.frostrek.ai${path}`;
-  const image = "https://www.frostrek.ai/logo.png";
+  const image = "https://www.frostrek.ai/og-image.png";
 
   // Auto-generate BreadcrumbList schema
   const pathParts = path.split('/').filter(Boolean);
