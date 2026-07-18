@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Send, Check, Loader2, ArrowRight, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 import SEO from '../components/seo/SEO';
-import emailjs from '@emailjs/browser';
 import { trackEvent } from '../utils/analytics';
 import FlipText from '../components/ui/FlipText';
 import SplitTextReveal from '../components/ui/SplitTextReveal';
@@ -69,42 +68,18 @@ const ContactPage = () => {
         setIsSubmitting(true);
 
         try {
-            const fullName = `${formData.firstName} ${formData.lastName}`;
-            const messageContent = `
-Name: ${fullName}
-Company: ${formData.company || 'N/A'}
-Job Title: ${formData.jobTitle || 'N/A'}
-Email: ${formData.workEmail}
-Inquiry Type: ${formData.reachType}
-
-Message:
-${formData.projectDetails}
-            `.trim();
-
-            await emailjs.send(
-                'service_jia14ic',
-                'template_hygc11p',
-                {
-                    to_email: 'contact@frostrek.com',
-                    from_name: fullName,
-                    user_name: fullName,
-                    name: fullName,
-                    from_email: formData.workEmail,
-                    user_email: formData.workEmail,
-                    email: formData.workEmail,
-                    reply_to: formData.workEmail,
-                    subject: `New Contact Inquiry: ${formData.reachType}`,
-                    message: messageContent,
-                    first_name: formData.firstName,
-                    last_name: formData.lastName,
-                    company: formData.company,
-                    job_title: formData.jobTitle,
-                    work_email: formData.workEmail,
-                    reach_type: formData.reachType,
-                    project_details: formData.projectDetails
+            const response = await fetch('/api/contact.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
                 },
-                'BiiX__h7V1vLoyEQb'
-            );
+                body: JSON.stringify(formData),
+            });
+
+            const data = await response.json();
+            if (!response.ok || !data.success) {
+                throw new Error(data.error || 'Failed to send message.');
+            }
 
             setIsSuccess(true);
             
