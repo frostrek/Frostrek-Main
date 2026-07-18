@@ -712,8 +712,9 @@ const Chatbot: React.FC = () => {
                                         >
                                             {msg.content ? (
                                                 <div className="whitespace-pre-wrap">
-                                                    {msg.content.split(/(https?:\/\/[^\s]+)/g).map((part, i) => {
-                                                        if (part.match(/https?:\/\/[^\s]+/)) {
+                                                    {msg.content.split(/(https?:\/\/[^\s]+|\*\*(?!\s)(?:[\s\S]*?[^\s])?\*\*|\*(?!\s)(?:[^\*]*?[^\s\*])?\*)/g).map((part, i) => {
+                                                        if (!part) return null;
+                                                        if (part.match(/^https?:\/\/[^\s]+$/)) {
                                                             return (
                                                                 <a
                                                                     key={i}
@@ -726,8 +727,12 @@ const Chatbot: React.FC = () => {
                                                                     {part}
                                                                 </a>
                                                             );
+                                                        } else if (part.startsWith('**') && part.endsWith('**') && part.length >= 4) {
+                                                            return <strong key={i} className="font-bold">{part.slice(2, -2)}</strong>;
+                                                        } else if (part.startsWith('*') && part.endsWith('*') && part.length >= 2) {
+                                                            return <em key={i} className="italic">{part.slice(1, -1)}</em>;
                                                         }
-                                                        return part;
+                                                        return <span key={i}>{part}</span>;
                                                     })}
                                                 </div>
                                             ) : (
