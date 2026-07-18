@@ -101,7 +101,7 @@ const SplitTextReveal = ({
                         );
                     })}
                 </span>
-                {wordIdx !== words.length - 1 && ' '}
+                {wordIdx !== words.length - 1 && <span className="whitespace-pre"> </span>}
             </span>
         ));
     }, [children, type]);

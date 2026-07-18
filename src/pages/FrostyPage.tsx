@@ -264,7 +264,7 @@ const FrostyPage = () => {
                     </motion.div>
 
                     {/* Headline */}
-                    <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif mb-8 tracking-tight max-w-5xl mx-auto leading-tight text-[#2D6A4F]">
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif mb-8 tracking-tight max-w-5xl mx-auto leading-tight text-[#2D6A4F]">
                         <SplitTextReveal as="span" className="text-[#E76F51]" type="chars" stagger={0.02} once={false}>
                             Frosty
                         </SplitTextReveal>
@@ -276,7 +276,7 @@ const FrostyPage = () => {
                         <SplitTextReveal as="span" type="chars" stagger={0.02} once={false} delay={0.3}>
                             Visitors Into Customers
                         </SplitTextReveal>
-                    </div>
+                    </h1>
 
                     {/* Subtext */}
                     <SplitTextReveal

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Plus, Minus, Search } from 'lucide-react';
 import SEO from '../components/seo/SEO';
 import SplitTextReveal from '../components/ui/SplitTextReveal';
@@ -83,7 +83,7 @@ const FAQ_CATEGORIES: FAQCategory[] = [
             },
             {
                 question: "How is pricing structured?",
-                answer: "Pricing varies by project scope and model. For AI agent deployments, we typically work on a project-based fee with optional ongoing maintenance contracts. For managed data operations, we offer dedicated team models with monthly retainers. For consulting and strategy work, we charge on a time-and-materials basis. Contact us at contact@frostrek.com for a custom quote."
+                answer: "Pricing varies by project scope and model. For AI agent deployments, we typically work on a project-based fee with optional ongoing maintenance contracts. For managed data operations, we offer dedicated team models with monthly retainers. For consulting and strategy work, we charge on a time-and-materials basis. Contact us at contact@frostrek.ai for a custom quote."
             },
             {
                 question: "Can you scale teams quickly for urgent projects?",
@@ -241,7 +241,7 @@ const FAQPage = () => {
             <SEO
                 title="Frequently Asked Questions | Frostrek AI"
                 description="Find answers to common questions about Frostrek AI's enterprise AI solutions, security protocols, pricing, and technical capabilities."
-                path="/faq"
+                path="/resources/faq"
                 schema={[faqSchema]}
             />
 
@@ -348,21 +348,20 @@ const FAQPage = () => {
                                                     </div>
                                                 </button>
 
-                                                <AnimatePresence>
-                                                    {isActive && (
-                                                        <motion.div
-                                                            initial={{ height: 0, opacity: 0 }}
-                                                            animate={{ height: 'auto', opacity: 1 }}
-                                                            exit={{ height: 0, opacity: 0 }}
-                                                            transition={{ duration: 0.3, ease: "easeInOut" }}
-                                                            className="overflow-hidden"
-                                                        >
-                                                            <div className="px-6 pb-6 pt-2 md:pl-[5.5rem] leading-relaxed text-[15px] text-gray-500">
-                                                                {faq.answer}
-                                                            </div>
-                                                        </motion.div>
-                                                    )}
-                                                </AnimatePresence>
+                                                <motion.div
+                                                    initial={false}
+                                                    animate={{
+                                                        height: isActive ? 'auto' : 0,
+                                                        opacity: isActive ? 1 : 0,
+                                                        visibility: isActive ? 'visible' : 'hidden'
+                                                    }}
+                                                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                                                    className="overflow-hidden"
+                                                >
+                                                    <div className="px-6 pb-6 pt-2 md:pl-[5.5rem] leading-relaxed text-[15px] text-gray-500">
+                                                        {faq.answer}
+                                                    </div>
+                                                </motion.div>
                                             </motion.div>
                                         );
                                     })}
@@ -384,7 +383,7 @@ const FAQPage = () => {
                         </p>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                             <a
-                                href="mailto:contact@frostrek.com"
+                                href="mailto:contact@frostrek.ai"
                                 className="px-8 py-3.5 rounded-xl bg-[#2D6A4F] text-white font-medium hover:bg-[#1B4332] transition-colors shadow-lg shadow-[#2D6A4F]/10"
                             >
                                 Email Us →

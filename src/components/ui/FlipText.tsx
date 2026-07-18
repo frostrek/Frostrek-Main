@@ -30,6 +30,7 @@ const FlipText: React.FC<FlipTextProps> = ({ children, className = '', hoverColo
 
             {/* Bottom Layer — starts below, slides into view on hover */}
             <span
+                aria-hidden="true"
                 className={cn(
                     "flip-text-bottom absolute inset-0 flex items-center justify-center h-full transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] translate-y-[150%]",
                     hoverColor || "text-inherit"

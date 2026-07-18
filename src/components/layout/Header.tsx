@@ -103,7 +103,7 @@ const Header = () => {
                                 onMouseLeave={() => item.megaMenu && setActiveMegaMenu(null)}
                             >
                                 <Link
-                                    to={item.megaMenu ? "#" : item.href}
+                                    to={item.href}
                                     onClick={(e) => {
                                         if (item.megaMenu) {
                                             e.preventDefault();

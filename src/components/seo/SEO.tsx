@@ -9,6 +9,7 @@ interface SEOProps {
   schema?: string | string[];
   keywords?: string;
   noindex?: boolean;
+  image?: string;
 }
 
 export default function SEO({ 
@@ -19,10 +20,11 @@ export default function SEO({
   type = "website",
   schema,
   keywords,
-  noindex = false
+  noindex = false,
+  image
 }: SEOProps) {
   const url = `https://www.frostrek.ai${path}`;
-  const image = "https://www.frostrek.ai/og-image.png";
+  const ogImage = image || "https://www.frostrek.ai/og-image.png";
 
   // Auto-generate BreadcrumbList schema
   const pathParts = path.split('/').filter(Boolean);
@@ -79,7 +81,7 @@ export default function SEO({
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:site_name" content={name} />
-      <meta property="og:image" content={image} />
+      <meta property="og:image" content={ogImage} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:locale" content="en_US" />
@@ -89,7 +91,7 @@ export default function SEO({
       <meta name="twitter:url" content={url} />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={image} />
+      <meta name="twitter:image" content={ogImage} />
 
       {/* Dynamic Schemas */}
       <script type="application/ld+json">{breadcrumbSchema}</script>
