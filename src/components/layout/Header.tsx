@@ -71,7 +71,7 @@ const Header = () => {
             />
 
             <header className={cn(
-                "fixed left-1/2 -translate-x-1/2 z-[60] transition-all duration-500 backdrop-blur-xl border flex flex-col overflow-hidden xl:overflow-visible",
+                "fixed left-1/2 -translate-x-1/2 z-[60] transition-[background-color,border-color,box-shadow] duration-500 backdrop-blur-xl border flex flex-col overflow-hidden xl:overflow-visible",
                 "top-3 sm:top-4 w-[92%] sm:w-[95%] max-w-7xl rounded-xl sm:rounded-2xl",
                 mobileMenuOpen
                     ? "bg-white/95 border-gray-200 shadow-2xl"
@@ -238,7 +238,7 @@ const Header = () => {
                                             <div>
                                                 <div className="flex items-center">
                                                     <Link
-                                                        to="#"
+                                                        to={item.href || "#"}
                                                         className={cn(
                                                             "font-medium flex-1 py-3 px-3 rounded-xl transition-all duration-200 text-base font-body",
                                                             location.pathname === item.href

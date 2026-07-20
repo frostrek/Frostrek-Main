@@ -221,7 +221,7 @@ const HeroSection = () => {
                   <p className="text-[11px] font-bold text-[#2D6A4F] mb-2">{item.tagline}</p>
                   <p className="text-[11px] text-slate-500 leading-relaxed font-semibold mb-3">{item.desc}</p>
                   <Link to={item.link} className="inline-flex items-center gap-1 text-[11px] font-bold text-[#2D6A4F] hover:underline">
-                    Explore Solution
+                    Explore {item.title}
                     <ArrowUpRight size={12} />
                   </Link>
                 </div>
@@ -261,7 +261,7 @@ const HeroSection = () => {
                   <p className="text-[11px] font-bold text-[#2D6A4F] mb-2">{item.tagline}</p>
                   <p className="text-[11px] text-slate-500 leading-relaxed font-semibold mb-3">{item.desc}</p>
                   <Link to={item.link} className="inline-flex items-center gap-1 text-[11px] font-bold text-[#2D6A4F] hover:underline">
-                    Explore Solution
+                    Explore {item.title}
                     <ArrowUpRight size={12} />
                   </Link>
                 </div>
@@ -305,7 +305,7 @@ const HeroSection = () => {
 
         {/* Subtitles - Answer First SEO */}
         <p
-          className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed font-medium hero-fade-in text-balance"
+          className="text-base sm:text-lg text-gray-600 max-w-prose mx-auto mb-8 leading-relaxed font-medium hero-fade-in text-balance"
           style={{ animationDelay: '0.2s' }}
           itemProp="description"
         >

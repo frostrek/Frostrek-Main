@@ -352,13 +352,12 @@ const FAQPage = () => {
                                                     initial={false}
                                                     animate={{
                                                         height: isActive ? 'auto' : 0,
-                                                        opacity: isActive ? 1 : 0,
-                                                        visibility: isActive ? 'visible' : 'hidden'
+                                                        opacity: isActive ? 1 : 0
                                                     }}
                                                     transition={{ duration: 0.3, ease: "easeInOut" }}
                                                     className="overflow-hidden"
                                                 >
-                                                    <div className="px-6 pb-6 pt-2 md:pl-[5.5rem] leading-relaxed text-[15px] text-gray-500">
+                                                    <div className="px-6 pb-6 pt-2 md:pl-[5.5rem] leading-relaxed text-[15px] text-gray-500 max-w-prose">
                                                         {faq.answer}
                                                     </div>
                                                 </motion.div>

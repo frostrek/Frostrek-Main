@@ -244,7 +244,7 @@ const FrostyPage = () => {
                 title="Frosty | AI Agent That Converts Visitors Into Customers | Frostrek AI"
                 description="Frosty deploys intelligent AI agents on your website, WhatsApp, and social media — capturing leads, booking meetings, and closing deals 24/7. Built end-to-end by Frostrek."
                 path="/products/frosty-ai"
-                keywords="ai chatbot, website ai agent, whatsapp ai bot, lead capture ai, autonomous ai agent, frostrek frosty, conversational ai"
+                keywords="enterprise customer support AI bots USA, automated ticket triage system UK, multilingual conversational AI agents India, custom knowledge base chatbots globally"
             />
             <CuteBackground />
 
