@@ -211,13 +211,14 @@ async function prerenderRoute(browser, route) {
     }
 
     // Determine output path
-    let outDir, outFile;
+    let outDir, outFile, flatFile;
     if (route === '/') {
       outDir = DIST;
       outFile = join(DIST, 'index.html');
     } else {
       outDir = join(DIST, route.slice(1));
       outFile = join(outDir, 'index.html');
+      flatFile = join(DIST, `${route.slice(1)}.html`);
     }
 
     // Create directory if needed
@@ -232,6 +233,17 @@ async function prerenderRoute(browser, route) {
     );
 
     writeFileSync(outFile, finalHtml, 'utf-8');
+    
+    // Also write a flat .html file for AWS Amplify / S3 clean URL compatibility
+    if (flatFile) {
+      // Ensure the directory for the flat file exists (e.g. /resources/ for /resources/faq.html)
+      const flatDir = join(DIST, route.slice(1).split('/').slice(0, -1).join('/'));
+      if (!existsSync(flatDir)) {
+        mkdirSync(flatDir, { recursive: true });
+      }
+      writeFileSync(flatFile, finalHtml, 'utf-8');
+    }
+    
     console.log(`  ✓ ${route}`);
   } catch (err) {
     console.error(`  ✗ ${route} — ${err.message}`);
