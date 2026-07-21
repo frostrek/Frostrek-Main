@@ -50,15 +50,19 @@ const SplitTextReveal = ({
     // Split text into elements for fine-grained control
     const splitElements = useMemo(() => {
         if (type === 'words') {
-            return children.split(' ').map((word, i) => (
-                <span key={i} className="inline-block overflow-visible mr-[0.25em] last:mr-0">
-                    <span className="split-item inline-block" style={{ 
-                        opacity: 0,
-                        transform: `translateY(${y}px)`,
-                        filter: blur ? 'blur(10px)' : 'none'
-                    }}>
-                        {word}
+            const words = children.split(' ');
+            return words.map((word, i) => (
+                <span key={i}>
+                    <span className="inline-block overflow-visible">
+                        <span className="split-item inline-block" style={{ 
+                            opacity: 0,
+                            transform: `translateY(${y}px)`,
+                            filter: blur ? 'blur(10px)' : 'none'
+                        }}>
+                            {word}
+                        </span>
                     </span>
+                    {i !== words.length - 1 && ' '}
                 </span>
             ));
         }
@@ -101,7 +105,7 @@ const SplitTextReveal = ({
                         );
                     })}
                 </span>
-                {wordIdx !== words.length - 1 && <span className="whitespace-pre"> </span>}
+                {wordIdx !== words.length - 1 && ' '}
             </span>
         ));
     }, [children, type]);

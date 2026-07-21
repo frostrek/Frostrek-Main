@@ -176,7 +176,7 @@ export const ResourcesPage = () => {
             <SEO
                 title="Resources | Frostrek AI - Insights & Success Stories"
                 description="Deep dives into how Frostrek AI helps enterprises build production-ready AI systems through high-quality data operations and citable case studies."
-                path="/resources"
+                path="/resources/case-studies"
             />
 
             <ResourcesHero />

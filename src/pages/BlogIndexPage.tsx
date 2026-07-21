@@ -74,7 +74,7 @@ const BlogIndexPage = () => {
             <SEO
                 title="Blog | Frostrek AI Insights"
                 description="Read the latest insights, technical deep dives, and industry trends on Artificial Intelligence, Workflow Automation, and Data Operations from the Frostrek team."
-                path="/blog"
+                path="/resources/blog"
                 noindex={true}
             />
 

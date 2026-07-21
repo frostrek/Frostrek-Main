@@ -91,12 +91,12 @@ function startServer() {
           filePath = indexPath;
         } else {
           // SPA fallback
-          filePath = join(DIST, 'index.html');
+          filePath = join(DIST, 'index_template.html');
         }
       }
 
       if (!existsSync(filePath)) {
-        filePath = join(DIST, 'index.html');
+        filePath = join(DIST, 'index_template.html');
       }
 
       try {
@@ -244,6 +244,13 @@ async function prerenderRoute(browser, route) {
 async function main() {
   console.log('\n🔧 Frostrek Prerenderer\n');
   console.log(`  Routes to prerender: ${routes.length}`);
+
+  // Create a backup of the original index.html to use as the clean SPA fallback
+  const indexFile = join(DIST, 'index.html');
+  const templateFile = join(DIST, 'index_template.html');
+  if (existsSync(indexFile) && !existsSync(templateFile)) {
+    writeFileSync(templateFile, readFileSync(indexFile, 'utf-8'), 'utf-8');
+  }
 
   const server = await startServer();
 
