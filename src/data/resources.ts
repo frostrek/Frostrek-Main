@@ -1,4 +1,4 @@
-import { Brain, Car, ShoppingCart, MessageSquare, Database, Globe, Shield, Users, Zap, Terminal, Code, Layers, Trophy, Factory } from 'lucide-react';
+import { Brain, Car, ShoppingCart, MessageSquare, Database, Globe, Shield, Users, Zap, Terminal, Code, Layers, Trophy } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 export interface CaseStudy {
@@ -48,24 +48,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         ],
         icon: Trophy
     },
-    {
-        id: 'cs-frostrek-manufacturing-os',
-        title: 'Frostrek Manufacturing OS – Intelligence Platform',
-        category: 'Enterprise AI / IoT',
-        client: 'Leading Aquatic Feed Manufacturer',
-        duration: '12 months',
-        team: '8 Data Scientists | 5 IoT Engineers | 4 Devs',
-        description: 'A comprehensive manufacturing intelligence platform that unifies sensor data, ERP systems, and AI scheduling.',
-        challenge: 'The manufacturer was running a 24/7 aquatic feed plant with four disconnected systems, resulting in zero unified visibility. This fragmentation led to significant production losses, inefficient scheduling, and an inability to track real-time costs.',
-        solution: 'We built a three-phase AI-powered platform that ingested data from every factory sensor, ERP, and warehouse system. We delivered live telemetry dashboards, automated cost intelligence, and a custom AI scheduling engine to optimize production runs dynamically.',
-        outcome: [
-            'Recovered 25+ tonnes of lost production weekly.',
-            'Unified 4 previously disconnected legacy systems into a single pane of glass.',
-            'Reduced scheduling conflicts by 40% using AI optimization.',
-            'Enabled real-time cost tracking per production batch.'
-        ],
-        icon: Factory
-    },
+
     {
         id: 'cs-autonmous-driving',
         title: 'Autonomous Driving – 2D/3D Perception Program',

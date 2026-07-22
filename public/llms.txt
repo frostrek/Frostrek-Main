@@ -3,11 +3,10 @@
 > Frostrek AI delivers production-ready autonomous AI agents, LLM training, customized applications, workflow automation, and data annotation services for enterprises.
 
 ## Core Products & Solutions
-- [Frosty AI](https://www.frostrek.ai/products/frosty-ai): Omnichannel intelligent agent for support and sales
+- [Frosty Agent](https://www.frostrek.ai/products/frosty-agent): Omnichannel intelligent agent for support and sales
 - [Voice AI](https://www.frostrek.ai/solutions/voice-ai): Enterprise-grade AI calling agents and cognitive virtual assistants
-- [AI Calling Agent](https://www.frostrek.ai/products/ai-calling-agent): Outbound and inbound voice AI for high-volume support
-- [WhatsApp Bot](https://www.frostrek.ai/products/whatsapp-bot): Autonomous chat agents for conversational deployment
-- [Manufacturing OS](https://www.frostrek.ai/products/frostrek-manufacturing-os): ERP/SCADA integration and factory AI optimization
+
+
 - [Manufacturing Intelligence](https://www.frostrek.ai/solutions/manufacturing-intelligence): AI-driven operational intelligence for factories
 - [Custom LLM Fine-Tuning](https://www.frostrek.ai/solutions/llm-model-training): Managed RLHF alignment and dataset preparation services
 - [AI Agents](https://www.frostrek.ai/solutions/ai-agents): End-to-end intelligent agent development

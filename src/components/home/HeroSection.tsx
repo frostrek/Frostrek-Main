@@ -35,7 +35,7 @@ const floatingIcons: FloatingIconItem[] = [
     tagline: "Intelligent support & sales",
     desc: "Deploy autonomous conversational agents that master complex intent, adapt to brand voice, and automate 24/7 customer workflows.",
     badge: "98% Accuracy",
-    link: "/products/frosty-ai"
+    link: "/products/frosty-agent"
   },
   {
     id: 2,
@@ -70,22 +70,7 @@ const floatingIcons: FloatingIconItem[] = [
     link: "/solutions/llm-model-training"
   },
 
-  {
-    id: 4,
-    top: '75%',
-    left: '20%',
-    icon: "/icons/manufacturing-green.webp",
-    color: 'text-rose-500',
-    bg: 'bg-rose-50/80',
-    border: 'border-rose-100',
-    shadow: 'shadow-rose-500/20',
-    delay: 1.5,
-    title: "Manufacturing Intelligence",
-    tagline: "Unified factory floor screen",
-    desc: "Connect machine PLC nodes, SCADA, ERP, and WMS streams directly to boost OEE performance and simplify handover logs.",
-    badge: "Manufacturing",
-    link: "/products/frostrek-manufacturing-os"
-  },
+
   {
     id: 5,
     top: '75%',
