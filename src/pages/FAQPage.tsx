@@ -335,7 +335,7 @@ const FAQPage = () => {
                                                         <span className={`flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold border transition-colors duration-300 ${theme.badgeBg} ${theme.badgeText} ${theme.badgeBorder}`}>
                                                             {String(globalIndex + 1).padStart(2, '0')}
                                                         </span>
-                                                        <span className={`text-[17px] font-medium transition-colors duration-300 ${isActive ? theme.activeQuestionText : theme.questionText
+                                                        <span className={`font-serif text-[20px] font-medium transition-colors duration-300 ${isActive ? theme.activeQuestionText : theme.questionText
                                                             }`}>
                                                             {faq.question}
                                                         </span>

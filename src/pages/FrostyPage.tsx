@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+
+import SEO from '../components/seo/SEO';
 import { ChevronRight, ExternalLink, Plus, Minus } from 'lucide-react';
 import SplitTextReveal from '../components/ui/SplitTextReveal';
 import FlipText from '../components/ui/FlipText';
@@ -499,7 +501,7 @@ function OddsChart() {
                 <Icon n="bolt" /> Frosty replies in seconds — before this chart even starts.
             </div>
 
-            <div className="fx-readout">
+            <div className="fx-readout" style={{ minHeight: '140px' }}>
                 <b>{cur.head}</b>
                 <p>{cur.body}{cur.quote && <> The study's words: <q>{cur.quote}</q></>}</p>
             </div>
@@ -741,27 +743,30 @@ export default function FrostyPage() {
             ["Who maintains and updates Frosty after it goes live?", "The Frostrek team does. We keep Frosty running, update it as your business changes, and retrain it when you add new services or content. If something needs adjusting, you have a team to reach rather than a tool you're left to manage on your own."],
             ["What types of businesses is Frosty for?", "Frosty fits any business that gets enquiries and wants to answer them fast. That includes marketing agencies, real estate, clinics and healthcare, education and study-abroad consultancies, car dealers, financial services, and online stores. If your leads come in through a website or WhatsApp, Frosty can capture and qualify them."],
             // Adapted from the doc: it routed all pricing to the team, which would contradict
-            // the ₹19,999 starting price stated directly above. Keeps the same routing intent.
-            ["How much does Frosty cost?", "Plans start at ₹19,999 per month for the enterprise-grade Frosty agent. Final pricing depends on how many conversations you handle and which features you need, so contact the Frosty team and they'll walk you through the options and quote for your business."],
+            // the $200 starting price stated directly above. Keeps the same routing intent.
+            ["How much does Frosty cost?", "Plans start at $200 per month for the enterprise-grade Frosty agent. Final pricing depends on how many conversations you handle and which features you need, so contact the Frosty team and they'll walk you through the options and quote for your business."],
             ["How can I see Frosty in action?", "Book a demo and the Frostrek team will set Frosty up on a sample of your own content, so you can watch it answer a real enquiry before you decide. You can reach the Frosty team through the Book a Demo button or on WhatsApp."],
         ]],
     ];
 
-    const faqSchema = {
+    const faqSchema = JSON.stringify({
         "@context": "https://schema.org",
         "@type": "FAQPage",
         mainEntity: FAQ_GROUPS.flatMap(([, qs]) => qs).map(([q, a]) => ({
             "@type": "Question", name: q,
             acceptedAnswer: { "@type": "Answer", text: a },
         })),
-    };
+    });
 
     return (
         <div className="fx-root">
-
-
-
-
+            <SEO
+                title="Frosty Agent | Enterprise AI Chatbot & WhatsApp Assistant"
+                description="Never lose a lead to a slow reply again. Frosty is an enterprise-grade AI agent that qualifies leads and answers questions on your website and WhatsApp 24/7."
+                path="/products/frosty-agent"
+                schema={[faqSchema]}
+            />
+            
             {/* HERO (Injected from original) */}
             {/* ═══════ SECTION 1 — HERO ═══════ */}
             <section className="relative min-h-screen flex items-center pt-24 md:pt-32 pb-16 md:pb-20 overflow-hidden bg-[#F9FBFA]/50 font-body z-10">
@@ -1043,7 +1048,7 @@ export default function FrostyPage() {
                     <div className="fx-pricebar fx-reveal">
                         <div>
                             <span className="fx-amt-from">Plans start at</span>
-                            <div className="fx-amt">₹19,999</div>
+                            <div className="fx-amt">$200</div>
                             <span className="fx-amt-per">per month</span>
                         </div>
                         <div className="fx-price-body">
@@ -1104,7 +1109,7 @@ export default function FrostyPage() {
                                                         <span className={`flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold border transition-colors duration-300 ${theme.badgeBg} ${theme.badgeText} ${theme.badgeBorder}`}>
                                                             {String(i + 1).padStart(2, '0')}
                                                         </span>
-                                                        <span className={`text-[17px] font-medium transition-colors duration-300 ${isActive ? theme.activeQuestionText : theme.questionText}`}>
+                                                        <span className={`font-serif text-[20px] font-medium transition-colors duration-300 ${isActive ? theme.activeQuestionText : theme.questionText}`}>
                                                             {q}
                                                         </span>
                                                     </div>
@@ -1138,12 +1143,6 @@ export default function FrostyPage() {
                             </div>
                         ))}
                     </div>
-                    {/* FAQPage schema for search + AI answer engines, generated from the same
-              array as the visible copy so the two cannot drift. */}
-                    <script
-                        type="application/ld+json"
-                        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c") }}
-                    />
             </section>
 
             {/* CTA */}
