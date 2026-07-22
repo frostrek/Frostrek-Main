@@ -62,7 +62,7 @@ const Header = () => {
     return (
         <>
             {/* Mask to prevent text from scrolling above the floating navbar */}
-            <div 
+            <div
                 className={cn(
                     "fixed top-0 left-0 w-full z-[55] pointer-events-none transition-opacity duration-500 bg-white",
                     isScrolled ? "opacity-100" : "opacity-0"
@@ -149,7 +149,7 @@ const Header = () => {
                                             <div className="relative h-2.5 z-10 -mb-[1px]">
                                                 <div className="absolute left-[44px] top-0.5 w-3 h-3 rotate-45 bg-white border-l border-t border-gray-100 rounded-sm" />
                                             </div>
-                                            
+
                                             {/* Dropdown Content */}
                                             <div className="bg-white border border-gray-100/60 rounded-[2rem] shadow-[0_40px_100px_rgba(0,0,0,0.08)] overflow-hidden p-4 space-y-1.5 ring-1 ring-black/[0.02]">
                                                 {item.megaMenu.flatMap(s => s.items).map((subItem) => (
@@ -159,7 +159,7 @@ const Header = () => {
                                                         onClick={() => setActiveMegaMenu(null)}
                                                         className={`group flex items-center gap-6 p-3 rounded-[1.25rem] transition-all duration-500 ${subItem.hoverBgClass || 'hover:bg-[#F4FAF7]'} hover:translate-x-1`}
                                                     >
-                                                            <img src={subItem.icon} alt={subItem.name} className="w-6 h-6 p-0.5 object-contain shrink-0" width={24} height={24} loading="lazy" />
+                                                        <img src={subItem.icon} alt={subItem.name} className="w-6 h-6 p-0.5 object-contain shrink-0" width={24} height={24} loading="lazy" />
                                                         <div className="min-w-0">
                                                             <h4 className="font-semibold text-[15px] text-gray-900 group-hover:text-[#2D6A4F] transition-colors font-serif">
                                                                 {subItem.name}
@@ -181,8 +181,8 @@ const Header = () => {
                     {/* 3. CTAs & Mobile Toggle (Right) */}
                     <div className="flex-1 flex items-center justify-end gap-2 sm:gap-3 shrink-0">
                         {/* Desktop CTA */}
-                        <Link 
-                            to="/schedule-demo" 
+                        <Link
+                            to="/schedule-demo"
                             className="hidden xl:block"
                             onClick={() => trackEvent('contact_intent', { location: 'header_desktop' })}
                         >
@@ -192,8 +192,8 @@ const Header = () => {
                         </Link>
 
                         {/* Mobile Pill CTA */}
-                        <Link 
-                            to="/schedule-demo" 
+                        <Link
+                            to="/schedule-demo"
                             className="flex xl:hidden items-center"
                             onClick={() => trackEvent('contact_intent', { location: 'header_mobile' })}
                         >

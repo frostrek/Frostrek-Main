@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
-import FlipText from '../ui/FlipText';
+
 
 interface FloatingIconItem {
   id: number;
@@ -35,7 +35,7 @@ const floatingIcons: FloatingIconItem[] = [
     tagline: "Intelligent support & sales",
     desc: "Deploy autonomous conversational agents that master complex intent, adapt to brand voice, and automate 24/7 customer workflows.",
     badge: "98% Accuracy",
-    link: "/products/frosty-ai"
+    link: "/products/frosty-agent"
   },
   {
     id: 2,
@@ -70,22 +70,7 @@ const floatingIcons: FloatingIconItem[] = [
     link: "/solutions/llm-model-training"
   },
 
-  {
-    id: 4,
-    top: '75%',
-    left: '20%',
-    icon: "/icons/manufacturing-green.webp",
-    color: 'text-rose-500',
-    bg: 'bg-rose-50/80',
-    border: 'border-rose-100',
-    shadow: 'shadow-rose-500/20',
-    delay: 1.5,
-    title: "Manufacturing Intelligence",
-    tagline: "Unified factory floor screen",
-    desc: "Connect machine PLC nodes, SCADA, ERP, and WMS streams directly to boost OEE performance and simplify handover logs.",
-    badge: "Manufacturing",
-    link: "/products/frostrek-manufacturing-os"
-  },
+
   {
     id: 5,
     top: '75%',
@@ -312,20 +297,6 @@ const HeroSection = () => {
           Frostrek AI is an enterprise AI development firm building autonomous agents and custom workflow automation. We help global enterprises across manufacturing, fintech, and e-commerce scale operations without expanding headcount. Our custom AI integrations deliver measurable cost reductions and sub-200ms response times.
         </p>
 
-        {/* Buttons */}
-        <div
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto hero-fade-in"
-          style={{ animationDelay: '0.3s' }}
-        >
-          <Link
-            to="/schedule-demo"
-            className="group w-full sm:w-auto px-10 py-4 rounded-xl bg-[#2D6A4F] text-white font-medium tracking-wide hover:bg-[#1B4332] transition-all duration-300 flex items-center justify-center gap-3 shadow-lg shadow-[#2D6A4F]/10 active:translate-y-0.5"
-          >
-            <FlipText hoverColor="text-white">
-              Book a Demo <span className="text-xl font-light">→</span>
-            </FlipText>
-          </Link>
-        </div>
 
         {/* Mobile Features Marquee (Hidden on Desktop) */}
         <div className="w-[100vw] max-w-[100vw] shrink-0 mt-10 sm:mt-12 lg:hidden hero-fade-in overflow-hidden" style={{ animationDelay: '0.4s' }}>

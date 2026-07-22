@@ -123,11 +123,9 @@ const routes = [
   // Products
   '/products/hiyring',
   '/products/vedashi-ecommerce',
-  '/products/frosty-ai',
+  '/products/frosty-agent',
   '/products/vettedge',
-  '/products/frostrek-manufacturing-os',
-  '/products/ai-calling-agent',
-  '/products/whatsapp-bot',
+
   // Solutions
   '/solutions/fintech-custom-wallets',
   '/solutions/multivendor-dashboard',

@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Bot, Mic, MessageSquare, Linkedin, ArrowRight, Sparkles, Play, ChevronRight, Users, Shield, ShoppingBag, Factory } from 'lucide-react';
+import { Bot, Mic, Linkedin, ArrowRight, Sparkles, Play, ChevronRight, Users, Shield, ShoppingBag } from 'lucide-react';
 
 interface Product {
     id: string;
@@ -17,12 +17,12 @@ interface Product {
 
 const products: Product[] = [
     {
-        id: 'frosty-ai',
-        name: 'Frosty AI Agent',
-        description: 'Advanced conversational AI for customer service.',
-        shortDesc: 'Resolve 80% of inquiries instantly with context-aware responses.',
+        id: 'frosty-agent',
+        name: 'Frosty Agent',
+        description: 'Omnichannel intelligent agent for support and sales.',
+        shortDesc: 'Automate 80% of customer inquiries with contextual understanding.',
         icon: Bot,
-        href: '/products/frosty-ai',
+        href: '/products/frosty-agent',
         features: ['24/7 Support', 'Multi-channel', 'Smart Handoff'],
         category: 'core'
     },
@@ -36,16 +36,7 @@ const products: Product[] = [
         features: ['Sub-200ms', '40+ Languages', 'Real-time'],
         category: 'core'
     },
-    {
-        id: 'whatsapp',
-        name: 'WhatsApp Agents',
-        description: 'Automated WhatsApp business communication.',
-        shortDesc: '98% open rate with interactive messaging.',
-        icon: MessageSquare,
-        href: '/products/whatsapp-agents',
-        features: ['98% Open Rate', 'Rich Media', 'Broadcasts'],
-        category: 'core'
-    },
+
     {
         id: 'vettedge',
         name: 'VettEdge',
@@ -54,20 +45,10 @@ const products: Product[] = [
         icon: Shield,
         href: '/products/vettedge',
         features: ['Risk Assessment', 'Automated Compliance', 'Credit Underwriting'],
-        category: 'enterprise',
+        category: 'core',
         liveBuild: true
     },
-    {
-        id: 'frostrek-manufacturing-os',
-        name: 'Frostrek Manufacturing OS',
-        description: 'A complete real-time intelligence platform for 24/7 manufacturing operations. Unifies ERP, WMS, and SCADA.',
-        shortDesc: 'Recovering 25+ tonnes of lost production weekly with AI scheduling.',
-        icon: Factory,
-        href: '/products/frostrek-manufacturing-os',
-        features: ['Live Telemetry', 'AI Scheduling', 'Cost Intelligence'],
-        category: 'enterprise',
-        liveBuild: true
-    },
+
     {
         id: 'vedashi-ecommerce',
         name: 'Vedashi Ecommerce',
@@ -453,7 +434,7 @@ const AllProductsSection = () => {
                         <div>
                             <motion.div initial={{ opacity: 0, x: -20 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ delay: 0.3 }} className="flex items-center gap-3 mb-6">
                                 <div className="w-1.5 h-8 rounded-full bg-[#2D6A4F]" />
-                                <span className="text-sm font-extrabold uppercase tracking-wider text-[#2D6A4F]">Core AI Agents</span>
+                                <span className="text-sm font-extrabold uppercase tracking-wider text-[#2D6A4F]">Agent Based Platforms</span>
                             </motion.div>
                             <div className="space-y-4">
                                 {coreProducts.map((product, idx) => (

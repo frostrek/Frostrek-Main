@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { motion, useInView, AnimatePresence } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -49,50 +49,7 @@ const CurlyArrow = ({ className = '' }: { className?: string }) => (
     </svg>
 );
 
-// ─── Card 1: Manufacturing OS ─────────────────────────────────────────────────
-const ManufacturingDemo = () => {
-    const [tick, setTick] = useState(0);
-    useEffect(() => {
-        const t = setInterval(() => setTick(v => (v + 1) % 4), 1800);
-        return () => clearInterval(t);
-    }, []);
-    const metrics = [{ label: 'OEE', value: '87%' }, { label: 'Cost/Unit', value: '$1.24' }, { label: 'Uptime', value: '99.2%' }];
-    const alerts = [
-        { id: 0, text: 'Extruder 3 - temp spike detected', icon: '⚡' },
-        { id: 1, text: 'Changeover optimised · saved 1.4h', icon: '✅' },
-        { id: 2, text: 'Batch cost updated · $1.24/kg', icon: '📊' },
-        { id: 3, text: 'Shift handover logged - Team B', icon: '📋' },
-    ];
-    return (
-        <div className="w-full text-xs select-none font-body">
-            <div className="bg-[#F0FDF4] border border-[#BBF7D0] rounded-xl px-4 py-2.5 mb-3 flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
-                    <span className="text-gray-400 text-[10px] uppercase tracking-widest font-semibold">Live Factory Dashboard</span>
-                </div>
-                <span className="text-gray-400 text-[10px]">30s refresh</span>
-            </div>
-            <div className="grid grid-cols-3 gap-2 mb-3">
-                {metrics.map(m => (
-                    <div key={m.label} className="bg-white border border-gray-100 rounded-xl p-3 text-center shadow-sm">
-                        <div className="text-[#10B981] font-bold text-sm">{m.value}</div>
-                        <div className="text-gray-400 text-[10px] mt-0.5">{m.label}</div>
-                    </div>
-                ))}
-            </div>
-            <div className="space-y-2">
-                <AnimatePresence mode="popLayout">
-                    {[alerts[tick], alerts[(tick + 1) % 4]].map((a, i) => (
-                        <motion.div key={a.id} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.4, delay: i * 0.1 }} className="flex items-center gap-3 bg-[#F0FDF4] border border-[#BBF7D0] rounded-xl px-3 py-2.5">
-                            <span>{a.icon}</span>
-                            <span className="text-gray-600 text-[11px] leading-tight">{a.text}</span>
-                        </motion.div>
-                    ))}
-                </AnimatePresence>
-            </div>
-        </div>
-    );
-};
+
 
 // ─── Card 2: Fintech Platform ────────────────────────────────────────────────────
 const FintechDemo = () => {
@@ -172,16 +129,7 @@ const ModelTrainingDemo = () => {
 
 // ─── Cards data ───────────────────────────────────────────────────────────────
 const CARDS = [
-    {
-        icon: "/icons/manufacturing-green.webp",
-        label: 'MANUFACTURING OS',
-        title: 'Frostrek Manufacturing OS',
-        desc: 'A unified operating system for smart factories. Real-time visibility, predictive insights, and seamless automation across your shop floor.',
-        features: ['Real-time production monitoring', 'Predictive maintenance', 'Quality & process optimization'],
-        href: '/products/frostrek-manufacturing-os',
-        exploreText: 'Explore Manufacturing OS',
-        Demo: ManufacturingDemo
-    },
+
     {
         icon: "/icons/fintech-yellow.webp",
         label: 'FINTECH PLATFORM',

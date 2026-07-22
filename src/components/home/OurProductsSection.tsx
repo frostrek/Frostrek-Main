@@ -76,7 +76,7 @@ const PRODUCTS = [
     },
     {
         id: 'Frosty',
-        title: 'Website Chatbot ',
+        title: 'Frosty Agent ',
         description: 'Our easy to plug chatbot is here to handle the heavy lifting while your team focuses on closing.',
         features: [
             "Trained on your data",
@@ -92,7 +92,7 @@ const PRODUCTS = [
         spotlightColor: 'rgba(242, 186, 228, 0.45)',
         colSpan: 'md:col-span-1',
         rowSpan: 'row-span-1',
-        link: '/products/frosty-ai',
+        link: '/products/frosty-agent',
         arrowColor: 'text-[#D67CBA]'
     },
 ];

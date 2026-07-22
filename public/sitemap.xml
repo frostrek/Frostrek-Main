@@ -19,23 +19,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.frostrek.ai/products/frosty-ai</loc>
+    <loc>https://www.frostrek.ai/products/frosty-agent</loc>
     <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://www.frostrek.ai/products/ai-calling-agent</loc>
-    <lastmod>2026-05-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.frostrek.ai/products/whatsapp-bot</loc>
-    <lastmod>2026-05-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+
+
   <url>
     <loc>https://www.frostrek.ai/products/hiyring</loc>
     <lastmod>2026-05-16</lastmod>
@@ -54,12 +44,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://www.frostrek.ai/products/frostrek-manufacturing-os</loc>
-    <lastmod>2026-05-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+
   <url>
     <loc>https://www.frostrek.ai/solutions/fintech-custom-wallets</loc>
     <lastmod>2026-07-02</lastmod>

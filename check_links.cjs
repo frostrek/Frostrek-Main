@@ -3,8 +3,7 @@ const path = require('path');
 
 const validRoutes = [
   '/', '/schedule-demo', '/products/hiyring', '/products/vedashi-ecommerce', 
-  '/products/frosty-ai', '/products/vettedge', '/products/frostrek-manufacturing-os', 
-  '/products/ai-calling-agent', '/products/whatsapp-bot', '/solutions/fintech-custom-wallets', 
+  '/products/frosty-agent', '/products/vettedge', '/solutions/fintech-custom-wallets', 
   '/solutions/multivendor-dashboard', '/solutions/manufacturing-intelligence', 
   '/solutions/ai-agents', '/solutions/voice-ai', '/solutions/llm-model-training', 
   '/resources/case-studies', '/resources/blog', '/about', '/experience', 
