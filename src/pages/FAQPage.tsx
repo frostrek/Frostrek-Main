@@ -185,21 +185,21 @@ const FAQ_THEMES = [
         iconTextInactive: 'text-[#C2410C]',
     },
     {
-        // Yellow Theme
-        border: 'border-[#FEF3C7]',
-        hoverBorder: 'hover:border-[#B45309]/40',
-        activeBorder: 'border-[#B45309]/40',
-        shadow: 'shadow-[0_10px_35px_rgba(217,119,6,0.06)]',
-        badgeBg: 'bg-[#FFFBEB]',
-        badgeBorder: 'border-[#FEF3C7]/50',
-        badgeText: 'text-[#B45309]',
-        questionText: 'text-gray-900 group-hover:text-[#B45309]',
-        activeQuestionText: 'text-[#B45309]',
-        iconBgActive: 'bg-[#B45309]',
+        // Purple Theme
+        border: 'border-[#DDD6FE]',
+        hoverBorder: 'hover:border-[#6D28D9]/40',
+        activeBorder: 'border-[#6D28D9]/40',
+        shadow: 'shadow-[0_10px_35px_rgba(109,40,217,0.06)]',
+        badgeBg: 'bg-[#F5F3FF]',
+        badgeBorder: 'border-[#DDD6FE]/50',
+        badgeText: 'text-[#6D28D9]',
+        questionText: 'text-gray-900 group-hover:text-[#6D28D9]',
+        activeQuestionText: 'text-[#6D28D9]',
+        iconBgActive: 'bg-[#6D28D9]',
         iconTextActive: 'text-white',
-        iconBgInactive: 'bg-[#FFFBEB]',
-        iconBorderInactive: 'border-[#FEF3C7]/50',
-        iconTextInactive: 'text-[#B45309]',
+        iconBgInactive: 'bg-[#F5F3FF]',
+        iconBorderInactive: 'border-[#DDD6FE]/50',
+        iconTextInactive: 'text-[#6D28D9]',
     }
 ];
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
-import { ChevronRight, ExternalLink } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronRight, ExternalLink, Plus, Minus } from 'lucide-react';
 import SplitTextReveal from '../components/ui/SplitTextReveal';
 import FlipText from '../components/ui/FlipText';
 import { EXTERNAL_LINKS } from '../utils/constants';
@@ -612,11 +612,97 @@ function useRevealAndCount() {
         return () => io.disconnect();
     }, []);
 }
-
+const FAQ_THEMES = [
+    {
+        // Blue Theme
+        border: 'border-[#BAE6FD]',
+        hoverBorder: 'hover:border-[#0EA5E9]/40',
+        activeBorder: 'border-[#0EA5E9]/40',
+        shadow: 'shadow-[0_10px_35px_rgba(14,165,233,0.06)]',
+        badgeBg: 'bg-[#F0F9FF]',
+        badgeBorder: 'border-[#BAE6FD]/50',
+        badgeText: 'text-[#0284C7]',
+        questionText: 'text-gray-900 group-hover:text-[#0284C7]',
+        activeQuestionText: 'text-[#0284C7]',
+        iconBgActive: 'bg-[#0284C7]',
+        iconTextActive: 'text-white',
+        iconBgInactive: 'bg-[#F0F9FF]',
+        iconBorderInactive: 'border-[#BAE6FD]/50',
+        iconTextInactive: 'text-[#0284C7]',
+    },
+    {
+        // Green Theme
+        border: 'border-[#BBF7D0]',
+        hoverBorder: 'hover:border-[#2D6A4F]/40',
+        activeBorder: 'border-[#2D6A4F]/40',
+        shadow: 'shadow-[0_10px_35px_rgba(45,106,79,0.06)]',
+        badgeBg: 'bg-[#F0FDF4]',
+        badgeBorder: 'border-[#BBF7D0]/50',
+        badgeText: 'text-[#047857]',
+        questionText: 'text-gray-900 group-hover:text-[#047857]',
+        activeQuestionText: 'text-[#047857]',
+        iconBgActive: 'bg-[#047857]',
+        iconTextActive: 'text-white',
+        iconBgInactive: 'bg-[#F0FDF4]',
+        iconBorderInactive: 'border-[#BBF7D0]/50',
+        iconTextInactive: 'text-[#047857]',
+    },
+    {
+        // Pink Theme
+        border: 'border-[#FFE4E6]',
+        hoverBorder: 'hover:border-[#BE123C]/40',
+        activeBorder: 'border-[#BE123C]/40',
+        shadow: 'shadow-[0_10px_35px_rgba(244,63,94,0.06)]',
+        badgeBg: 'bg-[#FFF1F2]',
+        badgeBorder: 'border-[#FFE4E6]/50',
+        badgeText: 'text-[#BE123C]',
+        questionText: 'text-gray-900 group-hover:text-[#BE123C]',
+        activeQuestionText: 'text-[#BE123C]',
+        iconBgActive: 'bg-[#BE123C]',
+        iconTextActive: 'text-white',
+        iconBgInactive: 'bg-[#FFF1F2]',
+        iconBorderInactive: 'border-[#FFE4E6]/50',
+        iconTextInactive: 'text-[#BE123C]',
+    },
+    {
+        // Orange Theme
+        border: 'border-[#FFEDD5]',
+        hoverBorder: 'hover:border-[#C2410C]/40',
+        activeBorder: 'border-[#C2410C]/40',
+        shadow: 'shadow-[0_10px_35px_rgba(234,88,12,0.06)]',
+        badgeBg: 'bg-[#FFF7ED]',
+        badgeBorder: 'border-[#FFEDD5]/50',
+        badgeText: 'text-[#C2410C]',
+        questionText: 'text-gray-900 group-hover:text-[#C2410C]',
+        activeQuestionText: 'text-[#C2410C]',
+        iconBgActive: 'bg-[#C2410C]',
+        iconTextActive: 'text-white',
+        iconBgInactive: 'bg-[#FFF7ED]',
+        iconBorderInactive: 'border-[#FFEDD5]/50',
+        iconTextInactive: 'text-[#C2410C]',
+    },
+    {
+        // Purple Theme
+        border: 'border-[#DDD6FE]',
+        hoverBorder: 'hover:border-[#6D28D9]/40',
+        activeBorder: 'border-[#6D28D9]/40',
+        shadow: 'shadow-[0_10px_35px_rgba(109,40,217,0.06)]',
+        badgeBg: 'bg-[#F5F3FF]',
+        badgeBorder: 'border-[#DDD6FE]/50',
+        badgeText: 'text-[#6D28D9]',
+        questionText: 'text-gray-900 group-hover:text-[#6D28D9]',
+        activeQuestionText: 'text-[#6D28D9]',
+        iconBgActive: 'bg-[#6D28D9]',
+        iconTextActive: 'text-white',
+        iconBgInactive: 'bg-[#F5F3FF]',
+        iconBorderInactive: 'border-[#DDD6FE]/50',
+        iconTextInactive: 'text-[#6D28D9]',
+    }
+];
 
 export default function FrostyPage() {
 
-    const [faq, setFaq] = useState<string | null>("0-0");
+    const [faq, setFaq] = useState<string | null>(null);
 
     useRevealAndCount();
 
@@ -986,21 +1072,69 @@ export default function FrostyPage() {
                         <span className="fx-ey">Questions</span>
                         <h2 className="fx-h2" style={{ margin: "16px auto" }}>Everything you need to know.</h2>
                     </div>
-                    <div className="fx-faq fx-reveal">
+                </div>
+                <div className="fx-reveal w-full max-w-[1440px] mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-16 items-start mt-12">
                         {FAQ_GROUPS.map(([group, qs], g) => (
-                            <div className="fx-faq-group" key={group}>
-                                <span className="fx-ey">{group}</span>
-                                {qs.map(([q, a], i) => {
-                                    const key = g + "-" + i, open = faq === key;
-                                    return (
-                                        <div className={"fx-q" + (open ? " open" : "")} key={key}>
-                                            <button aria-expanded={open} aria-controls={"fx-ans-" + key} onClick={() => setFaq(open ? null : key)}>
-                                                {q}<span className="pm" />
-                                            </button>
-                                            <div className="ans" id={"fx-ans-" + key} role="region"><div><p>{a}</p></div></div>
-                                        </div>
-                                    );
-                                })}
+                            <div className="w-full" key={group}>
+                                <div className="text-center mb-8">
+                                    <span className="fx-ey">{group}</span>
+                                </div>
+
+                                <div className="space-y-4 text-left">
+                                    {qs.map(([q, a], i) => {
+                                        const key = g + "-" + i;
+                                        const isActive = faq === key;
+                                        const globalIndex = FAQ_GROUPS.slice(0, g).reduce((acc, [, faqs]) => acc + faqs.length, 0) + i;
+                                        const theme = FAQ_THEMES[globalIndex % FAQ_THEMES.length];
+
+                                        return (
+                                            <motion.div
+                                                key={key}
+                                                initial={{ opacity: 0, y: 20 }}
+                                                whileInView={{ opacity: 1, y: 0 }}
+                                                viewport={{ once: true }}
+                                                transition={{ duration: 0.4, delay: i * 0.05 }}
+                                                className={`rounded-2xl border transition-all duration-500 bg-white group ${theme.border} ${theme.hoverBorder} ${isActive ? `${theme.activeBorder} ${theme.shadow}` : 'hover:shadow-lg'}`}
+                                            >
+                                                <button
+                                                    onClick={() => setFaq(isActive ? null : key)}
+                                                    className="w-full px-6 py-5 md:py-6 flex items-center justify-between gap-4 text-left focus:outline-none"
+                                                >
+                                                    <div className="flex items-center gap-4 md:gap-6">
+                                                        <span className={`flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold border transition-colors duration-300 ${theme.badgeBg} ${theme.badgeText} ${theme.badgeBorder}`}>
+                                                            {String(i + 1).padStart(2, '0')}
+                                                        </span>
+                                                        <span className={`text-[17px] font-medium transition-colors duration-300 ${isActive ? theme.activeQuestionText : theme.questionText}`}>
+                                                            {q}
+                                                        </span>
+                                                    </div>
+                                                    <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-500 border ${isActive
+                                                        ? `${theme.iconBgActive} ${theme.iconTextActive} border-transparent rotate-180 shadow-md`
+                                                        : `${theme.iconBgInactive} ${theme.iconTextInactive} ${theme.iconBorderInactive}`
+                                                        }`}>
+                                                        {isActive ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
+                                                    </div>
+                                                </button>
+
+                                                <AnimatePresence>
+                                                    {isActive && (
+                                                        <motion.div
+                                                            initial={{ height: 0, opacity: 0 }}
+                                                            animate={{ height: 'auto', opacity: 1 }}
+                                                            exit={{ height: 0, opacity: 0 }}
+                                                            transition={{ duration: 0.3, ease: "easeInOut" }}
+                                                            className="overflow-hidden"
+                                                        >
+                                                            <div className="px-6 pb-6 pt-2 md:pl-[5.5rem] leading-relaxed text-[15px] text-gray-500">
+                                                                {a}
+                                                            </div>
+                                                        </motion.div>
+                                                    )}
+                                                </AnimatePresence>
+                                            </motion.div>
+                                        );
+                                    })}
+                                </div>
                             </div>
                         ))}
                     </div>
@@ -1010,7 +1144,6 @@ export default function FrostyPage() {
                         type="application/ld+json"
                         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c") }}
                     />
-                </div>
             </section>
 
             {/* CTA */}
