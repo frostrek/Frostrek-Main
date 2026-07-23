@@ -43,6 +43,9 @@ jobs:
           # Root of public_html
           server-dir: ./
 
+          # Use a fresh state file to bypass 550 deletion errors for manually deleted server folders
+          state-name: .ftp-deploy-sync-state-v2.json
+
           # Never touch these folders/files
           exclude: |
             **/.git*
