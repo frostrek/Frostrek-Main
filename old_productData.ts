@@ -1,5 +1,5 @@
-import {
-    Bot, Mic, Share2, ShoppingCart, Headset, BarChart, Server, Globe, Zap, Shield, Users, Clock, Phone, FileText, Activity, Podcast, Calendar, DollarSign, Filter, RefreshCw, Settings, Brain, ShieldCheck, Cpu, Database, TrendingUp, ShoppingBag, Layers, MessageSquare, Factory
+﻿import {
+    Bot, Mic, Share2, ShoppingCart, Headset, BarChart, Server, Globe, Smartphone, Zap, Shield, Users, Clock, Phone, FileText, Activity, Podcast, Calendar, DollarSign, Filter, Eye, MousePointerClick, Send, CheckCircle, Truck, RefreshCw, Settings, Factory, Brain, ShieldCheck, Cpu, Radio, Database, TrendingUp, ShoppingBag, Layers, MessageSquare
 } from 'lucide-react';
 
 export interface ProductStatistic {
@@ -64,7 +64,7 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
         title: 'VettEdge',
         subtitle: 'Intelligent Investment Vetting & Credit Underwriting',
         description: 'An enterprise-grade financial vetting and credit underwriting platform powered by autonomous AI agents. Accelerate due diligence, automate compliance checks, and minimize risk in real-time.',
-        badge: 'Fintech · Underwriting · Compliance',
+        badge: 'Fintech ┬À Underwriting ┬À Compliance',
         keywords: 'autonomous credit underwriting AI, investment vetting platform, automated financial due diligence, AI finance compliance software',
         isCaseStudy: true,
         heroImage: '/saf-hero.webp',
@@ -185,7 +185,7 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
         title: 'Vedashi Ecommerce',
         subtitle: 'Cinematic Hyper-Personalized Shopping Ecosystem',
         description: 'A high-performance enterprise e-commerce platform built to drive conversions through hyper-personalization, intelligent product recommendations, WhatsApp cart recovery, and GSAP-powered premium layouts.',
-        badge: 'E-Commerce · Personalization · Conversions',
+        badge: 'E-Commerce ┬À Personalization ┬À Conversions',
         keywords: 'hyper-personalized ecommerce AI platform, bespoke retail recommendation engine, WhatsApp shopping cart recovery, premium GSAP online storefronts',
         isCaseStudy: true,
         heroImage: '/pcc-hero.webp',
@@ -300,54 +300,124 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
             },
         ],
     },
-
     '/products/frostrek-manufacturing-os': {
-        id: 'manufacturing',
-        tagline: 'INDUSTRY 4.0 MEETS AI',
+        id: 'frostrek-manufacturing-os',
+        tagline: 'MANUFACTURING INTELLIGENCE PLATFORM',
         title: 'Frostrek Manufacturing OS',
-        subtitle: 'The Brain for Your Factory Floor',
-        description: 'Connect ERP, SCADA, PLCs, and your frontline workforce into a single source of truth. Eliminate paper handovers, reduce changeover times, and unlock live OEE.',
-        badge: 'Built for 24/7 Operations',
-        keywords: 'manufacturing software solutions, industrial IoT companies in India, smart factory solutions UK, AI for manufacturing globally',
-        heroImage: '/man1.webp', // Placeholder
-        demoImage: '/man2.webp',
+        subtitle: 'From Disconnected Systems to Real-Time Factory Visibility',
+        description:
+            'Our flagship manufacturing platform that unifies disconnected factory systems (ERP, WMS, SCADA) into a single intelligence hub. Built from the ground up to deliver live sensor dashboards, automated cost analytics, and an AI-driven production scheduler capable of recovering massive production losses.',
+        badge: 'Enterprise Platform',
+        keywords: 'manufacturing telemetry AI integration USA, AI production scheduling engine UK, real-time factory floor analytics India, predictive maintenance AI globally',
+        isCaseStudy: true,
+        heroImage: '/saf-hero.webp',        // replace with your actual image path
+        demoImage: '/saf-dashboard.webp',   // replace with your actual image path
+
         statistics: [
-            { value: '42T', label: 'Recovered Weekly', icon: Factory },
-            { value: '87%', label: 'Average OEE', icon: BarChart },
-            { value: 'Zero', label: 'Paper Handovers', icon: FileText },
-            { value: '1.4h', label: 'Changeover Saved', icon: Clock },
+            {
+                value: '4',
+                label: 'Systems Unified',
+                icon: Database,
+                breakdown: [
+                    { value: 25, label: 'Syspro ERP' },
+                    { value: 25, label: 'Fusion WMS' },
+                    { value: 25, label: 'CFAM PLC' },
+                    { value: 25, label: 'Famsun SCADA' },
+                ],
+            },
+            {
+                value: '30s',
+                label: 'Live Sensor Refresh',
+                icon: Zap,
+            },
+            {
+                value: '25t',
+                label: 'Weekly Production Recovered',
+                icon: TrendingUp,
+            },
+            {
+                value: 'R19.5M',
+                label: 'Annual Value Recovered',
+                icon: DollarSign,
+            },
         ],
+
         process: [
-            { step: '01', title: 'Data Ingestion', description: 'Agent pulls live data from PLCs, Syspro, and WMS without firewall changes.' },
-            { step: '02', title: 'Contextualization', description: 'Raw sensor data is linked to active production batches and cost structures.' },
-            { step: '03', title: 'Actionable Insights', description: 'Shift leaders get mobile alerts; MD gets a live global dashboard.' }
+            {
+                step: '01',
+                title: 'Connect All Sources',
+                description:
+                    'Read-only integrations to Syspro ERP (SQL), Fusion WMS (REST API), CFAM Allen Bradley PLC (EtherNet/IP), and Famsun SCADA (MQTT) - zero changes to the factory firewall.',
+            },
+            {
+                step: '02',
+                title: 'Unify & Visualise',
+                description:
+                    'A cloud-hosted FastAPI + TimescaleDB backend streams all data to a Next.js real-time dashboard accessible on any device - including from outside the factory.',
+            },
+            {
+                step: '03',
+                title: 'Intelligence & Optimisation',
+                description:
+                    'Phase 2 adds live cost-per-kg analytics and sensor alerting. Phase 3 deploys a Google OR-Tools AI scheduler that sequences production runs to minimise changeover time.',
+            },
         ],
+
         features: [
             {
-                title: 'No Hardware Changes',
+                title: 'Real-Time Factory Dashboard',
                 description:
-                    'The entire platform runs on one existing factory Windows PC and a cloud server. No PLC modifications, no new sensors, no firewall changes - pure software intelligence layered on top of existing systems.',
-                icon: Settings,
+                    'Live extruder telemetry, equipment status, sales orders, and warehouse job cards in a single unified view - accessible from any device, anywhere.',
+                icon: Eye,
             },
             {
-                title: 'Full Visibility From Anywhere',
+                title: 'Digital Shift Handover',
                 description:
-                    'The MD can view live extruder readings, production output, and cost per kg from his phone while off-site. Shift leaders submit handovers digitally. QC controllers log NIR and moisture readings on the floor.',
-                icon: Globe,
+                    'Structured digital handover forms replace WhatsApp voice notes and drop cards - every shift, every team, every quality reading captured and searchable.',
+                icon: Clock,
             },
             {
-                title: 'Recovering 25+ Tonnes Per Week',
+                title: 'Live Cost Per KG Engine',
                 description:
-                    'Twenty changeovers per week at 1–2 hours each equals up to 42 tonnes of lost production. The AI scheduler recovers half of that with zero capital investment - purely through smarter sequencing.',
-                icon: TrendingUp,
+                    'Real-time production cost per product calculated from raw material consumption (Syspro BOM), energy watt readings (CFAM PLC), and labour costs - updating every batch.',
+                icon: DollarSign,
+            },
+            {
+                title: 'Automated Sensor Alerting',
+                description:
+                    'Configurable threshold alerts per product per sensor. Critical alerts fire to WhatsApp (Twilio) and email within 60 seconds - before quality fails, not after.',
+                icon: Radio,
+            },
+            {
+                title: 'AI Production Scheduler',
+                description:
+                    'Google OR-Tools constraint solver sequences the weekly production plan to group similar mixes, minimise changeover time, and protect delivery deadlines.',
+                icon: Brain,
+            },
+            {
+                title: 'Load-Shedding Resilient',
+                description:
+                    'Every data point is buffered to a local SQLite store before cloud push. On power return, the agent auto-replays all buffered data with zero gaps - even after a 6-hour outage.',
+                icon: ShieldCheck,
             },
         ],
 
         benefits: [
             {
-                title: 'Eliminate Production Blind Spots',
-                description: 'Stop waiting for end-of-shift reports. See exactly what every line is producing, costing, and wasting in real-time.'
-            }
+                title: 'Zero New Hardware Required',
+                description:
+                    'The entire platform runs on one existing factory Windows PC and a cloud server. No PLC modifications, no new sensors, no firewall changes - pure software intelligence layered on top of existing systems.',
+            },
+            {
+                title: 'Full Visibility From Anywhere',
+                description:
+                    'The MD can view live extruder readings, production output, and cost per kg from his phone while off-site. Shift leaders submit handovers digitally. QC controllers log NIR and moisture readings on the floor.',
+            },
+            {
+                title: 'Recovering 25+ Tonnes Per Week',
+                description:
+                    'Twenty changeovers per week at 1ÔÇô2 hours each equals up to 42 tonnes of lost production. The AI scheduler recovers half of that with zero capital investment - purely through smarter sequencing.',
+            },
         ],
 
         useCases: [
@@ -399,11 +469,10 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
             },
         ],
     },
-
-    '/products/frosty-agent': {
-        id: 'frosty-agent',
+    '/products/frosty-ai': {
+        id: 'frosty-ai',
         tagline: 'AUTOMATE CUSTOMER SUPPORT',
-        title: 'Frosty Agent',
+        title: 'Frosty AI Agent',
         subtitle: 'Intelligent Conversations, Infinite Scale',
         description: 'Empower your support team with a next-gen AI agent that understands context, sentiment, and intent. Resolve up to 80% of inquiries instantly without human intervention.',
         badge: 'Top Rated Support AI',
@@ -484,7 +553,47 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
             { question: 'Is it PCI compliant?', answer: 'Yes, we support secure DTMF masking for credit card payments.' },
         ]
     },
-
+    '/products/whatsapp-agents': {
+        id: 'whatsapp',
+        tagline: 'ENGAGE WHERE IT MATTERS',
+        title: 'WhatsApp Automation',
+        subtitle: 'Turn Conversations into Revenue',
+        description: 'Unlock the power of the world\'s most popular messaging app. Automate notifications, support, and sales directly in WhatsApp with official API integration.',
+        badge: 'Meta Business Partner',
+        keywords: 'WhatsApp API automation India, automated WhatsApp sales funnels UK, meta verified business bots USA, WhatsApp cart recovery AI globally',
+        heroImage: '/wp1.webp', // Placeholder
+        demoImage: '/wp2.webp',
+        statistics: [
+            { value: '98%', label: 'Open Rate', icon: Eye },
+            { value: '45%', label: 'Click-Through Rate', icon: MousePointerClick },
+            { value: '5x', label: 'Higher Conversion', icon: BarChart },
+            { value: '2B+', label: 'Active Users', icon: Users },
+        ],
+        process: [
+            { step: '01', title: 'Get Verified', description: 'We help you apply for the official WhatsApp Business API.' },
+            { step: '02', title: 'Build Templates', description: 'Create rich message templates for approval.' },
+            { step: '03', title: 'Launch Campaigns', description: 'Send broadcasts and handle responses automatically.' }
+        ],
+        features: [
+            { title: 'Automated Broadcasts', description: 'Send personalized offers and updates to thousands instantly.', icon: Send },
+            { title: 'Interactive Buttons', description: 'Guide customers with Quick Replies and Call-to-Action buttons.', icon: Smartphone },
+            { title: 'Catalog Integration', description: 'Showcase products and process orders without leaving the chat.', icon: ShoppingCart },
+            { title: 'Green Tick Support', description: 'Assistance in getting the verified business badge.', icon: CheckCircle },
+        ],
+        benefits: [
+            { title: 'Instant Reach', description: 'Reach customers instantly on their lock screens.' },
+            { title: 'Media Rich', description: 'Send images, videos, and PDFs effortlessly.' },
+        ],
+        useCases: [
+            { title: 'Order Updates', description: 'Shipping notifications and delivery tracking.', icon: Truck },
+            { title: 'Abandoned Cart', description: 'Recover lost sales with timely reminders.', icon: RefreshCw },
+            { title: 'Verification', description: 'Send OTPs securely via WhatsApp.', icon: Smartphone },
+        ],
+        faq: [
+            { question: 'Is there a risk of getting banned?', answer: 'No, we use the official API which is fully compliant with WhatsApp policies.' },
+            { question: 'Can I send promotional messages?', answer: 'Yes, using approved Marketing Templates.' },
+        ]
+    },
     // Fallback/Generic for other routes
     'generic': {
         id: 'generic',

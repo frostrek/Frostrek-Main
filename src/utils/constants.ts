@@ -4,7 +4,7 @@ export const NAV_ITEMS = [
     { label: 'Experience', href: '/experience' },
     {
         label: 'Products',
-        href: '/products',
+        href: '#',
         megaMenu: [
             {
                 title: '01 AGENT BASED PLATFORMS',
@@ -26,7 +26,7 @@ export const NAV_ITEMS = [
     },
     {
         label: 'Solutions',
-        href: '/solutions',
+        href: '#',
         megaMenu: [
             {
                 title: '01 INTELLIGENT AUTOMATION',
@@ -53,7 +53,7 @@ export const NAV_ITEMS = [
     },
     {
         label: 'Resources',
-        href: '/resources',
+        href: '#',
         megaMenu: [
             {
                 title: '',

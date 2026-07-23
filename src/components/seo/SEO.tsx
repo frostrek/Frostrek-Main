@@ -100,33 +100,58 @@ export default function SEO({
       ))}
 
       {/* Organization Schema for Siri & Spotlight */}
-      {path === '/' && (
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          "name": "Frostrek AI",
-          "url": "https://www.frostrek.ai",
-          "logo": "https://www.frostrek.ai/logo.png",
-          "description": "Frostrek AI delivers AI agents, LLM training, customized applications, workflow automation, and data annotation services for enterprises and frontier AI teams.",
-          "foundingDate": "2023",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Gurugram",
-            "addressRegion": "Haryana",
-            "addressCountry": "IN"
+      <script type="application/ld+json">{JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Frostrek AI",
+        "url": "https://www.frostrek.ai",
+        "logo": "https://www.frostrek.ai/logo.png",
+        "description": "Frostrek AI delivers AI agents, LLM training, customized applications, workflow automation, and data annotation services for enterprises and frontier AI teams.",
+        "foundingDate": "2023",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Gurugram",
+          "addressRegion": "Haryana",
+          "addressCountry": "IN"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "url": "https://www.frostrek.ai/schedule-demo"
+        },
+        "sameAs": [
+          "https://www.wikidata.org/wiki/Q140454089",
+          "https://www.linkedin.com/company/frostrek",
+          "https://www.instagram.com/frostrek.ai"
+        ],
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "certification",
+            "name": "ISO 27001"
           },
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "contactType": "sales",
-            "url": "https://www.frostrek.ai/schedule-demo"
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "certification",
+            "name": "ISO 9001"
           },
-          "sameAs": [
-            "https://www.wikidata.org/wiki/Q140454089",
-            "https://www.linkedin.com/company/frostrek",
-            "https://www.instagram.com/frostrek.ai"
-          ]
-        })}</script>
-      )}
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "compliance",
+            "name": "GDPR"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "compliance",
+            "name": "HIPAA"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "compliance",
+            "name": "SOC 2 Type II"
+          }
+        ]
+      })}</script>
     </Helmet>
   );
 }

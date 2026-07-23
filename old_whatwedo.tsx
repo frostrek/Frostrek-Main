@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+﻿import { useEffect, useRef, useState } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -9,7 +9,7 @@ import SplitTextReveal from '../ui/SplitTextReveal';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// ─── Observe.ai-style arrow SVG (exact paths from user) ─────────────────────
+// ÔöÇÔöÇÔöÇ Observe.ai-style arrow SVG (exact paths from user) ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
 const CurlyArrow = ({ className = '' }: { className?: string }) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -49,9 +49,7 @@ const CurlyArrow = ({ className = '' }: { className?: string }) => (
     </svg>
 );
 
-
-
-// ─── Card 1: Manufacturing OS ──────────────────────────────────────────────────
+// ÔöÇÔöÇÔöÇ Card 1: Manufacturing OS ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
 const ManufacturingDemo = () => {
     const [tick, setTick] = useState(0);
     useEffect(() => {
@@ -60,10 +58,10 @@ const ManufacturingDemo = () => {
     }, []);
     const metrics = [{ label: 'OEE', value: '87%' }, { label: 'Cost/Unit', value: '$1.24' }, { label: 'Uptime', value: '99.2%' }];
     const alerts = [
-        { id: 0, text: 'Extruder 3 - temp spike detected', icon: '🚨' },
-        { id: 1, text: 'Changeover optimised · saved 1.4h', icon: '✅' },
-        { id: 2, text: 'Batch cost updated · $1.24/kg', icon: '📉' },
-        { id: 3, text: 'Shift handover logged - Team B', icon: '📋' },
+        { id: 0, text: 'Extruder 3 - temp spike detected', icon: 'ÔÜí' },
+        { id: 1, text: 'Changeover optimised ┬À saved 1.4h', icon: 'Ô£à' },
+        { id: 2, text: 'Batch cost updated ┬À $1.24/kg', icon: '­ƒôè' },
+        { id: 3, text: 'Shift handover logged - Team B', icon: '­ƒôï' },
     ];
     return (
         <div className="w-full text-xs select-none font-body">
@@ -96,7 +94,7 @@ const ManufacturingDemo = () => {
     );
 };
 
-// ─── Card 2: Fintech Platform ────────────────────────────────────────────────────
+// ÔöÇÔöÇÔöÇ Card 2: Fintech Platform ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
 const FintechDemo = () => {
     const [step, setStep] = useState(0);
     useEffect(() => { const t = setInterval(() => setStep(v => (v + 1) % 5), 1200); return () => clearInterval(t); }, []);
@@ -138,7 +136,7 @@ const FintechDemo = () => {
     );
 };
 
-// ─── Card 3: Model Training (Pink Theme) ────────────────────────────────────────────────────────
+// ÔöÇÔöÇÔöÇ Card 3: Model Training (Pink Theme) ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
 const ModelTrainingDemo = () => {
     const [epoch, setEpoch] = useState(0);
     useEffect(() => { const t = setInterval(() => setEpoch(v => (v + 1) % 5), 1200); return () => clearInterval(t); }, []);
@@ -172,7 +170,7 @@ const ModelTrainingDemo = () => {
     );
 };
 
-// ─── Cards data ───────────────────────────────────────────────────────────────
+// ÔöÇÔöÇÔöÇ Cards data ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
 const CARDS = [
     {
         icon: "/icons/manufacturing-green.webp",
@@ -233,7 +231,7 @@ const getCardStyles = (i: number) => {
     };
 };
 
-// ─── Main Section ─────────────────────────────────────────────────────────────
+// ÔöÇÔöÇÔöÇ Main Section ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
 const WhatWeDoSection = () => {
     const sectionRef = useRef(null);
     const headingRef = useRef(null);
@@ -285,7 +283,7 @@ const WhatWeDoSection = () => {
         <section ref={sectionRef} className="bg-brand-light-bg py-24 md:py-32 px-4 overflow-hidden font-body">
             <div className="max-w-7xl mx-auto">
 
-                {/* ── Heading block — observe.ai style with curly arrow ── */}
+                {/* ÔöÇÔöÇ Heading block ÔÇö observe.ai style with curly arrow ÔöÇÔöÇ */}
                 <div ref={headingRef} className="text-center mb-10 md:mb-16">
 
                     {/* Badge */}
@@ -326,7 +324,7 @@ const WhatWeDoSection = () => {
                             We Transform
                         </SplitTextReveal>
 
-                        {/* Curly arrow — slides in from left after text */}
+                        {/* Curly arrow ÔÇö slides in from left after text */}
                         <motion.div
                             initial={{ opacity: 0, x: -20, rotate: -15 }}
                             whileInView={{ opacity: 1, x: 0, rotate: 0 }}
@@ -350,7 +348,7 @@ const WhatWeDoSection = () => {
                     </SplitTextReveal>
                 </div>
 
-                {/* ── 3-column card grid ── */}
+                {/* ÔöÇÔöÇ 3-column card grid ÔöÇÔöÇ */}
                 <div ref={pinRef} className="md:!overflow-visible overflow-hidden -mx-4 md:mx-0">
                     <div className="px-4 md:px-0">
                         <div ref={scrollWrapperRef} className="flex md:grid md:grid-cols-3 gap-5 md:gap-6 w-max md:w-auto">

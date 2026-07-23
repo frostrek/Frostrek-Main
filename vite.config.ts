@@ -125,6 +125,7 @@ const routes = [
   '/products/vedashi-ecommerce',
   '/products/frosty-agent',
   '/products/vettedge',
+  '/products/frostrek-manufacturing-os',
 
   // Solutions
   '/solutions/fintech-custom-wallets',

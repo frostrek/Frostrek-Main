@@ -100,8 +100,11 @@ RewriteRule . /index.html [L]
     </FilesMatch>
 </IfModule>
 
-# ── 8. Directory listing off ────────────────────────────────────
-Options -Indexes
+# ── 8. Directory listing off and Disable MultiViews ───────────
+Options -Indexes -MultiViews
+<IfModule mod_speling.c>
+    CheckSpelling Off
+</IfModule>
 
 # ── 9. Custom error pages (SPA handles 404 itself) ──────────────
 ErrorDocument 404 /index.html

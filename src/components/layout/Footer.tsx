@@ -158,11 +158,11 @@ const Footer = () => {
 
                 {/* Certifications and Compliance Logos */}
                 <div className="flex items-center justify-between w-full">
-                  <img src="/images/ISO 27001.png" alt="ISO 27001 Certified" className="h-[38px] w-auto object-contain mix-blend-multiply drop-shadow-sm hover:scale-105 transition-transform" loading="lazy" />
-                  <img src="/images/gdpr logo.jpg" alt="GDPR Compliant" className="h-[34px] w-auto object-contain mix-blend-multiply drop-shadow-sm hover:scale-105 transition-transform" loading="lazy" />
-                  <img src="/images/ISO_9001-2015.svg.webp" alt="ISO 9001 Certified" className="h-[34px] w-auto object-contain mix-blend-multiply drop-shadow-sm hover:scale-105 transition-transform" loading="lazy" />
-                  <img src="/optimized/hipaa-compliance-logo-health-insurance-260nw-1647036358.webp" alt="HIPAA Compliant" className="h-[36px] w-auto object-contain mix-blend-multiply drop-shadow-sm hover:scale-105 transition-transform bg-white rounded-md" loading="lazy" />
-                  <img src="/optimized/soc-2-compliant-certificate-badge-icon-clean-modern-design-symbolizing-verified-data.webp" alt="SOC 2 Compliant" className="h-[38px] w-auto object-contain mix-blend-multiply drop-shadow-sm hover:scale-105 transition-transform bg-white rounded-md" loading="lazy" />
+                  <img src="/images/ISO 27001.png" alt="ISO 27001:2022 certified — information security management" className="h-[38px] w-auto object-contain mix-blend-multiply drop-shadow-sm hover:scale-105 transition-transform" loading="lazy" />
+                  <img src="/images/gdpr logo.jpg" alt="GDPR compliant — European data protection standards" className="h-[34px] w-auto object-contain mix-blend-multiply drop-shadow-sm hover:scale-105 transition-transform" loading="lazy" />
+                  <img src="/images/ISO_9001-2015.svg.webp" alt="ISO 9001:2015 certified — quality management systems" className="h-[34px] w-auto object-contain mix-blend-multiply drop-shadow-sm hover:scale-105 transition-transform" loading="lazy" />
+                  <img src="/optimized/hipaa-compliance-logo-health-insurance-260nw-1647036358.webp" alt="HIPAA compliant — health information privacy" className="h-[36px] w-auto object-contain mix-blend-multiply drop-shadow-sm hover:scale-105 transition-transform bg-white rounded-md" loading="lazy" />
+                  <img src="/optimized/soc-2-compliant-certificate-badge-icon-clean-modern-design-symbolizing-verified-data.webp" alt="SOC 2 Type II compliant — data security and privacy" className="h-[38px] w-auto object-contain mix-blend-multiply drop-shadow-sm hover:scale-105 transition-transform bg-white rounded-md" loading="lazy" />
                 </div>
               </div>
             </div>

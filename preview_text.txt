@@ -1,0 +1,403 @@
+frostrek
+Product
+Dashboard
+How it works
+Pricing
+Book a demo
+AI agent · website + whatsapp
+Never lose a lead to a slow reply again.
+
+Frosty answers every website and WhatsApp enquiry in seconds, qualifies it, books the meeting, and hands your team a warm lead — 24/7, in your brand's voice.
+
+Book a demo
+See Frosty live
+ISO 27001 · ISO 9001 certified
+GDPR-ready
+Built end-to-end by Frostrek
+Frosty · live conversation
+web + whatsapp
+Hi — I'm comparing a couple of vendors. Can you help?
+Answers in seconds
+Qualifies intent
+24/7
+THE COST OF A SLOW REPLY
+The first five minutes decide who they talk to.
+
+Reply inside five minutes and your odds of qualifying the lead multiply — and almost nobody replies that fast. Frosty is built to win that window, every time.
+
+0×
+
+more likely to qualify a lead when you reply within the hour than an hour later.
+
+0×
+
+more likely than the teams that wait a day or more.
+
+0%
+
+of first replies actually go out inside five minutes.
+
+Relative odds of qualifying a lead
+By time to first response · five-minute bucket indexed to 100. An index, not a percentage.
+100
+75
+50
+25
+0
+100
+At 5 min, relative odds of qualifying are 100 against a five-minute baseline of 100.
+25
+At 10 min, relative odds of qualifying are 25 against a five-minute baseline of 100.
+4.8
+At 30 min, relative odds of qualifying are 4.8 against a five-minute baseline of 100.
+5 min
+10 min
+30 min
+Frosty replies in seconds — before this chart even starts.
+The window is open.
+
+The study's baseline. Every other number here is measured against this moment.
+
+Show the numbers
+Odds ratios: Oldroyd & InsideSales.com, Lead Response Management Study (2007). Reply-rate and hourly figures: Oldroyd, McElheran & Elkington, The Short Life of Online Sales Leads, Harvard Business Review (2011); XANT Lead Response Report (2021). The sources publish relative odds, not absolute percentages, so the scale is indexed rather than a likelihood.
+ONE BRAIN, TWO FRONT DOORS
+Two agents. One conversation.
+
+The web and WhatsApp agents share a single memory — so a visitor who starts on your site and finishes on WhatsApp never repeats themselves.
+
+Web Agent
+
+Your front door. Greets every visitor the moment they land, answers instantly, and qualifies them before they leave the page.
+
+Shared contextual memory
+WhatsApp Agent
+
+Continues the exact same conversation on WhatsApp with full context — a real agent, not an auto-reply or a notification.
+
+NOT A CHATBOT
+It doesn't just chat. It acts.
+
+Rule-based bots frustrate people with scripts. Frosty understands intent and takes the next step on its own — tap or hover any action to follow the enquiry that triggers it.
+
+ENQUIRY IN
+
+“Do you work with clinics like ours?”
+
+via Website
+READS INTENT
+Answers & qualifies
+. Understands the question and asks the right ones back. Example: “Do you work with clinics like ours?” — Intent understood · tagged WARM.
+Books meetings
+. Drops a slot straight onto your team's calendar. Example: “Can someone walk me through it this week?” — Meeting booked · Thu 4:30 PM.
+Sends proposals & quotes
+. Shares the right document at the right moment. Example: “Send me pricing for 50 seats.” — Quotation #218 sent on WhatsApp.
+Captures the lead
+. Pulls contact and intent from a natural chat. Example: “I'm interested — here's my number.” — Lead saved · synced to your CRM.
+Hands off to a human
+. Escalates to your team with the full history. Example: “I'd rather speak to a person.” — Live chat handed to your team.
+
+Understands the question and asks the right ones back.
+
+Intent understood · tagged WARM
+YOUR COMMAND CENTRE
+Every lead — and everything about it — in one place.
+
+Everything both agents do lands in one live dashboard, so your team works the hottest leads first without digging.
+
+Analytics
+Conversations
+AI identity
+Frosty
+Performance
+Insights and metrics for your workspace.
+7d
+14d
+30d
+90d
+Export
+CONVERSATIONS
+214
+sessions
+MESSAGES
+1,480
+exchanged
+LEADS
+96
+captured
+CONVERSION
+45%
+lead rate
+AVG/SESSION
+6.9
+messages
+PEAK HOUR
+7pm
+Tue busiest
+Conversations & messages
+Messages
+Conversations
+Top topics
+40
+mentions
+Pricing 11
+Delivery 9
+Booking 6
+Sizing 6
+
+Product preview. Figures and conversations are illustrative.
+
+All conversations stored — web and WhatsApp, old, new and live.
+Warm / hot tagging by intent, to rules you control.
+Full activity log — meetings, proposals and quotes, per lead.
+One-click human takeover, with full history.
+Analytics, funnel drop-off & CRM sync.
+Tone and instructions you control, tuned by our team.
+UNDER THE HOOD
+Enterprise-grade, engineered end to end.
+
+Not a wrapper on a template. A production platform Frostrek built from scratch.
+
+RAG knowledge engine
+
+We feed Frosty your PDFs and crawl up to 200 pages of your site. It chunks, embeds and indexes them into a semantic brain — so answers are grounded in your content, never generic.
+
+The right model for every task
+
+Multi-model under the hood — Gemini and GPT-4o. Our team picks and tunes the best model for each job in your workspace.
+
+Acts through your tools
+
+Calendar for bookings, Gmail for follow-ups, Slack for alerts, WhatsApp for chat.
+
+Human-in-the-loop
+
+Pause the agent in one click, take over live, auto-resume when you're done.
+
+Secure & certified
+
+ISO 27001 & ISO 9001 certified, GDPR-ready. Your content trains only your own agent.
+
+DONE FOR YOU
+The Frostrek team sets Frosty up for you.
+
+We customize and train the agent around your business and deploy it on your website and WhatsApp, so there is nothing for you to build or code. You tell us about your services, and we handle the rest during onboarding.
+
+1
+Tell us about your business
+
+A short onboarding session: your services, pricing, common questions and how you like to speak to customers.
+
+2
+We customize and train Frosty
+
+Our team builds the agent on your content, tone and rules, then tests it against real customer questions.
+
+3
+We deploy — you convert
+
+We put Frosty live on your website and WhatsApp and keep tuning it, while your team focuses on closing.
+
+WHY FROSTREK
+Built for how you actually sell.
+Grounded in your data
+
+Trained on your products, pricing and policies — accurate answers, never made up.
+
+Web + WhatsApp continuity
+
+One conversation across channels; customers never start over.
+
+Your team, amplified
+
+Frosty absorbs volume and repeat questions so people do the high-value work.
+
+Enterprise-grade & certified
+
+ISO 27001 & ISO 9001 certified, GDPR-ready — built in Gurugram by a 50+ engineer team.
+
+WHO IT'S FOR
+If you live on inbound, Frosty pays for itself.
+
+From e-commerce to clinics to car showrooms — if your leads arrive through a website or WhatsApp, Frosty can answer them, qualify them and act on them.
+
+E-commerce
+— E-commerce and D2C brands
+Real estate
+— Real estate and property
+Healthcare
+— Clinics and healthcare
+Education
+— Education and study-abroad consultancies
+Marketing
+— Marketing agencies
+Automobile
+— Automobile and car dealerships
+Finance
+— Financial services
+Travel
+— Travel and hospitality
+Interiors
+— Interiors and renovation
+Home services
+— Home and repair services
+Legal
+— Legal and professional services
+Fitness
+— Fitness and wellness
+Logistics
+— Logistics and freight
+Manufacturing
+— Manufacturing and B2B
+Events
+— Events and catering
+Salons
+— Beauty and salons
+PRICING · INDIA
+One agent, priced around you.
+
+No tiers to compare. We scope Frosty to your business and quote it from a single starting price.
+
+PLANS START AT
+₹19,999
+per month
+The enterprise-grade Frosty agent.
+
+Built, trained and deployed by the Frostrek team around your business — not a template you configure yourself.
+
+Website + WhatsApp agent
+Live dashboard & CRM sync
+Human takeover, any time
+Trained on your own content
+Book a demo
+Talk to us
+
+Final pricing depends on enquiry volume and how much we build around you. We'll quote it on the demo call.
+
+QUESTIONS
+Everything you need to know.
+ABOUT FROSTY
+What is Frosty?
+
+Frosty is an AI agent that talks to your website visitors and WhatsApp leads for you. It answers their questions in seconds, works out what they want, books meetings, and passes qualified leads to your team, day and night. Frostrek builds, trains, and runs it around your business, so you get a working agent without adding staff.
+
+How is Frosty different from a basic automated chat?
+
+A basic automated chat follows a fixed script and gets stuck the moment a customer asks something it wasn't set up for. Frosty understands the actual question, replies in a natural way, and takes real steps like booking a call or sending a quote. It works more like a junior sales rep that never sleeps than a set of pre-written replies.
+
+Can Frosty handle both my website and WhatsApp?
+
+Yes. Frosty runs on your website and on WhatsApp at the same time, using one shared memory. If someone starts a chat on your site and later messages you on WhatsApp, Frosty remembers the earlier conversation, so the customer never has to repeat themselves.
+
+Can Frosty qualify leads and book meetings on its own?
+
+Yes. Frosty asks the right questions to understand budget, timeline, and intent, then tags each lead as warm or hot based on rules you set. When a lead is ready, it books a meeting straight into your calendar, sends a proposal or quote, and saves the contact details for your team to follow up.
+
+Can Frosty handle customer support, not just lead generation?
+
+Yes. Frosty can handle around 90% of the everyday questions your customers ask, things like hours, pricing, availability, order and service queries, and how your process works. When something needs a person, it passes the conversation to your team, so support stays fast without your staff answering the same questions all day.
+
+Does Frosty really work 24/7?
+
+Yes. Frosty answers the moment a message comes in, at any hour, including nights, weekends, and holidays. That matters because most buyers go with whoever replies first, and enquiries usually arrive long after your team has logged off.
+
+Can't I just use ChatGPT for this?
+
+ChatGPT is a general tool that doesn't know your business, doesn't sit on your website and WhatsApp, and can't book a meeting or hand a lead to your team. Frosty is trained on your own content and runs on your channels, so it answers as your business and takes the next step for you. It's the difference between a general assistant and one built around how you actually sell.
+
+SETTING IT UP
+Do I need a developer to set up Frosty?
+
+No. The Frostrek team sets Frosty up for you. We customize and train the agent around your business and deploy it on your website and WhatsApp, so there's nothing for you to build or code. You tell us about your services, and we handle the rest during onboarding.
+
+How does Frosty learn about my business?
+
+The Frostrek team trains and customizes Frosty around your business, your services, and your rates. It also reads the content on your website to build its knowledge, and you can share PDFs or documents to add to what it knows. That's why its answers match what you actually offer instead of sounding generic.
+
+How long does it take to get Frosty live?
+
+It usually takes anywhere from a few hours to a few days. The timeline depends on the size of your knowledge base and what you need Frosty to do, so a straightforward setup goes live quickly while custom requirements take a little longer. The Frostrek team confirms the timeline with you upfront.
+
+Will Frosty answer in my brand's voice?
+
+Yes. The team sets the tone Frosty uses, and it answers from your own content, so it sounds like your business rather than a generic script. You stay in control of how it speaks and what it's allowed to say.
+
+Does Frosty work with my existing website?
+
+Yes. Frosty can be added to most common website setups, and the Frostrek team handles the integration for you. Your customers get the same agent on your site and on WhatsApp, working from one shared knowledge base.
+
+Which AI models does Frosty use?
+
+Frosty uses a multi-model approach. The Frostrek team picks the best available model for each type of task, so the right model handles the right kind of work behind the scenes. If you have a preference, the setup can be customized to your requirements.
+
+HOW IT WORKS DAY TO DAY
+How does Frosty make sure its answers are accurate?
+
+Frosty answers from your own content rather than making things up, so it stays grounded in what you actually offer. When it isn't confident or a question needs a person, it hands the conversation to your team instead of guessing, and that question can be added to its knowledge for next time.
+
+Where do my conversations and leads end up?
+
+Everything lands in one live dashboard. You can see every conversation across your website and WhatsApp, old and new, with leads sorted by intent and every action logged, from meetings booked to quotes sent. You also get analytics on response times and where leads drop off.
+
+Can my whole team use Frosty and take over chats?
+
+Yes. Frosty runs on a shared dashboard that your whole team can log into. Any team member can step into a live conversation with one click and continue with the full history in front of them, and different people can handle different conversations at the same time. Frosty picks each one back up automatically once your team is done.
+
+Does Frosty connect with my CRM, calendar, and email?
+
+Yes. Frosty syncs qualified leads and their full history into your CRM, and it works with Google Calendar for bookings, Gmail for follow-ups, and Slack for team alerts. It does more than reply, it acts through the tools you already use.
+
+What languages can Frosty speak?
+
+Frosty is a multi-language agent. It replies in the language your customer writes in and picks up the language automatically during the chat, so you can help visitors from different regions with one agent.
+
+Can Frosty answer phone calls too?
+
+Yes, through a separate voice agent. It answers inbound calls, qualifies the caller the same way the website and WhatsApp agents do, and books a callback when no one is free to pick up. Voice is offered as an add-on, so ask the Frosty team to include it.
+
+TRUST AND GETTING STARTED
+Is my data safe with Frosty?
+
+Yes. Frostrek is ISO 27001 and ISO 9001 certified and GDPR-ready. Your content is used only to train your own agent, and Frosty is built and hosted end to end by Frostrek rather than pieced together from other people's tools.
+
+Who maintains and updates Frosty after it goes live?
+
+The Frostrek team does. We keep Frosty running, update it as your business changes, and retrain it when you add new services or content. If something needs adjusting, you have a team to reach rather than a tool you're left to manage on your own.
+
+What types of businesses is Frosty for?
+
+Frosty fits any business that gets enquiries and wants to answer them fast. That includes marketing agencies, real estate, clinics and healthcare, education and study-abroad consultancies, car dealers, financial services, and online stores. If your leads come in through a website or WhatsApp, Frosty can capture and qualify them.
+
+How much does Frosty cost?
+
+Plans start at ₹19,999 per month for the enterprise-grade Frosty agent. Final pricing depends on how many conversations you handle and which features you need, so contact the Frosty team and they'll walk you through the options and quote for your business.
+
+How can I see Frosty in action?
+
+Book a demo and the Frostrek team will set Frosty up on a sample of your own content, so you can watch it answer a real enquiry before you decide. You can reach the Frosty team through the Book a Demo button or on WhatsApp.
+
+Capture every enquiry — starting this week.
+
+Book a 20-minute demo and we'll set Frosty up on your website and WhatsApp, trained on your own content. You'll see it answer a real enquiry before you decide.
+
+Book a demo
+Chat on WhatsApp
+frostrek
+
+Autonomous AI agents and automation, engineered end to end — one intelligent system at a time.
+
+PRODUCT
+Overview
+Dashboard
+Pricing
+Voice agent
+COMPANY
+About
+Case studies
+Contact
+GET IN TOUCH
+Book a demo
+contact@frostrek.ai
+WhatsApp
+LinkedIn
+© 2026 Frostrek AI. All rights reserved. · JMD Empire, Sector 62, Gurugram
+ISO 27001 · ISO 9001 · GDPR

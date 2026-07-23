@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import SEO from '../components/seo/SEO';
 import { ChevronRight, ExternalLink, Plus, Minus } from 'lucide-react';
@@ -362,7 +362,7 @@ function DashboardPreview() {
                     {tab === 1 && (
                         <>
                             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, flexWrap: "wrap" }}>
-                                <div><div className="fx-dx-h">Website console</div><div className="fx-dx-sub">Every session, web and WhatsApp, in one place.</div></div>
+                                <div><div className="fx-dx-h">Website console<span className="fx-sr"> — Unified AI inbox for automated customer support and lead management</span></div><div className="fx-dx-sub">Every session, web and WhatsApp, in one place.</div></div>
                                 <div className="fx-dx-pills"><b className="on">Website</b><b>WhatsApp</b></div>
                             </div>
                             <div className="fx-dx-split">
@@ -393,7 +393,7 @@ function DashboardPreview() {
 
                     {tab === 2 && (
                         <>
-                            <div className="fx-dx-h">Define your AI identity.</div>
+                            <div className="fx-dx-h">Define your AI identity.<span className="fx-sr"> Custom AI chatbot personality and knowledge base settings</span></div>
                             <div className="fx-dx-sub">Shape the personality, tone and knowledge of your agent. Synchronised across every channel.</div>
                             <div className="fx-dx-field">
                                 <div className="lb">AGENT NAME</div>
@@ -528,22 +528,22 @@ function OddsChart() {
    Short label is what you read; the fuller descriptor rides along in .fx-sr so the
    section still carries the long-tail terms for search and screen readers. */
 const INDUSTRIES = [
-    ["bag", "E-commerce", "E-commerce and D2C brands"],
-    ["house", "Real estate", "Real estate and property"],
-    ["cross", "Healthcare", "Clinics and healthcare"],
-    ["cap", "Education", "Education and study-abroad consultancies"],
-    ["horn", "Marketing", "Marketing agencies"],
-    ["car", "Automobile", "Automobile and car dealerships"],
-    ["bank", "Finance", "Financial services"],
-    ["plane", "Travel", "Travel and hospitality"],
-    ["sofa", "Interiors", "Interiors and renovation"],
-    ["tools", "Home services", "Home and repair services"],
-    ["scales", "Legal", "Legal and professional services"],
-    ["bell", "Fitness", "Fitness and wellness"],
-    ["truck", "Logistics", "Logistics and freight"],
-    ["factory", "Manufacturing", "Manufacturing and B2B"],
-    ["dome", "Events", "Events and catering"],
-    ["shears", "Salons", "Beauty and salons"],
+    ["bag", "E-commerce", "AI chatbot for E-commerce and D2C brands"],
+    ["house", "Real estate", "AI sales agent for Real estate and property"],
+    ["cross", "Healthcare", "Automated customer support for Clinics and healthcare"],
+    ["cap", "Education", "AI lead generation for Education and study-abroad consultancies"],
+    ["horn", "Marketing", "24/7 AI agent for Marketing agencies"],
+    ["car", "Automobile", "Conversational AI for Automobile and car dealerships"],
+    ["bank", "Finance", "AI customer service for Financial services"],
+    ["plane", "Travel", "Automated booking agent for Travel and hospitality"],
+    ["sofa", "Interiors", "AI sales assistant for Interiors and renovation"],
+    ["tools", "Home services", "Automated lead qualification for Home and repair services"],
+    ["scales", "Legal", "AI receptionist for Legal and professional services"],
+    ["bell", "Fitness", "24/7 support bot for Fitness and wellness"],
+    ["truck", "Logistics", "AI query resolution for Logistics and freight"],
+    ["factory", "Manufacturing", "B2B AI sales agent for Manufacturing"],
+    ["dome", "Events", "Automated booking system for Events and catering"],
+    ["shears", "Salons", "AI appointment booking for Beauty and salons"],
 ];
 
 // Row patterns always step by ±1 so consecutive rows interlock once centred.
@@ -599,6 +599,7 @@ function useRevealAndCount() {
             if (el.dataset.done) return; el.dataset.done = "1";
             const end = parseFloat(el.dataset.count || "0"), dec = parseInt(el.dataset.decimals || "0"), suf = el.dataset.suffix || "";
             if (reduce) { el.textContent = end.toFixed(dec) + suf; return; }
+            el.textContent = (0).toFixed(dec) + suf;
             const t0 = performance.now(), dur = 1400;
             const tick = (t: number) => { const p = Math.min((t - t0) / dur, 1); el.textContent = (end * (1 - Math.pow(1 - p, 3))).toFixed(dec) + suf; if (p < 1) requestAnimationFrame(tick); };
             requestAnimationFrame(tick);
@@ -720,7 +721,7 @@ export default function FrostyPage() {
             ["Can Frosty qualify leads and book meetings on its own?", "Yes. Frosty asks the right questions to understand budget, timeline, and intent, then tags each lead as warm or hot based on rules you set. When a lead is ready, it books a meeting straight into your calendar, sends a proposal or quote, and saves the contact details for your team to follow up."],
             ["Can Frosty handle customer support, not just lead generation?", "Yes. Frosty can handle around 90% of the everyday questions your customers ask, things like hours, pricing, availability, order and service queries, and how your process works. When something needs a person, it passes the conversation to your team, so support stays fast without your staff answering the same questions all day."],
             ["Does Frosty really work 24/7?", "Yes. Frosty answers the moment a message comes in, at any hour, including nights, weekends, and holidays. That matters because most buyers go with whoever replies first, and enquiries usually arrive long after your team has logged off."],
-            ["Can't I just use ChatGPT for this?", "ChatGPT is a general tool that doesn't know your business, doesn't sit on your website and WhatsApp, and can't book a meeting or hand a lead to your team. Frosty is trained on your own content and runs on your channels, so it answers as your business and takes the next step for you. It's the difference between a general assistant and one built around how you actually sell."],
+            ["Can't I just use ChatGPT for this?", "While ChatGPT is a powerful general-purpose assistant, it lacks deep integration into your business workflows. Frosty Agent is purpose-built for enterprise sales and support: it integrates directly into your website and WhatsApp, is strictly trained on your own proprietary knowledge base, and can autonomously execute actions like booking meetings, sending quotes, and capturing leads directly into your CRM. In short, ChatGPT gives you answers; Frosty acts as a 24/7 autonomous sales rep and support agent built around how you actually sell."],
         ]],
         ["Setting it up", [
             ["Do I need a developer to set up Frosty?", "No. The Frostrek team sets Frosty up for you. We customize and train the agent around your business and deploy it on your website and WhatsApp, so there's nothing for you to build or code. You tell us about your services, and we handle the rest during onboarding."],
@@ -744,7 +745,7 @@ export default function FrostyPage() {
             ["What types of businesses is Frosty for?", "Frosty fits any business that gets enquiries and wants to answer them fast. That includes marketing agencies, real estate, clinics and healthcare, education and study-abroad consultancies, car dealers, financial services, and online stores. If your leads come in through a website or WhatsApp, Frosty can capture and qualify them."],
             // Adapted from the doc: it routed all pricing to the team, which would contradict
             // the $200 starting price stated directly above. Keeps the same routing intent.
-            ["How much does Frosty cost?", "Plans start at $200 per month for the enterprise-grade Frosty Agent. Final pricing depends on how many conversations you handle and which features you need, so contact the Frosty team and they'll walk you through the options and quote for your business."],
+            ["How much does Frosty cost?", "Frosty Agent starts at $200/month for a single website and WhatsApp agent; final pricing depends on enquiry volume and is confirmed on a demo call."],
             ["How can I see Frosty in action?", "Book a demo and the Frostrek team will set Frosty up on a sample of your own content, so you can watch it answer a real enquiry before you decide. You can reach the Frosty team through the Book a Demo button or on WhatsApp."],
         ]],
     ];
@@ -758,14 +759,42 @@ export default function FrostyPage() {
         })),
     });
 
+    const softwareSchema = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Frosty Agent",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web, WhatsApp",
+        "description": "Enterprise-grade AI agent that qualifies leads and answers questions on your website and WhatsApp 24/7.",
+        "offers": {
+            "@type": "Offer",
+            "price": "200.00",
+            "priceCurrency": "USD"
+        },
+        "dateModified": "2026-07-01T00:00:00+00:00",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Frostrek AI",
+            "location": {
+                "@type": "Place",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Gurugram",
+                    "addressRegion": "Haryana",
+                    "addressCountry": "IN"
+                }
+            }
+        }
+    });
+
     return (
         <div className="fx-root">
             <SEO
                 title="Frosty Agent | Enterprise AI Chatbot & WhatsApp Assistant"
                 description="Never lose a lead to a slow reply again. Frosty is an enterprise-grade AI agent that qualifies leads and answers questions on your website and WhatsApp 24/7."
                 path="/products/frosty-agent"
-                schema={[faqSchema]}
-                keywords="enterprise customer support AI bots USA, automated ticket triage system UK, multilingual conversational AI agents India, custom knowledge base chatbots globally"
+                schema={[faqSchema, softwareSchema]}
+                keywords="AI sales agent, AI chatbot for WhatsApp, automated lead qualification, 24/7 customer support AI, enterprise AI agent"
             />
             
             {/* HERO (Injected from original) */}
@@ -785,17 +814,17 @@ export default function FrostyPage() {
                     </motion.div>
 
                     {/* Headline */}
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif mb-8 tracking-tight max-w-5xl mx-auto leading-tight text-[#2D6A4F]">
-                        <SplitTextReveal as="span" type="chars" stagger={0.02} once={false}>
+                    <h1 aria-label="Frosty Agent — Never lose a lead to a slow reply again." className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif mb-8 tracking-tight max-w-5xl mx-auto leading-tight text-[#2D6A4F]">
+                        <SplitTextReveal as="span" type="chars" stagger={0.02} once={false} aria-hidden="true">
                             Frosty Agent
                         </SplitTextReveal>
                         {' '}
-                        <SplitTextReveal as="span" type="chars" stagger={0.02} once={false}>
+                        <SplitTextReveal as="span" type="chars" stagger={0.02} once={false} aria-hidden="true">
                             — Never lose a lead
                         </SplitTextReveal>
                         <br className="hidden sm:block" />
                         {' '}
-                        <SplitTextReveal as="span" type="chars" stagger={0.02} once={false} delay={0.3}>
+                        <SplitTextReveal as="span" type="chars" stagger={0.02} once={false} delay={0.3} aria-hidden="true">
                             to a slow reply again.
                         </SplitTextReveal>
                     </h1>
@@ -861,10 +890,11 @@ export default function FrostyPage() {
                 the sale; they measure odds of qualifying. */}
                         <p className="fx-lead">Reply inside five minutes and your odds of qualifying the lead multiply — and almost nobody replies that fast. Frosty is built to win that window, every time.</p>
                         <div className="fx-stat-row">
-                            <div className="fx-stat"><span className="n" data-count="7" data-suffix="×">0×</span><p>more likely to qualify a lead when you reply within the hour than an hour later.</p></div>
-                            <div className="fx-stat"><span className="n" data-count="60" data-suffix="×">0×</span><p>more likely than the teams that wait a day or more.</p></div>
-                            <div className="fx-stat bad"><span className="n" data-count="0.4" data-decimals="1" data-suffix="%">0%</span><p>of first replies actually go out inside five minutes.</p></div>
+                            <div className="fx-stat"><span className="n" data-count="7" data-suffix="×">7×</span><p>more likely to qualify a lead when you reply within the hour than an hour later.</p></div>
+                            <div className="fx-stat"><span className="n" data-count="60" data-suffix="×">60×</span><p>more likely than the teams that wait a day or more.</p></div>
+                            <div className="fx-stat bad"><span className="n" data-count="0.4" data-decimals="1" data-suffix="%">0.4%</span><p>of first replies actually go out inside five minutes.</p></div>
                         </div>
+                        <p className="text-xs text-gray-400 mt-6 text-center lg:text-left">Source: Oldroyd / InsideSales.com (2007) and Harvard Business Review (2011).</p>
                     </div>
                     <div className="fx-reveal">
                         <OddsChart />
@@ -886,7 +916,7 @@ export default function FrostyPage() {
                                 <span className="inline-block px-3 py-1 rounded-full border border-[#BAE6FD] bg-[#E0F2FE] text-[#0284C7] text-[10px] font-bold tracking-wider uppercase">OUTBOUND</span>
                             </div>
                             <div className="ic"><img src="/icons/world.png" alt="Web" className="w-6 h-6 object-contain" /></div>
-                            <h3>Sales and Outreach Calling</h3>
+                            <h3>Sales and Outreach Calling<span className="fx-sr"> — AI outbound sales bot for qualifying leads</span></h3>
                             <p>Upload your lead list or connect your CRM. The agent dials, pitches, qualifies, and books. It runs hundreds of conversations in parallel while your reps focus on closing.</p>
                             <div className="mt-8 pt-5 border-t border-[#BAE6FD]/50">
                                 <p className="text-[12px] font-bold text-[#0284C7] uppercase">FOR: Real Estate • Finance • Sales Teams</p>
@@ -901,7 +931,7 @@ export default function FrostyPage() {
                                 <span className="inline-block px-3 py-1 rounded-full border border-[#BBF7D0] bg-[#DCFCE7] text-[#166534] text-[10px] font-bold tracking-wider uppercase">INBOUND</span>
                             </div>
                             <div className="ic"><img src="/icons/chat.png" alt="WhatsApp" className="w-6 h-6 object-contain" /></div>
-                            <h3>Support and Query Resolution</h3>
+                            <h3>Support and Query Resolution<span className="fx-sr"> — Inbound AI customer support agent</span></h3>
                             <p>Every inbound call is answered instantly. The agent resolves common queries, collects information, and escalates only what truly needs a human, with full context handed over.</p>
                             <div className="mt-8 pt-5 border-t border-[#BBF7D0]/50">
                                 <p className="text-[12px] font-bold text-[#166534] uppercase">FOR: Customer Support • Finance • Real Estate</p>
@@ -949,29 +979,30 @@ export default function FrostyPage() {
                     <div className="fx-reveal text-center mx-auto flex flex-col items-center" style={{ maxWidth: 640 }}>
                         <span className="fx-ey">Under the hood</span>
                         <h2 className="fx-h2">Enterprise-grade, engineered end to end.</h2>
+                        <p className="text-xs text-gray-500 mb-4 uppercase tracking-wider font-semibold">Last updated: July 2026</p>
                         <p className="fx-lead">Not a wrapper on a template. A production platform Frostrek built from scratch.</p>
                     </div>
                     <div className="fx-bento">
                         <div className="fx-tile wide t-green fx-reveal">
                             <div className="ic"><img src="/icons/data-analytics.png" alt="Knowledge" className="w-6 h-6 object-contain" /></div>
-                            <h3>RAG knowledge engine</h3>
+                            <h3>RAG knowledge engine<span className="fx-sr"> — Custom AI knowledge base trained on your company data</span></h3>
                             <p>We feed Frosty your PDFs and crawl up to 200 pages of your site. It chunks, embeds and indexes them into a semantic brain — so answers are grounded in your content, never generic.</p>
                         </div>
                         <div className="fx-tile third t-blue fx-reveal">
                             <div className="ic"><img src="/icons/ai.png" alt="Models" className="w-6 h-6 object-contain" /></div>
                             {/* Aligned to the FAQ doc: the Frostrek team routes models (done-for-you),
                   rather than the customer switching them — the old copy contradicted that. */}
-                            <h3>The right model for every task</h3>
+                            <h3>The right model for every task<span className="fx-sr"> — Multi-model AI orchestration for enterprise tasks</span></h3>
                             <p>Multi-model under the hood — Gemini and GPT-4o. Our team picks and tunes the best model for each job in your workspace.</p>
                         </div>
                         <div className="fx-tile third t-orange fx-reveal">
                             <div className="ic"><img src="/icons/collaboration.png" alt="Tools" className="w-6 h-6 object-contain" /></div>
-                            <h3>Acts through your tools</h3>
+                            <h3>Acts through your tools<span className="fx-sr"> — Seamless AI CRM and calendar integration</span></h3>
                             <p>Calendar for bookings, Gmail for follow-ups, Slack for alerts, WhatsApp for chat.</p>
                         </div>
                         <div className="fx-tile third t-purple fx-reveal">
                             <div className="ic"><img src="/icons/advisors.png" alt="Human" className="w-6 h-6 object-contain" /></div>
-                            <h3>Human-in-the-loop</h3>
+                            <h3>Human-in-the-loop<span className="fx-sr"> — Live chat agent takeover for seamless support escalations</span></h3>
                             <p>Pause the agent in one click, take over live, auto-resume when you're done.</p>
                         </div>
                         <div className="fx-tile third t-rose fx-reveal">
@@ -997,7 +1028,7 @@ export default function FrostyPage() {
                         ["We deploy — you convert", "We put Frosty live on your website and WhatsApp and keep tuning it, while your team focuses on closing.", "tl-orange"]].map((s, i) => (
                             <div className={`fx-tl fx-reveal ${s[2]}`} key={s[0]}>
                                 <div className="num">{i + 1}</div>
-                                <h4>{s[0]}</h4>
+                                <h4>{s[0]}<span className="fx-sr"> — Fully managed AI agent onboarding and deployment</span></h4>
                                 <p>{s[1]}</p>
                             </div>
                         ))}
@@ -1054,6 +1085,7 @@ export default function FrostyPage() {
                         </div>
                         <div className="fx-price-body">
                             <h3>The enterprise-grade Frosty Agent.</h3>
+                            <p className="text-sm font-semibold mb-2">Frosty Agent starts at $200/month for a single website and WhatsApp agent; final pricing depends on enquiry volume and is confirmed on a demo call.</p>
                             <p>Built, trained and deployed by the Frostrek team around your business — not a template you configure yourself.</p>
                             <ul className="fx-incl">
                                 <li><Icon n="check" /> Website + WhatsApp agent</li>
@@ -1096,6 +1128,7 @@ export default function FrostyPage() {
                                         return (
                                             <motion.div
                                                 key={key}
+                                                id={`faq-${q.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
                                                 initial={{ opacity: 0, y: 20 }}
                                                 whileInView={{ opacity: 1, y: 0 }}
                                                 viewport={{ once: true }}
@@ -1122,21 +1155,16 @@ export default function FrostyPage() {
                                                     </div>
                                                 </button>
 
-                                                <AnimatePresence>
-                                                    {isActive && (
-                                                        <motion.div
-                                                            initial={{ height: 0, opacity: 0 }}
-                                                            animate={{ height: 'auto', opacity: 1 }}
-                                                            exit={{ height: 0, opacity: 0 }}
-                                                            transition={{ duration: 0.3, ease: "easeInOut" }}
-                                                            className="overflow-hidden"
-                                                        >
-                                                            <div className="px-6 pb-6 pt-2 md:pl-[5.5rem] leading-relaxed text-[15px] text-gray-500">
-                                                                {a}
-                                                            </div>
-                                                        </motion.div>
-                                                    )}
-                                                </AnimatePresence>
+                                                <motion.div
+                                                    initial={false}
+                                                    animate={{ height: isActive ? 'auto' : 0, opacity: isActive ? 1 : 0 }}
+                                                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                                                    className="overflow-hidden"
+                                                >
+                                                    <div className="px-6 pb-6 pt-2 md:pl-[5.5rem] leading-relaxed text-[15px] text-gray-500">
+                                                        {a}
+                                                    </div>
+                                                </motion.div>
                                             </motion.div>
                                         );
                                     })}
