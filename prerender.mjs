@@ -264,17 +264,24 @@ async function main() {
 
   const server = await startServer();
 
-  const browser = await puppeteer.launch({
-    headless: true,
-    channel: 'chrome',
-    protocolTimeout: 60000, // Prevent CDP protocol timeouts
-    args: [
-      '--no-sandbox',
-      '--disable-setuid-sandbox',
-      '--disable-dev-shm-usage',
-      '--disable-gpu',
-    ],
-  });
+  let browser;
+  try {
+    browser = await puppeteer.launch({
+      headless: true,
+      protocolTimeout: 60000, // Prevent CDP protocol timeouts
+      args: [
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+        '--disable-dev-shm-usage',
+        '--disable-gpu',
+      ],
+    });
+  } catch (launchErr) {
+    console.warn(`\n  ⚠ Could not launch browser: ${launchErr.message}`);
+    console.warn('  ⏭ Skipping prerendering (SPA will still work via client-side routing).\n');
+    server.close();
+    return;
+  }
 
   console.log('  ✓ Puppeteer launched\n');
   console.log('  Prerendering routes:\n');
