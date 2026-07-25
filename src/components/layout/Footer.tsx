@@ -150,7 +150,7 @@ const Footer = () => {
                   </div>
                   <div className="flex items-center gap-2 mt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                    <span itemProp="email">contact@frostrek.ai</span>
+                    <span itemProp="email">contact@frostrek.com</span>
                   </div>
                 </div>
               </div>
@@ -160,7 +160,7 @@ const Footer = () => {
                   <a href={COMPANY_INFO.socials.linkedin} target="_blank" rel="noopener noreferrer" aria-label="Visit our LinkedIn page" className="w-10 h-10 rounded-full flex items-center justify-center transition-all text-[#2D6A4F] hover:-translate-y-1"><img src="/linkedin.png" alt="Linkedin" className="w-6 h-6 object-contain transition-all hover:scale-110" loading="lazy" width={512} height={512} /></a>
                   <a href={COMPANY_INFO.socials.instagram} target="_blank" rel="noopener noreferrer" aria-label="Visit our Instagram page" className="w-10 h-10 rounded-full flex items-center justify-center transition-all text-[#2D6A4F] hover:-translate-y-1"><img src="/instagram.png" alt="Instagram" className="w-6 h-6 object-contain transition-all hover:scale-110" loading="lazy" width={512} height={512} /></a>
                   <a href={COMPANY_INFO.socials.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp" className="w-10 h-10 rounded-full flex items-center justify-center transition-all text-[#2D6A4F] hover:-translate-y-1"><img src="/whatsapp.png" alt="WhatsApp" className="w-6 h-6 object-contain transition-all hover:scale-110" loading="lazy" width={512} height={512} /></a>
-                  <a href="mailto:contact@frostrek.ai" aria-label="Send us an email" className="w-10 h-10 rounded-full flex items-center justify-center transition-all text-[#2D6A4F] hover:-translate-y-1"><img src="/gmail.png" alt="Gmail" className="w-8 h-8 object-contain transition-all hover:scale-110" loading="lazy" width={512} height={512} /></a>
+                  <a href="mailto:contact@frostrek.com" aria-label="Send us an email" className="w-10 h-10 rounded-full flex items-center justify-center transition-all text-[#2D6A4F] hover:-translate-y-1"><img src="/gmail.png" alt="Gmail" className="w-8 h-8 object-contain transition-all hover:scale-110" loading="lazy" width={512} height={512} /></a>
                   <a href={COMPANY_INFO.socials.facebook} target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook page" className="w-10 h-10 rounded-full flex items-center justify-center transition-all hover:-translate-y-1">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" className="transition-all hover:scale-110">
                       <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#1877F2" />
