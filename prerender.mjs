@@ -255,11 +255,14 @@ async function main() {
   console.log('\n🔧 Frostrek Prerenderer\n');
   console.log(`  Routes to prerender: ${routes.length}`);
 
-  // Create a backup of the original index.html to use as the clean SPA fallback
+  // Create a backup of the original index.html to use as the clean SPA fallback.
+  // This MUST happen before any browser launch attempt so that Vercel's rewrite
+  // to /index_template.html always has a file to serve, even if prerendering is skipped.
   const indexFile = join(DIST, 'index.html');
   const templateFile = join(DIST, 'index_template.html');
-  if (existsSync(indexFile) && !existsSync(templateFile)) {
+  if (existsSync(indexFile)) {
     writeFileSync(templateFile, readFileSync(indexFile, 'utf-8'), 'utf-8');
+    console.log('  ✓ index_template.html created');
   }
 
   const server = await startServer();

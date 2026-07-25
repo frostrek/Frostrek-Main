@@ -110,12 +110,31 @@ const ContactPage = () => {
         setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
     };
 
+const localBusinessSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Frostrek AI",
+  "image": "https://www.frostrek.ai/logo.png",
+  "url": "https://www.frostrek.ai/contact",
+  "telephone": "+916399999955",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "4th Floor, Jmd Empire, 455, Golf Course Ext Rd, Sector 62",
+    "addressLocality": "Gurugram",
+    "addressRegion": "Haryana",
+    "postalCode": "122102",
+    "addressCountry": "IN"
+  },
+  "priceRange": "₹₹₹"
+});
+
     return (
         <div className="min-h-screen pt-32 pb-16 bg-gradient-to-b from-white via-[#FAFCFB] to-white relative font-body overflow-hidden">
             <SEO
                 title="Contact Us | Frostrek AI"
                 description="Get in touch with the Frostrek AI team in Gurugram to explore how production-grade AI can transform your enterprise operations."
                 path="/contact"
+                schema={[localBusinessSchema]}
             />
 
             {/* Decorative Background Elements */}

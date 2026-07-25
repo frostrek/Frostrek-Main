@@ -102,21 +102,51 @@ const Header = () => {
                                 onMouseEnter={() => item.megaMenu && setActiveMegaMenu(item.label)}
                                 onMouseLeave={() => item.megaMenu && setActiveMegaMenu(null)}
                             >
-                                <Link
-                                    to={item.href}
-                                    onClick={(e) => {
-                                        if (item.megaMenu) {
-                                            e.preventDefault();
+                                {item.href ? (
+                                    <Link
+                                        to={item.href}
+                                        onClick={(e) => {
+                                            if (item.megaMenu) {
+                                                e.preventDefault();
+                                                setActiveMegaMenu(activeMegaMenu === item.label ? null : item.label);
+                                            }
+                                        }}
+                                        className={cn(
+                                            "flex items-center gap-1 text-[15px] font-medium transition-colors py-2 px-4 rounded-xl relative z-10 text-gray-600 hover:text-[#2D6A4F] group",
+                                            (location.pathname === item.href || activeMegaMenu === item.label) && "text-[#2D6A4F] font-bold"
+                                        )}
+                                    >
+                                        <FlipText>{item.label}</FlipText>
+                                        {item.megaMenu && (
+                                            <ChevronDown
+                                                size={14}
+                                                className={cn(
+                                                    "transition-transform duration-300",
+                                                    activeMegaMenu === item.label && "rotate-180"
+                                                )}
+                                            />
+                                        )}
+                                        {location.pathname === item.href && !item.megaMenu && (
+                                            <motion.div
+                                                layoutId="navbar-active"
+                                                className="absolute inset-0 rounded-xl -z-10 bg-gray-100"
+                                                initial={{ opacity: 0 }}
+                                                animate={{ opacity: 1 }}
+                                                transition={{ duration: 0.3 }}
+                                            />
+                                        )}
+                                    </Link>
+                                ) : (
+                                    <button
+                                        onClick={() => {
                                             setActiveMegaMenu(activeMegaMenu === item.label ? null : item.label);
-                                        }
-                                    }}
-                                    className={cn(
-                                        "flex items-center gap-1 text-[15px] font-medium transition-colors py-2 px-4 rounded-xl relative z-10 text-gray-600 hover:text-[#2D6A4F] group",
-                                        (location.pathname === item.href || activeMegaMenu === item.label) && "text-[#2D6A4F] font-bold"
-                                    )}
-                                >
-                                    <FlipText>{item.label}</FlipText>
-                                    {item.megaMenu && (
+                                        }}
+                                        className={cn(
+                                            "flex items-center gap-1 text-[15px] font-medium transition-colors py-2 px-4 rounded-xl relative z-10 text-gray-600 hover:text-[#2D6A4F] group",
+                                            activeMegaMenu === item.label && "text-[#2D6A4F] font-bold"
+                                        )}
+                                    >
+                                        <FlipText>{item.label}</FlipText>
                                         <ChevronDown
                                             size={14}
                                             className={cn(
@@ -124,17 +154,9 @@ const Header = () => {
                                                 activeMegaMenu === item.label && "rotate-180"
                                             )}
                                         />
-                                    )}
-                                    {location.pathname === item.href && !item.megaMenu && (
-                                        <motion.div
-                                            layoutId="navbar-active"
-                                            className="absolute inset-0 rounded-xl -z-10 bg-gray-100"
-                                            initial={{ opacity: 0 }}
-                                            animate={{ opacity: 1 }}
-                                            transition={{ duration: 0.3 }}
-                                        />
-                                    )}
-                                </Link>
+                                    </button>
+                                )}
+
 
                                 {/* Inline dropdown for Resources to position it directly underneath */}
                                 <AnimatePresence>
@@ -237,27 +259,43 @@ const Header = () => {
                                         {item.megaMenu ? (
                                             <div>
                                                 <div className="flex items-center">
-                                                    <Link
-                                                        to={item.href || "#"}
-                                                        className={cn(
-                                                            "font-medium flex-1 py-3 px-3 rounded-xl transition-all duration-200 text-base font-body",
-                                                            location.pathname === item.href
-                                                                ? "text-[#2D6A4F] bg-[#E8F5EE]"
-                                                                : "text-gray-700 hover:text-[#2D6A4F] hover:bg-[#F4FAF7]"
-                                                        )}
-                                                        onClick={(e) => {
-                                                            if (item.megaMenu) {
-                                                                e.preventDefault();
+                                                    {item.href ? (
+                                                        <Link
+                                                            to={item.href}
+                                                            className={cn(
+                                                                "font-medium flex-1 py-3 px-3 rounded-xl transition-all duration-200 text-base font-body text-left",
+                                                                location.pathname === item.href
+                                                                    ? "text-[#2D6A4F] bg-[#E8F5EE]"
+                                                                    : "text-gray-700 hover:text-[#2D6A4F] hover:bg-[#F4FAF7]"
+                                                            )}
+                                                            onClick={(e) => {
+                                                                if (item.megaMenu) {
+                                                                    e.preventDefault();
+                                                                    setExpandedMobileItem(
+                                                                        expandedMobileItem === item.label ? null : item.label
+                                                                    );
+                                                                } else {
+                                                                    setMobileMenuOpen(false);
+                                                                }
+                                                            }}
+                                                        >
+                                                            {item.label}
+                                                        </Link>
+                                                    ) : (
+                                                        <button
+                                                            className={cn(
+                                                                "font-medium flex-1 py-3 px-3 rounded-xl transition-all duration-200 text-base font-body text-left",
+                                                                "text-gray-700 hover:text-[#2D6A4F] hover:bg-[#F4FAF7]"
+                                                            )}
+                                                            onClick={() => {
                                                                 setExpandedMobileItem(
                                                                     expandedMobileItem === item.label ? null : item.label
                                                                 );
-                                                            } else {
-                                                                setMobileMenuOpen(false);
-                                                            }
-                                                        }}
-                                                    >
-                                                        {item.label}
-                                                    </Link>
+                                                            }}
+                                                        >
+                                                            {item.label}
+                                                        </button>
+                                                    )}
                                                     <button
                                                         onClick={() => setExpandedMobileItem(
                                                             expandedMobileItem === item.label ? null : item.label
@@ -310,7 +348,7 @@ const Header = () => {
                                             </div>
                                         ) : (
                                             <Link
-                                                to={item.href}
+                                                to={item.href!}
                                                 className={cn(
                                                     "font-medium block py-3 px-3 rounded-xl transition-all duration-200 text-base font-body",
                                                     location.pathname === item.href

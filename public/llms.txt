@@ -20,3 +20,8 @@
 - [Home](https://www.frostrek.ai/)
 - [About Us](https://www.frostrek.ai/about)
 - [Contact & Schedule Demo](https://www.frostrek.ai/contact)
+
+## Company Info
+- Headquarters: 4th Floor, Jmd Empire, 455, Golf Course Ext Rd, Sector 62, Gurugram, Haryana, 122102, India
+- Phone: +91 6399999955
+- Email: contact@frostrek.ai

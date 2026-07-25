@@ -1,10 +1,24 @@
-export const NAV_ITEMS = [
+export interface NavItem {
+    label: string;
+    href?: string;
+    megaMenu?: {
+        title: string;
+        items: {
+            name: string;
+            href: string;
+            desc: string;
+            icon: string;
+            hoverBgClass?: string;
+        }[];
+    }[];
+}
+
+export const NAV_ITEMS: NavItem[] = [
     { label: 'Home', href: '/' },
     { label: 'About', href: '/about' },
     { label: 'Experience', href: '/experience' },
     {
         label: 'Products',
-        href: '#',
         megaMenu: [
             {
                 title: '01 AGENT BASED PLATFORMS',
@@ -26,7 +40,6 @@ export const NAV_ITEMS = [
     },
     {
         label: 'Solutions',
-        href: '#',
         megaMenu: [
             {
                 title: '01 INTELLIGENT AUTOMATION',
@@ -53,7 +66,6 @@ export const NAV_ITEMS = [
     },
     {
         label: 'Resources',
-        href: '#',
         megaMenu: [
             {
                 title: '',

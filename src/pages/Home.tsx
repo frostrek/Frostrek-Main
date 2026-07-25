@@ -112,7 +112,7 @@ const Home = () => {
         title="Frostrek AI | Autonomous AI Agents & Automation"
         description="Frostrek AI builds conversational AI agents, AI-powered video interview platforms, and enterprise workflow automation. 50+ specialists, 5+ years delivery, serving startups to enterprises globally from Gurugram, India."
         path="/"
-        keywords="production-ready autonomous AI agents USA, managed RLHF alignment services UK, custom LLM fine-tuning enterprise India, conversational AI deployment globally, enterprise AI solutions USA, custom Retrieval Augmented Generation (RAG) setup, LLM dataset preparation services USA"
+        keywords="enterprise AI agents, conversational AI platform, custom LLM fine-tuning, workflow automation solutions, Retrieval Augmented Generation, RAG implementation, AI data annotation services"
         schema={[organizationSchema, websiteSchema, localBusinessSchema, personSchema]}
       />
       <HeroSection />

@@ -295,13 +295,31 @@ const VettEdgePage = () => {
         return () => ctx.revert();
     });
 
+const softwareSchema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "VettEdge",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+    },
+    "provider": {
+        "@type": "Organization",
+        "name": "Frostrek AI"
+    }
+});
+
     return (
         <div className="relative min-h-screen bg-white text-[#2D6A4F] font-body">
             <SEO
                 title="VettEdge | AI Financial Due Diligence & Investment Intelligence | Frostrek AI"
                 description="VettEdge is the first AI platform built for financial professionals: automating due diligence, valuation, and investment memos with institutional-grade accuracy. Built end-to-end by Frostrek."
                 path="/products/vettedge"
-                keywords="ai due diligence, financial due diligence ai, investment memo ai, valuation ai, ca tool ai, vc due diligence platform, m&a ai, frostrek vettedge"
+                keywords="ai due diligence, financial due diligence ai, investment memo ai, valuation ai, vc due diligence platform, m&a ai"
+                schema={[softwareSchema]}
             />
             <CuteBackground />
 

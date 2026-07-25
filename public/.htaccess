@@ -21,6 +21,11 @@ DirectorySlash Off
 RewriteBase /
 RewriteRule ^index\.html$ - [L]
 
+# If the request matches a .html file, serve it directly
+# This is crucial for flat prerender files like /resources/faq.html
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
 # If the request is a directory without a trailing slash, and it has an index.html,
 # serve the index.html silently instead of Apache's default 301 redirect to trailing slash.
 RewriteCond %{REQUEST_FILENAME} -d
