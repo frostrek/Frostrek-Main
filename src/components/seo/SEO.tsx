@@ -24,7 +24,11 @@ export default function SEO({
   image
 }: SEOProps) {
   const url = `https://www.frostrek.ai${path}`;
-  const ogImage = image || "https://www.frostrek.ai/og-image.png";
+  // Ensure the image URL is absolute because social crawlers require it
+  let ogImage = image || "https://www.frostrek.ai/og-image.png";
+  if (ogImage.startsWith('/')) {
+    ogImage = `https://www.frostrek.ai${ogImage}`;
+  }
 
   // Auto-generate BreadcrumbList schema
   const pathParts = path.split('/').filter(Boolean);
