@@ -97,7 +97,7 @@ export const EXTERNAL_LINKS = {
 export const COMPANY_INFO = {
     name: 'Frostrek AI',
     address: '4th Floor, Unit No. 455, JMD Empire, Sector 62, Gurugram',
-    contact: 'contact@frostrek.com',
+    contact: 'contact@frostrek.ai',
     socials: {
         linkedin: EXTERNAL_LINKS.linkedin,
         instagram: EXTERNAL_LINKS.instagram,

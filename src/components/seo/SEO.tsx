@@ -107,7 +107,7 @@ export default function SEO({
         "url": "https://www.frostrek.ai",
         "logo": "https://www.frostrek.ai/logo.png",
         "description": "Frostrek AI delivers AI agents, LLM training, customized applications, workflow automation, and data annotation services for enterprises and frontier AI teams.",
-        "foundingDate": "2023",
+        "foundingDate": "2019",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Gurugram",

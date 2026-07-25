@@ -408,7 +408,7 @@ const LLMModelTrainingPage = () => {
                             },
                             "contactPoint": {
                                 "@type": "ContactPoint",
-                                "email": "contact@frostrek.com",
+                                "email": "contact@frostrek.ai",
                                 "contactType": "sales"
                             }
                         },

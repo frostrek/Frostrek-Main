@@ -269,22 +269,10 @@ const HeroSection = () => {
 
         {/* Heading — CSS animation instead of Framer Motion for instant LCP */}
         <div className="flex flex-col items-center">
-          <h1
-            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-[1.1] tracking-[-0.01em] hero-fade-in"
-          >
-            Intelligent agents
-          </h1>
-          <h1
-            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-[1.1] tracking-[-0.01em] hero-fade-in"
-            style={{ animationDelay: '0.1s' }}
-          >
-            that run your operations.
-          </h1>
-          <h1
-            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black mb-4 leading-[1.1] tracking-[-0.01em] hero-fade-in"
-            style={{ animationDelay: '0.1s' }}
-          >
-            Not just assist them.
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.1] tracking-[-0.01em] hero-fade-in">
+            <span className="text-[#2D6A4F] block">Intelligent agents</span>
+            <span className="text-[#2D6A4F] block" style={{ animationDelay: '0.1s' }}>that run your operations.</span>
+            <span className="text-black block mb-4" style={{ animationDelay: '0.1s' }}>Not just assist them.</span>
           </h1>
         </div>
 
