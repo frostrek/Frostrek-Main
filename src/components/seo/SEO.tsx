@@ -11,12 +11,12 @@ interface SEOProps {
   noindex?: boolean;
   image?: string;
 }
-
-export default function SEO({ 
-  title, 
-  description, 
-  path, 
-  name = "Frostrek AI", 
+//Function SEO
+export default function SEO({
+  title,
+  description,
+  path,
+  name = "Frostrek AI",
   type = "website",
   schema,
   keywords,
@@ -42,7 +42,7 @@ export default function SEO({
     currentPath += `/${part}`;
     // Format name: capitalize first letter, replace dashes with spaces
     const formattedName = part.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-    
+
     // Use the page title for the last item if it's the exact path match
     const isLast = index === pathParts.length - 1;
     const itemName = isLast ? title.split('|')[0].trim() : formattedName;
@@ -71,7 +71,7 @@ export default function SEO({
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
       {noindex && <meta name="robots" content="noindex" />}
-      
+
       {/* Canonical Link */}
       <link rel="canonical" href={url} />
 
