@@ -71,11 +71,11 @@ const BlogIndexPage = () => {
 
     return (
         <div className="relative min-h-screen pb-24 bg-gradient-to-b from-white via-white to-[#FAFCFB] font-body">
-            <SEO
+            <SEO 
                 title="Blog | Frostrek AI Insights"
-                description="Read the latest insights, technical deep dives, and industry trends on Artificial Intelligence, Workflow Automation, and Data Operations from the Frostrek team."
+                description="Explore the latest insights, tutorials, and news about enterprise AI, autonomous agents, and digital transformation."
                 path="/resources/blog"
-                noindex={true}
+                type="website"
             />
 
             <section className="relative min-h-[45vh] flex items-center pt-32 pb-16 overflow-hidden bg-gradient-to-b from-white via-[#FAFCFB] to-white">

@@ -356,11 +356,14 @@ const FAQPage = () => {
                                                     }}
                                                     transition={{ duration: 0.3, ease: "easeInOut" }}
                                                     className="overflow-hidden"
+                                                    aria-hidden={!isActive}
                                                 >
                                                     <div className="px-6 pb-6 pt-2 md:pl-[5.5rem] leading-relaxed text-[15px] text-gray-500 max-w-prose">
                                                         {faq.answer}
                                                     </div>
                                                 </motion.div>
+                                                {/* Always expose answer to screen readers and crawlers even when collapsed */}
+                                                {!isActive && <div className="sr-only">{faq.answer}</div>}
                                             </motion.div>
                                         );
                                     })}

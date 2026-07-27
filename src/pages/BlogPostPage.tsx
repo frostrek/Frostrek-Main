@@ -123,7 +123,6 @@ const BlogPostPage = () => {
                 path={`/resources/blog/${post.slug}`}
                 type="article"
                 schema={[articleSchema]}
-                noindex={true}
             />
 
             {/* Hero */}

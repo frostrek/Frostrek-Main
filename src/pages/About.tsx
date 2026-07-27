@@ -320,7 +320,12 @@ const Counter = memo(({ value, suffix = '' }: { value: number; suffix?: string }
         return () => obs.disconnect();
     }, [value, started]);
 
-    return <span ref={ref}>{count.toLocaleString()}{suffix}</span>;
+    return (
+        <span ref={ref}>
+            <span aria-hidden="true">{count.toLocaleString()}{suffix}</span>
+            <span className="sr-only">{value.toLocaleString()}{suffix}</span>
+        </span>
+    );
 });
 
 // ============ FLOATING ICON ============
