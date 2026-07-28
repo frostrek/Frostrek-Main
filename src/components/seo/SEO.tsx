@@ -25,7 +25,7 @@ export default function SEO({
 }: SEOProps) {
   const url = `https://www.frostrek.ai${path}`;
   // Ensure the image URL is absolute because social crawlers require it
-  let ogImage = image || "https://www.frostrek.ai/og-image.png";
+  let ogImage = image || "https://www.frostrek.ai/og-image-v2.png";
   if (ogImage.startsWith('/')) {
     ogImage = `https://www.frostrek.ai${ogImage}`;
   }
