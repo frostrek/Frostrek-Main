@@ -64,7 +64,7 @@ const Home = () => {
       />
       <HeroSection />
 
-      {/* Our Products Section*/}
+      {/* Our Products Section */}
       <OurProductsSection />
 
       {/* 2. Our two flagship AI solutions */}
