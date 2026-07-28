@@ -22,6 +22,13 @@
 - [Web3 & Fintech](https://www.frostrek.ai/solutions/fintech-custom-wallets): Custom fintech wallets, closed-loop loyalty systems, and crypto payment integrations.
 - [Multivendor Dashboard](https://www.frostrek.ai/solutions/multivendor-dashboard): Centralized management for multivendor ecommerce platforms.
 
+## Industries & Use Cases
+- **Ecommerce & Retail**: Automated customer support, conversational commerce, and WhatsApp cart recovery (via Vedashi).
+- **Manufacturing & Industrial**: Digital shift handovers, operational intelligence, defect tracking, and IoT data structuring.
+- **Fintech & Web3**: Secure custom wallets, loyalty programs, and crypto-integrated payment gateways.
+- **HR & Recruitment**: Autonomous video interviewing (Hiyring) and AI resume parsing (VettEdge).
+- **Healthcare & Legal**: Managed data annotation and RLHF with strict privacy protocols for domain-specific LLM training.
+
 ## Key Links
 - [Home](https://www.frostrek.ai/)
 - [About Us](https://www.frostrek.ai/about)

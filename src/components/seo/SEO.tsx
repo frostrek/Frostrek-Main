@@ -112,21 +112,52 @@ export default function SEO({
         "logo": "https://www.frostrek.ai/logo.png",
         "description": "Frostrek AI delivers AI agents, LLM training, customized applications, workflow automation, and data annotation services for enterprises and frontier AI teams.",
         "foundingDate": "2019",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Gurugram",
-          "addressRegion": "Haryana",
-          "addressCountry": "IN"
+        "founder": {
+          "@type": "Person",
+          "name": "Akash Mittal"
         },
+        "numberOfEmployees": {
+          "@type": "QuantitativeValue",
+          "value": "50"
+        },
+        "address": [
+          {
+            "@type": "PostalAddress",
+            "streetAddress": "4th Floor, Jmd Empire, 455, Golf Course Ext Rd, Sector 62",
+            "addressLocality": "Gurugram, Nangil Umarpur",
+            "addressRegion": "Haryana",
+            "postalCode": "122102",
+            "addressCountry": "IN"
+          },
+          {
+            "@type": "PostalAddress",
+            "streetAddress": "701 Tillery Street Unit 12-3227",
+            "addressLocality": "Austin",
+            "addressRegion": "TX",
+            "postalCode": "78702",
+            "addressCountry": "US"
+          },
+          {
+            "@type": "PostalAddress",
+            "streetAddress": "24-26 Arcadia Avenue, Fin009/8701",
+            "addressLocality": "London",
+            "postalCode": "N3 2JU",
+            "addressCountry": "GB"
+          }
+        ],
         "contactPoint": {
           "@type": "ContactPoint",
           "contactType": "sales",
-          "url": "https://www.frostrek.ai/schedule-demo"
+          "telephone": "+91 6399999955",
+          "url": "https://www.frostrek.ai/schedule-demo",
+          "areaServed": ["IN", "US", "GB"],
+          "availableLanguage": ["English"]
         },
         "sameAs": [
           "https://www.wikidata.org/wiki/Q140454089",
           "https://www.linkedin.com/company/frostrek",
-          "https://www.instagram.com/frostrek.ai"
+          "https://www.instagram.com/frostrek.ai",
+          "https://twitter.com/frostrek"
         ],
         "hasCredential": [
           {

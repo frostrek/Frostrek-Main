@@ -298,14 +298,16 @@ const TiltCard = memo(({ children, className, hoverBg = 'bg-white', hoverBorder 
 
 // ============ ANIMATED COUNTER ============
 const Counter = memo(({ value, suffix = '' }: { value: number; suffix?: string }) => {
-    const [count, setCount] = useState(0);
-    const [started, setStarted] = useState(false);
-    const ref = useRef<HTMLDivElement>(null);
+    // Initialize with full value for SEO/prerendering
+    const [count, setCount] = useState(value);
+    const ref = useRef<HTMLSpanElement>(null);
 
     useEffect(() => {
+        // Reset to 0 on client side to prepare for animation
+        setCount(0);
+        
         const obs = new IntersectionObserver(([e]) => {
-            if (e.isIntersecting && !started) {
-                setStarted(true);
+            if (e.isIntersecting) {
                 let n = 0;
                 const step = value / 40;
                 const loop = () => {
@@ -314,11 +316,13 @@ const Counter = memo(({ value, suffix = '' }: { value: number; suffix?: string }
                     else { setCount(Math.floor(n)); requestAnimationFrame(loop); }
                 };
                 requestAnimationFrame(loop);
+                obs.disconnect(); // Stop observing once triggered
             }
-        }, { threshold: 0.5 });
+        }, { threshold: 0.1 });
+        
         if (ref.current) obs.observe(ref.current);
         return () => obs.disconnect();
-    }, [value, started]);
+    }, [value]);
 
     return (
         <span ref={ref}>

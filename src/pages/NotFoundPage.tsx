@@ -1,12 +1,19 @@
 import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
 import { Home, ArrowLeft } from 'lucide-react';
+import SEO from '../components/seo/SEO';
 
 const NotFoundPage = () => {
     const navigate = useNavigate();
 
     return (
         <div className="min-h-screen bg-[#FDFDFD] flex flex-col items-center justify-center px-4 pt-20 relative overflow-hidden font-body">
+            <SEO 
+                title="Page Not Found | Frostrek AI"
+                description="The page you are looking for does not exist."
+                path="/404"
+                noindex={true}
+            />
             
             {/* Ambient Background Elements */}
             <style>{`

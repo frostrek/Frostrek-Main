@@ -8,59 +8,6 @@ const FeaturesSection = lazy(() => import('../components/home/FeaturesSection'))
 
 import SEO from '../components/seo/SEO';
 
-const organizationSchema = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Frostrek AI",
-  "url": "https://www.frostrek.ai",
-  "logo": "https://www.frostrek.ai/logo.png",
-  "description": "Frostrek AI builds conversational AI agents, AI-powered video interview platforms (Hiyring), and enterprise workflow automation. 50+ specialists with 5+ years of production AI deployment, serving startups to enterprises globally from Gurugram, India.",
-  "foundingDate": "2019",
-  "founder": {
-    "@type": "Person",
-    "name": "Akash Mittal"
-  },
-  "numberOfEmployees": {
-    "@type": "QuantitativeValue",
-    "value": "50"
-  },
-  "sameAs": [
-    "https://www.linkedin.com/company/frostrek",
-    "https://twitter.com/frostrek"
-  ],
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+91 6399999955",
-    "contactType": "sales",
-    "areaServed": ["IN", "US", "GB"],
-    "availableLanguage": ["English"]
-  },
-  "address": [
-    {
-      "@type": "PostalAddress",
-      "streetAddress": "4th Floor, Jmd Empire, 455, Golf Course Ext Rd, Sector 62",
-      "addressLocality": "Gurugram, Nangil Umarpur",
-      "addressRegion": "Haryana",
-      "postalCode": "122102",
-      "addressCountry": "IN"
-    },
-    {
-      "@type": "PostalAddress",
-      "streetAddress": "701 Tillery Street Unit 12-3227",
-      "addressLocality": "Austin",
-      "addressRegion": "TX",
-      "postalCode": "78702",
-      "addressCountry": "US"
-    },
-    {
-      "@type": "PostalAddress",
-      "streetAddress": "24-26 Arcadia Avenue, Fin009/8701",
-      "addressLocality": "London",
-      "postalCode": "N3 2JU",
-      "addressCountry": "GB"
-    }
-  ]
-});
 
 const websiteSchema = JSON.stringify({
   "@context": "https://schema.org",
@@ -113,7 +60,7 @@ const Home = () => {
         description="Frostrek AI builds conversational AI agents, AI-powered video interview platforms, and enterprise workflow automation. 50+ specialists, 5+ years delivery, serving startups to enterprises globally from Gurugram, India."
         path="/"
         keywords="enterprise AI agents, conversational AI platform, custom LLM fine-tuning, workflow automation solutions, Retrieval Augmented Generation, RAG implementation, AI data annotation services"
-        schema={[organizationSchema, websiteSchema, localBusinessSchema, personSchema]}
+        schema={[websiteSchema, localBusinessSchema, personSchema]}
       />
       <HeroSection />
       

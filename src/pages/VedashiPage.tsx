@@ -130,6 +130,25 @@ const VedashiPage = () => {
         return () => ctx.revert();
     });
 
+const softwareSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Vedashi",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "description": "Premium, hyper-personalized online storefronts optimized for conversational commerce and WhatsApp cart recovery.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Frostrek AI"
+  }
+});
+
     return (
         <div className="relative min-h-screen bg-white text-[#2D6A4F] font-body">
             <SEO
@@ -137,6 +156,7 @@ const VedashiPage = () => {
                 description="Vedashi is a production-grade multi-vendor e-commerce platform purpose-built for India's wellness, herbal, and natural goods market. Engineered by Frostrek."
                 path="/products/vedashi-ecommerce"
                 keywords="vedashi ecommerce, indian wellness marketplace, ayurvedic ecommerce platform, multi-vendor wellness store, frostrek products"
+                schema={softwareSchema}
             />
             <CuteBackground />
 

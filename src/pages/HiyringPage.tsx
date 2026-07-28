@@ -180,6 +180,25 @@ const HiyringPage = () => {
         return () => ctx.revert();
     });
 
+const softwareSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Hiyring",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "description": "Hiyring is a full-stack AI hiring platform that helps teams screen candidates faster with intelligent video interviews.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Frostrek AI"
+  }
+});
+
     return (
         <div className="relative min-h-screen bg-white text-[#2D6A4F] font-body">
             <SEO
@@ -187,6 +206,7 @@ const HiyringPage = () => {
                 description="Hiyring is a full-stack AI hiring platform that helps teams screen candidates faster with intelligent video interviews. Engineered by Frostrek."
                 path="/products/hiyring"
                 keywords="ai video interviews, ai hiring platform, automated screening, frostrek hiring, scalable recruitment"
+                schema={softwareSchema}
             />
             <CuteBackground />
 
