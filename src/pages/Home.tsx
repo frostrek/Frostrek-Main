@@ -63,16 +63,16 @@ const Home = () => {
         schema={[websiteSchema, localBusinessSchema, personSchema]}
       />
       <HeroSection />
-      
-      {/* Our Products Section */}
+
+      {/* Our Products Section*/}
       <OurProductsSection />
-      
+
       {/* 2. Our two flagship AI solutions */}
       <AISolutionsShowcase />
-      
+
       {/* 3. What We Do & How We Transform */}
       <WhatWeDoSection />
-      
+
       {/* 4. AI-Driven Outcomes We Deliver */}
       <ImpactComparison />
 
