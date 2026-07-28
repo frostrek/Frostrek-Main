@@ -57,7 +57,7 @@ const Home = () => {
     <div className="min-h-screen relative bg-brand-light-bg">
       <SEO
         title="Frostrek AI | Autonomous AI Agents & Automation"
-        description="Frostrek AI builds conversational AI agents, AI-powered video interview platforms, and enterprise workflow automation. 50+ specialists, 5+ years delivery, serving startups to enterprises globally from Gurugram, India."
+        description="Frostrek AI builds conversational AI agents, AI video interview platforms, and enterprise workflow automation. 50+ specialists serving global startups & enterprises."
         path="/"
         keywords="enterprise AI agents, conversational AI platform, custom LLM fine-tuning, workflow automation solutions, Retrieval Augmented Generation, RAG implementation, AI data annotation services"
         schema={[websiteSchema, localBusinessSchema, personSchema]}
