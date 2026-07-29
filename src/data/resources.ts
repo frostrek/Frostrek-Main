@@ -27,6 +27,7 @@ export interface BlogPost {
     category: string;
     content: string; // Markdown or HTML string
     image?: string;
+    imageAlt?: string;
 }
 
 export const CASE_STUDIES: CaseStudy[] = [
@@ -264,8 +265,143 @@ export const CASE_STUDIES: CaseStudy[] = [
         icon: Code
     }
 ];
-
 export const BLOG_POSTS: BlogPost[] = [
+    {
+        id: 'blog-5-minute-rule',
+        slug: 'the-5-minute-rule-why-slow-replies-cost-leads',
+        title: 'The 5-Minute Rule: Why Slow Replies Are Costing You Leads',
+        excerpt: 'A prospect who messages your business decides who they\'re buying from in the first five minutes — and almost no one replies that fast. Here is why speed is the sales process.',
+        date: 'Jul 29, 2026',
+        readTime: '4 min read',
+        author: 'Frostrek Team',
+        category: 'Sales Strategy',
+        content: `A prospect who messages your business decides who they're buying from in the first five minutes, which means slow replies are directly costing you leads. Almost no one replies that fast, but it's the most critical lever for sales conversion.
+
+That's not a scare tactic. It's the finding from two of the most cited pieces of sales-response research out there: a study by James Oldroyd published through InsideSales.com in 2007, and a follow-up analysis in the Harvard Business Review in 2011. Both looked at the same question — does response speed actually change whether a lead converts — and both came back with numbers that are uncomfortable to sit with if your team is still checking the contact form inbox once an hour.
+
+## The numbers
+Reply within five minutes, and your odds of successfully qualifying that lead are roughly 7x higher than if you'd waited an hour.
+
+Wait a full day or more, and your odds drop to roughly 1/60th of what they were in that first five-minute window.
+
+And here's the part that should really get your attention: across the businesses studied, only about 0.4% of first replies actually went out inside five minutes.
+
+Put plainly — almost every business is losing the window before they even know it's closing.
+
+## Why the drop-off is so steep, so fast
+It's not that a prospect who waited ten minutes has changed their mind about your product. It's that they've moved on to the next tab. B2B and B2C buyers alike are rarely comparing one vendor in isolation — by the time your team gets around to a reply, there's a decent chance the prospect has already messaged two or three competitors, and whoever answered first has the inside track. Speed isn't a nice-to-have on top of a good sales process. For a huge share of inbound leads, speed is the sales process — the first mover sets the frame for every conversation that follows.
+
+This is especially brutal for the channels where people expect an instant response by default. A visitor who fills out a contact form has some tolerance for a same-day reply. A visitor messaging you on WhatsApp does not — they're used to friends and family replying in seconds, and they'll judge your business against that bar whether or not it's fair.
+
+## The honest problem: humans can't hit this window at scale
+None of this is a knock on sales and support teams. A five-minute SLA is genuinely difficult to hit consistently once you factor in:
+
+- Leads arriving outside business hours (which, for most companies, is the majority of the day)
+- Reps already mid-conversation with another prospect
+- Weekends, holidays, and the simple reality that nobody can watch an inbox 24/7
+
+Trying to solve this by hiring more people to watch the inbox around the clock is expensive, and it still leaves gaps — someone's on lunch, someone's out sick, it's 2am on a Saturday and a hot lead just landed.
+
+## What actually closes the gap
+This is precisely the problem we built Frosty Agent to solve. Frosty answers every website and WhatsApp enquiry the moment it comes in — not a canned auto-reply, but a real conversation that understands the question, asks the right follow-ups, and qualifies the lead before your team even sees it. If someone starts a conversation on your website and picks it back up on WhatsApp an hour later, Frosty remembers everything — they never have to repeat themselves.
+
+The lead still gets handed to your team, with full context, but by the time they get it, the hard part — being first — is already done. Nights, weekends, and the 2am inbound all get the same five-minute treatment as 10am on a Tuesday.
+
+If your current process depends on someone being awake and available, you're competing against businesses that don't have that limitation anymore. The five-minute rule hasn't gotten any more forgiving — but the businesses winning on speed today mostly aren't winning because their teams are faster. They're winning because they stopped needing their teams to be first.
+
+[Deploy an AI Agent to respond instantly →](/products/frosty-agent)
+*Still curious about how we handle integrations? Check out our [Technical FAQ](/resources/faq).*
+
+*Sources: J. Oldroyd, "The Short Life of Online Sales Leads," Harvard Business Review, 2011 (based on original research distributed via InsideSales.com, 2007). Figures shown are relative odds of lead qualification indexed against a five-minute response baseline, not raw conversion percentages.*`,
+        image: '/images/5-minute-rule.webp',
+        imageAlt: 'Infographic showing that responding within 5 minutes increases lead qualification by 7x compared to a 1-hour wait.'
+    },
+    {
+        id: 'blog-unified-memory',
+        slug: 'unified-conversation-memory-omnichannel',
+        title: 'Stop Making Customers Repeat Themselves: What Unified Conversation Memory Actually Means',
+        excerpt: '"Omnichannel" is one of the most overused words in customer experience — and one of the least delivered on. The real test isn\'t how many channels you offer. It\'s whether a customer who starts on your website and finishes on WhatsApp has to explain themselves twice.',
+        date: 'Jul 29, 2026',
+        readTime: '4 min read',
+        author: 'Frostrek Team',
+        category: 'Best Practices',
+        content: `**"Omnichannel"** is one of the most overused words in customer experience. Unified conversation memory actually means a customer who starts on your website and finishes on WhatsApp never has to repeat themselves. Most businesses fail that test without realizing it, operating siloed channels instead.
+
+## The problem is bigger than most teams think
+The stat that should worry every business running separate tools for web chat, WhatsApp, and phone support: 74% of consumers say it's frustrating to repeat their story to different agents, and 56% say they've actually had to do it because their channels weren't connected. Even more telling — only about 13% of businesses fully carry customer context across channels. Everyone else is running what looks like omnichannel from the outside, and feels like starting over from the inside.
+
+This isn't a minor UX annoyance. It shows up directly in retention numbers: businesses that get cross-channel context right retain roughly 89% of customers, compared to 33% for businesses running disconnected, siloed channels — a 56-point gap. Omnichannel-first customers also spend measurably more per order than single-channel ones. The businesses getting this right aren't winning on a nicer chat widget. They're winning because they've eliminated a specific, well-documented source of customer frustration that most of their competitors haven't touched.
+
+## Why this keeps happening even when businesses "have" multiple channels
+Having a website chat widget and a WhatsApp number and a phone line isn't the same as having omnichannel support. In practice, most setups look like this:
+
+- The website chatbot runs on one tool, with its own conversation log
+- WhatsApp is handled through a separate automation platform, or a different inbox entirely
+- Phone calls go to whoever picks up, with no written record beyond a call log
+- None of these three systems know what happened in either of the other two
+
+So when a prospect messages your website at 2pm asking about pricing, doesn't convert, and messages your WhatsApp number that evening to actually book — from the business's side, that's two unrelated conversations with a stranger who happens to ask a similar question twice. From the customer's side, it's the exact frustration the research above is measuring: *I already told you this*.
+
+## What "unified memory" actually requires
+Genuine cross-channel continuity isn't a feature you bolt onto separate tools after the fact — it has to be architectural. A conversation started on one channel needs to be readable, in full, by whatever channel the customer picks up on next: same identity resolution, same conversation history, same understanding of what's already been asked and answered.
+
+This is the specific problem Frosty Agent is built around. The web and WhatsApp agents share a single memory by design — not a synced log reviewed later, but the same underlying conversation state. If someone starts a chat on your site and picks it up on WhatsApp an hour later, Frosty already knows what was discussed. They don't repeat their question, and your team doesn't get two disconnected leads to reconcile into one.
+
+The same principle carries through to the human handoff. When a conversation gets escalated to your team, whoever takes it over sees the entire history — every channel, every message — not just whatever came in on the channel they happen to be watching.
+
+## What to actually check in your own setup
+If you're not sure whether your current setup is genuinely omnichannel or just multi-channel wearing the label, the test is simple: have someone on your team start a conversation on your website, don't finish it, then message your WhatsApp number an hour later pretending to be a new customer. If whoever (or whatever) answers on WhatsApp has no idea the first conversation happened, you've found the gap — and you're very likely losing the customers the research above is describing, even if nobody's complained to you directly about it yet.
+
+[See how Frosty's shared memory works across web and WhatsApp →](/products/frosty-agent)
+*For more on how we secure your conversational data, read our [Security FAQ](/resources/faq).*
+
+*Sources: CX Today (June 2026), Zendesk Customer Experience Trends Report, Salesmate 2026 customer service statistics, Capital One Shopping Research (2026), CloudTechGurus 2026 Omnichannel CX guide.*`,
+        image: '/images/unified-memory.webp',
+        imageAlt: 'Diagram showing how unified conversation memory connects website chat, WhatsApp, and human agents for a seamless customer experience.'
+    },
+    {
+        id: 'blog-whatsapp-policy',
+        slug: 'meta-2026-whatsapp-ai-policy-change',
+        title: 'Meta\'s 2026 WhatsApp AI Policy Change: What It Means If You\'re Using a Generic Chatbot',
+        excerpt: 'As of January 15, 2026, Meta banned open-ended, "ask-me-anything" AI chatbots from the WhatsApp Business Platform. Here is what you need to know.',
+        date: 'Jul 29, 2026',
+        readTime: '4 min read',
+        author: 'Frostrek Team',
+        category: 'Industry Trends',
+        content: `**Short version**: as of January 15, 2026, Meta banned open-ended, "ask-me-anything" AI chatbots from the WhatsApp Business Platform. Purpose-built business automation — lead qualification, support, bookings, order tracking — is explicitly still allowed. If your WhatsApp AI was doing the former, it's time to check. If it was doing the latter, nothing changes for you.
+
+## What actually happened
+Meta updated the WhatsApp Business Solution Terms to draw a hard line between two very different kinds of AI on the platform. The rule applied to all new WhatsApp Business API signups starting October 15, 2025, and rolled out to every existing business account by January 15, 2026 — which means it's not a "coming soon" policy anymore. It's already live, and it's already being enforced.
+
+The distinction Meta is drawing:
+
+- **Banned**: general-purpose AI chatbots — assistants powered by an LLM that will hold an open-domain conversation about literally anything, the same way a ChatGPT- or Perplexity-style assistant does when distributed through WhatsApp. If a customer can ask your WhatsApp number to summarize a PDF, explain a historical event, or write them a poem, that's a general-purpose assistant, and it's now against the terms.
+- **Still allowed, and clearly encouraged**: AI built for a specific business task — qualifying a lead, answering questions about your own products and pricing, booking a meeting, tracking an order, resolving a support ticket. Nothing about this policy restricts AI on WhatsApp. It restricts AI that isn't actually doing business work.
+
+Meta's own reasoning, as reported at the time of the announcement, was straightforward: open-ended assistant bots were generating enormous message volume on the platform without producing anything Meta or the business actually wanted — no bookings, no resolved tickets, no qualified leads, just conversation for its own sake.
+
+## Why this matters even if you didn't build your own chatbot
+Plenty of businesses aren't running a custom-built ChatGPT wrapper on purpose — they signed up for a WhatsApp automation tool at some point, and it's genuinely worth five minutes to check what's actually happening under the hood. The test Meta itself points to is simple: can a customer ask your bot something totally unrelated to your business and get a real answer? If someone can ask your salon's WhatsApp number about the weather in Tokyo and get a coherent reply, that's a general-purpose assistant wearing your business's name, and it's the exact pattern this policy targets. If the bot politely redirects to what it actually does — booking appointments, answering questions about your services — you're fine.
+
+Getting this wrong isn't a minor issue. Non-compliant use risks disruption to your WhatsApp Business API access, which for a lot of companies is now a primary revenue channel, not a side project.
+
+## The upside nobody's talking about
+Here's the part worth sitting with: this policy isn't really bad news if your automation was already built the right way. Generic, open-ended chatbots were never great for lead generation or support in the first place — they confused customers who wanted a straight answer about your services, and they diluted the signal your team needed to actually follow up. Meta tightening the rules doesn't shrink what's possible with AI on WhatsApp; it just closes the door on the low-effort, "point ChatGPT at our number and hope" approach that was crowding the channel with noise.
+
+Businesses that were already using AI to do something specific — qualify a buyer, answer a pricing question, book a viewing — were never the target, and they don't need to change anything.
+
+## Where Frosty Agent stands
+Frosty Agent was built as business-specific automation from day one, not a general-purpose assistant repointed at WhatsApp. It's trained on your own content — your services, your pricing, your policies — and it stays inside that lane: answering real enquiries, qualifying leads, booking meetings, and handing off to a human the moment a conversation needs one. That's precisely the category of AI this policy protects, not the category it targets.
+
+If you're not sure which category your current WhatsApp automation falls into, that's worth a five-minute conversation before it becomes a bigger problem.
+
+[Talk to us about a compliant, business-specific WhatsApp agent →](/products/frosty-agent)
+*Have questions about implementation? Check our [General FAQ](/resources/faq).*
+
+*This post reflects Meta's publicly announced WhatsApp Business Solution Terms as of mid-2026. Policy enforcement details can change — check Meta's official WhatsApp Business Platform terms directly for the current, authoritative rules before making compliance decisions.*`,
+        image: '/images/whatsapp-policy.png',
+        imageAlt: 'Frosty AI bot showing compliant WhatsApp business automation features like bookings, pricing, and tracking.'
+    },
     {
         id: 'blog-future-data-ops',
         slug: 'future-of-data-operations-agentic-ai',
@@ -315,7 +451,8 @@ The era of static datasets is over. The companies that win in the agentic AI rac
 ---
 
 *Frostrek AI is an enterprise AI company headquartered in Gurugram, India, specializing in conversational AI agents, workflow automation, and custom LLM solutions.*`,
-        image: '/human_in_loop_1_1782710025990.png'
+        image: '/human_in_loop_1_1782710025990.png',
+        imageAlt: 'Abstract illustration representing the future of Agentic AI and dynamic data operations.'
     },
     {
         id: 'blog-rlhf-explained',

@@ -43,6 +43,9 @@ const routes = [
   '/solutions/voice-ai',
   '/solutions/llm-model-training',
   // Blog posts
+  '/resources/blog/the-5-minute-rule-why-slow-replies-cost-leads',
+  '/resources/blog/unified-conversation-memory-omnichannel',
+  '/resources/blog/meta-2026-whatsapp-ai-policy-change',
   '/resources/blog/future-of-data-operations-agentic-ai',
   '/resources/blog/rlhf-critical-enterprise-model-safety',
   '/resources/blog/scaling-annotation-teams-without-losing-quality',

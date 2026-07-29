@@ -33,6 +33,7 @@ const BlogPostPage = () => {
         "description": post.excerpt,
         "image": post.image?.startsWith('http') ? post.image : `https://www.frostrek.ai/${post.image}`,
         "datePublished": new Date(post.date).toISOString(),
+        "dateModified": new Date(post.date).toISOString(),
         "author": {
             "@type": "Person",
             "name": post.author
@@ -167,8 +168,8 @@ const BlogPostPage = () => {
                         className="rounded-3xl overflow-hidden border border-gray-100 shadow-xl"
                     >
                         <img src={post.image.startsWith('http') || post.image.startsWith('/') ? post.image : `/${post.image}`}
-                            alt={post.title}
-                            className="w-full h-64 md:h-96 object-cover" loading="lazy" width={512} height={512} />
+                            alt={post.imageAlt || post.title}
+                            className="w-full h-auto" loading="lazy" />
                     </motion.div>
                 </div>
             )}
