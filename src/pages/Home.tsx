@@ -56,7 +56,7 @@ const Home = () => {
   return (
     <div className="min-h-screen relative bg-brand-light-bg">
       <SEO
-        title="Frostrek AI | Autonomous Agents & Enterprise Automation"
+        title="Frostrek AI | Conversational AI & Workflow Automation"
         description="Frostrek AI builds conversational AI agents, AI video platforms, and enterprise workflow automation for global startups & enterprises."
         path="/"
         keywords="enterprise AI agents, conversational AI platform, custom LLM fine-tuning, workflow automation solutions, Retrieval Augmented Generation, RAG implementation, AI data annotation services"
