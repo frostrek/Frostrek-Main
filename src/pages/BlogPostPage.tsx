@@ -19,8 +19,8 @@ const BlogPostPage = () => {
             <div className="min-h-screen pt-32 pb-20 px-4 container mx-auto text-center bg-brand-light-bg">
                 <h1 className="text-4xl font-serif font-bold mb-6 text-[#2D6A4F]">Article Not Found</h1>
                 <p className="text-gray-500 max-w-2xl mx-auto mb-8">The blog post you're looking for doesn't exist or has been moved.</p>
-                <Link to="/resources" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#2D6A4F] text-white font-medium hover:bg-[#1B4332] transition-colors">
-                    <ArrowLeft className="w-4 h-4" /> Back to Resources
+                <Link to="/resources/blog" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#2D6A4F] text-white font-medium hover:bg-[#1B4332] transition-colors">
+                    <ArrowLeft className="w-4 h-4" /> Back to Blogs
                 </Link>
             </div>
         );
@@ -130,8 +130,8 @@ const BlogPostPage = () => {
             <section className="relative pt-32 pb-12 bg-gradient-to-b from-white via-[#FAFCFB] to-brand-light-bg">
                 <div className="container mx-auto px-4 md:px-6 max-w-4xl">
                     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-                        <Link to="/resources" className="inline-flex items-center gap-2 text-sm font-bold text-[#2D6A4F] hover:text-[#1B4332] mb-8 transition-colors group">
-                            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" /> Back to Resources
+                        <Link to="/resources/blog" className="inline-flex items-center gap-2 text-sm font-bold text-[#2D6A4F] hover:text-[#1B4332] mb-8 transition-colors group">
+                            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" /> Back to Blogs
                         </Link>
 
                         <div className="flex items-center gap-2 mb-4">
