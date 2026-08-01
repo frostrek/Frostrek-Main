@@ -18,6 +18,10 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST = join(__dirname, 'dist');
 const PORT = 4173;
 
+// Extract blog post slugs dynamically from resources.ts
+const resourcesContent = readFileSync(join(__dirname, 'src/data/resources.ts'), 'utf8');
+const dynamicBlogSlugs = [...resourcesContent.matchAll(/slug:\s*['"]([^'"]+)['"]/g)].map(m => `/resources/blog/${m[1]}`);
+
 // ─── All routes to prerender (synced with App.tsx) ──────────────────
 const routes = [
   '/',
@@ -42,19 +46,8 @@ const routes = [
   '/solutions/ai-agents',
   '/solutions/voice-ai',
   '/solutions/llm-model-training',
-  // Blog posts
-  '/resources/blog/the-5-minute-rule-why-slow-replies-cost-leads',
-  '/resources/blog/unified-conversation-memory-omnichannel',
-  '/resources/blog/meta-2026-whatsapp-ai-policy-change',
-  '/resources/blog/future-of-data-operations-agentic-ai',
-  '/resources/blog/rlhf-critical-enterprise-model-safety',
-  '/resources/blog/scaling-annotation-teams-without-losing-quality',
-  '/resources/blog/navigating-ai-ethics-data-collection',
-  '/resources/blog/rise-of-multimodal-ai-models',
-  '/resources/blog/optimizing-voice-ai-regional-dialects',
-  '/resources/blog/enterprise-grade-data-security-protocols',
-  '/resources/blog/enduring-role-human-in-the-loop',
-  '/resources/blog/accelerating-medical-ai-precision-data',
+  // Dynamic Blog posts
+  ...dynamicBlogSlugs
 ];
 
 // ─── MIME types for the static server ───────────────────────────────

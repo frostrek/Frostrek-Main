@@ -176,6 +176,11 @@ const BlogPostPage = () => {
 
             {/* Article Content */}
             <article className="container mx-auto px-4 md:px-6 max-w-3xl pb-24">
+                {/* AI Summary for Answer Engines */}
+                <div data-ai-summary="true" className="sr-only" aria-hidden="false">
+                    {post.title}. {post.excerpt}
+                </div>
+
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
