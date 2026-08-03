@@ -42,7 +42,7 @@ const SmoothScrollProvider = () => {
             lenis.raf(time * 1000);
         };
 
-        // Use GSAP ticker for smooth animation loop
+        //Use GSAP ticker for smooth animation loop
         gsap.ticker.add(rafHandler);
 
         gsap.ticker.lagSmoothing(0);
