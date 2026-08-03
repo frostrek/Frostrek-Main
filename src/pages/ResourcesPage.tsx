@@ -138,13 +138,6 @@ const CaseStudyCard = ({ study, onClick, index = 0 }: { study: CaseStudy; onClic
 
 export const ResourcesPage = () => {
     const [selectedStudy, setSelectedStudy] = useState<CaseStudy | null>(null);
-    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-
-    useEffect(() => {
-        const handleResize = () => setIsMobile(window.innerWidth < 768);
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -199,11 +192,6 @@ export const ResourcesPage = () => {
             {/* ─── PDF Casebooks Section ─── */}
             <section className="pt-10 pb-4 bg-gradient-to-b from-white to-[#FAF9F6] relative z-10">
                 <div className="container mx-auto px-4 md:px-6">
-                    <style>{`
-                        .pdf-iframe-wrapper iframe::-webkit-scrollbar { display: none; }
-                        .pdf-iframe-wrapper iframe { scrollbar-width: none; -ms-overflow-style: none; }
-                        .pdf-iframe-wrapper { overflow: hidden; }
-                    `}</style>
                     <div className="text-center mb-14">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
@@ -257,23 +245,15 @@ export const ResourcesPage = () => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="block absolute inset-0 cursor-pointer"
+                                    aria-label="Open AI Agent Casebook PDF preview"
                                 >
-                                    <div className="pdf-iframe-wrapper w-full h-full" style={{ overflow: 'hidden', margin: 0, padding: 0 }}>
-                                        {!isMobile ? (
-                                            <iframe
-                                                src="/pdf/AI Agent CASEBOOK — Frostrek LLP (2).pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH&zoom=100"
-                                                style={{ width: 'calc(100% + 40px)', height: 'calc(100% + 30px)', border: 'none', display: 'block', margin: '-16px 0 0 -16px', padding: 0, overflow: 'hidden', pointerEvents: 'none' }}
-                                                title="AI Agent Casebook Preview"
-                                                scrolling="no"
-                                            />
-                                        ) : (
-                                            <img
-                                                src="/images/AI Agent CASEBOOK — Frostrek LLP (2).jpg"
-                                                alt="AI Agent Casebook Preview"
-                                                className="w-full h-full object-cover"
-                                                style={{ objectPosition: 'top' }}
-                                            />
-                                        )}
+                                    <div className="w-full h-full overflow-hidden">
+                                        <img
+                                            src="/images/AI Agent CASEBOOK — Frostrek LLP (2).jpg"
+                                            alt="AI Agent Casebook Preview"
+                                            className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                                            loading="lazy"
+                                        />
                                     </div>
                                     {/* Progressive blur overlay — clear at top, blurry after title */}
                                     <div className="absolute inset-0 pointer-events-none" style={{
@@ -328,23 +308,15 @@ export const ResourcesPage = () => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="block absolute inset-0 cursor-pointer"
+                                    aria-label="Open LLM Model Casebook PDF preview"
                                 >
-                                    <div className="pdf-iframe-wrapper w-full h-full" style={{ overflow: 'hidden', margin: 0, padding: 0 }}>
-                                        {!isMobile ? (
-                                            <iframe
-                                                src="/pdf/LLM Model CASEBOOK — Frostrek LLP (1).pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH&zoom=100"
-                                                style={{ width: 'calc(100% + 40px)', height: 'calc(100% + 30px)', border: 'none', display: 'block', margin: '-16px 0 0 -16px', padding: 0, overflow: 'hidden', pointerEvents: 'none' }}
-                                                title="LLM Model Casebook Preview"
-                                                scrolling="no"
-                                            />
-                                        ) : (
-                                            <img
-                                                src="/images/LLM Model CASEBOOK — Frostrek LLP (1).jpg"
-                                                alt="LLM Model Casebook Preview"
-                                                className="w-full h-full object-cover"
-                                                style={{ objectPosition: 'top' }}
-                                            />
-                                        )}
+                                    <div className="w-full h-full overflow-hidden">
+                                        <img
+                                            src="/images/LLM Model CASEBOOK — Frostrek LLP (1).jpg"
+                                            alt="LLM Model Casebook Preview"
+                                            className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                                            loading="lazy"
+                                        />
                                     </div>
                                     {/* Progressive blur overlay — clear at top, blurry after title */}
                                     <div className="absolute inset-0 pointer-events-none" style={{

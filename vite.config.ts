@@ -135,6 +135,7 @@ export default defineConfig({
         manualChunks: {
           'vendor-react': ['react', 'react-dom', 'react-router-dom'],
           'vendor-gsap': ['gsap', '@gsap/react'],
+          'vendor-lenis': ['lenis'],
           'vendor-motion': ['framer-motion'],
           'vendor-icons': ['lucide-react'],
         },

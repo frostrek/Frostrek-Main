@@ -78,15 +78,9 @@ function startServer() {
       let urlPath = decodeURIComponent(req.url.split('?')[0]);
       let filePath = join(DIST, urlPath);
 
-      // If directory, try index.html inside it
+      // SPA routes without file extension should ALWAYS receive the fresh index_template.html
       if (!extname(filePath)) {
-        const indexPath = join(filePath, 'index.html');
-        if (existsSync(indexPath)) {
-          filePath = indexPath;
-        } else {
-          // SPA fallback
-          filePath = join(DIST, 'index_template.html');
-        }
+        filePath = join(DIST, 'index_template.html');
       }
 
       if (!existsSync(filePath)) {
@@ -104,9 +98,10 @@ function startServer() {
       }
     });
 
-    server.listen(PORT, () => {
-      console.log(`  ✓ Static server running on http://localhost:${PORT}`);
-      resolve(server);
+    server.listen(0, () => {
+      const port = server.address().port;
+      console.log(`  ✓ Static server running on http://localhost:${port}`);
+      resolve({ server, port });
     });
   });
 }
@@ -115,7 +110,7 @@ function startServer() {
  * Prerender a single route: navigate Puppeteer to the URL, wait for
  * React to render, then capture the full HTML and write it to disk.
  */
-async function prerenderRoute(browser, route) {
+async function prerenderRoute(browser, route, port) {
   const page = await browser.newPage();
 
   // Block heavy resources and third-party trackers that crawlers don't need
@@ -139,7 +134,7 @@ async function prerenderRoute(browser, route) {
     }
   });
 
-  const url = `http://localhost:${PORT}${route}`;
+  const url = `http://localhost:${port}${route}`;
 
   try {
     // Navigate with domcontentloaded (fast — doesn't wait for all resources)
@@ -268,7 +263,7 @@ async function main() {
     console.log('  ✓ index_template.html created');
   }
 
-  const server = await startServer();
+  const { server, port } = await startServer();
 
   let browser;
   try {
@@ -296,7 +291,7 @@ async function main() {
 
   // Process routes sequentially to avoid overwhelming the system
   for (const route of routes) {
-    await prerenderRoute(browser, route);
+    await prerenderRoute(browser, route, port);
   }
 
   const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);

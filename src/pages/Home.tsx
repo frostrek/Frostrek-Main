@@ -1,4 +1,4 @@
-import { lazy } from 'react';
+import { lazy, Suspense } from 'react';
 import HeroSection from '../components/home/HeroSection';
 const OurProductsSection = lazy(() => import('../components/home/OurProductsSection'));
 const AISolutionsShowcase = lazy(() => import('../components/home/AISolutionsShowcase'));
@@ -64,20 +64,22 @@ const Home = () => {
       />
       <HeroSection />
 
-      {/* Our Products Section */}
-      <OurProductsSection />
+      <Suspense fallback={null}>
+        {/* Our Products Section */}
+        <OurProductsSection />
 
-      {/* 2. Our two flagship AI solutions */}
-      <AISolutionsShowcase />
+        {/* 2. Our two flagship AI solutions */}
+        <AISolutionsShowcase />
 
-      {/* 3. What We Do & How We Transform */}
-      <WhatWeDoSection />
+        {/* 3. What We Do & How We Transform */}
+        <WhatWeDoSection />
 
-      {/* 4. AI-Driven Outcomes We Deliver */}
-      <ImpactComparison />
+        {/* 4. AI-Driven Outcomes We Deliver */}
+        <ImpactComparison />
 
-      {/* 6. Why Choose Frostrek */}
-      <FeaturesSection />
+        {/* 6. Why Choose Frostrek */}
+        <FeaturesSection />
+      </Suspense>
     </div>
   );
 };

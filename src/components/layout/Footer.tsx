@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Sparkles, MapPin } from 'lucide-react';
+import { Sparkles, MapPin, ExternalLink } from 'lucide-react';
 import { NAV_ITEMS, COMPANY_INFO } from '../../utils/constants';
 import FlipText from '../ui/FlipText';
 
@@ -150,7 +150,7 @@ const Footer = () => {
                   </div>
                   <div className="flex items-center gap-2 mt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                    <span itemProp="email">contact@frostrek.com</span>
+                    <a href={`mailto:${COMPANY_INFO.contact}`} className="hover:text-[#2D6A4F] transition-colors">{COMPANY_INFO.contact}</a>
                   </div>
                 </div>
               </div>
@@ -160,7 +160,7 @@ const Footer = () => {
                   <a href={COMPANY_INFO.socials.linkedin} target="_blank" rel="noopener noreferrer" aria-label="Visit our LinkedIn page" className="w-10 h-10 rounded-full flex items-center justify-center transition-all text-[#2D6A4F] hover:-translate-y-1"><img src="/linkedin.png" alt="Linkedin" className="w-6 h-6 object-contain transition-all hover:scale-110" loading="lazy" width={512} height={512} /></a>
                   <a href={COMPANY_INFO.socials.instagram} target="_blank" rel="noopener noreferrer" aria-label="Visit our Instagram page" className="w-10 h-10 rounded-full flex items-center justify-center transition-all text-[#2D6A4F] hover:-translate-y-1"><img src="/instagram.png" alt="Instagram" className="w-6 h-6 object-contain transition-all hover:scale-110" loading="lazy" width={512} height={512} /></a>
                   <a href={COMPANY_INFO.socials.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp" className="w-10 h-10 rounded-full flex items-center justify-center transition-all text-[#2D6A4F] hover:-translate-y-1"><img src="/whatsapp.png" alt="WhatsApp" className="w-6 h-6 object-contain transition-all hover:scale-110" loading="lazy" width={512} height={512} /></a>
-                  <a href="mailto:contact@frostrek.com" aria-label="Send us an email" className="w-10 h-10 rounded-full flex items-center justify-center transition-all text-[#2D6A4F] hover:-translate-y-1"><img src="/gmail.png" alt="Gmail" className="w-8 h-8 object-contain transition-all hover:scale-110" loading="lazy" width={512} height={512} /></a>
+                  <a href={`mailto:${COMPANY_INFO.contact}`} aria-label="Send us an email" className="w-10 h-10 rounded-full flex items-center justify-center transition-all text-[#2D6A4F] hover:-translate-y-1"><img src="/gmail.png" alt="Gmail" className="w-8 h-8 object-contain transition-all hover:scale-110" loading="lazy" width={512} height={512} /></a>
                   <a href={COMPANY_INFO.socials.facebook} target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook page" className="w-10 h-10 rounded-full flex items-center justify-center transition-all hover:-translate-y-1">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" className="transition-all hover:scale-110">
                       <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#1877F2" />
@@ -235,23 +235,57 @@ const Footer = () => {
               <div className="space-y-4">
                 <h3 className="font-bold text-xs uppercase tracking-widest text-[#2D6A4F]">Location</h3>
 
-                {/* Embedded Map */}
-                <div ref={locationRef} onClick={handleLocationClick} className="relative w-full h-40 md:h-48 rounded-2xl overflow-hidden shadow-sm border border-[#E6EFE6] bg-gray-50 hover:shadow-md cursor-pointer transition-all duration-300 group hover:border-[#2D6A4F]/20">
-                  <iframe
-                    title="Office Location"
-                    width="100%"
-                    height="100%"
-                    frameBorder="0"
-                    marginHeight={0}
-                    marginWidth={0}
-                    src="https://www.openstreetmap.org/export/embed.html?bbox=77.0%2C28.4%2C77.1%2C28.5&amp;layer=mapnik&amp;marker=28.4595%2C77.0266"
-                    loading="lazy"
-                    className="transition-opacity duration-300 pointer-events-none group-hover:opacity-90"
-                  ></iframe>
+                {/* Interactive Static Map Preview */}
+                <div 
+                  ref={locationRef} 
+                  onClick={handleLocationClick} 
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') handleLocationClick(); }}
+                  aria-label="Open Frostrek AI office location in Google Maps"
+                  className="relative w-full h-40 md:h-48 rounded-2xl overflow-hidden shadow-sm border border-[#E6EFE6] bg-[#F4F8F6] hover:shadow-md cursor-pointer transition-all duration-300 group hover:border-[#2D6A4F]/30 select-none"
+                >
+                  {/* Stylized Vector Map Background */}
+                  <svg className="absolute inset-0 w-full h-full object-cover opacity-65 group-hover:opacity-85 transition-opacity duration-300" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                    {/* Area shading */}
+                    <rect width="400" height="200" fill="#EDF5F0" />
+                    <path d="M-20 60 C80 90, 160 30, 240 70 C320 110, 380 40, 420 80 L420 220 L-20 220 Z" fill="#E2EEE6" />
+                    
+                    {/* Road Network Lines */}
+                    <path d="M-10 40 L410 160" stroke="#CBDED4" strokeWidth="6" strokeLinecap="round" />
+                    <path d="M120 -10 L190 210" stroke="#CBDED4" strokeWidth="8" strokeLinecap="round" />
+                    <path d="M-10 130 L410 70" stroke="#DAEAE1" strokeWidth="4" />
+                    <path d="M280 -10 L250 210" stroke="#DAEAE1" strokeWidth="5" />
+                    <path d="M70 -10 L330 210" stroke="#E6F2EB" strokeWidth="3" />
+                    <path d="M-10 95 L410 115" stroke="#FFFFFF" strokeWidth="3" strokeDasharray="4 4" />
+                    <path d="M185 -10 L185 210" stroke="#FFFFFF" strokeWidth="2" />
+                    <path d="M-10 160 Q 150 140 280 180 T 410 130" stroke="#CBDED4" strokeWidth="5" fill="none" />
+                    
+                    {/* Landmark building blocks */}
+                    <rect x="140" y="70" width="35" height="25" rx="3" fill="#B7D9C7" fillOpacity="0.6" />
+                    <rect x="210" y="55" width="28" height="40" rx="3" fill="#B7D9C7" fillOpacity="0.6" />
+                    <rect x="150" y="110" width="45" height="30" rx="3" fill="#B7D9C7" fillOpacity="0.5" />
+                  </svg>
+
+                  {/* Pulsing Pin Marker */}
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none">
+                    <span className="absolute w-12 h-12 rounded-full bg-[#2D6A4F]/20 animate-ping" />
+                    <span className="absolute w-7 h-7 rounded-full bg-[#2D6A4F]/30" />
+                    <div className="relative z-10 w-9 h-9 rounded-full bg-[#2D6A4F] text-white flex items-center justify-center shadow-lg shadow-[#2D6A4F]/40 transform group-hover:scale-110 transition-transform duration-300">
+                      <MapPin size={18} className="text-white fill-white" />
+                    </div>
+                  </div>
+
+                  {/* Hover "Open in Maps" overlay indicator */}
+                  <div className="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                    <span className="inline-flex items-center gap-1 text-[10px] font-bold text-white bg-[#2D6A4F] px-2 py-1 rounded-md shadow-md">
+                      Open Map <ExternalLink size={10} />
+                    </span>
+                  </div>
 
                   {/* Address Badge */}
                   <div className="absolute bottom-3 left-3 z-[400]">
-                    <div className="px-3 py-1.5 rounded-lg shadow-sm backdrop-blur-md bg-white/95 border border-[#E6EFE6] text-[#2D6A4F] flex flex-col gap-0.5 group-hover:border-[#2D6A4F]/20 transition-colors">
+                    <div className="px-3 py-1.5 rounded-lg shadow-sm backdrop-blur-md bg-white/95 border border-[#E6EFE6] text-[#2D6A4F] flex flex-col gap-0.5 group-hover:border-[#2D6A4F]/30 transition-colors">
                       <div className="flex items-center gap-1.5">
                         <MapPin size={12} className="text-[#336B55]" />
                         <span className="text-[11px] font-bold">JMD Empire, Sector 62</span>

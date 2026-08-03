@@ -312,7 +312,7 @@ const FintechWalletsPage = () => {
                             },
                             "contactPoint": {
                                 "@type": "ContactPoint",
-                                "email": "contact@frostrek.com",
+                                "url": "https://www.frostrek.ai/contact",
                                 "contactType": "sales"
                             }
                         },
