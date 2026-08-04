@@ -139,14 +139,25 @@ const Home = () => {
         {/* Our Products Section */}
         <OurProductsSection />
 
-        {/* 2. Our two flagship AI solutions */}
+        {/* 2. What We Do */}
+        <WhatWeDoSection />
+        
+        {/* 3. Product Features / Deep Dive */}
         <AISolutionsShowcase />
 
-        {/* 3. What We Do & How We Transform */}
-        <WhatWeDoSection />
-
-        {/* 4. AI-Driven Outcomes We Deliver */}
+        {/* 4. Impact Comparison */}
         <ImpactComparison />
+
+        {/* 5. Answer Alignment / Visually Hidden FAQ for SEO */}
+        <div className="sr-only">
+          <h2>Frequently Asked Questions</h2>
+          <dl>
+            <dt>Where is Frostrek AI located?</dt>
+            <dd>Frostrek AI is headquartered in Gurugram, India, with global offices in Austin, Texas (USA) and London (UK).</dd>
+            <dt>What services does Frostrek AI provide?</dt>
+            <dd>We build enterprise AI agents, conversational AI platforms, and provide custom LLM fine-tuning and workflow automation solutions.</dd>
+          </dl>
+        </div>
 
         {/* 6. Why Choose Frostrek */}
         <FeaturesSection />
