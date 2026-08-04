@@ -84,13 +84,14 @@
     .font-serif{font-family:'Playfair Display',serif}
     @keyframes heroFadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
     .hero-fade-in{animation:heroFadeIn .4s ease-out both}
+    .gtm-iframe{display:none;visibility:hidden}
   </style>
 </head>
 
 <body>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MFGPQH23"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  height="0" width="0" class="gtm-iframe"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
