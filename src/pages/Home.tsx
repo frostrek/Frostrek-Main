@@ -21,22 +21,93 @@ const websiteSchema = JSON.stringify({
   }
 });
 
-const localBusinessSchema = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Frostrek AI",
-  "image": "https://www.frostrek.ai/logo.png",
-  "url": "https://www.frostrek.ai",
-  "telephone": "+916399999955",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "4th Floor, Jmd Empire, 455, Golf Course Ext Rd, Sector 62",
-    "addressLocality": "Gurugram",
-    "addressRegion": "Haryana",
-    "postalCode": "122102",
-    "addressCountry": "IN"
+const localBusinessSchema = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://www.frostrek.ai/#organization",
+    "name": "Frostrek AI (HQ)",
+    "image": "https://www.frostrek.ai/logo.png",
+    "url": "https://www.frostrek.ai",
+    "telephone": "+916399999955",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "4th Floor, Jmd Empire, 455, Golf Course Ext Rd, Sector 62",
+      "addressLocality": "Gurugram",
+      "addressRegion": "Haryana",
+      "postalCode": "122102",
+      "addressCountry": "IN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 28.4595,
+      "longitude": 77.0266
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    },
+    "priceRange": "₹₹₹"
   },
-  "priceRange": "₹₹₹"
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://www.frostrek.ai/#us-office",
+    "name": "Frostrek AI (USA)",
+    "image": "https://www.frostrek.ai/logo.png",
+    "url": "https://www.frostrek.ai",
+    "telephone": "+17574722491",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "701 Tillery Street Unit 12-3227",
+      "addressLocality": "Austin",
+      "addressRegion": "Texas",
+      "postalCode": "78702",
+      "addressCountry": "US"
+    },
+    "priceRange": "$$$"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://www.frostrek.ai/#uk-office",
+    "name": "Frostrek AI (UK)",
+    "image": "https://www.frostrek.ai/logo.png",
+    "url": "https://www.frostrek.ai",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "24-26 Arcadia Avenue, Fin009/8701",
+      "addressLocality": "London",
+      "postalCode": "N3 2JU",
+      "addressCountry": "GB"
+    },
+    "priceRange": "£££"
+  }
+]);
+
+const faqSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Where is Frostrek AI located?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Frostrek AI is headquartered in Gurugram, India, with global offices in Austin, Texas (USA) and London (UK)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What services does Frostrek AI provide?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We build enterprise AI agents, conversational AI platforms, and provide custom LLM fine-tuning and workflow automation solutions."
+      }
+    }
+  ]
 });
 
 const personSchema = JSON.stringify({
@@ -60,7 +131,7 @@ const Home = () => {
         description="Frostrek AI builds conversational AI agents, AI video platforms, and enterprise workflow automation for global startups & enterprises."
         path="/"
         keywords="enterprise AI agents, conversational AI platform, custom LLM fine-tuning, workflow automation solutions, Retrieval Augmented Generation, RAG implementation, AI data annotation services"
-        schema={[websiteSchema, localBusinessSchema, personSchema]}
+        schema={[websiteSchema, localBusinessSchema, personSchema, faqSchema]}
       />
       <HeroSection />
 
