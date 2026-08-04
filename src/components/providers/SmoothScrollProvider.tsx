@@ -20,15 +20,21 @@ const SmoothScrollProvider = () => {
     const location = useLocation();
 
     useEffect(() => {
+        // Skip custom RAF on mobile/touch screens for native performance and PageSpeed score
+        const isMobileOrTouch = window.innerWidth < 768 || ('ontouchstart' in window && window.innerWidth < 1024);
+        if (isMobileOrTouch) {
+            return;
+        }
+
         // Initialize Lenis with optimized settings
         const lenis = new Lenis({
-            duration: 1.2,
+            duration: 1.1,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             orientation: 'vertical',
             gestureOrientation: 'vertical',
             smoothWheel: true,
             wheelMultiplier: 1,
-            touchMultiplier: 2,
+            touchMultiplier: 1.5,
             infinite: false,
         });
 
@@ -44,11 +50,10 @@ const SmoothScrollProvider = () => {
 
         //Use GSAP ticker for smooth animation loop
         gsap.ticker.add(rafHandler);
-
         gsap.ticker.lagSmoothing(0);
 
         return () => {
-            gsap.ticker.remove(rafHandler); // Now removes correct reference
+            gsap.ticker.remove(rafHandler);
             lenis.destroy();
             lenisRef.current = null;
         };

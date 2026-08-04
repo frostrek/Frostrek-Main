@@ -83,7 +83,7 @@ const FAQ_CATEGORIES: FAQCategory[] = [
             },
             {
                 question: "How is pricing structured?",
-                answer: "Pricing varies by project scope and model. For AI agent deployments, we typically work on a project-based fee with optional ongoing maintenance contracts. For managed data operations, we offer dedicated team models with monthly retainers. For consulting and strategy work, we charge on a time-and-materials basis. Contact us at contact@frostrek.com for a custom quote."
+                answer: "Pricing varies by project scope and model. For AI agent deployments, we typically work on a project-based fee with optional ongoing maintenance contracts. For managed data operations, we offer dedicated team models with monthly retainers. For consulting and strategy work, we charge on a time-and-materials basis. Contact our team for a custom quote."
             },
             {
                 question: "Can you scale teams quickly for urgent projects?",
