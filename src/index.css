@@ -205,4 +205,8 @@
   .anim-delay-300 { animation-delay: 0.3s; }
   .anim-delay-400 { animation-delay: 0.4s; }
   .anim-delay-600 { animation-delay: 0.6s; }
+  .anim-delay-800 { animation-delay: 0.8s; }
+  .anim-delay-1000 { animation-delay: 1s; }
+  .anim-delay-1600 { animation-delay: 1.6s; }
+  .anim-delay-2000 { animation-delay: 2s; }
 }

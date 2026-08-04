@@ -175,15 +175,13 @@ const ChatDemo = () => {
                 {messages.map((msg, i) => (
                     <div
                         key={i}
-                        className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
-                        style={{ animationDelay: `${i * 1}s` }}
+                        className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'} anim-delay-${i * 1000}`}
                     >
                         <div
                             className={`max-w-[80%] px-4 py-2.5 rounded-2xl text-[13px] font-medium shadow-sm animate-fade-in ${msg.role === 'user'
                                 ? 'bg-[#FEE2E2] text-gray-700 rounded-br-sm'
                                 : 'bg-white text-gray-700 border border-gray-100 rounded-bl-sm'
-                                }`}
-                            style={{ animationDelay: `${i * 0.8}s` }}
+                                } anim-delay-${i * 800}`}
                         >
                             {msg.text}
                         </div>
@@ -217,10 +215,9 @@ const VoiceDemo = () => {
                 {WAVE_HEIGHTS.map((height, i) => (
                     <div
                         key={i}
-                        className="w-1.5 bg-[#2D6A4F] rounded-full animate-voice-wave"
+                        className={`w-1.5 bg-[#2D6A4F] rounded-full animate-voice-wave anim-delay-${i * 200}`}
                         style={{
-                            height: `${height}px`,
-                            animationDelay: `${i * 0.2}s`
+                            height: `${height}px`
                         }}
                     />
                 ))}
@@ -253,7 +250,7 @@ const ManufacturingDemo = () => {
 
             <div className="space-y-2 flex-1 relative z-10">
                 {industries.map((ind, i) => (
-                    <div key={i} className="flex items-center justify-between p-2.5 rounded-lg bg-white/80 border border-gray-100 backdrop-blur-sm shadow-sm animate-fade-in" style={{ animationDelay: `${i * 0.2}s` }}>
+                    <div key={i} className={`flex items-center justify-between p-2.5 rounded-lg bg-white/80 border border-gray-100 backdrop-blur-sm shadow-sm animate-fade-in anim-delay-${i * 200}`}>
                         <span className="text-xs font-bold text-gray-700">{ind.name}</span>
                         <span className="text-[11px] font-medium text-gray-500">{ind.metric}</span>
                     </div>
@@ -303,7 +300,7 @@ const MultivendorDemo = () => {
 
             <div className="space-y-2 flex-1 relative z-10">
                 {marketplaces.map((m, i) => (
-                    <div key={i} className="flex items-center justify-between p-2 rounded-xl bg-white/80 border border-gray-100 backdrop-blur-sm shadow-sm animate-fade-in" style={{ animationDelay: `${i * 0.15}s` }}>
+                    <div key={i} className={`flex items-center justify-between p-2 rounded-xl bg-white/80 border border-gray-100 backdrop-blur-sm shadow-sm animate-fade-in anim-delay-${i * 150}`}>
                         <div className="flex items-center gap-2">
                             <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: m.color }} />
                             <span className="text-xs font-bold text-gray-800">{m.name}</span>
@@ -603,8 +600,7 @@ const AISolutionsShowcase = () => {
                                         {activeSolution.features.map((feature, i) => (
                                             <div
                                                 key={i}
-                                                className="flex items-start gap-3 animate-fade-in"
-                                                style={{ animationDelay: `${i * 0.1}s` }}
+                                                className={`flex items-start gap-3 animate-fade-in anim-delay-${i * 100}`}
                                             >
                                                 <div className="mt-0.5 rounded-full p-0.5 flex-shrink-0" style={{ backgroundColor: activeSolution.iconColorDark + '15' }}>
                                                     <CheckCircle2 className="w-4 h-4" style={{ color: activeSolution.iconColorDark }} />
