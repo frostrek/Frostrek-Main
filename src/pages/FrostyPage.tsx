@@ -278,7 +278,7 @@ function DashboardPreview() {
 
     return (
         <div className="fx-dxwrap fx-reveal">
-            <div className="fx-dxtabs" role="tablist" aria-label="Dashboard preview" style={{ display: "flex", justifyContent: "center" }}>
+            <div className="fx-dxtabs fx-flex-center" role="tablist" aria-label="Dashboard preview">
                 {DX_TABS.map((t, i) => (
                     <button key={t} role="tab" id={"dxt-" + i} aria-controls="dxpanel" aria-selected={i === tab}
                         tabIndex={i === tab ? 0 : -1} className="fx-dxtab" onClick={() => setTab(i)} onKeyDown={onKey}>
@@ -307,7 +307,7 @@ function DashboardPreview() {
                         <>
                             <div className="fx-dx-h">Performance</div>
                             <div className="fx-dx-sub">Insights and metrics for your workspace.</div>
-                            <div className="fx-dx-card" style={{ marginTop: 12, display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, flexWrap: "wrap" }}>
+                            <div style={{ marginTop: 12 }} className="fx-dx-card fx-flex-between-wrap">
                                 <div className="fx-dx-pills"><b>7d</b><b>14d</b><b className="on">30d</b><b>90d</b></div>
                                 <div className="fx-dx-btn">Export</div>
                             </div>
@@ -361,7 +361,7 @@ function DashboardPreview() {
 
                     {tab === 1 && (
                         <>
-                            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, flexWrap: "wrap" }}>
+                            <div className="fx-flex-between-wrap">
                                 <div><div className="fx-dx-h">Website console<span className="fx-sr"> — Unified AI inbox for automated customer support and lead management</span></div><div className="fx-dx-sub">Every session, web and WhatsApp, in one place.</div></div>
                                 <div className="fx-dx-pills"><b className="on">Website</b><b>WhatsApp</b></div>
                             </div>
@@ -375,7 +375,7 @@ function DashboardPreview() {
                                         </div>
                                     ))}
                                 </div>
-                                <div className="fx-dx-card" style={{ display: "flex", flexDirection: "column" }}>
+                                <div className="fx-dx-card fx-flex-col">
                                     <div style={{ display: "flex", gap: 6, marginBottom: 10, flexWrap: "wrap" }}>
                                         <span className="fx-dx-btn" style={{ background: "transparent", color: "var(--d-mut)", border: "1px solid var(--d-line)" }}>Lead</span>
                                         <span className="fx-dx-btn" style={{ background: "var(--d-ink)" }}>Insights</span>
@@ -414,7 +414,7 @@ function DashboardPreview() {
                     )}
                 </div>
             </div>
-            <p className="fx-src" style={{ textAlign: "center", marginTop: "1.5rem" }}>Product preview. Figures and conversations are illustrative.</p>
+            <p className="fx-src fx-text-center fx-mt-1-5rem">Product preview. Figures and conversations are illustrative.</p>
         </div>
     );
 }
@@ -903,9 +903,9 @@ export default function FrostyPage() {
             </section>
 
             {/* TWO AGENTS */}
-            <section className="fx-sec" style={{ background: "var(--tint-2)" }}>
+            <section className="fx-sec fx-bg-tint-2">
                 <div className="fx-wrap">
-                    <div className="fx-reveal text-center mx-auto flex flex-col items-center" style={{ maxWidth: 640 }}>
+                    <div className="fx-reveal text-center mx-auto flex flex-col items-center fx-max-w-640">
                         <span className="fx-ey">One brain, two front doors</span>
                         <h2 className="fx-h2">Two agents. One conversation.</h2>
                         <p className="fx-lead">The web and WhatsApp agents share a single memory — so a visitor who starts on your site and finishes on WhatsApp never repeats themselves.</p>
@@ -944,7 +944,7 @@ export default function FrostyPage() {
             {/* IT ACTS */}
             <section className="fx-sec" id="how">
                 <div className="fx-wrap">
-                    <div className="fx-reveal text-center mx-auto flex flex-col items-center" style={{ maxWidth: 640 }}>
+                    <div className="fx-reveal text-center mx-auto flex flex-col items-center fx-max-w-640">
                         <span className="fx-ey">Not a chatbot</span>
                         <h2 className="fx-h2">It doesn't just chat. It acts.</h2>
                         <p className="fx-lead">Rule-based bots frustrate people with scripts. Frosty understands intent and takes the next step on its own — tap or hover any action to follow the enquiry that triggers it.</p>
@@ -954,9 +954,9 @@ export default function FrostyPage() {
             </section>
 
             {/* DASHBOARD */}
-            <section className="fx-sec" id="dashboard" style={{ background: "var(--tint-2)" }}>
+            <section className="fx-sec fx-bg-tint-2" id="dashboard">
                 <div className="fx-wrap">
-                    <div className="fx-reveal text-center mx-auto flex flex-col items-center" style={{ maxWidth: 680 }}>
+                    <div className="fx-reveal text-center mx-auto flex flex-col items-center fx-max-w-680">
                         <span className="fx-ey">Your command centre</span>
                         <h2 className="fx-h2" style={{ maxWidth: '100%', textWrap: 'initial' }}>Every lead - and everything about it<br />in one place.</h2>
                         <p className="fx-lead">Everything both agents do lands in one live dashboard, so your team works the hottest leads first without digging.</p>
@@ -976,7 +976,7 @@ export default function FrostyPage() {
             {/* CAPABILITIES */}
             <section className="fx-sec">
                 <div className="fx-wrap">
-                    <div className="fx-reveal text-center mx-auto flex flex-col items-center" style={{ maxWidth: 640 }}>
+                    <div className="fx-reveal text-center mx-auto flex flex-col items-center fx-max-w-640">
                         <span className="fx-ey">Under the hood</span>
                         <h2 className="fx-h2">Enterprise-grade, engineered end to end.</h2>
                         <p className="text-xs text-gray-500 mb-4 uppercase tracking-wider font-semibold">Last updated: July 2026</p>
@@ -1015,9 +1015,9 @@ export default function FrostyPage() {
             </section>
 
             {/* SETUP */}
-            <section className="fx-sec" style={{ background: "var(--tint-2)" }}>
+            <section className="fx-sec fx-bg-tint-2">
                 <div className="fx-wrap">
-                    <div className="fx-reveal text-center mx-auto flex flex-col items-center" style={{ maxWidth: 640 }}>
+                    <div className="fx-reveal text-center mx-auto flex flex-col items-center fx-max-w-640">
                         <span className="fx-ey">Done for you</span>
                         <h2 className="fx-h2">The Frostrek team sets Frosty up for you.</h2>
                         <p className="fx-lead">We customize and train the agent around your business and deploy it on your website and WhatsApp, so there is nothing for you to build or code. You tell us about your services, and we handle the rest during onboarding.</p>
@@ -1039,7 +1039,7 @@ export default function FrostyPage() {
             {/* WHY */}
             <section className="fx-sec">
                 <div className="fx-wrap">
-                    <div className="fx-reveal text-center mx-auto flex flex-col items-center" style={{ maxWidth: 640 }}>
+                    <div className="fx-reveal text-center mx-auto flex flex-col items-center fx-max-w-640">
                         <span className="fx-ey">Why Frostrek</span>
                         <h2 className="fx-h2">Built for how you actually sell.</h2>
                     </div>
@@ -1060,7 +1060,7 @@ export default function FrostyPage() {
             {/* INDUSTRIES */}
             <section className="fx-sec" style={{ background: "var(--tint-2)", paddingBottom: 90 }}>
                 <div className="fx-wrap">
-                    <div className="fx-reveal text-center mx-auto flex flex-col items-center" style={{ maxWidth: 680 }}>
+                    <div className="fx-reveal text-center mx-auto flex flex-col items-center fx-max-w-680">
                         <span className="fx-ey">Who it's for</span>
                         <h2 className="fx-h2">If you live on inbound, Frosty pays for itself.</h2>
                         <p className="fx-lead">From e-commerce to clinics to car showrooms — if your leads arrive through a website or WhatsApp, Frosty can answer them, qualify them and act on them.</p>
@@ -1072,7 +1072,7 @@ export default function FrostyPage() {
             {/* PRICING */}
             <section className="fx-sec" id="pricing">
                 <div className="fx-wrap">
-                    <div className="fx-reveal text-center mx-auto flex flex-col items-center" style={{ maxWidth: 640 }}>
+                    <div className="fx-reveal text-center mx-auto flex flex-col items-center fx-max-w-640">
                         <span className="fx-ey">Pricing · India</span>
                         <h2 className="fx-h2">One agent, priced around you.</h2>
                         <p className="fx-lead">No tiers to compare. We scope Frosty to your business and quote it from a single starting price.</p>
@@ -1104,11 +1104,11 @@ export default function FrostyPage() {
             </section>
 
             {/* FAQ */}
-            <section className="fx-sec" style={{ background: "var(--tint-2)" }}>
+            <section className="fx-sec fx-bg-tint-2">
                 <div className="fx-wrap">
-                    <div className="fx-reveal" style={{ textAlign: "center", maxWidth: 620, margin: "0 auto" }}>
+                    <div className="fx-reveal fx-text-center fx-max-w-640 fx-margin-auto">
                         <span className="fx-ey">Questions</span>
-                        <h2 className="fx-h2" style={{ margin: "16px auto" }}>Everything you need to know.</h2>
+                        <h2 className="fx-h2 fx-margin-y-16-auto">Everything you need to know.</h2>
                     </div>
                 </div>
                 <div className="fx-reveal w-full max-w-[1440px] mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-16 items-start mt-12">

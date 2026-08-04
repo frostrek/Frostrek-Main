@@ -271,8 +271,8 @@ const ChatbotDemo: React.FC = () => {
                                 msg.type === 'bot' && isLoading && (
                                     <div className="flex gap-1.5 h-5 items-center px-1">
                                         <div className="w-1.5 h-1.5 rounded-full bg-[#D67CBA] animate-pulse" />
-                                        <div className="w-1.5 h-1.5 rounded-full bg-[#D67CBA] animate-pulse" style={{ animationDelay: '0.2s' }} />
-                                        <div className="w-1.5 h-1.5 rounded-full bg-[#D67CBA] animate-pulse" style={{ animationDelay: '0.4s' }} />
+                                        <div className="w-1.5 h-1.5 rounded-full bg-[#D67CBA] animate-pulse anim-delay-200" />
+                                        <div className="w-1.5 h-1.5 rounded-full bg-[#D67CBA] animate-pulse anim-delay-400" />
                                     </div>
                                 )
                             )}

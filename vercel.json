@@ -38,7 +38,7 @@
   "rewrites": [
     {
       "source": "/((?!assets/|icons/|images/|optimized/|products/.*\\.|techstack/|pdf/|llms\\.txt|robots\\.txt|sitemap\\.xml|manifest\\.json|googleae3090eeea2c3c2e\\.html|BingSiteAuth\\.xml|_redirects|\\.well-known/).*)",
-      "destination": "/index.html"
+      "destination": "/index_template.html"
     }
   ]
 }

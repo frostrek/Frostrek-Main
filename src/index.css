@@ -196,4 +196,13 @@
   .flip-text-root:hover .flip-text-bottom {
     transform: translateY(0);
   }
+
+  /* Animation delay utilities — replace inline style={{ animationDelay }} */
+  .anim-delay-0 { animation-delay: 0s; }
+  .anim-delay-100 { animation-delay: 0.1s; }
+  .anim-delay-150 { animation-delay: 150ms; }
+  .anim-delay-200 { animation-delay: 0.2s; }
+  .anim-delay-300 { animation-delay: 0.3s; }
+  .anim-delay-400 { animation-delay: 0.4s; }
+  .anim-delay-600 { animation-delay: 0.6s; }
 }
