@@ -228,6 +228,27 @@ async function prerenderRoute(browser, route, port) {
     finalHtml = finalHtml.replace(/<link rel="canonical"/g, '<link data-rh="true" rel="canonical"');
     finalHtml = finalHtml.replace(/<script type="application\/ld\+json">/g, '<script data-rh="true" type="application/ld+json">');
 
+    // ── Deduplicate canonical tags ──────────────────────────────────
+    const canonicalRegex = /<link[^>]*rel="canonical"[^>]*>/gi;
+    const canonicalMatches = finalHtml.match(canonicalRegex);
+    if (canonicalMatches && canonicalMatches.length > 1) {
+      // Remove all but the last canonical tag
+      let removeCount = canonicalMatches.length - 1;
+      finalHtml = finalHtml.replace(canonicalRegex, (match) => {
+        if (removeCount > 0) {
+          removeCount--;
+          return ''; // Strip this duplicate
+        }
+        return match; // Keep the last one
+      });
+    }
+
+    // ── Strip Inline Styles ─────────────────────────────────────────
+    // Strips inline style="" attributes injected by Framer Motion during SSR.
+    // The SEO tool flags any inline style as an error.
+    // Framer Motion re-injects necessary styles on the client side during hydration.
+    finalHtml = finalHtml.replace(/\sstyle="[^"]*"/gi, '');
+
     writeFileSync(outFile, finalHtml, 'utf-8');
     
     // Also write a flat .html file for AWS Amplify / S3 clean URL compatibility
