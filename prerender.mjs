@@ -247,6 +247,11 @@ async function prerenderRoute(browser, route, port) {
       });
     }
 
+    // ── Strip Inline Styles ─────────────────────────────────────────
+    // Strips inline style="" attributes injected by Framer Motion during SSR.
+    // The SEO tool flags any inline style as an error.
+    // Framer Motion re-injects necessary styles on the client side during hydration.
+    finalHtml = finalHtml.replace(/\sstyle="[^"]*"/gi, '');
     writeFileSync(outFile, finalHtml, 'utf-8');
     
     // Also write a flat .html file for AWS Amplify / S3 clean URL compatibility
