@@ -4,9 +4,9 @@ import { Phone, PhoneOff, Mic, MicOff, Volume2, Loader2, Sparkles } from 'lucide
 import {
     FROSTY_API_KEY,
     getTenantId,
-    getVoiceCallWsUrl,
     getWebsiteSessionId,
 } from '../../utils/frostyApi';
+import { apiBaseToWsBase, resolveBotApiBase } from '../../utils/botApi';
 
 interface VoiceCallWidgetProps {
     onCallStateChange?: (isActive: boolean) => void;
@@ -178,7 +178,8 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
             await ensureTenantContext();
 
             const sid = getBridgedSessionId(generateSessionId());
-            const ws = new WebSocket(getVoiceCallWsUrl(sid));
+            const wsBase = apiBaseToWsBase(resolveBotApiBase());
+            const ws = new WebSocket(`${wsBase}/ws/voice-call/${encodeURIComponent(sid)}`);
             callWsRef.current = ws;
 
             ws.binaryType = 'arraybuffer';
