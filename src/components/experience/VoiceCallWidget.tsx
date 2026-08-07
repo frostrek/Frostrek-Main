@@ -1,12 +1,12 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, PhoneOff, Mic, MicOff, Volume2, Loader2, Sparkles } from 'lucide-react';
+import { getTenantId, getWebsiteSessionId } from '../../utils/frostyApi';
 import {
-    FROSTY_API_KEY,
-    getTenantId,
-    getWebsiteSessionId,
-} from '../../utils/frostyApi';
-import { apiBaseToWsBase, resolveBotApiBase } from '../../utils/botApi';
+    apiBaseToWsBase,
+    FROSTY_BOT_API_KEY,
+    resolveBotApiBase,
+} from '../../utils/botApi';
 
 interface VoiceCallWidgetProps {
     onCallStateChange?: (isActive: boolean) => void;
@@ -22,23 +22,19 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
     const [aiResponse, setAiResponse] = useState('');
     const [callStatus, setCallStatus] = useState<'idle' | 'connecting' | 'active' | 'ended'>('idle');
 
-    // Ref to track call active state for async callbacks
-    const isCallActiveRef = useRef(false);
     const tenantIdRef = useRef<string>('default');
-
-    // Audio recording refs
     const callWsRef = useRef<WebSocket | null>(null);
     const callMediaRef = useRef<MediaRecorder | null>(null);
     const callStreamRef = useRef<MediaStream | null>(null);
-    const callAudioQueueRef = useRef<Uint8Array[]>([]);
+    const audioContextRef = useRef<AudioContext | null>(null);
+    const pcmWorkletRef = useRef<AudioWorkletNode | null>(null);
+    const playbackCtxRef = useRef<AudioContext | null>(null);
+    const nextPlayTimeRef = useRef<number>(0);
 
     const analyserRef = useRef<AnalyserNode | null>(null);
     const animationFrameRef = useRef<number | null>(null);
-
-    // Audio visualization
     const [audioLevel, setAudioLevel] = useState(0);
 
-    // Cleanup on unmount
     useEffect(() => {
         return () => {
             endCall();
@@ -46,15 +42,14 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
     }, []);
 
     const ensureTenantContext = async () => {
-        const tenantId = await getTenantId();
-        tenantIdRef.current = tenantId;
+        tenantIdRef.current = await getTenantId();
     };
 
     const generateSessionId = () => {
-        let sid = sessionStorage.getItem("voiceCallSessionId");
+        let sid = sessionStorage.getItem('voiceCallSessionId');
         if (!sid) {
-            sid = "sess_" + Math.random().toString(36).substring(2, 9);
-            sessionStorage.setItem("voiceCallSessionId", sid);
+            sid = 'sess_' + Math.random().toString(36).substring(2, 9);
+            sessionStorage.setItem('voiceCallSessionId', sid);
         }
         return sid;
     };
@@ -62,7 +57,118 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
     const getBridgedSessionId = (sid: string) =>
         getWebsiteSessionId(tenantIdRef.current, sid);
 
-    // Audio level visualization
+    const flushPlayback = () => {
+        try {
+            playbackCtxRef.current?.close();
+        } catch {
+            // AudioContext may already be closed.
+        }
+        playbackCtxRef.current = null;
+        nextPlayTimeRef.current = 0;
+    };
+
+    const playPcmChunk = (pcmBytes: Uint8Array) => {
+        if (!pcmBytes.length) return;
+        setIsSpeaking(true);
+        setIsListening(false);
+
+        try {
+            if (!playbackCtxRef.current || playbackCtxRef.current.state === 'closed') {
+                playbackCtxRef.current = new AudioContext({ sampleRate: 24000 });
+                nextPlayTimeRef.current = 0;
+            }
+            const ctx = playbackCtxRef.current;
+            if (ctx.state === 'suspended') {
+                void ctx.resume();
+            }
+
+            const samplesCount = Math.floor(pcmBytes.byteLength / 2);
+            if (samplesCount === 0) return;
+            const dataView = new DataView(pcmBytes.buffer, pcmBytes.byteOffset, pcmBytes.byteLength);
+            const float32 = new Float32Array(samplesCount);
+            for (let i = 0; i < samplesCount; i++) {
+                float32[i] = dataView.getInt16(i * 2, true) / 32768.0;
+            }
+
+            const buffer = ctx.createBuffer(1, float32.length, 24000);
+            buffer.copyToChannel(float32, 0);
+
+            const source = ctx.createBufferSource();
+            source.buffer = buffer;
+            source.connect(ctx.destination);
+
+            const now = ctx.currentTime;
+            const startTime = Math.max(now, nextPlayTimeRef.current);
+            source.start(startTime);
+            nextPlayTimeRef.current = startTime + buffer.duration;
+        } catch (err) {
+            console.warn('[CALL] PCM playback error', err);
+        }
+    };
+
+    const startMicStream = async (ws: WebSocket, stream: MediaStream) => {
+        try {
+            const ctx = new AudioContext({ sampleRate: 16000 });
+            if (ctx.state === 'suspended') {
+                await ctx.resume();
+            }
+            audioContextRef.current = ctx;
+
+            const processorCode = `
+                class PcmProcessor extends AudioWorkletProcessor {
+                  process(inputs) {
+                    const input = inputs[0]?.[0];
+                    if (input) {
+                      const pcm16 = new Int16Array(input.length);
+                      for (let i = 0; i < input.length; i++) {
+                        const s = Math.max(-1, Math.min(1, input[i]));
+                        pcm16[i] = s < 0 ? s * 0x8000 : s * 0x7FFF;
+                      }
+                      this.port.postMessage(pcm16.buffer, [pcm16.buffer]);
+                    }
+                    return true;
+                  }
+                }
+                registerProcessor("pcm-processor", PcmProcessor);
+            `;
+            const blob = new Blob([processorCode], { type: 'application/javascript' });
+            const url = URL.createObjectURL(blob);
+            await ctx.audioWorklet.addModule(url);
+            URL.revokeObjectURL(url);
+
+            const source = ctx.createMediaStreamSource(stream);
+            const worklet = new AudioWorkletNode(ctx, 'pcm-processor');
+            pcmWorkletRef.current = worklet;
+
+            worklet.port.onmessage = (e) => {
+                if (ws.readyState === WebSocket.OPEN) {
+                    ws.send(e.data);
+                }
+            };
+
+            source.connect(worklet);
+            setIsListening(true);
+            setIsSpeaking(false);
+            setIsLoading(false);
+            setCallStatus('active');
+        } catch (err) {
+            console.error('[CALL] AudioWorklet setup failed, falling back to MediaRecorder', err);
+            const mime = MediaRecorder.isTypeSupported('audio/webm;codecs=opus')
+                ? 'audio/webm;codecs=opus'
+                : 'audio/webm';
+            const rec = new MediaRecorder(stream, { mimeType: mime });
+            callMediaRef.current = rec;
+            rec.ondataavailable = (e) => {
+                if (e.data.size > 0 && ws.readyState === WebSocket.OPEN) ws.send(e.data);
+            };
+            rec.start(250);
+            setIsListening(true);
+            setIsSpeaking(false);
+            setIsLoading(false);
+            setCallStatus('active');
+        }
+    };
+
     const updateAudioLevel = useCallback(() => {
         if (!analyserRef.current || !isListening) {
             setAudioLevel(0);
@@ -71,10 +177,8 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
 
         const dataArray = new Uint8Array(analyserRef.current.frequencyBinCount);
         analyserRef.current.getByteFrequencyData(dataArray);
-
         const average = dataArray.reduce((a, b) => a + b, 0) / dataArray.length;
         setAudioLevel(average / 255);
-
         animationFrameRef.current = requestAnimationFrame(updateAudioLevel);
     }, [isListening]);
 
@@ -89,67 +193,8 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
         }
     }, [isListening, updateAudioLevel]);
 
-    const _startMicStream = (ws: WebSocket, stream: MediaStream) => {
-        const mimeType = MediaRecorder.isTypeSupported("audio/webm;codecs=opus")
-            ? "audio/webm;codecs=opus"
-            : "audio/webm";
-        const recorder = new MediaRecorder(stream, { mimeType });
-        callMediaRef.current = recorder;
-
-        recorder.ondataavailable = (e) => {
-            if (e.data.size > 0 && ws.readyState === WebSocket.OPEN) {
-                ws.send(e.data);
-            }
-        };
-
-        recorder.start(250); // send chunk every 250ms
-    };
-
-    const _playCallAudio = async () => {
-        const chunks = callAudioQueueRef.current;
-        if (chunks.length === 0) {
-            setIsListening(true);
-            setIsSpeaking(false);
-            return;
-        }
-
-        try {
-            const totalLen = chunks.reduce((s, c) => s + c.byteLength, 0);
-            const merged = new Uint8Array(totalLen);
-            let offset = 0;
-            for (const chunk of chunks) {
-                merged.set(chunk, offset);
-                offset += chunk.byteLength;
-            }
-            callAudioQueueRef.current = [];
-
-            const blob = new Blob([merged as any], { type: "audio/mpeg" });
-            const url = URL.createObjectURL(blob);
-            const audio = new Audio(url);
-
-            setIsSpeaking(true);
-            setIsListening(false);
-
-            audio.onended = () => {
-                URL.revokeObjectURL(url);
-                setIsSpeaking(false);
-                setIsListening(true);
-            };
-            audio.play().catch(e => {
-                console.warn("[CALL] audio play blocked:", e);
-                setIsSpeaking(false);
-                setIsListening(true);
-            });
-        } catch (e) {
-            console.warn("[CALL] audio decode error:", e);
-            setIsSpeaking(false);
-            setIsListening(true);
-        }
-    };
-
-    // Start the voice call
     const startCall = async () => {
-        if (!FROSTY_API_KEY) {
+        if (!FROSTY_BOT_API_KEY) {
             setAiResponse('Voice agent is not configured. Please set VITE_FROSTREK_BOT_API_KEY.');
             return;
         }
@@ -159,81 +204,87 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
             setIsLoading(true);
             setAiResponse('');
             setTranscript('');
+            flushPlayback();
 
-            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            const stream = await navigator.mediaDevices.getUserMedia({
+                audio: { sampleRate: 16000, channelCount: 1, echoCancellation: true, noiseSuppression: true },
+            });
             callStreamRef.current = stream;
 
-            // Setup audio analyser for visualization
-            const audioContext = new AudioContext();
-            const source = audioContext.createMediaStreamSource(stream);
-            const analyser = audioContext.createAnalyser();
+            const vizContext = new AudioContext();
+            const vizSource = vizContext.createMediaStreamSource(stream);
+            const analyser = vizContext.createAnalyser();
             analyser.fftSize = 256;
-            source.connect(analyser);
+            vizSource.connect(analyser);
             analyserRef.current = analyser;
 
             setIsCallActive(true);
-            isCallActiveRef.current = true;
             onCallStateChange?.(true);
 
             await ensureTenantContext();
 
-            const sid = getBridgedSessionId(generateSessionId());
             const wsBase = apiBaseToWsBase(resolveBotApiBase());
+            const sid = getBridgedSessionId(generateSessionId());
             const ws = new WebSocket(`${wsBase}/ws/voice-call/${encodeURIComponent(sid)}`);
             callWsRef.current = ws;
-
             ws.binaryType = 'arraybuffer';
 
             ws.onopen = () => {
-                ws.send(JSON.stringify({ api_key: FROSTY_API_KEY }));
+                ws.send(JSON.stringify({ api_key: FROSTY_BOT_API_KEY }));
             };
 
             ws.onmessage = async (event) => {
                 if (event.data instanceof ArrayBuffer) {
-                    callAudioQueueRef.current.push(new Uint8Array(event.data));
+                    playPcmChunk(new Uint8Array(event.data));
+                    return;
+                }
+                if (event.data instanceof Blob) {
+                    const buf = await event.data.arrayBuffer();
+                    playPcmChunk(new Uint8Array(buf));
                     return;
                 }
 
                 try {
                     const msg = JSON.parse(event.data);
                     switch (msg.type) {
-                        case "ready":
-                            setCallStatus('active');
-                            setIsListening(true);
-                            setIsLoading(false);
+                        case 'ready':
                             setAiResponse("Hi! I'm Frostrek's AI assistant. How can I help you today?");
-                            _startMicStream(ws, stream);
+                            void startMicStream(ws, stream);
                             break;
-                        case "transcript":
+                        case 'transcript':
                             setTranscript(msg.text);
                             break;
-                        case "user_final":
+                        case 'user_final':
                             setTranscript(msg.text);
                             break;
-                        case "thinking":
+                        case 'thinking':
                             setIsLoading(true);
                             setIsListening(false);
+                            setIsSpeaking(false);
                             break;
-                        case "bot_reply":
+                        case 'bot_reply':
                             setAiResponse(msg.text);
-                            break;
-                        case "audio_start":
                             setIsLoading(false);
-                            setIsSpeaking(true);
-                            callAudioQueueRef.current = [];
                             break;
-                        case "audio_end":
-                            _playCallAudio();
+                        case 'audio_end':
+                            setIsLoading(false);
+                            setIsSpeaking(false);
+                            setIsListening(true);
+                            break;
+                        case 'interrupted':
+                            flushPlayback();
+                            setIsLoading(false);
+                            setIsSpeaking(false);
+                            setIsListening(true);
                             break;
                         case 'error':
                             console.error('[CALL] Server error:', msg.message);
                             setAiResponse(msg.message || "Sorry, I'm having trouble connecting. Please try again.");
-                            setIsLoading(false);
                             endCall();
                             break;
                     }
-                } catch (e) {
-                    // ignore parse errors
+                } catch {
+                    // ignore malformed payloads
                 }
             };
 
@@ -245,97 +296,87 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
 
             ws.onerror = () => {
                 console.error('[CALL] WebSocket error');
-                setAiResponse("Connection failed. Please try again.");
-                setIsLoading(false);
+                setAiResponse('Connection failed. Please try again.');
                 endCall();
             };
-
         } catch (error) {
             console.error('Error starting call:', error);
             setCallStatus('idle');
             setIsLoading(false);
+            setIsCallActive(false);
             alert('Cannot access microphone. Please check permissions.');
         }
     };
 
-    // End the voice call
     const endCall = () => {
+        try { pcmWorkletRef.current?.disconnect(); } catch { /* no-op */ }
+        pcmWorkletRef.current = null;
+        try { audioContextRef.current?.close(); } catch { /* no-op */ }
+        audioContextRef.current = null;
+
+        if (callMediaRef.current && callMediaRef.current.state !== 'inactive') {
+            callMediaRef.current.stop();
+        }
+        callMediaRef.current = null;
+
+        if (callStreamRef.current) {
+            callStreamRef.current.getTracks().forEach((track) => track.stop());
+            callStreamRef.current = null;
+        }
+
+        if (callWsRef.current) {
+            try { callWsRef.current.send(JSON.stringify({ type: 'hangup' })); } catch { /* no-op */ }
+            try { callWsRef.current.close(); } catch { /* no-op */ }
+            callWsRef.current = null;
+        }
+
+        flushPlayback();
+
+        if (animationFrameRef.current) {
+            cancelAnimationFrame(animationFrameRef.current);
+        }
+        analyserRef.current = null;
+
         setIsCallActive(false);
-        isCallActiveRef.current = false;
         setIsListening(false);
         setIsSpeaking(false);
         setIsLoading(false);
         setCallStatus('ended');
         onCallStateChange?.(false);
 
-        if (callMediaRef.current && callMediaRef.current.state !== "inactive") {
-            callMediaRef.current.stop();
-        }
-        callMediaRef.current = null;
-
-        if (callStreamRef.current) {
-            callStreamRef.current.getTracks().forEach(track => track.stop());
-            callStreamRef.current = null;
-        }
-
-        if (callWsRef.current) {
-            try { callWsRef.current.send(JSON.stringify({ type: "hangup" })); } catch { }
-            try { callWsRef.current.close(); } catch { }
-            callWsRef.current = null;
-        }
-
-        if (animationFrameRef.current) {
-            cancelAnimationFrame(animationFrameRef.current);
-        }
-
-        callAudioQueueRef.current = [];
-        sessionStorage.removeItem('voiceCallSessionId');
         setTimeout(() => setCallStatus('idle'), 2000);
     };
 
-    // Toggle mute
     const toggleMute = () => {
         const nextMuted = !isMuted;
         setIsMuted(nextMuted);
-        if (callStreamRef.current) {
-            callStreamRef.current.getAudioTracks().forEach(track => {
-                track.enabled = !nextMuted;
-            });
-        }
+        callStreamRef.current?.getAudioTracks().forEach((track) => {
+            track.enabled = !nextMuted;
+        });
     };
 
     return (
         <div className="relative font-body">
-            {/* Main Call Widget */}
             <motion.div
                 className="relative rounded-3xl p-8 shadow-[0_15px_40px_rgba(16,185,129,0.06)] border overflow-hidden bg-white border-[#BBF7D0]"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
             >
-                {/* Background Elegant Glow Accent */}
                 <div
                     className={`absolute inset-0 transition-opacity duration-500 pointer-events-none ${isCallActive ? 'opacity-100' : 'opacity-0'} bg-gradient-to-br from-[#F0FDF4] to-[#BBF7D0]/20`}
                 />
 
-                {/* Animated Orb - Premium Inactive & Active Green States */}
                 <div className="relative flex justify-center mb-8">
                     <motion.div
                         className={`relative w-28 h-28 sm:w-32 sm:h-32 rounded-full flex items-center justify-center cursor-pointer ${isCallActive
                             ? 'bg-gradient-to-br from-[#2D6A4F] to-[#1B4332] shadow-lg shadow-[#2D6A4F]/30 border-2 border-emerald-400/30 text-white'
                             : 'bg-[#F0FDF4] border border-[#BBF7D0] text-[#1B4332] shadow-sm hover:border-[#10B981]/50 hover:shadow-md transition-all duration-300'
                             }`}
-                        animate={{
-                            scale: isCallActive ? [1, 1.05, 1] : 1,
-                        }}
-                        transition={{
-                            duration: 1.5,
-                            repeat: isCallActive ? Infinity : 0,
-                            ease: 'easeInOut',
-                        }}
+                        animate={{ scale: isCallActive ? [1, 1.05, 1] : 1 }}
+                        transition={{ duration: 1.5, repeat: isCallActive ? Infinity : 0, ease: 'easeInOut' }}
                         onClick={!isCallActive ? startCall : undefined}
                     >
-                        {/* Inner pulsing circles for listening state */}
                         {isListening && (
                             <>
                                 {[0, 1, 2].map((i) => (
@@ -348,7 +389,6 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
                             </>
                         )}
 
-                        {/* Icon - Always perfectly brand aligned and visible! */}
                         {isLoading ? (
                             <Loader2 className="w-10 h-10 text-white animate-spin" />
                         ) : isSpeaking ? (
@@ -361,12 +401,11 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
                     </motion.div>
                 </div>
 
-                {/* Status Text */}
                 <div className="text-center mb-6 space-y-2 relative z-10">
                     <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F0FDF4] border border-[#BBF7D0] mb-1.5">
                         <Sparkles className="w-3.5 h-3.5 text-[#1B4332]" />
                         <span className="text-[10px] font-bold tracking-wider text-[#1B4332] uppercase font-mono">
-                            {callStatus === 'active' ? 'Agent Online' : 'Agent Offline'}
+                            {callStatus === 'active' ? 'Agent Online' : callStatus === 'connecting' ? 'Connecting' : 'Agent Offline'}
                         </span>
                     </div>
 
@@ -381,7 +420,6 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
                         {callStatus === 'ended' && 'Call Ended'}
                     </h3>
 
-                    {/* AI Response Display - 100% visible deep slate text */}
                     <AnimatePresence mode="wait">
                         <motion.p
                             key={aiResponse || 'idle'}
@@ -399,7 +437,6 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
                     )}
                 </div>
 
-                {/* Call Controls */}
                 <div className="flex items-center justify-center gap-4 relative z-10">
                     {!isCallActive ? (
                         <button
@@ -412,7 +449,6 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
                         </button>
                     ) : (
                         <>
-                            {/* Mute Button */}
                             <motion.button
                                 onClick={toggleMute}
                                 className={`p-4 rounded-full transition-all duration-300 border ${isMuted
@@ -425,7 +461,6 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
                                 {isMuted ? <MicOff className="w-5.5 h-5.5" /> : <Mic className="w-5.5 h-5.5" />}
                             </motion.button>
 
-                            {/* End Call Button */}
                             <motion.button
                                 onClick={endCall}
                                 className="flex items-center gap-2 px-6 py-4 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-extrabold rounded-xl shadow-md transition-all duration-300 text-xs uppercase tracking-widest"
@@ -439,16 +474,13 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
                     )}
                 </div>
 
-                {/* Audio Level Indicator */}
                 {isListening && (
                     <div className="mt-6 flex items-center justify-center gap-1.5">
                         {[...Array(12)].map((_, i) => (
                             <motion.div
                                 key={i}
                                 className="w-1.5 rounded-full bg-[#2D6A4F]"
-                                animate={{
-                                    height: Math.random() * 20 + 5 + audioLevel * 30,
-                                }}
+                                animate={{ height: Math.random() * 20 + 5 + audioLevel * 30 }}
                                 transition={{ duration: 0.1 }}
                             />
                         ))}
