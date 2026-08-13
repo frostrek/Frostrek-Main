@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useMemo } from "react";
-import { Send, MessageSquare, X, ChevronDown, Phone, PhoneOff } from "lucide-react";
+import { Send, Trash2, Minus, ChevronDown, Phone, PhoneOff } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
 import { apiBaseToWsBase, DEFAULT_BOT_CHANNEL, FROSTY_BOT_API_KEY, resolveBotApiBase, resolveBotWsBases } from "../../utils/botApi";
 
@@ -311,8 +311,6 @@ const WARMUP_SESSION_ID = "__frosty_prewarm__";
 
 interface ChatWidgetProps {
   apiKey?: string;
-  botName?: string;
-  botTagline?: string;
   channel?: string;
 }
 
@@ -343,8 +341,6 @@ type ChatMessage = {
 
 export default function ChatWidget({
   apiKey = API_KEY,
-  botName = "Frosty",
-  botTagline = "Online & Ready",
   channel = "website"
 }: ChatWidgetProps) {
   const resolvedApiKey = String(apiKey || "").trim();
@@ -1440,6 +1436,9 @@ export default function ChatWidget({
   };
 
 
+  // Whether to show welcome screen (no real messages yet)
+  const hasRealMessages = messages.some(m => m.content && m.content.trim().length > 0);
+
   return (
     <>
       <style>{`
@@ -1450,11 +1449,15 @@ export default function ChatWidget({
           background: transparent;
         }
         .frostrek-scrollbar::-webkit-scrollbar-thumb {
-          background: ${T.scrollThumb};
+          background: linear-gradient(180deg, #2D6A4F 0%, #3D8B6E 100%);
           border-radius: 10px;
         }
         .frostrek-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: ${T.scrollThumbHover};
+          background: linear-gradient(180deg, #1B4332 0%, #2D6A4F 100%);
+        }
+        @keyframes notif-pulse {
+          0%, 100% { transform: scale(1); opacity: 1; }
+          50% { transform: scale(1.4); opacity: 0.6; }
         }
       `}</style>
 
@@ -1482,7 +1485,7 @@ export default function ChatWidget({
         }
       `}</style>
 
-      {/* ── Floating Action Button ── */}
+      {/* ── Floating Action Button — chatbot.webp with red notification dot ── */}
       <div
         ref={fabRef}
         className="fixed z-50"
@@ -1505,24 +1508,29 @@ export default function ChatWidget({
       >
         <button
           onClick={() => { if (!hasDraggedRef.current) handleOpenWidget(); }}
-          className="relative group w-16 h-16 flex items-center justify-center rounded-full p-[2px] transition-all duration-300"
-          style={{
-            background: `linear-gradient(135deg, ${T.bronze}, ${T.gold}, ${T.accent})`,
-            boxShadow: `0 0 30px rgba(45, 106, 79, 0.25), 0 8px 32px rgba(45, 106, 79, 0.15)`,
-          }}
+          className="relative w-16 h-16 flex items-center justify-center rounded-full transition-transform duration-200 hover:scale-110"
+          style={{ background: 'transparent' }}
         >
-          <div className="absolute inset-0 rounded-full opacity-50 blur-xl group-hover:opacity-80 transition-opacity" style={{ background: `linear-gradient(135deg, ${T.bronze}, ${T.gold})` }}></div>
-          <div className="relative w-full h-full rounded-full flex items-center justify-center group-hover:bg-transparent transition-colors duration-300 overflow-hidden" style={{ background: isDark ? T.void : '#FFFFFF' }}>
-            <MessageSquare className="w-7 h-7 transition-colors relative z-10" style={{ color: T.bronze }} />
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: `linear-gradient(135deg, ${T.bronze}, ${T.gold})` }}></div>
-          </div>
+          <img
+            src="/chatbot.webp"
+            alt="Chat with Frostrek"
+            className="w-14 h-14 object-contain rounded-full drop-shadow-lg"
+            loading="lazy"
+            width={512}
+            height={512}
+          />
+          {/* Pulsing red notification dot */}
+          <span
+            className="absolute top-1 right-1 w-3.5 h-3.5 rounded-full bg-red-500 border-2 border-white"
+            style={{ animation: 'notif-pulse 2s ease-in-out infinite' }}
+          />
         </button>
       </div>
 
       {/* ── Chat Window ── */}
       <div
         ref={chatWindowRef}
-        className="fixed w-[400px] h-[650px] max-h-[85vh] max-w-[calc(100vw-3rem)] flex flex-col z-50 rounded-3xl min-h-0"
+        className="fixed w-[calc(100vw-16px)] sm:w-[380px] h-[calc(100vh-90px)] sm:h-[600px] flex flex-col z-50 rounded-2xl min-h-0"
         data-lenis-prevent
         style={{
           left: isFabOnRight() ? undefined : getFabPosition().x,
@@ -1539,97 +1547,115 @@ export default function ChatWidget({
               : 'window-open  0.72s cubic-bezier(0.34,1.56,0.64,1) forwards',
           pointerEvents: (!isOpen || isClosing) ? 'none' : 'auto',
           display: (!isOpen && !isClosing) ? 'none' : 'flex',
+          boxShadow: '0 10px 40px rgba(0,0,0,0.12), 0 2px 12px rgba(0,0,0,0.06)',
         }}
       >
-        {/* Warm glow behind glass */}
-        <div className="absolute inset-0 blur-3xl -z-10 rounded-3xl overflow-hidden" style={{ background: `linear-gradient(135deg, ${T.bronze}1A, ${T.gold}0D, ${T.accent}0D)` }}></div>
-
-        {/* Main Glass Panel */}
-        <div className="flex-1 flex flex-col min-h-0 backdrop-blur-xl rounded-3xl overflow-hidden relative transition-colors duration-300" style={{
-          background: isDark ? `${T.pane}E6` : 'rgba(255, 255, 255, 0.95)',
-          border: isDark ? `1px solid ${T.surface}55` : '1px solid #E5E7EB',
-          boxShadow: isDark
-            ? `0 20px 60px -15px rgba(0,0,0,0.5), 0 0 40px -10px ${T.bronze}26`
-            : '0 20px 60px -15px rgba(45, 106, 79, 0.08), 0 4px 24px rgba(0, 0, 0, 0.06)',
+        {/* Main panel — clean white with subtle rounded border */}
+        <div className="flex-1 flex flex-col min-h-0 rounded-2xl overflow-hidden relative bg-white" style={{
+          border: '1px solid #E2E8F0',
         }}>
 
           {isSplashing && <SplashAnimation isDark={isDark} />}
 
-          {/* Wrapper to fade in the actual chat contents after splash */}
+          {/* Wrapper to fade in after splash */}
           <div className={`absolute inset-0 flex flex-col min-h-0 transition-opacity duration-1000 ${isSplashing ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
 
-            {/* Noise overlay */}
-            <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.85\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")' }}></div>
-
-            {/* Header */}
-            <div className="relative px-5 py-4 flex items-center justify-between transition-colors duration-300" style={{
-              borderBottom: isDark ? `1px solid ${T.surface}44` : '1px solid #E5E7EB',
-              background: isDark
-                ? `linear-gradient(to bottom, ${T.card}CC, transparent)`
-                : 'linear-gradient(to bottom, rgba(255,255,255,0.98), rgba(252,252,252,0.92))',
+            {/* ── Header — Sky-blue ── */}
+            <div className="relative px-4 py-3 flex items-center justify-between" style={{
+              background: '#BAE6FD',
+              borderBottom: '2px solid #7DD3FC',
             }}>
-              {/* Top edge warm highlight */}
-              <div className="absolute top-0 inset-x-0 h-[1px]" style={{ background: `linear-gradient(to right, transparent, ${T.bronze}66, transparent)` }}></div>
-
               <div className="flex items-center gap-3">
-                <div className="relative w-10 h-10 rounded-full flex items-center justify-center p-[2px] overflow-hidden group">
-                  <div className="absolute inset-0 animate-[spin_4s_linear_infinite] group-hover:animate-[spin_2s_linear_infinite]" style={{ background: `linear-gradient(135deg, ${T.bronze}, ${T.gold}, ${T.accent})` }}></div>
-                  <div className="relative w-full h-full rounded-full flex items-center justify-center backdrop-blur-md shadow-inner overflow-hidden" style={{ background: isDark ? T.void : '#FFFFFF' }}>
-                    <img src="/icons/chat.png" alt="" className="w-5 h-5 object-contain" loading="lazy" />
-                  </div>
+                <div className="w-9 h-9 rounded-full bg-white border border-[#7DD3FC] flex items-center justify-center shadow-sm overflow-hidden">
+                  <img src="/chatbot.webp" alt="Frostrek" className="w-7 h-7 object-contain translate-y-0.5" loading="lazy" width={512} height={512} />
                 </div>
-                <div className="flex flex-col">
-                  <h3 className="font-sans font-semibold tracking-wide text-[15px] flex items-center gap-2" style={{ color: T.text }}>
-                    {botName}
-                    <span className="flex h-2 w-2 relative">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ background: T.bronze }}></span>
-                      <span className="relative inline-flex rounded-full h-2 w-2" style={{ background: T.bronze }}></span>
-                    </span>
-                  </h3>
-                  <div className="flex items-center gap-2">
-                    <p className="font-body text-[11px] uppercase tracking-wider" style={{ color: T.textMuted }}>{botTagline}</p>
+                <div>
+                  <h3 className="font-serif font-extrabold text-sm tracking-wide text-gray-900 flex items-center gap-2">
+                    Frostrek Assistant
                     {chatMode === 'human' && (
-                      <span className="px-1.5 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-tighter" style={{ background: '#E8F5EE', color: '#2D6A4F', border: '1px solid #BBF7D0' }}>
+                      <span className="px-1.5 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-tighter bg-[#E8F5EE] text-[#2D6A4F] border border-[#BBF7D0]">
                         Live Support
                       </span>
                     )}
-                  </div>
+                  </h3>
+                  <p className="text-[10px] font-bold tracking-wider" style={{ color: '#0EA5E9' }}>
+                    Online • Ready to help
+                  </p>
                 </div>
               </div>
-
-              <button
-                onClick={triggerClose}
-                className="w-8 h-8 flex items-center justify-center rounded-full transition-colors hover:bg-black/20 dark:hover:bg-white/20"
-                style={{ color: T.textMuted, background: 'transparent' }}
-              >
-                <X className="w-5 h-5" />
-              </button>
+              <div className="flex items-center gap-1">
+                <button
+                  onClick={() => { setMessages([]); }}
+                  className="w-8 h-8 flex items-center justify-center rounded-full transition-colors hover:bg-white/40"
+                  title="Clear chat"
+                >
+                  <Trash2 className="w-4 h-4 text-gray-600" />
+                </button>
+                <button
+                  onClick={triggerClose}
+                  className="w-8 h-8 flex items-center justify-center rounded-full transition-colors hover:bg-white/40"
+                  title="Minimize"
+                >
+                  <Minus className="w-4 h-4 text-gray-600" />
+                </button>
+              </div>
             </div>
 
-            {/* Chat Area */}
-            <div className="relative flex-1 min-h-0 overflow-hidden flex flex-col pt-2">
+            {/* ── Chat Body — clean white ── */}
+            <div className="relative flex-1 min-h-0 overflow-hidden flex flex-col" style={{ background: '#FAFCFB' }}>
               <div
                 ref={scrollContainerRef}
-                className="h-full min-h-0 overflow-y-auto overscroll-y-contain touch-pan-y p-5 pb-[80px] space-y-6 frostrek-scrollbar"
+                className="h-full min-h-0 overflow-y-auto overscroll-y-contain touch-pan-y px-4 py-3 pb-[70px] space-y-4 frostrek-scrollbar"
                 data-lenis-prevent
                 onScroll={handleScroll}
                 onWheel={(e) => e.stopPropagation()}
               >
+                {/* Welcome screen when no real messages */}
+                {!hasRealMessages && !isLoading && (
+                  <div className="flex flex-col items-center justify-center text-center py-8 px-2 gap-4">
+                    <div className="w-16 h-16 rounded-full bg-[#E8F5EE] flex items-center justify-center shadow-sm">
+                      <img src="/chatbot.webp" alt="Frosty" className="w-10 h-10 object-contain" loading="lazy" />
+                    </div>
+                    <div>
+                      <h4 className="font-serif font-bold text-lg text-gray-800">Hey there! 👋</h4>
+                      <p className="text-sm text-gray-500 mt-1">I'm Frosty, your AI assistant.<br/>How can I help you today?</p>
+                    </div>
+                    <div className="flex flex-wrap justify-center gap-2 mt-2">
+                      {[
+                        { label: '💡 Get ideas', query: 'Give me some innovative tech ideas' },
+                        { label: '📊 Analytics', query: 'Tell me about your analytics solutions' },
+                        { label: '🛠️ Support', query: 'I need technical support' },
+                      ].map((sug) => (
+                        <button
+                          key={sug.label}
+                          type="button"
+                          onClick={() => { setInput(sug.query); }}
+                          className="px-3 py-1.5 rounded-full text-xs font-medium border transition-colors hover:bg-[#E8F5EE]"
+                          style={{ borderColor: '#2D6A4F', color: '#2D6A4F' }}
+                        >
+                          {sug.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 {messages.map((msg, i) => {
                   const normalizedRole = String(msg.role || "").toLowerCase();
                   const isUser = normalizedRole === "user";
                   const isAdmin = normalizedRole === "admin" || normalizedRole === "agent";
                   const isAssistant = normalizedRole === "assistant";
                   const isSystem = normalizedRole === "system";
+
                   if (isSystem) {
                     return (
                       <div key={i} className="flex justify-center px-2">
                         <div
                           className="text-[11px] font-semibold text-center px-3 py-1.5 rounded-full"
                           style={{
-                            color: "#2D6A4F",
-                            background: "#E8F5EE",
-                            border: "1px dashed #BBF7D0",
+                            color: '#2D6A4F',
+                            background: '#E8F5EE',
+                            border: '1px dashed #BBF7D0',
                           }}
                         >
                           {msg.content}
@@ -1637,67 +1663,67 @@ export default function ChatWidget({
                       </div>
                     );
                   }
-                  return (
-                    <div key={i} className={`flex gap-3 group ${isUser ? "justify-end" : "justify-start"}`}>
 
-                      {/* Agent / Admin Avatar */}
+                  return (
+                    <div key={i} className={`flex gap-2.5 ${isUser ? 'justify-end' : 'justify-start'}`}>
+                      {/* Bot / Admin avatar */}
                       {!isUser && (
-                        <div className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-1 shadow-sm relative overflow-hidden" style={{
-                          background: isAssistant && !isAdmin ? T.surface : '#E8F5EE',
-                          border: isDark ? `1px solid ${T.surface}44` : '1px solid #BBF7D0',
+                        <div className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-1 overflow-hidden shadow-sm" style={{
+                          background: '#FFFFFF',
+                          border: '1.5px solid #BBF7D0',
                         }}>
                           {isAdmin ? (
-                            <div className="text-[10px] font-bold text-[#2D6A4F]">STAFF</div>
+                            <span className="text-[9px] font-bold text-[#2D6A4F]">STAFF</span>
                           ) : (
-                            <img src="/icons/chat.png" alt="" className="w-4 h-4 object-contain" loading="lazy" />
+                            <img src="/chatbot.webp" alt="Frosty" className="w-5 h-5 object-contain" loading="lazy" />
                           )}
                         </div>
                       )}
 
-                      <div className="flex flex-col gap-1 max-w-[82%]">
+                      <div className="flex flex-col gap-1 max-w-[80%]">
                         {isAdmin && (
-                          <div className="text-[9px] font-bold uppercase tracking-widest px-1" style={{ color: T.textMuted }}>Live Support</div>
+                          <div className="text-[9px] font-bold uppercase tracking-widest px-1 text-gray-400">Live Support</div>
                         )}
                         <div
-                          className="relative px-4 py-3 text-sm transition-colors duration-300 shadow-sm"
+                          className="relative px-3.5 py-2.5 text-sm leading-relaxed shadow-sm"
                           style={isUser
                             ? {
-                              background: T.userBubbleBg,
-                              color: T.userBubbleText,
-                              borderRadius: "1rem 0.25rem 1rem 1rem",
-                              boxShadow: `0 4px 15px ${T.bronze}33, inset 0 1px 0 ${T.bronzeLight}44`,
+                              background: '#2D6A4F',
+                              color: '#FFFFFF',
+                              borderRadius: '1rem 0.25rem 1rem 1rem',
                             }
                             : {
-                              background: isAdmin ? '#E8F5EE' : (isDark ? `linear-gradient(135deg, ${T.card}D9, ${T.surface}55)` : '#FFFFFF'),
-                              border: isAdmin ? '1px solid #BBF7D0' : (isDark ? `1px solid ${T.surface}55` : '1px solid #E5E7EB'),
-                              color: T.text,
-                              borderRadius: "0.25rem 1rem 1rem 1rem",
+                              background: isAdmin ? '#E8F5EE' : '#FFFFFF',
+                              border: isAdmin ? '1px solid #BBF7D0' : '1.5px solid #D1FAE5',
+                              color: '#1F2937',
+                              borderRadius: '0.25rem 1rem 1rem 1rem',
                               fontFamily: "'Inter', system-ui, sans-serif",
-                              lineHeight: "1.6",
-                              letterSpacing: "0.01em",
+                              lineHeight: '1.6',
                             }
                           }
                         >
                           {(isAssistant || isAdmin) && (
                             <div className="frostrek-markdown">
                               {msg.statusLine ? (
-                                <div className="text-xs italic mb-2 opacity-80">{msg.statusLine}</div>
+                                <div className="text-xs italic mb-2 opacity-70">{msg.statusLine}</div>
                               ) : null}
                               {msg.content ? <SmoothTypingMessage content={msg.content} onUpdate={() => { if (isAtBottom) scrollToBottom(false); }} /> : <FrostyTypingIndicator T={T} />}
                             </div>
                           )}
                           {!isAssistant && !isAdmin && <div className="whitespace-pre-wrap">{renderMessageWithLinks(msg.content)}</div>}
+
+                          {/* Slot booking UI */}
                           {msg.slotOffers && msg.slotOffers.length > 0 ? (
                             <div className="mt-3 space-y-2">
                               {msg.slotOffers.map((offer) => (
                                 <div
                                   key={offer.account_id}
                                   className="rounded-lg border p-2"
-                                  style={{ borderColor: isDark ? T.surface + '66' : T.surface + '99' }}
+                                  style={{ borderColor: '#BBF7D0' }}
                                 >
-                                  <div className="text-xs font-bold">{offer.owner_name || offer.owner_email}</div>
+                                  <div className="text-xs font-bold text-gray-700">{offer.owner_name || offer.owner_email}</div>
                                   {offer.owner_email ? (
-                                    <div className="text-[10px] opacity-70 mb-2">{offer.owner_email}</div>
+                                    <div className="text-[10px] text-gray-400 mb-2">{offer.owner_email}</div>
                                   ) : null}
                                   <div className="flex flex-wrap gap-2">
                                     {offer.slots.map((slot, si) => (
@@ -1714,8 +1740,8 @@ export default function ChatWidget({
                                             })}`,
                                           )
                                         }
-                                        className="text-[11px] px-2 py-1 rounded border"
-                                        style={{ borderColor: T.bronze + '66', color: T.bronze }}
+                                        className="text-[11px] px-2 py-1 rounded border transition-colors hover:bg-[#E8F5EE]"
+                                        style={{ borderColor: '#2D6A4F66', color: '#2D6A4F' }}
                                       >
                                         {slot.start} – {slot.end}
                                       </button>
@@ -1727,79 +1753,68 @@ export default function ChatWidget({
                           ) : null}
                         </div>
                       </div>
+
+                      {/* User avatar */}
+                      {isUser && (
+                        <div className="w-7 h-7 rounded-full flex items-center justify-center shrink-0 mt-1 overflow-hidden bg-gray-100 border border-gray-200">
+                          <span className="text-[9px] font-bold text-gray-500">You</span>
+                        </div>
+                      )}
                     </div>
                   );
                 })}
                 <div ref={messagesEndRef} className="h-4" />
               </div>
 
-              {/* Bottom fade */}
-              <div className="absolute bottom-0 inset-x-0 h-12 pointer-events-none" style={{ background: `linear-gradient(to top, ${isDark ? T.pane + 'E6' : T.pane + 'F2'}, transparent)` }}></div>
-
               {/* Jump to bottom */}
-              <div className={`absolute left-0 right-0 bottom-6 flex justify-center transition-all duration-300 ${isAtBottom ? 'translate-y-10 opacity-0 pointer-events-none' : 'translate-y-0 opacity-100'}`}>
+              <div className={`absolute left-0 right-0 bottom-4 flex justify-center transition-all duration-300 ${isAtBottom ? 'translate-y-10 opacity-0 pointer-events-none' : 'translate-y-0 opacity-100'}`}>
                 <button
                   onClick={() => scrollToBottom(true)}
-                  className="backdrop-blur-md p-2 rounded-full shadow-lg transition-all z-10"
-                  style={{
-                    background: isDark ? `${T.card}E6` : `${T.card}F2`,
-                    border: `1px solid ${isDark ? T.surface + '44' : T.surface + '66'}`,
-                    color: T.text,
-                  }}
+                  className="p-2 rounded-full shadow-lg transition-all z-10 bg-white border border-gray-200"
                 >
-                  <ChevronDown className="w-4 h-4" />
+                  <ChevronDown className="w-4 h-4 text-gray-600" />
                 </button>
               </div>
             </div>
 
-            {/* Input Area */}
-            <div className="relative p-4 pb-2 flex flex-col z-10 backdrop-blur-lg transition-colors duration-300" style={{
-              borderTop: isDark ? `1px solid ${T.surface}44` : '1px solid #E5E7EB',
-              background: isDark ? `${T.void}66` : 'rgba(255, 255, 255, 0.98)',
-            }}>
-
-              <form onSubmit={sendMessage} className="relative flex items-center gap-2 mb-2">
+            {/* ── Input Area — clean white with green focus ── */}
+            <div className="p-3 flex flex-col gap-2 bg-white" style={{ borderTop: '1px solid #E2E8F0' }}>
+              <form onSubmit={sendMessage} className="relative flex items-center gap-2">
+                {/* Voice Call */}
                 <button
                   type="button"
                   onClick={isInCall ? endCall : startCall}
                   disabled={(isLoading && !isInCall) || chatMode === 'human'}
-                  title={isInCall ? "End call" : "Start voice call"}
-                  className={`flex-shrink-0 w-[42px] h-[42px] flex items-center justify-center rounded-full transition-all duration-300 ${isInCall ? "animate-pulse" : "disabled:opacity-40"
-                    }`}
+                  title={isInCall ? 'End call' : 'Start voice call'}
+                  className={`flex-shrink-0 w-9 h-9 flex items-center justify-center rounded-full transition-all duration-300 ${isInCall ? 'animate-pulse' : 'disabled:opacity-40'}`}
                   style={isInCall
-                    ? { background: `${T.error}33`, color: T.error, border: `1px solid ${T.error}4D`, boxShadow: `0 0 15px ${T.error}66` }
-                    : { background: isDark ? T.input : T.pane, color: T.textMuted, border: `1px solid ${isDark ? T.surface + '33' : T.surface + '55'}` }
+                    ? { background: '#FEE2E2', color: '#EF4444', border: '1px solid #FCA5A5' }
+                    : { color: '#9CA3AF' }
                   }
                 >
-                  {isInCall ? <PhoneOff className="w-4 h-4 fill-current" /> : <Phone className="w-4 h-4" />}
+                  {isInCall ? <PhoneOff className="w-4 h-4" /> : <Phone className="w-4 h-4" />}
                 </button>
 
-                <div className="relative flex-1 group">
+                <div className="relative flex-1">
                   {isInCall ? (
                     <div
-                      className="w-full rounded-full py-3 pl-5 pr-5 text-[13px] transition-all flex items-center justify-between"
-                      style={{
-                        background: isDark ? `${T.input}CC` : T.input,
-                        border: `1px solid ${isDark ? T.surface + '44' : T.surface + '88'}`,
-                        color: T.text,
-                        boxShadow: isDark ? `inset 0 2px 4px rgba(0,0,0,0.3)` : `inset 0 2px 4px rgba(0,0,0,0.05)`,
-                      }}
+                      className="w-full rounded-xl py-2.5 pl-4 pr-4 text-[13px] flex items-center justify-between bg-gray-50 border border-gray-200"
                     >
-                      <span className="truncate flex-1">
+                      <span className="truncate flex-1 text-gray-700">
                         {liveTranscript || (
-                          <span className="opacity-50 italic">
-                            {callStatus === "connecting" && "Connecting..."}
-                            {callStatus === "listening" && "Listening..."}
-                            {callStatus === "thinking" && "Thinking..."}
-                            {callStatus === "speaking" && "Speaking..."}
-                            {callStatus === "idle" && "Call ended"}
+                          <span className="opacity-50 italic text-gray-400">
+                            {callStatus === 'connecting' && 'Connecting...'}
+                            {callStatus === 'listening' && 'Listening...'}
+                            {callStatus === 'thinking' && 'Thinking...'}
+                            {callStatus === 'speaking' && 'Speaking...'}
+                            {callStatus === 'idle' && 'Call ended'}
                           </span>
                         )}
                       </span>
                       <div className="flex gap-1 ml-2">
-                        <div className={`w-2 h-2 rounded-full ${callStatus === 'listening' ? 'bg-[#2D6A4F] animate-pulse' : 'bg-gray-300'}`}></div>
-                        <div className={`w-2 h-2 rounded-full ${callStatus === 'thinking' ? 'bg-[#3D8B6E] animate-pulse' : 'bg-gray-300'}`}></div>
-                        <div className={`w-2 h-2 rounded-full ${callStatus === 'speaking' ? 'bg-[#5BA88A] animate-pulse' : 'bg-gray-300'}`}></div>
+                        <div className={`w-2 h-2 rounded-full ${callStatus === 'listening' ? 'bg-[#2D6A4F] animate-pulse' : 'bg-gray-300'}`} />
+                        <div className={`w-2 h-2 rounded-full ${callStatus === 'thinking' ? 'bg-[#3D8B6E] animate-pulse' : 'bg-gray-300'}`} />
+                        <div className={`w-2 h-2 rounded-full ${callStatus === 'speaking' ? 'bg-[#5BA88A] animate-pulse' : 'bg-gray-300'}`} />
                       </div>
                     </div>
                   ) : (
@@ -1807,59 +1822,31 @@ export default function ChatWidget({
                       type="text"
                       value={input}
                       onChange={(e) => setInput(e.target.value)}
-                      placeholder={`Message ${botName}...`}
+                      placeholder="Type a message..."
                       disabled={isLoading || isInCall}
-                      className="w-full rounded-full py-3.5 pl-5 pr-14 text-[13px] focus:outline-none transition-all disabled:opacity-50"
-                      style={{
-                        background: isDark ? `${T.input}CC` : T.input,
-                        border: `1px solid ${isDark ? T.surface + '44' : T.surface + '88'}`,
-                        color: T.text,
-                        boxShadow: isDark ? `inset 0 2px 4px rgba(0,0,0,0.3)` : `inset 0 2px 4px rgba(0,0,0,0.05)`,
-                      }}
-                      onFocus={(e) => {
-                        e.currentTarget.style.borderColor = '#2D6A4F66';
-                        e.currentTarget.style.background = '#FFFFFF';
-                        e.currentTarget.style.boxShadow = '0 0 0 3px rgba(45, 106, 79, 0.1)';
-                      }}
-                      onBlur={(e) => {
-                        e.currentTarget.style.borderColor = isDark ? `${T.surface}44` : '#E5E7EB';
-                        e.currentTarget.style.background = isDark ? `${T.input}CC` : T.input;
-                        e.currentTarget.style.boxShadow = isDark ? `inset 0 2px 4px rgba(0,0,0,0.3)` : `inset 0 2px 4px rgba(0,0,0,0.05)`;
-                      }}
+                      className="w-full rounded-xl py-2.5 pl-4 pr-10 text-sm border border-gray-200 bg-gray-50 text-gray-900 placeholder-gray-400 focus:outline-none focus:bg-white focus:border-[#2D6A4F] focus:ring-2 focus:ring-[#2D6A4F]/10 transition-all disabled:opacity-50 font-medium"
                     />
                   )}
-                  <button
-                    type="submit"
-                    disabled={!input.trim() || isLoading || isInCall}
-                    className="absolute right-[5px] top-[5px] bottom-[5px] min-w-[36px] flex items-center justify-center rounded-full transition-all disabled:opacity-30 disabled:grayscale disabled:cursor-not-allowed"
-                    style={{
-                      background: `linear-gradient(135deg, ${T.bronze}, ${T.accent})`,
-                      color: "#FDFBF7",
-                      boxShadow: `0 0 12px rgba(45, 106, 79, 0.25)`,
-                    }}
-                  >
-                    <Send className="w-4 h-4 ml-0.5" />
-                  </button>
+                  {!isInCall && (
+                    <button
+                      type="submit"
+                      disabled={!input.trim() || isLoading || isInCall}
+                      className="absolute right-1.5 top-1/2 -translate-y-1/2 p-1.5 rounded-lg transition-colors disabled:opacity-30 bg-[#2D6A4F] text-white hover:bg-[#1B4332]"
+                    >
+                      <Send className="w-4 h-4" />
+                    </button>
+                  )}
                 </div>
               </form>
 
-              {/* Frostrek Footer */}
-              <div className="flex justify-center items-center pb-1">
-                <span className="text-[10px] font-body font-medium tracking-wider uppercase flex items-center gap-1.5" style={{ color: `${T.textDim}80` }}>
-                  Powered by
-                  <a
-                    href="https://frostrek.ai"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-semibold tracking-widest text-transparent bg-clip-text hover:opacity-80 transition-opacity"
-                    style={{ backgroundImage: `linear-gradient(to right, ${T.bronze}, ${T.bronzeLight})` }}
-                  >
-                    FROSTREK
-                  </a>
+              {/* Powered by footer */}
+              <div className="flex justify-center pb-0.5">
+                <span className="text-[10px] text-gray-400 font-medium">
+                  Powered by <span className="font-semibold text-[#2D6A4F]">Frostrek AI</span>
                 </span>
               </div>
-
             </div>
+
           </div>
         </div>
       </div>
