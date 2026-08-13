@@ -7,12 +7,12 @@ import { Link } from 'react-router-dom';
 const PRODUCTS = [
     {
         id: 'Vedashi',
-        title: 'Vedashi Ecommerce',
-        subtitle: 'An global Ecommerce platform empowering Indian Wellness brands to scale globally without the complexities of international expansion.',
+        title: 'Vedashi Herbals',
+        subtitle: 'An global Ecommerce platform empowering Indian Wellness brands to scale international without the complexities of international expansion.',
         description: 'An end-to-end tech and logistics platform that helps Indian wellness, food, and beauty brands go global effortlessly.',
         image: '/vedashi-info1.jpeg',
         features: [
-            "Seamless global market expansion",
+            "Seamless International market expansion",
             "End-to-end logistics & supply chain",
             "Multi-currency cross-border payments"
         ],

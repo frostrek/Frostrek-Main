@@ -133,7 +133,7 @@ const VedashiPage = () => {
 const softwareSchema = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "name": "Vedashi",
+  "name": "Vedashi Herbals",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Web",
   "description": "Premium, hyper-personalized online storefronts optimized for conversational commerce and WhatsApp cart recovery.",
@@ -152,10 +152,10 @@ const softwareSchema = JSON.stringify({
     return (
         <div className="relative min-h-screen bg-white text-[#2D6A4F] font-body">
             <SEO
-                title="Vedashi | India's Premium Wellness E-Commerce Platform | Frostrek AI"
-                description="Vedashi is a production-grade multi-vendor e-commerce platform purpose-built for India's wellness, herbal, and natural goods market. Engineered by Frostrek."
+                title="Vedashi Herbals | E-Commerce Platform for Russia | Frostrek AI"
+                description="Vedashi Herbals is a production-grade e-commerce platform purpose-built for Russia, selling authentic Indian products to customers. Engineered by Frostrek."
                 path="/products/vedashi-ecommerce"
-                keywords="vedashi ecommerce, indian wellness marketplace, ayurvedic ecommerce platform, multi-vendor wellness store, frostrek products"
+                keywords="vedashi herbals, russian ecommerce, indian products in russia"
                 schema={softwareSchema}
             />
             <CuteBackground />
@@ -178,11 +178,11 @@ const softwareSchema = JSON.stringify({
                     {/* Headline */}
                     <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif mb-8 tracking-tight max-w-5xl mx-auto leading-tight text-[#2D6A4F]">
                         <SplitTextReveal as="span" type="chars" stagger={0.02} once={false}>
-                            Vedashi - India's Premium
+                            Vedashi Herbals - E-Commerce
                         </SplitTextReveal>
                         <br />
                         <SplitTextReveal as="span" type="chars" stagger={0.02} once={false} delay={0.3}>
-                            Wellness E-Commerce Platform
+                            Platform for Russia
                         </SplitTextReveal>
                     </div>
 
@@ -192,7 +192,7 @@ const softwareSchema = JSON.stringify({
                         className="text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed text-gray-500"
                         type="words" stagger={0.015} once={false} delay={0.6}
                     >
-                        A full-stack, multi-vendor wellness marketplace built from the ground up - connecting authentic Indian brands to customers worldwide.
+                        A full-stack e-commerce platform built from the ground up - connecting authentic Indian products to Russian customers.
                     </SplitTextReveal>
 
                     {/* Buttons */}
@@ -209,7 +209,7 @@ const softwareSchema = JSON.stringify({
                             className="group font-bold rounded-2xl px-8 h-14 text-base shadow-lg transition-all duration-300 flex items-center gap-2 bg-[#2D6A4F] text-white hover:bg-[#1B4332] hover:shadow-xl hover:shadow-[#2D6A4F]/25 cursor-pointer border-none"
                         >
                             <FlipText hoverColor="text-white">
-                                Visit Vedashi <ExternalLink className="w-4 h-4" />
+                                Visit Vedashi Herbals <ExternalLink className="w-4 h-4" />
                             </FlipText>
                         </a>
 
@@ -239,7 +239,7 @@ const softwareSchema = JSON.stringify({
                                     className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
                                     type="chars" stagger={0.02} once={false}
                                 >
-                                    What is Vedashi?
+                                    What is Vedashi Herbals?
                                 </SplitTextReveal>
                             </div>
                             <div className="w-full">
@@ -248,7 +248,7 @@ const softwareSchema = JSON.stringify({
                                     className="text-lg text-gray-500 leading-relaxed"
                                     type="words" stagger={0.02} once={false} delay={0.3}
                                 >
-                                    Vedashi is a production-grade e-commerce platform purpose-built for India's wellness, herbal, and natural goods market. It supports multi-vendor seller onboarding, curated brand storefronts, international shipping, multi-currency payments, and a fully optimised consumer storefront - all engineered and maintained by Frostrek.
+                                    Vedashi Herbals is a production-grade e-commerce platform purpose-built for the Russian market, connecting Russian customers with authentic Indian products. It supports multi-vendor seller onboarding, curated brand storefronts, international shipping, multi-currency payments, and a fully optimised consumer storefront - all engineered and maintained by Frostrek.
                                 </SplitTextReveal>
                             </div>
                         </div>
@@ -257,7 +257,7 @@ const softwareSchema = JSON.stringify({
                         <div className="lg:col-span-7 relative w-full mt-8 lg:mt-0">
                             <div className="relative overflow-hidden group rounded-3xl lg:rounded-[2.2rem]">
                                 <img src="/products/vedashi-home.png"
-                                    alt="Vedashi E-Commerce Platform"
+                                    alt="Vedashi Herbals E-Commerce Platform"
                                     className="w-full h-auto rounded-3xl lg:rounded-[2.2rem] transition-transform duration-700 ease-out group-hover:scale-[1.02] shadow-[0_20px_50px_rgba(45,106,79,0.06)]" loading="lazy" width={512} height={512} />
                             </div>
                         </div>
@@ -324,7 +324,7 @@ const softwareSchema = JSON.stringify({
                         <div className="lg:col-span-7 relative w-full mt-8 lg:mt-0">
                             <div className="relative overflow-hidden group rounded-3xl lg:rounded-[2.2rem]">
                                 <img src="/products/ProblemSolved.png"
-                                    alt="Problems Solved by Vedashi"
+                                    alt="Problems Solved by Vedashi Herbals"
                                     className="w-full h-auto rounded-3xl lg:rounded-[2.2rem] transition-transform duration-700 ease-out group-hover:scale-[1.02] shadow-[0_20px_50px_rgba(45,106,79,0.06)]" loading="lazy" width={512} height={512} />
                             </div>
                         </div>
@@ -416,7 +416,7 @@ const softwareSchema = JSON.stringify({
                                 className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
-                                Modern, battle-tested technologies powering Vedashi at scale.
+                                Modern, battle-tested technologies powering Vedashi Herbals at scale.
                             </SplitTextReveal>
                         </div>
                     </div>

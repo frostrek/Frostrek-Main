@@ -59,11 +59,29 @@ const SmoothScrollProvider = () => {
         };
     }, []);
 
+    // Refresh ScrollTrigger when DOM changes size (e.g., images lazy loading)
+    useEffect(() => {
+        const resizeObserver = new ResizeObserver(() => {
+            ScrollTrigger.refresh();
+        });
+        
+        resizeObserver.observe(document.body);
+        
+        return () => resizeObserver.disconnect();
+    }, []);
+
     // Scroll to top instantly on every route change
     useEffect(() => {
         if (lenisRef.current) {
             lenisRef.current.scrollTo(0, { immediate: true });
         }
+        
+        // Force refresh GSAP after the new route paints
+        const timeoutId = setTimeout(() => {
+            ScrollTrigger.refresh();
+        }, 150);
+        
+        return () => clearTimeout(timeoutId);
     }, [location.pathname]);
 
     return null;

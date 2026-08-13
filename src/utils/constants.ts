@@ -32,7 +32,7 @@ export const NAV_ITEMS: NavItem[] = [
                 title: '02 ENTERPRISE PLATFORMS',
                 items: [
 
-                    { name: 'Vedashi Ecommerce', href: '/products/vedashi-ecommerce', desc: 'Premium, hyper-personalized online storefronts with WhatsApp recovery.', icon: '/optimized/vedashi-logo-sm.webp', hoverBgClass: 'hover:bg-[#F0FDF4]' },
+                    { name: 'Vedashi Herbals', href: '/products/vedashi-ecommerce', desc: 'An global Ecommerce platform empowering Indian Wellness brands to scale international without the complexities of international expansion.', icon: '/optimized/vedashi-logo-sm.webp', hoverBgClass: 'hover:bg-[#F0FDF4]' },
                     { name: 'Hiyring', href: '/products/hiyring', desc: 'Transforming talent acquisition through autonomous AI video interviews.', icon: '/products/hiyring-logo.png', hoverBgClass: 'hover:bg-[#FFF7ED]' },
                 ],
             },
@@ -89,7 +89,7 @@ export const EXTERNAL_LINKS = {
     whatsapp: 'https://wa.me/17574722491',
     calendly: 'https://calendly.com/akash-mittal-frostrek/30min',
     hiyring: 'https://hiyring.com',
-    vedashi: 'https://vedashi.com/in',
+    vedashi: 'https://vedashiherbals.com',
     akashLinkedin: 'https://www.linkedin.com/in/akash-mittal/',
     frosty: 'https://frostyagent.com'
 };
