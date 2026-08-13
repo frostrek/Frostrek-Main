@@ -397,13 +397,30 @@ export default function ChatWidget({
   const isDraggingRef = useRef(false);
   const dragStartRef = useRef<{ x: number; y: number; fabX: number; fabY: number } | null>(null);
   const hasDraggedRef = useRef(false);
+  const snapSideRef = useRef<'left' | 'right'>('right');
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const init = { x: Math.max(24, window.innerWidth - 88), y: 24 };
-      setFabPos(init);
-      fabPosRef.current = init;
-    }
+    if (typeof window === 'undefined') return;
+
+    const snapFab = () => {
+      const buttonWidth = 64;
+      const padding = 24;
+      const screenWidth = window.innerWidth;
+
+      const snappedX = snapSideRef.current === 'left' 
+        ? padding 
+        : Math.max(padding, screenWidth - buttonWidth - padding);
+      const snappedY = padding;
+
+      const snappedPos = { x: snappedX, y: snappedY };
+      fabPosRef.current = snappedPos;
+      setFabPos(snappedPos);
+    };
+
+    snapFab();
+
+    window.addEventListener('resize', snapFab);
+    return () => window.removeEventListener('resize', snapFab);
   }, []);
 
   const getFabPosition = () => fabPosRef.current;
@@ -458,8 +475,11 @@ export default function ChatWidget({
       const currentX = fabPosRef.current.x;
       const centerX = currentX + buttonWidth / 2;
 
+      const isLeft = centerX < screenWidth / 2;
+      snapSideRef.current = isLeft ? 'left' : 'right';
+
       // Snap to left corner (24px) or right corner (screenWidth - buttonWidth - padding)
-      const snappedX = centerX < screenWidth / 2 
+      const snappedX = isLeft 
         ? padding 
         : Math.max(padding, screenWidth - buttonWidth - padding);
       const snappedY = padding; // Always snap to bottom corner
@@ -1530,7 +1550,7 @@ export default function ChatWidget({
       {/* ── Chat Window ── */}
       <div
         ref={chatWindowRef}
-        className="fixed w-[calc(100vw-16px)] sm:w-[380px] h-[calc(100vh-90px)] sm:h-[600px] flex flex-col z-50 rounded-2xl min-h-0"
+        className="fixed w-[calc(100vw-48px)] sm:w-[380px] h-[calc(100vh-180px)] sm:h-[600px] flex flex-col z-50 rounded-2xl min-h-0"
         data-lenis-prevent
         style={{
           left: isFabOnRight() ? undefined : getFabPosition().x,
