@@ -765,7 +765,7 @@ export default function FrostyPage() {
         "name": "Frosty Agent",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Web, WhatsApp",
-        "description": "Enterprise-grade AI agent that qualifies leads and answers questions on your website and WhatsApp 24/7.",
+        "description": "Frosty Agent is an AI agent for your website and WhatsApp, built by Frostrek AI. It answers every enquiry in seconds, qualifies the person on the other end, sends quotations, books meetings, and follows up on leads that go quiet, day or night, without anyone on your team touching it.",
         "offers": {
             "@type": "Offer",
             "price": "200.00",
@@ -790,11 +790,12 @@ export default function FrostyPage() {
     return (
         <div className="fx-root">
             <SEO
-                title="Frosty Agent | Enterprise AI Chatbot & WhatsApp Assistant"
-                description="Never lose a lead to a slow reply again. Frosty is an enterprise-grade AI agent that qualifies leads and answers questions on your website and WhatsApp 24/7."
+                title="Frosty Agent | AI Sales Assistant & Chatbot for WhatsApp"
+                description="Frosty Agent is an AI agent for your website and WhatsApp, built by Frostrek AI. It answers every enquiry in seconds, qualifies the person on the other end, sends quotations, books meetings, and follows up on leads that go quiet, day or night, without anyone on your team touching it."
                 path="/products/frosty-agent"
+                canonicalUrl="https://frostyagent.com"
                 schema={[faqSchema, softwareSchema]}
-                keywords="AI sales agent, AI chatbot for WhatsApp, automated lead qualification, 24/7 customer support AI, enterprise AI agent"
+                keywords="AI Sales Assistant, Chatbots, Conversational Marketing, Live Chat, Lead Capture, Conversational Support, AI chatbot for WhatsApp, enterprise AI agent"
             />
             
             {/* HERO (Injected from original) */}
@@ -1080,13 +1081,13 @@ export default function FrostyPage() {
                     <div className="fx-pricebar fx-reveal">
                         <div>
                             <span className="fx-amt-from">Plans start at</span>
-                            <div className="fx-amt">$200</div>
+                            <div className="fx-amt">$199</div>
                             <span className="fx-amt-per">per month</span>
                         </div>
                         <div className="fx-price-body">
-                            <h3>The enterprise-grade Frosty Agent.</h3>
-                            <p className="text-sm font-semibold mb-2">Frosty Agent starts at $200/month for a single website and WhatsApp agent; final pricing depends on enquiry volume and is confirmed on a demo call.</p>
-                            <p>Built, trained and deployed by the Frostrek team around your business — not a template you configure yourself.</p>
+                            <h3>Frosty Agent.</h3>
+                            <p className="text-sm font-semibold mb-2">Frosty Agent starts at $199/month for a single website and WhatsApp agent; final pricing depends on enquiry volume and is confirmed on a demo call.</p>
+                            <p>Set up on your own content and live in days.</p>
                             <ul className="fx-incl">
                                 <li><Icon n="check" /> Website + WhatsApp agent</li>
                                 <li><Icon n="check" /> Live dashboard &amp; CRM sync</li>

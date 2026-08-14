@@ -10,6 +10,7 @@ interface SEOProps {
   keywords?: string;
   noindex?: boolean;
   image?: string;
+  canonicalUrl?: string;
 }
 //Function SEO
 export default function SEO({
@@ -21,9 +22,10 @@ export default function SEO({
   schema,
   keywords,
   noindex = false,
-  image
+  image,
+  canonicalUrl
 }: SEOProps) {
-  const url = `https://www.frostrek.ai${path}`;
+  const url = canonicalUrl || `https://www.frostrek.ai${path}`;
   // Ensure the image URL is absolute because social crawlers require it
   let ogImage = image || "https://www.frostrek.ai/og-image-v2.png";
   if (ogImage.startsWith('/')) {
