@@ -4,6 +4,7 @@ type Theme = 'light' | 'dark';
 
 interface ThemeContextType {
     theme: Theme;
+    isDark: boolean;
     toggleTheme: () => void;
 }
 
@@ -22,7 +23,8 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
-    const theme: Theme = 'light';
+    const theme = 'light' as Theme;
+    const isDark = theme === 'dark';
 
     useEffect(() => {
         // Remove the dark class to prevent black screen flashes on reload
@@ -36,7 +38,7 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
     };
 
     return (
-        <ThemeContext.Provider value={{ theme, toggleTheme }}>
+        <ThemeContext.Provider value={{ theme, isDark, toggleTheme }}>
             {children}
         </ThemeContext.Provider>
     );

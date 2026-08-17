@@ -116,7 +116,7 @@ const ExperiencePage = () => {
                                 </div>
                                 <div className="space-y-0.5">
                                     <h2 className="text-2xl font-serif font-semibold text-gray-900 leading-none">AI Chatbot</h2>
-                                    <p className="text-xs sm:text-sm text-slate-500 font-body">Text & voice messaging</p>
+                                    <p className="text-xs sm:text-sm text-slate-500 font-body">Interactive text assistant</p>
                                 </div>
                             </div>
 
@@ -129,8 +129,8 @@ const ExperiencePage = () => {
                                 </h3>
                                 <ul className="text-sm space-y-1.5 text-slate-600 font-body">
                                     <li className="flex items-center gap-1.5">• Natural language understanding</li>
-                                    <li className="flex items-center gap-1.5">• Voice message support</li>
-                                    <li className="flex items-center gap-1.5">• Context-aware responses</li>
+                                    <li className="flex items-center gap-1.5">• Streaming responses</li>
+                                    <li className="flex items-center gap-1.5">• Context-aware replies</li>
                                 </ul>
                             </div>
                         </motion.div>

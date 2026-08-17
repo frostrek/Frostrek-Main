@@ -204,9 +204,8 @@ const HeroSection = () => {
         </div>
 
 
-
         {/* Mobile Features Marquee (Hidden on Desktop) */}
-        <div className="w-[100vw] max-w-[100vw] shrink-0 mt-10 sm:mt-12 lg:hidden hero-fade-in overflow-hidden" style={{ animationDelay: '0.4s' }}>
+        <div className="w-[100vw] max-w-[100vw] shrink-0 mt-10 sm:mt-12 lg:hidden hero-fade-in overflow-hidden anim-delay-400">
           <style dangerouslySetInnerHTML={{ __html: `
             @keyframes mobile-marquee {
               0% { transform: translateX(0); }
@@ -234,6 +233,7 @@ const HeroSection = () => {
         </div>
 
       </div>
+
 
 
 
