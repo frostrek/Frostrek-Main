@@ -1,6 +1,4 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowUpRight } from 'lucide-react';
+import { FluidBackground } from '../ui/FluidBackground';
 
 
 interface FloatingIconItem {
@@ -165,99 +163,17 @@ const floatingIcons: FloatingIconItem[] = [
 ];
 
 const HeroSection = () => {
-  const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   return (
     <section className="relative w-full min-h-[100vh] flex flex-col items-center justify-center bg-brand-light-bg text-[#1f3e30] pt-16 lg:pt-20 pb-6 font-sans overflow-x-clip">
+      <FluidBackground />
       {/* Background effect */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[70vw] h-[50vw] rounded-[100%] bg-gradient-to-r from-purple-50/40 via-red-50/40 to-blue-50/40 blur-[80px] opacity-70" />
       </div>
 
-      {/* Floating Icons Wrapper matched to Navbar width */}
-      <div className="absolute inset-0 w-[92%] sm:w-[95%] max-w-7xl mx-auto pointer-events-none z-40">
-        {/* Left Icons Column */}
-        <div className="absolute hidden lg:flex flex-col gap-8 left-4 md:left-6 top-[50%] -translate-y-1/2 pointer-events-auto">
-        {floatingIcons.filter(item => [1, 3, 5, 7, 8].includes(item.id)).map((item) => {
-          const isHovered = hoveredId === item.id;
-          return (
-            <div key={item.id} className="relative flex items-center gap-4 group cursor-pointer"
-              onMouseEnter={() => setHoveredId(item.id)}
-              onMouseLeave={() => setHoveredId(null)}>
-                <img src={item.icon} alt={item.title} className={`w-10 h-10 lg:w-12 lg:h-12 p-2.5 rounded-2xl shadow-md border border-gray-100 bg-white backdrop-blur-sm object-contain transition-all duration-300 relative z-10 shrink-0 ${isHovered ? 'shadow-lg scale-105' : ''}`} width={48} height={48} loading="lazy" />
-              <span className="text-xs font-semibold text-gray-500 max-w-[130px] leading-snug">
-                {item.title}
-              </span>
 
-              {/* Premium Solution Tooltip — CSS transition */}
-              {isHovered && (
-                <div
-                  className="absolute left-full ml-4 p-5 w-80 rounded-2xl bg-white border border-[#2D6A4F]/15 shadow-[0_20px_50px_rgba(45,106,79,0.15)] backdrop-blur-md pointer-events-auto text-left z-[100] top-1/2 -translate-y-1/2 animate-fade-in"
-                >
-                  <div className="flex items-center justify-between mb-2.5">
-                    <span className="text-[10px] uppercase font-bold tracking-wide text-[#2D6A4F] px-2 py-0.5 rounded bg-[#E8F5EE] border border-[#2D6A4F]/10">
-                      {item.badge}
-                    </span>
-                    <Link to={item.link} aria-label={`Explore ${item.title}`} className="text-gray-400 hover:text-[#2D6A4F] transition-colors">
-                      <ArrowUpRight size={16} />
-                    </Link>
-                  </div>
-                  <h3 className="font-serif font-black text-slate-900 text-[14px] leading-tight mb-0.5">{item.title}</h3>
-                  <p className="text-[11px] font-bold text-[#2D6A4F] mb-2">{item.tagline}</p>
-                  <p className="text-[11px] text-slate-500 leading-relaxed font-semibold mb-3">{item.desc}</p>
-                  <Link to={item.link} className="inline-flex items-center gap-1 text-[11px] font-bold text-[#2D6A4F] hover:underline">
-                    Explore {item.title}
-                    <ArrowUpRight size={12} />
-                  </Link>
-                </div>
-              )}
-            </div>
-          );
-        })}
-      </div>
-
-        {/* Right Icons Column */}
-        <div className="absolute hidden lg:flex flex-col gap-8 right-4 md:right-6 top-[50%] -translate-y-1/2 pointer-events-auto">
-        {floatingIcons.filter(item => [2, 4, 6, 9, 10, 11].includes(item.id)).map((item) => {
-          const isHovered = hoveredId === item.id;
-          return (
-            <div key={item.id} className="relative flex items-center flex-row-reverse gap-4 group cursor-pointer"
-              onMouseEnter={() => setHoveredId(item.id)}
-              onMouseLeave={() => setHoveredId(null)}>
-                <img src={item.icon} alt={item.title} className={`w-10 h-10 lg:w-12 lg:h-12 p-2.5 rounded-2xl shadow-md border border-gray-100 bg-white backdrop-blur-sm object-contain transition-all duration-300 relative z-10 shrink-0 ${isHovered ? 'shadow-lg scale-105' : ''}`} width={48} height={48} loading="lazy" />
-              <span className="text-xs font-semibold text-gray-500 max-w-[130px] leading-snug text-right">
-                {item.title}
-              </span>
-
-              {/* Premium Solution Tooltip — CSS transition */}
-              {isHovered && (
-                <div
-                  className="absolute right-full mr-4 p-5 w-80 rounded-2xl bg-white border border-[#2D6A4F]/15 shadow-[0_20px_50px_rgba(45,106,79,0.15)] backdrop-blur-md pointer-events-auto text-left z-[100] top-1/2 -translate-y-1/2 animate-fade-in"
-                >
-                  <div className="flex items-center justify-between mb-2.5">
-                    <span className="text-[10px] uppercase font-bold tracking-wide text-[#2D6A4F] px-2 py-0.5 rounded bg-[#E8F5EE] border border-[#2D6A4F]/10">
-                      {item.badge}
-                    </span>
-                    <Link to={item.link} aria-label={`Explore ${item.title}`} className="text-gray-400 hover:text-[#2D6A4F] transition-colors">
-                      <ArrowUpRight size={16} />
-                    </Link>
-                  </div>
-                  <h3 className="font-serif font-black text-slate-900 text-[14px] leading-tight mb-0.5">{item.title}</h3>
-                  <p className="text-[11px] font-bold text-[#2D6A4F] mb-2">{item.tagline}</p>
-                  <p className="text-[11px] text-slate-500 leading-relaxed font-semibold mb-3">{item.desc}</p>
-                  <Link to={item.link} className="inline-flex items-center gap-1 text-[11px] font-bold text-[#2D6A4F] hover:underline">
-                    Explore {item.title}
-                    <ArrowUpRight size={12} />
-                  </Link>
-                </div>
-              )}
-            </div>
-          );
-        })}
-        </div>
-      </div>
-
-      <div className="relative z-10 w-full mt-20 max-w-5xl mx-auto px-4 sm:px-6 text-center flex flex-col items-center flex-1 justify-center ">
+      <div className="relative z-10 w-full mt-10 md:mt-20 max-w-7xl mx-auto px-4 sm:px-6 text-center flex flex-col items-center flex-1 justify-center pointer-events-none">
         {/* Badge
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -267,23 +183,26 @@ const HeroSection = () => {
           <span className="text-lg leading-none"></span> ENTERPRISE AI · GURUGRAM, INDIA
         </motion.div> */}
 
-        {/* Heading — CSS animation instead of Framer Motion for instant LCP */}
-        <div className="flex flex-col items-center">
-          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.1] tracking-[-0.01em] hero-fade-in">
-            <span className="text-[#2D6A4F] block">Intelligent agents</span>
-            <span className="text-[#2D6A4F] block" style={{ animationDelay: '0.1s' }}>that run your operations.</span>
-            <span className="text-black block mb-4" style={{ animationDelay: '0.1s' }}>Not just assist them.</span>
-          </h1>
+        {/* Main Hero Content - Split Layout */}
+        <div className="flex flex-col lg:flex-row items-center justify-between w-full gap-12 lg:gap-8">
+          {/* Left Side: Heading */}
+          <div className="flex flex-col items-start text-left lg:w-[55%] shrink-0 hero-fade-in pointer-events-none">
+            <h1 className="text-6xl sm:text-7xl md:text-[80px] lg:text-[75px] xl:text-[100px] leading-[0.95] drop-shadow-[0_4px_10px_rgba(255,255,255,1)] [text-shadow:_0_0_20px_#ffffff,_0_0_40px_#ffffff] uppercase tracking-normal text-black" style={{ fontFamily: "'Anton', sans-serif", fontWeight: 400 }}>
+              <span className="block relative z-10 mb-2">TIME IS MONEY.</span>
+              <span className="block relative z-10" style={{ animationDelay: '0.1s' }}>SAVE BOTH.</span>
+            </h1>
+            
+            <p className="mt-6 md:mt-8 text-gray-800 text-lg md:text-[22px] max-w-lg leading-relaxed relative z-10 font-medium [text-shadow:_0_0_10px_#ffffff,_0_0_20px_#ffffff]" style={{ animationDelay: '0.2s', fontFamily: "'Quicksand', sans-serif" }}>
+              Your AI workforce never sleeps—handling repetitive tasks, accelerating operations, and reducing dependency on manual processes.
+            </p>
+          </div>
+
+          {/* Right Side: Green Dot */}
+          <div className="lg:w-[45%] flex justify-center lg:justify-end hero-fade-in shrink-0" style={{ animationDelay: '0.2s' }}>
+            <div className="w-64 h-64 md:w-80 md:h-80 lg:w-[400px] lg:h-[400px] xl:w-[500px] xl:h-[500px] bg-[#2D6A4F] rounded-full drop-shadow-2xl"></div>
+          </div>
         </div>
 
-        {/* Subtitles - Answer First SEO */}
-        <p
-          className="text-base sm:text-lg text-gray-600 max-w-prose mx-auto mb-8 leading-relaxed font-medium hero-fade-in text-balance"
-          style={{ animationDelay: '0.2s' }}
-          itemProp="description"
-        >
-          Frostrek AI is an enterprise AI development firm building autonomous agents and custom workflow automation. We help global enterprises across manufacturing, fintech, and e-commerce scale operations without expanding headcount. Our custom AI integrations deliver measurable cost reductions and sub-200ms response times.
-        </p>
 
 
         {/* Mobile Features Marquee (Hidden on Desktop) */}
@@ -316,34 +235,7 @@ const HeroSection = () => {
 
       </div>
 
-      {/* Trusted By Section */}
-      <div
-        className="mt-auto pt-4 md:pt-6 w-[95vw] md:w-[90vw] max-w-[1100px] mx-auto z-10 relative flex flex-col items-center hero-fade-in bg-[#FAFCFF] rounded-2xl md:rounded-2xl py-3 md:py-4 px-4 md:px-8 lg:px-12 shadow-sm border border-[#D6E9FF]"
-        style={{ animationDelay: '0.4s' }}
-      >
 
-          {/* Header Row */}
-          <div className="flex items-center justify-center w-full mb-2 md:mb-3 gap-3 md:gap-6">
-            <div className="flex-1 max-w-[60px] md:max-w-[120px] h-[2px] bg-[#D6E9FF]"></div>
-            <h2 className="font-sans text-[#1A65E6] text-[11px] md:text-[13px] font-bold uppercase tracking-[0.15em] text-center shrink-0">
-              Trusted by Industry Leaders
-            </h2>
-            <div className="flex-1 max-w-[60px] md:max-w-[120px] h-[2px] bg-[#D6E9FF]"></div>
-          </div>
-
-          {/* Logos Row */}
-          <div className="w-full flex flex-wrap md:flex-nowrap items-center justify-center md:justify-between gap-4 md:gap-4">
-            <img src="/optimized/vedashi-logo.webp" alt="Vedashi" className="h-6 md:h-8 w-auto object-contain" width={160} height={32} loading="lazy" />
-            <div className="hidden md:block w-[1px] h-6 bg-gray-200"></div>
-            <img src="/optimized/clutch.webp" alt="Clutch" className="h-5 md:h-7 w-auto object-contain" width={120} height={28} loading="lazy" />
-            <div className="hidden md:block w-[1px] h-6 bg-gray-200"></div>
-            <img src="/optimized/topDevelopers.webp" alt="TopDevelopers" className="h-5 md:h-7 w-auto object-contain" width={120} height={28} loading="lazy" />
-            <div className="hidden md:block w-[1px] h-6 bg-gray-200"></div>
-            <img src="/optimized/goodfirms.webp" alt="GoodFirms" className="h-5 md:h-7 w-auto object-contain" width={120} height={28} loading="lazy" />
-            <div className="hidden md:block w-[1px] h-6 bg-gray-200"></div>
-            <img src="/optimized/iso.webp" alt="ISO 9001" className="h-7 md:h-10 w-auto object-contain" width={80} height={40} loading="lazy" />
-          </div>
-      </div>
 
       <div className="absolute bottom-0 w-full h-[12vh] bg-gradient-to-t from-orange-600/90 via-red-500/50 to-transparent blur-3xl pointer-events-none -z-10" />
     </section>
