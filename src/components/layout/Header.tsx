@@ -71,11 +71,13 @@ const Header = () => {
             />
 
             <header className={cn(
-                "fixed left-1/2 -translate-x-1/2 z-[60] transition-[background-color,border-color,box-shadow] duration-500 backdrop-blur-xl border flex flex-col overflow-hidden xl:overflow-visible",
+                "fixed left-1/2 -translate-x-1/2 z-[60] transition-all duration-500 border flex flex-col overflow-hidden xl:overflow-visible",
                 "top-3 sm:top-4 w-[92%] sm:w-[95%] max-w-7xl rounded-xl sm:rounded-2xl",
                 mobileMenuOpen
-                    ? "bg-white/95 border-gray-200 shadow-2xl"
-                    : "bg-white/90 border-gray-200 shadow-md"
+                    ? "bg-white/95 border-gray-200 shadow-2xl backdrop-blur-xl scale-100"
+                    : isScrolled
+                        ? "bg-white/90 border-gray-200 shadow-md backdrop-blur-xl scale-100"
+                        : "bg-transparent border-transparent shadow-none backdrop-blur-none scale-[1.02]"
             )}>
                 <div className={cn(
                     "flex items-center justify-between px-4 sm:px-5 md:px-6 w-full shrink-0 transition-all duration-500",
@@ -124,15 +126,6 @@ const Header = () => {
                                                     "transition-transform duration-300",
                                                     activeMegaMenu === item.label && "rotate-180"
                                                 )}
-                                            />
-                                        )}
-                                        {location.pathname === item.href && !item.megaMenu && (
-                                            <motion.div
-                                                layoutId="navbar-active"
-                                                className="absolute inset-0 rounded-xl -z-10 bg-gray-100"
-                                                initial={{ opacity: 0 }}
-                                                animate={{ opacity: 1 }}
-                                                transition={{ duration: 0.3 }}
                                             />
                                         )}
                                     </Link>
