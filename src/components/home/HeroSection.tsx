@@ -1,4 +1,5 @@
 import { FluidBackground } from '../ui/FluidBackground';
+import { InteractiveMobileMockup } from '../ui/InteractiveMobileMockup';
 
 
 interface FloatingIconItem {
@@ -165,7 +166,7 @@ const floatingIcons: FloatingIconItem[] = [
 const HeroSection = () => {
 
   return (
-    <section className="relative w-full min-h-[100vh] flex flex-col items-center justify-center bg-brand-light-bg text-[#1f3e30] pt-16 lg:pt-20 pb-6 font-sans overflow-x-clip">
+    <section className="relative w-full h-screen flex flex-col items-center justify-center bg-brand-light-bg text-[#1f3e30] pt-16 lg:pt-20 pb-6 font-sans overflow-x-clip overflow-y-hidden">
       <FluidBackground />
       {/* Background effect */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -173,7 +174,7 @@ const HeroSection = () => {
       </div>
 
 
-      <div className="relative z-10 w-full mt-10 md:mt-20 max-w-7xl mx-auto px-4 sm:px-6 text-center flex flex-col items-center flex-1 justify-center pointer-events-none">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 text-center flex flex-col items-center flex-1 justify-center pointer-events-none">
         {/* Badge
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -191,22 +192,25 @@ const HeroSection = () => {
               <span className="block relative z-10 mb-2">TIME IS MONEY.</span>
               <span className="block relative z-10" style={{ animationDelay: '0.1s' }}>SAVE BOTH.</span>
             </h1>
-            
+
             <p className="mt-6 md:mt-8 text-gray-800 text-lg md:text-[22px] max-w-lg leading-relaxed relative z-10 font-medium [text-shadow:_0_0_10px_#ffffff,_0_0_20px_#ffffff]" style={{ animationDelay: '0.2s', fontFamily: "'Quicksand', sans-serif" }}>
               Your AI workforce never sleeps—handling repetitive tasks, accelerating operations, and reducing dependency on manual processes.
             </p>
           </div>
 
-          {/* Right Side: Green Dot */}
-          <div className="lg:w-[45%] flex justify-center lg:justify-end hero-fade-in shrink-0" style={{ animationDelay: '0.2s' }}>
-            <div className="w-64 h-64 md:w-80 md:h-80 lg:w-[400px] lg:h-[400px] xl:w-[500px] xl:h-[500px] bg-[#2D6A4F] rounded-full drop-shadow-2xl"></div>
+          {/* Right Side: Mobile Mockup */}
+          <div className="lg:w-[45%] flex items-center justify-center lg:justify-end hero-fade-in shrink-0 z-20 relative" style={{ animationDelay: '0.2s' }}>
+            <div className="lg:-translate-x-12">
+              <InteractiveMobileMockup />
+            </div>
           </div>
         </div>
 
 
         {/* Mobile Features Marquee (Hidden on Desktop) */}
         <div className="w-[100vw] max-w-[100vw] shrink-0 mt-10 sm:mt-12 lg:hidden hero-fade-in overflow-hidden anim-delay-400">
-          <style dangerouslySetInnerHTML={{ __html: `
+          <style dangerouslySetInnerHTML={{
+            __html: `
             @keyframes mobile-marquee {
               0% { transform: translateX(0); }
               100% { transform: translateX(-50%); }
@@ -221,11 +225,11 @@ const HeroSection = () => {
           `}} />
           <div className="flex w-max animate-mobile-marquee gap-3 pb-4 pt-2">
             {[...floatingIcons, ...floatingIcons].map((item, index) => (
-              <div 
-                key={`${item.id}-${index}`} 
+              <div
+                key={`${item.id}-${index}`}
                 className="shrink-0 flex items-center gap-3 bg-white/90 backdrop-blur-md border border-[#2D6A4F]/10 p-2 pr-5 rounded-full shadow-[0_8px_20px_rgba(45,106,79,0.06)]"
               >
-                  <img src={item.icon} alt={item.title} className="w-9 h-9 p-2 rounded-full bg-white shadow-sm border border-gray-50 object-contain shrink-0" loading="lazy" />
+                <img src={item.icon} alt={item.title} className="w-9 h-9 p-2 rounded-full bg-white shadow-sm border border-gray-50 object-contain shrink-0" loading="lazy" />
                 <span className="text-[12px] font-bold text-[#1f3e30] whitespace-nowrap tracking-wide">{item.title}</span>
               </div>
             ))}
@@ -236,6 +240,9 @@ const HeroSection = () => {
 
 
 
+
+      {/* Frostrek Green Circle at very corner (1/4 visible) */}
+      <div className="absolute -bottom-[450px] -right-[400px] w-[800px] h-[800px] lg:-bottom-[700px] lg:-right-[600px] lg:w-[1200px] lg:h-[1200px] rounded-full bg-[#347858] z-0" />
 
       <div className="absolute bottom-0 w-full h-[12vh] bg-gradient-to-t from-orange-600/90 via-red-500/50 to-transparent blur-3xl pointer-events-none -z-10" />
     </section>
