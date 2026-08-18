@@ -200,7 +200,7 @@ const HeroSection = () => {
 
           {/* Right Side: Mobile Mockup */}
           <div className="lg:w-[45%] flex items-center justify-center lg:justify-end hero-fade-in shrink-0 z-20 relative" style={{ animationDelay: '0.2s' }}>
-            <div className="lg:-translate-x-12">
+            <div className="lg:-translate-x-20 lg:translate-y-4">
               <InteractiveMobileMockup />
             </div>
           </div>
