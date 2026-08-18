@@ -6,7 +6,18 @@ export const FluidBackground = () => {
 
   useEffect(() => {
     if (canvasRef.current) {
-      WebGLFluid(canvasRef.current, {
+      const canvas = canvasRef.current;
+      // Override addEventListener to force passive touch events, preventing the library from blocking scroll
+      const originalAddEventListener = canvas.addEventListener;
+      canvas.addEventListener = function (type, listener, options) {
+        if (type === 'touchstart' || type === 'touchmove') {
+          originalAddEventListener.call(this, type, listener, { passive: true });
+        } else {
+          originalAddEventListener.call(this, type, listener, options);
+        }
+      };
+
+      WebGLFluid(canvas, {
         TRIGGER: 'hover',
         IMMEDIATE: false,
         AUTO: false,
@@ -38,6 +49,8 @@ export const FluidBackground = () => {
         SUNRAYS_RESOLUTION: 196,
         SUNRAYS_WEIGHT: 1.0,
       });
+      // Restore original after initialization
+      canvas.addEventListener = originalAddEventListener;
     }
   }, []);
 
