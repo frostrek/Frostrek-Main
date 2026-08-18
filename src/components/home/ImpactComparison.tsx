@@ -135,7 +135,7 @@ const ImpactComparison = () => {
                         <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-5">
                             <SplitTextReveal
                                 as="h2"
-                                className="font-serif text-3xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-[1.1] tracking-[-0.01em]"
+                                className="font-serif text-3xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-[1.1] tracking-[-0.025em]"
                                 type="chars"
                                 stagger={0.03}
                                 once={false}
@@ -156,7 +156,7 @@ const ImpactComparison = () => {
                         </div>
                         <SplitTextReveal
                             as="h2"
-                            className="font-serif text-3xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-[1.1] tracking-[-0.01em]"
+                            className="font-serif text-3xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-[1.1] tracking-[-0.025em]"
                             type="chars"
                             stagger={0.03}
                             once={false}
@@ -196,7 +196,7 @@ const ImpactComparison = () => {
                                     <div className={`absolute top-0 left-0 w-full h-1 ${theme.topLine}`} />
 
                                     <div className="mb-4">
-                                        <h3 className="text-sm md:text-base lg:text-lg font-bold font-serif mb-1 leading-snug text-black">
+                                        <h3 className="text-sm md:text-base lg:text-lg font-bold font-serif mb-1 leading-snug tracking-[-0.025em] text-black">
                                             {item.title}
                                         </h3>
                                         <div className="flex items-center gap-1 md:gap-1.5 mt-1.5 md:mt-2.5">
@@ -226,7 +226,7 @@ const ImpactComparison = () => {
                                         <CheckCircle2 className={`w-3.5 h-3.5 md:w-4 md:h-4 ${theme.checkIconColor}`} />
                                         <span className={`text-[10px] md:text-xs font-bold uppercase tracking-wider ${theme.labelColor}`}>With Frostrek</span>
                                     </div>
-                                    <h3 className={`text-xs md:text-[15px] text-black leading-relaxed relative z-10 ${theme.afterTextColor}`}>
+                                    <h3 className={`text-xs md:text-[15px] text-black leading-relaxed tracking-[-0.025em] relative z-10 ${theme.afterTextColor}`}>
                                         {item.after}
                                     </h3>
                                 </div>

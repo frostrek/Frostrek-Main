@@ -100,7 +100,7 @@ const FeaturesSection = () => {
 
                         <SplitTextReveal
                             as="h2"
-                            className="font-serif text-3xl md:text-4xl lg:text-6xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
+                            className="font-serif text-3xl md:text-4xl lg:text-6xl text-[#2D6A4F] leading-[1.15] tracking-[-0.025em]"
                             type="chars"
                             stagger={0.02}
                             once={false}
@@ -131,7 +131,7 @@ const FeaturesSection = () => {
                                 <img src="/icons/shield.png" alt="Enterprise Security" className="w-7 h-7 md:w-9 md:h-9 object-contain" loading="lazy" width={512} height={512} />
                             </div>
 
-                            <h3 className="font-serif text-xl md:text-3xl font-bold mb-2 md:mb-4 text-[#047857]">
+                            <h3 className="font-serif text-xl md:text-3xl font-bold mb-2 md:mb-4 tracking-[-0.025em] text-[#047857]">
                                 Enterprise Security
                             </h3>
                             <p className="mb-6 md:mb-8 text-xs md:text-base leading-relaxed text-gray-600">
@@ -168,7 +168,7 @@ const FeaturesSection = () => {
                                 <img src="/optimized/lightning.webp" alt="Lightning Fast" className="w-5 h-5 md:w-6 md:h-6 object-contain" loading="lazy" width={512} height={512} />
                             </div>
                             <div>
-                                <h3 className="font-serif text-[15px] md:text-2xl font-bold mb-1.5 md:mb-3 text-[#C2410C]">
+                                <h3 className="font-serif text-[15px] md:text-2xl font-bold mb-1.5 md:mb-3 tracking-[-0.025em] text-[#C2410C]">
                                     Lightning Fast
                                 </h3>
                                 <p className="text-[11px] md:text-[15px] leading-relaxed text-gray-600">
@@ -188,7 +188,7 @@ const FeaturesSection = () => {
                                 <img src="/optimized/architecture-green.webp" alt="Adhoc Delivery" className="w-5 h-5 md:w-6 md:h-6 object-contain brightness-0" loading="lazy" width={512} height={512} />
                             </div>
                             <div>
-                                <h3 className="font-serif text-[15px] md:text-2xl font-bold mb-1.5 md:mb-3 text-[#7E22CE]">
+                                <h3 className="font-serif text-[15px] md:text-2xl font-bold mb-1.5 md:mb-3 tracking-[-0.025em] text-[#7E22CE]">
                                     Adhoc Delivery
                                 </h3>
                                 <p className="text-[11px] md:text-[15px] leading-relaxed text-gray-600">
@@ -208,7 +208,7 @@ const FeaturesSection = () => {
                                 <img src="/optimized/data-analytics.webp" alt="Quality & Cost Control" className="w-5 h-5 md:w-6 md:h-6 object-contain hue-rotate-180" loading="lazy" width={512} height={512} />
                             </div>
                             <div>
-                                <h3 className="font-serif text-[15px] md:text-2xl font-bold mb-1.5 md:mb-3 text-[#0284C7]">
+                                <h3 className="font-serif text-[15px] md:text-2xl font-bold mb-1.5 md:mb-3 tracking-[-0.025em] text-[#0284C7]">
                                     Quality & Cost Control
                                 </h3>
                                 <p className="text-[11px] md:text-[15px] leading-relaxed text-gray-600">
@@ -228,7 +228,7 @@ const FeaturesSection = () => {
                                 <img src="/icons/multivendor.png" alt="Multi-agent Orchestration" className="w-5 h-5 md:w-6 md:h-6 object-contain hue-rotate-[270deg]" loading="lazy" width={512} height={512} />
                             </div>
                             <div>
-                                <h3 className="font-serif text-[15px] md:text-2xl font-bold mb-1.5 md:mb-3 text-[#BE123C]">
+                                <h3 className="font-serif text-[15px] md:text-2xl font-bold mb-1.5 md:mb-3 tracking-[-0.025em] text-[#BE123C]">
                                     Multi-agent Orchestration
                                 </h3>
                                 <p className="text-[11px] md:text-[15px] leading-relaxed text-gray-600">

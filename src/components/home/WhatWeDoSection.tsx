@@ -304,7 +304,7 @@ const WhatWeDoSection = () => {
                     <div className="mb-2">
                         <SplitTextReveal
                             as="h2"
-                            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-[1.08] tracking-[-0.02em] text-center"
+                            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-[1.08] tracking-[-0.025em] text-center"
                             type="chars"
                             stagger={0.03}
                             once={false}
@@ -317,7 +317,7 @@ const WhatWeDoSection = () => {
                     <div className="flex flex-row items-center justify-center gap-4 md:gap-6">
                         <SplitTextReveal
                             as="h2"
-                            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-[1.08] tracking-[-0.02em] text-center"
+                            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-[1.08] tracking-[-0.025em] text-center"
                             type="chars"
                             stagger={0.03}
                             once={false}
@@ -376,7 +376,7 @@ const WhatWeDoSection = () => {
                                                     </div>
                                                     <span className={`text-[11px] font-bold tracking-widest ${styles.labelColor}`}>{card.label}</span>
                                                 </div>
-                                                <h3 className="font-serif text-[22px] sm:text-2xl font-bold text-black mb-3 leading-tight whitespace-pre-line">{card.title}</h3>
+                                                <h3 className="font-serif text-[22px] sm:text-2xl font-bold text-black mb-3 leading-tight tracking-[-0.025em] whitespace-pre-line">{card.title}</h3>
                                                 <p className="text-gray-500 text-sm leading-relaxed mb-6">{card.desc}</p>
 
                                                 <div className="space-y-2 mb-6">

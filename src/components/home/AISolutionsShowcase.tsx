@@ -420,7 +420,7 @@ const AISolutionsShowcase = () => {
                     <div className="flex flex-col items-center">
                         <SplitTextReveal
                             as="h2"
-                            className="font-serif text-3xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-[1.1] tracking-[-0.01em]"
+                            className="font-serif text-3xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-[1.1] tracking-[-0.025em]"
                             type="chars"
                             stagger={0.03}
                             once={false}
@@ -429,7 +429,7 @@ const AISolutionsShowcase = () => {
                         </SplitTextReveal>
                         <SplitTextReveal
                             as="h2"
-                            className="font-serif text-3xl md:text-5xl lg:text-6xl text-[#2D6A4F] mb-6 leading-[1.1] tracking-[-0.01em]"
+                            className="font-serif text-3xl md:text-5xl lg:text-6xl text-[#2D6A4F] mb-6 leading-[1.1] tracking-[-0.025em]"
                             type="chars"
                             stagger={0.03}
                             once={false}
@@ -478,7 +478,7 @@ const AISolutionsShowcase = () => {
                         </div>
 
                         <div className="text-center mb-6">
-                            <h3 className="font-serif text-2xl font-bold text-[#2D6A4F] mb-1">
+                            <h3 className="font-serif text-2xl font-bold text-[#2D6A4F] mb-1 tracking-[-0.025em]">
                                 {activeSolution.title}
                             </h3>
                             <p className="text-sm text-gray-500">
@@ -583,7 +583,7 @@ const AISolutionsShowcase = () => {
                                                 className="w-10 h-10 object-contain" loading="lazy" width={512} height={512} />
                                         </div>
                                         <div>
-                                            <h3 className="font-serif text-3xl font-bold mb-2">
+                                            <h3 className="font-serif text-3xl font-bold mb-2 tracking-[-0.025em]">
                                                 {activeSolution.title}
                                             </h3>
                                             <p className="text-base text-gray-600 leading-relaxed">
