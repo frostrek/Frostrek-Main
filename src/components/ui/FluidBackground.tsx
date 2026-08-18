@@ -9,13 +9,13 @@ export const FluidBackground = () => {
       const canvas = canvasRef.current;
       // Override addEventListener to force passive touch events, preventing the library from blocking scroll
       const originalAddEventListener = canvas.addEventListener;
-      canvas.addEventListener = function (type, listener, options) {
+      canvas.addEventListener = function (type: any, listener: any, options?: any) {
         if (type === 'touchstart' || type === 'touchmove') {
-          originalAddEventListener.call(this, type, listener, { passive: true });
+          originalAddEventListener.call(canvas, type, listener, { passive: true });
         } else {
-          originalAddEventListener.call(this, type, listener, options);
+          originalAddEventListener.call(canvas, type, listener, options);
         }
-      };
+      } as typeof canvas.addEventListener;
 
       WebGLFluid(canvas, {
         TRIGGER: 'hover',
