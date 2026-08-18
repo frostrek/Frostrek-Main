@@ -4,7 +4,7 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+
 import SpotlightCard from '../ui/SpotlightCard';
 import FlipText from '../ui/FlipText';
 import SplitTextReveal from '../ui/SplitTextReveal';
