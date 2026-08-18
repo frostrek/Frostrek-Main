@@ -188,7 +188,7 @@ const HeroSection = () => {
         <div className="flex flex-col lg:flex-row items-center justify-between w-full gap-12 lg:gap-8">
           {/* Left Side: Heading */}
           <div className="flex flex-col items-start text-left lg:w-[55%] shrink-0 hero-fade-in pointer-events-none">
-            <h1 className="text-6xl sm:text-7xl md:text-[80px] lg:text-[75px] xl:text-[100px] leading-[0.95] drop-shadow-[0_4px_10px_rgba(255,255,255,1)] [text-shadow:_0_0_20px_#ffffff,_0_0_40px_#ffffff] uppercase tracking-normal text-black" style={{ fontFamily: "'Anton', sans-serif", fontWeight: 400 }}>
+            <h1 className="text-6xl sm:text-7xl md:text-[80px] lg:text-[75px] xl:text-[100px] leading-[0.95] drop-shadow-[0_4px_10px_rgba(255,255,255,1)] [text-shadow:_0_0_20px_#ffffff,_0_0_40px_#ffffff] uppercase tracking-tight text-black" style={{ fontFamily: "'Oswald', sans-serif", fontWeight: 500 }}>
               <span className="block relative z-10 mb-2">TIME IS MONEY.</span>
               <span className="block relative z-10" style={{ animationDelay: '0.1s' }}>SAVE BOTH.</span>
             </h1>
