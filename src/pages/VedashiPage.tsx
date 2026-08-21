@@ -299,7 +299,7 @@ const softwareSchema = JSON.stringify({
                                 >
                                     What is Vedashi Herbals?
                                 </SplitTextReveal>
-                            </h2>
+                                </div>
                             <div className="w-full">
                                 <SplitTextReveal
                                     as="p"
