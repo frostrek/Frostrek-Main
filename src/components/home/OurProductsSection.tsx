@@ -166,7 +166,7 @@ const SpotlightCard = ({ product, index }: { product: any, index: number }) => {
                         </div>
 
                         <div className="relative z-10">
-                            <h3 className={`font-serif text-lg md:text-3xl font-semibold ${product.titleColor || 'text-black'} mb-1.5 md:mb-2.5 leading-tight`}>
+                            <h3 className={`font-serif text-lg md:text-3xl font-semibold ${product.titleColor || 'text-black'} mb-1.5 md:mb-2.5 leading-tight tracking-[-0.025em]`}>
                                 {product.title}
                             </h3>
 
@@ -238,7 +238,7 @@ const OurProductsSection = () => {
                     <div className="flex flex-col items-center mb-6">
                         <SplitTextReveal
                             as="h2"
-                            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-tight tracking-tight"
+                            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-tight tracking-[-0.025em]"
                             type="chars"
                             stagger={0.03}
                             once={false}

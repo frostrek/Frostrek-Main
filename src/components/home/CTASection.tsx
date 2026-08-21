@@ -66,7 +66,7 @@ const CTASection = () => {
                     <div className="flex flex-col items-center">
                         <SplitTextReveal
                             as="h2"
-                            className="font-serif text-3xl md:text-4xl lg:text-6xl mb-4 text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
+                            className="font-serif text-3xl md:text-4xl lg:text-6xl mb-4 text-[#2D6A4F] leading-[1.15] tracking-[-0.025em]"
                             type="chars"
                             stagger={0.02}
                             once={false}
@@ -75,7 +75,7 @@ const CTASection = () => {
                         </SplitTextReveal>
                         <SplitTextReveal
                             as="h2"
-                            className="font-serif text-3xl md:text-4xl lg:text-6xl mb-4 text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
+                            className="font-serif text-3xl md:text-4xl lg:text-6xl mb-4 text-[#2D6A4F] leading-[1.15] tracking-[-0.025em]"
                             type="chars"
                             stagger={0.02}
                             once={false}

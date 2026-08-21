@@ -9,45 +9,7 @@ import SplitTextReveal from '../ui/SplitTextReveal';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// ─── Observe.ai-style arrow SVG (exact paths from user) ─────────────────────
-const CurlyArrow = ({ className = '' }: { className?: string }) => (
-    <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 150 84"
-        width="150"
-        height="84"
-        preserveAspectRatio="xMidYMid meet"
-        className={className}
-        aria-hidden
-        fill="none"
-    >
-        <g transform="matrix(1.203660011291504,0,0,1.203660011291504,78.125,34.75)" opacity="1">
-            <g opacity="1" transform="matrix(1,0,0,1,0,0)">
-                <path
-                    strokeLinecap="round"
-                    strokeLinejoin="miter"
-                    fillOpacity="0"
-                    strokeMiterlimit="4"
-                    stroke="currentColor"
-                    strokeOpacity="1"
-                    strokeWidth="4"
-                    d="M55.5,31.5 C55.5,31.5 -11.319000244140625,37.178001403808594 -9.857999801635742,-2.484999895095825 C-9.092000007629395,-23.27400016784668 24.405000686645508,-27.20800018310547 29.908000946044922,-5.761000156402588 C31.027999877929688,-1.3949999809265137 32.67499923706055,20.930999755859375 -1.75,24.5 C-31.881999969482422,27.624000549316406 -52.4640007019043,-9.656000137329102 -51.5,-18.334999084472656 C-51.375,-18.834999084472656 -36.25,-9.375 -36.25,-9.375"
-                />
-            </g>
-            <g opacity="1" transform="matrix(1,0,0,1,0,0)">
-                <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    fillOpacity="0"
-                    stroke="currentColor"
-                    strokeOpacity="1"
-                    strokeWidth="4"
-                    d="M-59.96900177001953,-3.303999900817871 C-59.96900177001953,-3.303999900817871 -51.46900177001953,-18.304000854492188 -51.46900177001953,-18.304000854492188"
-                />
-            </g>
-        </g>
-    </svg>
-);
+
 
 
 
@@ -100,7 +62,7 @@ const ManufacturingDemo = () => {
 const FintechDemo = () => {
     const [step, setStep] = useState(0);
     useEffect(() => { const t = setInterval(() => setStep(v => (v + 1) % 5), 1200); return () => clearInterval(t); }, []);
-    
+
     return (
         <div className="w-full font-body text-xs select-none space-y-3">
             <div className="bg-[#FFFBEB] border border-[#FEF3C7] rounded-xl px-4 py-3 flex items-center justify-between">
@@ -112,7 +74,7 @@ const FintechDemo = () => {
                     <img src="/icons/fintech-yellow.webp" alt="Fintech" className="w-4 h-4 object-contain" />
                 </div>
             </div>
-            
+
             <div className="grid grid-cols-3 gap-2">
                 <div className={`border rounded-xl p-2 flex flex-col items-center justify-center gap-1.5 transition-all duration-300 ${step === 0 ? 'bg-[#FEF9C3] border-[#FEF08A] shadow-sm' : 'bg-white border-gray-100'}`}>
                     <div className="w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center overflow-hidden"><img src="/icons/real-madrid.webp" alt="Real Madrid" className="w-full h-full object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-[8px] font-bold text-blue-800">RM</span>'; }} /></div>
@@ -256,7 +218,7 @@ const WhatWeDoSection = () => {
                     const cardWidth = isSm ? window.innerWidth * 0.60 : window.innerWidth * 0.85;
                     const gapWidth = 20; // gap-5 = 20px
                     const totalWidth = (cardWidth * 3) + (gapWidth * 2);
-                    
+
                     // We want to translate left by (totalWidth - viewportWidth) + some extra right padding
                     return Math.max(0, totalWidth - window.innerWidth + 64);
                 };
@@ -304,7 +266,7 @@ const WhatWeDoSection = () => {
                     <div className="mb-2">
                         <SplitTextReveal
                             as="h2"
-                            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-[1.08] tracking-[-0.02em] text-center"
+                            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-[1.08] tracking-[-0.025em] text-center"
                             type="chars"
                             stagger={0.03}
                             once={false}
@@ -317,7 +279,7 @@ const WhatWeDoSection = () => {
                     <div className="flex flex-row items-center justify-center gap-4 md:gap-6">
                         <SplitTextReveal
                             as="h2"
-                            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-[1.08] tracking-[-0.02em] text-center"
+                            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] leading-[1.08] tracking-[-0.025em] text-center"
                             type="chars"
                             stagger={0.03}
                             once={false}
@@ -325,17 +287,6 @@ const WhatWeDoSection = () => {
                         >
                             We Transform
                         </SplitTextReveal>
-
-                        {/* Curly arrow — slides in from left after text */}
-                        <motion.div
-                            initial={{ opacity: 0, x: -20, rotate: -15 }}
-                            whileInView={{ opacity: 1, x: 0, rotate: 0 }}
-                            viewport={{ once: false }}
-                            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.7 }}
-                            className="flex-shrink-0"
-                        >
-                            <CurlyArrow className="w-16 h-10 md:w-28 md:h-16 text-[#3D8B6E]/70" />
-                        </motion.div>
                     </div>
 
                     {/* Subtitle */}
@@ -376,7 +327,7 @@ const WhatWeDoSection = () => {
                                                     </div>
                                                     <span className={`text-[11px] font-bold tracking-widest ${styles.labelColor}`}>{card.label}</span>
                                                 </div>
-                                                <h3 className="font-serif text-[22px] sm:text-2xl font-bold text-black mb-3 leading-tight whitespace-pre-line">{card.title}</h3>
+                                                <h3 className="font-serif text-[22px] sm:text-2xl font-bold text-black mb-3 leading-tight tracking-[-0.025em] whitespace-pre-line">{card.title}</h3>
                                                 <p className="text-gray-500 text-sm leading-relaxed mb-6">{card.desc}</p>
 
                                                 <div className="space-y-2 mb-6">
