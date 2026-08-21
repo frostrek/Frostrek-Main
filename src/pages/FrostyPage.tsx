@@ -745,7 +745,7 @@ export default function FrostyPage() {
             ["What types of businesses is Frosty for?", "Frosty fits any business that gets enquiries and wants to answer them fast. That includes marketing agencies, real estate, clinics and healthcare, education and study-abroad consultancies, car dealers, financial services, and online stores. If your leads come in through a website or WhatsApp, Frosty can capture and qualify them."],
             // Adapted from the doc: it routed all pricing to the team, which would contradict
             // the $200 starting price stated directly above. Keeps the same routing intent.
-            ["How much does Frosty cost?", "Frosty Agent starts at $200/month for a single website and WhatsApp agent; final pricing depends on enquiry volume and is confirmed on a demo call."],
+            ["How much does Frosty cost?", "Frosty Agent starts at $199/month (Global) or ?6,599/month (India) for a single website and WhatsApp agent; final pricing depends on enquiry volume and is confirmed on a demo call."],
             ["How can I see Frosty in action?", "Book a demo and the Frostrek team will set Frosty up on a sample of your own content, so you can watch it answer a real enquiry before you decide. You can reach the Frosty team through the Book a Demo button or on WhatsApp."],
         ]],
     ];
@@ -768,7 +768,7 @@ export default function FrostyPage() {
         "description": "Frosty Agent is an AI agent for your website and WhatsApp, built by Frostrek AI. It answers every enquiry in seconds, qualifies the person on the other end, sends quotations, books meetings, and follows up on leads that go quiet, day or night, without anyone on your team touching it.",
         "offers": {
             "@type": "Offer",
-            "price": "200.00",
+            "price": "199.00",
             "priceCurrency": "USD"
         },
         "dateModified": "2026-07-01T00:00:00+00:00",
@@ -800,7 +800,7 @@ export default function FrostyPage() {
                     </p>
                     <p>
                         Pricing details:
-                        - Starting Price: <div className="fx-root">99/month (customized based on volume)
+                        - Starting Price: $199/month (Global) or ?6599/month (India) - customized based on volume
                         - Supported Platforms: Websites, WhatsApp, Voice Calls
                     </p>
                     <p>
@@ -1099,14 +1099,14 @@ export default function FrostyPage() {
             <section className="fx-sec" id="pricing">
                 <div className="fx-wrap">
                     <div className="fx-reveal text-center mx-auto flex flex-col items-center fx-max-w-640">
-                        <span className="fx-ey">Pricing · India</span>
+                        <span className="fx-ey">Transparent Pricing</span>
                         <h2 className="fx-h2">One agent, priced around you.</h2>
                         <p className="fx-lead">No tiers to compare. We scope Frosty to your business and quote it from a single starting price.</p>
                     </div>
                     <div className="fx-pricebar fx-reveal">
                         <div>
                             <span className="fx-amt-from">Plans start at</span>
-                            <div className="fx-amt">$199</div>
+                            <div className="fx-amt" style={{ fontSize: "4rem" }}>$199 <span style={{ fontSize: "2rem", color: "#6B7280" }}>| ?6599</span></div>
                             <span className="fx-amt-per">per month</span>
                         </div>
                         <div className="fx-price-body">
