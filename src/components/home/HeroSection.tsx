@@ -271,15 +271,14 @@ const HeroSection = () => {
         <div className="flex flex-col items-center">
           <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.1] tracking-[-0.01em] hero-fade-in">
             <span className="text-[#2D6A4F] block">Intelligent agents</span>
-            <span className="text-[#2D6A4F] block" style={{ animationDelay: '0.1s' }}>that run your operations.</span>
-            <span className="text-black block mb-4" style={{ animationDelay: '0.1s' }}>Not just assist them.</span>
+            <span className="text-[#2D6A4F] block anim-delay-100">that run your operations.</span>
+            <span className="text-black block mb-4 anim-delay-100">Not just assist them.</span>
           </h1>
         </div>
 
         {/* Subtitles - Answer First SEO */}
         <p
-          className="text-base sm:text-lg text-gray-600 max-w-prose mx-auto mb-8 leading-relaxed font-medium hero-fade-in text-balance"
-          style={{ animationDelay: '0.2s' }}
+          className="text-base sm:text-lg text-gray-600 max-w-prose mx-auto mb-8 leading-relaxed font-medium hero-fade-in text-balance anim-delay-200"
           itemProp="description"
         >
           Frostrek AI is an enterprise AI development firm building autonomous agents and custom workflow automation. We help global enterprises across manufacturing, fintech, and e-commerce scale operations without expanding headcount. Our custom AI integrations deliver measurable cost reductions and sub-200ms response times.
@@ -287,7 +286,7 @@ const HeroSection = () => {
 
 
         {/* Mobile Features Marquee (Hidden on Desktop) */}
-        <div className="w-[100vw] max-w-[100vw] shrink-0 mt-10 sm:mt-12 lg:hidden hero-fade-in overflow-hidden" style={{ animationDelay: '0.4s' }}>
+        <div className="w-[100vw] max-w-[100vw] shrink-0 mt-10 sm:mt-12 lg:hidden hero-fade-in overflow-hidden anim-delay-400">
           <style dangerouslySetInnerHTML={{ __html: `
             @keyframes mobile-marquee {
               0% { transform: translateX(0); }
@@ -318,8 +317,7 @@ const HeroSection = () => {
 
       {/* Trusted By Section */}
       <div
-        className="mt-auto pt-4 md:pt-6 w-[95vw] md:w-[90vw] max-w-[1100px] mx-auto z-10 relative flex flex-col items-center hero-fade-in bg-[#FAFCFF] rounded-2xl md:rounded-2xl py-3 md:py-4 px-4 md:px-8 lg:px-12 shadow-sm border border-[#D6E9FF]"
-        style={{ animationDelay: '0.4s' }}
+        className="mt-auto pt-4 md:pt-6 w-[95vw] md:w-[90vw] max-w-[1100px] mx-auto z-10 relative flex flex-col items-center hero-fade-in bg-[#FAFCFF] rounded-2xl md:rounded-2xl py-3 md:py-4 px-4 md:px-8 lg:px-12 shadow-sm border border-[#D6E9FF] anim-delay-400"
       >
 
           {/* Header Row */}

@@ -229,6 +229,10 @@ async function prerenderRoute(browser, route, port) {
     finalHtml = finalHtml.replace(/<script type="application\/ld\+json">/g, '<script data-rh="true" type="application/ld+json">');
 
     // ── Deduplicate canonical tags ──────────────────────────────────
+    // Puppeteer captures the page after react-helmet-async has injected
+    // its canonical into the <head>. If the template already had one, or
+    // if Helmet appended a duplicate, we end up with multiple canonicals.
+    // Keep only the LAST canonical tag (the page-specific one from Helmet).
     const canonicalRegex = /<link[^>]*rel="canonical"[^>]*>/gi;
     const canonicalMatches = finalHtml.match(canonicalRegex);
     if (canonicalMatches && canonicalMatches.length > 1) {
@@ -248,7 +252,6 @@ async function prerenderRoute(browser, route, port) {
     // The SEO tool flags any inline style as an error.
     // Framer Motion re-injects necessary styles on the client side during hydration.
     finalHtml = finalHtml.replace(/\sstyle="[^"]*"/gi, '');
-
     writeFileSync(outFile, finalHtml, 'utf-8');
     
     // Also write a flat .html file for AWS Amplify / S3 clean URL compatibility

@@ -12,7 +12,7 @@ import { cn } from '../utils/cn';
 
 const HEADLINE_WORDS = ['Accelerate', 'growth', 'at', 'the', 'new', 'speed', 'of', 'business'];
 
-// ============ TEAM DATA ============
+//============ TEAM DATA ============
 const TEAM_DATA = [
     {
         name: 'Dr. Sarah Chen',
@@ -305,7 +305,7 @@ const Counter = memo(({ value, suffix = '' }: { value: number; suffix?: string }
     useEffect(() => {
         // Reset to 0 on client side to prepare for animation
         setCount(0);
-        
+
         const obs = new IntersectionObserver(([e]) => {
             if (e.isIntersecting) {
                 let n = 0;
@@ -319,7 +319,7 @@ const Counter = memo(({ value, suffix = '' }: { value: number; suffix?: string }
                 obs.disconnect(); // Stop observing once triggered
             }
         }, { threshold: 0.1 });
-        
+
         if (ref.current) obs.observe(ref.current);
         return () => obs.disconnect();
     }, [value]);

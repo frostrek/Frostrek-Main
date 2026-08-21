@@ -156,11 +156,12 @@ const Home = () => {
         {/* Our Products Section */}
         <OurProductsSection />
 
-        {/* 2. What We Do */}
-        <WhatWeDoSection />
-        
-        {/* 3. Product Features / Deep Dive */}
+
+        {/* 2. Product Features / Deep Dive */}
         <AISolutionsShowcase />
+
+        {/* 3. What We Do */}
+        <WhatWeDoSection />
 
         {/* 4. Impact Comparison */}
         <ImpactComparison />
