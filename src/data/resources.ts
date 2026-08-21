@@ -8,7 +8,7 @@ export interface CaseStudy {
     client: string;
     duration: string;
     team: string; // e.g., "40 Annotators | 6 QAs"
-    description: string; // Short excerpt for card
+    description: string; // Short excerpt for cards
     challenge: string;
     solution: string; // Delivery Scope expanded
     outcome: string[]; // Delivery Outcomes
