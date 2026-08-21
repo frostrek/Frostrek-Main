@@ -182,7 +182,7 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
     '/products/vedashi-ecommerce': {
         id: 'vedashi-ecommerce',
         tagline: 'AI E-COMMERCE PLATFORM',
-        title: 'Vedashi Ecommerce',
+        title: 'Vedashi Herbals',
         subtitle: 'Cinematic Hyper-Personalized Shopping Ecosystem',
         description: 'A high-performance enterprise e-commerce platform built to drive conversions through hyper-personalization, intelligent product recommendations, WhatsApp cart recovery, and GSAP-powered premium layouts.',
         badge: 'E-Commerce · Personalization · Conversions',
@@ -291,8 +291,8 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
 
         faq: [
             {
-                question: 'Does Vedashi Ecommerce support integration with third-party logistics?',
-                answer: 'Yes, Vedashi Ecommerce comes with pre-built APIs to connect with top logistics networks, WMS systems, and ERP backends.',
+                question: 'Does Vedashi Herbals support integration with third-party logistics?',
+                answer: 'Yes, Vedashi Herbals comes with pre-built APIs to connect with top logistics networks, WMS systems, and ERP backends.',
             },
             {
                 question: 'How does the WhatsApp recovery feature work?',

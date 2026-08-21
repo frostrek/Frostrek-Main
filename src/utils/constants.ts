@@ -32,7 +32,7 @@ export const NAV_ITEMS: NavItem[] = [
                 title: '02 ENTERPRISE PLATFORMS',
                 items: [
 
-                    { name: 'Vedashi Herbals', href: '/products/vedashi-ecommerce', desc: 'An global Ecommerce platform empowering Indian Wellness brands to scale international without the complexities of international expansion.', icon: '/optimized/vedashi-logo-sm.webp', hoverBgClass: 'hover:bg-[#F0FDF4]' },
+                    { name: 'Vedashi Herbals', href: '/products/vedashi-ecommerce', desc: 'A premium Russian e-commerce platform importing authentic Indian wellness products and Ayurvedic cosmetics directly for the Russian market.', icon: '/optimized/vedashi-logo-sm.webp', hoverBgClass: 'hover:bg-[#F0FDF4]' },
                     { name: 'Hiyring', href: '/products/hiyring', desc: 'Transforming talent acquisition through autonomous AI video interviews.', icon: '/products/hiyring-logo.png', hoverBgClass: 'hover:bg-[#FFF7ED]' },
                 ],
             },

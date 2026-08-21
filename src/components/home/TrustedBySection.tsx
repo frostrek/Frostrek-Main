@@ -52,7 +52,7 @@ const LOGOS = [
     { name: 'Top Developers', src: '/optimized/topDevelopers.webp', rating: '5.0', reviews: '30+ reviews' },
     { name: 'GoodFirms', src: '/goodfirms.png', rating: '4.8', reviews: '45+ reviews' },
     { name: 'ISO Certified', src: '/optimized/iso.webp', rating: 'ISO', reviews: '9001 Certified' },
-    { name: 'Vedashi', src: '/vedashi-logo.png', rating: '★★★★★', reviews: 'Trusted Client' },
+    { name: 'Vedashi Herbals', src: '/vedashi-logo.png', rating: '★★★★★', reviews: 'Russian E-Commerce' },
 ];
 
 const TrustedBySection = () => {

@@ -51,7 +51,7 @@ const products: Product[] = [
 
     {
         id: 'vedashi-ecommerce',
-        name: 'Vedashi Ecommerce',
+        name: 'Vedashi Herbals',
         description: 'Bespoke hyper-personalized digital commerce experiences.',
         shortDesc: 'Scale online storefronts with intelligent retail recommendations and automated WhatsApp cart recovery flows.',
         icon: ShoppingBag,
