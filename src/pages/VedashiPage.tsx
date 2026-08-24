@@ -199,6 +199,7 @@ const softwareSchema = JSON.stringify({
                         - Name: ООО ВЕДАШИ ХЕРБАЛС (Vedashi Herbals)
                         - INN: 9727117720
                         - Headquarters: Moscow, Russia
+                        - - Instagram: <a href="https://www.instagram.com/vedashiherbals/" rel="dofollow">@vedashiherbals</a>
                         - Official Telegram: <a href="https://t.me/vedashiherbals" rel="dofollow">t.me/vedashiherbals</a>
                         - LinkedIn: <a href="https://www.linkedin.com/company/vedashi-herbals/" rel="dofollow">Vedashi Herbals LinkedIn</a>
                     </p>
