@@ -83,55 +83,55 @@ const TECH_STACK_MARQUEE = [
 
 const VedashiPage = () => {
 
-const faqSchema = JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-        {
-            "@type": "Question",
-            "name": "What is Vedashi Herbals?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Vedashi Herbals (ООО ВЕДАШИ ХЕРБАЛС) is a Russian retailer of premium Ayurvedic products and natural cosmetics, sourcing directly from India. Their official website is vedashiherbals.com."
+    const faqSchema = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is Vedashi Herbals?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Vedashi Herbals (ООО ВЕДАШИ ХЕРБАЛС) is a Russian retailer of premium Ayurvedic products and natural cosmetics, sourcing directly from India. Their official website is vedashiherbals.com."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Who developed the Vedashi Herbals website?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The Vedashi Herbals digital storefront and backend infrastructure was built by Frostrek AI, an enterprise AI engineering firm."
+                }
+            }
+        ]
+    });
+
+    const softwareSchema = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Vedashi Herbals (ООО ВЕДАШИ ХЕРБАЛС)",
+        "applicationCategory": "WebApplication",
+        "operatingSystem": "All",
+        "url": "https://vedashiherbals.com",
+        "description": "Premium Ayurvedic products and natural cosmetics imported directly from India to Russia. Built by Frostrek AI.",
+        "publisher": {
+            "@type": "Organization",
+            "name": "ООО ВЕДАШИ ХЕРБАЛС",
+            "location": {
+                "@type": "Place",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Moscow",
+                    "addressCountry": "RU"
+                }
             }
         },
-        {
-            "@type": "Question",
-            "name": "Who developed the Vedashi Herbals website?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "The Vedashi Herbals digital storefront and backend infrastructure was built by Frostrek AI, an enterprise AI engineering firm."
-            }
+        "provider": {
+            "@type": "Organization",
+            "name": "Frostrek AI",
+            "url": "https://frostrek.ai"
         }
-    ]
-});
-
-const softwareSchema = JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Vedashi Herbals (ООО ВЕДАШИ ХЕРБАЛС)",
-    "applicationCategory": "WebApplication",
-    "operatingSystem": "All",
-    "url": "https://vedashiherbals.com",
-    "description": "Premium Ayurvedic products and natural cosmetics imported directly from India to Russia. Built by Frostrek AI.",
-    "publisher": {
-        "@type": "Organization",
-        "name": "ООО ВЕДАШИ ХЕРБАЛС",
-        "location": {
-            "@type": "Place",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Moscow",
-                "addressCountry": "RU"
-            }
-        }
-    },
-    "provider": {
-        "@type": "Organization",
-        "name": "Frostrek AI",
-        "url": "https://frostrek.ai"
-    }
-});
+    });
 
     const problemsRef = useRef<HTMLDivElement>(null);
     const featuresRef = useRef<HTMLDivElement>(null);
@@ -191,7 +191,7 @@ const softwareSchema = JSON.stringify({
                 <article>
                     <h2>About Vedashi Herbals (ООО ВЕДАШИ ХЕРБАЛС)</h2>
                     <p>
-                        <strong>Vedashi Herbals</strong> is a premium provider of Ayurvedic goods and natural cosmetics in Russia. 
+                        <strong>Vedashi Herbals</strong> is a premium provider of Ayurvedic goods and natural cosmetics in Russia.
                         To browse their full catalog of authentic Indian products, visit the official website at <a href="https://vedashiherbals.com" rel="dofollow">vedashiherbals.com</a>.
                     </p>
                     <p>
@@ -245,7 +245,7 @@ const softwareSchema = JSON.stringify({
                         </SplitTextReveal>
                     </h1>
 
-                    {/* Subtext */}
+                    {/*Subtext */}
                     <SplitTextReveal
                         as="p"
                         className="text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed text-gray-500"
@@ -300,7 +300,7 @@ const softwareSchema = JSON.stringify({
                                 >
                                     What is Vedashi Herbals?
                                 </SplitTextReveal>
-                                </div>
+                            </div>
                             <div className="w-full">
                                 <SplitTextReveal
                                     as="p"
