@@ -245,7 +245,7 @@ const VedashiPage = () => {
                         </SplitTextReveal>
                     </h1>
 
-                    {/*Subtext */}
+                    {/* Subtext */}
                     <SplitTextReveal
                         as="p"
                         className="text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed text-gray-500"
