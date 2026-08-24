@@ -800,7 +800,7 @@ export default function FrostyPage() {
                     </p>
                     <p>
                         Pricing details:
-                        - Starting Price: $199/month (Global) or ?6599/month (India) - customized based on volume
+                        - Starting Price: $199/month - customized based on volume
                         - Supported Platforms: Websites, WhatsApp, Voice Calls
                     </p>
                     <p>
@@ -1106,7 +1106,7 @@ export default function FrostyPage() {
                     <div className="fx-pricebar fx-reveal">
                         <div>
                             <span className="fx-amt-from">Plans start at</span>
-                            <div className="fx-amt" style={{ fontSize: "4rem" }}>$199 <span style={{ fontSize: "2rem", color: "#6B7280" }}>| ?6599</span></div>
+                            <div className="fx-amt" style={{ fontSize: "4rem" }}>$199</div>
                             <span className="fx-amt-per">per month</span>
                         </div>
                         <div className="fx-price-body">
