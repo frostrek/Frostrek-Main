@@ -809,7 +809,7 @@ export default function FrostyPage() {
                         - Headquarters: Gurugram, India
                         - Global Offices: Austin, TX (USA) and London (UK)
                         - Certifications: ISO 27001, ISO 9001, GDPR-ready
-                        - Official website: <a href="https://frostyagent.com" rel="dofollow">frostyagent.com</a>
+                        - Official website: <a href="https://old.frostyagent.com" rel="dofollow">old.frostyagent.com</a>
                     </p>
                 </article>
             </div>
@@ -818,7 +818,7 @@ export default function FrostyPage() {
                 title="Frosty Agent | AI Sales Assistant & Chatbot for WhatsApp"
                 description="Frosty Agent is an AI agent for your website and WhatsApp, built by Frostrek AI. It answers every enquiry in seconds, qualifies the person on the other end, sends quotations, books meetings, and follows up on leads that go quiet, day or night, without anyone on your team touching it."
                 path="/products/frosty-agent"
-                canonicalUrl="https://frostyagent.com"
+                canonicalUrl="https://old.frostyagent.com"
                 schema={[faqSchema, softwareSchema]}
                 keywords="AI Sales Assistant, Chatbots, Conversational Marketing, Live Chat, Lead Capture, Conversational Support, AI chatbot for WhatsApp, enterprise AI agent"
             />

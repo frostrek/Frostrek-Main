@@ -36,7 +36,7 @@ export function resolveBotWsBases(apiBase?: string): string[] {
     if (typeof window !== 'undefined') {
         const host = window.location.hostname;
         if (host === 'localhost' || host === '127.0.0.1') {
-            out.push('wss://frostyagent.com/bot-api');
+            out.push('wss://old.frostyagent.com/bot-api');
         }
     }
 
@@ -50,7 +50,7 @@ export function resolveBotWsBases(apiBase?: string): string[] {
         }
     }
 
-    out.push('wss://frostyagent.com/bot-api');
+    out.push('wss://old.frostyagent.com/bot-api');
 
     return Array.from(new Set(out));
 }

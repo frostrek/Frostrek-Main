@@ -91,7 +91,7 @@ export const EXTERNAL_LINKS = {
     hiyring: 'https://hiyring.com',
     vedashi: 'https://vedashiherbals.com',
     akashLinkedin: 'https://www.linkedin.com/in/akash-mittal/',
-    frosty: 'https://frostyagent.com'
+    frosty: 'https://old.frostyagent.com'
 };
 
 export const COMPANY_INFO = {

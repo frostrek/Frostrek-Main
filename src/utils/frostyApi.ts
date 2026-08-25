@@ -1,6 +1,6 @@
 /** Frosty bot API — shared config and helpers for chat, voice, and TTS. */
 
-export const FROSTY_API_BASE = 'https://frostyagent.com/bot-api';
+export const FROSTY_API_BASE = 'https://old.frostyagent.com/bot-api';
 export const FROSTY_API_KEY = (typeof import.meta !== 'undefined' && import.meta.env?.VITE_FROSTREK_BOT_API_KEY) || 'frosty_cf5ae3a1_K-FJC-5F9cEl6_7_dR5JRLbXDgbeAtNf';
 
 let cachedTenantId: string | null = null;
