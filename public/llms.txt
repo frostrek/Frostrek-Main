@@ -19,6 +19,7 @@
 - [Manufacturing Intelligence](https://www.frostrek.ai/solutions/manufacturing-intelligence): AI-driven operational intelligence. Digital shift handovers and quality capture replacing WhatsApp with structured data.
 - [Voice AI](https://www.frostrek.ai/solutions/voice-ai): Enterprise-grade AI calling agents capable of handling complex regional dialects and high-volume calls.
 - [Custom LLM Fine-Tuning](https://www.frostrek.ai/solutions/llm-model-training): Managed RLHF alignment, red-teaming, and dataset preparation services.
+- [AI Visibility & Search Intelligence (SEO, AEO, GEO)](https://www.frostrek.ai/solutions/ai-visibility): Unified AI search optimization — entity architecture, structured data graphs, llms.txt implementation, and generative citation auditing to maximize brand visibility across Google, ChatGPT, Perplexity, and Gemini.
 - [Web3 & Fintech](https://www.frostrek.ai/solutions/fintech-custom-wallets): Custom fintech wallets, closed-loop loyalty systems, and crypto payment integrations.
 - [Multivendor Dashboard](https://www.frostrek.ai/solutions/multivendor-dashboard): Centralized management for multivendor ecommerce platforms.
 
