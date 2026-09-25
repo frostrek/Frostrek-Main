@@ -60,6 +60,7 @@ export const NAV_ITEMS: NavItem[] = [
                 title: '03 AI/ML SERVICES',
                 items: [
                     { name: 'LLM Model Training', href: '/solutions/llm-model-training', desc: 'Custom LLM fine-tuning, RLHF alignment, and RAG for enterprises.', icon: '/icons/machine-learning-green.webp', hoverBgClass: 'hover:bg-[#F0FDF4]' },
+                    { name: 'AI Visibility (SEO•AEO•GEO)', href: '/solutions/ai-visibility', desc: 'Be found where answers are born — Google, ChatGPT, Perplexity & Gemini.', icon: '/icons/data-analytics-green.png', hoverBgClass: 'hover:bg-[#F0FDF4]' },
                 ],
             },
         ],

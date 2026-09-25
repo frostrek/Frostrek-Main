@@ -6,6 +6,7 @@ const validRoutes = [
   '/products/frosty-agent', '/products/vettedge', '/solutions/fintech-custom-wallets', 
   '/solutions/multivendor-dashboard', '/solutions/manufacturing-intelligence', 
   '/solutions/ai-agents', '/solutions/voice-ai', '/solutions/llm-model-training', 
+  '/solutions/ai-visibility',
   '/resources/case-studies', '/resources/blog', '/about', '/experience', 
   '/careers', '/contact', '/resources/faq'
 ];
@@ -18,6 +19,7 @@ function isRouteValid(route) {
   if (route.startsWith('/pdf/')) return true; // Static assets
   if (route.startsWith('/icons/')) return true; // Static assets
   if (route.startsWith('/optimized/')) return true; // Static assets
+  if (route === '/llms.txt' || route === '/sitemap.xml') return true; // Static files
   return false;
 }
 

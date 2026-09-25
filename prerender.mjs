@@ -46,6 +46,7 @@ const routes = [
   '/solutions/ai-agents',
   '/solutions/voice-ai',
   '/solutions/llm-model-training',
+  '/solutions/ai-visibility',
   // Dynamic Blog posts
   ...dynamicBlogSlugs
 ];
