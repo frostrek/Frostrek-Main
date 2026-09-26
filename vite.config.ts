@@ -117,6 +117,16 @@ export default defineConfig({
     contactApiDevPlugin(),
     react(),
   ],
+  server: {
+    proxy: {
+      '/api/frosty': {
+        target: 'https://api.testing.frostyagent.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/frosty/, ''),
+        secure: true,
+      },
+    },
+  },
   build: {
     chunkSizeWarningLimit: 1600,
     cssCodeSplit: true,

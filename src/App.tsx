@@ -29,8 +29,8 @@ const ManufacturingIntelligencePage = lazy(() => import('./pages/ManufacturingIn
 const AIAgentsPage = lazy(() => import('./pages/AIAgentsPage'));
 const VoiceAIPage = lazy(() => import('./pages/VoiceAIPage'));
 const LLMModelTrainingPage = lazy(() => import('./pages/LLMModelTrainingPage'));
-// Lazy load Chatbot to improve LCP - defers 705KB GIF and JS bundle
-const Chatbot = lazy(() => import('./components/chat/Chatbot'));
+// Load FrostyWidget snippet from new Frosty-Agent platform
+const FrostyWidget = lazy(() => import('./components/chat/FrostyWidget'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 // Placeholder for internal pages
@@ -93,7 +93,7 @@ function App() {
             </main>
             <Suspense fallback={null}>
               <Footer />
-              <Chatbot />
+              <FrostyWidget />
             </Suspense>
           </div>
       </ThemeProvider>

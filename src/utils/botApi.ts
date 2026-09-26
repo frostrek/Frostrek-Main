@@ -33,24 +33,17 @@ export function resolveBotWsBases(apiBase?: string): string[] {
         out.push(envWs.trim().replace(/\/$/, ''));
     }
 
-    if (typeof window !== 'undefined') {
-        const host = window.location.hostname;
-        if (host === 'localhost' || host === '127.0.0.1') {
-            out.push('wss://old.frostyagent.com/bot-api');
-        }
-    }
-
     if (/^https?:\/\//i.test(base)) {
         try {
             const parsed = new URL(base);
             const wsProto = parsed.protocol === 'https:' ? 'wss:' : 'ws:';
             out.push(`${wsProto}//${parsed.host}${parsed.pathname.replace(/\/$/, '')}`);
         } catch {
-            // Ignore malformed URLs and keep fallback candidates.
+            // Ignore malformed URLs
         }
     }
 
-    out.push('wss://old.frostyagent.com/bot-api');
+    out.push('wss://api.testing.frostyagent.com');
 
     return Array.from(new Set(out));
 }

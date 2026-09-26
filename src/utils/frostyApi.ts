@@ -1,35 +1,58 @@
-/** Frosty bot API — shared config and helpers for chat, voice, and TTS. */
+/** Frosty bot API — shared config and helpers strictly for the new Frosty-Agent platform. */
 
-export const FROSTY_API_BASE = 'https://old.frostyagent.com/bot-api';
-export const FROSTY_API_KEY = (typeof import.meta !== 'undefined' && import.meta.env?.VITE_FROSTREK_BOT_API_KEY) || 'frosty_cf5ae3a1_K-FJC-5F9cEl6_7_dR5JRLbXDgbeAtNf';
-
-let cachedTenantId: string | null = null;
+export const FROSTY_API_BASE = (() => {
+    if (typeof import.meta !== 'undefined' && import.meta.env?.VITE_FROSTY_API_BASE) {
+        return import.meta.env.VITE_FROSTY_API_BASE;
+    }
+    // In local development, route through Vite proxy to avoid localhost CORS restrictions
+    if (typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
+        return '/api/frosty';
+    }
+    // In production (https://www.frostrek.ai), call the live Frosty Agent API directly
+    return 'https://api.testing.frostyagent.com';
+})();
+export const FROSTY_API_KEY = (typeof import.meta !== 'undefined' && import.meta.env?.VITE_FROSTREK_BOT_API_KEY) || 'frosty_live_PkK4APzJZKZg_QxtA-QoreMMY5Zmki4g';
+export const FROSTY_AGENT_ID = (typeof import.meta !== 'undefined' && import.meta.env?.VITE_FROSTREK_AGENT_ID) || '44dff393-10df-4665-8cb9-6cba4afac695';
 
 export async function getTenantId(): Promise<string> {
-    if (cachedTenantId) return cachedTenantId;
-    if (!FROSTY_API_KEY) return 'default';
+    return FROSTY_AGENT_ID;
+}
+
+export function getWebsiteSessionId(_tenantId: string, sessionId: string): string {
+    return sessionId;
+}
+
+/** Get or create conversation session strictly on the new Frosty-Agent API. */
+export async function getOrCreateConversation(webSessionId?: string): Promise<string> {
+    const sessionKey = 'frosty_experience_conversation_id';
+    const stored = typeof sessionStorage !== 'undefined' ? sessionStorage.getItem(sessionKey) : null;
+    if (stored) return stored;
 
     try {
-        const res = await fetch(`${FROSTY_API_BASE}/tenant/bot-config`, {
-            headers: { 'x-api-key': FROSTY_API_KEY },
+        const res = await fetch(`${FROSTY_API_BASE}/v1/public/widget/sessions`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+            body: JSON.stringify({
+                api_key: FROSTY_API_KEY,
+                agent_id: FROSTY_AGENT_ID,
+                web_session: webSessionId || `exp_${Math.random().toString(36).substring(2, 10)}`,
+            }),
         });
-        if (!res.ok) return 'default';
-        const data = await res.json();
-        const id = String(data?.tenant_id || '').trim();
-        if (id) cachedTenantId = id;
-        return id || 'default';
-    } catch {
-        return 'default';
+
+        if (res.ok) {
+            const data = await res.json();
+            const convId = data?.data?.conversation_id || data?.data?.session_id;
+            if (convId) {
+                if (typeof sessionStorage !== 'undefined') {
+                    sessionStorage.setItem(sessionKey, convId);
+                }
+                return convId;
+            }
+        }
+    } catch (err) {
+        console.warn('[Frosty] Session creation error:', err);
     }
-}
-
-export function getWebsiteSessionId(tenantId: string, sessionId: string): string {
-    return `${tenantId}--website--${sessionId}`;
-}
-
-export function getVoiceCallWsUrl(bridgedSessionId: string): string {
-    const wsBase = FROSTY_API_BASE.replace(/^http/i, 'ws').replace(/\/$/, '');
-    return `${wsBase}/ws/voice-call/${encodeURIComponent(bridgedSessionId)}`;
+    return webSessionId || 'default_session';
 }
 
 export type ChatStreamCallbacks = {
@@ -37,17 +60,42 @@ export type ChatStreamCallbacks = {
     onFinal?: (reply: string) => void;
 };
 
-/** Parse SSE stream from POST /chat/stream (JSON or multipart). */
-export async function consumeChatStream(
-    response: Response,
+/** Send message and consume SSE stream strictly from POST /v1/public/widget/sessions/{conversation_id}/messages */
+export async function postChatStream(
+    payload: Record<string, string> | FormData,
     callbacks: ChatStreamCallbacks
 ): Promise<string> {
-    if (!response.ok) {
-        const err = await response.text();
-        throw new Error(err || `Chat request failed (${response.status})`);
+    let text = '';
+    let webSession = '';
+
+    if (payload instanceof FormData) {
+        text = String(payload.get('message') || '');
+        webSession = String(payload.get('session_id') || '');
+    } else {
+        text = payload.message || payload.text || '';
+        webSession = payload.session_id || '';
     }
 
-    const reader = response.body!.getReader();
+    const conversationId = await getOrCreateConversation(webSession);
+
+    const res = await fetch(
+        `${FROSTY_API_BASE}/v1/public/widget/sessions/${encodeURIComponent(conversationId)}/messages`,
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'text/event-stream',
+            },
+            body: JSON.stringify({ text }),
+        }
+    );
+
+    if (!res.ok) {
+        const err = await res.text();
+        throw new Error(err || `Chat request failed (${res.status})`);
+    }
+
+    const reader = res.body!.getReader();
     const decoder = new TextDecoder('utf-8');
     let buffer = '';
     let finalReply = '';
@@ -61,86 +109,60 @@ export async function consumeChatStream(
         buffer = parts.pop() || '';
 
         for (const part of parts) {
-            if (!part.startsWith('data: ')) continue;
-            const jsonStr = part.replace('data: ', '').trim();
-            if (!jsonStr) continue;
+            const lines = part.split('\n');
+            for (const line of lines) {
+                if (!line.startsWith('data: ')) continue;
+                const jsonStr = line.replace('data: ', '').trim();
+                if (!jsonStr) continue;
 
-            try {
-                const data = JSON.parse(jsonStr);
-                if (data.token) callbacks.onToken?.(data.token);
-                if (data.final?.reply) {
-                    finalReply = data.final.reply;
-                    callbacks.onFinal?.(finalReply);
+                try {
+                    const data = JSON.parse(jsonStr);
+                    const tokenText = data.text || data.token;
+                    if (tokenText) {
+                        finalReply += tokenText;
+                        callbacks.onToken?.(tokenText);
+                    }
+                } catch {
+                    // ignore malformed chunks
                 }
-            } catch {
-                // ignore malformed chunks
             }
         }
     }
 
+    callbacks.onFinal?.(finalReply);
     return finalReply;
 }
 
-export async function postChatStream(
-    payload: Record<string, string> | FormData,
-    callbacks: ChatStreamCallbacks
-): Promise<string> {
-    const isFormData = payload instanceof FormData;
-    const headers: Record<string, string> = { 'x-api-key': FROSTY_API_KEY };
-    if (!isFormData) headers['Content-Type'] = 'application/json';
+export type VoiceTicketResult = {
+    ticket: string | null;
+    error?: string;
+};
 
-    const res = await fetch(`${FROSTY_API_BASE}/chat/stream`, {
-        method: 'POST',
-        headers,
-        body: isFormData ? payload : JSON.stringify(payload),
-    });
-
-    return consumeChatStream(res, callbacks);
-}
-
-/** Stream TTS audio (audio/mpeg) and play it in the browser. */
-export async function playTtsStream(text: string): Promise<void> {
-    const trimmed = text.trim();
-    if (!trimmed || !FROSTY_API_KEY) return;
-
-    const res = await fetch(`${FROSTY_API_BASE}/tts/stream`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'x-api-key': FROSTY_API_KEY,
-        },
-        body: JSON.stringify({ text: trimmed }),
-    });
-
-    if (!res.ok) return;
-
-    const chunks: Uint8Array[] = [];
-    const reader = res.body!.getReader();
-    while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-        if (value?.byteLength) chunks.push(value);
+/** Mint S2S ticket for voice WebSocket strictly on the new Frosty-Agent platform */
+export async function fetchVoiceTicket(conversationId: string): Promise<VoiceTicketResult> {
+    try {
+        const res = await fetch(
+            `${FROSTY_API_BASE}/v1/public/widget/sessions/${encodeURIComponent(conversationId)}/live-s2s/ticket`,
+            {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+            }
+        );
+        if (!res.ok) {
+            let errMsg = 'Failed to obtain live voice ticket';
+            try {
+                const errJson = await res.json();
+                if (errJson?.error?.message === 'feature_not_entitled') {
+                    errMsg = 'Live voice calling requires the "live_voice" entitlement to be enabled for this agent in your Frosty Agent dashboard.';
+                } else if (errJson?.error?.message) {
+                    errMsg = errJson.error.message;
+                }
+            } catch { /* ignore */ }
+            return { ticket: null, error: errMsg };
+        }
+        const data = await res.json();
+        return { ticket: data?.ticket || null };
+    } catch (err: any) {
+        return { ticket: null, error: err?.message || 'Network error' };
     }
-
-    const total = chunks.reduce((s, c) => s + c.byteLength, 0);
-    const merged = new Uint8Array(total);
-    let offset = 0;
-    for (const chunk of chunks) {
-        merged.set(chunk, offset);
-        offset += chunk.byteLength;
-    }
-
-    const url = URL.createObjectURL(new Blob([merged], { type: 'audio/mpeg' }));
-    const audio = new Audio(url);
-    audio.onended = () => URL.revokeObjectURL(url);
-    await audio.play().catch(() => undefined);
-}
-
-export function buildVoiceFormData(audioBlob: Blob, bridgedSessionId: string): FormData {
-    const formData = new FormData();
-    formData.append('audio', audioBlob, 'voice-message.webm');
-    formData.append('message', '[Voice message]');
-    formData.append('session_id', bridgedSessionId);
-    formData.append('channel', 'website');
-    return formData;
 }

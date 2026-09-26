@@ -248,13 +248,8 @@ const ChatbotDemo: React.FC = () => {
                         key={idx}
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className={`flex gap-2 max-w-[85%] ${msg.type === 'user' ? 'self-end flex-row-reverse' : ''}`}
+                        className={`flex max-w-[85%] ${msg.type === 'user' ? 'self-end' : 'self-start'}`}
                     >
-                        {msg.type === 'user' && (
-                            <div className="w-7.5 h-7.5 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden border bg-gray-100 border-gray-200 text-gray-500">
-                                <span className="text-[9px] font-bold">You</span>
-                            </div>
-                        )}
                         <div
                             className={`p-3 rounded-2xl text-sm leading-relaxed whitespace-pre-wrap font-medium shadow-sm ${
                                 msg.type === 'user'
