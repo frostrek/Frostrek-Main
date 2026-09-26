@@ -126,7 +126,9 @@ async function prerenderRoute(browser, route, port) {
       url.includes('google-analytics.com') ||
       url.includes('doubleclick.net') ||
       url.includes('facebook.net') ||
-      url.includes('hotjar.com')
+      url.includes('hotjar.com') ||
+      url.includes('frosty-widget.js') ||
+      url.includes('frostyagent.com')
     ) {
       req.abort();
     } else {
@@ -252,6 +254,13 @@ async function prerenderRoute(browser, route, port) {
     // The SEO tool flags any inline style as an error.
     // Framer Motion re-injects necessary styles on the client side during hydration.
     finalHtml = finalHtml.replace(/\sstyle="[^"]*"/gi, '');
+
+    // ── Clean up dynamic third-party widgets from static HTML ───────
+    // The chatbot widget must be mounted live on client browsers.
+    // Any prerendered shell or script tag prevents client re-initialization.
+    finalHtml = finalHtml.replace(/<div id="frosty-widget-root"[^>]*>[\s\S]*?<\/div>/gi, '');
+    finalHtml = finalHtml.replace(/<script[^>]*frosty-widget\.js[^>]*><\/script>/gi, '');
+
     writeFileSync(outFile, finalHtml, 'utf-8');
     
     // Also write a flat .html file for AWS Amplify / S3 clean URL compatibility

@@ -29,8 +29,7 @@ const ManufacturingIntelligencePage = lazy(() => import('./pages/ManufacturingIn
 const AIAgentsPage = lazy(() => import('./pages/AIAgentsPage'));
 const VoiceAIPage = lazy(() => import('./pages/VoiceAIPage'));
 const LLMModelTrainingPage = lazy(() => import('./pages/LLMModelTrainingPage'));
-// Load FrostyWidget snippet from new Frosty-Agent platform
-const FrostyWidget = lazy(() => import('./components/chat/FrostyWidget'));
+import FrostyWidget from './components/chat/FrostyWidget';
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 // Placeholder for internal pages
