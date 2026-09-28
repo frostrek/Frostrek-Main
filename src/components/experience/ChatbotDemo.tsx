@@ -6,13 +6,17 @@ import {
     getTenantId,
     getWebsiteSessionId,
     postChatStream,
+    getBotAppearance,
+    isValidUuid,
 } from '../../utils/frostyApi';
 
 function getOrCreateSessionId(): string {
-    let sessionId = sessionStorage.getItem('experience_chat_session');
-    if (!sessionId) {
-        sessionId = crypto.randomUUID();
-        sessionStorage.setItem('experience_chat_session', sessionId);
+    let sessionId = typeof sessionStorage !== 'undefined' ? sessionStorage.getItem('experience_chat_session') : null;
+    if (!sessionId || !isValidUuid(sessionId)) {
+        sessionId = typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : 'exp_session_' + Date.now();
+        if (typeof sessionStorage !== 'undefined') {
+            sessionStorage.setItem('experience_chat_session', sessionId);
+        }
     }
     return sessionId;
 }
@@ -112,15 +116,41 @@ interface Message {
 
 const ChatbotDemo: React.FC = () => {
     const [message, setMessage] = useState('');
-    const [messages, setMessages] = useState<Message[]>([
-        { type: 'bot', content: "Hello! 👋 I'm Frosty, Frostrek's AI assistant.\nHow can I help you innovate today?" },
-    ]);
+    const [messages, setMessages] = useState<Message[]>(() => {
+        let greeting = 'Hi! How can we help?';
+        if (typeof sessionStorage !== 'undefined') {
+            const cached = sessionStorage.getItem('frosty_bot_greeting');
+            if (cached) greeting = cached;
+        }
+        return [{ type: 'bot', content: greeting }];
+    });
     const [isLoading, setIsLoading] = useState(false);
     const [sessionId] = useState<string>(() => getOrCreateSessionId());
 
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const chatBodyRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
+
+    useEffect(() => {
+        try {
+            const sessionKey = 'frosty_experience_conversation_id';
+            const cachedConv = sessionStorage.getItem(sessionKey);
+            if (cachedConv && !isValidUuid(cachedConv)) {
+                sessionStorage.removeItem(sessionKey);
+            }
+        } catch { /* ignore */ }
+
+        void getBotAppearance().then(({ greeting }) => {
+            if (greeting) {
+                setMessages((prev) => {
+                    if (prev.length === 1 && prev[0].type === 'bot' && prev[0].content !== greeting) {
+                        return [{ type: 'bot', content: greeting }];
+                    }
+                    return prev;
+                });
+            }
+        });
+    }, []);
 
     const scrollToBottom = () => {
         const scrollX = window.scrollX;
@@ -183,16 +213,19 @@ const ChatbotDemo: React.FC = () => {
             );
         } catch (error) {
             console.error('Error sending message:', error);
+            try {
+                sessionStorage.removeItem('frosty_experience_conversation_id');
+            } catch { /* ignore */ }
             setMessages((prev) => {
                 if (prev.length > 0 && prev[prev.length - 1].type === 'bot' && !prev[prev.length - 1].content) {
                     const updated = [...prev];
                     updated[updated.length - 1] = {
                         ...updated[updated.length - 1],
-                        content: "Sorry, I'm having trouble connecting right now.",
+                        content: "Sorry, I'm having trouble connecting right now. Please try again.",
                     };
                     return updated;
                 }
-                return [...prev, { type: 'bot', content: "Sorry, I'm having trouble connecting right now." }];
+                return [...prev, { type: 'bot', content: "Sorry, I'm having trouble connecting right now. Please try again." }];
             });
         } finally {
             setIsLoading(false);

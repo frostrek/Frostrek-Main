@@ -5,6 +5,8 @@ import {
     getTenantId,
     getOrCreateConversation,
     fetchVoiceTicket,
+    getBotAppearance,
+    isValidUuid,
     FROSTY_API_KEY,
 } from '../../utils/frostyApi';
 
@@ -36,6 +38,17 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
     const [audioLevel, setAudioLevel] = useState(0);
 
     useEffect(() => {
+        try {
+            const storedConv = sessionStorage.getItem('frosty_experience_conversation_id');
+            if (storedConv && !isValidUuid(storedConv)) {
+                sessionStorage.removeItem('frosty_experience_conversation_id');
+            }
+            const storedSid = sessionStorage.getItem('voiceCallSessionId');
+            if (storedSid && !isValidUuid(storedSid)) {
+                sessionStorage.removeItem('voiceCallSessionId');
+            }
+        } catch { /* ignore */ }
+
         return () => {
             endCall();
         };
@@ -47,8 +60,8 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
 
     const generateSessionId = () => {
         let sid = sessionStorage.getItem('voiceCallSessionId');
-        if (!sid) {
-            sid = 'sess_' + Math.random().toString(36).substring(2, 9);
+        if (!sid || !isValidUuid(sid)) {
+            sid = typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : 'exp_' + Math.random().toString(36).substring(2, 10);
             sessionStorage.setItem('voiceCallSessionId', sid);
         }
         return sid;
@@ -226,6 +239,9 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
             const { ticket, error } = await fetchVoiceTicket(conversationId);
 
             if (!ticket) {
+                try {
+                    sessionStorage.removeItem('frosty_experience_conversation_id');
+                } catch { /* ignore */ }
                 setAiResponse(error || 'Live voice agent requires the "live_voice" entitlement to be active in your Frosty Agent dashboard.');
                 setIsLoading(false);
                 setCallStatus('ended');
@@ -260,10 +276,12 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
                     const type = msg.type || msg.event;
                     switch (type) {
                         case 'ready':
-                        case 's2s.ready':
-                            setAiResponse("Hi! I'm Frostrek's AI assistant. How can I help you today?");
+                        case 's2s.ready': {
+                            const { greeting } = await getBotAppearance();
+                            setAiResponse(greeting || "Hi! How can we help?");
                             void startMicStream(ws, stream);
                             break;
+                        }
                         case 'transcript':
                         case 'user_final':
                             setTranscript(msg.text || msg.data?.text || '');

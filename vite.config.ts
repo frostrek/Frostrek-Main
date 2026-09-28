@@ -118,6 +118,9 @@ export default defineConfig({
     react(),
   ],
   server: {
+    watch: {
+      ignored: ['**/*.zip', '**/dist/**', '**/*.patch'],
+    },
     proxy: {
       '/api/frosty': {
         target: 'https://api.testing.frostyagent.com',
