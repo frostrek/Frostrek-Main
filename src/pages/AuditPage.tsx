@@ -95,7 +95,7 @@ export default function AuditPage() {
 
             <div className="container mx-auto px-4 md:px-6 relative z-10 max-w-6xl">
                 {/* Header */}
-                <div className="text-center max-w-3xl mx-auto mb-16">
+                <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16">
                     <motion.div
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}

@@ -840,8 +840,8 @@ export default function AIVisibilityPage() {
                 className="py-20 bg-white relative z-10"
             >
                 <div className="container mx-auto px-4 md:px-6 max-w-6xl">
-                    <header className="text-center mb-16">
-                        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E8F5EE] text-[#2D6A4F] text-xs font-bold uppercase tracking-wider mb-4">
+                    <header className="flex flex-col items-center text-center mb-16">
+                        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E8F5EE] border border-[#2D6A4F]/20 text-[#2D6A4F] text-xs font-bold uppercase tracking-wider mb-4">
                             <Zap className="w-3.5 h-3.5" />
                             Predictable Investment
                         </div>
