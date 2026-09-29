@@ -75,6 +75,8 @@ export default function SEO({
       {/* Standard metadata tags */}
       <title>{title}</title>
       <meta name="description" content={description} />
+      <meta name="author" content="Frostrek AI" />
+      <meta name="publisher" content="Frostrek AI" />
       {keywords && <meta name="keywords" content={keywords} />}
       {noindex && <meta name="robots" content="noindex" />}
 
@@ -109,11 +111,12 @@ export default function SEO({
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org",
         "@type": "Organization",
+        "@id": "https://www.frostrek.ai/#organization",
         "name": "Frostrek AI",
         "url": "https://www.frostrek.ai",
         "logo": "https://www.frostrek.ai/logo.png",
         "description": "Frostrek AI delivers AI agents, LLM training, customized applications, workflow automation, and data annotation services for enterprises and frontier AI teams.",
-        "foundingDate": "2019",
+        "foundingDate": "2021",
         "founder": {
           "@type": "Person",
           "name": "Akash Mittal"
@@ -156,9 +159,8 @@ export default function SEO({
           "availableLanguage": ["English"]
         },
         "sameAs": [
-          "https://www.wikidata.org/wiki/Q140454089",
           "https://www.linkedin.com/company/frostrek",
-          "https://www.instagram.com/frostrek.ai",
+          "https://www.instagram.com/frostrekai",
           "https://twitter.com/frostrek"
         ],
         "hasCredential": [

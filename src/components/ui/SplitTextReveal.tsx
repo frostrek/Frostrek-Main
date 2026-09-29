@@ -193,8 +193,14 @@ const SplitTextReveal = ({
         <Component
             ref={containerRef as any}
             className={cn("split-text-reveal relative inline-block", className)}
+            aria-label={children}
         >
-            {splitElements}
+            {/* Plain text fallback for crawlers (GPTBot, ClaudeBot, Perplexity) & screen readers */}
+            <span className="sr-only">{children}</span>
+            {/* Visual animated spans hidden from accessibility tree and bots */}
+            <span aria-hidden="true" className="contents select-none">
+                {splitElements}
+            </span>
         </Component>
     );
 };

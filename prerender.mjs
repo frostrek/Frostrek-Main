@@ -27,6 +27,7 @@ const routes = [
   '/',
   '/about',
   '/schedule-demo',
+  '/audit',
   '/contact',
   '/experience',
   '/careers',

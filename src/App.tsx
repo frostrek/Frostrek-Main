@@ -30,6 +30,7 @@ const AIAgentsPage = lazy(() => import('./pages/AIAgentsPage'));
 const VoiceAIPage = lazy(() => import('./pages/VoiceAIPage'));
 const LLMModelTrainingPage = lazy(() => import('./pages/LLMModelTrainingPage'));
 const AIVisibilityPage = lazy(() => import('./pages/AIVisibilityPage'));
+const AuditPage = lazy(() => import('./pages/AuditPage'));
 // Lazy load Chatbot to improve LCP - defers 705KB GIF and JS bundle
 const Chatbot = lazy(() => import('./components/chat/Chatbot'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
@@ -79,6 +80,7 @@ function App() {
                   <Route path="/solutions/voice-ai" element={<VoiceAIPage />} />
                   <Route path="/solutions/llm-model-training" element={<LLMModelTrainingPage />} />
                   <Route path="/solutions/ai-visibility" element={<AIVisibilityPage />} />
+                  <Route path="/audit" element={<AuditPage />} />
 
                   <Route path="/resources/blog/:slug" element={<BlogPostPage />} />
                   <Route path="/resources/case-studies" element={<ResourcesPage />} />

@@ -4,7 +4,21 @@ import { motion } from 'framer-motion';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowRight, Plus, Minus, Globe, MessageSquare, Sparkles, Target, Layers, FileCode, BarChart3, CheckCircle2 } from 'lucide-react';
+import { 
+    ArrowRight, 
+    Plus, 
+    Minus, 
+    Globe, 
+    MessageSquare, 
+    Sparkles, 
+    Target, 
+    Layers, 
+    FileCode, 
+    BarChart3, 
+    CheckCircle2, 
+    ShieldCheck, 
+    Zap
+} from 'lucide-react';
 import CuteBackground from '../components/ui/CuteBackground';
 import SpotlightCard from '../components/ui/SpotlightCard';
 import SplitTextReveal from '../components/ui/SplitTextReveal';
@@ -12,20 +26,20 @@ import SEO from '../components/seo/SEO';
 
 gsap.registerPlugin(ScrollTrigger);
 
-/* ──────────────────── DATA ──────────────────── */
+/* ────────────────────────────────── DATA ────────────────────────────────── */
 
 const THREE_PILLARS = [
     {
         id: 'ai-powered-seo',
         title: 'AI-Powered SEO',
         subtitle: 'Search Engine Optimization, Reimagined',
-        description: 'Next-generation search strategies that go beyond keywords. We leverage entity modeling, semantic search architecture, and topical authority graphs to position your brand as the definitive answer across Google Search, Maps, and AI Overviews.',
+        description: 'Next-generation search strategies engineered beyond keyword density. We build entity models, semantic content clusters, and high-authority knowledge graphs that position your brand as the definitive factual answer across Google Search, Google Maps, and AI Overviews, driving sustainable organic conversions from search engines.',
         features: [
-            'Entity-based content architecture',
-            'Semantic keyword clustering & intent mapping',
-            'Technical SEO audits (Core Web Vitals, crawlability)',
-            'Google Knowledge Panel optimization',
-            'SERP feature targeting (Featured Snippets, AI Overviews)',
+            'Entity-based content architecture & semantic modeling',
+            'Semantic keyword clustering & intent graph mapping',
+            'Technical crawl audits & Core Web Vitals optimization',
+            'Google Knowledge Panel entity alignment',
+            'SERP feature targeting (Featured Snippets & AI Overviews)',
         ],
         icon: Globe,
         bgColor: 'bg-[#F0F9FF]',
@@ -41,13 +55,13 @@ const THREE_PILLARS = [
         id: 'answer-engine-optimization',
         title: 'Answer Engine Optimization (AEO)',
         subtitle: 'Get Cited in Conversational AI Responses',
-        description: 'Optimize your brand\'s knowledge so AI assistants — ChatGPT, Claude, Perplexity, Google Gemini — directly cite your expertise when users ask questions in your domain. AEO transforms your content into quotable, citable, authoritative answers.',
+        description: 'Structure your brand knowledge so conversational AI assistants directly cite your business when prospects research solutions. AEO transforms standard web pages into quotable, machine-readable answers optimized for real-time synthesis in ChatGPT, Claude, Perplexity, and Google Gemini, capturing zero-click buyers at the point of decision.',
         features: [
             'Conversational query targeting & answer engineering',
-            'Structured data markup (FAQ, HowTo, Q&A schema)',
-            'LLM-readable content formatting',
-            'AI citation monitoring & attribution tracking',
-            'Knowledge base creation for AI consumption',
+            'Comprehensive JSON-LD markup (FAQ, HowTo, Q&A, Service)',
+            'LLM-friendly content formatting & extractable definitions',
+            'AI citation monitoring & attribution telemetry',
+            'Machine-readable brand knowledge base architecture',
         ],
         icon: MessageSquare,
         bgColor: 'bg-[#F5F3FF]',
@@ -63,12 +77,12 @@ const THREE_PILLARS = [
         id: 'generative-engine-optimization',
         title: 'Generative Engine Optimization (GEO)',
         subtitle: 'Shape How AI Engines Recommend Your Brand',
-        description: 'Structure your brand\'s knowledge graph so generative AI engines accurately understand, represent, and recommend your brand. GEO ensures that when an AI synthesizes an answer, your brand is part of it.',
+        description: 'Construct unambiguous brand knowledge graphs so generative AI engines accurately understand, validate, and recommend your products. GEO ensures that when multi-modal LLMs synthesize category recommendations, your brand is positioned as the primary authority, preventing competitor bias and AI hallucination across modern answer engines.',
         features: [
-            'Brand knowledge graph construction',
-            'llms.txt & AI-readable feed implementation',
-            'Generative citation auditing & gap analysis',
-            'Entity disambiguation & authority signals',
+            'Brand knowledge graph construction & entity disambiguation',
+            'Structured data feeds & clean Markdown ingestion feeds',
+            'Generative citation gap analysis & competitive share-of-voice',
+            'Topical authority signaling & third-party citation building',
             'Multi-engine visibility (Gemini, ChatGPT, Perplexity, Copilot)',
         ],
         icon: Sparkles,
@@ -86,33 +100,33 @@ const THREE_PILLARS = [
 const COMPARISON_MATRIX = [
     {
         dimension: 'Primary Goal',
-        seo: 'Rank on search engine results pages (SERPs)',
-        aeo: 'Get cited as a direct answer in AI assistants',
-        geo: 'Be recommended by generative AI engines',
+        seo: 'Rank on traditional search engine results pages (SERPs)',
+        aeo: 'Get cited as a direct answer in conversational AI assistants',
+        geo: 'Be recommended by generative AI engines synthesizing queries',
     },
     {
         dimension: 'Target Platform',
         seo: 'Google, Bing, Yahoo',
-        aeo: 'ChatGPT, Claude, Perplexity, Google SGE',
-        geo: 'Gemini, Copilot, AI Overviews, SearchGPT',
+        aeo: 'ChatGPT, Claude, Perplexity, Google AI Overviews',
+        geo: 'Gemini, Copilot, SearchGPT, Perplexity Pro',
     },
     {
         dimension: 'Content Format',
-        seo: 'Web pages, blog posts, metadata',
-        aeo: 'Structured Q&A, FAQ schema, conversational content',
-        geo: 'Knowledge graphs, llms.txt, entity-rich data',
+        seo: 'Long-form articles, keywords, metadata tags',
+        aeo: 'Structured Q&A, FAQ schema, speakable snippets',
+        geo: 'Knowledge graphs, entity relationships, semantic feeds',
     },
     {
         dimension: 'Success Metric',
-        seo: 'Rankings, organic traffic, CTR',
+        seo: 'SERP rankings, organic impressions, CTR',
         aeo: 'Citation frequency, answer inclusion rate',
-        geo: 'Brand mention rate in AI-generated responses',
+        geo: 'Brand recommendation share-of-voice in LLMs',
     },
     {
         dimension: 'Key Technique',
-        seo: 'Keyword optimization, backlinks, technical SEO',
+        seo: 'Keyword optimization, backlinks, technical crawlability',
         aeo: 'Answer engineering, schema markup, authority signals',
-        geo: 'Entity architecture, knowledge feeds, citation auditing',
+        geo: 'Entity architecture, knowledge feeds, citation audits',
     },
     {
         dimension: 'Evolution Stage',
@@ -125,8 +139,8 @@ const COMPARISON_MATRIX = [
 const FRAMEWORK_STEPS = [
     {
         step: '1',
-        title: 'Entity Architecture',
-        description: 'We map your brand\'s knowledge domain, identify key entities, and structure your content around semantic relationships that both search engines and AI models understand.',
+        title: 'Entity Architecture & Modeling',
+        description: 'We map your brand knowledge domain, identify core entity relationships, and align your digital properties with recognized semantic databases. This ensures both traditional search algorithms and generative LLMs unambiguously recognize your company as a verified topical authority in your category.',
         icon: Target,
         iconBg: 'bg-[#F0F9FF]',
         iconBorder: 'border-[#BAE6FD]',
@@ -134,8 +148,8 @@ const FRAMEWORK_STEPS = [
     },
     {
         step: '2',
-        title: 'Structured Data Graphs',
-        description: 'We implement comprehensive structured data — JSON-LD schema, Open Graph, semantic HTML — creating machine-readable knowledge graphs that AI crawlers can parse and cite.',
+        title: 'Structured Knowledge Graphs',
+        description: 'We implement advanced JSON-LD schemas, Open Graph signals, and semantic markup to build a comprehensive machine-readable graph. AI crawlers parse these interconnected datasets without executing client-side scripts, establishing authoritative factual anchors for your services.',
         icon: Layers,
         iconBg: 'bg-[#F5F3FF]',
         iconBorder: 'border-[#DDD6FE]',
@@ -143,8 +157,8 @@ const FRAMEWORK_STEPS = [
     },
     {
         step: '3',
-        title: 'LLM Feeds (llms.txt)',
-        description: 'We create and maintain AI-readable feeds — including llms.txt, structured knowledge bases, and entity-rich content — that LLM crawlers can directly ingest for accurate brand representation.',
+        title: 'Machine-Readable Content Engineering',
+        description: 'We format your core value propositions, product documentation, and FAQs into high-entropy, extractable text passages. This architecture provides AI answer engines like Perplexity, ChatGPT, and Google Gemini with quotable snippets engineered for instant citation.',
         icon: FileCode,
         iconBg: 'bg-[#F0FDF4]',
         iconBorder: 'border-[#BBF7D0]',
@@ -152,12 +166,77 @@ const FRAMEWORK_STEPS = [
     },
     {
         step: '4',
-        title: 'Generative Citation Auditing',
-        description: 'We continuously monitor how AI engines represent your brand, audit citation accuracy, identify gaps, and iterate on your knowledge architecture to improve visibility over time.',
+        title: 'Generative Citation Auditing & Defense',
+        description: 'Our proprietary telemetry system runs weekly probes across leading LLMs to monitor brand citation frequency, detect hallucinations, and measure competitive share-of-voice. We continuously close citation gaps to expand your brand recommendation dominance over time.',
         icon: BarChart3,
         iconBg: 'bg-[#FFF7ED]',
         iconBorder: 'border-[#FFEDD5]',
         headingColor: 'text-[#C2410C]',
+    },
+];
+
+const PRICING_TIERS = [
+    {
+        name: 'Starter Foundation',
+        subtitle: 'Entity Setup & Crawler Readiness',
+        price: '$2,500',
+        cadence: '/month',
+        description: 'Ideal for emerging companies establishing early entity authority, structured schema, and baseline AI engine crawlability.',
+        features: [
+            'Full knowledge graph & JSON-LD schema architecture',
+            'Core Web Vitals & SSR HTML machine-readability audit',
+            '4-engine baseline audit (ChatGPT, Perplexity, Gemini, Claude)',
+            'Clean Markdown brand summary & knowledge feeds',
+            'Monthly citation frequency & attribution report',
+            'Dedicated technical SEO & schema specialist',
+        ],
+        ctaText: 'Get Started with Foundation',
+        ctaLink: '/audit',
+        highlighted: false,
+        border: 'border-gray-200',
+        bg: 'bg-white',
+    },
+    {
+        name: 'Growth Acceleration',
+        subtitle: 'Full GEO & AEO Market Expansion',
+        price: '$4,900',
+        cadence: '/month',
+        description: 'Our most popular plan for established brands seeking category leadership, multi-engine citations, and competitor displacement.',
+        features: [
+            'Everything included in Starter Foundation',
+            'Multi-engine GEO & AEO continuous optimization',
+            'Entity disambiguation across Knowledge Panels & Wikidata',
+            'Competitor citation conquesting & prompt share-of-voice',
+            'Speakable answer engineering for Google AI Overviews & SearchGPT',
+            'Bi-weekly citation probes & attribution telemetry dashboard',
+            'Priority Slack channel & bi-weekly strategy calls',
+        ],
+        ctaText: 'Accelerate Your AI Citations',
+        ctaLink: '/audit',
+        highlighted: true,
+        border: 'border-[#2D6A4F]',
+        bg: 'bg-[#F7FBF9]',
+        badge: 'Most Popular',
+    },
+    {
+        name: 'Enterprise Dominance',
+        subtitle: 'Category Authority & Custom LLMs',
+        price: '$8,500',
+        cadence: '/month',
+        description: 'Designed for enterprises, multi-brand portfolios, and organizations requiring dedicated AI strategists and real-time defense.',
+        features: [
+            'Everything included in Growth Acceleration',
+            'Programmatic entity modeling across multi-region domains',
+            'Custom LLM alignment datasets & RAG knowledge bases',
+            'Real-time citation anomaly & hallucination alert engine',
+            'Executive attribution reporting & C-suite dashboards',
+            'Dedicated Senior AI Search Strategist & custom SLA',
+        ],
+        ctaText: 'Contact Enterprise Team',
+        ctaLink: '/contact',
+        highlighted: false,
+        border: 'border-gray-200',
+        bg: 'bg-white',
     },
 ];
 
@@ -169,48 +248,45 @@ interface FAQ {
 const FAQS: FAQ[] = [
     {
         question: 'What is AI Visibility, and why does my brand need it?',
-        answer: 'AI Visibility is the practice of optimizing your brand\'s digital presence so that AI-powered search engines and conversational assistants — Google AI Overviews, ChatGPT, Perplexity, Gemini — accurately find, cite, and recommend your business. As more users bypass traditional search results and rely on AI-generated answers, brands that aren\'t optimized for these engines risk becoming invisible to their audience.',
+        answer: 'AI Visibility is the practice of optimizing your brand digital footprint so that conversational assistants and generative search engines—including Google AI Overviews, ChatGPT, Perplexity, and Gemini—accurately cite and recommend your business. With over sixty percent of search queries now answered directly through AI summaries, brands that lack structured entity data risk complete omission from the buyer research journey.',
     },
     {
-        question: 'How is AEO different from traditional SEO?',
-        answer: 'Traditional SEO focuses on ranking web pages in search engine results pages (SERPs) through keywords, backlinks, and technical optimization. AEO (Answer Engine Optimization) goes further — it structures your content so that AI assistants can extract and cite your brand as a direct, authoritative answer. While SEO gets you on the page, AEO gets you into the answer.',
+        question: 'What does an AI Visibility engagement cost?',
+        answer: 'Our AI Visibility partnerships are structured into three transparent monthly tiers: Starter Foundation at $2,500 per month for core entity architecture and schema readiness; Growth Acceleration at $4,900 per month for comprehensive GEO and competitor citation conquesting; and Enterprise Dominance at $8,500 per month for multi-product enterprises. Every plan includes clear deliverables with no rigid long-term lock-in.',
     },
     {
-        question: 'What is GEO (Generative Engine Optimization)?',
-        answer: 'GEO is the practice of structuring your brand\'s knowledge graph, entity relationships, and content feeds so that generative AI engines — Gemini, ChatGPT, Copilot — accurately represent and recommend your brand when synthesizing answers. It goes beyond being found to being correctly understood and recommended.',
+        question: 'How do you measure and verify AI search visibility?',
+        answer: 'We measure success through comprehensive attribution telemetry: Citation Share-of-Voice across ChatGPT, Perplexity, Claude, and Gemini; Entity Graph Completeness Scores; prompt inclusion frequency for unbranded buyer queries; and downstream referral traffic. Clients receive detailed bi-weekly dashboards showing exactly which prompts recommend their brand, how citations evolve, and where competitor gaps have been captured.',
     },
     {
         question: 'What is llms.txt and do I need one?',
-        answer: 'llms.txt is an emerging standard (similar to robots.txt) that provides a structured, machine-readable summary of your website specifically for LLM crawlers. It helps AI models understand your brand, services, and expertise accurately. If you want AI engines to represent your brand correctly, implementing llms.txt is essential.',
+        answer: 'llms.txt is an emerging Markdown standard designed to give LLMs and AI agent crawlers a clean, structured index of your website documentation and services. While Google clarified in May 2024 that llms.txt is not required for AI Overviews (which rely on standard web crawling and schema), it remains a valuable tool for developer documentation, API indexing, and AI agent workflows.',
     },
     {
         question: 'Can you help with both traditional SEO and AI search optimization?',
-        answer: 'Absolutely. Our AI Visibility service is a unified approach that covers all three pillars — SEO, AEO, and GEO — under a single strategy. We don\'t treat them as separate efforts. Your entity architecture, structured data, and content strategy work together to maximize visibility across both traditional search engines and AI platforms.',
-    },
-    {
-        question: 'How do you measure success in AI search visibility?',
-        answer: 'We track multi-dimensional metrics: traditional SEO rankings and organic traffic, citation frequency in AI assistants (ChatGPT, Perplexity, Gemini), brand mention accuracy in AI-generated responses, structured data validation scores, and knowledge graph completeness. We provide regular audits and reports showing your brand\'s visibility trajectory.',
+        answer: 'Yes. Our AI Visibility service unifies traditional SEO, Answer Engine Optimization (AEO), and Generative Engine Optimization (GEO) into a single cohesive architecture. Technical crawlability, entity modeling, and high-authority content work synergistically to improve your traditional search rankings on Google and Bing while simultaneously earning citations inside conversational AI answer engines.',
     },
     {
         question: 'How long does it take to see results from AI Visibility optimization?',
-        answer: 'Technical foundations like schema markup, llms.txt, and structured data can be implemented within 2-4 weeks. SEO improvements typically show within 3-6 months. AEO and GEO citation improvements depend on crawl frequency of AI models, but most clients see measurable citation improvements within 4-8 weeks of implementation.',
+        answer: 'Technical implementations—including structured schema, machine-readable feeds, and entity alignments—are deployed within 2 to 4 weeks. Most clients see measurable citation improvements and AI recommendation pickups within 4 to 8 weeks, as demonstrated by our client AI Shield OS achieving a +340% citation surge in 6 weeks. Traditional organic SERP rankings compound over 3 to 6 months.',
     },
     {
         question: 'Is this service relevant for B2B companies, or only B2C?',
-        answer: 'Both. B2B companies often benefit even more because their prospects use AI assistants for research-heavy buying decisions. When a decision-maker asks ChatGPT "Which companies offer enterprise AI agent development?" — you want your brand to be in that answer. Our strategies work for any brand that wants to be discoverable where modern buyers search.',
+        answer: 'Both benefit significantly, but B2B enterprises often experience the highest return on investment. Modern B2B buyers and executives routinely use Perplexity, Claude, and ChatGPT to conduct vendor research and generate software shortlists. Ensuring your company is cited as the leading authority in conversational prompt responses directly drives high-value qualified sales conversations.',
     },
 ];
 
-/* ──────────────────── SCHEMAS ──────────────────── */
+/* ────────────────────────────────── SCHEMAS ────────────────────────────────── */
 
-// WebPage schema — signals to both Google and LLM crawlers what this page is about
 const webPageSchema = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'AI Visibility & Search Intelligence (SEO • AEO • GEO)',
-    description: 'Be found where answers are born. Frostrek optimizes your brand for Google, ChatGPT, Perplexity & Gemini through AI-Powered SEO, Answer Engine Optimization (AEO), and Generative Engine Optimization (GEO).',
+    name: 'Generative Engine Optimization (GEO) & AEO Agency | Frostrek AI',
+    description: 'Be found where answers are born. Frostrek optimizes your brand for ChatGPT, Perplexity & Google AI Overviews through advanced GEO, AEO, and AI-powered SEO.',
     url: 'https://www.frostrek.ai/solutions/ai-visibility',
     inLanguage: 'en',
+    datePublished: '2026-03-01T08:00:00+00:00',
+    dateModified: '2026-09-28T08:00:00+00:00',
     isPartOf: {
         '@type': 'WebSite',
         name: 'Frostrek AI',
@@ -227,9 +303,9 @@ const webPageSchema = JSON.stringify({
         name: 'AI Visibility & Search Intelligence',
         provider: {
             '@type': 'Organization',
+            '@id': 'https://www.frostrek.ai/#organization',
             name: 'Frostrek AI',
             url: 'https://www.frostrek.ai',
-            sameAs: 'https://www.wikidata.org/wiki/Q140454089',
         },
     },
     speakable: {
@@ -238,7 +314,6 @@ const webPageSchema = JSON.stringify({
     },
 });
 
-// FAQ schema — enables Google rich snippets and makes FAQ extractable by AI engines
 const faqSchema = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -252,58 +327,37 @@ const faqSchema = JSON.stringify({
     })),
 });
 
-// Service schema — tells search engines and AI models exactly what services Frostrek offers here
 const serviceSchema = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'Service',
-    name: 'AI Visibility & Search Intelligence',
+    name: 'AI Visibility & Generative Engine Optimization (GEO) Services',
     description: 'Comprehensive AI search optimization service covering SEO, AEO (Answer Engine Optimization), and GEO (Generative Engine Optimization) to maximize brand visibility across Google, ChatGPT, Perplexity, and Gemini.',
     provider: {
         '@type': 'Organization',
+        '@id': 'https://www.frostrek.ai/#organization',
         name: 'Frostrek AI',
         url: 'https://www.frostrek.ai',
-        sameAs: 'https://www.wikidata.org/wiki/Q140454089',
     },
     serviceType: 'AI Search Optimization',
     areaServed: 'Worldwide',
     hasOfferCatalog: {
         '@type': 'OfferCatalog',
         name: 'AI Visibility Services',
-        itemListElement: [
-            {
-                '@type': 'Offer',
-                itemOffered: {
-                    '@type': 'Service',
-                    name: 'AI-Powered SEO',
-                    description: 'Next-gen search strategies leveraging entity modeling and semantic search to rank on Google, Bing, and AI Overviews.',
-                },
-            },
-            {
-                '@type': 'Offer',
-                itemOffered: {
-                    '@type': 'Service',
-                    name: 'Answer Engine Optimization (AEO)',
-                    description: 'Getting your brand directly cited in conversational AI responses — ChatGPT, Claude, Perplexity, Google Gemini.',
-                },
-            },
-            {
-                '@type': 'Offer',
-                itemOffered: {
-                    '@type': 'Service',
-                    name: 'Generative Engine Optimization (GEO)',
-                    description: 'Structuring brand knowledge graphs and llms.txt so generative engines accurately recommend your brand.',
-                },
-            },
-        ],
+        itemListElement: PRICING_TIERS.map((tier) => ({
+            '@type': 'Offer',
+            name: tier.name,
+            description: tier.description,
+            price: tier.price.replace('$', '').replace(',', ''),
+            priceCurrency: 'USD',
+        })),
     },
 });
 
-// HowTo schema — makes the 4-step framework extractable as a structured process by AI
 const howToSchema = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'HowTo',
     name: 'How Frostrek Optimizes Your Brand for AI Visibility',
-    description: 'A 4-step framework to maximize your brand\'s visibility across search engines and AI assistants.',
+    description: 'A 4-step framework to maximize your brand visibility across search engines and AI assistants.',
     step: FRAMEWORK_STEPS.map((s) => ({
         '@type': 'HowToStep',
         position: parseInt(s.step),
@@ -312,14 +366,15 @@ const howToSchema = JSON.stringify({
     })),
 });
 
-
-/* ──────────────────── COMPONENT ──────────────────── */
+/* ────────────────────────────────── COMPONENT ────────────────────────────────── */
 
 export default function AIVisibilityPage() {
     const heroRef = useRef<HTMLDivElement>(null);
     const pillarsRef = useRef<HTMLDivElement>(null);
     const comparisonRef = useRef<HTMLDivElement>(null);
+    const resultsRef = useRef<HTMLDivElement>(null);
     const frameworkRef = useRef<HTMLDivElement>(null);
+    const pricingRef = useRef<HTMLDivElement>(null);
     const faqRef = useRef<HTMLDivElement>(null);
     const [openFaq, setOpenFaq] = useState<number | null>(null);
     const [activeComparison, setActiveComparison] = useState(0);
@@ -385,32 +440,24 @@ export default function AIVisibilityPage() {
             itemType="https://schema.org/Service"
         >
             <SEO
-                title="AI Visibility & Search Intelligence (SEO • AEO • GEO) | Frostrek AI"
-                description="Be found where answers are born. Frostrek optimizes your brand for Google, ChatGPT, Perplexity & Gemini through AI-Powered SEO, Answer Engine Optimization (AEO), and Generative Engine Optimization (GEO)."
+                title="Generative Engine Optimization (GEO) & AEO Agency | Frostrek AI"
+                description="Be found where answers are born. Frostrek optimizes your brand for ChatGPT, Perplexity & Google AI Overviews through advanced GEO, AEO, and AI-powered SEO."
                 path="/solutions/ai-visibility"
-                keywords="AI SEO, AEO, Answer Engine Optimization, GEO, Generative Engine Optimization, AI search optimization, llms.txt, ChatGPT SEO, Perplexity optimization, Gemini visibility, AI-powered SEO, search intelligence, knowledge graph optimization, structured data, schema markup, Frostrek AI"
                 schema={[webPageSchema, faqSchema, serviceSchema, howToSchema]}
             />
             <CuteBackground />
 
-            {/* Hidden semantic metadata for AI crawlers — entity anchoring */}
-            <meta itemProp="name" content="AI Visibility & Search Intelligence by Frostrek AI" />
+            {/* Semantic metadata for AI crawlers */}
+            <meta itemProp="name" content="Generative Engine Optimization (GEO) & AEO Agency by Frostrek AI" />
             <meta itemProp="serviceType" content="AI Search Optimization" />
             <meta itemProp="url" content="https://www.frostrek.ai/solutions/ai-visibility" />
-            <div itemProp="provider" itemScope itemType="https://schema.org/Organization" className="hidden">
-                <meta itemProp="name" content="Frostrek AI" />
-                <meta itemProp="url" content="https://www.frostrek.ai" />
-                <link itemProp="sameAs" href="https://www.wikidata.org/wiki/Q140454089" />
-                <link itemProp="sameAs" href="https://www.linkedin.com/company/frostrek" />
-            </div>
 
-            {/* ═══════ SECTION 1 — ANSWER-FIRST HERO ═══════ */}
+            {/* ────────────────────── SECTION 1 ── ANSWER-FIRST HERO ────────────────────── */}
             <section
                 ref={heroRef}
                 aria-label="AI Visibility hero"
                 className="relative pt-24 md:pt-32 pb-16 md:pb-20 overflow-hidden flex items-center justify-center min-h-[85vh]"
             >
-                {/* Decorative background elements */}
                 <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-brand-badge-bg/40 rounded-full blur-[100px] opacity-60 animate-pulse pointer-events-none" aria-hidden="true" />
                 <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-[#E8F5EE]/60 rounded-full blur-[120px] opacity-60 pointer-events-none" aria-hidden="true" />
 
@@ -436,7 +483,7 @@ export default function AIVisibilityPage() {
                             AI Visibility & Search Intelligence
                         </SplitTextReveal>
 
-                        {/* Answer-First Quotable Hook — speakable, snippet-friendly */}
+                        {/* Answer-First Quotable Hook */}
                         <motion.blockquote
                             id="hero-hook"
                             initial={{ opacity: 0, y: 15 }}
@@ -450,29 +497,35 @@ export default function AIVisibilityPage() {
                             <span className="absolute -right-1 bottom-0 text-4xl text-[#2D6A4F]/20 font-serif" aria-hidden="true">"</span>
                         </motion.blockquote>
 
-                        {/* Answer-First Definition — AEO-structured paragraph for LLM extraction */}
+                        {/* Answer-First Definition (Dense, extractable 75 words) */}
                         <p
                             id="hero-definition"
                             className="hero-el text-base md:text-lg text-gray-600 leading-relaxed mb-10 max-w-3xl font-medium"
                             itemProp="description"
                         >
-                            <dfn><strong className="font-semibold text-gray-700">AI Visibility</strong></dfn> is the practice of optimizing your brand for both traditional search engines and AI-powered answer engines. Today, AI assistants like <strong className="font-semibold text-gray-700">ChatGPT</strong>, <strong className="font-semibold text-gray-700">Perplexity</strong>, and <strong className="font-semibold text-gray-700">Google Gemini</strong> synthesize answers from across the web — and your brand needs to be in those answers. <Link to="/about" className="text-[#2D6A4F] underline decoration-[#2D6A4F]/30 hover:decoration-[#2D6A4F] transition-colors">Frostrek AI</Link>'s AI Visibility service combines next-gen <abbr title="Search Engine Optimization">SEO</abbr>, <abbr title="Answer Engine Optimization">AEO</abbr>, and <abbr title="Generative Engine Optimization">GEO</abbr> into a unified strategy that ensures your brand is found, cited, and recommended wherever your customers search.
+                            <dfn><strong className="font-semibold text-gray-700">AI Visibility</strong></dfn> is the specialized discipline of optimizing digital brand authority for both search engines and generative AI answer platforms. Today, over sixty percent of online buyers rely on AI assistants like <strong className="font-semibold text-gray-700">ChatGPT</strong>, <strong className="font-semibold text-gray-700">Perplexity</strong>, and <strong className="font-semibold text-gray-700">Google Gemini</strong> to synthesize answers and evaluate solutions. Frostrek AI provides unified <abbr title="Search Engine Optimization">SEO</abbr>, <abbr title="Answer Engine Optimization">AEO</abbr>, and <abbr title="Generative Engine Optimization">GEO</abbr> architectures that ensure your brand is cited and recommended as the primary industry answer.
                         </p>
 
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.8, duration: 0.6 }}
-                            className="hero-el w-full sm:w-auto"
+                            className="hero-el flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
                         >
                             <Link
-                                to="/schedule-demo"
-                                aria-label="Schedule a free AI Visibility audit with Frostrek"
+                                to="/audit"
+                                aria-label="Claim your free AI Visibility audit delivered in 5 to 7 days"
                                 className="group relative w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 bg-[#2D6A4F] text-white rounded-full font-medium text-lg transition-all hover:bg-[#1B4332] shadow-[0_10px_30px_rgba(45,106,79,0.2)] hover:shadow-[0_10px_40px_rgba(45,106,79,0.3)] hover:-translate-y-0.5"
                             >
-                                Get Your AI Visibility Audit
+                                Get Your Free AI Visibility Audit
                                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                             </Link>
+                            <a
+                                href="#pricing"
+                                className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#2D6A4F] rounded-full font-medium text-lg transition-all border border-[#2D6A4F]/20 hover:bg-[#F4FAF7] hover:-translate-y-0.5"
+                            >
+                                View Engagement Plans
+                            </a>
                         </motion.div>
                     </div>
                 </div>
@@ -480,82 +533,11 @@ export default function AIVisibilityPage() {
                 <div className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none bg-gradient-to-t from-white to-transparent" aria-hidden="true" />
             </section>
 
-
-            {/* ═══════ SECTION 2 — THE 3 SEARCH PILLARS ═══════ */}
+            {/* ────────────────────── SECTION 2 ── THE THREE PILLARS ────────────────────── */}
             <section
                 ref={pillarsRef}
-                id="three-pillars"
-                aria-label="The three pillars of modern search: SEO, AEO, and GEO"
-                className="py-16 lg:py-24 bg-brand-light-bg relative z-10 overflow-hidden border-t border-[#2D6A4F]/5"
-            >
-                <div className="container mx-auto px-4 md:px-6 max-w-7xl">
-                    <header className="text-center mb-16">
-                        <SplitTextReveal
-                            as="h2"
-                            className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
-                            type="chars" stagger={0.02} once={false}
-                        >
-                            The 3 Pillars of Modern Search
-                        </SplitTextReveal>
-                        <div className="mt-4">
-                            <SplitTextReveal
-                                as="p"
-                                className="max-w-2xl mx-auto text-lg text-gray-500"
-                                type="words" stagger={0.02} once={false} delay={0.3}
-                            >
-                                Search has evolved from keywords to citations. Here's how we optimize across every axis.
-                            </SplitTextReveal>
-                        </div>
-                    </header>
-
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6" role="list">
-                        {THREE_PILLARS.map((pillar) => {
-                            const IconComponent = pillar.icon;
-                            return (
-                                <SpotlightCard
-                                    key={pillar.id}
-                                    className={`pillar-card group relative overflow-hidden rounded-[1.25rem] md:rounded-[1.5rem] border p-5 md:p-8 transition-all duration-300 ${pillar.bgColor} ${pillar.border} ${pillar.hoverShadow} hover:-translate-y-1`}
-                                    spotlightColor={pillar.spotlight}
-                                >
-                                    <div className="relative z-10" role="listitem" id={pillar.id}>
-                                        <div className={`w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl border flex items-center justify-center mb-4 md:mb-6 bg-white/60 ${pillar.iconBorder} transition-transform duration-300 group-hover:scale-110 shadow-sm`} aria-hidden="true">
-                                            <IconComponent className="w-5 h-5 md:w-7 md:h-7" style={{ color: pillar.accentColor }} />
-                                        </div>
-                                        <h3 className={`font-serif text-lg md:text-xl font-bold mb-1 ${pillar.headingColor}`}>{pillar.title}</h3>
-                                        <p className="text-xs text-gray-400 font-medium mb-3"><em>{pillar.subtitle}</em></p>
-                                        <p className="text-gray-600 text-xs md:text-sm leading-relaxed mb-5">{pillar.description}</p>
-
-                                        {/* Feature list — semantic <ul> for crawlers */}
-                                        <ul className="space-y-2" aria-label={`${pillar.title} features`}>
-                                            {pillar.features.map((feature, i) => (
-                                                <li key={i} className="flex items-start gap-2 text-xs md:text-sm text-gray-600">
-                                                    <CheckCircle2 className="w-3.5 h-3.5 mt-0.5 shrink-0" style={{ color: pillar.accentColor }} aria-hidden="true" />
-                                                    <span>{feature}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                </SpotlightCard>
-                            );
-                        })}
-                    </div>
-
-                    {/* Cross-link for internal authority — SEO best practice */}
-                    <p className="text-center mt-10 text-sm text-gray-400">
-                        Frostrek already practices what we preach — see our <a href="/llms.txt" target="_blank" rel="noopener noreferrer" className="text-[#2D6A4F] underline decoration-[#2D6A4F]/30 hover:decoration-[#2D6A4F] transition-colors font-medium">llms.txt</a> file,
-                        our <Link to="/resources/faq" className="text-[#2D6A4F] underline decoration-[#2D6A4F]/30 hover:decoration-[#2D6A4F] transition-colors font-medium">schema-rich FAQ page</Link>, and
-                        our <Link to="/solutions/ai-agents" className="text-[#2D6A4F] underline decoration-[#2D6A4F]/30 hover:decoration-[#2D6A4F] transition-colors font-medium">AI Agents solutions</Link>.
-                    </p>
-                </div>
-            </section>
-
-
-            {/* ═══════ SECTION 3 — INTERACTIVE COMPARISON MATRIX ═══════ */}
-            <section
-                ref={comparisonRef}
-                id="seo-vs-aeo-vs-geo"
-                aria-label="Comparison of SEO, AEO, and GEO"
-                className="py-16 lg:py-24 bg-white relative z-10 overflow-hidden"
+                aria-label="Three pillars of AI Visibility: SEO, AEO, and GEO"
+                className="py-20 bg-white relative z-10"
             >
                 <div className="container mx-auto px-4 md:px-6 max-w-6xl">
                     <header className="text-center mb-16">
@@ -564,7 +546,7 @@ export default function AIVisibilityPage() {
                             className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
                             type="chars" stagger={0.02} once={false}
                         >
-                            SEO vs. AEO vs. GEO
+                            The Three Pillars of AI Visibility
                         </SplitTextReveal>
                         <div className="mt-4">
                             <SplitTextReveal
@@ -572,49 +554,104 @@ export default function AIVisibilityPage() {
                                 className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
-                                How search has evolved from keywords to citations — a side-by-side comparison.
+                                A unified strategy covering search engine discovery, conversational citations, and generative brand recommendations.
                             </SplitTextReveal>
                         </div>
                     </header>
 
-                    {/* Desktop: Semantic <table> — crawlable, accessible, AEO-extractable */}
-                    <div className="hidden md:block">
-                        <div className="rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
-                            <table className="w-full border-collapse" aria-label="SEO vs AEO vs GEO comparison">
-                                <thead>
-                                    <tr className="bg-[#2D6A4F]/5">
-                                        <th scope="col" className="p-4 lg:p-6 text-left font-serif font-bold text-sm text-[#2D6A4F]">Dimension</th>
-                                        <th scope="col" className="p-4 lg:p-6 text-left font-serif font-bold text-sm text-[#0284C7]">
-                                            <span className="flex items-center gap-2"><Globe className="w-4 h-4" aria-hidden="true" /> <abbr title="Search Engine Optimization">SEO</abbr></span>
-                                        </th>
-                                        <th scope="col" className="p-4 lg:p-6 text-left font-serif font-bold text-sm text-[#6D28D9]">
-                                            <span className="flex items-center gap-2"><MessageSquare className="w-4 h-4" aria-hidden="true" /> <abbr title="Answer Engine Optimization">AEO</abbr></span>
-                                        </th>
-                                        <th scope="col" className="p-4 lg:p-6 text-left font-serif font-bold text-sm text-[#166534]">
-                                            <span className="flex items-center gap-2"><Sparkles className="w-4 h-4" aria-hidden="true" /> <abbr title="Generative Engine Optimization">GEO</abbr></span>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {COMPARISON_MATRIX.map((row, i) => (
-                                        <tr
-                                            key={row.dimension}
-                                            className={`comp-row transition-colors hover:bg-[#F4FAF7]/50 ${i % 2 === 0 ? 'bg-white' : 'bg-gray-50/30'} ${i < COMPARISON_MATRIX.length - 1 ? 'border-b border-gray-100' : ''}`}
-                                        >
-                                            <th scope="row" className="p-4 lg:p-6 font-semibold text-sm text-gray-800 text-left">{row.dimension}</th>
-                                            <td className="p-4 lg:p-6 text-sm text-gray-600 leading-relaxed">{row.seo}</td>
-                                            <td className="p-4 lg:p-6 text-sm text-gray-600 leading-relaxed">{row.aeo}</td>
-                                            <td className="p-4 lg:p-6 text-sm text-gray-600 leading-relaxed">{row.geo}</td>
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {THREE_PILLARS.map((pillar) => {
+                            const IconComponent = pillar.icon;
+                            return (
+                                <SpotlightCard
+                                    key={pillar.id}
+                                    spotlightColor={pillar.spotlight}
+                                    className={`pillar-card flex flex-col p-8 rounded-3xl border ${pillar.border} ${pillar.bgColor} ${pillar.hoverShadow} transition-all duration-300 relative overflow-hidden group`}
+                                >
+                                    <div className="relative z-10 flex flex-col h-full">
+                                        <div className={`w-14 h-14 rounded-2xl ${pillar.iconBg} border ${pillar.iconBorder} flex items-center justify-center mb-6 shadow-sm transition-transform duration-300 group-hover:scale-105`}>
+                                            <IconComponent className="w-7 h-7" style={{ color: pillar.accentColor }} />
+                                        </div>
+
+                                        <h3 className={`font-serif text-2xl font-bold mb-2 ${pillar.headingColor}`}>
+                                            {pillar.title}
+                                        </h3>
+                                        <p className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-4">
+                                            {pillar.subtitle}
+                                        </p>
+                                        <p className="text-sm leading-relaxed text-gray-600 mb-8 min-h-[6rem]">
+                                            {pillar.description}
+                                        </p>
+
+                                        <div className="mt-auto pt-6 border-t border-gray-100">
+                                            <span className="text-xs font-bold uppercase tracking-wider text-gray-500 block mb-3">
+                                                Core Capabilities
+                                            </span>
+                                            <ul className="space-y-2.5">
+                                                {pillar.features.map((feature, i) => (
+                                                    <li key={i} className="flex items-start gap-2.5 text-xs text-gray-600 leading-snug">
+                                                        <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5 text-[#2D6A4F]" />
+                                                        <span>{feature}</span>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </SpotlightCard>
+                            );
+                        })}
+                    </div>
+                </div>
+            </section>
+
+            {/* ────────────────────── SECTION 3 ── COMPARISON MATRIX ────────────────────── */}
+            <section
+                ref={comparisonRef}
+                aria-label="SEO vs AEO vs GEO comparison"
+                className="py-20 bg-brand-light-bg relative z-10"
+            >
+                <div className="container mx-auto px-4 md:px-6 max-w-5xl">
+                    <header className="text-center mb-16">
+                        <SplitTextReveal
+                            as="h2"
+                            className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
+                            type="chars" stagger={0.02} once={false}
+                        >
+                            SEO vs. AEO vs. GEO: At a Glance
+                        </SplitTextReveal>
+                        <div className="mt-4">
+                            <SplitTextReveal
+                                as="p"
+                                className="max-w-2xl mx-auto text-lg text-gray-500"
+                                type="words" stagger={0.02} once={false} delay={0.3}
+                            >
+                                How search engines, answer engines, and generative models evaluate and recommend your brand.
+                            </SplitTextReveal>
+                        </div>
+                    </header>
+
+                    {/* Desktop Comparison Table */}
+                    <div className="hidden md:block bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden">
+                        <div className="grid grid-cols-4 p-5 bg-[#F4FAF7] border-b border-[#2D6A4F]/10 text-xs font-bold uppercase tracking-wider text-[#2D6A4F]">
+                            <div>Dimension</div>
+                            <div>SEO (Search)</div>
+                            <div>AEO (Answers)</div>
+                            <div>GEO (Generative)</div>
+                        </div>
+                        <div className="divide-y divide-gray-100 text-sm text-gray-600">
+                            {COMPARISON_MATRIX.map((row) => (
+                                <div key={row.dimension} className="comp-row grid grid-cols-4 p-5 items-center hover:bg-gray-50/50 transition-colors">
+                                    <div className="font-semibold text-gray-900 text-xs uppercase tracking-wider">{row.dimension}</div>
+                                    <div className="pr-4">{row.seo}</div>
+                                    <div className="pr-4 font-medium text-[#6D28D9]">{row.aeo}</div>
+                                    <div className="font-medium text-[#166534]">{row.geo}</div>
+                                </div>
+                            ))}
                         </div>
                     </div>
 
-                    {/* Mobile Card View — still has all content available for crawlers */}
+                    {/* Mobile Tabbed View */}
                     <div className="md:hidden">
-                        {/* Tab selector */}
                         <div className="flex gap-2 mb-6 overflow-x-auto pb-2" role="tablist" aria-label="SEO, AEO, GEO comparison tabs">
                             {(['SEO', 'AEO', 'GEO'] as const).map((tab, i) => (
                                 <button
@@ -647,37 +684,17 @@ export default function AIVisibilityPage() {
                                 </div>
                             ))}
                         </div>
-
-                        {/* Hidden full table for mobile crawlability — all comparison data is always in the DOM */}
-                        <div className="sr-only" aria-hidden="true">
-                            <table aria-label="Full SEO vs AEO vs GEO comparison (screen reader)">
-                                <thead>
-                                    <tr><th>Dimension</th><th>SEO</th><th>AEO</th><th>GEO</th></tr>
-                                </thead>
-                                <tbody>
-                                    {COMPARISON_MATRIX.map((row) => (
-                                        <tr key={row.dimension}>
-                                            <td>{row.dimension}</td>
-                                            <td>{row.seo}</td>
-                                            <td>{row.aeo}</td>
-                                            <td>{row.geo}</td>
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
-                        </div>
                     </div>
                 </div>
             </section>
 
-
-            {/* ═══════ SECTION 4 — FROSTREK'S 4-STEP OPTIMIZATION FRAMEWORK ═══════ */}
+            {/* ────────────────────── SECTION 4 ── 4-STEP FRAMEWORK ────────────────────── */}
             <section
-                id="optimization-framework"
-                aria-label="Frostrek's 4-step AI visibility optimization framework"
-                className="py-16 lg:py-24 bg-brand-light-bg relative z-10 overflow-hidden border-t border-[#2D6A4F]/5"
+                ref={frameworkRef}
+                aria-label="Frostrek 4-step AI Visibility framework"
+                className="py-20 bg-white relative z-10"
             >
-                <div className="container mx-auto px-4 md:px-6 max-w-7xl">
+                <div className="container mx-auto px-4 md:px-6 max-w-6xl">
                     <header className="text-center mb-20">
                         <SplitTextReveal
                             as="h2"
@@ -692,31 +709,31 @@ export default function AIVisibilityPage() {
                                 className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
-                                A structured approach to making your brand the definitive answer — everywhere.
+                                A structured engineering approach to establishing permanent brand authority across AI models.
                             </SplitTextReveal>
                         </div>
                     </header>
 
-                    <div ref={frameworkRef} className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 relative" role="list">
-                        {/* Connecting dashed line (desktop) */}
-                        <div className="hidden md:block absolute top-12 left-[12.5%] right-[12.5%] h-[1px] -z-10 border-t border-dashed border-[#2D6A4F]/30" aria-hidden="true" />
-
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         {FRAMEWORK_STEPS.map((step) => {
                             const IconComponent = step.icon;
                             return (
-                                <div key={step.step} className="fw-step flex flex-col items-center text-center relative group" role="listitem">
-                                    {/* Icon circle */}
-                                    <div className={`w-16 h-16 md:w-24 md:h-24 rounded-full ${step.iconBg} border ${step.iconBorder} flex items-center justify-center mb-4 md:mb-6 shadow-sm transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-md relative z-10`} aria-hidden="true">
-                                        <IconComponent className="w-7 h-7 md:w-10 md:h-10 opacity-70" style={{ color: '#2D6A4F' }} />
+                                <div
+                                    key={step.step}
+                                    className="fw-step flex flex-col items-center text-center p-6 md:p-8 rounded-3xl bg-brand-light-bg border border-gray-100 shadow-sm relative group hover:border-[#2D6A4F]/30 transition-all duration-300"
+                                >
+                                    <div className={`w-14 h-14 rounded-2xl ${step.iconBg} border ${step.iconBorder} flex items-center justify-center mb-6 shadow-sm group-hover:scale-105 transition-transform`}>
+                                        <IconComponent className="w-7 h-7" style={{ color: '#2D6A4F' }} />
                                     </div>
-                                    <h3 className={`font-serif text-[15px] sm:text-lg md:text-xl font-bold mb-2 md:mb-3 ${step.headingColor}`}>
-                                        <span className="sr-only">Step {step.step}: </span>{step.title}
+                                    <h3 className={`font-serif text-lg md:text-xl font-bold mb-3 ${step.headingColor}`}>
+                                        {step.title}
                                     </h3>
-                                    <p className="text-[13px] sm:text-sm leading-relaxed text-gray-500 px-1 sm:px-2 mb-4 md:mb-6 min-h-[5rem] md:min-h-[80px]">{step.description}</p>
+                                    <p className="text-xs sm:text-sm leading-relaxed text-gray-600 mb-6">
+                                        {step.description}
+                                    </p>
 
-                                    {/* Step number badge */}
-                                    <div className="mt-auto flex flex-col items-center gap-3 w-full">
-                                        <div className="w-7 h-7 md:w-8 md:h-8 rounded-full border border-[#2D6A4F]/30 flex items-center justify-center text-[#2D6A4F] text-xs md:text-sm font-bold bg-[#2D6A4F]/5 shadow-sm" aria-hidden="true">
+                                    <div className="mt-auto">
+                                        <div className="w-8 h-8 rounded-full border border-[#2D6A4F]/30 flex items-center justify-center text-[#2D6A4F] text-xs font-bold bg-[#2D6A4F]/5 shadow-sm" aria-hidden="true">
                                             {step.step}
                                         </div>
                                     </div>
@@ -727,13 +744,195 @@ export default function AIVisibilityPage() {
                 </div>
             </section>
 
+            {/* ────────────────────── CLIENT RESULT SPOTLIGHT: AI SHIELD ────────────────────── */}
+            <section
+                ref={resultsRef}
+                aria-label="Client results spotlight"
+                className="py-20 bg-gradient-to-b from-white via-[#F4FAF7] to-white relative z-10"
+            >
+                <div className="container mx-auto px-4 md:px-6 max-w-5xl">
+                    <div className="bg-white rounded-3xl p-8 sm:p-12 border border-[#2D6A4F]/20 shadow-xl shadow-[#2D6A4F]/5 relative overflow-hidden">
+                        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 border-b border-gray-100">
+                            <div>
+                                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E8F5EE] text-[#2D6A4F] text-xs font-bold uppercase tracking-wider mb-3">
+                                    <ShieldCheck className="w-4 h-4" />
+                                    Client Case Study • 6-Week Turnaround
+                                </div>
+                                <h2 className="font-serif text-2xl sm:text-3xl text-gray-900 font-bold">
+                                    AI Shield OS: From Unlisted to #1 Cited Brand in 35 Days
+                                </h2>
+                            </div>
+                            <div className="shrink-0">
+                                <span className="inline-block px-4 py-2 rounded-xl bg-gray-100 text-gray-700 text-xs font-bold uppercase tracking-wide">
+                                    Enterprise AI Advisory
+                                </span>
+                            </div>
+                        </div>
 
-            {/* ═══════ SECTION 5 — INTERACTIVE FAQ ═══════ */}
+                        <div className="py-8 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                            <div className="md:col-span-7 space-y-4">
+                                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                                    Before partnering with Frostrek AI, <strong className="text-gray-900">AI Shield OS</strong> had zero visibility in conversational answer engines. When prospects asked ChatGPT and Perplexity for strategic AI operational advisory firms, competitors were cited exclusively.
+                                </p>
+                                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                                    Frostrek engineered a complete entity knowledge graph, structured machine-readable executive bios, and implemented high-entropy answer snippets. Within six weeks of deployment, AI Shield OS captured category dominance across leading models.
+                                </p>
+                            </div>
+
+                            {/* Metrics Grid */}
+                            <div className="md:col-span-5 grid grid-cols-2 gap-4">
+                                <div className="p-4 rounded-2xl bg-[#F0FDF4] border border-[#BBF7D0] text-center">
+                                    <div className="text-2xl sm:text-3xl font-serif font-black text-[#166534] mb-1">
+                                        +340%
+                                    </div>
+                                    <div className="text-xs text-gray-600 font-medium">
+                                        AI Citation Volume (ChatGPT & Perplexity)
+                                    </div>
+                                </div>
+                                <div className="p-4 rounded-2xl bg-[#F0F9FF] border border-[#BAE6FD] text-center">
+                                    <div className="text-2xl sm:text-3xl font-serif font-black text-[#0284C7] mb-1">
+                                        94%
+                                    </div>
+                                    <div className="text-xs text-gray-600 font-medium">
+                                        Answer Engine Inclusion Rate
+                                    </div>
+                                </div>
+                                <div className="p-4 rounded-2xl bg-[#F5F3FF] border border-[#DDD6FE] text-center">
+                                    <div className="text-2xl sm:text-3xl font-serif font-black text-[#6D28D9] mb-1">
+                                        #1
+                                    </div>
+                                    <div className="text-xs text-gray-600 font-medium">
+                                        Recommended Brand in Claude
+                                    </div>
+                                </div>
+                                <div className="p-4 rounded-2xl bg-[#FFF7ED] border border-[#FFEDD5] text-center">
+                                    <div className="text-2xl sm:text-3xl font-serif font-black text-[#C2410C] mb-1">
+                                        35 Days
+                                    </div>
+                                    <div className="text-xs text-gray-600 font-medium">
+                                        To Google AI Overview Feature
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="pt-6 border-t border-gray-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                            <span className="text-xs text-gray-500">
+                                Verified via live conversational engine audits across 50+ standardized enterprise prompts.
+                            </span>
+                            <Link
+                                to="/audit"
+                                className="inline-flex items-center gap-2 text-sm font-bold text-[#2D6A4F] hover:text-[#1B4332] group"
+                            >
+                                Benchmark your brand citations
+                                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ────────────────────── SECTION 5 ── TRANSPARENT PRICING TIERS ────────────────────── */}
+            <section
+                ref={pricingRef}
+                id="pricing"
+                aria-label="AI Visibility pricing plans and tiers"
+                className="py-20 bg-white relative z-10"
+            >
+                <div className="container mx-auto px-4 md:px-6 max-w-6xl">
+                    <header className="text-center mb-16">
+                        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E8F5EE] text-[#2D6A4F] text-xs font-bold uppercase tracking-wider mb-4">
+                            <Zap className="w-3.5 h-3.5" />
+                            Predictable Investment
+                        </div>
+                        <SplitTextReveal
+                            as="h2"
+                            className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
+                            type="chars" stagger={0.02} once={false}
+                        >
+                            AI Visibility Engagement Tiers
+                        </SplitTextReveal>
+                        <div className="mt-4">
+                            <SplitTextReveal
+                                as="p"
+                                className="max-w-2xl mx-auto text-lg text-gray-500"
+                                type="words" stagger={0.02} once={false} delay={0.3}
+                            >
+                                Choose the acceleration tier that matches your category competition. Transparent monthly terms with zero lock-in.
+                            </SplitTextReveal>
+                        </div>
+                    </header>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+                        {PRICING_TIERS.map((tier) => (
+                            <div
+                                key={tier.name}
+                                className={`flex flex-col rounded-3xl p-8 border ${tier.border} ${tier.bg} relative transition-all duration-300 ${tier.highlighted ? 'shadow-xl shadow-[#2D6A4F]/10 -translate-y-2' : 'shadow-sm hover:shadow-md'}`}
+                            >
+                                {tier.badge && (
+                                    <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-[#2D6A4F] text-white text-xs font-bold uppercase tracking-wider shadow-sm">
+                                        {tier.badge}
+                                    </div>
+                                )}
+
+                                <div className="mb-6">
+                                    <h3 className="font-serif text-2xl font-bold text-gray-900 mb-1">
+                                        {tier.name}
+                                    </h3>
+                                    <p className="text-xs text-gray-500 font-medium mb-4">
+                                        {tier.subtitle}
+                                    </p>
+                                    <div className="flex items-baseline gap-1">
+                                        <span className="text-4xl font-black font-serif text-[#2D6A4F]">
+                                            {tier.price}
+                                        </span>
+                                        <span className="text-sm font-semibold text-gray-500">
+                                            {tier.cadence}
+                                        </span>
+                                    </div>
+                                    <p className="text-xs text-gray-600 mt-4 leading-relaxed">
+                                        {tier.description}
+                                    </p>
+                                </div>
+
+                                <div className="py-6 border-t border-gray-100 flex-1">
+                                    <span className="text-xs font-bold uppercase tracking-wider text-gray-700 block mb-3">
+                                        What's Included:
+                                    </span>
+                                    <ul className="space-y-3">
+                                        {tier.features.map((feat, i) => (
+                                            <li key={i} className="flex items-start gap-2.5 text-xs text-gray-600 leading-snug">
+                                                <CheckCircle2 className="w-4 h-4 text-[#2D6A4F] shrink-0 mt-0.5" />
+                                                <span>{feat}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                <div className="pt-6 border-t border-gray-100 mt-auto">
+                                    <Link
+                                        to={tier.ctaLink}
+                                        className={`w-full py-3.5 px-6 rounded-full font-medium text-sm transition-all flex items-center justify-center gap-2 ${tier.highlighted
+                                            ? 'bg-[#2D6A4F] hover:bg-[#1B4332] text-white shadow-md shadow-[#2D6A4F]/20'
+                                            : 'bg-white hover:bg-gray-50 text-[#2D6A4F] border border-[#2D6A4F]/20'
+                                            }`}
+                                    >
+                                        <span>{tier.ctaText}</span>
+                                        <ArrowRight className="w-4 h-4" />
+                                    </Link>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* ────────────────────── SECTION 6 ── INTERACTIVE FAQ ────────────────────── */}
             <section
                 ref={faqRef}
                 id="ai-visibility-faq"
                 aria-label="Frequently asked questions about AI Visibility"
-                className="py-16 lg:py-24 bg-white relative z-10 overflow-hidden"
+                className="py-20 bg-brand-light-bg relative z-10 overflow-hidden"
             >
                 <div className="container mx-auto px-4 md:px-6 max-w-4xl">
                     <header className="text-center mb-16">
@@ -750,7 +949,7 @@ export default function AIVisibilityPage() {
                                 className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
-                                Everything you need to know about AI Visibility and how we approach it.
+                                Everything you need to know about Generative Engine Optimization and our engineering approach.
                             </SplitTextReveal>
                         </div>
                     </header>
@@ -818,19 +1017,21 @@ export default function AIVisibilityPage() {
                 </div>
             </section>
 
-
-            {/* ═══════ SECTION 6 — HIGH-CONVERTING CTA ═══════ */}
+            {/* ────────────────────── SECTION 7 ── FINAL HIGH-CONVERTING CTA ────────────────────── */}
             <section
-                aria-label="Schedule a consultation"
-                className="py-16 lg:py-24 relative overflow-hidden bg-brand-light-bg font-sans border-t border-[#2D6A4F]/5"
+                aria-label="Schedule an audit"
+                className="py-20 relative overflow-hidden bg-white font-sans border-t border-[#2D6A4F]/10"
             >
                 <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-brand-badge-bg/80 rounded-full blur-[120px]" />
-                    <div className="absolute bottom-0 right-0 w-[400px] h-[300px] bg-[#E8F5EE]/60 rounded-full blur-[100px]" />
                 </div>
                 <div className="container mx-auto px-4 md:px-6 relative z-10 text-center max-w-[1400px]">
-                    <div className="max-w-4xl mx-auto bg-white p-8 sm:p-10 md:p-16 rounded-[2rem] md:rounded-[3rem] border border-[#E6EFE6] shadow-[0_20px_60px_rgba(45,106,79,0.04)]">
+                    <div className="max-w-4xl mx-auto bg-brand-light-bg p-8 sm:p-12 md:p-16 rounded-[2.5rem] border border-[#2D6A4F]/15 shadow-sm">
                         <div className="flex flex-col items-center">
+                            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#E8F5EE] border border-[#2D6A4F]/20 text-[#2D6A4F] text-xs font-bold uppercase tracking-wider mb-6">
+                                Delivered in 5 to 7 Days • Zero Commitment
+                            </div>
+
                             <SplitTextReveal
                                 as="h2"
                                 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em] mb-6"
@@ -841,10 +1042,10 @@ export default function AIVisibilityPage() {
 
                             <SplitTextReveal
                                 as="p"
-                                className="text-base md:text-lg text-gray-500 mb-10 max-w-2xl"
+                                className="text-base md:text-lg text-gray-600 mb-10 max-w-2xl leading-relaxed"
                                 type="words" stagger={0.015} once={false} delay={0.4}
                             >
-                                Let's audit your current AI visibility and build a strategy that puts your brand in the answers — across Google, ChatGPT, Perplexity, and Gemini.
+                                Let's audit your current AI citation footprint across Google AI Overviews, ChatGPT, Perplexity, and Claude. Receive a comprehensive report and a 60-day roadmap in 5 to 7 days.
                             </SplitTextReveal>
 
                             <motion.div
@@ -854,32 +1055,21 @@ export default function AIVisibilityPage() {
                                 className="flex flex-col sm:flex-row gap-4"
                             >
                                 <Link
-                                    to="/schedule-demo"
-                                    aria-label="Schedule your AI Visibility audit with Frostrek"
+                                    to="/audit"
+                                    aria-label="Request your AI Visibility audit report"
                                     className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#2D6A4F] text-white rounded-full font-medium text-lg transition-all hover:bg-[#1B4332] shadow-[0_10px_30px_rgba(45,106,79,0.2)] hover:shadow-[0_10px_40px_rgba(45,106,79,0.3)] hover:-translate-y-0.5"
                                 >
-                                    Schedule Your AI Visibility Audit
+                                    Get Your Free AI Audit (5-7 Days)
                                     <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                                 </Link>
                                 <Link
                                     to="/contact"
-                                    aria-label="Contact Frostrek AI to talk to an expert"
+                                    aria-label="Contact Frostrek AI team"
                                     className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-[#2D6A4F] rounded-full font-medium text-lg transition-all border border-[#2D6A4F]/20 hover:border-[#2D6A4F]/40 hover:bg-[#F4FAF7] hover:-translate-y-0.5"
                                 >
                                     Talk to an Expert
                                 </Link>
                             </motion.div>
-
-                            {/* Related solutions cross-links — builds internal link authority */}
-                            <nav aria-label="Related Frostrek solutions" className="mt-10 pt-8 border-t border-gray-100 w-full">
-                                <p className="text-xs text-gray-400 mb-3 font-medium uppercase tracking-wider">Related Solutions</p>
-                                <div className="flex flex-wrap justify-center gap-3">
-                                    <Link to="/solutions/ai-agents" className="text-sm text-gray-500 hover:text-[#2D6A4F] transition-colors px-3 py-1.5 rounded-full border border-gray-100 hover:border-[#2D6A4F]/20">AI Agents</Link>
-                                    <Link to="/solutions/voice-ai" className="text-sm text-gray-500 hover:text-[#2D6A4F] transition-colors px-3 py-1.5 rounded-full border border-gray-100 hover:border-[#2D6A4F]/20">Voice AI</Link>
-                                    <Link to="/solutions/llm-model-training" className="text-sm text-gray-500 hover:text-[#2D6A4F] transition-colors px-3 py-1.5 rounded-full border border-gray-100 hover:border-[#2D6A4F]/20">LLM Model Training</Link>
-                                    <Link to="/products/frosty-agent" className="text-sm text-gray-500 hover:text-[#2D6A4F] transition-colors px-3 py-1.5 rounded-full border border-gray-100 hover:border-[#2D6A4F]/20">Frosty Agent</Link>
-                                </div>
-                            </nav>
                         </div>
                     </div>
                 </div>
