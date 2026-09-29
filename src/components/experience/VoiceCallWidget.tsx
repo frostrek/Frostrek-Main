@@ -1,12 +1,14 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, PhoneOff, Mic, MicOff, Volume2, Loader2, Sparkles } from 'lucide-react';
-import { getTenantId, getWebsiteSessionId } from '../../utils/frostyApi';
 import {
-    apiBaseToWsBase,
-    FROSTY_BOT_API_KEY,
-    resolveBotApiBase,
-} from '../../utils/botApi';
+    getTenantId,
+    getOrCreateConversation,
+    fetchVoiceTicket,
+    getBotAppearance,
+    isValidUuid,
+    FROSTY_API_KEY,
+} from '../../utils/frostyApi';
 
 interface VoiceCallWidgetProps {
     onCallStateChange?: (isActive: boolean) => void;
@@ -36,6 +38,17 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
     const [audioLevel, setAudioLevel] = useState(0);
 
     useEffect(() => {
+        try {
+            const storedConv = sessionStorage.getItem('frosty_experience_conversation_id');
+            if (storedConv && !isValidUuid(storedConv)) {
+                sessionStorage.removeItem('frosty_experience_conversation_id');
+            }
+            const storedSid = sessionStorage.getItem('voiceCallSessionId');
+            if (storedSid && !isValidUuid(storedSid)) {
+                sessionStorage.removeItem('voiceCallSessionId');
+            }
+        } catch { /* ignore */ }
+
         return () => {
             endCall();
         };
@@ -47,15 +60,13 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
 
     const generateSessionId = () => {
         let sid = sessionStorage.getItem('voiceCallSessionId');
-        if (!sid) {
-            sid = 'sess_' + Math.random().toString(36).substring(2, 9);
+        if (!sid || !isValidUuid(sid)) {
+            sid = typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : 'exp_' + Math.random().toString(36).substring(2, 10);
             sessionStorage.setItem('voiceCallSessionId', sid);
         }
         return sid;
     };
 
-    const getBridgedSessionId = (sid: string) =>
-        getWebsiteSessionId(tenantIdRef.current, sid);
 
     const flushPlayback = () => {
         try {
@@ -194,7 +205,7 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
     }, [isListening, updateAudioLevel]);
 
     const startCall = async () => {
-        if (!FROSTY_BOT_API_KEY) {
+        if (!FROSTY_API_KEY) {
             setAiResponse('Voice agent is not configured. Please set VITE_FROSTREK_BOT_API_KEY.');
             return;
         }
@@ -223,15 +234,31 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
 
             await ensureTenantContext();
 
-            const wsBase = apiBaseToWsBase(resolveBotApiBase());
-            const sid = getBridgedSessionId(generateSessionId());
-            const ws = new WebSocket(`${wsBase}/ws/voice-call/${encodeURIComponent(sid)}`);
-            callWsRef.current = ws;
-            ws.binaryType = 'arraybuffer';
+            const sid = generateSessionId();
+            const conversationId = await getOrCreateConversation(sid);
+            const { ticket, error } = await fetchVoiceTicket(conversationId);
 
+            if (!ticket) {
+                try {
+                    sessionStorage.removeItem('frosty_experience_conversation_id');
+                } catch { /* ignore */ }
+                setAiResponse(error || 'Live voice agent requires the "live_voice" entitlement to be active in your Frosty Agent dashboard.');
+                setIsLoading(false);
+                setCallStatus('ended');
+                setIsCallActive(false);
+                onCallStateChange?.(false);
+                return;
+            }
+
+            const cleanBase = (typeof import.meta !== 'undefined' && import.meta.env?.VITE_FROSTY_API_BASE) || 'https://api.testing.frostyagent.com';
+            const wsBase = cleanBase.replace(/^http/i, 'ws').replace(/\/+$/, '');
+            const wsUrl = `${wsBase}/v1/public/widget/sessions/${encodeURIComponent(conversationId)}/live-s2s?ticket=${encodeURIComponent(ticket)}`;
+            const ws = new WebSocket(wsUrl);
+            ws.binaryType = 'arraybuffer';
             ws.onopen = () => {
-                ws.send(JSON.stringify({ api_key: FROSTY_BOT_API_KEY }));
+                void startMicStream(ws, stream);
             };
+            callWsRef.current = ws;
 
             ws.onmessage = async (event) => {
                 if (event.data instanceof ArrayBuffer) {
@@ -246,45 +273,60 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
 
                 try {
                     const msg = JSON.parse(event.data);
-                    switch (msg.type) {
+                    const type = msg.type || msg.event;
+                    switch (type) {
                         case 'ready':
-                            setAiResponse("Hi! I'm Frostrek's AI assistant. How can I help you today?");
+                        case 's2s.ready': {
+                            const { greeting } = await getBotAppearance();
+                            setAiResponse(greeting || "Hi! How can we help?");
                             void startMicStream(ws, stream);
                             break;
+                        }
                         case 'transcript':
-                            setTranscript(msg.text);
-                            break;
                         case 'user_final':
-                            setTranscript(msg.text);
+                            setTranscript(msg.text || msg.data?.text || '');
                             break;
                         case 'thinking':
+                        case 's2s.thinking':
                             setIsLoading(true);
                             setIsListening(false);
                             setIsSpeaking(false);
                             break;
                         case 'bot_reply':
-                            setAiResponse(msg.text);
+                        case 's2s.speak':
+                            setAiResponse(msg.text || msg.data?.text || '');
                             setIsLoading(false);
                             break;
                         case 'audio_end':
+                        case 's2s.turn_complete':
                             setIsLoading(false);
                             setIsSpeaking(false);
                             setIsListening(true);
                             break;
                         case 'interrupted':
+                        case 's2s.interrupted':
                             flushPlayback();
                             setIsLoading(false);
                             setIsSpeaking(false);
                             setIsListening(true);
                             break;
+                        case 's2s.audio':
+                            if (msg.data?.base64_audio) {
+                                const binary = atob(msg.data.base64_audio);
+                                const bytes = new Uint8Array(binary.length);
+                                for (let i = 0; i < binary.length; i++) {
+                                    bytes[i] = binary.charCodeAt(i);
+                                }
+                                playPcmChunk(bytes);
+                            }
+                            break;
                         case 'error':
-                            console.error('[CALL] Server error:', msg.message);
-                            setAiResponse(msg.message || "Sorry, I'm having trouble connecting. Please try again.");
-                            endCall();
+                            setAiResponse(msg.text || 'Voice service error');
+                            setIsLoading(false);
                             break;
                     }
                 } catch {
-                    // ignore malformed payloads
+                    // Ignore non-json payloads
                 }
             };
 

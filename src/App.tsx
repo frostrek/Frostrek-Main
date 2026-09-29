@@ -31,8 +31,7 @@ const VoiceAIPage = lazy(() => import('./pages/VoiceAIPage'));
 const LLMModelTrainingPage = lazy(() => import('./pages/LLMModelTrainingPage'));
 const AIVisibilityPage = lazy(() => import('./pages/AIVisibilityPage'));
 const AuditPage = lazy(() => import('./pages/AuditPage'));
-// Lazy load Chatbot to improve LCP - defers 705KB GIF and JS bundle
-const Chatbot = lazy(() => import('./components/chat/Chatbot'));
+import FrostyWidget from './components/chat/FrostyWidget';
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 // Placeholder for internal pages
@@ -97,7 +96,7 @@ function App() {
             </main>
             <Suspense fallback={null}>
               <Footer />
-              <Chatbot />
+              <FrostyWidget />
             </Suspense>
           </div>
       </ThemeProvider>
