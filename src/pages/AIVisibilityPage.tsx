@@ -175,70 +175,31 @@ const FRAMEWORK_STEPS = [
     },
 ];
 
-const PRICING_TIERS = [
-    {
-        name: 'Starter Foundation',
-        subtitle: 'Entity Setup & Crawler Readiness',
-        price: '$2,500',
-        cadence: '/month',
-        description: 'Ideal for emerging companies establishing early entity authority, structured schema, and baseline AI engine crawlability.',
-        features: [
-            'Full knowledge graph & JSON-LD schema architecture',
-            'Core Web Vitals & SSR HTML machine-readability audit',
-            '4-engine baseline audit (ChatGPT, Perplexity, Gemini, Claude)',
-            'Clean Markdown brand summary & knowledge feeds',
-            'Monthly citation frequency & attribution report',
-            'Dedicated technical SEO & schema specialist',
-        ],
-        ctaText: 'Get Started with Foundation',
-        ctaLink: '/audit',
-        highlighted: false,
-        border: 'border-gray-200',
-        bg: 'bg-white',
-    },
-    {
-        name: 'Growth Acceleration',
-        subtitle: 'Full GEO & AEO Market Expansion',
-        price: '$4,900',
-        cadence: '/month',
-        description: 'Our most popular plan for established brands seeking category leadership, multi-engine citations, and competitor displacement.',
-        features: [
-            'Everything included in Starter Foundation',
-            'Multi-engine GEO & AEO continuous optimization',
-            'Entity disambiguation across Knowledge Panels & Wikidata',
-            'Competitor citation conquesting & prompt share-of-voice',
-            'Speakable answer engineering for Google AI Overviews & SearchGPT',
-            'Bi-weekly citation probes & attribution telemetry dashboard',
-            'Priority Slack channel & bi-weekly strategy calls',
-        ],
-        ctaText: 'Accelerate Your AI Citations',
-        ctaLink: '/audit',
-        highlighted: true,
-        border: 'border-[#2D6A4F]',
-        bg: 'bg-[#F7FBF9]',
-        badge: 'Most Popular',
-    },
-    {
-        name: 'Enterprise Dominance',
-        subtitle: 'Category Authority & Custom LLMs',
-        price: '$8,500',
-        cadence: '/month',
-        description: 'Designed for enterprises, multi-brand portfolios, and organizations requiring dedicated AI strategists and real-time defense.',
-        features: [
-            'Everything included in Growth Acceleration',
-            'Programmatic entity modeling across multi-region domains',
-            'Custom LLM alignment datasets & RAG knowledge bases',
-            'Real-time citation anomaly & hallucination alert engine',
-            'Executive attribution reporting & C-suite dashboards',
-            'Dedicated Senior AI Search Strategist & custom SLA',
-        ],
-        ctaText: 'Contact Enterprise Team',
-        ctaLink: '/contact',
-        highlighted: false,
-        border: 'border-gray-200',
-        bg: 'bg-white',
-    },
-];
+const PRICING_PLAN = {
+    name: 'Complete AI Visibility & Search Engine Optimization',
+    subtitle: 'Unified SEO, AEO & GEO Engineering',
+    price: '$300',
+    currency: 'USD',
+    cadence: '/month',
+    startingLabel: 'Starting at',
+    description: 'Comprehensive brand optimization across traditional search engines and leading AI answer engines. Scoped transparently to your domain footprint with zero lock-in.',
+    features: [
+        'Full entity architecture & advanced JSON-LD schema deployment',
+        '4-Engine AI citation audit & telemetry (ChatGPT, Perplexity, Claude, Gemini)',
+        'Traditional technical SEO, crawlability & Core Web Vitals audit',
+        'Extractable Markdown brand knowledge feeds & llms.txt integration',
+        'Google Knowledge Panel alignment & entity disambiguation',
+        'Speakable answer engineering for Google AI Overviews & SearchGPT',
+        'Monthly citation share-of-voice & brand attribution reports',
+        'Competitor citation gap analysis & prompt displacement',
+        'Dedicated AI search specialist & monthly strategy reviews',
+        'Continuous prompt performance tracking & gap defense',
+    ],
+    ctaText: 'Get Started at USD $300',
+    ctaLink: '/audit',
+    secondaryCtaText: 'Schedule a Consultation',
+    secondaryCtaLink: '/contact',
+};
 
 interface FAQ {
     question: string;
@@ -252,7 +213,7 @@ const FAQS: FAQ[] = [
     },
     {
         question: 'What does an AI Visibility engagement cost?',
-        answer: 'Our AI Visibility partnerships are structured into three transparent monthly tiers: Starter Foundation at $2,500 per month for core entity architecture and schema readiness; Growth Acceleration at $4,900 per month for comprehensive GEO and competitor citation conquesting; and Enterprise Dominance at $8,500 per month for multi-product enterprises. Every plan includes clear deliverables with no rigid long-term lock-in.',
+        answer: 'Our AI Visibility partnerships start at just USD $300 per month. Rather than forcing you into rigid tiers, we scope your engagement around your specific domain footprint, product catalog, and competitor landscape. Every plan includes transparent deliverables, comprehensive AI citation telemetry, and zero long-term lock-in.',
     },
     {
         question: 'How do you measure and verify AI search visibility?',
@@ -343,13 +304,21 @@ const serviceSchema = JSON.stringify({
     hasOfferCatalog: {
         '@type': 'OfferCatalog',
         name: 'AI Visibility Services',
-        itemListElement: PRICING_TIERS.map((tier) => ({
-            '@type': 'Offer',
-            name: tier.name,
-            description: tier.description,
-            price: tier.price.replace('$', '').replace(',', ''),
-            priceCurrency: 'USD',
-        })),
+        itemListElement: [
+            {
+                '@type': 'Offer',
+                name: PRICING_PLAN.name,
+                description: PRICING_PLAN.description,
+                price: '300',
+                priceCurrency: 'USD',
+                priceSpecification: {
+                    '@type': 'UnitPriceSpecification',
+                    price: '300',
+                    priceCurrency: 'USD',
+                    unitText: 'MONTH',
+                },
+            },
+        ],
     },
 });
 
@@ -524,7 +493,7 @@ export default function AIVisibilityPage() {
                                 href="#pricing"
                                 className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#2D6A4F] rounded-full font-medium text-lg transition-all border border-[#2D6A4F]/20 hover:bg-[#F4FAF7] hover:-translate-y-0.5"
                             >
-                                View Engagement Plans
+                                View Pricing (From USD $300)
                             </a>
                         </motion.div>
                     </div>
@@ -832,25 +801,25 @@ export default function AIVisibilityPage() {
                 </div>
             </section>
 
-            {/* ────────────────────── SECTION 5 ── TRANSPARENT PRICING TIERS ────────────────────── */}
+            {/* ────────────────────── SECTION 5 ── TRANSPARENT PRICING ────────────────────── */}
             <section
                 ref={pricingRef}
                 id="pricing"
-                aria-label="AI Visibility pricing plans and tiers"
+                aria-label="AI Visibility pricing"
                 className="py-20 bg-white relative z-10"
             >
                 <div className="container mx-auto px-4 md:px-6 max-w-6xl">
                     <header className="flex flex-col items-center text-center mb-16">
                         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E8F5EE] border border-[#2D6A4F]/20 text-[#2D6A4F] text-xs font-bold uppercase tracking-wider mb-4">
                             <Zap className="w-3.5 h-3.5" />
-                            Predictable Investment
+                            Transparent Pricing
                         </div>
                         <SplitTextReveal
                             as="h2"
                             className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
                             type="chars" stagger={0.02} once={false}
                         >
-                            AI Visibility Engagement Tiers
+                            AI Visibility Investment
                         </SplitTextReveal>
                         <div className="mt-4">
                             <SplitTextReveal
@@ -858,71 +827,115 @@ export default function AIVisibilityPage() {
                                 className="max-w-2xl mx-auto text-lg text-gray-500"
                                 type="words" stagger={0.02} once={false} delay={0.3}
                             >
-                                Choose the acceleration tier that matches your category competition. Transparent monthly terms with zero lock-in.
+                                No rigid tiers or agency markups. Complete AI search and citation optimization starting at just USD $300 per month.
                             </SplitTextReveal>
                         </div>
                     </header>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
-                        {PRICING_TIERS.map((tier) => (
-                            <div
-                                key={tier.name}
-                                className={`flex flex-col rounded-3xl p-8 border ${tier.border} ${tier.bg} relative transition-all duration-300 ${tier.highlighted ? 'shadow-xl shadow-[#2D6A4F]/10 -translate-y-2' : 'shadow-sm hover:shadow-md'}`}
-                            >
-                                {tier.badge && (
-                                    <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-[#2D6A4F] text-white text-xs font-bold uppercase tracking-wider shadow-sm">
-                                        {tier.badge}
-                                    </div>
-                                )}
+                    <div className="max-w-5xl mx-auto bg-gradient-to-b from-white to-[#F9FCFA] rounded-[2.5rem] p-8 sm:p-10 md:p-12 border border-[#2D6A4F]/20 shadow-xl shadow-[#2D6A4F]/5 relative overflow-hidden">
+                        <div className="absolute top-0 right-0 w-96 h-96 bg-[#E8F5EE]/60 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
 
-                                <div className="mb-6">
-                                    <h3 className="font-serif text-2xl font-bold text-gray-900 mb-1">
-                                        {tier.name}
+                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 relative z-10 items-center">
+                            {/* Left: Pricing & CTA */}
+                            <div className="lg:col-span-5 flex flex-col justify-between">
+                                <div>
+                                    <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#E8F5EE] text-[#2D6A4F] text-xs font-bold uppercase tracking-wider mb-4">
+                                        Starting at USD $300
+                                    </div>
+                                    <h3 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+                                        {PRICING_PLAN.name}
                                     </h3>
-                                    <p className="text-xs text-gray-500 font-medium mb-4">
-                                        {tier.subtitle}
+                                    <p className="text-xs text-gray-500 font-medium mb-6">
+                                        {PRICING_PLAN.subtitle}
                                     </p>
-                                    <div className="flex items-baseline gap-1">
-                                        <span className="text-4xl font-black font-serif text-[#2D6A4F]">
-                                            {tier.price}
+
+                                    <div className="p-6 rounded-2xl bg-white border border-[#2D6A4F]/15 shadow-sm mb-6">
+                                        <span className="text-xs font-bold uppercase tracking-wider text-gray-500 block mb-1">
+                                            {PRICING_PLAN.startingLabel}
                                         </span>
-                                        <span className="text-sm font-semibold text-gray-500">
-                                            {tier.cadence}
-                                        </span>
+                                        <div className="flex items-baseline gap-2">
+                                            <span className="text-5xl sm:text-6xl font-black font-serif text-[#2D6A4F]">
+                                                {PRICING_PLAN.price}
+                                            </span>
+                                            <span className="text-lg font-bold text-gray-700">
+                                                {PRICING_PLAN.currency}
+                                            </span>
+                                            <span className="text-sm font-semibold text-gray-500">
+                                                {PRICING_PLAN.cadence}
+                                            </span>
+                                        </div>
+                                        <p className="text-xs text-gray-500 mt-2">
+                                            Billed monthly • Flexible month-to-month • Zero long-term lock-in
+                                        </p>
                                     </div>
-                                    <p className="text-xs text-gray-600 mt-4 leading-relaxed">
-                                        {tier.description}
+
+                                    <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6">
+                                        {PRICING_PLAN.description}
                                     </p>
                                 </div>
 
-                                <div className="py-6 border-t border-gray-100 flex-1">
-                                    <span className="text-xs font-bold uppercase tracking-wider text-gray-700 block mb-3">
-                                        What's Included:
-                                    </span>
-                                    <ul className="space-y-3">
-                                        {tier.features.map((feat, i) => (
-                                            <li key={i} className="flex items-start gap-2.5 text-xs text-gray-600 leading-snug">
-                                                <CheckCircle2 className="w-4 h-4 text-[#2D6A4F] shrink-0 mt-0.5" />
-                                                <span>{feat}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-
-                                <div className="pt-6 border-t border-gray-100 mt-auto">
+                                <div className="space-y-3">
                                     <Link
-                                        to={tier.ctaLink}
-                                        className={`w-full py-3.5 px-6 rounded-full font-medium text-sm transition-all flex items-center justify-center gap-2 ${tier.highlighted
-                                            ? 'bg-[#2D6A4F] hover:bg-[#1B4332] text-white shadow-md shadow-[#2D6A4F]/20'
-                                            : 'bg-white hover:bg-gray-50 text-[#2D6A4F] border border-[#2D6A4F]/20'
-                                            }`}
+                                        to={PRICING_PLAN.ctaLink}
+                                        className="w-full py-4 px-6 rounded-full font-medium text-base transition-all flex items-center justify-center gap-2 bg-[#2D6A4F] hover:bg-[#1B4332] text-white shadow-md shadow-[#2D6A4F]/20 hover:shadow-lg hover:-translate-y-0.5"
                                     >
-                                        <span>{tier.ctaText}</span>
-                                        <ArrowRight className="w-4 h-4" />
+                                        <span>{PRICING_PLAN.ctaText}</span>
+                                        <ArrowRight className="w-5 h-5" />
+                                    </Link>
+                                    <Link
+                                        to={PRICING_PLAN.secondaryCtaLink}
+                                        className="w-full py-3.5 px-6 rounded-full font-medium text-sm transition-all flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-[#2D6A4F] border border-[#2D6A4F]/20 hover:border-[#2D6A4F]/40"
+                                    >
+                                        <span>{PRICING_PLAN.secondaryCtaText}</span>
                                     </Link>
                                 </div>
                             </div>
-                        ))}
+
+                            {/* Right: Included Deliverables */}
+                            <div className="lg:col-span-7 bg-white/80 backdrop-blur-sm rounded-3xl p-6 sm:p-8 border border-[#2D6A4F]/10 shadow-sm flex flex-col justify-between h-full">
+                                <div>
+                                    <div className="flex items-center justify-between mb-4">
+                                        <span className="text-xs font-bold uppercase tracking-wider text-gray-700 block">
+                                            Everything Included in Your Starting Package:
+                                        </span>
+                                        <span className="text-xs font-semibold text-[#2D6A4F] bg-[#E8F5EE] px-2.5 py-0.5 rounded-full">
+                                            10 Core Deliverables
+                                        </span>
+                                    </div>
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                                        {PRICING_PLAN.features.map((feat, i) => (
+                                            <div
+                                                key={i}
+                                                className="flex items-start gap-2.5 p-3 rounded-2xl bg-[#F4FAF7]/70 border border-[#2D6A4F]/10 hover:border-[#2D6A4F]/25 transition-colors"
+                                            >
+                                                <CheckCircle2 className="w-4 h-4 text-[#2D6A4F] shrink-0 mt-0.5" />
+                                                <span className="text-xs text-gray-700 font-medium leading-snug">
+                                                    {feat}
+                                                </span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                <div className="pt-5 border-t border-gray-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                                    <div className="flex items-center gap-2.5">
+                                        <div className="w-8 h-8 rounded-xl bg-[#E8F5EE] flex items-center justify-center shrink-0 text-[#2D6A4F]">
+                                            <ShieldCheck className="w-4 h-4" />
+                                        </div>
+                                        <div>
+                                            <div className="text-xs font-bold text-gray-900">Custom Enterprise Scaling</div>
+                                            <div className="text-[11px] text-gray-500">Multi-region catalogs & high-velocity answer feeds scoped on request.</div>
+                                        </div>
+                                    </div>
+                                    <Link
+                                        to="/contact"
+                                        className="text-xs font-bold text-[#2D6A4F] hover:text-[#1B4332] whitespace-nowrap inline-flex items-center gap-1 shrink-0"
+                                    >
+                                        Enterprise Inquiries <ArrowRight className="w-3.5 h-3.5" />
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
