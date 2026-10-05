@@ -34,8 +34,8 @@ function contactApiDevPlugin() {
                 }
               } catch (e) { /* ignore */ }
             }
-            const recipientEmail = 'contact@frostrek.com';
-            const senderEmail = 'Frostrek AI Portal <contact@frostrek.com>';
+            const recipientEmail = 'contact@frostrek.ai';
+            const senderEmail = 'Frostrek AI Portal <contact@frostrek.ai>';
 
             const firstName = data.firstName || '';
             const lastName = data.lastName || '';

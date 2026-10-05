@@ -385,7 +385,7 @@ const FAQPage = () => {
                         </p>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                             <a
-                                href="mailto:contact@frostrek.com"
+                                href="mailto:contact@frostrek.ai"
                                 className="px-8 py-3.5 rounded-xl bg-[#2D6A4F] text-white font-medium hover:bg-[#1B4332] transition-colors shadow-lg shadow-[#2D6A4F]/10"
                             >
                                 Email Us →

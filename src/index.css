@@ -209,4 +209,9 @@
   .anim-delay-1000 { animation-delay: 1s; }
   .anim-delay-1600 { animation-delay: 1.6s; }
   .anim-delay-2000 { animation-delay: 2s; }
+
+  /* Animated split text pseudo-element rendering (prevents doubled text in raw extraction) */
+  .split-item::before {
+    content: attr(data-text);
+  }
 }

@@ -55,7 +55,7 @@ const THREE_PILLARS = [
         id: 'answer-engine-optimization',
         title: 'Answer Engine Optimization (AEO)',
         subtitle: 'Get Cited in Conversational AI Responses',
-        description: 'Structure your brand knowledge so conversational AI assistants directly cite your business when prospects research solutions. AEO transforms standard web pages into quotable, machine-readable answers optimized for real-time synthesis in ChatGPT, Claude, Perplexity, and Google Gemini, capturing zero-click buyers at the point of decision.',
+        description: 'Structure your brand knowledge so conversational AI assistants directly cite your business when prospects research solutions. AEO transforms standard web pages into quotable, machine-readable answers optimized for real-time synthesis in Google (AI Overviews), ChatGPT, Perplexity, Claude, and Gemini, capturing zero-click buyers at the point of decision.',
         features: [
             'Conversational query targeting & answer engineering',
             'Comprehensive JSON-LD markup (FAQ, HowTo, Q&A, Service)',
@@ -83,7 +83,7 @@ const THREE_PILLARS = [
             'Structured data feeds & clean Markdown ingestion feeds',
             'Generative citation gap analysis & competitive share-of-voice',
             'Topical authority signaling & third-party citation building',
-            'Multi-engine visibility (Gemini, ChatGPT, Perplexity, Copilot)',
+            'Multi-engine visibility (Google AI Overviews, ChatGPT, Perplexity, Claude, Gemini)',
         ],
         icon: Sparkles,
         bgColor: 'bg-[#F0FDF4]',
@@ -158,7 +158,7 @@ const FRAMEWORK_STEPS = [
     {
         step: '3',
         title: 'Machine-Readable Content Engineering',
-        description: 'We format your core value propositions, product documentation, and FAQs into high-entropy, extractable text passages. This architecture provides AI answer engines like Perplexity, ChatGPT, and Google Gemini with quotable snippets engineered for instant citation.',
+        description: 'We format your core value propositions, product documentation, and FAQs into high-entropy, extractable text passages. This architecture provides AI answer engines like Google (AI Overviews), ChatGPT, Perplexity, Claude, and Gemini with quotable snippets engineered for instant citation.',
         icon: FileCode,
         iconBg: 'bg-[#F0FDF4]',
         iconBorder: 'border-[#BBF7D0]',
@@ -185,7 +185,7 @@ const PRICING_PLAN = {
     description: 'Comprehensive brand optimization across traditional search engines and leading AI answer engines. Scoped transparently to your domain footprint with zero lock-in.',
     features: [
         'Full entity architecture & advanced JSON-LD schema deployment',
-        '4-Engine AI citation audit & telemetry (ChatGPT, Perplexity, Claude, Gemini)',
+        '5-Engine AI citation audit & telemetry (Google AI Overviews, ChatGPT, Perplexity, Claude, Gemini)',
         'Traditional technical SEO, crawlability & Core Web Vitals audit',
         'Extractable Markdown brand knowledge feeds & llms.txt integration',
         'Google Knowledge Panel alignment & entity disambiguation',
@@ -209,7 +209,7 @@ interface FAQ {
 const FAQS: FAQ[] = [
     {
         question: 'What is AI Visibility, and why does my brand need it?',
-        answer: 'AI Visibility is the practice of optimizing your brand digital footprint so that conversational assistants and generative search engines—including Google AI Overviews, ChatGPT, Perplexity, and Gemini—accurately cite and recommend your business. With over sixty percent of search queries now answered directly through AI summaries, brands that lack structured entity data risk complete omission from the buyer research journey.',
+        answer: 'AI Visibility is the practice of optimizing your brand digital footprint so that conversational assistants and generative search engines—including Google (AI Overviews), ChatGPT, Perplexity, Claude, and Gemini—accurately cite and recommend your business. As search engines transition to zero-click AI summaries and conversational answers, brands that lack structured entity data risk complete omission from the modern buyer research journey.',
     },
     {
         question: 'What does an AI Visibility engagement cost?',
@@ -217,11 +217,11 @@ const FAQS: FAQ[] = [
     },
     {
         question: 'How do you measure and verify AI search visibility?',
-        answer: 'We measure success through comprehensive attribution telemetry: Citation Share-of-Voice across ChatGPT, Perplexity, Claude, and Gemini; Entity Graph Completeness Scores; prompt inclusion frequency for unbranded buyer queries; and downstream referral traffic. Clients receive detailed bi-weekly dashboards showing exactly which prompts recommend their brand, how citations evolve, and where competitor gaps have been captured.',
+        answer: 'We measure success through comprehensive attribution telemetry: Citation Share-of-Voice across Google (AI Overviews), ChatGPT, Perplexity, Claude, and Gemini; Entity Graph Completeness Scores; prompt inclusion frequency for unbranded buyer queries; and downstream referral traffic. Clients receive detailed monthly citation reports and attribution dashboards showing exactly which prompts recommend their brand, how citations evolve, and where competitor gaps have been captured.',
     },
     {
         question: 'What is llms.txt and do I need one?',
-        answer: 'llms.txt is an emerging Markdown standard designed to give LLMs and AI agent crawlers a clean, structured index of your website documentation and services. While Google clarified in May 2024 that llms.txt is not required for AI Overviews (which rely on standard web crawling and schema), it remains a valuable tool for developer documentation, API indexing, and AI agent workflows.',
+        answer: 'llms.txt is an emerging Markdown standard designed to give LLMs and AI agent crawlers a clean, structured index of your website documentation and services. While Google search advocates have clarified that llms.txt is not required for Google AI Overviews (which rely on standard web crawling, entity graphs, and schema markup), it remains a valuable tool for developer documentation, API indexing, and autonomous AI agent workflows.',
     },
     {
         question: 'Can you help with both traditional SEO and AI search optimization?',
@@ -229,7 +229,7 @@ const FAQS: FAQ[] = [
     },
     {
         question: 'How long does it take to see results from AI Visibility optimization?',
-        answer: 'Technical implementations—including structured schema, machine-readable feeds, and entity alignments—are deployed within 2 to 4 weeks. Most clients see measurable citation improvements and AI recommendation pickups within 4 to 8 weeks, as demonstrated by our client AI Shield OS achieving a +340% citation surge in 6 weeks. Traditional organic SERP rankings compound over 3 to 6 months.',
+        answer: 'Technical implementations—including structured schema, machine-readable feeds, and entity alignments—are deployed within 2 to 4 weeks. Most clients see measurable citation improvements and AI recommendation pickups within 4 to 8 weeks, as demonstrated by our client AI Shield OS achieving a +340% citation surge in 35 days. Traditional organic SERP rankings compound over 3 to 6 months.',
     },
     {
         question: 'Is this service relevant for B2B companies, or only B2C?',
@@ -242,8 +242,8 @@ const FAQS: FAQ[] = [
 const webPageSchema = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Generative Engine Optimization (GEO) & AEO Agency | Frostrek AI',
-    description: 'Be found where answers are born. Frostrek optimizes your brand for ChatGPT, Perplexity & Google AI Overviews through advanced GEO, AEO, and AI-powered SEO.',
+    name: 'Generative Engine Optimization (GEO) & AI Visibility Agency | Frostrek AI',
+    description: 'Be found where answers are born. Frostrek optimizes your brand across Google (AI Overviews), ChatGPT, Perplexity, Claude, and Gemini through advanced GEO, AEO, and AI-powered SEO.',
     url: 'https://www.frostrek.ai/solutions/ai-visibility',
     inLanguage: 'en',
     datePublished: '2026-03-01T08:00:00+00:00',
@@ -261,7 +261,7 @@ const webPageSchema = JSON.stringify({
     ],
     mainEntity: {
         '@type': 'Service',
-        name: 'AI Visibility & Search Intelligence',
+        name: 'Generative Engine Optimization (GEO) & AI Visibility',
         provider: {
             '@type': 'Organization',
             '@id': 'https://www.frostrek.ai/#organization',
@@ -292,7 +292,7 @@ const serviceSchema = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: 'AI Visibility & Generative Engine Optimization (GEO) Services',
-    description: 'Comprehensive AI search optimization service covering SEO, AEO (Answer Engine Optimization), and GEO (Generative Engine Optimization) to maximize brand visibility across Google, ChatGPT, Perplexity, and Gemini.',
+    description: 'Comprehensive AI search optimization service covering SEO, AEO (Answer Engine Optimization), and GEO (Generative Engine Optimization) to maximize brand visibility across Google (AI Overviews), ChatGPT, Perplexity, Claude, and Gemini.',
     provider: {
         '@type': 'Organization',
         '@id': 'https://www.frostrek.ai/#organization',
@@ -409,8 +409,8 @@ export default function AIVisibilityPage() {
             itemType="https://schema.org/Service"
         >
             <SEO
-                title="Generative Engine Optimization (GEO) & AEO Agency | Frostrek AI"
-                description="Be found where answers are born. Frostrek optimizes your brand for ChatGPT, Perplexity & Google AI Overviews through advanced GEO, AEO, and AI-powered SEO."
+                title="Generative Engine Optimization (GEO) & AI Visibility Agency | Frostrek AI"
+                description="Be found where answers are born. Frostrek optimizes your brand across Google (AI Overviews), ChatGPT, Perplexity, Claude, and Gemini through advanced GEO, AEO, and AI-powered SEO."
                 path="/solutions/ai-visibility"
                 schema={[webPageSchema, faqSchema, serviceSchema, howToSchema]}
             />
@@ -449,7 +449,7 @@ export default function AIVisibilityPage() {
                             className="hero-el font-serif text-4xl md:text-6xl lg:text-7xl text-[#2D6A4F] leading-[1.1] tracking-[-0.02em] mb-6"
                             type="chars" stagger={0.02} once={false} delay={0.2}
                         >
-                            AI Visibility & Search Intelligence
+                            Generative Engine Optimization (GEO) & AI Visibility
                         </SplitTextReveal>
 
                         {/* Answer-First Quotable Hook */}
@@ -462,7 +462,7 @@ export default function AIVisibilityPage() {
                             cite="https://www.frostrek.ai/solutions/ai-visibility"
                         >
                             <span className="absolute -left-1 top-0 text-4xl text-[#2D6A4F]/20 font-serif" aria-hidden="true">"</span>
-                            Be Found Where Answers Are Born — Optimizing Your Brand for <strong className="font-medium not-italic">Google</strong>, <strong className="font-medium not-italic">ChatGPT</strong>, <strong className="font-medium not-italic">Perplexity</strong> & <strong className="font-medium not-italic">Gemini</strong>.
+                            Be Found Where Answers Are Born — Optimizing Your Brand for <strong className="font-medium not-italic">Google (AI Overviews)</strong>, <strong className="font-medium not-italic">ChatGPT</strong>, <strong className="font-medium not-italic">Perplexity</strong>, <strong className="font-medium not-italic">Claude</strong> & <strong className="font-medium not-italic">Gemini</strong>.
                             <span className="absolute -right-1 bottom-0 text-4xl text-[#2D6A4F]/20 font-serif" aria-hidden="true">"</span>
                         </motion.blockquote>
 
@@ -472,7 +472,7 @@ export default function AIVisibilityPage() {
                             className="hero-el text-base md:text-lg text-gray-600 leading-relaxed mb-10 max-w-3xl font-medium"
                             itemProp="description"
                         >
-                            <dfn><strong className="font-semibold text-gray-700">AI Visibility</strong></dfn> is the specialized discipline of optimizing digital brand authority for both search engines and generative AI answer platforms. Today, over sixty percent of online buyers rely on AI assistants like <strong className="font-semibold text-gray-700">ChatGPT</strong>, <strong className="font-semibold text-gray-700">Perplexity</strong>, and <strong className="font-semibold text-gray-700">Google Gemini</strong> to synthesize answers and evaluate solutions. Frostrek AI provides unified <abbr title="Search Engine Optimization">SEO</abbr>, <abbr title="Answer Engine Optimization">AEO</abbr>, and <abbr title="Generative Engine Optimization">GEO</abbr> architectures that ensure your brand is cited and recommended as the primary industry answer.
+                            <dfn><strong className="font-semibold text-gray-700">AI Visibility</strong></dfn> is the specialized discipline of optimizing digital brand authority for both search engines and generative AI answer platforms. Today, modern buyers actively rely on conversational AI assistants like <strong className="font-semibold text-gray-700">Google (AI Overviews)</strong>, <strong className="font-semibold text-gray-700">ChatGPT</strong>, <strong className="font-semibold text-gray-700">Perplexity</strong>, <strong className="font-semibold text-gray-700">Claude</strong>, and <strong className="font-semibold text-gray-700">Gemini</strong> to synthesize answers and evaluate solutions. Frostrek AI provides unified <abbr title="Search Engine Optimization">SEO</abbr>, <abbr title="Answer Engine Optimization">AEO</abbr>, and <abbr title="Generative Engine Optimization">GEO</abbr> architectures that ensure your brand is cited and recommended as the primary industry answer.
                         </p>
 
                         <motion.div
@@ -725,7 +725,7 @@ export default function AIVisibilityPage() {
                             <div>
                                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E8F5EE] text-[#2D6A4F] text-xs font-bold uppercase tracking-wider mb-3">
                                     <ShieldCheck className="w-4 h-4" />
-                                    Client Case Study • 6-Week Turnaround
+                                    Client Case Study • 35-Day Turnaround
                                 </div>
                                 <h2 className="font-serif text-2xl sm:text-3xl text-gray-900 font-bold">
                                     AI Shield OS: From Unlisted to #1 Cited Brand in 35 Days
@@ -744,7 +744,7 @@ export default function AIVisibilityPage() {
                                     Before partnering with Frostrek AI, <strong className="text-gray-900">AI Shield OS</strong> had zero visibility in conversational answer engines. When prospects asked ChatGPT and Perplexity for strategic AI operational advisory firms, competitors were cited exclusively.
                                 </p>
                                 <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                                    Frostrek engineered a complete entity knowledge graph, structured machine-readable executive bios, and implemented high-entropy answer snippets. Within six weeks of deployment, AI Shield OS captured category dominance across leading models.
+                                    Frostrek engineered a complete entity knowledge graph, structured machine-readable executive bios, and implemented high-entropy answer snippets. Within 35 days of deployment, AI Shield OS captured category dominance across leading models.
                                 </p>
                             </div>
 
@@ -1058,7 +1058,7 @@ export default function AIVisibilityPage() {
                                 className="text-base md:text-lg text-gray-600 mb-10 max-w-2xl leading-relaxed"
                                 type="words" stagger={0.015} once={false} delay={0.4}
                             >
-                                Let's audit your current AI citation footprint across Google AI Overviews, ChatGPT, Perplexity, and Claude. Receive a comprehensive report and a 60-day roadmap in 5 to 7 days.
+                                Let's audit your current AI citation footprint across Google (AI Overviews), ChatGPT, Perplexity, Claude, and Gemini. Receive a comprehensive report and a 60-day roadmap in 5 to 7 days.
                             </SplitTextReveal>
 
                             <motion.div

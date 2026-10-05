@@ -54,13 +54,11 @@ const SplitTextReveal = ({
             return words.map((word, i) => (
                 <span key={i}>
                     <span className="inline-block overflow-visible">
-                        <span className="split-item inline-block" style={{ 
+                        <span className="split-item inline-block" data-text={word} style={{ 
                             opacity: 0,
                             transform: `translateY(${y}px)`,
                             filter: blur ? 'blur(10px)' : 'none'
-                        }}>
-                            {word}
-                        </span>
+                        }} />
                     </span>
                     {i !== words.length - 1 && ' '}
                 </span>
@@ -70,13 +68,11 @@ const SplitTextReveal = ({
         if (type === 'lines') {
             return children.split('\n').map((line, i) => (
                 <span key={i} className="block overflow-hidden py-1">
-                    <span className="split-item inline-block" style={{ 
+                    <span className="split-item inline-block" data-text={line} style={{ 
                         opacity: 0,
                         transform: `translateY(${y}px)`,
                         filter: blur ? 'blur(10px)' : 'none'
-                    }}>
-                        {line}
-                    </span>
+                    }} />
                 </span>
             ));
         }
@@ -93,14 +89,13 @@ const SplitTextReveal = ({
                             <span key={i} className="inline-block overflow-visible">
                                 <span
                                     className="split-item inline-block"
+                                    data-text={char}
                                     style={{
                                         opacity: 0,
                                         transform: `translateY(${y}px)`,
                                         filter: blur ? 'blur(10px)' : 'none'
                                     }}
-                                >
-                                    {char}
-                                </span>
+                                />
                             </span>
                         );
                     })}
@@ -108,7 +103,7 @@ const SplitTextReveal = ({
                 {wordIdx !== words.length - 1 && ' '}
             </span>
         ));
-    }, [children, type]);
+    }, [children, type, y, blur]);
 
     useGSAP(() => {
         const container = containerRef.current;

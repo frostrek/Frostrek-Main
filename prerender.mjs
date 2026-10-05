@@ -232,6 +232,22 @@ async function prerenderRoute(browser, route, port) {
     finalHtml = finalHtml.replace(/<link rel="canonical"/g, '<link data-rh="true" rel="canonical"');
     finalHtml = finalHtml.replace(/<script type="application\/ld\+json">/g, '<script data-rh="true" type="application/ld+json">');
 
+    // ── Move all JSON-LD schemas into <head> for non-JS crawlers ──────
+    // Non-JS crawlers (search engine bots, AI scrapers) read schema from <head>
+    // directly without executing client-side scripts.
+    // In React 19, Helmet leaves script tags inside the body/root.
+    // We extract all JSON-LD script tags and inject them cleanly into <head>.
+    const ldJsonRegex = /<script[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/gi;
+    const ldJsonScripts = [];
+    finalHtml = finalHtml.replace(ldJsonRegex, (match) => {
+      const tagged = match.includes('data-rh="true"') ? match : match.replace('<script', '<script data-rh="true"');
+      ldJsonScripts.push(tagged);
+      return '';
+    });
+    if (ldJsonScripts.length > 0) {
+      finalHtml = finalHtml.replace('</head>', `  ${ldJsonScripts.join('\n  ')}\n</head>`);
+    }
+
     // ── Deduplicate canonical tags ──────────────────────────────────
     // Puppeteer captures the page after react-helmet-async has injected
     // its canonical into the <head>. If the template already had one, or

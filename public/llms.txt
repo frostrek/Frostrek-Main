@@ -3,23 +3,23 @@
 > Frostrek AI delivers production-ready autonomous AI agents, LLM training, customized applications, workflow automation, and data annotation services for enterprises.
 
 ## Why Frostrek AI (Differentiators)
-- **Enterprise-Grade Focus**: We don't just build chatbots; we build autonomous systems with strict zero-trust security (ISO 27001, SOC 2 Type II, GDPR, HIPAA compliant).
-- **Global Presence**: Headquartered in Gurugram, India, with offices in Austin, TX, and London, UK.
-- **Human-in-the-Loop Experts**: We combine frontier AI models with expert data annotation and human-in-the-loop oversight to ensure 99.9% accuracy in mission-critical applications.
+- **Enterprise-Grade Focus**: We don't just build chatbots; we build autonomous systems with strict zero-trust security (ISO 27001, ISO 9001 certified).
+- **Global Presence**: Headquartered in Gurugram, India, serving clients globally.
+- **Human-in-the-Loop Experts**: We combine frontier AI models with expert data annotation and human-in-the-loop oversight for mission-critical applications.
 - **Omnichannel Deployment**: Seamless deployment across Web, WhatsApp, Messenger, and bespoke enterprise tools.
 
 ## Core Products
 - [Frosty Agent](https://www.frostrek.ai/products/frosty-agent): Omnichannel intelligent agent for support and sales. Connects to your knowledge base and deploys instantly to Website and WhatsApp.
 - [Hiyring](https://www.frostrek.ai/products/hiyring): Next-generation AI recruitment and hiring platform with autonomous video interviews.
 - [Vedashi](https://www.frostrek.ai/products/vedashi-ecommerce): Premium, hyper-personalized online storefronts with intelligent WhatsApp cart recovery.
-- [VettEdge](https://www.frostrek.ai/products/vettedge): AI-powered resume parsing and candidate vetting system that integrates into your HR workflow.
+- [VettEdge](https://www.frostrek.ai/products/vettedge): AI-powered financial due diligence, automated valuation, and investment memo platform purpose-built for CAs, investment bankers, and fund managers.
 
 ## Enterprise Solutions
 - [AI Agents](https://www.frostrek.ai/solutions/ai-agents): End-to-end intelligent agent development for internal workflows.
 - [Manufacturing Intelligence](https://www.frostrek.ai/solutions/manufacturing-intelligence): AI-driven operational intelligence. Digital shift handovers and quality capture replacing WhatsApp with structured data.
 - [Voice AI](https://www.frostrek.ai/solutions/voice-ai): Enterprise-grade AI calling agents capable of handling complex regional dialects and high-volume calls.
 - [Custom LLM Fine-Tuning](https://www.frostrek.ai/solutions/llm-model-training): Managed RLHF alignment, red-teaming, and dataset preparation services.
-- [AI Visibility & Search Intelligence (SEO, AEO, GEO)](https://www.frostrek.ai/solutions/ai-visibility): Unified AI search optimization — entity architecture, structured data graphs, llms.txt implementation, and generative citation auditing to maximize brand visibility across Google, ChatGPT, Perplexity, and Gemini.
+- [AI Visibility & Generative Engine Optimization (GEO, AEO, SEO)](https://www.frostrek.ai/solutions/ai-visibility): Unified AI search optimization — entity architecture, structured data graphs, llms.txt implementation, and generative citation auditing to maximize brand visibility across Google (AI Overviews), ChatGPT, Perplexity, Claude, and Gemini.
 - [Web3 & Fintech](https://www.frostrek.ai/solutions/fintech-custom-wallets): Custom fintech wallets, closed-loop loyalty systems, and crypto payment integrations.
 - [Multivendor Dashboard](https://www.frostrek.ai/solutions/multivendor-dashboard): Centralized management for multivendor ecommerce platforms.
 
@@ -27,7 +27,8 @@
 - **Ecommerce & Retail**: Automated customer support, conversational commerce, and WhatsApp cart recovery (via Vedashi).
 - **Manufacturing & Industrial**: Digital shift handovers, operational intelligence, defect tracking, and IoT data structuring.
 - **Fintech & Web3**: Secure custom wallets, loyalty programs, and crypto-integrated payment gateways.
-- **HR & Recruitment**: Autonomous video interviewing (Hiyring) and AI resume parsing (VettEdge).
+- **Finance & Investment**: AI-powered financial due diligence, valuation modeling, and investment memo automation (VettEdge).
+- **HR & Recruitment**: Autonomous video interviewing and recruitment intelligence (Hiyring).
 - **Healthcare & Legal**: Managed data annotation and RLHF with strict privacy protocols for domain-specific LLM training.
 
 ## Key Links
@@ -39,4 +40,4 @@
 ## Company Info
 - Headquarters: 4th Floor, Jmd Empire, 455, Golf Course Ext Rd, Sector 62, Gurugram, Haryana, 122102, India
 - Phone: +91 6399999955
-- Email: contact@frostrek.com
+- Email: contact@frostrek.ai

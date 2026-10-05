@@ -125,35 +125,19 @@ export default function SEO({
           "@type": "QuantitativeValue",
           "value": "50"
         },
-        "address": [
-          {
-            "@type": "PostalAddress",
-            "streetAddress": "4th Floor, Jmd Empire, 455, Golf Course Ext Rd, Sector 62",
-            "addressLocality": "Gurugram, Nangil Umarpur",
-            "addressRegion": "Haryana",
-            "postalCode": "122102",
-            "addressCountry": "IN"
-          },
-          {
-            "@type": "PostalAddress",
-            "streetAddress": "701 Tillery Street Unit 12-3227",
-            "addressLocality": "Austin",
-            "addressRegion": "TX",
-            "postalCode": "78702",
-            "addressCountry": "US"
-          },
-          {
-            "@type": "PostalAddress",
-            "streetAddress": "24-26 Arcadia Avenue, Fin009/8701",
-            "addressLocality": "London",
-            "postalCode": "N3 2JU",
-            "addressCountry": "GB"
-          }
-        ],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "4th Floor, Jmd Empire, 455, Golf Course Ext Rd, Sector 62",
+          "addressLocality": "Gurugram, Nangil Umarpur",
+          "addressRegion": "Haryana",
+          "postalCode": "122102",
+          "addressCountry": "IN"
+        },
         "contactPoint": {
           "@type": "ContactPoint",
           "contactType": "sales",
           "telephone": "+91 6399999955",
+          "email": "contact@frostrek.ai",
           "url": "https://www.frostrek.ai/schedule-demo",
           "areaServed": ["IN", "US", "GB"],
           "availableLanguage": ["English"]
@@ -173,21 +157,6 @@ export default function SEO({
             "@type": "EducationalOccupationalCredential",
             "credentialCategory": "certification",
             "name": "ISO 9001"
-          },
-          {
-            "@type": "EducationalOccupationalCredential",
-            "credentialCategory": "compliance",
-            "name": "GDPR"
-          },
-          {
-            "@type": "EducationalOccupationalCredential",
-            "credentialCategory": "compliance",
-            "name": "HIPAA"
-          },
-          {
-            "@type": "EducationalOccupationalCredential",
-            "credentialCategory": "compliance",
-            "name": "SOC 2 Type II"
           }
         ]
       })}</script>

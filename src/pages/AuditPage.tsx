@@ -18,7 +18,7 @@ import CuteBackground from '../components/ui/CuteBackground';
 const AUDIT_DELIVERABLES = [
     {
         title: 'Multi-Engine AI Citation Benchmark',
-        desc: 'We test your brand across ChatGPT, Perplexity, Claude, Google Gemini, and Copilot against 25+ high-intent buyer prompts in your niche.',
+        desc: 'We test your brand across Google (AI Overviews), ChatGPT, Perplexity, Claude, and Gemini against 25+ high-intent buyer prompts in your niche.',
         timeline: 'Day 1–2',
         icon: Search,
         accent: '#0284C7',
@@ -88,7 +88,7 @@ export default function AuditPage() {
         <article className="min-h-screen bg-brand-light-bg pt-28 pb-20 relative overflow-hidden font-body text-primary">
             <SEO
                 title="Free AI Visibility & Citation Audit | Frostrek AI"
-                description="Get a comprehensive evaluation of your brand's visibility across ChatGPT, Perplexity, Claude, and Google AI Overviews. Delivered in 5 to 7 business days."
+                description="Get a comprehensive evaluation of your brand's visibility across Google (AI Overviews), ChatGPT, Perplexity, Claude, and Gemini. Delivered in 5 to 7 business days."
                 path="/audit"
             />
             <CuteBackground />
@@ -115,7 +115,7 @@ export default function AuditPage() {
                     </SplitTextReveal>
 
                     <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
-                        Find out exactly how ChatGPT, Perplexity, Google Gemini, and Claude answer questions about your brand. We audit your entity graphs, crawlability, and competitor citations to give you a definitive action plan.
+                        Find out exactly how Google (AI Overviews), ChatGPT, Perplexity, Claude, and Gemini answer questions about your brand. We audit your entity graphs, crawlability, and competitor citations to give you a definitive action plan.
                     </p>
                 </div>
 
