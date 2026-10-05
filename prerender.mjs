@@ -48,6 +48,8 @@ const routes = [
   '/solutions/voice-ai',
   '/solutions/llm-model-training',
   '/solutions/ai-visibility',
+  // Error fallback page
+  '/404',
   // Dynamic Blog posts
   ...dynamicBlogSlugs
 ];
@@ -331,6 +333,9 @@ async function main() {
   } catch (launchErr) {
     console.warn(`\n  ⚠ Could not launch browser: ${launchErr.message}`);
     console.warn('  ⏭ Skipping prerendering (SPA will still work via client-side routing).\n');
+    if (!existsSync(join(DIST, '404.html')) && existsSync(templateFile)) {
+      writeFileSync(join(DIST, '404.html'), readFileSync(templateFile, 'utf-8'), 'utf-8');
+    }
     server.close();
     return;
   }
@@ -343,6 +348,12 @@ async function main() {
   // Process routes sequentially to avoid overwhelming the system
   for (const route of routes) {
     await prerenderRoute(browser, route, port);
+  }
+
+  // Ensure 404.html exists for static hosts / Vercel fallback
+  const fallback404 = join(DIST, '404.html');
+  if (!existsSync(fallback404) && existsSync(templateFile)) {
+    writeFileSync(fallback404, readFileSync(templateFile, 'utf-8'), 'utf-8');
   }
 
   const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
