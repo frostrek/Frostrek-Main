@@ -53,7 +53,7 @@ const AUDIT_DELIVERABLES = [
         border: 'border-[#FFEDD5]'
     },
     {
-        title: 'Prioritized 60-Day GEO / AEO Action Roadmap',
+        title: 'Prioritized 90-Day GEO / AEO Action Roadmap',
         desc: 'A prioritized executive playbook of high-impact fixes, structured data additions, and content engineering moves to capture citation real estate.',
         timeline: 'Day 5–7',
         icon: Target,

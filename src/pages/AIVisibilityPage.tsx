@@ -425,7 +425,7 @@ export default function AIVisibilityPage() {
             <section
                 ref={heroRef}
                 aria-label="AI Visibility hero"
-                className="relative pt-24 md:pt-32 pb-16 md:pb-20 overflow-hidden flex items-center justify-center min-h-[85vh]"
+                className="relative pt-4 sm:pt-6 pb-8 sm:pb-10 overflow-hidden flex flex-col items-center justify-center min-h-[calc(100vh-6rem)]"
             >
                 <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-brand-badge-bg/40 rounded-full blur-[100px] opacity-60 animate-pulse pointer-events-none" aria-hidden="true" />
                 <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-[#E8F5EE]/60 rounded-full blur-[120px] opacity-60 pointer-events-none" aria-hidden="true" />
@@ -436,17 +436,17 @@ export default function AIVisibilityPage() {
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.5 }}
-                            className="hero-el inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-[#2D6A4F]/10 shadow-sm mb-8"
+                            className="hero-el inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/80 backdrop-blur-sm border border-[#2D6A4F]/10 shadow-sm mb-3 sm:mb-4"
                         >
                             <div className="w-2 h-2 rounded-full bg-[#2D6A4F] animate-pulse" aria-hidden="true" />
-                            <span className="text-sm font-bold text-[#2D6A4F] tracking-wide uppercase">
+                            <span className="text-xs sm:text-sm font-bold text-[#2D6A4F] tracking-wide uppercase">
                                 <abbr title="Search Engine Optimization">SEO</abbr> • <abbr title="Answer Engine Optimization">AEO</abbr> • <abbr title="Generative Engine Optimization">GEO</abbr>
                             </span>
                         </motion.div>
 
                         <SplitTextReveal
                             as="h1"
-                            className="hero-el font-serif text-4xl md:text-6xl lg:text-7xl text-[#2D6A4F] leading-[1.1] tracking-[-0.02em] mb-6"
+                            className="hero-el font-serif text-4xl md:text-6xl lg:text-7xl text-[#2D6A4F] leading-[1.1] tracking-[-0.02em] mb-4 sm:mb-5"
                             type="chars" stagger={0.02} once={false} delay={0.2}
                         >
                             Generative Engine Optimization (GEO) & AI Visibility
@@ -458,18 +458,18 @@ export default function AIVisibilityPage() {
                             initial={{ opacity: 0, y: 15 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.6, duration: 0.7 }}
-                            className="hero-el relative text-lg md:text-xl text-gray-600 italic font-medium mb-8 max-w-3xl px-6"
+                            className="hero-el relative text-sm sm:text-base md:text-lg text-gray-600 italic font-medium mb-3 sm:mb-4 max-w-2xl px-6"
                             cite="https://www.frostrek.ai/solutions/ai-visibility"
                         >
-                            <span className="absolute -left-1 top-0 text-4xl text-[#2D6A4F]/20 font-serif" aria-hidden="true">"</span>
+                            <span className="absolute -left-1 top-0 text-2xl sm:text-3xl text-[#2D6A4F]/20 font-serif" aria-hidden="true">"</span>
                             Be Found Where Answers Are Born — Optimizing Your Brand for <strong className="font-medium not-italic">Google (AI Overviews)</strong>, <strong className="font-medium not-italic">ChatGPT</strong>, <strong className="font-medium not-italic">Perplexity</strong>, <strong className="font-medium not-italic">Claude</strong> & <strong className="font-medium not-italic">Gemini</strong>.
-                            <span className="absolute -right-1 bottom-0 text-4xl text-[#2D6A4F]/20 font-serif" aria-hidden="true">"</span>
+                            <span className="absolute -right-1 bottom-0 text-2xl sm:text-3xl text-[#2D6A4F]/20 font-serif" aria-hidden="true">"</span>
                         </motion.blockquote>
 
                         {/* Answer-First Definition (Dense, extractable 75 words) */}
                         <p
                             id="hero-definition"
-                            className="hero-el text-base md:text-lg text-gray-600 leading-relaxed mb-10 max-w-3xl font-medium"
+                            className="hero-el text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed mb-5 sm:mb-6 max-w-3xl font-normal md:font-medium"
                             itemProp="description"
                         >
                             <dfn><strong className="font-semibold text-gray-700">AI Visibility</strong></dfn> is the specialized discipline of optimizing digital brand authority for both search engines and generative AI answer platforms. Today, modern buyers actively rely on conversational AI assistants like <strong className="font-semibold text-gray-700">Google (AI Overviews)</strong>, <strong className="font-semibold text-gray-700">ChatGPT</strong>, <strong className="font-semibold text-gray-700">Perplexity</strong>, <strong className="font-semibold text-gray-700">Claude</strong>, and <strong className="font-semibold text-gray-700">Gemini</strong> to synthesize answers and evaluate solutions. Frostrek AI provides unified <abbr title="Search Engine Optimization">SEO</abbr>, <abbr title="Answer Engine Optimization">AEO</abbr>, and <abbr title="Generative Engine Optimization">GEO</abbr> architectures that ensure your brand is cited and recommended as the primary industry answer.
@@ -479,19 +479,19 @@ export default function AIVisibilityPage() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.8, duration: 0.6 }}
-                            className="hero-el flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
+                            className="hero-el flex flex-col sm:flex-row gap-3.5 w-full sm:w-auto"
                         >
                             <Link
                                 to="/audit"
                                 aria-label="Claim your free AI Visibility audit delivered in 5 to 7 days"
-                                className="group relative w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 bg-[#2D6A4F] text-white rounded-full font-medium text-lg transition-all hover:bg-[#1B4332] shadow-[0_10px_30px_rgba(45,106,79,0.2)] hover:shadow-[0_10px_40px_rgba(45,106,79,0.3)] hover:-translate-y-0.5"
+                                className="group relative w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 py-3 bg-[#2D6A4F] text-white rounded-full font-medium text-sm sm:text-base transition-all hover:bg-[#1B4332] shadow-[0_8px_25px_rgba(45,106,79,0.2)] hover:shadow-[0_10px_35px_rgba(45,106,79,0.3)] hover:-translate-y-0.5"
                             >
                                 Get Your Free AI Visibility Audit
-                                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                             </Link>
                             <a
                                 href="#pricing"
-                                className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#2D6A4F] rounded-full font-medium text-lg transition-all border border-[#2D6A4F]/20 hover:bg-[#F4FAF7] hover:-translate-y-0.5"
+                                className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 bg-white text-[#2D6A4F] rounded-full font-medium text-sm sm:text-base transition-all border border-[#2D6A4F]/20 hover:bg-[#F4FAF7] hover:-translate-y-0.5"
                             >
                                 View Pricing (From USD $300)
                             </a>
@@ -499,7 +499,7 @@ export default function AIVisibilityPage() {
                     </div>
                 </div>
 
-                <div className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none bg-gradient-to-t from-white to-transparent" aria-hidden="true" />
+                <div className="absolute bottom-0 left-0 right-0 h-16 pointer-events-none bg-gradient-to-t from-white to-transparent" aria-hidden="true" />
             </section>
 
             {/* ────────────────────── SECTION 2 ── THE THREE PILLARS ────────────────────── */}
@@ -548,12 +548,12 @@ export default function AIVisibilityPage() {
                                         <p className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-4">
                                             {pillar.subtitle}
                                         </p>
-                                        <p className="text-sm leading-relaxed text-gray-600 mb-8 min-h-[6rem]">
+                                        <p className="text-sm leading-relaxed text-gray-600 mb-4">
                                             {pillar.description}
                                         </p>
 
-                                        <div className="mt-auto pt-6 border-t border-gray-100">
-                                            <span className="text-xs font-bold uppercase tracking-wider text-gray-500 block mb-3">
+                                        <div className="mt-auto pt-4 border-t border-gray-100">
+                                            <span className="text-xs font-bold uppercase tracking-wider text-gray-500 block mb-2.5">
                                                 Core Capabilities
                                             </span>
                                             <ul className="space-y-2.5">
@@ -1033,21 +1033,34 @@ export default function AIVisibilityPage() {
             {/* ────────────────────── SECTION 7 ── FINAL HIGH-CONVERTING CTA ────────────────────── */}
             <section
                 aria-label="Schedule an audit"
-                className="py-20 relative overflow-hidden bg-white font-sans border-t border-[#2D6A4F]/10"
+                className="py-16 md:py-24 relative overflow-hidden bg-brand-light-bg font-sans"
             >
-                <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-brand-badge-bg/80 rounded-full blur-[120px]" />
-                </div>
-                <div className="container mx-auto px-4 md:px-6 relative z-10 text-center max-w-[1400px]">
-                    <div className="max-w-4xl mx-auto bg-brand-light-bg p-8 sm:p-12 md:p-16 rounded-[2.5rem] border border-[#2D6A4F]/15 shadow-sm">
-                        <div className="flex flex-col items-center">
-                            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#E8F5EE] border border-[#2D6A4F]/20 text-[#2D6A4F] text-xs font-bold uppercase tracking-wider mb-6">
-                                Delivered in 5 to 7 Days • Zero Commitment
-                            </div>
+                <div className="container mx-auto px-4 md:px-6 relative z-10 max-w-[1240px]">
+                    <div
+                        className="relative rounded-[30px] p-8 sm:p-12 md:p-16 lg:p-20 overflow-hidden text-left text-white shadow-xl shadow-[#2D6A4F]/10"
+                        style={{ background: "linear-gradient(150deg, #2D6A4F, #20503B 150%)" }}
+                    >
+                        {/* Radial glow top-right */}
+                        <div
+                            className="absolute -right-24 -top-24 w-80 sm:w-96 h-80 sm:h-96 rounded-full pointer-events-none"
+                            style={{
+                                background: "radial-gradient(circle, rgba(255, 255, 255, 0.14), transparent 70%)",
+                            }}
+                            aria-hidden="true"
+                        />
 
+                        {/* Snowflake watermark bottom-left */}
+                        <img
+                            src="/optimized/logonew.webp"
+                            alt=""
+                            className="absolute -left-16 -bottom-16 w-64 sm:w-72 h-64 sm:h-72 pointer-events-none select-none -rotate-12 opacity-[0.09] filter brightness-0 invert"
+                            aria-hidden="true"
+                        />
+
+                        <div className="relative z-10 max-w-3xl">
                             <SplitTextReveal
                                 as="h2"
-                                className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em] mb-6"
+                                className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[46px] text-white leading-[1.15] tracking-tight mb-4 sm:mb-5 font-normal max-w-[18ch]"
                                 type="chars" stagger={0.02} once={false}
                             >
                                 Ready to Be Found Where Answers Are Born?
@@ -1055,30 +1068,31 @@ export default function AIVisibilityPage() {
 
                             <SplitTextReveal
                                 as="p"
-                                className="text-base md:text-lg text-gray-600 mb-10 max-w-2xl leading-relaxed"
-                                type="words" stagger={0.015} once={false} delay={0.4}
+                                className="text-[#C9E0D3] text-base sm:text-lg md:text-[19px] leading-relaxed mb-8 sm:mb-9 max-w-2xl font-normal"
+                                type="words" stagger={0.015} once={false} delay={0.3}
                             >
-                                Let's audit your current AI citation footprint across Google (AI Overviews), ChatGPT, Perplexity, Claude, and Gemini. Receive a comprehensive report and a 60-day roadmap in 5 to 7 days.
+                                Let's audit your current AI citation footprint across Google (AI Overviews), ChatGPT, Perplexity, Claude, and Gemini. Receive a comprehensive report and a 90-day roadmap in 5 to 7 days.
                             </SplitTextReveal>
 
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.8, duration: 0.6 }}
-                                className="flex flex-col sm:flex-row gap-4"
+                                transition={{ delay: 0.6, duration: 0.6 }}
+                                className="flex flex-wrap items-center gap-3.5 sm:gap-4 relative z-10"
                             >
                                 <Link
                                     to="/audit"
                                     aria-label="Request your AI Visibility audit report"
-                                    className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#2D6A4F] text-white rounded-full font-medium text-lg transition-all hover:bg-[#1B4332] shadow-[0_10px_30px_rgba(45,106,79,0.2)] hover:shadow-[0_10px_40px_rgba(45,106,79,0.3)] hover:-translate-y-0.5"
+                                    className="group relative inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:px-8 sm:py-4 bg-white text-[#2D6A4F] rounded-full font-semibold text-base transition-all hover:bg-[#F0FDF4] hover:-translate-y-0.5 shadow-sm"
                                 >
                                     Get Your Free AI Audit (5-7 Days)
-                                    <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                                 </Link>
                                 <Link
                                     to="/contact"
                                     aria-label="Contact Frostrek AI team"
-                                    className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-[#2D6A4F] rounded-full font-medium text-lg transition-all border border-[#2D6A4F]/20 hover:border-[#2D6A4F]/40 hover:bg-[#F4FAF7] hover:-translate-y-0.5"
+                                    className="group relative inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full font-semibold text-base transition-all text-white border border-white/20 hover:bg-white/20 hover:-translate-y-0.5"
+                                    style={{ background: "rgba(255, 255, 255, 0.14)" }}
                                 >
                                     Talk to an Expert
                                 </Link>
