@@ -20,7 +20,7 @@ const FAQ_CATEGORIES: FAQCategory[] = [
         faqs: [
             {
                 question: "What does Frostrek AI do?",
-                answer: "Frostrek AI is an enterprise AI company headquartered in Gurugram, India, with offices in Austin, TX and London, UK. We build conversational AI agents, workflow automation systems, and custom LLM solutions for enterprises across manufacturing, e-commerce, fintech, and healthcare. Founded in 2019, we serve 40+ enterprise clients globally with a team of 50+ engineers."
+                answer: "Frostrek AI is an enterprise AI company headquartered in Gurugram, India, with offices in Austin, TX and London, UK. We build conversational AI agents, workflow automation systems, and custom LLM solutions for enterprises across manufacturing, e-commerce, fintech, and healthcare. Founded in 2021, we serve 40+ enterprise clients globally."
             },
             {
                 question: "What industries do you serve?",

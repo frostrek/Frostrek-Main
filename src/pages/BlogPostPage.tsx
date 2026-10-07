@@ -43,7 +43,7 @@ const BlogPostPage = () => {
             "name": "Frostrek AI",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://www.frostrek.ai/logo.png"
+                "url": "https://www.frostrek.ai/logonew.png"
             }
         },
         "mainEntityOfPage": {

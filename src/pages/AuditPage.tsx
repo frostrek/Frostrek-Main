@@ -63,6 +63,55 @@ const AUDIT_DELIVERABLES = [
     }
 ];
 
+const auditServiceSchema = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': 'https://www.frostrek.ai/audit#service',
+    name: 'Free AI Visibility & Citation Audit',
+    description: 'A complimentary multi-engine diagnostic auditing your brand citation frequency across Google (AI Overviews), ChatGPT, Perplexity, Claude, and Gemini, including entity architecture and a prioritized 90-day action roadmap delivered in 5 to 7 days.',
+    provider: {
+        '@type': 'Organization',
+        '@id': 'https://www.frostrek.ai/#organization',
+        name: 'Frostrek AI',
+        url: 'https://www.frostrek.ai',
+    },
+    serviceType: 'AI Citation & Digital Visibility Audit',
+    areaServed: 'Worldwide',
+    offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD',
+        name: 'Complimentary AI Visibility Audit',
+        description: 'Complete 5 to 7 day AI visibility and citation benchmark report with zero financial obligation.',
+        availability: 'https://schema.org/InStock',
+        url: 'https://www.frostrek.ai/audit',
+    },
+});
+
+const auditWebPageSchema = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': 'https://www.frostrek.ai/audit#webpage',
+    name: 'Free AI Visibility & Citation Audit | Frostrek AI',
+    description: "Get a comprehensive evaluation of your brand's visibility across Google (AI Overviews), ChatGPT, Perplexity, Claude, and Gemini. Delivered in 5 to 7 business days.",
+    url: 'https://www.frostrek.ai/audit',
+    inLanguage: 'en',
+    isPartOf: {
+        '@type': 'WebSite',
+        '@id': 'https://www.frostrek.ai/#website',
+        name: 'Frostrek AI',
+        url: 'https://www.frostrek.ai',
+    },
+    about: {
+        '@type': 'Organization',
+        '@id': 'https://www.frostrek.ai/#organization',
+    },
+    mainEntity: {
+        '@type': 'Service',
+        '@id': 'https://www.frostrek.ai/audit#service',
+    },
+});
+
 export default function AuditPage() {
     const [submitted, setSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -90,6 +139,7 @@ export default function AuditPage() {
                 title="Free AI Visibility & Citation Audit | Frostrek AI"
                 description="Get a comprehensive evaluation of your brand's visibility across Google (AI Overviews), ChatGPT, Perplexity, Claude, and Gemini. Delivered in 5 to 7 business days."
                 path="/audit"
+                schema={[auditWebPageSchema, auditServiceSchema]}
             />
             <CuteBackground />
 

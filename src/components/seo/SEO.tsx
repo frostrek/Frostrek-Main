@@ -33,6 +33,8 @@ export default function SEO({
   }
 
   // Auto-generate BreadcrumbList schema
+  // Drop intermediate levels that do not have dedicated hub pages (e.g. /solutions, /products)
+  const NON_PAGE_INTERMEDIATES = new Set(['solutions', 'products']);
   const pathParts = path.split('/').filter(Boolean);
   const breadcrumbItems = [
     {
@@ -44,18 +46,22 @@ export default function SEO({
   ];
 
   let currentPath = '';
+  let position = 2;
   pathParts.forEach((part, index) => {
     currentPath += `/${part}`;
-    // Format name: capitalize first letter, replace dashes with spaces
-    const formattedName = part.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-
-    // Use the page title for the last item if it's the exact path match
     const isLast = index === pathParts.length - 1;
+
+    // Skip intermediate segments that do not have standalone routes in sitemap
+    if (!isLast && NON_PAGE_INTERMEDIATES.has(part)) {
+      return;
+    }
+
+    const formattedName = part.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
     const itemName = isLast ? title.split('|')[0].trim() : formattedName;
 
     breadcrumbItems.push({
       "@type": "ListItem",
-      "position": index + 2,
+      "position": position++,
       "name": itemName,
       "item": `https://www.frostrek.ai${currentPath}`
     });
@@ -114,21 +120,17 @@ export default function SEO({
         "@id": "https://www.frostrek.ai/#organization",
         "name": "Frostrek AI",
         "url": "https://www.frostrek.ai",
-        "logo": "https://www.frostrek.ai/logo.png",
+        "logo": "https://www.frostrek.ai/logonew.png",
         "description": "Frostrek AI delivers AI agents, LLM training, customized applications, workflow automation, and data annotation services for enterprises and frontier AI teams.",
         "foundingDate": "2021",
         "founder": {
           "@type": "Person",
           "name": "Akash Mittal"
         },
-        "numberOfEmployees": {
-          "@type": "QuantitativeValue",
-          "value": "50"
-        },
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "4th Floor, Jmd Empire, 455, Golf Course Ext Rd, Sector 62",
-          "addressLocality": "Gurugram, Nangil Umarpur",
+          "addressLocality": "Gurugram",
           "addressRegion": "Haryana",
           "postalCode": "122102",
           "addressCountry": "IN"
@@ -145,7 +147,8 @@ export default function SEO({
         "sameAs": [
           "https://www.linkedin.com/company/frostrek",
           "https://www.instagram.com/frostrekai",
-          "https://twitter.com/frostrek"
+          "https://www.facebook.com/people/Frostrek-Ai/pfbid0VWudotryavaCWUi3utjYrUJYh35mGbSHmq73RnhksigdjJA28XQVBgNLz1Nryympl/",
+          "https://www.youtube.com/@frostrekai"
         ],
         "hasCredential": [
           {

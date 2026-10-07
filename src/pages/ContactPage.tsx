@@ -116,7 +116,7 @@ const localBusinessSchema = JSON.stringify([
     "@type": "LocalBusiness",
     "@id": "https://www.frostrek.ai/#organization",
     "name": "Frostrek AI (HQ)",
-    "image": "https://www.frostrek.ai/logo.png",
+    "image": "https://www.frostrek.ai/logonew.png",
     "url": "https://www.frostrek.ai/contact",
     "telephone": "+916399999955",
     "address": {
@@ -145,7 +145,7 @@ const localBusinessSchema = JSON.stringify([
     "@type": "LocalBusiness",
     "@id": "https://www.frostrek.ai/#us-office",
     "name": "Frostrek AI (USA)",
-    "image": "https://www.frostrek.ai/logo.png",
+    "image": "https://www.frostrek.ai/logonew.png",
     "url": "https://www.frostrek.ai/contact",
     "telephone": "+17574722491",
     "address": {
@@ -163,7 +163,7 @@ const localBusinessSchema = JSON.stringify([
     "@type": "LocalBusiness",
     "@id": "https://www.frostrek.ai/#uk-office",
     "name": "Frostrek AI (UK)",
-    "image": "https://www.frostrek.ai/logo.png",
+    "image": "https://www.frostrek.ai/logonew.png",
     "url": "https://www.frostrek.ai/contact",
     "address": {
       "@type": "PostalAddress",

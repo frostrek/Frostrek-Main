@@ -242,7 +242,8 @@ const FAQS: FAQ[] = [
 const webPageSchema = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Generative Engine Optimization (GEO) & AI Visibility Agency | Frostrek AI',
+    '@id': 'https://www.frostrek.ai/solutions/ai-visibility#webpage',
+    name: 'GEO & AI Visibility Agency | Frostrek AI',
     description: 'Be found where answers are born. Frostrek optimizes your brand across Google (AI Overviews), ChatGPT, Perplexity, Claude, and Gemini through advanced GEO, AEO, and AI-powered SEO.',
     url: 'https://www.frostrek.ai/solutions/ai-visibility',
     inLanguage: 'en',
@@ -250,24 +251,17 @@ const webPageSchema = JSON.stringify({
     dateModified: '2026-09-28T08:00:00+00:00',
     isPartOf: {
         '@type': 'WebSite',
+        '@id': 'https://www.frostrek.ai/#website',
         name: 'Frostrek AI',
         url: 'https://www.frostrek.ai',
     },
-    about: [
-        { '@type': 'Thing', name: 'Search Engine Optimization', sameAs: 'https://en.wikipedia.org/wiki/Search_engine_optimization' },
-        { '@type': 'Thing', name: 'Answer Engine Optimization' },
-        { '@type': 'Thing', name: 'Generative Engine Optimization' },
-        { '@type': 'Thing', name: 'Artificial Intelligence', sameAs: 'https://en.wikipedia.org/wiki/Artificial_intelligence' },
-    ],
+    about: {
+        '@type': 'Organization',
+        '@id': 'https://www.frostrek.ai/#organization',
+    },
     mainEntity: {
         '@type': 'Service',
-        name: 'Generative Engine Optimization (GEO) & AI Visibility',
-        provider: {
-            '@type': 'Organization',
-            '@id': 'https://www.frostrek.ai/#organization',
-            name: 'Frostrek AI',
-            url: 'https://www.frostrek.ai',
-        },
+        '@id': 'https://www.frostrek.ai/solutions/ai-visibility#service',
     },
     speakable: {
         '@type': 'SpeakableSpecification',
@@ -291,7 +285,8 @@ const faqSchema = JSON.stringify({
 const serviceSchema = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'Service',
-    name: 'AI Visibility & Generative Engine Optimization (GEO) Services',
+    '@id': 'https://www.frostrek.ai/solutions/ai-visibility#service',
+    name: 'GEO & AI Visibility Services',
     description: 'Comprehensive AI search optimization service covering SEO, AEO (Answer Engine Optimization), and GEO (Generative Engine Optimization) to maximize brand visibility across Google (AI Overviews), ChatGPT, Perplexity, Claude, and Gemini.',
     provider: {
         '@type': 'Organization',
@@ -409,7 +404,7 @@ export default function AIVisibilityPage() {
             itemType="https://schema.org/Service"
         >
             <SEO
-                title="Generative Engine Optimization (GEO) & AI Visibility Agency | Frostrek AI"
+                title="GEO & AI Visibility Agency | Frostrek AI"
                 description="Be found where answers are born. Frostrek optimizes your brand across Google (AI Overviews), ChatGPT, Perplexity, Claude, and Gemini through advanced GEO, AEO, and AI-powered SEO."
                 path="/solutions/ai-visibility"
                 schema={[webPageSchema, faqSchema, serviceSchema, howToSchema]}
@@ -417,7 +412,7 @@ export default function AIVisibilityPage() {
             <CuteBackground />
 
             {/* Semantic metadata for AI crawlers */}
-            <meta itemProp="name" content="Generative Engine Optimization (GEO) & AEO Agency by Frostrek AI" />
+            <meta itemProp="name" content="GEO & AI Visibility Agency | Frostrek AI" />
             <meta itemProp="serviceType" content="AI Search Optimization" />
             <meta itemProp="url" content="https://www.frostrek.ai/solutions/ai-visibility" />
 
@@ -472,7 +467,7 @@ export default function AIVisibilityPage() {
                             className="hero-el text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed mb-5 sm:mb-6 max-w-3xl font-normal md:font-medium"
                             itemProp="description"
                         >
-                            <dfn><strong className="font-semibold text-gray-700">AI Visibility</strong></dfn> is the specialized discipline of optimizing digital brand authority for both search engines and generative AI answer platforms. Today, modern buyers actively rely on conversational AI assistants like <strong className="font-semibold text-gray-700">Google (AI Overviews)</strong>, <strong className="font-semibold text-gray-700">ChatGPT</strong>, <strong className="font-semibold text-gray-700">Perplexity</strong>, <strong className="font-semibold text-gray-700">Claude</strong>, and <strong className="font-semibold text-gray-700">Gemini</strong> to synthesize answers and evaluate solutions. Frostrek AI provides unified <abbr title="Search Engine Optimization">SEO</abbr>, <abbr title="Answer Engine Optimization">AEO</abbr>, and <abbr title="Generative Engine Optimization">GEO</abbr> architectures that ensure your brand is cited and recommended as the primary industry answer.
+                            <dfn><strong className="font-semibold text-gray-700">AI Visibility</strong></dfn> is the specialized discipline of optimizing digital brand authority for search engines and generative AI answer platforms. Grounded in peer-reviewed research on <a href="https://arxiv.org/abs/2311.09735" target="_blank" rel="noopener noreferrer" className="text-[#2D6A4F] font-semibold underline hover:text-[#1B4332]" title="Generative Engine Optimization academic paper on arXiv">Generative Engine Optimization (GEO)</a>, modern buyers rely on conversational AI assistants like <strong className="font-semibold text-gray-700">Google (AI Overviews)</strong>, <strong className="font-semibold text-gray-700">ChatGPT</strong>, <strong className="font-semibold text-gray-700">Perplexity</strong>, <strong className="font-semibold text-gray-700">Claude</strong>, and <strong className="font-semibold text-gray-700">Gemini</strong> to evaluate solutions. Frostrek AI delivers unified <abbr title="Search Engine Optimization">SEO</abbr>, <abbr title="Answer Engine Optimization">AEO</abbr>, and <abbr title="Generative Engine Optimization">GEO</abbr> architectures that ensure your brand is cited and recommended as the primary industry answer.
                         </p>
 
                         <motion.div
@@ -564,6 +559,31 @@ export default function AIVisibilityPage() {
                                                     </li>
                                                 ))}
                                             </ul>
+
+                                            {pillar.id === 'ai-powered-seo' && (
+                                                <div className="mt-4 pt-3 border-t border-gray-100 text-[11px] text-gray-500 flex flex-wrap items-center gap-x-1.5 gap-y-1">
+                                                    <span>Standards:</span>
+                                                    <a href="https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data" target="_blank" rel="noopener noreferrer" className="text-[#0284C7] font-semibold underline hover:text-[#0369A1]">Google Search Central</a>
+                                                    <span>•</span>
+                                                    <a href="https://schema.org" target="_blank" rel="noopener noreferrer" className="text-[#0284C7] font-semibold underline hover:text-[#0369A1]">Schema.org</a>
+                                                </div>
+                                            )}
+                                            {pillar.id === 'answer-engine-optimization' && (
+                                                <div className="mt-4 pt-3 border-t border-gray-100 text-[11px] text-gray-500 flex flex-wrap items-center gap-x-1.5 gap-y-1">
+                                                    <span>Related:</span>
+                                                    <Link to="/solutions/ai-agents" className="text-[#6D28D9] font-semibold underline hover:text-[#5B21B6]">Enterprise AI Agents</Link>
+                                                    <span>•</span>
+                                                    <Link to="/resources/faq" className="text-[#6D28D9] font-semibold underline hover:text-[#5B21B6]">AI Knowledge FAQs</Link>
+                                                </div>
+                                            )}
+                                            {pillar.id === 'generative-engine-optimization' && (
+                                                <div className="mt-4 pt-3 border-t border-gray-100 text-[11px] text-gray-500 flex flex-wrap items-center gap-x-1.5 gap-y-1">
+                                                    <span>Research & Services:</span>
+                                                    <a href="https://arxiv.org/abs/2311.09735" target="_blank" rel="noopener noreferrer" className="text-[#166534] font-semibold underline hover:text-[#14532D]">Princeton GEO Study (arXiv)</a>
+                                                    <span>•</span>
+                                                    <Link to="/solutions/llm-model-training" className="text-[#166534] font-semibold underline hover:text-[#14532D]">LLM Fine-Tuning</Link>
+                                                </div>
+                                            )}
                                         </div>
                                     </div>
                                 </SpotlightCard>
@@ -786,12 +806,16 @@ export default function AIVisibilityPage() {
                         </div>
 
                         <div className="pt-6 border-t border-gray-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                            <span className="text-xs text-gray-500">
-                                Verified via live conversational engine audits across 50+ standardized enterprise prompts.
-                            </span>
+                            <div className="flex flex-wrap items-center gap-2 text-xs text-gray-500">
+                                <span>Verified via live conversational engine audits across 50+ standardized enterprise prompts.</span>
+                                <span>•</span>
+                                <Link to="/resources/blog" className="text-[#2D6A4F] font-semibold underline hover:text-[#1B4332]">
+                                    Read AI Citation Insights on our Blog
+                                </Link>
+                            </div>
                             <Link
                                 to="/audit"
-                                className="inline-flex items-center gap-2 text-sm font-bold text-[#2D6A4F] hover:text-[#1B4332] group"
+                                className="inline-flex items-center gap-2 text-sm font-bold text-[#2D6A4F] hover:text-[#1B4332] group shrink-0"
                             >
                                 Benchmark your brand citations
                                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

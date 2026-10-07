@@ -27,7 +27,7 @@ const localBusinessSchema = JSON.stringify([
     "@type": "LocalBusiness",
     "@id": "https://www.frostrek.ai/#organization",
     "name": "Frostrek AI (HQ)",
-    "image": "https://www.frostrek.ai/logo.png",
+    "image": "https://www.frostrek.ai/logonew.png",
     "url": "https://www.frostrek.ai",
     "telephone": "+916399999955",
     "address": {
@@ -56,7 +56,7 @@ const localBusinessSchema = JSON.stringify([
     "@type": "LocalBusiness",
     "@id": "https://www.frostrek.ai/#us-office",
     "name": "Frostrek AI (USA)",
-    "image": "https://www.frostrek.ai/logo.png",
+    "image": "https://www.frostrek.ai/logonew.png",
     "url": "https://www.frostrek.ai",
     "telephone": "+17574722491",
     "address": {
@@ -74,7 +74,7 @@ const localBusinessSchema = JSON.stringify([
     "@type": "LocalBusiness",
     "@id": "https://www.frostrek.ai/#uk-office",
     "name": "Frostrek AI (UK)",
-    "image": "https://www.frostrek.ai/logo.png",
+    "image": "https://www.frostrek.ai/logonew.png",
     "url": "https://www.frostrek.ai",
     "address": {
       "@type": "PostalAddress",
@@ -132,7 +132,6 @@ const organizationSchema = JSON.stringify({
   "description": "Frostrek AI builds conversational AI agents, AI video platforms, and enterprise workflow automation for global startups & enterprises.",
   "sameAs": [
     "https://www.linkedin.com/company/frostrek/",
-    "https://twitter.com/frostrek",
     "https://www.youtube.com/@frostrekai",
     "https://www.facebook.com/people/Frostrek-Ai/pfbid0VWudotryavaCWUi3utjYrUJYh35mGbSHmq73RnhksigdjJA28XQVBgNLz1Nryympl/",
     "https://www.instagram.com/frostrekai?igsh=bndyYWZ1NTA4NWR1"
