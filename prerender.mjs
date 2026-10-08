@@ -9,13 +9,14 @@
  */
 
 import { createServer } from 'http';
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync, statSync, copyFileSync } from 'fs';
 import { join, extname, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import puppeteer from 'puppeteer';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST = join(__dirname, 'dist');
+const PRERENDER_CACHE_DIR = join(__dirname, 'prerender-pages');
 const PORT = 4173;
 
 // Extract blog post slugs dynamically from resources.ts
@@ -203,6 +204,16 @@ async function prerenderRoute(browser, route, port) {
         await new Promise(r => setTimeout(r, 2000));
         html = await page.content();
       }
+    } else {
+      const hasH1 = html.includes('<h1');
+      const hasConnectionLost = html.includes('Connection Lost');
+      if (!hasH1 || hasConnectionLost) {
+        console.warn(`  ⚠ ${route} — Error boundary or missing h1 detected, retrying...`);
+        await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 15000 });
+        try { await page.waitForNetworkIdle({ timeout: 8000 }); } catch {}
+        await new Promise(r => setTimeout(r, 2000));
+        html = await page.content();
+      }
     }
 
     // Determine output path
@@ -282,6 +293,22 @@ async function prerenderRoute(browser, route, port) {
     finalHtml = finalHtml.replace(/<script[^>]*frosty-widget\.js[^>]*><\/script>/gi, '');
 
     writeFileSync(outFile, finalHtml, 'utf-8');
+
+    // Also cache to git-tracked PRERENDER_CACHE_DIR for environments without Chromium (Vercel)
+    let cacheOutDir, cacheOutFile, cacheFlatFile;
+    if (route === '/') {
+      cacheOutDir = PRERENDER_CACHE_DIR;
+      cacheOutFile = join(PRERENDER_CACHE_DIR, 'index.html');
+    } else {
+      cacheOutDir = join(PRERENDER_CACHE_DIR, route.slice(1));
+      cacheOutFile = join(cacheOutDir, 'index.html');
+      cacheFlatFile = join(PRERENDER_CACHE_DIR, `${route.slice(1)}.html`);
+    }
+
+    if (!existsSync(cacheOutDir)) {
+      mkdirSync(cacheOutDir, { recursive: true });
+    }
+    writeFileSync(cacheOutFile, finalHtml, 'utf-8');
     
     // Also write a flat .html file for AWS Amplify / S3 clean URL compatibility
     if (flatFile) {
@@ -291,6 +318,14 @@ async function prerenderRoute(browser, route, port) {
         mkdirSync(flatDir, { recursive: true });
       }
       writeFileSync(flatFile, finalHtml, 'utf-8');
+
+      if (cacheFlatFile) {
+        const cacheFlatDir = join(PRERENDER_CACHE_DIR, route.slice(1).split('/').slice(0, -1).join('/'));
+        if (!existsSync(cacheFlatDir)) {
+          mkdirSync(cacheFlatDir, { recursive: true });
+        }
+        writeFileSync(cacheFlatFile, finalHtml, 'utf-8');
+      }
     }
     
     console.log(`  ✓ ${route}`);
@@ -299,6 +334,62 @@ async function prerenderRoute(browser, route, port) {
   } finally {
     await page.close();
   }
+}
+
+/**
+ * Synchronize static prerendered HTML files from source to destination.
+ * Automatically aligns the main bundle script and stylesheet hashes with the current Vite build.
+ */
+function syncPrerenderCache(sourceDir, targetDir, templateHtml) {
+  if (!existsSync(sourceDir)) return 0;
+
+  const freshModuleScript = templateHtml.match(/<script type="module" crossorigin src="\/assets\/index-[^"]+\.js"><\/script>/i)?.[0];
+  const freshCssLink = templateHtml.match(/<link rel="stylesheet" crossorigin href="\/assets\/index-[^"]+\.css">/i)?.[0];
+
+  let count = 0;
+  function walk(currentDir) {
+    const entries = readdirSync(currentDir);
+    for (const entry of entries) {
+      const srcPath = join(currentDir, entry);
+      const relPath = srcPath.slice(sourceDir.length + 1);
+      const destPath = join(targetDir, relPath);
+      const stat = statSync(srcPath);
+
+      if (stat.isDirectory()) {
+        if (!existsSync(destPath)) {
+          mkdirSync(destPath, { recursive: true });
+        }
+        walk(srcPath);
+      } else if (entry.endsWith('.html')) {
+        let content = readFileSync(srcPath, 'utf-8');
+
+        // Update main module script tag if hashes differ
+        if (freshModuleScript) {
+          content = content.replace(
+            /<script type="module" crossorigin(?:="")? src="\/assets\/index-[^"]+\.js"><\/script>/i,
+            freshModuleScript
+          );
+        }
+        // Update main CSS link tag if hashes differ
+        if (freshCssLink) {
+          content = content.replace(
+            /<link rel="stylesheet" crossorigin(?:="")? href="\/assets\/index-[^"]+\.css">/i,
+            freshCssLink
+          );
+        }
+
+        const destDir = dirname(destPath);
+        if (!existsSync(destDir)) {
+          mkdirSync(destDir, { recursive: true });
+        }
+        writeFileSync(destPath, content, 'utf-8');
+        count++;
+      }
+    }
+  }
+
+  walk(sourceDir);
+  return count;
 }
 
 // ─── Main ───────────────────────────────────────────────────────────
@@ -332,9 +423,17 @@ async function main() {
     });
   } catch (launchErr) {
     console.warn(`\n  ⚠ Could not launch browser: ${launchErr.message}`);
-    console.warn('  ⏭ Skipping prerendering (SPA will still work via client-side routing).\n');
-    if (!existsSync(join(DIST, '404.html')) && existsSync(templateFile)) {
-      writeFileSync(join(DIST, '404.html'), readFileSync(templateFile, 'utf-8'), 'utf-8');
+    
+    if (existsSync(PRERENDER_CACHE_DIR)) {
+      console.log('  📦 Restoring prerendered pages from prerender-pages/ into dist/ for Vercel/CI environment...');
+      const templateHtml = existsSync(templateFile) ? readFileSync(templateFile, 'utf-8') : '';
+      const restored = syncPrerenderCache(PRERENDER_CACHE_DIR, DIST, templateHtml);
+      console.log(`  ✅ Successfully deployed ${restored} prerendered pages into dist/!\n`);
+    } else {
+      console.warn('  ⏭ Skipping prerendering (prerender-pages cache not found).\n');
+      if (!existsSync(join(DIST, '404.html')) && existsSync(templateFile)) {
+        writeFileSync(join(DIST, '404.html'), readFileSync(templateFile, 'utf-8'), 'utf-8');
+      }
     }
     server.close();
     return;
@@ -352,7 +451,12 @@ async function main() {
 
   // Ensure 404.html exists for static hosts / Vercel fallback
   const fallback404 = join(DIST, '404.html');
-  if (!existsSync(fallback404) && existsSync(templateFile)) {
+  const cache404 = join(PRERENDER_CACHE_DIR, '404.html');
+  if (existsSync(fallback404) && !existsSync(cache404)) {
+    copyFileSync(fallback404, cache404);
+  } else if (!existsSync(fallback404) && existsSync(cache404)) {
+    copyFileSync(cache404, fallback404);
+  } else if (!existsSync(fallback404) && existsSync(templateFile)) {
     writeFileSync(fallback404, readFileSync(templateFile, 'utf-8'), 'utf-8');
   }
 
