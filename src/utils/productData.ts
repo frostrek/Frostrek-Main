@@ -538,7 +538,7 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
             { title: 'Scalable', description: 'Built to handle enterprise-level loads.', icon: Database },
             { title: 'Custom LLMs', description: 'Fine-tune models on your proprietary data.', icon: Brain },
             { title: 'Real-time Analytics', description: 'Track performance with live dashboards and insights.', icon: BarChart },
-            { title: 'Seamless Integration', description: 'Connect with your existing tools via REST APIs.', icon: Settings },
+            { title: 'Seamless Integration', description: '1-Click integrations for Shopify, Google Calendar, Zapier, Make, and REST APIs.', icon: Settings },
             { title: 'Global Reach', description: 'Multi-language support with 41 languages across 140+ countries.', icon: Globe },
         ],
         benefits: [

@@ -1114,10 +1114,10 @@ export default function FrostyPage() {
                             <p className="text-sm font-semibold mb-2">Frosty Agent plans start at $79/month (₹3,999/mo). Custom enquiry volumes and enterprise integrations are scoped and confirmed on a demo call.</p>
                             <p>Live in under 15 minutes with self-serve onboarding, or fully deployed by our engineering team for custom enterprise workflows.</p>
                             <ul className="fx-incl">
-                                <li><Icon n="check" /> Website + WhatsApp agent</li>
-                                <li><Icon n="check" /> Live dashboard &amp; CRM sync</li>
-                                <li><Icon n="check" /> Human takeover, any time</li>
-                                <li><Icon n="check" /> Trained on your own content</li>
+                                <li><Icon n="check" /> Website + WhatsApp agent (Starter: 300 convos, 2 seats)</li>
+                                <li><Icon n="check" /> 1-Click integrations: Shopify, Google Calendar, Zapier &amp; Make</li>
+                                <li><Icon n="check" /> Live dashboard, CRM sync &amp; human takeover</li>
+                                <li><Icon n="check" /> 7-day free trial on frostyagent.com</li>
                             </ul>
                             <div className="fx-ctas">
                                 <a className="fx-btn fx-btn-primary" href={DEMO}>Book a demo <Icon n="arrow" /></a>
