@@ -116,9 +116,9 @@ export const CERTIFICATIONS_DATA: Certification[] = [
         color: 'from-blue-500 to-blue-600',
     },
     {
-        name: 'SOC 2 Type II',
+        name: 'SOC 2 Ready Architecture',
         icon: Lock,
-        description: 'Audited security, availability, and confidentiality controls',
+        description: 'Engineered for enterprise trust controls, data isolation, and comprehensive auditability',
         color: 'from-purple-500 to-purple-600',
     },
     {

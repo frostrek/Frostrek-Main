@@ -472,7 +472,7 @@ export const FrostrekAdvantage = ({ features: _features }: FrostrekAdvantageProp
                         {[
                             { icon: Zap, label: 'Processing', value: '<50ms' },
                             { icon: Star, label: 'Accuracy', value: '99.7%' },
-                            { icon: Rocket, label: 'Uptime', value: '99.99%' },
+                            { icon: Rocket, label: 'Uptime', value: '99.9%' },
                         ].map((stat, i) => (
                             <motion.div
                                 key={i}

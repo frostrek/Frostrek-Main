@@ -8,7 +8,7 @@ import SplitTextReveal from '../ui/SplitTextReveal';
 gsap.registerPlugin(ScrollTrigger);
 
 const trustItems = [
-    { icon: ShieldCheck, title: 'SOC2/GDPR Compliance', desc: 'Fully certified operations.' },
+    { icon: ShieldCheck, title: 'ISO Certified & SOC 2 Ready', desc: 'ISO 27001/9001 certified with SOC 2 ready architecture.' },
     { icon: Lock, title: 'End-to-End Encryption', desc: 'AES-256 at rest and in transit.' },
     { icon: Server, title: 'No Data Leaking', desc: 'Isolated Private LLM instances.' },
     { icon: Activity, title: '99.9% Uptime', desc: 'Backed by enterprise SLAs.' },

@@ -41,7 +41,7 @@ const FAQ_CATEGORIES: FAQCategory[] = [
         faqs: [
             {
                 question: "Is my data secure with your AI models?",
-                answer: "Absolutely. Security is our top priority. We implement enterprise-grade encryption at rest and in transit, on-premise deployment options, and strict compliance with global data protection standards including GDPR, ISO 27001, SOC 2 Type II, and India's DPDP Act. All annotation staff undergo background checks, and we maintain complete audit logging of all data access events."
+                answer: "Absolutely. Security is our top priority. We implement enterprise-grade encryption at rest and in transit, on-premise deployment options, and strict compliance with global data protection standards including ISO 27001, a SOC 2 ready architecture, GDPR, and India's DPDP Act. All annotation staff undergo background checks, and we maintain complete audit logging of all data access events."
             },
             {
                 question: "Do you offer on-premise deployments?",
@@ -49,7 +49,7 @@ const FAQ_CATEGORIES: FAQCategory[] = [
             },
             {
                 question: "What compliance certifications do you hold?",
-                answer: "Frostrek maintains compliance with ISO 27001 for information security management, GDPR for European data protection, SOC 2 Type II for enterprise trust controls, and India's Digital Personal Data Protection Act (DPDP). Our secure annotation facilities feature access controls, no personal devices policies, and CCTV monitoring with 90-day retention."
+                answer: "Frostrek holds ISO/IEC 27001 certification for information security management and ISO 9001:2015 for quality management. We maintain a SOC 2 ready architecture and full compliance alignment with GDPR and India's Digital Personal Data Protection Act (DPDP). Our secure annotation facilities feature access controls, no personal devices policies, and CCTV monitoring with 90-day retention."
             }
         ]
     },

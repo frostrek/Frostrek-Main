@@ -357,7 +357,7 @@ const InnovationProcess = () => {
                                                 </div>
                                                 <div className="flex justify-between border-t border-gray-150 pt-1.5">
                                                     <span className="text-gray-500">Platform Uptime Status</span>
-                                                    <span className="text-emerald-600 font-extrabold">99.998% UPTIME</span>
+                                                    <span className="text-emerald-600 font-extrabold">99.9% UPTIME</span>
                                                 </div>
                                             </div>
                                         </div>

@@ -92,13 +92,13 @@ const FeaturesSection = () => {
 
                             <div className="flex flex-wrap gap-2 md:gap-3 mb-6 md:mb-10">
                                 <span className="inline-flex items-center gap-1.5 px-2 py-1 md:px-4 md:py-2 border rounded-full text-[10px] md:text-sm font-bold bg-white border-[#BBF7D0] text-[#047857] shadow-sm">
-                                    <CheckCircle2 size={14} className="text-[#047857]" /> SOC 2 Compliant
+                                    <CheckCircle2 size={14} className="text-[#047857]" /> SOC 2 Ready Architecture
                                 </span>
                                 <span className="inline-flex items-center gap-1.5 px-2 py-1 md:px-4 md:py-2 border rounded-full text-[10px] md:text-sm font-bold bg-white border-[#BBF7D0] text-[#047857] shadow-sm">
                                     <CheckCircle2 size={14} className="text-[#047857]" /> GDPR Ready
                                 </span>
                                 <span className="inline-flex items-center gap-1.5 px-2 py-1 md:px-4 md:py-2 border rounded-full text-[10px] md:text-sm font-bold bg-white border-[#BBF7D0] text-[#047857] shadow-sm">
-                                    <CheckCircle2 size={14} className="text-[#047857]" /> ISO 27001
+                                    <CheckCircle2 size={14} className="text-[#047857]" /> ISO 27001 Certified
                                 </span>
                             </div>
 

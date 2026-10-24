@@ -534,7 +534,7 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
             { step: '03', title: 'Execute', description: 'Agile implementation and training.' }
         ],
         features: [
-            { title: 'Security First', description: 'ISO 27001 and GDPR compliant architecture.', icon: Shield },
+            { title: 'Security First', description: 'ISO 27001 certified, GDPR-ready, and SOC 2 ready architecture.', icon: Shield },
             { title: 'Scalable', description: 'Built to handle enterprise-level loads.', icon: Database },
             { title: 'Custom LLMs', description: 'Fine-tune models on your proprietary data.', icon: Brain },
             { title: 'Real-time Analytics', description: 'Track performance with live dashboards and insights.', icon: BarChart },

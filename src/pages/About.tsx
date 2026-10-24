@@ -73,9 +73,9 @@ const CERTIFICATIONS_DATA = [
         color: 'from-[#2D6A4F] to-[#2D6A4F]/80',
     },
     {
-        name: 'SOC 2 Type II',
+        name: 'SOC 2 Ready Architecture',
         icon: Lock,
-        description: 'Audited security, availability, and confidentiality controls',
+        description: 'Engineered for enterprise trust controls, data isolation, and comprehensive auditability',
         color: 'from-[#2D6A4F]/90 to-[#2D6A4F]/70',
     },
     {
@@ -1115,7 +1115,7 @@ const About = () => {
                                 { value: 5000, suffix: '+', label: 'Training Sessions', textColor: 'text-[#0284C7]', glowColor: '#0284C7', hoverBg: 'bg-[#F0F9FF]', hoverBorder: 'border-[#0284C7]/40', normalBorder: 'border-[#0284C7]/15' },
                                 { value: 200, suffix: '+', label: 'AI Specialists', textColor: 'text-[#2D6A4F]', glowColor: '#2D6A4F', hoverBg: 'bg-[#F0FDF4]', hoverBorder: 'border-[#2D6A4F]/40', normalBorder: 'border-[#2D6A4F]/15' },
                                 { value: 99, suffix: '%', label: 'Accuracy Rate', textColor: 'text-[#E11D48]', glowColor: '#E11D48', hoverBg: 'bg-[#FFF1F2]', hoverBorder: 'border-[#E11D48]/40', normalBorder: 'border-[#E11D48]/15' },
-                                { value: 50, suffix: '+', label: 'Enterprise Clients', textColor: 'text-[#EA580C]', glowColor: '#EA580C', hoverBg: 'bg-[#FFF7ED]', hoverBorder: 'border-[#EA580C]/40', normalBorder: 'border-[#EA580C]/15' },
+                                { value: 40, suffix: '+', label: 'Enterprise Clients', textColor: 'text-[#EA580C]', glowColor: '#EA580C', hoverBg: 'bg-[#FFF7ED]', hoverBorder: 'border-[#EA580C]/40', normalBorder: 'border-[#EA580C]/15' },
                             ].map((s, i) => (
                                 <motion.div key={i} variants={fadeUp}>
                                     <TiltCard hoverBg={s.hoverBg} hoverBorder={s.hoverBorder} normalBorder={s.normalBorder} glowColor={s.glowColor}>
