@@ -745,7 +745,7 @@ export default function FrostyPage() {
             ["What types of businesses is Frosty for?", "Frosty fits any business that gets enquiries and wants to answer them fast. That includes marketing agencies, real estate, clinics and healthcare, education and study-abroad consultancies, car dealers, financial services, and online stores. If your leads come in through a website or WhatsApp, Frosty can capture and qualify them."],
             // Adapted from the doc: it routed all pricing to the team, which would contradict
             // the $200 starting price stated directly above. Keeps the same routing intent.
-            ["How much does Frosty cost?", "Frosty Agent starts at $199/month (Global) or ?6,599/month (India) for a single website and WhatsApp agent; final pricing depends on enquiry volume and is confirmed on a demo call."],
+            ["How much does Frosty cost?", "Frosty Agent plans start at $79/month (Global) or ₹3,999/month (India) for a single website and WhatsApp agent; final pricing depends on enquiry volume and is confirmed on a demo call."],
             ["How can I see Frosty in action?", "Book a demo and the Frostrek team will set Frosty up on a sample of your own content, so you can watch it answer a real enquiry before you decide. You can reach the Frosty team through the Book a Demo button or on WhatsApp."],
         ]],
     ];
@@ -768,7 +768,7 @@ export default function FrostyPage() {
         "description": "Frosty Agent is an AI agent for your website and WhatsApp, built by Frostrek AI. It answers every enquiry in seconds, qualifies the person on the other end, sends quotations, books meetings, and follows up on leads that go quiet, day or night, without anyone on your team touching it.",
         "offers": {
             "@type": "Offer",
-            "price": "199.00",
+            "price": "79.00",
             "priceCurrency": "USD"
         },
         "dateModified": "2026-07-01T00:00:00+00:00",
@@ -800,7 +800,7 @@ export default function FrostyPage() {
                     </p>
                     <p>
                         Pricing details:
-                        - Starting Price: $199/month - customized based on volume
+                        - Starting Price: $79/month - customized based on volume
                         - Supported Platforms: Websites, WhatsApp, Voice Calls
                     </p>
                     <p>
@@ -818,7 +818,7 @@ export default function FrostyPage() {
                 title="Frosty Agent | AI Sales Assistant & Chatbot for WhatsApp"
                 description="Frosty Agent is an AI agent for your website and WhatsApp, built by Frostrek AI. It answers every enquiry in seconds, qualifies the person on the other end, sends quotations, books meetings, and follows up on leads that go quiet, day or night, without anyone on your team touching it."
                 path="/products/frosty-agent"
-                canonicalUrl="https://frostyagent.com"
+                canonicalUrl="https://www.frostrek.ai/products/frosty-agent"
                 schema={[faqSchema, softwareSchema]}
                 keywords="AI Sales Assistant, Chatbots, Conversational Marketing, Live Chat, Lead Capture, Conversational Support, AI chatbot for WhatsApp, enterprise AI agent"
             />
@@ -1106,12 +1106,12 @@ export default function FrostyPage() {
                     <div className="fx-pricebar fx-reveal">
                         <div>
                             <span className="fx-amt-from">Plans start at</span>
-                            <div className="fx-amt" style={{ fontSize: "4rem" }}>$199</div>
+                            <div className="fx-amt" style={{ fontSize: "4rem" }}>$79</div>
                             <span className="fx-amt-per">per month</span>
                         </div>
                         <div className="fx-price-body">
                             <h3>Frosty Agent.</h3>
-                            <p className="text-sm font-semibold mb-2">Frosty Agent starts at $199/month for a single website and WhatsApp agent; final pricing depends on enquiry volume and is confirmed on a demo call.</p>
+                            <p className="text-sm font-semibold mb-2">Frosty Agent starts at $79/month for a single website and WhatsApp agent; final pricing depends on enquiry volume and is confirmed on a demo call.</p>
                             <p>Set up on your own content and live in days.</p>
                             <ul className="fx-incl">
                                 <li><Icon n="check" /> Website + WhatsApp agent</li>

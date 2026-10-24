@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Bot, Mic, Linkedin, ArrowRight, Sparkles, Play, ChevronRight, Users, Shield, ShoppingBag } from 'lucide-react';
+import { Bot, ArrowRight, Sparkles, Play, ChevronRight, Users, Shield, ShoppingBag } from 'lucide-react';
 
 interface Product {
     id: string;
@@ -27,17 +27,6 @@ const products: Product[] = [
         category: 'core'
     },
     {
-        id: 'voice-ai',
-        name: 'Voice AI Agent',
-        description: 'Human-like voice interactions for support and sales.',
-        shortDesc: 'Ultra-low latency voice AI that sounds natural.',
-        icon: Mic,
-        href: '/products/voice-ai',
-        features: ['Sub-200ms', '40+ Languages', 'Real-time'],
-        category: 'core'
-    },
-
-    {
         id: 'vettedge',
         name: 'VettEdge',
         description: 'Autonomous financial vetting and credit underwriting agent.',
@@ -57,16 +46,6 @@ const products: Product[] = [
         icon: ShoppingBag,
         href: '/products/vedashi-ecommerce',
         features: ['Product Recs', 'WhatsApp Recovery', 'Cinematic Layouts'],
-        category: 'enterprise'
-    },
-    {
-        id: 'linkedin',
-        name: 'LinkedIn Automation',
-        description: 'Scale your outreach with smart automation.',
-        shortDesc: 'AI-powered outreach that converts.',
-        icon: Linkedin,
-        href: '/products/linkedin-automation',
-        features: ['Smart Targeting', 'Auto Follow-up', 'Analytics'],
         category: 'enterprise'
     },
     {

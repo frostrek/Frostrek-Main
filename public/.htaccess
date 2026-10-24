@@ -5,14 +5,23 @@
 # Enable Rewrite Engine
 RewriteEngine On
 
-# ── 1. Force HTTPS (Hostinger SSL) ──────────────────────────────
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
-# ── 2. Canonical: force www ─────────────────────────────────────
-# Prevents duplicate content penalty (www vs non-www)
+# ── 1. Force HTTPS & Canonical www in a single 301 hop ──────────
+# Fixes FR-05 2-hop redirect chain (http://frostrek.ai -> https://www.frostrek.ai)
+RewriteCond %{HTTPS} off [OR]
 RewriteCond %{HTTP_HOST} ^frostrek\.ai [NC]
 RewriteRule ^(.*)$ https://www.frostrek.ai/$1 [L,R=301]
+
+# ── 2. Strip Trailing Slash (Normalizes /about/ to /about) ──────
+# Fixes FR-05 trailing slash 404s for clean URLs
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} (.+)/$
+RewriteRule ^ %1 [L,R=301]
+
+# ── 3. 301 Permanent Redirects for Legacy / Renamed Routes ───────
+# Fixes FR-01 broken routes and routes crawlers to valid canonical pages
+RewriteRule ^products/voice-ai/?$ https://www.frostrek.ai/solutions/voice-ai [L,R=301]
+RewriteRule ^products/frostrek-manufacturing-os/?$ https://www.frostrek.ai/solutions/manufacturing-intelligence [L,R=301]
+RewriteRule ^products/linkedin-automation/?$ https://www.frostrek.ai/schedule-demo [L,R=301]
 
 # ── 3. SPA Routing & Prerender serving ────────────────────────────
 # Prevent Apache from automatically appending a trailing slash to directories

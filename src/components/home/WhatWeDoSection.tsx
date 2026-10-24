@@ -142,7 +142,7 @@ const CARDS = [
         title: 'Frostrek Manufacturing OS',
         desc: 'A unified operating system for smart factories. Real-time visibility, predictive insights, and seamless automation across your shop floor.',
         features: ['Real-time production monitoring', 'Predictive maintenance', 'Quality & process optimization'],
-        href: '/products/frostrek-manufacturing-os',
+        href: '/solutions/manufacturing-intelligence',
         exploreText: 'Explore Manufacturing OS',
         Demo: ManufacturingDemo
     },

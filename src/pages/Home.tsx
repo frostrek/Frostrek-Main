@@ -122,23 +122,6 @@ const personSchema = JSON.stringify({
   "url": "https://www.linkedin.com/in/akash-mittal/"
 });
 
-const organizationSchema = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Frostrek AI",
-  "alternateName": ["Frostrek", "Frostrek LLP", "Frostrek AI Solutions"],
-  "url": "https://www.frostrek.ai",
-  "logo": "https://www.frostrek.ai/logonew.png",
-  "description": "Frostrek AI builds conversational AI agents, AI video platforms, and enterprise workflow automation for global startups & enterprises.",
-  "sameAs": [
-    "https://www.linkedin.com/company/frostrek/",
-    "https://www.youtube.com/@frostrekai",
-    "https://www.facebook.com/people/Frostrek-Ai/pfbid0VWudotryavaCWUi3utjYrUJYh35mGbSHmq73RnhksigdjJA28XQVBgNLz1Nryympl/",
-    "https://www.instagram.com/frostrekai?igsh=bndyYWZ1NTA4NWR1"
-  ]
-});
-
-
 const Home = () => {
   return (
     <div className="min-h-screen relative bg-brand-light-bg">
@@ -147,7 +130,7 @@ const Home = () => {
         description="Frostrek AI builds conversational AI agents, AI video platforms, and enterprise workflow automation for global startups & enterprises."
         path="/"
         keywords="enterprise AI agents, conversational AI platform, custom LLM fine-tuning, workflow automation solutions, Retrieval Augmented Generation, RAG implementation, AI data annotation services"
-        schema={[websiteSchema, localBusinessSchema, personSchema, faqSchema, organizationSchema]}
+        schema={[websiteSchema, localBusinessSchema, personSchema, faqSchema]}
       />
       <HeroSection />
 

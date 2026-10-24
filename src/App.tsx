@@ -34,14 +34,6 @@ const AuditPage = lazy(() => import('./pages/AuditPage'));
 import FrostyWidget from './components/chat/FrostyWidget';
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
-// Placeholder for internal pages
-const PlaceholderPage = ({ title }: { title: string }) => (
-  <div className="min-h-screen pt-32 pb-20 px-4 container mx-auto text-center">
-    <h1 className="text-4xl font-bold mb-6 text-white">{title}</h1>
-    <p className="text-gray-400 max-w-2xl mx-auto">This page is under construction. Content coming soon.</p>
-  </div>
-);
-
 // Loading component for page transitions
 const PageLoader = () => (
   <div className="flex items-center justify-center min-h-[60vh]">
@@ -86,7 +78,6 @@ function App() {
                   <Route path="/resources/blog" element={<BlogIndexPage />} />
                   <Route path="/about" element={<About />} />
                   <Route path="/experience" element={<ExperiencePage />} />
-                  <Route path="/careers" element={<PlaceholderPage title="Careers" />} />
                   <Route path="/contact" element={<ContactPage />} />
                   <Route path="/resources/faq" element={<FAQPage />} />
                   <Route path="*" element={<NotFoundPage />} />

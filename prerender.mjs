@@ -31,7 +31,6 @@ const routes = [
   '/audit',
   '/contact',
   '/experience',
-  '/careers',
   '/resources/faq',
   '/resources/blog',
   '/resources/case-studies',

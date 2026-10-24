@@ -213,7 +213,7 @@ const VedashiPage = () => {
                 title="Vedashi Herbals | E-Commerce Platform for Russia | Frostrek AI"
                 description="Vedashi Herbals is a production-grade e-commerce platform purpose-built for Russia, selling authentic Indian products to customers. Engineered by Frostrek."
                 path="/products/vedashi-ecommerce"
-                canonicalUrl="https://vedashiherbals.com"
+                canonicalUrl="https://www.frostrek.ai/products/vedashi-ecommerce"
                 keywords="vedashi herbals, russian ecommerce, indian products in russia"
                 schema={[faqSchema, softwareSchema]}
             />

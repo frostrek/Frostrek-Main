@@ -43,3 +43,7 @@ secrets.*
 # OS generated files
 Thumbs.db
 
+# Scratch and audit temp files
+scratch/
+scratch_*
+

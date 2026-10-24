@@ -301,7 +301,7 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
         ],
     },
 
-    '/products/frostrek-manufacturing-os': {
+    '/solutions/manufacturing-intelligence': {
         id: 'manufacturing',
         tagline: 'INDUSTRY 4.0 MEETS AI',
         title: 'Frostrek Manufacturing OS',
@@ -442,7 +442,7 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
             { question: 'What happens if the AI makes a mistake?', answer: 'You can set confidence thresholds. Low-confidence queries are automatically routed to humans.' },
         ]
     },
-    '/products/voice-ai': {
+    '/solutions/voice-ai': {
         id: 'voice-ai',
         tagline: 'REVOLUTIONIZE YOUR CALL CENTER',
         title: 'Voice AI Agent',

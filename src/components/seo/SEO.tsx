@@ -119,6 +119,7 @@ export default function SEO({
         "@type": "Organization",
         "@id": "https://www.frostrek.ai/#organization",
         "name": "Frostrek AI",
+        "alternateName": ["Frostrek", "Frostrek LLP", "Frostrek AI Solutions"],
         "url": "https://www.frostrek.ai",
         "logo": "https://www.frostrek.ai/logonew.png",
         "description": "Frostrek AI delivers AI agents, LLM training, customized applications, workflow automation, and data annotation services for enterprises and frontier AI teams.",
