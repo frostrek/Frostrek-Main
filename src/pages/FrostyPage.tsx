@@ -1101,7 +1101,7 @@ export default function FrostyPage() {
                     <div className="fx-reveal text-center mx-auto flex flex-col items-center fx-max-w-640">
                         <span className="fx-ey">Transparent Pricing</span>
                         <h2 className="fx-h2">One agent, priced around you.</h2>
-                        <p className="fx-lead">No tiers to compare. We scope Frosty to your business and quote it from a single starting price.</p>
+                        <p className="fx-lead">Choose flexible self-serve plans on frostyagent.com or a custom enterprise deployment scoped around your business.</p>
                     </div>
                     <div className="fx-pricebar fx-reveal">
                         <div>
@@ -1111,8 +1111,8 @@ export default function FrostyPage() {
                         </div>
                         <div className="fx-price-body">
                             <h3>Frosty Agent.</h3>
-                            <p className="text-sm font-semibold mb-2">Frosty Agent starts at $79/month for a single website and WhatsApp agent; final pricing depends on enquiry volume and is confirmed on a demo call.</p>
-                            <p>Set up on your own content and live in days.</p>
+                            <p className="text-sm font-semibold mb-2">Frosty Agent plans start at $79/month (₹3,999/mo). Custom enquiry volumes and enterprise integrations are scoped and confirmed on a demo call.</p>
+                            <p>Live in under 15 minutes with self-serve onboarding, or fully deployed by our engineering team for custom enterprise workflows.</p>
                             <ul className="fx-incl">
                                 <li><Icon n="check" /> Website + WhatsApp agent</li>
                                 <li><Icon n="check" /> Live dashboard &amp; CRM sync</li>
@@ -1121,11 +1121,11 @@ export default function FrostyPage() {
                             </ul>
                             <div className="fx-ctas">
                                 <a className="fx-btn fx-btn-primary" href={DEMO}>Book a demo <Icon n="arrow" /></a>
-                                <a className="fx-btn fx-btn-ghost" href="https://www.frostrek.ai/contact">Talk to us</a>
+                                <a className="fx-btn fx-btn-ghost" href="https://frostyagent.com/pricing" target="_blank" rel="noopener noreferrer">View All Plans ↗</a>
                             </div>
                         </div>
                     </div>
-                    <p className="fx-note">Final pricing depends on enquiry volume and how much we build around you. We'll quote it on the demo call.</p>
+                    <p className="fx-note">Self-serve plans start at $79/mo. For custom enterprise volume and CRM integrations, we scope and quote on a demo call.</p>
                 </div>
             </section>
 

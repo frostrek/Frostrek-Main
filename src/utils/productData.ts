@@ -456,7 +456,7 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
             { value: '50%', label: 'Reduction in Costs', icon: BarChart },
             { value: '90%', label: 'Call Automation', icon: Phone },
             { value: '1.2s', label: 'Ultra-Low Latency', icon: Zap },
-            { value: '40+', label: 'Languages Supported', icon: Globe },
+            { value: '41', label: 'Languages Supported', icon: Globe },
         ],
         process: [
             { step: '01', title: 'Design Flow', description: 'Use our drag-and-drop builder to create conversation paths.' },
@@ -539,7 +539,7 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
             { title: 'Custom LLMs', description: 'Fine-tune models on your proprietary data.', icon: Brain },
             { title: 'Real-time Analytics', description: 'Track performance with live dashboards and insights.', icon: BarChart },
             { title: 'Seamless Integration', description: 'Connect with your existing tools via REST APIs.', icon: Settings },
-            { title: 'Global Reach', description: 'Multi-language support with 40+ locales.', icon: Globe },
+            { title: 'Global Reach', description: 'Multi-language support with 41 languages across 140+ countries.', icon: Globe },
         ],
         benefits: [
             { title: 'Future Proof', description: 'Stay ahead of the technology curve.' },
