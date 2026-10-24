@@ -14,12 +14,13 @@ gsap.registerPlugin(ScrollTrigger);
 
 
 // ─── Card 1: Manufacturing OS ──────────────────────────────────────────────────
-const ManufacturingDemo = () => {
+const ManufacturingDemo = ({ active = true }: { active?: boolean }) => {
     const [tick, setTick] = useState(0);
     useEffect(() => {
+        if (!active) return;
         const t = setInterval(() => setTick(v => (v + 1) % 4), 1800);
         return () => clearInterval(t);
-    }, []);
+    }, [active]);
     const metrics = [{ label: 'OEE', value: '87%' }, { label: 'Cost/Unit', value: '$1.24' }, { label: 'Uptime', value: '99.2%' }];
     const alerts = [
         { id: 0, text: 'Extruder 3 - temp spike detected', icon: '🚨' },
@@ -59,9 +60,13 @@ const ManufacturingDemo = () => {
 };
 
 // ─── Card 2: Fintech Platform ────────────────────────────────────────────────────
-const FintechDemo = () => {
+const FintechDemo = ({ active = true }: { active?: boolean }) => {
     const [step, setStep] = useState(0);
-    useEffect(() => { const t = setInterval(() => setStep(v => (v + 1) % 5), 1200); return () => clearInterval(t); }, []);
+    useEffect(() => {
+        if (!active) return;
+        const t = setInterval(() => setStep(v => (v + 1) % 5), 1200);
+        return () => clearInterval(t);
+    }, [active]);
 
     return (
         <div className="w-full font-body text-xs select-none space-y-3">
@@ -71,21 +76,21 @@ const FintechDemo = () => {
                     <div className="text-[#B45309] font-bold text-base">1,450 <span className="text-[10px] text-gray-400 font-semibold">$TOKEN</span></div>
                 </div>
                 <div className="w-9 h-9 rounded-full bg-[#FEF9C3] border border-[#FEF3C7] flex items-center justify-center">
-                    <img src="/icons/fintech-yellow.webp" alt="Fintech" className="w-4 h-4 object-contain" />
+                    <img src="/icons/fintech-yellow.webp" alt="Fintech" width={16} height={16} className="w-4 h-4 object-contain" />
                 </div>
             </div>
 
             <div className="grid grid-cols-3 gap-2">
                 <div className={`border rounded-xl p-2 flex flex-col items-center justify-center gap-1.5 transition-all duration-300 ${step === 0 ? 'bg-[#FEF9C3] border-[#FEF08A] shadow-sm' : 'bg-white border-gray-100'}`}>
-                    <div className="w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center overflow-hidden"><img src="/icons/real-madrid.webp" alt="Real Madrid" className="w-full h-full object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-[8px] font-bold text-blue-800">RM</span>'; }} /></div>
+                    <div className="w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center overflow-hidden"><img src="/icons/real-madrid.webp" alt="Real Madrid" width={24} height={24} className="w-full h-full object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-[8px] font-bold text-blue-800">RM</span>'; }} /></div>
                     <span className="text-[9px] text-gray-500 whitespace-nowrap">Real Madrid</span>
                 </div>
                 <div className={`border rounded-xl p-2 flex flex-col items-center justify-center gap-1.5 transition-all duration-300 ${step === 1 ? 'bg-[#FEF9C3] border-[#FEF08A] shadow-sm' : 'bg-white border-gray-100'}`}>
-                    <div className="w-6 h-6 rounded-full bg-red-50 flex items-center justify-center overflow-hidden"><img src="/icons/barcelona.png" alt="FC Barcelona" className="w-full h-full object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-[8px] font-bold text-red-800">FCB</span>'; }} /></div>
+                    <div className="w-6 h-6 rounded-full bg-red-50 flex items-center justify-center overflow-hidden"><img src="/icons/barcelona.webp" alt="FC Barcelona" width={24} height={24} className="w-full h-full object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-[8px] font-bold text-red-800">FCB</span>'; }} /></div>
                     <span className="text-[9px] text-gray-500 whitespace-nowrap">FC Barcelona</span>
                 </div>
                 <div className={`border rounded-xl p-2 flex flex-col items-center justify-center gap-1.5 transition-all duration-300 ${step === 2 ? 'bg-[#FEF9C3] border-[#FEF08A] shadow-sm' : 'bg-white border-gray-100'}`}>
-                    <div className="w-6 h-6 rounded-full bg-sky-50 flex items-center justify-center overflow-hidden"><img src="/icons/manchester-city.png" alt="Man City" className="w-full h-full object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-[8px] font-bold text-sky-800">MC</span>'; }} /></div>
+                    <div className="w-6 h-6 rounded-full bg-sky-50 flex items-center justify-center overflow-hidden"><img src="/icons/manchester-city.webp" alt="Man City" width={24} height={24} className="w-full h-full object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-[8px] font-bold text-sky-800">MC</span>'; }} /></div>
                     <span className="text-[9px] text-gray-500 whitespace-nowrap">Man City</span>
                 </div>
             </div>
@@ -101,9 +106,13 @@ const FintechDemo = () => {
 };
 
 // ─── Card 3: Model Training (Pink Theme) ────────────────────────────────────────────────────────
-const ModelTrainingDemo = () => {
+const ModelTrainingDemo = ({ active = true }: { active?: boolean }) => {
     const [epoch, setEpoch] = useState(0);
-    useEffect(() => { const t = setInterval(() => setEpoch(v => (v + 1) % 5), 1200); return () => clearInterval(t); }, []);
+    useEffect(() => {
+        if (!active) return;
+        const t = setInterval(() => setEpoch(v => (v + 1) % 5), 1200);
+        return () => clearInterval(t);
+    }, [active]);
     const loss = (1.5 - epoch * 0.25).toFixed(2);
     return (
         <div className="w-full font-body text-xs select-none space-y-3">
@@ -322,7 +331,7 @@ const WhatWeDoSection = () => {
                                                         {card.LucideIcon ? (
                                                             <card.LucideIcon className={`w-6 h-6 ${styles.labelColor}`} />
                                                         ) : (
-                                                            <img src={card.icon} alt={card.label} className="w-6 h-6 object-contain" loading="lazy" width={512} height={512} />
+                                                            <img src={card.icon} alt={card.label} className="w-6 h-6 object-contain" loading="lazy" width={24} height={24} />
                                                         )}
                                                     </div>
                                                     <span className={`text-[11px] font-bold tracking-widest ${styles.labelColor}`}>{card.label}</span>
@@ -340,7 +349,7 @@ const WhatWeDoSection = () => {
                                                 </div>
                                             </div>
                                             <div className="flex-1 mt-auto">
-                                                <Demo />
+                                                <Demo active={isInView} />
                                             </div>
 
                                             <div className="mt-6 pt-5 flex items-center justify-between border-t border-gray-100/60">

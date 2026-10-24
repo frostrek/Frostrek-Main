@@ -15,9 +15,9 @@ const NESTORA_DATA = {
 // --- COMPONENTS ---
 function NestoraLayout() {
   const properties = [
-    { title: 'Modern 3 BHK Apartment', location: 'Gurgaon, Sector 54', price: '₹1.85 Cr', image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=500&q=80' },
-    { title: 'Sunlit 2 BHK Garden Flat', location: 'Indiranagar, Bangalore', price: '₹48 Lakh', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=500&q=80' },
-    { title: 'Luxury 4 BHK Skyline Villa', location: 'Whitefield Gated Enclave', price: '₹1.45 Cr', image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=500&q=80' },
+    { title: 'Modern 3 BHK Apartment', location: 'Gurgaon, Sector 54', price: '₹1.85 Cr', image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=200&q=75' },
+    { title: 'Sunlit 2 BHK Garden Flat', location: 'Indiranagar, Bangalore', price: '₹48 Lakh', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=200&q=75' },
+    { title: 'Luxury 4 BHK Skyline Villa', location: 'Whitefield Gated Enclave', price: '₹1.45 Cr', image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=200&q=75' },
   ];
   return (
     <div style={{ height: '100%', display: 'flex', flexDirection: 'column', background: '#FAFAFA', fontSize: 11, fontFamily: 'system-ui, sans-serif' }}>
@@ -37,7 +37,7 @@ function NestoraLayout() {
       <div style={{ flex: 1, padding: '12px', display: 'flex', flexDirection: 'column', gap: 10, overflow: 'hidden' }}>
         {properties.map((p) => (
           <div key={p.title} style={{ background: '#FFFFFF', borderRadius: 8, display: 'flex', height: 90, border: '1px solid #E4E4E7', overflow: 'hidden' }}>
-            <img src={p.image} alt={p.title} style={{ width: 100, height: '100%', objectFit: 'cover' }} />
+            <img src={p.image} alt={p.title} width={100} height={90} loading="lazy" style={{ width: 100, height: '100%', objectFit: 'cover' }} />
             <div style={{ padding: '8px 10px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
               <div style={{ fontSize: 12, fontWeight: 700, color: '#18181B' }}>{p.title}</div>
               <div style={{ fontSize: 10, color: '#71717A', marginTop: 2 }}>{p.location}</div>
@@ -221,9 +221,12 @@ export function InteractiveMobileMockup() {
       setChatOpen(false); setChatPhase(0); setInputFieldText(''); setCursorVisible(false); setClicking(false);
       setCursorPos({ x: 150, y: 550 });
 
+      // Add 1.5s initial pause on first mount so CPU can complete initial paint without forced reflow
+      const startDelay = loopKey === 0 ? 1500 : 0;
+
       // 1. URL
-      queueTimer(() => { setCursorVisible(true); setCursorPos({ x: 150, y: 80 }); }, 300);
-      queueTimer(() => setClicking(true), 850);
+      queueTimer(() => { setCursorVisible(true); setCursorPos({ x: 150, y: 80 }); }, startDelay + 300);
+      queueTimer(() => setClicking(true), startDelay + 850);
       queueTimer(() => { 
         setClicking(false); setIsUrlTyping(true); setBrowserPhase(1);
         let charIdx = 0;
@@ -236,16 +239,16 @@ export function InteractiveMobileMockup() {
           }
         }, 50);
         timerPool.current.push(t);
-      }, 1000);
+      }, startDelay + 1000);
 
       // 2. Open Chat
-      queueTimer(() => setCursorPos({ x: 260, y: 570 }), 2800);
-      queueTimer(() => setClicking(true), 3500);
-      queueTimer(() => { setClicking(false); setChatOpen(true); }, 3650);
+      queueTimer(() => setCursorPos({ x: 260, y: 570 }), startDelay + 2800);
+      queueTimer(() => setClicking(true), startDelay + 3500);
+      queueTimer(() => { setClicking(false); setChatOpen(true); }, startDelay + 3650);
 
       // 3. Type Chat
-      queueTimer(() => setCursorPos({ x: 150, y: 550 }), 4100);
-      queueTimer(() => setClicking(true), 4600);
+      queueTimer(() => setCursorPos({ x: 150, y: 550 }), startDelay + 4100);
+      queueTimer(() => setClicking(true), startDelay + 4600);
       queueTimer(() => { 
         setClicking(false); setChatPhase(1);
         let charIdx = 0;
@@ -262,11 +265,11 @@ export function InteractiveMobileMockup() {
           }
         }, 40);
         timerPool.current.push(t);
-      }, 4750);
+      }, startDelay + 4750);
 
       // 4. End & Transition to white separator then Splash 1
-      queueTimer(() => { setChatOpen(false); setCursorVisible(false); }, 9000);
-      queueTimer(() => { setGlobalPhase('transition_white'); }, 9500);
+      queueTimer(() => { setChatOpen(false); setCursorVisible(false); }, startDelay + 9000);
+      queueTimer(() => { setGlobalPhase('transition_white'); }, startDelay + 9500);
 
     } else if (globalPhase === 'transition_white') {
       queueTimer(() => setGlobalPhase('splash1'), 800); // short white flash/pause
@@ -342,7 +345,7 @@ export function InteractiveMobileMockup() {
       queueTimer(() => { setLoopKey(k => k + 1); setGlobalPhase('frosty'); }, 6500);
     }
 
-  }, [clearAllTimers, globalPhase, queueTimer, strictlyScrollInternalChat]);
+  }, [clearAllTimers, globalPhase, loopKey, queueTimer, strictlyScrollInternalChat]);
 
   useEffect(() => {
     runPhaseSequence();

@@ -175,8 +175,8 @@ const Footer = () => {
 
                 {/* Certifications and Compliance Logos */}
                 <div className="flex items-center gap-6">
-                  <img src="/images/ISO 27001.png" alt="ISO 27001:2022 certified — information security management" className="h-[38px] w-auto object-contain mix-blend-multiply drop-shadow-sm hover:scale-105 transition-transform" loading="lazy" />
-                  <img src="/images/ISO_9001-2015.svg.webp" alt="ISO 9001:2015 certified — quality management systems" className="h-[34px] w-auto object-contain mix-blend-multiply drop-shadow-sm hover:scale-105 transition-transform" loading="lazy" />
+                  <img src="/images/ISO 27001.png" alt="ISO 27001:2022 certified — information security management" width={38} height={38} className="h-[38px] w-auto object-contain mix-blend-multiply drop-shadow-sm hover:scale-105 transition-transform" loading="lazy" />
+                  <img src="/images/ISO_9001-2015.svg.webp" alt="ISO 9001:2015 certified — quality management systems" width={37} height={34} className="h-[34px] w-auto object-contain mix-blend-multiply drop-shadow-sm hover:scale-105 transition-transform" loading="lazy" />
                 </div>
               </div>
             </div>

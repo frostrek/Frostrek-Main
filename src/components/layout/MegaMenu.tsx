@@ -96,7 +96,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ sections, onClose, isCompact }) => 
                                                     {/* Subtle icon container */}
                                                     <div className="relative z-10 p-2 text-[#2D6A4F] transition-all duration-500 shrink-0 flex items-center justify-center">
                                                         {isImageIcon ? (
-                                                            <img src={item.icon} alt={item.name} className="w-5 h-5 object-contain" width={512} height={512} />
+                                                            <img src={item.icon} alt={item.name} className="w-5 h-5 object-contain" width={20} height={20} loading="lazy" />
                                                         ) : (
                                                             <IconComponent size={20} />
                                                         )}
