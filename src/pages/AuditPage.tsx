@@ -9,7 +9,8 @@ import {
     Layers, 
     BarChart3, 
     Search,
-    Send
+    Send,
+    ShieldCheck
 } from 'lucide-react';
 import SEO from '../components/seo/SEO';
 import SplitTextReveal from '../components/ui/SplitTextReveal';
@@ -18,8 +19,8 @@ import CuteBackground from '../components/ui/CuteBackground';
 const AUDIT_DELIVERABLES = [
     {
         title: 'Multi-Engine AI Citation Benchmark',
-        desc: 'We test your brand across Google (AI Overviews), ChatGPT, Perplexity, Claude, and Gemini against 25+ high-intent buyer prompts in your niche.',
-        timeline: 'Day 1–2',
+        desc: 'We test your brand across Google (AI Overviews), ChatGPT, Perplexity, Claude, and Gemini against high-intent buyer prompts in your niche.',
+        timeline: 'Initial Snapshot',
         icon: Search,
         accent: '#0284C7',
         bg: 'bg-[#F0F9FF]',
@@ -27,8 +28,8 @@ const AUDIT_DELIVERABLES = [
     },
     {
         title: 'Entity Architecture & Knowledge Graph Audit',
-        desc: 'Diagnostic review of your JSON-LD schemas, Wikidata alignments, Google Knowledge Panel entity anchors, and topical clusters.',
-        timeline: 'Day 2–3',
+        desc: 'Diagnostic review of your JSON-LD schemas, official profile alignments, Google Knowledge Panel entity anchors, and topical clusters.',
+        timeline: 'Core Review',
         icon: Layers,
         accent: '#6D28D9',
         bg: 'bg-[#F5F3FF]',
@@ -36,26 +37,26 @@ const AUDIT_DELIVERABLES = [
     },
     {
         title: 'AI Crawler & Machine-Readability Diagnostic',
-        desc: 'Verification of server-side HTML rendering, robots.txt bot rules, llms.txt ingest readiness, and crawler extraction without JavaScript dependencies.',
-        timeline: 'Day 3–4',
+        desc: 'Verification of server-side HTML rendering, robots.txt bot rules, crawlability, and search crawler accessibility.',
+        timeline: 'Technical QA',
         icon: FileText,
         accent: '#166534',
         bg: 'bg-[#F0FDF4]',
         border: 'border-[#BBF7D0]'
     },
     {
-        title: 'Competitor GEO & AEO Share-of-Voice Analysis',
-        desc: 'Direct head-to-head comparison against your top 3 competitors to pinpoint citation frequency, sentiment, and recommendation bias in AI engines.',
-        timeline: 'Day 4–5',
+        title: 'Competitor AI Share-of-Voice Analysis',
+        desc: 'Direct head-to-head comparison against relevant competitors to examine citation frequency and recommendation presence.',
+        timeline: 'Benchmarking',
         icon: BarChart3,
         accent: '#C2410C',
         bg: 'bg-[#FFF7ED]',
         border: 'border-[#FFEDD5]'
     },
     {
-        title: 'Prioritized 90-Day GEO / AEO Action Roadmap',
-        desc: 'A prioritized executive playbook of high-impact fixes, structured data additions, and content engineering moves to capture citation real estate.',
-        timeline: 'Day 5–7',
+        title: 'Prioritized Search & AI Action Roadmap',
+        desc: 'A prioritized overview of high-impact technical fixes, structured data improvements, and content opportunities.',
+        timeline: 'Roadmap',
         icon: Target,
         accent: '#2D6A4F',
         bg: 'bg-[#E8F5EE]',
@@ -63,37 +64,12 @@ const AUDIT_DELIVERABLES = [
     }
 ];
 
-const auditServiceSchema = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    '@id': 'https://www.frostrek.ai/audit#service',
-    name: 'Free AI Visibility & Citation Audit',
-    description: 'A complimentary multi-engine diagnostic auditing your brand citation frequency across Google (AI Overviews), ChatGPT, Perplexity, Claude, and Gemini, including entity architecture and a prioritized 90-day action roadmap delivered in 5 to 7 days.',
-    provider: {
-        '@type': 'Organization',
-        '@id': 'https://www.frostrek.ai/#organization',
-        name: 'Frostrek AI',
-        url: 'https://www.frostrek.ai',
-    },
-    serviceType: 'AI Citation & Digital Visibility Audit',
-    areaServed: 'Worldwide',
-    offers: {
-        '@type': 'Offer',
-        price: '0',
-        priceCurrency: 'USD',
-        name: 'Complimentary AI Visibility Audit',
-        description: 'Complete 5 to 7 day AI visibility and citation benchmark report with zero financial obligation.',
-        availability: 'https://schema.org/InStock',
-        url: 'https://www.frostrek.ai/audit',
-    },
-});
-
 const auditWebPageSchema = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     '@id': 'https://www.frostrek.ai/audit#webpage',
-    name: 'Free AI Visibility & Citation Audit | Frostrek AI',
-    description: "Get a comprehensive evaluation of your brand's visibility across Google (AI Overviews), ChatGPT, Perplexity, Claude, and Gemini. Delivered in 5 to 7 business days.",
+    name: 'Free SEO & AI Visibility Audit | Frostrek AI',
+    description: "Get an initial review of your website's discoverability and a sample of relevant AI-search questions.",
     url: 'https://www.frostrek.ai/audit',
     inLanguage: 'en',
     isPartOf: {
@@ -112,32 +88,53 @@ const auditWebPageSchema = JSON.stringify({
     },
 });
 
+const auditServiceSchema = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': 'https://www.frostrek.ai/audit#service',
+    name: 'Free SEO & AI Visibility Audit',
+    description: "A preliminary assessment reviewing your website's discoverability, technical search health, and relevant AI-search prompt opportunities.",
+    provider: {
+        '@type': 'Organization',
+        '@id': 'https://www.frostrek.ai/#organization',
+        name: 'Frostrek AI',
+        url: 'https://www.frostrek.ai',
+    },
+    serviceType: 'SEO, GEO & AEO Preliminary Audit',
+    areaServed: ['India', 'United States', 'United Kingdom', 'United Arab Emirates', 'Worldwide'],
+});
+
 export default function AuditPage() {
     const [submitted, setSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        website: '',
-        competitors: '',
-        notes: ''
+        source: 'SEO_GEO_AEO_FREE_AUDIT',
+        business_name: '',
+        website_url: '',
+        contact_name: '',
+        business_email: '',
+        target_market: 'India',
+        business_type: 'SaaS',
+        top_priority: 'Google rankings',
+        top_competitors: '',
+        contact_permission: false
     });
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setLoading(true);
-        // Simulate immediate receipt confirmation
+        // Simulate local receipt confirmation
         setTimeout(() => {
             setLoading(false);
             setSubmitted(true);
-        }, 800);
+        }, 600);
     };
 
     return (
         <article className="min-h-screen bg-brand-light-bg pt-28 pb-20 relative overflow-hidden font-body text-primary">
             <SEO
-                title="Free AI Visibility & Citation Audit | Frostrek AI"
-                description="Get a comprehensive evaluation of your brand's visibility across Google (AI Overviews), ChatGPT, Perplexity, Claude, and Gemini. Delivered in 5 to 7 business days."
+                title="Free SEO & AI Visibility Audit | Frostrek AI"
+                description="Request a preliminary review of your website's discoverability and a sample of relevant AI-search questions."
                 path="/audit"
                 schema={[auditWebPageSchema, auditServiceSchema]}
             />
@@ -152,20 +149,20 @@ export default function AuditPage() {
                         className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#E8F5EE] border border-[#2D6A4F]/20 text-[#2D6A4F] text-xs font-bold uppercase tracking-wider mb-6"
                     >
                         <Clock className="w-3.5 h-3.5" />
-                        Delivered in 5 to 7 Business Days • Zero Cost
+                        Preliminary Discoverability Review • Zero Cost
                     </motion.div>
 
                     <SplitTextReveal
                         as="h1"
                         className="font-serif text-3xl sm:text-5xl lg:text-6xl text-[#2D6A4F] leading-[1.1] mb-6 tracking-tight"
                         type="chars"
-                        stagger={0.02}
+                        stagger={0.015}
                     >
-                        Free AI Visibility & Citation Audit
+                        Request a Free SEO & AI Visibility Audit
                     </SplitTextReveal>
 
                     <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
-                        Find out exactly how Google (AI Overviews), ChatGPT, Perplexity, Claude, and Gemini answer questions about your brand. We audit your entity graphs, crawlability, and competitor citations to give you a definitive action plan.
+                        Get an initial review of your website’s discoverability and a sample of relevant AI-search questions. We will outline visible opportunities and explain the next steps for a deeper paid engagement.
                     </p>
                 </div>
 
@@ -174,10 +171,10 @@ export default function AuditPage() {
                     <div className="lg:col-span-7 space-y-6">
                         <div className="bg-white rounded-3xl p-6 sm:p-8 border border-gray-100 shadow-sm">
                             <h2 className="font-serif text-2xl text-[#2D6A4F] font-bold mb-3">
-                                What You Get in Your Audit Report
+                                What You Get in Your Preliminary Review
                             </h2>
                             <p className="text-sm text-gray-500 mb-8">
-                                Every audit is performed by our senior AI Search strategists using live engine prompting and proprietary attribution diagnostics.
+                                Every audit begins with understanding what prevents people and search systems from discovering your pages, prioritising what matters for buyers.
                             </p>
 
                             <div className="space-y-4">
@@ -214,19 +211,19 @@ export default function AuditPage() {
 
                         {/* Guarantee / Trust note */}
                         <div className="p-6 rounded-2xl bg-[#E8F5EE]/60 border border-[#2D6A4F]/20 flex items-start gap-4">
-                            <CheckCircle2 className="w-6 h-6 text-[#2D6A4F] shrink-0 mt-0.5" />
+                            <ShieldCheck className="w-6 h-6 text-[#2D6A4F] shrink-0 mt-0.5" />
                             <div>
                                 <h3 className="text-sm font-bold text-gray-900 mb-1">
-                                    No Obligation & Completely Confidential
+                                    Transparent Scope & Responsible Execution
                                 </h3>
                                 <p className="text-xs text-gray-600 leading-relaxed">
-                                    Your audit findings, prompt evaluation logs, and competitor gap metrics belong entirely to you. After delivery, you can implement the roadmap with your team or partner with Frostrek.
+                                    The free preliminary review provides a high-level opportunity snapshot. A large-scale technical crawl, 50–200 prompt panel benchmark, or extensive engineering implementation is scoped separately with defined deliverables.
                                 </p>
                             </div>
                         </div>
                     </div>
 
-                    {/* Right: Request Form */}
+                    {/* Right: Request Form (Tab 10 Blueprint) */}
                     <div className="lg:col-span-5">
                         <div className="bg-white rounded-3xl p-6 sm:p-8 border border-gray-100 shadow-xl shadow-[#2D6A4F]/5 sticky top-28">
                             {submitted ? (
@@ -238,7 +235,7 @@ export default function AuditPage() {
                                         Audit Request Received
                                     </h2>
                                     <p className="text-sm text-gray-600 leading-relaxed">
-                                        Thank you! Our AI visibility team has queued your domain <strong className="text-gray-900">{formData.website || 'for audit'}</strong>. We will complete your multi-engine diagnostic and email your comprehensive report to <strong className="text-gray-900">{formData.email}</strong> within 5 to 7 business days.
+                                        Thanks. We will review your website (<strong className="text-gray-900">{formData.website_url || 'provided domain'}</strong>) and contact you at <strong className="text-gray-900">{formData.business_email}</strong> about the initial SEO and AI visibility assessment.
                                     </p>
                                     <div className="pt-4">
                                         <a
@@ -255,100 +252,175 @@ export default function AuditPage() {
                             ) : (
                                 <>
                                     <div className="mb-6">
-                                        <h2 className="font-serif text-2xl text-gray-900 font-bold mb-2">
-                                            Request Your Free Audit
+                                        <h2 className="font-serif text-xl sm:text-2xl text-gray-900 font-bold mb-1.5">
+                                            Request Free Audit Snapshot
                                         </h2>
                                         <p className="text-xs text-gray-500">
-                                            Fill out this form and our engineering team will initiate your brand's AI search probe.
+                                            Share your website, business category, target countries and priority issue.
                                         </p>
                                     </div>
 
-                                    <form onSubmit={handleSubmit} className="space-y-4">
+                                    <form onSubmit={handleSubmit} className="space-y-3.5">
+                                        {/* Hidden campaign source */}
+                                        <input type="hidden" name="source" value={formData.source} />
+
                                         <div>
-                                            <label className="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-1.5">
-                                                Your Full Name *
+                                            <label className="block text-[11px] font-bold uppercase tracking-wider text-gray-600 mb-1">
+                                                Business / Company Name *
                                             </label>
                                             <input
                                                 type="text"
                                                 required
-                                                value={formData.name}
-                                                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                                placeholder="e.g. Sarah Jenkins"
-                                                className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#2D6A4F] focus:ring-2 focus:ring-[#2D6A4F]/10 transition-all"
+                                                value={formData.business_name}
+                                                onChange={(e) => setFormData({ ...formData, business_name: e.target.value })}
+                                                placeholder="e.g. Acme Corporation"
+                                                className="w-full px-3.5 py-2 rounded-xl border border-gray-200 text-xs sm:text-sm focus:outline-none focus:border-[#2D6A4F] focus:ring-2 focus:ring-[#2D6A4F]/10 transition-all"
                                             />
                                         </div>
 
                                         <div>
-                                            <label className="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-1.5">
-                                                Work Email *
-                                            </label>
-                                            <input
-                                                type="email"
-                                                required
-                                                value={formData.email}
-                                                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                                placeholder="sarah@company.com"
-                                                className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#2D6A4F] focus:ring-2 focus:ring-[#2D6A4F]/10 transition-all"
-                                            />
-                                        </div>
-
-                                        <div>
-                                            <label className="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-1.5">
-                                                Company Website URL *
+                                            <label className="block text-[11px] font-bold uppercase tracking-wider text-gray-600 mb-1">
+                                                Website URL *
                                             </label>
                                             <input
                                                 type="url"
                                                 required
-                                                value={formData.website}
-                                                onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+                                                value={formData.website_url}
+                                                onChange={(e) => setFormData({ ...formData, website_url: e.target.value })}
                                                 placeholder="https://yourcompany.com"
-                                                className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#2D6A4F] focus:ring-2 focus:ring-[#2D6A4F]/10 transition-all"
+                                                className="w-full px-3.5 py-2 rounded-xl border border-gray-200 text-xs sm:text-sm focus:outline-none focus:border-[#2D6A4F] focus:ring-2 focus:ring-[#2D6A4F]/10 transition-all"
                                             />
                                         </div>
 
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                            <div>
+                                                <label className="block text-[11px] font-bold uppercase tracking-wider text-gray-600 mb-1">
+                                                    Your Name *
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    required
+                                                    value={formData.contact_name}
+                                                    onChange={(e) => setFormData({ ...formData, contact_name: e.target.value })}
+                                                    placeholder="e.g. Sarah Jenkins"
+                                                    className="w-full px-3.5 py-2 rounded-xl border border-gray-200 text-xs sm:text-sm focus:outline-none focus:border-[#2D6A4F] focus:ring-2 focus:ring-[#2D6A4F]/10 transition-all"
+                                                />
+                                            </div>
+
+                                            <div>
+                                                <label className="block text-[11px] font-bold uppercase tracking-wider text-gray-600 mb-1">
+                                                    Business Email *
+                                                </label>
+                                                <input
+                                                    type="email"
+                                                    required
+                                                    value={formData.business_email}
+                                                    onChange={(e) => setFormData({ ...formData, business_email: e.target.value })}
+                                                    placeholder="sarah@company.com"
+                                                    className="w-full px-3.5 py-2 rounded-xl border border-gray-200 text-xs sm:text-sm focus:outline-none focus:border-[#2D6A4F] focus:ring-2 focus:ring-[#2D6A4F]/10 transition-all"
+                                                />
+                                            </div>
+                                        </div>
+
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                            <div>
+                                                <label className="block text-[11px] font-bold uppercase tracking-wider text-gray-600 mb-1">
+                                                    Target Market *
+                                                </label>
+                                                <select
+                                                    value={formData.target_market}
+                                                    onChange={(e) => setFormData({ ...formData, target_market: e.target.value })}
+                                                    className="w-full px-3.5 py-2 rounded-xl border border-gray-200 text-xs sm:text-sm focus:outline-none focus:border-[#2D6A4F] focus:ring-2 focus:ring-[#2D6A4F]/10 transition-all bg-white"
+                                                >
+                                                    <option value="India">India</option>
+                                                    <option value="USA">USA</option>
+                                                    <option value="UK">UK</option>
+                                                    <option value="UAE">UAE</option>
+                                                    <option value="Multiple">Multiple Markets</option>
+                                                    <option value="Other">Other Global</option>
+                                                </select>
+                                            </div>
+
+                                            <div>
+                                                <label className="block text-[11px] font-bold uppercase tracking-wider text-gray-600 mb-1">
+                                                    Business Type (Optional)
+                                                </label>
+                                                <select
+                                                    value={formData.business_type}
+                                                    onChange={(e) => setFormData({ ...formData, business_type: e.target.value })}
+                                                    className="w-full px-3.5 py-2 rounded-xl border border-gray-200 text-xs sm:text-sm focus:outline-none focus:border-[#2D6A4F] focus:ring-2 focus:ring-[#2D6A4F]/10 transition-all bg-white"
+                                                >
+                                                    <option value="SaaS">SaaS / B2B Tech</option>
+                                                    <option value="E-commerce">E-commerce / D2C</option>
+                                                    <option value="Services">Professional Services</option>
+                                                    <option value="Healthcare">Healthcare & Clinics</option>
+                                                    <option value="Education">Education & Study Abroad</option>
+                                                    <option value="Other">Other Sector</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
                                         <div>
-                                            <label className="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-1.5">
-                                                Top 2-3 Competitors (Optional)
+                                            <label className="block text-[11px] font-bold uppercase tracking-wider text-gray-600 mb-1">
+                                                Top Priority *
                                             </label>
-                                            <input
-                                                type="text"
-                                                value={formData.competitors}
-                                                onChange={(e) => setFormData({ ...formData, competitors: e.target.value })}
-                                                placeholder="competitor1.com, competitor2.com"
-                                                className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#2D6A4F] focus:ring-2 focus:ring-[#2D6A4F]/10 transition-all"
-                                            />
+                                            <select
+                                                value={formData.top_priority}
+                                                onChange={(e) => setFormData({ ...formData, top_priority: e.target.value })}
+                                                className="w-full px-3.5 py-2 rounded-xl border border-gray-200 text-xs sm:text-sm focus:outline-none focus:border-[#2D6A4F] focus:ring-2 focus:ring-[#2D6A4F]/10 transition-all bg-white"
+                                            >
+                                                <option value="Google rankings">Google Search Rankings & Technical Health</option>
+                                                <option value="AI mentions">AI Search Mentions & Citations (ChatGPT/Perplexity)</option>
+                                                <option value="Site issues">Technical Crawling, Core Web Vitals & Indexing</option>
+                                                <option value="Content">Content Quality, Direct Answers & FAQs</option>
+                                                <option value="Leads">Conversion Rate & Qualified Lead Attribution</option>
+                                            </select>
                                         </div>
 
                                         <div>
-                                            <label className="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-1.5">
-                                                Specific Questions or Focus Areas
+                                            <label className="block text-[11px] font-bold uppercase tracking-wider text-gray-600 mb-1">
+                                                Top Competitors (Optional)
                                             </label>
                                             <textarea
-                                                rows={3}
-                                                value={formData.notes}
-                                                onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                                                placeholder="e.g. We want to be cited for 'enterprise supply chain AI'..."
-                                                className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#2D6A4F] focus:ring-2 focus:ring-[#2D6A4F]/10 transition-all resize-none"
+                                                rows={2}
+                                                value={formData.top_competitors}
+                                                onChange={(e) => setFormData({ ...formData, top_competitors: e.target.value })}
+                                                placeholder="Up to 3 competitor URLs or names..."
+                                                className="w-full px-3.5 py-2 rounded-xl border border-gray-200 text-xs sm:text-sm focus:outline-none focus:border-[#2D6A4F] focus:ring-2 focus:ring-[#2D6A4F]/10 transition-all resize-none"
                                             />
+                                        </div>
+
+                                        <div className="flex items-start gap-2 pt-1">
+                                            <input
+                                                type="checkbox"
+                                                id="contact_permission"
+                                                required
+                                                checked={formData.contact_permission}
+                                                onChange={(e) => setFormData({ ...formData, contact_permission: e.target.checked })}
+                                                className="mt-0.5 rounded text-[#2D6A4F] focus:ring-[#2D6A4F] border-gray-300"
+                                            />
+                                            <label htmlFor="contact_permission" className="text-[11px] text-gray-600 leading-tight">
+                                                I agree to be contacted about this audit request. *
+                                            </label>
                                         </div>
 
                                         <button
                                             type="submit"
                                             disabled={loading}
-                                            className="w-full mt-2 py-3.5 px-6 rounded-full bg-[#2D6A4F] hover:bg-[#1B4332] text-white font-medium text-sm transition-all shadow-md shadow-[#2D6A4F]/20 hover:shadow-lg hover:shadow-[#2D6A4F]/30 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                                            className="w-full mt-2 py-3 px-6 rounded-full bg-[#2D6A4F] hover:bg-[#1B4332] text-white font-medium text-xs sm:text-sm transition-all shadow-md shadow-[#2D6A4F]/20 hover:shadow-lg hover:shadow-[#2D6A4F]/30 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                                         >
                                             {loading ? (
                                                 <span>Submitting request...</span>
                                             ) : (
                                                 <>
-                                                    <span>Claim Your Free Audit (5-7 Days)</span>
+                                                    <span>Request Free Audit Snapshot</span>
                                                     <Send className="w-4 h-4" />
                                                 </>
                                             )}
                                         </button>
 
-                                        <p className="text-[11px] text-center text-gray-400 mt-3">
-                                            We respect your privacy. No spam. Report delivered directly to your inbox.
+                                        <p className="text-[10px] text-center text-gray-400 mt-2">
+                                            Preliminary review snapshot • Zero cost • No unpromised SLA
                                         </p>
                                     </form>
                                 </>

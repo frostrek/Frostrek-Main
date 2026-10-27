@@ -35,17 +35,17 @@ interface Solution {
 const SOLUTIONS: Solution[] = [
     {
         id: 'ai-visibility',
-        title: 'AI Visibility & Search Intelligence',
-        tagline: 'Be found where answers are born: ChatGPT, Claude & Perplexity',
-        description: 'Next-gen SEO, Answer Engine Optimization (AEO), and Generative Engine Optimization (GEO). Ensure your brand is indexed, cited, and recommended by leading generative AI engines.',
+        title: 'SEO, GEO & AEO Services',
+        tagline: 'Be discoverable across Google Search and conversational AI answers',
+        description: 'Practical search optimisation combining technical SEO, clear answer-focused content (AEO), and generative engine presence (GEO). Improve your brand\'s discoverability, answer clarity, and citation opportunities.',
         icon: "/optimized/ai-agents-red.webp",
         demo: { type: 'chat' },
         features: [
-            'GEO & AEO search engine architecture',
-            'Brand knowledge graph & entity modeling',
-            'Multi-engine AI citation tracking',
-            'Machine-readable LLM feeds & schema markup',
-            'Anti-hallucination brand protection'
+            'Technical SEO, crawlability & Core Web Vitals',
+            'Answer-first content & structured schema markup',
+            'Multi-engine AI citation tracking (ChatGPT & Perplexity)',
+            'Brand knowledge graph & entity accuracy',
+            'Entity accuracy & source verification'
         ],
         link: '/solutions/ai-visibility',
         gradient: 'from-[#2D6A4F] to-[#3D8B6E]',

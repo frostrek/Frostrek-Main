@@ -69,8 +69,8 @@ const Footer = () => {
         }
       `}</style>
 
-      {/* Careers Card - Hide on contact page */}
-      {location.pathname !== '/contact' && (
+      {/* Careers Card - Hide on contact and AI Visibility solution pages */}
+      {!['/contact', '/solutions/ai-visibility'].includes(location.pathname.replace(/\/$/, '')) && (
         <div id="footer-careers-cta" className="pt-4 pb-12 bg-brand-light-bg transition-colors duration-300 font-sans">
           <div className="container mx-auto px-4 md:px-6">
             <Link to="/contact" className="block max-w-4xl mx-auto">
