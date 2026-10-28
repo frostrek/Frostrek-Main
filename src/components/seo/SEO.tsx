@@ -11,6 +11,7 @@ interface SEOProps {
   noindex?: boolean;
   image?: string;
   canonicalUrl?: string;
+  excludeIsoCredentials?: boolean;
 }
 //Function SEO
 export default function SEO({
@@ -23,7 +24,8 @@ export default function SEO({
   keywords,
   noindex = false,
   image,
-  canonicalUrl
+  canonicalUrl,
+  excludeIsoCredentials = false
 }: SEOProps) {
   const url = canonicalUrl || `https://www.frostrek.ai${path}`;
   // Ensure the image URL is absolute because social crawlers require it
@@ -151,18 +153,20 @@ export default function SEO({
           "https://www.facebook.com/people/Frostrek-Ai/pfbid0VWudotryavaCWUi3utjYrUJYh35mGbSHmq73RnhksigdjJA28XQVBgNLz1Nryympl/",
           "https://www.youtube.com/@frostrekai"
         ],
-        "hasCredential": [
-          {
-            "@type": "EducationalOccupationalCredential",
-            "credentialCategory": "certification",
-            "name": "ISO 27001"
-          },
-          {
-            "@type": "EducationalOccupationalCredential",
-            "credentialCategory": "certification",
-            "name": "ISO 9001"
-          }
-        ]
+        ...(!excludeIsoCredentials ? {
+          "hasCredential": [
+            {
+              "@type": "EducationalOccupationalCredential",
+              "credentialCategory": "certification",
+              "name": "ISO 27001"
+            },
+            {
+              "@type": "EducationalOccupationalCredential",
+              "credentialCategory": "certification",
+              "name": "ISO 9001"
+            }
+          ]
+        } : {})
       })}</script>
     </Helmet>
   );

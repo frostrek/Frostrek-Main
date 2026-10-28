@@ -45,6 +45,7 @@ export const NAV_ITEMS: NavItem[] = [
                 title: '01 INTELLIGENT AUTOMATION',
                 items: [
                     { name: 'AI Agents', href: '/solutions/ai-agents', desc: 'Intelligent, autonomous AI agents built for your business workflows.', icon: '/optimized/ai-agents-red.webp', hoverBgClass: 'hover:bg-[#FEF2F2]' },
+                    { name: 'AI Consulting & Roadmap', href: '/solutions/ai-consulting', desc: 'Opportunity assessment, strategy, and scoped implementation roadmap.', icon: '/icons/ai-green.webp', hoverBgClass: 'hover:bg-[#F0FDF4]' },
                     { name: 'Manufacturing Intelligence', href: '/solutions/manufacturing-intelligence', desc: 'Real-time factory optimization and production AI.', icon: '/icons/manufacturing-lavender.webp', hoverBgClass: 'hover:bg-[#FDF4FA]' },
                     { name: 'Voice AI', href: '/solutions/voice-ai', desc: 'Custom Voice AI systems for high-volume inbound and outbound calls.', icon: '/icons/Voice-ai-green.webp', hoverBgClass: 'hover:bg-[#F0FDF4]' },
                 ],
@@ -52,6 +53,7 @@ export const NAV_ITEMS: NavItem[] = [
             {
                 title: '02 DIGITAL INFRASTRUCTURE',
                 items: [
+                    { name: 'Custom Software & AI', href: '/solutions/custom-software-ai-integration', desc: 'Custom apps, dashboards, and CRM/ERP-connected workflows.', icon: '/icons/custom dev.png', hoverBgClass: 'hover:bg-[#F0F9FF]' },
                     { name: 'Fintech & Custom Wallets', href: '/solutions/fintech-custom-wallets', desc: 'Centralised closed-loop digital loyalty currencies to bypass commissions.', icon: '/icons/fintech-yellow.webp', hoverBgClass: 'hover:bg-[#FFFBEB]' },
                     { name: 'Multivendor Dashboard', href: '/solutions/multivendor-dashboard', desc: 'Consolidated automated command center for all your e-commerce channels.', icon: '/icons/multivendor-blue.webp', hoverBgClass: 'hover:bg-[#F0F9FF]' },
                 ],
@@ -60,6 +62,7 @@ export const NAV_ITEMS: NavItem[] = [
                 title: '03 AI/ML SERVICES',
                 items: [
                     { name: 'LLM Model Training', href: '/solutions/llm-model-training', desc: 'Custom LLM fine-tuning, RLHF alignment, and RAG for enterprises.', icon: '/icons/machine-learning-green.webp', hoverBgClass: 'hover:bg-[#F0FDF4]' },
+                    { name: 'Managed AI Workforce', href: '/solutions/managed-ai-workforce', desc: 'Managed AI data teams, reviewer onboarding, and QA operations.', icon: '/icons/advisors.png', hoverBgClass: 'hover:bg-[#FFF7ED]' },
                     { name: 'AI Visibility (SEO•AEO•GEO)', href: '/solutions/ai-visibility', desc: 'Be found where answers are born — Google, ChatGPT, Perplexity & Gemini.', icon: '/icons/data-analytics-green.png', hoverBgClass: 'hover:bg-[#F0FDF4]' },
                 ],
             },

@@ -13,9 +13,36 @@ interface Solution {
     features: string[];
 }
 
-import { Bot, Factory, Trophy, Layers, Mic } from 'lucide-react';
+import { Bot, Factory, Trophy, Layers, Mic, Compass, Code2, Users } from 'lucide-react';
 
 const solutions: Solution[] = [
+    {
+        id: 'ai-consulting',
+        name: 'AI Consulting & Roadmap',
+        description: 'Opportunity assessment, feasibility, and implementation roadmap.',
+        shortDesc: 'Turn AI ideas into a practical, phased plan your business can execute.',
+        icon: Compass,
+        href: '/solutions/ai-consulting',
+        features: ['Workflow Discovery', 'Feasibility Review', 'Phased Roadmap']
+    },
+    {
+        id: 'custom-software-ai-integration',
+        name: 'Custom Software & AI Integration',
+        description: 'Bespoke web applications, dashboards, and CRM/ERP workflows.',
+        shortDesc: 'Software built around your workflows with practical AI integration.',
+        icon: Code2,
+        href: '/solutions/custom-software-ai-integration',
+        features: ['Custom Web Apps', 'Operational Portals', 'CRM/ERP Sync']
+    },
+    {
+        id: 'managed-ai-workforce',
+        name: 'Managed AI Workforce',
+        description: 'Managed data teams, reviewer onboarding, and QA operations.',
+        shortDesc: 'Scalable annotators, evaluators, and QA leads for AI data projects.',
+        icon: Users,
+        href: '/solutions/managed-ai-workforce',
+        features: ['Reviewer Onboarding', 'Multi-Level QA', 'Delivery Governance']
+    },
     {
         id: 'manufacturing-intelligence',
         name: 'Manufacturing Intelligence',

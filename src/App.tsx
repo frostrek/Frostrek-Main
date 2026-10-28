@@ -27,6 +27,9 @@ const FintechWalletsPage = lazy(() => import('./pages/FintechWalletsPage'));
 const MultivendorDashboardPage = lazy(() => import('./pages/MultivendorDashboardPage'));
 const ManufacturingIntelligencePage = lazy(() => import('./pages/ManufacturingIntelligencePage'));
 const AIAgentsPage = lazy(() => import('./pages/AIAgentsPage'));
+const AIConsultingPage = lazy(() => import('./pages/AIConsultingPage'));
+const CustomSoftwarePage = lazy(() => import('./pages/CustomSoftwarePage'));
+const ManagedWorkforcePage = lazy(() => import('./pages/ManagedWorkforcePage'));
 const VoiceAIPage = lazy(() => import('./pages/VoiceAIPage'));
 const LLMModelTrainingPage = lazy(() => import('./pages/LLMModelTrainingPage'));
 const AIVisibilityPage = lazy(() => import('./pages/AIVisibilityPage'));
@@ -64,6 +67,9 @@ function App() {
                   <Route path="/products/frosty-agent" element={<FrostyPage />} />
                   <Route path="/products/vettedge" element={<VettEdgePage />} />
 
+                  <Route path="/solutions/ai-consulting" element={<AIConsultingPage />} />
+                  <Route path="/solutions/custom-software-ai-integration" element={<CustomSoftwarePage />} />
+                  <Route path="/solutions/managed-ai-workforce" element={<ManagedWorkforcePage />} />
                   <Route path="/solutions/fintech-custom-wallets" element={<FintechWalletsPage />} />
                   <Route path="/solutions/multivendor-dashboard" element={<MultivendorDashboardPage />} />
                   <Route path="/solutions/manufacturing-intelligence" element={<ManufacturingIntelligencePage />} />

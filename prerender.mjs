@@ -41,6 +41,9 @@ const routes = [
   '/products/vettedge',
 
   // Solutions
+  '/solutions/ai-consulting',
+  '/solutions/custom-software-ai-integration',
+  '/solutions/managed-ai-workforce',
   '/solutions/fintech-custom-wallets',
   '/solutions/multivendor-dashboard',
   '/solutions/manufacturing-intelligence',
