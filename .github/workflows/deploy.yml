@@ -44,7 +44,7 @@ jobs:
           server-dir: ./
 
           # Use a fresh state file to bypass 550 deletion errors for manually deleted server folders
-          state-name: .ftp-deploy-sync-state-v2.json
+          state-name: .ftp-deploy-sync-state-v3.json
 
           # Never touch these folders/files
           exclude: |
@@ -52,3 +52,5 @@ jobs:
             **/.git*/**
             **/node_modules/**
             page/**
+            careers/**
+            careers
