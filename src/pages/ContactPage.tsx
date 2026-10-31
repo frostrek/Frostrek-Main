@@ -259,7 +259,7 @@ const localBusinessSchema = JSON.stringify([
 
                                     {/* WHATSAPP */}
                                     <a
-                                        href="https://wa.me/17574722491"
+                                        href="https://wa.me/918764569923"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="flex flex-col items-center justify-center text-center gap-1.5 sm:gap-2 p-3 sm:p-4 rounded-2xl bg-[#F0FDF4] border border-[#E8F5EE] hover:border-[#2D6A4F]/35 shadow-sm hover:shadow-md transition-all duration-300 group"
@@ -269,7 +269,7 @@ const localBusinessSchema = JSON.stringify([
                                         </div>
                                         <div className="w-full">
                                             <h3 className="font-bold text-[9px] sm:text-xs text-[#2D6A4F] uppercase tracking-wider font-body leading-none mb-1 sm:mb-1.5 truncate">WhatsApp</h3>
-                                            <p className="font-serif font-bold text-[10px] sm:text-sm md:text-base text-gray-900 tracking-wide w-full truncate">+1 757 472 2491</p>
+                                            <p className="font-serif font-bold text-[10px] sm:text-sm md:text-base text-gray-900 tracking-wide w-full truncate">+91 87645 69923</p>
                                         </div>
                                     </a>
 

@@ -391,7 +391,7 @@ const FAQPage = () => {
                                 Email Us →
                             </a>
                             <a
-                                href="https://wa.me/17574722491"
+                                href="https://wa.me/918764569923"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="px-8 py-3.5 rounded-xl border-2 border-[#2D6A4F]/20 text-[#2D6A4F] font-medium hover:border-[#2D6A4F] hover:bg-white transition-all"

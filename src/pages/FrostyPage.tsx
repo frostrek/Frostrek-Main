@@ -1208,7 +1208,7 @@ export default function FrostyPage() {
                         <p>Book a 20-minute demo and we'll set Frosty up on your website and WhatsApp, trained on your own content. You'll see it answer a real enquiry before you decide.</p>
                         <div className="fx-ctas">
                             <a className="fx-btn fx-btn-light" href={DEMO}>Book a demo <Icon n="arrow" /></a>
-                            <a className="fx-btn" style={{ background: "rgba(255,255,255,.14)", color: "#fff" }} href="https://wa.me/17574722491">Chat on WhatsApp</a>
+                            <a className="fx-btn" style={{ background: "rgba(255,255,255,.14)", color: "#fff" }} href="https://wa.me/918764569923">Chat on WhatsApp</a>
                         </div>
                     </div>
                 </div>

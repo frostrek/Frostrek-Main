@@ -90,7 +90,7 @@ export const EXTERNAL_LINKS = {
     twitter: 'https://twitter.com/frostrek',
     youtube: 'https://www.youtube.com/@frostrekai',
     facebook: 'https://www.facebook.com/people/Frostrek-Ai/pfbid0VWudotryavaCWUi3utjYrUJYh35mGbSHmq73RnhksigdjJA28XQVBgNLz1Nryympl/',
-    whatsapp: 'https://wa.me/17574722491',
+    whatsapp: 'https://wa.me/918764569923',
     calendly: 'https://calendly.com/akash-mittal-frostrek/30min',
     hiyring: 'https://hiyring.com',
     vedashi: 'https://vedashiherbals.com',
