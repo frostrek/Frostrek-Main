@@ -18,7 +18,9 @@ import {
     Check,
     X,
     HelpCircle,
-    Cpu
+    Cpu,
+    CheckCheck,
+    AlertCircle
 } from 'lucide-react';
 import CuteBackground from '../components/ui/CuteBackground';
 import SpotlightCard from '../components/ui/SpotlightCard';
@@ -31,9 +33,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 const EVAL_SERVICES = [
     {
-        title: 'Pairwise Preference & DPO Ranking',
+        title: 'Pairwise Preference & DPO',
         description:
-            'Side-by-side human evaluation of candidate model completions. Annotators score and rank pairs against criteria including accuracy, conciseness, instruction following, and domain alignment to build high-signal DPO and RLHF datasets.',
+            'Side-by-side human evaluation of model outputs. Annotators rank completions on accuracy, conciseness, and instruction adherence to build high-signal alignment datasets.',
+        tags: ['DPO & RLHF', 'Side-by-Side', 'Preference Pairs'],
         icon: '/icons/ai-green.webp',
         bgColor: 'bg-[#F0FDF4]',
         border: 'border-[#BBF7D0]',
@@ -43,9 +46,10 @@ const EVAL_SERVICES = [
         spotlight: 'rgba(34, 197, 94, 0.025)',
     },
     {
-        title: 'Multi-Turn Conversational QA',
+        title: 'Multi-Turn Dialogue QA',
         description:
-            'In-depth evaluation of dialogue continuity, conversational memory, persona drift, and context retention across 5 to 20+ turns. We identify where models lose instructions, contradict earlier statements, or degrade in responsiveness.',
+            'Deep audits of conversation memory, persona drift, and context retention over extended interactions. We identify where models contradict earlier statements or lose context.',
+        tags: ['5–20+ Turns', 'Persona Drift', 'Context Recall'],
         icon: '/icons/machine-learning-green.webp',
         bgColor: 'bg-[#F0F9FF]',
         border: 'border-[#BAE6FD]',
@@ -55,9 +59,10 @@ const EVAL_SERVICES = [
         spotlight: 'rgba(14, 165, 233, 0.025)',
     },
     {
-        title: 'Adversarial Red-Teaming & Safety',
+        title: 'Adversarial Red-Teaming',
         description:
-            'Proactive adversarial stress-testing designed to detect safety bypasses, prompt injection vulnerabilities, biased outputs, and toxic completions before enterprise models reach internal or external users.',
+            'Systematic stress-testing to catch jailbreak vulnerabilities, prompt injections, and toxic completions before enterprise models reach production.',
+        tags: ['Jailbreak Defense', 'Prompt Injection', 'Safety Audits'],
         icon: '/icons/shield.png',
         bgColor: 'bg-[#FFF1F2]',
         border: 'border-[#FECDD3]',
@@ -69,7 +74,8 @@ const EVAL_SERVICES = [
     {
         title: 'Reasoning & Code Verification',
         description:
-            'Rigorous ground-truth verification of algorithmic code generation, SQL queries, multi-step mathematical reasoning, and logical problem solving, backed by subject-matter reviewers who inspect execution traces and unit test boundaries.',
+            'Ground-truth review of multi-step logic, math proofs, SQL, and code synthesis. Subject-matter evaluators test execution traces and unit boundaries.',
+        tags: ['Code Syntax', 'Math & Logic', 'Execution Traces'],
         icon: '/icons/architecture-green.png',
         bgColor: 'bg-[#F5F3FF]',
         border: 'border-[#DDD6FE]',
@@ -79,9 +85,10 @@ const EVAL_SERVICES = [
         spotlight: 'rgba(124, 58, 237, 0.025)',
     },
     {
-        title: 'RAG Grounding & Hallucination Audit',
+        title: 'RAG Grounding & Hallucination',
         description:
-            'Factual precision auditing for Retrieval-Augmented Generation systems. We quantify context relevance, answer faithfulness against reference documents, and citation veracity to systematically eliminate unsupported claims.',
+            'Factual precision auditing for retrieval architectures. We verify source citation fidelity and eliminate unsupported statements against reference documents.',
+        tags: ['Citation Veracity', 'Context Relevance', 'Fact Checking'],
         icon: '/icons/data-analytics-green.png',
         bgColor: 'bg-[#FFF7ED]',
         border: 'border-[#FFEDD5]',
@@ -91,9 +98,10 @@ const EVAL_SERVICES = [
         spotlight: 'rgba(249, 115, 22, 0.025)',
     },
     {
-        title: 'Reward Model Dataset Architecture',
+        title: 'Reward Model Dataset Design',
         description:
-            'Architectural scoping and rubric design for scalar preference scoring. We establish standardized rating anchors, tie-breaking heuristics, and calibration workflows for teams preparing datasets for reward-model training.',
+            'Architectural scoping and rubric design for scalar scoring. We structure rating anchors and calibration workflows for teams planning reward-model training.',
+        tags: ['Rubric Design', 'Scalar Scoring', 'Feasibility Review'],
         icon: '/icons/innovation-green.png',
         bgColor: 'bg-[#FFFBEB]',
         border: 'border-[#FEF3C7]',
@@ -111,25 +119,28 @@ const QA_PIPELINE = [
         step: '01',
         title: 'Domain Specialist Review',
         description:
-            'Annotators and domain specialists execute initial blind evaluations against versioned client rubrics, grading completions across precision, safety, and constraint adherence.',
+            'Qualified reviewers score completions against custom project rubrics for accuracy, safety, and constraints.',
+        badge: 'Independent Review',
         iconBg: 'bg-[#F0FDF4]',
         iconBorder: 'border-[#BBF7D0]',
         badgeColor: 'text-[#166534]',
     },
     {
         step: '02',
-        title: 'Calibration & Peer Verification',
+        title: 'Calibration & Peer Checks',
         description:
-            'A sample of multi-annotator tasks undergo cross-review. Inter-annotator agreement (Cohen’s kappa) is monitored daily to detect rubric drift and enforce calibrated scoring.',
+            'Blind cross-reviews monitor inter-annotator agreement (Cohen’s kappa) daily to eliminate drift and enforce uniform scoring.',
+        badge: 'Agreement Tracking',
         iconBg: 'bg-[#F0F9FF]',
         iconBorder: 'border-[#BAE6FD]',
         badgeColor: 'text-[#0284C7]',
     },
     {
         step: '03',
-        title: 'QA Lead Sign-Off & Arbiter Review',
+        title: 'QA Lead Sign-Off',
         description:
-            'Senior evaluation leads resolve edge-case disagreements, compile diagnostic root-cause summaries, and sign off on delivered datasets in client-specified JSONL/Parquet formats.',
+            'Senior evaluation arbiters adjudicate edge cases, resolve discrepancies, and export datasets in JSONL or Parquet.',
+        badge: 'Verified Delivery',
         iconBg: 'bg-[#F5F3FF]',
         iconBorder: 'border-[#DDD6FE]',
         badgeColor: 'text-[#6D28D9]',
@@ -140,34 +151,39 @@ const QA_PIPELINE = [
 
 const RUBRIC_DIMENSIONS = [
     {
-        dimension: 'Factual Accuracy & Grounding',
-        focus: 'Eliminating hallucination; ensuring statements align with supplied source context or verified world knowledge.',
-        measurement: 'Binary Pass/Fail on assertions, Faithfulness % (0.0 to 1.0), Citation accuracy ratio.',
-        target: 'Zero ungrounded assertions on retrieval tasks',
+        dimension: 'Factual Grounding',
+        focus: 'Eliminating hallucination; ensuring statements match source documents.',
+        measurement: 'Binary Pass/Fail on assertions & Faithfulness ratio',
+        target: 'Zero ungrounded claims',
+        color: 'bg-emerald-50 text-emerald-800 border-emerald-200',
     },
     {
-        dimension: 'Instruction & Constraint Adherence',
-        focus: 'Verifying strict compliance with negative constraints, length caps, output schemas (JSON/XML), and tone mandates.',
-        measurement: 'Constraint compliance checklist, formatting validation, regex parser checks.',
-        target: '100% adherence to explicit prompt constraints',
+        dimension: 'Constraint Adherence',
+        focus: 'Strict compliance with negative constraints, length caps, and JSON schemas.',
+        measurement: 'Checklist compliance & schema validation',
+        target: '100% rule compliance',
+        color: 'bg-blue-50 text-blue-800 border-blue-200',
     },
     {
-        dimension: 'Safety & Policy Compliance',
-        focus: 'Detecting adversarial exploits, jailbreak vulnerability, toxic language, and private data leakage.',
-        measurement: 'Adversarial refusal rate, policy hazard tags, boundary violation severity (1–5 scale).',
-        target: 'Safe refusals without excessive over-censorship',
+        dimension: 'Safety & Policy',
+        focus: 'Detecting adversarial exploits, prompt injections, and data leakage.',
+        measurement: 'Adversarial refusal rate & severity tags',
+        target: 'Safe, non-sycophantic refusals',
+        color: 'bg-rose-50 text-rose-800 border-rose-200',
     },
     {
-        dimension: 'Reasoning Coherence & Logic',
-        focus: 'Validating intermediate logical steps, mathematical proofs, deductive flow, and code syntax/execution.',
-        measurement: 'Step-by-step logic soundness rubric, execution trace sandbox testing, edge-case audit.',
-        target: 'Sound reasoning chain from premises to conclusion',
+        dimension: 'Reasoning Coherence',
+        focus: 'Validating intermediate logical steps, math formulas, and code syntax.',
+        measurement: 'Step-by-step logic soundness & sandbox execution',
+        target: 'Sound reasoning traces',
+        color: 'bg-purple-50 text-purple-800 border-purple-200',
     },
     {
-        dimension: 'Persona & Tone Consistency',
-        focus: 'Maintaining brand voice, professional register, avoiding sycophancy, and preserving context over long conversations.',
-        measurement: 'Multi-turn persona drift score, tone rating anchor comparisons, sycophancy rate.',
-        target: 'Consistent brand persona across extended dialogue',
+        dimension: 'Persona Consistency',
+        focus: 'Maintaining brand tone and avoiding sycophancy across long chats.',
+        measurement: 'Multi-turn persona drift scoring',
+        target: 'Consistent brand register',
+        color: 'bg-amber-50 text-amber-800 border-amber-200',
     },
 ];
 
@@ -175,9 +191,9 @@ const RUBRIC_DIMENSIONS = [
 
 const DOMAIN_BENCH = [
     {
-        domain: 'Software Engineering & Code QA',
-        coverage: 'Python, TypeScript, SQL, Go, Rust, React, DevOps pipelines',
-        details: 'Evaluators inspect code correctness, computational complexity, security vulnerabilities, API contracts, and adherence to modern syntax conventions.',
+        domain: 'Software Engineering & Code',
+        skills: ['Python', 'TypeScript', 'SQL', 'Rust', 'Go', 'API Contracts'],
+        details: 'Evaluators verify algorithmic logic, syntax validity, security edge cases, and unit test boundaries.',
         icon: Code,
         bg: 'bg-[#F0FDF4]',
         border: 'border-[#BBF7D0]',
@@ -185,8 +201,8 @@ const DOMAIN_BENCH = [
     },
     {
         domain: 'STEM & Quantitative Reasoning',
-        coverage: 'Calculus, linear algebra, statistics, physics, chemical formulas',
-        details: 'Specialists verify mathematical formulas, numerical precision, symbolic logic, and data analysis steps to ensure models do not make subtle computational errors.',
+        skills: ['Calculus', 'Statistics', 'Linear Algebra', 'Data Analysis'],
+        details: 'Specialists check mathematical precision, computational proofs, and statistical deductions.',
         icon: Cpu,
         bg: 'bg-[#F0F9FF]',
         border: 'border-[#BAE6FD]',
@@ -194,17 +210,17 @@ const DOMAIN_BENCH = [
     },
     {
         domain: 'Multilingual & Localization',
-        coverage: 'Cross-lingual nuance, idiomatic accuracy, cultural sensitivity',
-        details: 'Native language speakers evaluate translated reasoning, dialect integrity, and contextual appropriateness across global enterprise deployments.',
+        skills: ['Cross-lingual Nuance', 'Idiomatic Accuracy', 'Cultural Context'],
+        details: 'Native speakers assess dialect integrity, natural phrasing, and localized tone across global deployments.',
         icon: Sparkles,
         bg: 'bg-[#FFF7ED]',
         border: 'border-[#FFEDD5]',
         textColor: 'text-[#C2410C]',
     },
     {
-        domain: 'Enterprise Operations & Governance',
-        coverage: 'SOP compliance, customer support escalation, structured docs',
-        details: 'Reviewers validate procedural workflows, policy documentation summaries, and enterprise support dialogue against company operational standards.',
+        domain: 'Operations & Enterprise SOPs',
+        skills: ['SOP Workflows', 'Customer Support', 'Policy Escalation'],
+        details: 'Reviewers test process compliance, support summarization, and corporate documentation handling.',
         icon: FileCheck,
         bg: 'bg-[#F5F3FF]',
         border: 'border-[#DDD6FE]',
@@ -216,36 +232,36 @@ const DOMAIN_BENCH = [
 
 const FAQS = [
     {
-        q: 'What is human-in-the-loop LLM evaluation, and why is automated benchmarking not enough?',
-        a: 'Automated metrics like ROUGE or BLEU only measure superficial text overlap, while LLM-as-a-judge approaches can perpetuate self-preference biases and overlook subtle factual hallucinations. Human-in-the-loop (HITL) evaluation pairs qualified human domain reviewers with customized rubrics to assess nuance, logical correctness, safety boundaries, and customer-specific business guidelines that automated tools cannot reliably detect.',
+        q: 'What is human-in-the-loop LLM evaluation, and why is it needed?',
+        a: 'Automated metrics like ROUGE or LLM-as-a-judge often miss subtle factual errors and carry self-preference biases. Human evaluation pairs qualified domain reviewers with custom rubrics to catch nuanced errors, safety risks, and business rule violations reliably.',
     },
     {
-        q: 'How does Frostrek calibrate annotators to maintain consistent scoring?',
-        a: 'We implement daily calibration sessions, comprehensive rubric onboarding guides with concrete positive and negative examples, and blind multi-annotator cross-checks. We calculate inter-annotator agreement metrics such as Cohen’s kappa and Krippendorff’s alpha. Tasks with high disagreement are flagged for QA lead adjudication and rubric refinement.',
+        q: 'How does Frostrek calibrate reviewers for consistent scoring?',
+        a: 'We use daily calibration sessions, concrete positive and negative rubric anchors, and blind cross-checks. Inter-annotator agreement metrics (such as Cohen’s kappa) are monitored continuously to detect and resolve rubric drift.',
     },
     {
         q: 'What is the difference between SFT data and RLHF/DPO preference data?',
-        a: 'Supervised Fine-Tuning (SFT) data consists of high-quality prompt-and-ideal-response demonstrations that teach models how to structure answers. Reinforcement Learning from Human Feedback (RLHF) and Direct Preference Optimization (DPO) data consist of prompts paired with two or more candidate outputs, where human reviewers rank completions and provide structured rationales to align model behavior with human intent.',
+        a: 'Supervised Fine-Tuning (SFT) data provides ideal single-turn demonstration answers. RLHF and Direct Preference Optimization (DPO) datasets consist of candidate pairs ranked by humans with rationales, aligning the model with human preferences.',
     },
     {
-        q: 'Can you work with our internal annotation platforms and data formats?',
-        a: 'Yes. Our delivery teams work inside client-provided annotation environments (such as Label Studio, Prodigy, or custom proprietary web tools) or deliver structured batches via secure cloud buckets in JSONL, Parquet, or CSV formats adhering to your exact schema requirements.',
+        q: 'Can you work with our internal tools and preferred data formats?',
+        a: 'Yes. Our reviewers work directly in client platforms (like Label Studio or Prodigy) or deliver structured batches via secure cloud buckets in standard JSONL, Parquet, or CSV formats matching your schema.',
     },
     {
-        q: 'How do you handle confidentiality and proprietary data security?',
-        a: 'All evaluation workflows operate under strict confidentiality agreements and secure access controls. Reviewers work in access-managed environments with no external copy capabilities, and client data is never repurposed, trained upon, or shared outside the authorized project scope.',
+        q: 'How do you protect client data and confidentiality?',
+        a: 'All evaluation workflows operate under strict confidentiality agreements within access-controlled environments. Reviewers cannot copy data externally, and your data is never used to train external models.',
     },
     {
         q: 'Do you offer reward-model training services?',
-        a: 'We design the datasets, rubric anchors, and scalar ranking workflows required for reward modeling. While we help clients scope the feasibility and dataset architecture for reward models, full reward-model training is evaluated as a custom scoped engagement based on technical feasibility and compute parameters.',
+        a: 'We design the datasets, rubric anchors, and scalar ranking workflows needed for reward models. Full reward-model training is scoped on a project basis depending on compute feasibility and technical parameters.',
     },
     {
-        q: 'How do you test Retrieval-Augmented Generation (RAG) models for hallucination?',
-        a: 'We evaluate RAG completions against three core dimensions: Retrieval Relevance (did the system fetch the right source context?), Answer Faithfulness (is every statement in the answer explicitly supported by the retrieved context?), and Answer Completeness (did the model answer the entire question without unnecessary omissions?).',
+        q: 'How do you audit Retrieval-Augmented Generation (RAG) models?',
+        a: 'We benchmark three main factors: Context Relevance (fetching correct documents), Answer Faithfulness (ensuring claims are backed by source text), and Completeness (answering the prompt fully without hallucinations).',
     },
     {
-        q: 'What domains and subject matter areas can your evaluation teams cover?',
-        a: 'Our reviewer network covers software engineering across major programming languages, STEM fields including mathematics and data science, multilingual translation and cultural localization, as well as enterprise operations and customer support workflows.',
+        q: 'What domains can your evaluation teams cover?',
+        a: 'Our reviewer network covers software engineering across major languages, STEM and data science, multilingual translation and cultural localization, as well as enterprise operational workflows.',
     },
 ];
 
@@ -355,18 +371,17 @@ const LLMEvaluationRLHFPage = () => {
 
     useGSAP(() => {
         const ctx = gsap.context(() => {
-            // Service Cards
             const serviceCards = buildRef.current?.querySelectorAll('.eval-card');
             if (serviceCards) {
                 gsap.fromTo(
                     serviceCards,
-                    { y: 50, opacity: 0, scale: 0.96 },
+                    { y: 40, opacity: 0, scale: 0.98 },
                     {
                         y: 0,
                         opacity: 1,
                         scale: 1,
-                        duration: 0.6,
-                        stagger: 0.1,
+                        duration: 0.5,
+                        stagger: 0.08,
                         ease: 'power2.out',
                         scrollTrigger: {
                             trigger: buildRef.current,
@@ -377,17 +392,16 @@ const LLMEvaluationRLHFPage = () => {
                 );
             }
 
-            // Pipeline Steps
             const steps = pipelineRef.current?.querySelectorAll('.pipeline-step');
             if (steps) {
                 gsap.fromTo(
                     steps,
-                    { y: 40, opacity: 0 },
+                    { y: 30, opacity: 0 },
                     {
                         y: 0,
                         opacity: 1,
-                        duration: 0.6,
-                        stagger: 0.15,
+                        duration: 0.5,
+                        stagger: 0.12,
                         ease: 'power2.out',
                         scrollTrigger: {
                             trigger: pipelineRef.current,
@@ -398,18 +412,17 @@ const LLMEvaluationRLHFPage = () => {
                 );
             }
 
-            // Domain Cards
             const domains = domainRef.current?.querySelectorAll('.domain-card');
             if (domains) {
                 gsap.fromTo(
                     domains,
-                    { y: 40, opacity: 0, scale: 0.96 },
+                    { y: 30, opacity: 0, scale: 0.98 },
                     {
                         y: 0,
                         opacity: 1,
                         scale: 1,
-                        duration: 0.6,
-                        stagger: 0.1,
+                        duration: 0.5,
+                        stagger: 0.08,
                         ease: 'power2.out',
                         scrollTrigger: {
                             trigger: domainRef.current,
@@ -500,7 +513,7 @@ const LLMEvaluationRLHFPage = () => {
     });
 
     return (
-        <div className="relative min-h-screen bg-white text-[#2D6A4F] font-body">
+        <div className="relative min-h-screen bg-white text-[#2D6A4F] font-body selection:bg-[#E8F5EE] selection:text-[#2D6A4F]">
             <SEO
                 title="Enterprise LLM Evaluation & AI Data QA | Frostrek AI"
                 description="Rigorous human-in-the-loop LLM evaluation, RLHF preference ranking, and AI data QA. Custom rubrics and calibrated domain reviews for enterprise models."
@@ -511,29 +524,28 @@ const LLMEvaluationRLHFPage = () => {
             <CuteBackground />
 
             {/* ═══════ SECTION 1 — HERO ═══════ */}
-            <section className="relative pt-28 pb-16 md:pt-48 md:pb-28 overflow-hidden flex flex-col justify-center min-h-[90vh]">
+            <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden flex flex-col justify-center min-h-[85vh]">
                 {/* Ambient blobs */}
                 <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-                    <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#E8F5EE] rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3 opacity-60" />
-                    <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#F0F9FF] rounded-full blur-[120px] -translate-x-1/4 translate-y-1/4 opacity-50" />
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[#FFFBEB]/80 rounded-full blur-[100px]" />
+                    <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#E8F5EE] rounded-full blur-[140px] translate-x-1/4 -translate-y-1/4 opacity-60" />
+                    <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#F0F9FF] rounded-full blur-[120px] -translate-x-1/4 translate-y-1/4 opacity-50" />
                 </div>
 
                 <div className="container mx-auto px-4 md:px-6 relative z-10 text-center flex flex-col items-center">
-                    <div className="max-w-5xl mx-auto w-full flex flex-col items-center">
+                    <div className="max-w-4xl mx-auto w-full flex flex-col items-center">
                         {/* Pill tag */}
                         <motion.div
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 15 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6 }}
-                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border bg-[#E8F5EE] border-[#2D6A4F]/20 text-[#2D6A4F] text-xs sm:text-sm font-bold mb-6 shadow-xs"
+                            transition={{ duration: 0.5 }}
+                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border bg-[#E8F5EE] border-[#2D6A4F]/20 text-[#2D6A4F] text-xs sm:text-sm font-bold mb-6 shadow-2xs"
                         >
                             <span className="flex h-2 w-2 rounded-full animate-pulse bg-[#2D6A4F]" />
                             ENTERPRISE EVALUATION & RLHF
                         </motion.div>
 
-                        {/* Headline */}
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif mb-6 tracking-tight max-w-5xl mx-auto leading-tight text-[#2D6A4F]">
+                        {/* Clean H1 */}
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif mb-6 tracking-tight max-w-4xl mx-auto leading-tight text-[#2D6A4F]">
                             <SplitTextReveal as="span" className="text-[#2D6A4F]" type="chars" stagger={0.02} once={false}>
                                 Enterprise LLM Evaluation,
                             </SplitTextReveal>
@@ -543,25 +555,25 @@ const LLMEvaluationRLHFPage = () => {
                             </SplitTextReveal>
                         </h1>
 
-                        {/* Answer-First SEO / AEO Paragraph */}
+                        {/* Crisp, Skimmable Subtext */}
                         <p
-                            className="text-base md:text-lg mb-8 max-w-3xl mx-auto leading-relaxed text-gray-600 font-medium"
+                            className="text-base sm:text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed text-gray-600 font-normal"
                             itemProp="description"
                         >
-                            Frostrek AI provides rigorous human-in-the-loop LLM evaluation, RLHF preference ranking, and multi-turn conversational quality assurance. We design custom rubrics, deploy domain-calibrated review workflows, and benchmark reasoning, coding, and RAG architectures against production safety standards.
+                            Human-in-the-loop LLM evaluation and RLHF preference ranking. We provide custom rubrics, calibrated domain reviewers, and zero-leakage workflows to ensure your models are accurate and safe.
                         </p>
 
                         {/* CTAs */}
                         <motion.div
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 15 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.6, duration: 0.5 }}
+                            transition={{ delay: 0.4, duration: 0.5 }}
                             className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto"
                         >
                             <Link
                                 to="/contact"
                                 id="eval-hero-cta-primary"
-                                className="group relative w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 bg-[#2D6A4F] text-white rounded-full font-medium text-base sm:text-lg transition-all hover:bg-[#1B4332] shadow-[0_10px_30px_rgba(45,106,79,0.2)] hover:shadow-[0_10px_40px_rgba(45,106,79,0.3)] hover:-translate-y-0.5"
+                                className="group relative w-full sm:w-auto flex items-center justify-center gap-2.5 px-8 py-4 bg-[#2D6A4F] text-white rounded-full font-medium text-base sm:text-lg transition-all hover:bg-[#1B4332] shadow-[0_8px_25px_rgba(45,106,79,0.2)] hover:shadow-[0_10px_35px_rgba(45,106,79,0.3)] hover:-translate-y-0.5"
                             >
                                 Discuss Your Evaluation Project
                                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -570,78 +582,76 @@ const LLMEvaluationRLHFPage = () => {
                             <Link
                                 to="/solutions/llm-model-training"
                                 id="eval-hero-cta-secondary"
-                                className="w-full sm:w-auto flex items-center justify-center gap-2 px-7 py-4 bg-white text-[#2D6A4F] rounded-full font-medium text-base sm:text-lg transition-all border border-[#2D6A4F]/20 hover:bg-[#F4FAF7] hover:-translate-y-0.5 shadow-xs"
+                                className="w-full sm:w-auto flex items-center justify-center gap-2 px-7 py-4 bg-white text-[#2D6A4F] rounded-full font-medium text-base sm:text-lg transition-all border border-[#2D6A4F]/20 hover:bg-[#F4FAF7] hover:-translate-y-0.5 shadow-2xs"
                             >
                                 Explore Model Training
                             </Link>
                         </motion.div>
 
-                        {/* Key Trust Micro-Pills */}
+                        {/* Sleek Trust Chips */}
                         <motion.div
-                            initial={{ opacity: 0, y: 15 }}
+                            initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.8, duration: 0.5 }}
-                            className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 mt-8 pt-4 border-t border-gray-100/80 text-xs sm:text-sm text-gray-500"
+                            transition={{ delay: 0.6, duration: 0.4 }}
+                            className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mt-10 text-xs text-gray-600 font-medium"
                         >
-                            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F0FDF4] text-[#166534] border border-[#BBF7D0]">
-                                <CheckCircle2 className="w-3.5 h-3.5" /> Triple-Tier QA Pipeline
+                            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-gray-200/80 shadow-2xs">
+                                <CheckCircle2 className="w-3.5 h-3.5 text-[#2D6A4F]" /> 3-Tier Human QA
                             </span>
-                            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F0F9FF] text-[#0284C7] border border-[#BAE6FD]">
-                                <CheckCircle2 className="w-3.5 h-3.5" /> Calibrated Domain Bench
+                            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-gray-200/80 shadow-2xs">
+                                <CheckCircle2 className="w-3.5 h-3.5 text-[#2D6A4F]" /> Calibrated Domain Bench
                             </span>
-                            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFF7ED] text-[#C2410C] border border-[#FFEDD5]">
-                                <CheckCircle2 className="w-3.5 h-3.5" /> Custom Rubrics & Grounding
+                            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-gray-200/80 shadow-2xs">
+                                <CheckCircle2 className="w-3.5 h-3.5 text-[#2D6A4F]" /> Custom Grounding Rubrics
                             </span>
-                            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F5F3FF] text-[#6D28D9] border border-[#DDD6FE]">
-                                <CheckCircle2 className="w-3.5 h-3.5" /> Zero-Data Leakage Environment
+                            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-gray-200/80 shadow-2xs">
+                                <CheckCircle2 className="w-3.5 h-3.5 text-[#2D6A4F]" /> Zero-Data Leakage
                             </span>
                         </motion.div>
                     </div>
                 </div>
 
-                {/* Bottom fade */}
-                <div className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none bg-gradient-to-t from-white to-transparent" aria-hidden="true" />
+                <div className="absolute bottom-0 left-0 right-0 h-16 pointer-events-none bg-gradient-to-t from-white to-transparent" aria-hidden="true" />
             </section>
 
             {/* ═══════ SECTION 2 — CORE EVALUATION SERVICES ═══════ */}
-            <section className="py-16 lg:py-24 bg-brand-light-bg relative z-10 overflow-hidden border-t border-gray-100">
+            <section className="py-20 lg:py-28 bg-[#FAFCFB] relative z-10 border-t border-gray-100">
                 <div className="container mx-auto px-4 md:px-6 max-w-7xl">
-                    <div className="text-center mb-16">
+                    <div className="text-center mb-16 max-w-2xl mx-auto">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E8F5EE] text-[#2D6A4F] text-xs font-bold uppercase tracking-wider mb-3">
                             <Layers className="w-3.5 h-3.5" />
-                            Comprehensive Evaluation Suite
+                            Core Capabilities
                         </div>
-                        <SplitTextReveal
-                            as="h2"
-                            className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-tight"
-                            type="chars"
-                            stagger={0.02}
-                            once={false}
-                        >
+                        <h2 className="font-serif text-3xl sm:text-4xl text-gray-900 font-bold mb-3">
                             Specialized Model Evaluation Services
-                        </SplitTextReveal>
-                        <div className="mt-4">
-                            <p className="max-w-2xl mx-auto text-base sm:text-lg text-gray-600 leading-relaxed">
-                                Structured evaluation methodologies engineered to pinpoint model failure modes, calibrate preference rankings, and ensure enterprise compliance.
-                            </p>
-                        </div>
+                        </h2>
+                        <p className="text-sm sm:text-base text-gray-500">
+                            Clear, structured evaluation workflows built to catch hallucinations, calibrate preference data, and protect enterprise deployments.
+                        </p>
                     </div>
 
-                    <div ref={buildRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                    <div ref={buildRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
                         {EVAL_SERVICES.map((item) => (
                             <SpotlightCard
                                 key={item.title}
-                                className={`eval-card group relative overflow-hidden rounded-[1.25rem] md:rounded-[1.5rem] border p-5 md:p-8 transition-all duration-300 ${item.bgColor} ${item.border} ${item.hoverShadow} hover:-translate-y-1`}
+                                className={`eval-card group relative overflow-hidden rounded-2xl border p-6 md:p-7 transition-all duration-300 ${item.bgColor} ${item.border} ${item.hoverShadow} hover:-translate-y-1 flex flex-col justify-between`}
                                 spotlightColor={item.spotlight}
                             >
-                                <div className="relative z-10 flex gap-4 md:gap-5 items-start">
-                                    <div className={`w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl border flex items-center justify-center flex-shrink-0 bg-white/60 ${item.iconBorder} transition-transform duration-300 group-hover:scale-105 shadow-xs`}>
-                                        <img src={item.icon} alt={item.title} className="w-6 h-6 md:w-8 md:h-8 object-contain" loading="lazy" width={64} height={64} />
+                                <div>
+                                    <div className="flex items-center gap-4 mb-4">
+                                        <div className={`w-12 h-12 rounded-xl border flex items-center justify-center flex-shrink-0 bg-white/80 ${item.iconBorder} shadow-2xs group-hover:scale-105 transition-transform duration-300`}>
+                                            <img src={item.icon} alt={item.title} className="w-6 h-6 object-contain" loading="lazy" width={64} height={64} />
+                                        </div>
+                                        <h3 className={`font-serif text-lg font-bold ${item.headingColor}`}>{item.title}</h3>
                                     </div>
-                                    <div className="flex-1">
-                                        <h3 className={`font-serif text-lg md:text-xl font-bold mb-2 ${item.headingColor}`}>{item.title}</h3>
-                                        <p className="text-xs sm:text-sm leading-relaxed text-gray-600">{item.description}</p>
-                                    </div>
+                                    <p className="text-xs sm:text-sm leading-relaxed text-gray-600 mb-5">{item.description}</p>
+                                </div>
+                                <div className="flex flex-wrap gap-1.5 pt-3 border-t border-black/5">
+                                    {item.tags.map((tag) => (
+                                        <span key={tag} className="text-[11px] font-medium px-2 py-0.5 rounded-md bg-white/70 text-gray-700 border border-black/5">
+                                            {tag}
+                                        </span>
+                                    ))}
                                 </div>
                             </SpotlightCard>
                         ))}
@@ -650,24 +660,18 @@ const LLMEvaluationRLHFPage = () => {
             </section>
 
             {/* ═══════ SECTION 3 — 3-TIER QA PIPELINE ═══════ */}
-            <section className="py-16 lg:py-24 bg-white relative z-10 overflow-hidden">
-                <div className="container mx-auto px-4 md:px-6 max-w-7xl">
-                    <div className="text-center mb-16">
+            <section className="py-20 lg:py-28 bg-white relative z-10 overflow-hidden">
+                <div className="container mx-auto px-4 md:px-6 max-w-6xl">
+                    <div className="text-center mb-16 max-w-2xl mx-auto">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E8F5EE] text-[#2D6A4F] text-xs font-bold uppercase tracking-wider mb-3">
                             <Shield className="w-3.5 h-3.5" />
-                            Rigorous Governance
+                            Multi-Level QA
                         </div>
-                        <SplitTextReveal
-                            as="h2"
-                            className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-tight"
-                            type="chars"
-                            stagger={0.02}
-                            once={false}
-                        >
+                        <h2 className="font-serif text-3xl sm:text-4xl text-gray-900 font-bold mb-3">
                             The 3-Tier Human QA Pipeline
-                        </SplitTextReveal>
-                        <p className="max-w-2xl mx-auto text-base sm:text-lg text-gray-600 mt-4 leading-relaxed">
-                            Every evaluation dataset passes through a verifiable three-tier quality hierarchy to prevent rubric drift and eliminate reviewer bias.
+                        </h2>
+                        <p className="text-sm sm:text-base text-gray-500">
+                            A structured, multi-layer review hierarchy to eliminate reviewer bias and prevent rubric drift.
                         </p>
                     </div>
 
@@ -675,21 +679,23 @@ const LLMEvaluationRLHFPage = () => {
                         {QA_PIPELINE.map((p) => (
                             <div
                                 key={p.step}
-                                className={`pipeline-step relative bg-white border border-gray-200/80 rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between`}
+                                className="pipeline-step bg-[#FAFCFB] border border-gray-200/70 rounded-2xl p-6 sm:p-7 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
                             >
                                 <div>
-                                    <div className="flex items-center justify-between mb-6">
-                                        <div className={`w-12 h-12 rounded-xl ${p.iconBg} border ${p.iconBorder} flex items-center justify-center font-serif text-lg font-bold ${p.badgeColor}`}>
+                                    <div className="flex items-center justify-between mb-5">
+                                        <span className={`w-10 h-10 rounded-xl ${p.iconBg} border ${p.iconBorder} flex items-center justify-center font-serif text-base font-bold ${p.badgeColor}`}>
                                             {p.step}
-                                        </div>
-                                        <span className="text-xs uppercase tracking-wider font-semibold text-gray-400">Phase Gate</span>
+                                        </span>
+                                        <span className="text-[11px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-gray-100 text-gray-500">
+                                            {p.badge}
+                                        </span>
                                     </div>
-                                    <h3 className="font-serif text-xl font-bold text-gray-900 mb-3">{p.title}</h3>
+                                    <h3 className="font-serif text-lg font-bold text-gray-900 mb-2">{p.title}</h3>
                                     <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6">{p.description}</p>
                                 </div>
-                                <div className="pt-4 border-t border-gray-100 flex items-center gap-2 text-xs font-medium text-[#2D6A4F]">
-                                    <CheckCircle2 className="w-4 h-4 text-[#2D6A4F]" />
-                                    <span>Verified Audit Trail & Calibration</span>
+                                <div className="pt-3 border-t border-gray-100 flex items-center gap-2 text-xs font-medium text-[#2D6A4F]">
+                                    <CheckCheck className="w-4 h-4 text-[#2D6A4F]" />
+                                    <span>Audited Delivery Step</span>
                                 </div>
                             </div>
                         ))}
@@ -697,93 +703,88 @@ const LLMEvaluationRLHFPage = () => {
                 </div>
             </section>
 
-            {/* ═══════ SECTION 4 — EVALUATION MATRIX & SCORING RUBRICS ═══════ */}
-            <section className="py-16 lg:py-24 bg-[#FAFCFB] relative z-10 border-y border-gray-100">
-                <div className="container mx-auto px-4 md:px-6 max-w-6xl">
-                    <div className="text-center max-w-3xl mx-auto mb-14">
+            {/* ═══════ SECTION 4 — EVALUATION MATRIX (Sleek Visual Cards) ═══════ */}
+            <section className="py-20 lg:py-28 bg-[#FAFCFB] relative z-10 border-y border-gray-100">
+                <div className="container mx-auto px-4 md:px-6 max-w-5xl">
+                    <div className="text-center max-w-2xl mx-auto mb-14">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E8F5EE] text-[#2D6A4F] text-xs font-bold uppercase tracking-wider mb-3">
                             <FileCheck className="w-3.5 h-3.5" />
                             Rubric Architecture
                         </div>
-                        <h2 className="font-serif text-3xl sm:text-4xl text-gray-900 font-bold mb-4">
-                            Standardized Evaluation Rubric Dimensions
+                        <h2 className="font-serif text-3xl sm:text-4xl text-gray-900 font-bold mb-3">
+                            Evaluation Rubric Dimensions
                         </h2>
-                        <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                            Structured scoring criteria applied across conversational trajectories, code generation, and factual retrieval benchmarks.
+                        <p className="text-sm sm:text-base text-gray-500">
+                            Granular scoring dimensions applied across conversational trajectories, code generation, and factual retrieval.
                         </p>
                     </div>
 
-                    <div className="overflow-x-auto bg-white rounded-2xl md:rounded-3xl border border-gray-200 shadow-xs">
-                        <table className="w-full text-left border-collapse">
-                            <thead>
-                                <tr className="border-b border-gray-200 bg-gray-50/70 text-gray-700 text-xs sm:text-sm font-semibold uppercase tracking-wider">
-                                    <th className="py-4 px-5 sm:px-6">Rubric Dimension</th>
-                                    <th className="py-4 px-5 sm:px-6">Evaluation Focus</th>
-                                    <th className="py-4 px-5 sm:px-6">Measurement Methodology</th>
-                                    <th className="py-4 px-5 sm:px-6">Quality Target</th>
-                                </tr>
-                            </thead>
-                            <tbody className="divide-y divide-gray-100 text-xs sm:text-sm text-gray-600">
-                                {RUBRIC_DIMENSIONS.map((row) => (
-                                    <tr key={row.dimension} className="hover:bg-[#F0FDF4]/30 transition-colors">
-                                        <td className="py-4 px-5 sm:px-6 font-semibold text-gray-900 whitespace-nowrap">
-                                            {row.dimension}
-                                        </td>
-                                        <td className="py-4 px-5 sm:px-6 leading-relaxed max-w-xs">{row.focus}</td>
-                                        <td className="py-4 px-5 sm:px-6 leading-relaxed">{row.measurement}</td>
-                                        <td className="py-4 px-5 sm:px-6">
-                                            <span className="inline-block px-2.5 py-1 rounded-full bg-[#E8F5EE] text-[#166534] font-medium text-xs">
-                                                {row.target}
-                                            </span>
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        {RUBRIC_DIMENSIONS.map((item) => (
+                            <div
+                                key={item.dimension}
+                                className="bg-white border border-gray-200/80 rounded-2xl p-5 shadow-2xs hover:shadow-xs transition-shadow flex flex-col justify-between"
+                            >
+                                <div>
+                                    <div className="flex items-center justify-between mb-2">
+                                        <h3 className="font-serif text-base font-bold text-gray-900">{item.dimension}</h3>
+                                    </div>
+                                    <p className="text-xs text-gray-600 leading-relaxed mb-4">{item.focus}</p>
+                                </div>
+                                <div className="pt-3 border-t border-gray-100 space-y-2">
+                                    <div className="text-[11px] text-gray-500 font-medium">
+                                        <span className="text-gray-400">Measure:</span> {item.measurement}
+                                    </div>
+                                    <span className={`inline-block text-[11px] font-semibold px-2 py-0.5 rounded-full border ${item.color}`}>
+                                        ✓ {item.target}
+                                    </span>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
 
-            {/* ═══════ SECTION 5 — DOMAIN BENCH ═══════ */}
-            <section className="py-16 lg:py-24 bg-white relative z-10 overflow-hidden">
-                <div className="container mx-auto px-4 md:px-6 max-w-7xl">
-                    <div className="text-center mb-16">
+            {/* ═══════ SECTION 5 — DOMAIN BENCH (Clean Skill Pills) ═══════ */}
+            <section className="py-20 lg:py-28 bg-white relative z-10 overflow-hidden">
+                <div className="container mx-auto px-4 md:px-6 max-w-5xl">
+                    <div className="text-center mb-14 max-w-2xl mx-auto">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E8F5EE] text-[#2D6A4F] text-xs font-bold uppercase tracking-wider mb-3">
                             <Cpu className="w-3.5 h-3.5" />
                             Specialist Coverage
                         </div>
-                        <SplitTextReveal
-                            as="h2"
-                            className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-tight"
-                            type="chars"
-                            stagger={0.02}
-                            once={false}
-                        >
-                            Calibrated Domain Reviewer Bench
-                        </SplitTextReveal>
-                        <p className="max-w-2xl mx-auto text-base sm:text-lg text-gray-600 mt-4 leading-relaxed">
-                            Project-scoped reviewers with verified domain competencies across technical, numerical, linguistic, and operational disciplines.
+                        <h2 className="font-serif text-3xl sm:text-4xl text-gray-900 font-bold mb-3">
+                            Domain Reviewer Bench
+                        </h2>
+                        <p className="text-sm sm:text-base text-gray-500">
+                            Project-scoped reviewers with verified competencies across technical, numerical, and operational domains.
                         </p>
                     </div>
 
-                    <div ref={domainRef} className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+                    <div ref={domainRef} className="grid grid-cols-1 md:grid-cols-2 gap-5">
                         {DOMAIN_BENCH.map((bench) => {
                             const IconComponent = bench.icon;
                             return (
                                 <div
                                     key={bench.domain}
-                                    className={`domain-card rounded-2xl md:rounded-3xl border p-6 md:p-8 ${bench.bg} ${bench.border} transition-all duration-300 hover:shadow-md`}
+                                    className={`domain-card rounded-2xl border p-6 ${bench.bg} ${bench.border} transition-all duration-300 hover:shadow-xs flex flex-col justify-between`}
                                 >
-                                    <div className="flex items-center gap-4 mb-4">
-                                        <div className="w-12 h-12 rounded-xl bg-white border border-gray-200/60 flex items-center justify-center flex-shrink-0 shadow-2xs">
-                                            <IconComponent className={`w-6 h-6 ${bench.textColor}`} />
+                                    <div>
+                                        <div className="flex items-center gap-3 mb-3">
+                                            <div className="w-10 h-10 rounded-xl bg-white border border-gray-200/60 flex items-center justify-center flex-shrink-0 shadow-2xs">
+                                                <IconComponent className={`w-5 h-5 ${bench.textColor}`} />
+                                            </div>
+                                            <h3 className={`font-serif text-base font-bold ${bench.textColor}`}>{bench.domain}</h3>
                                         </div>
-                                        <div>
-                                            <h3 className={`font-serif text-lg md:text-xl font-bold ${bench.textColor}`}>{bench.domain}</h3>
-                                            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider">{bench.coverage}</p>
-                                        </div>
+                                        <p className="text-xs text-gray-600 leading-relaxed mb-4">{bench.details}</p>
                                     </div>
-                                    <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{bench.details}</p>
+                                    <div className="flex flex-wrap gap-1.5 pt-3 border-t border-black/5">
+                                        {bench.skills.map((skill) => (
+                                            <span key={skill} className="text-[11px] font-medium px-2 py-0.5 rounded bg-white text-gray-700 border border-black/5">
+                                                {skill}
+                                            </span>
+                                        ))}
+                                    </div>
                                 </div>
                             );
                         })}
@@ -791,89 +792,81 @@ const LLMEvaluationRLHFPage = () => {
                 </div>
             </section>
 
-            {/* ═══════ SECTION 6 — SYNTHETIC BENCHMARK TASK F-024 ═══════ */}
-            <section className="py-16 lg:py-24 bg-[#FAFCFB] relative z-10 border-t border-gray-100">
-                <div className="container mx-auto px-4 md:px-6 max-w-5xl">
-                    <div className="text-center mb-12">
+            {/* ═══════ SECTION 6 — SYNTHETIC BENCHMARK TASK F-024 (Playground UI) ═══════ */}
+            <section className="py-20 lg:py-28 bg-[#FAFCFB] relative z-10 border-t border-gray-100">
+                <div className="container mx-auto px-4 md:px-6 max-w-4xl">
+                    <div className="text-center mb-12 max-w-xl mx-auto">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FFFBEB] text-[#B45309] border border-[#FEF3C7] text-xs font-bold uppercase tracking-wider mb-3">
-                            <FileCheck className="w-3.5 h-3.5" />
-                            Illustrative Benchmark Walkthrough
+                            <Sparkles className="w-3.5 h-3.5" />
+                            Illustrative Example
                         </div>
-                        <h2 className="font-serif text-3xl sm:text-4xl text-gray-900 font-bold mb-3">
+                        <h2 className="font-serif text-3xl sm:text-4xl text-gray-900 font-bold mb-2">
                             Synthetic Benchmark Task F-024
                         </h2>
-                        <p className="text-xs sm:text-sm text-gray-500 max-w-xl mx-auto">
-                            Sample pairwise comparison demonstrating how annotators apply negative constraints, grounding rules, and rubric scoring.
+                        <p className="text-xs sm:text-sm text-gray-500">
+                            Sample pairwise comparison demonstrating negative constraints and factual grounding checks.
                         </p>
                     </div>
 
-                    <div className="bg-white rounded-3xl border border-gray-200 shadow-sm p-6 sm:p-8 md:p-10 relative overflow-hidden">
-                        {/* Synthetic watermark header */}
-                        <div className="flex flex-wrap items-center justify-between gap-3 pb-6 mb-6 border-b border-gray-100">
-                            <div className="flex items-center gap-2">
-                                <span className="w-2.5 h-2.5 rounded-full bg-[#166534]" />
-                                <span className="text-xs sm:text-sm font-semibold text-gray-900">Task Type: RAG Grounding & Factual Synthesis</span>
+                    <div className="bg-white rounded-2xl border border-gray-200 shadow-xs p-5 sm:p-7">
+                        {/* Header bar */}
+                        <div className="flex items-center justify-between pb-4 mb-4 border-b border-gray-100">
+                            <div className="flex items-center gap-2 text-xs font-semibold text-gray-800">
+                                <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                                RAG Grounding & Constraint Check
                             </div>
-                            <span className="px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-[11px] font-bold border border-amber-200">
-                                SYNTHETIC SAMPLE · DEMONSTRATION ONLY
+                            <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-amber-50 text-amber-800 border border-amber-200">
+                                SYNTHETIC SAMPLE · DEMO ONLY
                             </span>
                         </div>
 
-                        {/* Input context */}
-                        <div className="bg-gray-50 rounded-2xl p-4 sm:p-5 mb-6 text-xs sm:text-sm text-gray-700 space-y-2 border border-gray-200/60 font-mono">
-                            <p className="text-xs font-bold text-gray-500 uppercase tracking-wider font-sans">Prompt & Context Constraints:</p>
-                            <p className="text-gray-800">
-                                "Summarize the quarterly SLA performance for Vendor Alpha using ONLY the provided audit log. Include uptime %, incident response time, and penalty status. Constraint: Do not speculate on root causes."
-                            </p>
+                        {/* Prompt context */}
+                        <div className="bg-gray-50 rounded-xl p-3.5 mb-5 border border-gray-100 text-xs text-gray-700 font-mono">
+                            <span className="font-sans font-bold text-gray-500 uppercase tracking-wider block text-[10px] mb-1">Prompt:</span>
+                            "Summarize quarterly SLA performance for Vendor Alpha using only the audit log. Constraint: Do not speculate on root causes."
                         </div>
 
-                        {/* Pairwise completions side-by-side */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-6">
-                            {/* Candidate A (Preferred) */}
-                            <div className="rounded-2xl border-2 border-[#BBF7D0] bg-[#F0FDF4]/40 p-5 flex flex-col justify-between">
+                        {/* Candidates */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            {/* Candidate A */}
+                            <div className="rounded-xl border border-emerald-300 bg-emerald-50/30 p-4 flex flex-col justify-between">
                                 <div>
-                                    <div className="flex items-center justify-between mb-3">
-                                        <span className="font-bold text-xs uppercase tracking-wider text-[#166534]">Candidate A (Rank 1 · Preferred)</span>
-                                        <span className="flex items-center gap-1 text-xs font-bold text-[#166534] bg-white px-2 py-0.5 rounded-full border border-[#BBF7D0]">
-                                            <Check className="w-3.5 h-3.5 text-[#166534]" /> Grounded
+                                    <div className="flex items-center justify-between mb-2">
+                                        <span className="text-xs font-bold text-emerald-800">Candidate A (Rank 1 · Preferred)</span>
+                                        <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-white text-emerald-700 border border-emerald-300 flex items-center gap-1">
+                                            <Check className="w-3 h-3 text-emerald-600" /> Grounded
                                         </span>
                                     </div>
-                                    <p className="text-xs sm:text-sm text-gray-700 leading-relaxed mb-4">
-                                        "Vendor Alpha recorded a 99.82% uptime SLA and an average incident response time of 14 minutes in Q3. No penalty clauses were triggered under the master service contract."
+                                    <p className="text-xs text-gray-700 leading-relaxed mb-3">
+                                        "Vendor Alpha recorded 99.82% uptime and an average incident response time of 14 minutes. Zero penalties were triggered."
                                     </p>
                                 </div>
-                                <div className="text-[11px] text-[#166534] font-medium pt-3 border-t border-[#BBF7D0]/60 space-y-1">
-                                    <p>✓ All assertions directly supported by audit log</p>
-                                    <p>✓ Strict adherence to negative constraint (no speculation)</p>
-                                </div>
+                                <span className="text-[10px] text-emerald-700 font-medium">✓ Fully backed by log; zero speculation</span>
                             </div>
 
-                            {/* Candidate B (Rejected) */}
-                            <div className="rounded-2xl border border-[#FECDD3] bg-[#FFF1F2]/40 p-5 flex flex-col justify-between">
+                            {/* Candidate B */}
+                            <div className="rounded-xl border border-rose-300 bg-rose-50/30 p-4 flex flex-col justify-between">
                                 <div>
-                                    <div className="flex items-center justify-between mb-3">
-                                        <span className="font-bold text-xs uppercase tracking-wider text-[#E11D48]">Candidate B (Rank 2 · Rejected)</span>
-                                        <span className="flex items-center gap-1 text-xs font-bold text-[#E11D48] bg-white px-2 py-0.5 rounded-full border border-[#FECDD3]">
-                                            <X className="w-3.5 h-3.5 text-[#E11D48]" /> Constraint Violation
+                                    <div className="flex items-center justify-between mb-2">
+                                        <span className="text-xs font-bold text-rose-800">Candidate B (Rank 2 · Rejected)</span>
+                                        <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-white text-rose-700 border border-rose-300 flex items-center gap-1">
+                                            <X className="w-3 h-3 text-rose-600" /> Hallucination
                                         </span>
                                     </div>
-                                    <p className="text-xs sm:text-sm text-gray-700 leading-relaxed mb-4">
-                                        "Vendor Alpha achieved 99.82% uptime with a 14-minute response time. While zero penalties occurred, the minor latency blips were likely caused by third-party fiber outages."
+                                    <p className="text-xs text-gray-700 leading-relaxed mb-3">
+                                        "Vendor Alpha achieved 99.82% uptime. Minor latency blips were likely caused by third-party fiber outages."
                                     </p>
                                 </div>
-                                <div className="text-[11px] text-[#E11D48] font-medium pt-3 border-t border-[#FECDD3]/60 space-y-1">
-                                    <p>✗ Violated negative constraint by speculating on root causes</p>
-                                    <p>✗ Hallucinated fiber outages not in provided log</p>
-                                </div>
+                                <span className="text-[10px] text-rose-700 font-medium">✗ Speculated on fiber outages not in the log</span>
                             </div>
                         </div>
 
-                        {/* Annotator Rationale & Export Preview */}
-                        <div className="rounded-xl bg-gray-50 border border-gray-200/80 p-4 text-xs text-gray-600 space-y-2">
-                            <span className="font-bold text-gray-700 uppercase tracking-wider block text-[11px]">Annotator Decision Rationale:</span>
-                            <p>
-                                Candidate A strictly adhered to grounding constraints and factual retrieval. Candidate B introduced ungrounded speculation regarding external fiber outages, violating the explicit prompt prohibition. Candidate A is ranked first with full confidence.
-                            </p>
+                        {/* Annotator decision summary */}
+                        <div className="bg-gray-50 rounded-lg p-3 text-[11px] text-gray-600 flex items-start gap-2 border border-gray-100">
+                            <AlertCircle className="w-4 h-4 text-[#2D6A4F] flex-shrink-0 mt-0.5" />
+                            <span>
+                                <strong className="text-gray-700">Annotator Decision:</strong> Candidate A adhered strictly to negative constraints. Candidate B introduced ungrounded speculation, violating prompt rules. Candidate A ranked first.
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -883,35 +876,35 @@ const LLMEvaluationRLHFPage = () => {
             <section
                 id="eval-faq"
                 aria-label="Frequently asked questions about LLM evaluation and RLHF"
-                className="py-16 lg:py-24 bg-white relative z-10"
+                className="py-20 lg:py-28 bg-white relative z-10"
             >
-                <div className="container mx-auto px-4 md:px-6 max-w-4xl">
-                    <div className="text-center max-w-2xl mx-auto mb-12">
-                        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E8F5EE] text-[#2D6A4F] text-xs font-bold uppercase tracking-wider mb-3">
+                <div className="container mx-auto px-4 md:px-6 max-w-3xl">
+                    <div className="text-center max-w-xl mx-auto mb-12">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E8F5EE] text-[#2D6A4F] text-xs font-bold uppercase tracking-wider mb-3">
                             <HelpCircle className="w-3.5 h-3.5" />
-                            Direct Operational Answers
+                            Direct Answers
                         </div>
                         <h2 className="font-serif text-3xl sm:text-4xl text-gray-900 font-bold mb-3">
                             Frequently Asked Questions
                         </h2>
                         <p className="text-xs sm:text-sm text-gray-500">
-                            Clear, operational answers regarding evaluation rubrics, reviewer calibration, confidentiality, and data delivery formats.
+                            Clear operational answers regarding rubrics, calibration, security, and data formats.
                         </p>
 
                         {/* Search Bar */}
-                        <div className="relative w-full max-w-md mx-auto mt-6">
-                            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                        <div className="relative w-full max-w-sm mx-auto mt-6">
+                            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                             <input
                                 type="text"
-                                placeholder="Search evaluation questions..."
+                                placeholder="Search questions..."
                                 value={faqSearch}
                                 onChange={(e) => setFaqSearch(e.target.value)}
-                                className="w-full pl-11 pr-10 py-2.5 rounded-full border border-gray-200 bg-white text-gray-800 text-xs sm:text-sm placeholder:text-gray-400 focus:outline-none focus:border-[#2D6A4F]/40 focus:ring-2 focus:ring-[#2D6A4F]/10 transition-all shadow-2xs"
+                                className="w-full pl-10 pr-9 py-2 rounded-full border border-gray-200 bg-white text-gray-800 text-xs sm:text-sm placeholder:text-gray-400 focus:outline-none focus:border-[#2D6A4F]/40 focus:ring-2 focus:ring-[#2D6A4F]/10 transition-all shadow-2xs"
                             />
                             {faqSearch && (
                                 <button
                                     onClick={() => setFaqSearch('')}
-                                    className="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs text-gray-400 hover:text-gray-600 font-medium"
+                                    className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-gray-400 hover:text-gray-600 font-medium"
                                 >
                                     Clear
                                 </button>
@@ -920,11 +913,11 @@ const LLMEvaluationRLHFPage = () => {
                     </div>
 
                     {filteredFaqs.length === 0 ? (
-                        <div className="text-center py-12 bg-white rounded-2xl border border-gray-100">
+                        <div className="text-center py-10 bg-white rounded-xl border border-gray-100">
                             <p className="text-gray-500 text-sm">No questions match "{faqSearch}". Try different keywords.</p>
                         </div>
                     ) : (
-                        <div className="space-y-4" itemScope itemType="https://schema.org/FAQPage">
+                        <div className="space-y-3" itemScope itemType="https://schema.org/FAQPage">
                             {filteredFaqs.map((faq, idx) => {
                                 const isOpen = openFaq === idx;
                                 const originalIndex = FAQS.findIndex(f => f.q === faq.q);
@@ -932,14 +925,10 @@ const LLMEvaluationRLHFPage = () => {
                                 const theme = FAQ_THEMES[themeIndex % FAQ_THEMES.length];
 
                                 return (
-                                    <motion.div
+                                    <div
                                         key={faq.q}
-                                        initial={{ opacity: 0, y: 15 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ duration: 0.35, delay: (idx % 6) * 0.04 }}
-                                        className={`rounded-2xl border transition-all duration-300 bg-white group ${theme.border} ${theme.hoverBorder} ${
-                                            isOpen ? `${theme.activeBorder} ${theme.shadow}` : 'hover:shadow-md'
+                                        className={`rounded-xl border transition-all duration-300 bg-white ${theme.border} ${theme.hoverBorder} ${
+                                            isOpen ? `${theme.activeBorder} ${theme.shadow}` : 'hover:shadow-xs'
                                         }`}
                                         itemScope
                                         itemProp="mainEntity"
@@ -948,16 +937,16 @@ const LLMEvaluationRLHFPage = () => {
                                         <button
                                             id={`faq-eval-${idx}`}
                                             onClick={() => setOpenFaq(isOpen ? null : idx)}
-                                            className="w-full px-6 py-5 md:py-6 flex items-center justify-between gap-4 text-left focus:outline-none"
+                                            className="w-full px-5 py-4 flex items-center justify-between gap-3 text-left focus:outline-none"
                                             aria-expanded={isOpen}
                                             aria-controls={`faq-answer-eval-${idx}`}
                                         >
-                                            <div className="flex items-center gap-4 md:gap-6">
-                                                <span className={`flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold border transition-colors duration-300 ${theme.badgeBg} ${theme.badgeText} ${theme.badgeBorder}`}>
+                                            <div className="flex items-center gap-3">
+                                                <span className={`flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold border ${theme.badgeBg} ${theme.badgeText} ${theme.badgeBorder}`}>
                                                     {String(themeIndex + 1).padStart(2, '0')}
                                                 </span>
                                                 <span
-                                                    className={`font-serif text-[17px] sm:text-[19px] font-medium transition-colors duration-300 ${
+                                                    className={`font-serif text-[15px] sm:text-[17px] font-medium transition-colors ${
                                                         isOpen ? theme.activeQuestionText : theme.questionText
                                                     }`}
                                                     itemProp="name"
@@ -966,14 +955,14 @@ const LLMEvaluationRLHFPage = () => {
                                                 </span>
                                             </div>
                                             <div
-                                                className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 border ${
+                                                className={`flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-all duration-300 border ${
                                                     isOpen
-                                                        ? `${theme.iconBgActive} ${theme.iconTextActive} border-transparent rotate-180 shadow-xs`
+                                                        ? `${theme.iconBgActive} ${theme.iconTextActive} border-transparent rotate-180`
                                                         : `${theme.iconBgInactive} ${theme.iconTextInactive} ${theme.iconBorderInactive}`
                                                 }`}
                                                 aria-hidden="true"
                                             >
-                                                {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
+                                                {isOpen ? <Minus className="w-3.5 h-3.5" /> : <Plus className="w-3.5 h-3.5" />}
                                             </div>
                                         </button>
 
@@ -984,7 +973,7 @@ const LLMEvaluationRLHFPage = () => {
                                                 height: isOpen ? 'auto' : 0,
                                                 opacity: isOpen ? 1 : 0,
                                             }}
-                                            transition={{ duration: 0.3, ease: 'easeInOut' }}
+                                            transition={{ duration: 0.25, ease: 'easeInOut' }}
                                             className="overflow-hidden"
                                             aria-hidden={!isOpen}
                                             itemScope
@@ -993,7 +982,7 @@ const LLMEvaluationRLHFPage = () => {
                                             role="region"
                                             aria-labelledby={`faq-eval-${idx}`}
                                         >
-                                            <div className="px-6 pb-6 pt-2 md:pl-[5.5rem] leading-relaxed text-sm sm:text-base text-gray-600 max-w-prose">
+                                            <div className="px-5 pb-5 pt-1 md:pl-[4.25rem] leading-relaxed text-xs sm:text-sm text-gray-600 max-w-prose">
                                                 <p itemProp="text">{faq.a}</p>
                                             </div>
                                         </motion.div>
@@ -1002,7 +991,7 @@ const LLMEvaluationRLHFPage = () => {
                                                 <p itemProp="text">{faq.a}</p>
                                             </div>
                                         )}
-                                    </motion.div>
+                                    </div>
                                 );
                             })}
                         </div>
@@ -1011,51 +1000,32 @@ const LLMEvaluationRLHFPage = () => {
             </section>
 
             {/* ═══════ SECTION 8 — CLOSING SIGNATURE CTA ═══════ */}
-            <section className="py-16 lg:py-24 relative overflow-hidden bg-white font-sans border-t border-gray-100">
+            <section className="py-20 lg:py-28 relative overflow-hidden bg-white font-sans border-t border-gray-100">
                 <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#E8F5EE]/70 rounded-full blur-[120px]" />
-                    <div className="absolute bottom-0 right-0 w-[400px] h-[300px] bg-[#F0F9FF]/60 rounded-full blur-[100px]" />
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-[#E8F5EE]/60 rounded-full blur-[120px]" />
                 </div>
-                <div className="container mx-auto px-4 md:px-6 relative z-10 text-center max-w-[1400px]">
-                    <div className="max-w-4xl mx-auto bg-white p-8 sm:p-10 md:p-16 rounded-[2rem] md:rounded-[3rem] border border-[#E6EFE6] shadow-[0_20px_60px_rgba(45,106,79,0.04)]">
-                        <div className="flex flex-col items-center">
-                            <SplitTextReveal
-                                as="h2"
-                                className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-tight"
-                                type="chars"
-                                stagger={0.02}
-                                once={false}
-                            >
-                                Ready to Validate & Align
-                            </SplitTextReveal>
-                            <SplitTextReveal
-                                as="h2"
-                                className="font-serif text-3xl md:text-4xl lg:text-5xl mb-6 text-[#2D6A4F] leading-[1.15] tracking-tight"
-                                type="chars"
-                                stagger={0.02}
-                                once={false}
-                                delay={0.2}
-                            >
-                                Your Enterprise AI Models?
-                            </SplitTextReveal>
-                        </div>
-                        <p className="text-base md:text-lg text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-                            Partner with our specialized evaluation leads and annotator teams to establish repeatable, audit-ready benchmarks for your models.
+                <div className="container mx-auto px-4 md:px-6 relative z-10 text-center max-w-4xl">
+                    <div className="bg-[#FAFCFB] p-8 sm:p-12 md:p-16 rounded-3xl border border-[#E6EFE6] shadow-xs">
+                        <h2 className="font-serif text-3xl sm:text-4xl text-[#2D6A4F] font-bold mb-4">
+                            Ready to Validate Your AI Models?
+                        </h2>
+                        <p className="text-sm sm:text-base text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed font-normal">
+                            Partner with our specialized evaluation leads and annotator teams to establish repeatable, audit-ready benchmarks.
                         </p>
-                        <div ref={ctaButtonsRef} className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <div ref={ctaButtonsRef} className="flex flex-col sm:flex-row items-center justify-center gap-3.5">
                             <Link
                                 to="/contact"
                                 id="eval-closing-cta-discuss"
-                                className="cta-btn group relative flex items-center justify-center gap-3 px-9 py-4 sm:py-5 bg-[#2D6A4F] text-white rounded-full text-base sm:text-lg transition-all hover:bg-[#1B4332] shadow-[0_10px_30px_rgba(45,106,79,0.2)] hover:shadow-[0_10px_40px_rgba(45,106,79,0.3)] hover:-translate-y-0.5 overflow-hidden w-full sm:w-auto"
+                                className="cta-btn group relative flex items-center justify-center gap-2.5 px-8 py-4 bg-[#2D6A4F] text-white rounded-full text-base transition-all hover:bg-[#1B4332] shadow-[0_8px_25px_rgba(45,106,79,0.2)] hover:shadow-[0_10px_35px_rgba(45,106,79,0.3)] hover:-translate-y-0.5 w-full sm:w-auto font-medium"
                             >
                                 Discuss Your Evaluation Project
-                                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                             </Link>
 
                             <Link
                                 to="/solutions/managed-ai-workforce"
                                 id="eval-closing-cta-workforce"
-                                className="w-full sm:w-auto flex items-center justify-center gap-2 px-7 py-4 sm:py-5 bg-white text-[#2D6A4F] rounded-full font-medium text-base sm:text-lg transition-all border border-[#2D6A4F]/20 hover:bg-[#F4FAF7] hover:-translate-y-0.5 shadow-xs"
+                                className="w-full sm:w-auto flex items-center justify-center gap-2 px-7 py-4 bg-white text-[#2D6A4F] rounded-full font-medium text-base transition-all border border-[#2D6A4F]/20 hover:bg-[#F4FAF7] hover:-translate-y-0.5 shadow-2xs"
                             >
                                 View Managed Workforce
                             </Link>
