@@ -31,9 +31,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 const EVAL_SERVICES = [
     {
-        title: 'Pairwise Preference & DPO Ranking',
+        title: 'RLHF & Pairwise Preference Alignment',
         description:
-            'Side-by-side human evaluation of candidate model completions. Annotators score and rank pairs against criteria including accuracy, conciseness, instruction following, and domain alignment to build high-signal DPO and RLHF datasets.',
+            'Side-by-side human evaluation of candidate model completions. Annotators score and rank pairs against versioned evaluation rubrics, generating high-signal chosen vs. rejected pairs for RLHF and DPO preference pipelines.',
         icon: '/icons/ai-green.webp',
         bgColor: 'bg-[#F0FDF4]',
         border: 'border-[#BBF7D0]',
@@ -43,9 +43,9 @@ const EVAL_SERVICES = [
         spotlight: 'rgba(34, 197, 94, 0.025)',
     },
     {
-        title: 'Multi-Turn Conversational QA',
+        title: 'SFT Data & Golden Response Curation',
         description:
-            'In-depth evaluation of dialogue continuity, conversational memory, persona drift, and context retention across 5 to 20+ turns. We identify where models lose instructions, contradict earlier statements, or degrade in responsiveness.',
+            'High-signal instruction dataset preparation and Golden Response curation. Domain specialists draft and refine verified ground-truth demonstrations that teach models accurate structure, style, and domain logic during Supervised Fine-Tuning (SFT).',
         icon: '/icons/machine-learning-green.webp',
         bgColor: 'bg-[#F0F9FF]',
         border: 'border-[#BAE6FD]',
@@ -55,9 +55,9 @@ const EVAL_SERVICES = [
         spotlight: 'rgba(14, 165, 233, 0.025)',
     },
     {
-        title: 'Adversarial Red-Teaming & Safety',
+        title: 'Source Truth & Factual Verification',
         description:
-            'Proactive adversarial stress-testing designed to detect safety bypasses, prompt injection vulnerabilities, biased outputs, and toxic completions before enterprise models reach internal or external users.',
+            'Cross-verifying LLM assertions against authoritative enterprise documents, source databases, and external reference records. We establish Source Truth baselines to flag hallucinations, unsupported leaps, and subtle factual errors.',
         icon: '/icons/shield.png',
         bgColor: 'bg-[#FFF1F2]',
         border: 'border-[#FECDD3]',
@@ -67,9 +67,9 @@ const EVAL_SERVICES = [
         spotlight: 'rgba(225, 29, 72, 0.025)',
     },
     {
-        title: 'Reasoning & Code Verification',
+        title: 'Custom Evaluation Rubrics & Rating Anchors',
         description:
-            'Rigorous ground-truth verification of algorithmic code generation, SQL queries, multi-step mathematical reasoning, and logical problem solving, backed by subject-matter reviewers who inspect execution traces and unit test boundaries.',
+            'Designing calibrated, multidimensional evaluation rubrics with explicit rating anchors, boundary conditions, and tie-breaking heuristics. We align human reviewers on consistent criteria across tone, reasoning, safety, and helpfulness.',
         icon: '/icons/architecture-green.png',
         bgColor: 'bg-[#F5F3FF]',
         border: 'border-[#DDD6FE]',
@@ -79,9 +79,9 @@ const EVAL_SERVICES = [
         spotlight: 'rgba(124, 58, 237, 0.025)',
     },
     {
-        title: 'RAG Grounding & Hallucination Audit',
+        title: 'RAG Grounding & Source Truth Audits',
         description:
-            'Factual precision auditing for Retrieval-Augmented Generation systems. We quantify context relevance, answer faithfulness against reference documents, and citation veracity to systematically eliminate unsupported claims.',
+            'Factual precision auditing for Retrieval-Augmented Generation workflows. We benchmark retrieved contexts against Source Truth references and Golden Response standards to systematically prevent hallucination and retrieval drift.',
         icon: '/icons/data-analytics-green.png',
         bgColor: 'bg-[#FFF7ED]',
         border: 'border-[#FFEDD5]',
@@ -93,7 +93,7 @@ const EVAL_SERVICES = [
     {
         title: 'Reward Model Dataset Architecture',
         description:
-            'Architectural scoping and rubric design for scalar preference scoring. We establish standardized rating anchors, tie-breaking heuristics, and calibration workflows for teams preparing datasets for reward-model training.',
+            'Architectural scoping and rubric design for scalar preference scoring. We establish rating anchors, scalar feedback distributions, and calibration workflows for teams preparing datasets for RLHF reward-model training.',
         icon: '/icons/innovation-green.png',
         bgColor: 'bg-[#FFFBEB]',
         border: 'border-[#FEF3C7]',
@@ -140,8 +140,8 @@ const QA_PIPELINE = [
 
 const RUBRIC_DIMENSIONS = [
     {
-        dimension: 'Factual Accuracy & Grounding',
-        focus: 'Eliminating hallucination; ensuring statements align with supplied source context or verified world knowledge.',
+        dimension: 'Source Truth & Factual Grounding',
+        focus: 'Eliminating hallucination; ensuring statements align with verified enterprise Source Truth documents and Golden Response standards.',
         measurement: 'Binary Pass/Fail on assertions, Faithfulness % (0.0 to 1.0), Citation accuracy ratio.',
         target: 'Zero ungrounded assertions on retrieval tasks',
     },
@@ -225,7 +225,7 @@ const FAQS = [
     },
     {
         q: 'What is the difference between SFT data and RLHF/DPO preference data?',
-        a: 'Supervised Fine-Tuning (SFT) data consists of high-quality prompt-and-ideal-response demonstrations that teach models how to structure answers. Reinforcement Learning from Human Feedback (RLHF) and Direct Preference Optimization (DPO) data consist of prompts paired with two or more candidate outputs, where human reviewers rank completions and provide structured rationales to align model behavior with human intent.',
+        a: 'Supervised Fine-Tuning (SFT) data consists of high-quality prompt-and-demonstration pairs, featuring verified Golden Responses that teach models how to structure answers. Reinforcement Learning from Human Feedback (RLHF) and Direct Preference Optimization (DPO) data consist of prompts paired with candidate outputs ranked against custom rubrics, where human reviewers generate preference pairs to align model behavior with human intent.',
     },
     {
         q: 'Can you work with our internal annotation platforms and data formats?',
@@ -241,7 +241,7 @@ const FAQS = [
     },
     {
         q: 'How do you test Retrieval-Augmented Generation (RAG) models for hallucination?',
-        a: 'We evaluate RAG completions against three core dimensions: Retrieval Relevance (did the system fetch the right source context?), Answer Faithfulness (is every statement in the answer explicitly supported by the retrieved context?), and Answer Completeness (did the model answer the entire question without unnecessary omissions?).',
+        a: 'We evaluate RAG completions against three core dimensions: Retrieval Relevance (did the system fetch the right source context?), Answer Faithfulness against Source Truth (is every statement in the answer explicitly supported by the verified retrieved references?), and Answer Completeness (did the model answer the entire question without ungrounded extrapolation?).',
     },
     {
         q: 'What domains and subject matter areas can your evaluation teams cover?',
@@ -451,9 +451,12 @@ const LLMEvaluationRLHFPage = () => {
         serviceType: [
             'LLM Evaluation',
             'RLHF Alignment',
+            'SFT Data Operations',
+            'Golden Response Curation',
+            'Source Truth Verification',
+            'Custom Evaluation Rubrics',
             'AI Data QA',
             'Pairwise Preference Ranking',
-            'Model Red-Teaming',
             'RAG Grounding Verification',
             'Direct Preference Optimization Data',
         ],
@@ -548,7 +551,7 @@ const LLMEvaluationRLHFPage = () => {
                             className="text-base md:text-lg mb-8 max-w-3xl mx-auto leading-relaxed text-gray-600 font-medium"
                             itemProp="description"
                         >
-                            Frostrek AI provides rigorous human-in-the-loop LLM evaluation, RLHF preference ranking, and multi-turn conversational quality assurance. We design custom rubrics, deploy domain-calibrated review workflows, and benchmark reasoning, coding, and RAG architectures against production safety standards.
+                            Frostrek AI provides rigorous human-in-the-loop LLM evaluation, RLHF preference ranking, and SFT data operations. We curate verified Golden Responses, design versioned rubrics, and benchmark model assertions against enterprise Source Truth standards to eliminate hallucinations before production.
                         </p>
 
                         {/* CTAs */}
@@ -584,16 +587,16 @@ const LLMEvaluationRLHFPage = () => {
                             className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 mt-8 pt-4 border-t border-gray-100/80 text-xs sm:text-sm text-gray-500"
                         >
                             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F0FDF4] text-[#166534] border border-[#BBF7D0]">
-                                <CheckCircle2 className="w-3.5 h-3.5" /> Triple-Tier QA Pipeline
+                                <CheckCircle2 className="w-3.5 h-3.5" /> SFT & RLHF Alignment
                             </span>
                             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F0F9FF] text-[#0284C7] border border-[#BAE6FD]">
-                                <CheckCircle2 className="w-3.5 h-3.5" /> Calibrated Domain Bench
+                                <CheckCircle2 className="w-3.5 h-3.5" /> Golden Response Curation
                             </span>
                             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFF7ED] text-[#C2410C] border border-[#FFEDD5]">
-                                <CheckCircle2 className="w-3.5 h-3.5" /> Custom Rubrics & Grounding
+                                <CheckCircle2 className="w-3.5 h-3.5" /> Source Truth & Custom Rubrics
                             </span>
                             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F5F3FF] text-[#6D28D9] border border-[#DDD6FE]">
-                                <CheckCircle2 className="w-3.5 h-3.5" /> Zero-Data Leakage Environment
+                                <CheckCircle2 className="w-3.5 h-3.5" /> Triple-Tier QA Pipeline
                             </span>
                         </motion.div>
                     </div>
@@ -622,7 +625,7 @@ const LLMEvaluationRLHFPage = () => {
                         </SplitTextReveal>
                         <div className="mt-4">
                             <p className="max-w-2xl mx-auto text-base sm:text-lg text-gray-600 leading-relaxed">
-                                Structured evaluation methodologies engineered to pinpoint model failure modes, calibrate preference rankings, and ensure enterprise compliance.
+                                Structured evaluation methodologies engineered around SFT datasets, RLHF preference ranking, custom rubrics, and source-truth verification.
                             </p>
                         </div>
                     </div>
@@ -833,7 +836,7 @@ const LLMEvaluationRLHFPage = () => {
                             <div className="rounded-2xl border-2 border-[#BBF7D0] bg-[#F0FDF4]/40 p-5 flex flex-col justify-between">
                                 <div>
                                     <div className="flex items-center justify-between mb-3">
-                                        <span className="font-bold text-xs uppercase tracking-wider text-[#166534]">Candidate A (Rank 1 · Preferred)</span>
+                                        <span className="font-bold text-xs uppercase tracking-wider text-[#166534]">Candidate A (Rank 1 · Golden Response)</span>
                                         <span className="flex items-center gap-1 text-xs font-bold text-[#166534] bg-white px-2 py-0.5 rounded-full border border-[#BBF7D0]">
                                             <Check className="w-3.5 h-3.5 text-[#166534]" /> Grounded
                                         </span>
@@ -843,7 +846,7 @@ const LLMEvaluationRLHFPage = () => {
                                     </p>
                                 </div>
                                 <div className="text-[11px] text-[#166534] font-medium pt-3 border-t border-[#BBF7D0]/60 space-y-1">
-                                    <p>✓ All assertions directly supported by audit log</p>
+                                    <p>✓ All assertions directly supported by Source Truth audit log</p>
                                     <p>✓ Strict adherence to negative constraint (no speculation)</p>
                                 </div>
                             </div>
@@ -863,7 +866,7 @@ const LLMEvaluationRLHFPage = () => {
                                 </div>
                                 <div className="text-[11px] text-[#E11D48] font-medium pt-3 border-t border-[#FECDD3]/60 space-y-1">
                                     <p>✗ Violated negative constraint by speculating on root causes</p>
-                                    <p>✗ Hallucinated fiber outages not in provided log</p>
+                                    <p>✗ Hallucinated fiber outages not in provided Source Truth log</p>
                                 </div>
                             </div>
                         </div>
@@ -872,7 +875,7 @@ const LLMEvaluationRLHFPage = () => {
                         <div className="rounded-xl bg-gray-50 border border-gray-200/80 p-4 text-xs text-gray-600 space-y-2">
                             <span className="font-bold text-gray-700 uppercase tracking-wider block text-[11px]">Annotator Decision Rationale:</span>
                             <p>
-                                Candidate A strictly adhered to grounding constraints and factual retrieval. Candidate B introduced ungrounded speculation regarding external fiber outages, violating the explicit prompt prohibition. Candidate A is ranked first with full confidence.
+                                Candidate A matches the Golden Response standard and strictly adhered to Source Truth grounding constraints. Candidate B introduced ungrounded speculation regarding external fiber outages, violating the explicit prompt prohibition. Candidate A is ranked first with full confidence.
                             </p>
                         </div>
                     </div>
