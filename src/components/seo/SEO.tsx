@@ -142,7 +142,7 @@ export default function SEO({
           "@type": "ContactPoint",
           "contactType": "sales",
           "telephone": "+91 6399999955",
-          "email": "contact@frostrek.ai",
+          "email": "contact@frostrek.com",
           "url": "https://www.frostrek.ai/schedule-demo",
           "areaServed": ["IN", "US", "GB"],
           "availableLanguage": ["English"]

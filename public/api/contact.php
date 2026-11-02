@@ -34,8 +34,8 @@ if (file_exists(__DIR__ . '/config.php')) {
         $resendApiKey = $config['resend_api_key'];
     }
 }
-$recipientEmail = 'contact@frostrek.ai';
-$senderEmail = 'Frostrek AI Portal <contact@frostrek.ai>';
+$recipientEmail = 'contact@frostrek.com';
+$senderEmail = 'Frostrek AI Portal <contact@frostrek.com>';
 
 // Read JSON input from request body
 $rawInput = file_get_contents('php://input');

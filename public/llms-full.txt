@@ -78,7 +78,7 @@ We enforce a Zero-Trust architecture across all client deployments.
 - **Founded**: 2019
 - **Headquarters**: 4th Floor, Jmd Empire, 455, Golf Course Ext Rd, Sector 62, Gurugram, Haryana, 122102, India
 - **Phone**: +91 6399999955
-- **Email**: contact@frostrek.ai
+- **Email**: contact@frostrek.com
 - **Social**: 
   - LinkedIn: https://www.linkedin.com/company/frostrek
   - Twitter: https://twitter.com/frostrek
