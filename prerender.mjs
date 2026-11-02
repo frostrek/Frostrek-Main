@@ -50,6 +50,7 @@ const routes = [
   '/solutions/ai-agents',
   '/solutions/voice-ai',
   '/solutions/llm-model-training',
+  '/solutions/llm-evaluation-rlhf',
   '/solutions/ai-visibility',
   // Error fallback page
   '/404',

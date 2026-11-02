@@ -32,6 +32,7 @@ const CustomSoftwarePage = lazy(() => import('./pages/CustomSoftwarePage'));
 const ManagedWorkforcePage = lazy(() => import('./pages/ManagedWorkforcePage'));
 const VoiceAIPage = lazy(() => import('./pages/VoiceAIPage'));
 const LLMModelTrainingPage = lazy(() => import('./pages/LLMModelTrainingPage'));
+const LLMEvaluationRLHFPage = lazy(() => import('./pages/LLMEvaluationRLHFPage'));
 const AIVisibilityPage = lazy(() => import('./pages/AIVisibilityPage'));
 const AuditPage = lazy(() => import('./pages/AuditPage'));
 import FrostyWidget from './components/chat/FrostyWidget';
@@ -76,6 +77,7 @@ function App() {
                   <Route path="/solutions/ai-agents" element={<AIAgentsPage />} />
                   <Route path="/solutions/voice-ai" element={<VoiceAIPage />} />
                   <Route path="/solutions/llm-model-training" element={<LLMModelTrainingPage />} />
+                  <Route path="/solutions/llm-evaluation-rlhf" element={<LLMEvaluationRLHFPage />} />
                   <Route path="/solutions/ai-visibility" element={<AIVisibilityPage />} />
                   <Route path="/audit" element={<AuditPage />} />
 
