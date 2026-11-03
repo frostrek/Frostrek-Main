@@ -326,85 +326,90 @@ const FAQS = [
 
 const FAQ_THEMES = [
     {
+        // Blue Theme
         border: 'border-[#BAE6FD]',
-        hoverBorder: 'hover:border-[#0EA5E9]/50',
-        activeBorder: 'border-[#0EA5E9]',
-        shadow: 'shadow-[0_10px_30px_rgba(14,165,233,0.08)]',
+        hoverBorder: 'hover:border-[#0EA5E9]/40',
+        activeBorder: 'border-[#0EA5E9]/40',
+        shadow: 'shadow-[0_10px_35px_rgba(14,165,233,0.06)]',
         badgeBg: 'bg-[#F0F9FF]',
+        badgeBorder: 'border-[#BAE6FD]/50',
         badgeText: 'text-[#0284C7]',
-        badgeBorder: 'border-[#BAE6FD]',
-        questionText: 'text-[#0369A1]',
+        questionText: 'text-gray-900 group-hover:text-[#0284C7]',
         activeQuestionText: 'text-[#0284C7]',
-        iconBgActive: 'bg-[#0EA5E9]',
+        iconBgActive: 'bg-[#0284C7]',
         iconTextActive: 'text-white',
         iconBgInactive: 'bg-[#F0F9FF]',
+        iconBorderInactive: 'border-[#BAE6FD]/50',
         iconTextInactive: 'text-[#0284C7]',
-        iconBorderInactive: 'border-[#BAE6FD]',
     },
     {
+        // Green Theme
         border: 'border-[#BBF7D0]',
-        hoverBorder: 'hover:border-[#22C55E]/50',
-        activeBorder: 'border-[#22C55E]',
-        shadow: 'shadow-[0_10px_30px_rgba(34,197,94,0.08)]',
+        hoverBorder: 'hover:border-[#2D6A4F]/40',
+        activeBorder: 'border-[#2D6A4F]/40',
+        shadow: 'shadow-[0_10px_35px_rgba(45,106,79,0.06)]',
         badgeBg: 'bg-[#F0FDF4]',
-        badgeText: 'text-[#166534]',
-        badgeBorder: 'border-[#BBF7D0]',
-        questionText: 'text-[#15803D]',
-        activeQuestionText: 'text-[#166534]',
-        iconBgActive: 'bg-[#22C55E]',
+        badgeBorder: 'border-[#BBF7D0]/50',
+        badgeText: 'text-[#047857]',
+        questionText: 'text-gray-900 group-hover:text-[#047857]',
+        activeQuestionText: 'text-[#047857]',
+        iconBgActive: 'bg-[#047857]',
         iconTextActive: 'text-white',
         iconBgInactive: 'bg-[#F0FDF4]',
-        iconTextInactive: 'text-[#166534]',
-        iconBorderInactive: 'border-[#BBF7D0]',
+        iconBorderInactive: 'border-[#BBF7D0]/50',
+        iconTextInactive: 'text-[#047857]',
     },
     {
-        border: 'border-[#FECDD3]',
-        hoverBorder: 'hover:border-[#E11D48]/50',
-        activeBorder: 'border-[#E11D48]',
-        shadow: 'shadow-[0_10px_30px_rgba(225,29,72,0.08)]',
+        // Pink Theme
+        border: 'border-[#FFE4E6]',
+        hoverBorder: 'hover:border-[#BE123C]/40',
+        activeBorder: 'border-[#BE123C]/40',
+        shadow: 'shadow-[0_10px_35px_rgba(244,63,94,0.06)]',
         badgeBg: 'bg-[#FFF1F2]',
-        badgeText: 'text-[#E11D48]',
-        badgeBorder: 'border-[#FECDD3]',
-        questionText: 'text-[#BE123C]',
-        activeQuestionText: 'text-[#E11D48]',
-        iconBgActive: 'bg-[#E11D48]',
+        badgeBorder: 'border-[#FFE4E6]/50',
+        badgeText: 'text-[#BE123C]',
+        questionText: 'text-gray-900 group-hover:text-[#BE123C]',
+        activeQuestionText: 'text-[#BE123C]',
+        iconBgActive: 'bg-[#BE123C]',
         iconTextActive: 'text-white',
         iconBgInactive: 'bg-[#FFF1F2]',
-        iconTextInactive: 'text-[#E11D48]',
-        iconBorderInactive: 'border-[#FECDD3]',
+        iconBorderInactive: 'border-[#FFE4E6]/50',
+        iconTextInactive: 'text-[#BE123C]',
     },
     {
+        // Orange Theme
         border: 'border-[#FFEDD5]',
-        hoverBorder: 'hover:border-[#F97316]/50',
-        activeBorder: 'border-[#F97316]',
-        shadow: 'shadow-[0_10px_30px_rgba(249,115,22,0.08)]',
+        hoverBorder: 'hover:border-[#C2410C]/40',
+        activeBorder: 'border-[#C2410C]/40',
+        shadow: 'shadow-[0_10px_35px_rgba(234,88,12,0.06)]',
         badgeBg: 'bg-[#FFF7ED]',
+        badgeBorder: 'border-[#FFEDD5]/50',
         badgeText: 'text-[#C2410C]',
-        badgeBorder: 'border-[#FFEDD5]',
-        questionText: 'text-[#C2410C]',
-        activeQuestionText: 'text-[#9A3412]',
-        iconBgActive: 'bg-[#F97316]',
+        questionText: 'text-gray-900 group-hover:text-[#C2410C]',
+        activeQuestionText: 'text-[#C2410C]',
+        iconBgActive: 'bg-[#C2410C]',
         iconTextActive: 'text-white',
         iconBgInactive: 'bg-[#FFF7ED]',
+        iconBorderInactive: 'border-[#FFEDD5]/50',
         iconTextInactive: 'text-[#C2410C]',
-        iconBorderInactive: 'border-[#FFEDD5]',
     },
     {
+        // Purple Theme
         border: 'border-[#DDD6FE]',
-        hoverBorder: 'hover:border-[#7C3AED]/50',
-        activeBorder: 'border-[#7C3AED]',
-        shadow: 'shadow-[0_10px_30px_rgba(124,58,237,0.08)]',
+        hoverBorder: 'hover:border-[#6D28D9]/40',
+        activeBorder: 'border-[#6D28D9]/40',
+        shadow: 'shadow-[0_10px_35px_rgba(109,40,217,0.06)]',
         badgeBg: 'bg-[#F5F3FF]',
+        badgeBorder: 'border-[#DDD6FE]/50',
         badgeText: 'text-[#6D28D9]',
-        badgeBorder: 'border-[#DDD6FE]',
-        questionText: 'text-[#6D28D9]',
-        activeQuestionText: 'text-[#5B21B6]',
-        iconBgActive: 'bg-[#7C3AED]',
+        questionText: 'text-gray-900 group-hover:text-[#6D28D9]',
+        activeQuestionText: 'text-[#6D28D9]',
+        iconBgActive: 'bg-[#6D28D9]',
         iconTextActive: 'text-white',
         iconBgInactive: 'bg-[#F5F3FF]',
+        iconBorderInactive: 'border-[#DDD6FE]/50',
         iconTextInactive: 'text-[#6D28D9]',
-        iconBorderInactive: 'border-[#DDD6FE]',
-    },
+    }
 ];
 
 /* ──────────────────── COMPONENT ──────────────────── */
@@ -1070,7 +1075,7 @@ const LLMEvaluationRLHFPage = () => {
             </section>
 
             {/* ══════════════════════════════════════════════════════════════════
-                07 · FAQS: COMPREHENSIVE BUYER FAQS (ACCORDION WITH SEARCH)
+                06 · FAQS: COMPREHENSIVE BUYER FAQS (MATCHING /faq)
             ══════════════════════════════════════════════════════════════════ */}
             <section id="eval-faq" className="py-16 md:py-24 bg-[#ffffff] border-t border-gray-100 relative z-10">
                 <div className="container mx-auto px-4 md:px-6 max-w-4xl">
@@ -1092,79 +1097,95 @@ const LLMEvaluationRLHFPage = () => {
                             Clear, operational answers regarding evaluation rubrics, reviewer calibration, confidentiality, and data delivery formats.
                         </p>
 
-                        {/* Search Bar */}
-                        <div className="relative w-full max-w-md mx-auto mt-6">
-                            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                        {/* Search Bar matching /faq */}
+                        <div className="relative max-w-lg mx-auto mt-8">
+                            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                             <input
                                 type="text"
-                                placeholder="Search evaluation questions..."
+                                placeholder="Search questions..."
                                 value={faqSearch}
                                 onChange={(e) => setFaqSearch(e.target.value)}
-                                className="w-full pl-11 pr-10 py-2.5 rounded-full border border-gray-200 bg-white text-gray-800 text-xs sm:text-sm placeholder:text-gray-400 focus:outline-none focus:border-[#2D6A4F]/40 focus:ring-2 focus:ring-[#2D6A4F]/10 transition-all shadow-2xs"
+                                className="w-full pl-12 pr-4 py-4 rounded-2xl border border-gray-200 bg-white text-gray-800 placeholder:text-gray-400 focus:outline-none focus:border-[#2D6A4F]/40 focus:ring-2 focus:ring-[#2D6A4F]/10 transition-all shadow-sm"
                             />
-                            {faqSearch && (
-                                <button
-                                    onClick={() => setFaqSearch('')}
-                                    className="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs text-gray-400 hover:text-gray-600 font-medium"
-                                >
-                                    Clear
-                                </button>
-                            )}
                         </div>
                     </div>
 
-                    <div className="space-y-3.5" itemScope itemType="https://schema.org/FAQPage">
-                        {filteredFaqs.map((faq, idx) => {
-                            const isOpen = openFaq === idx;
-                            const originalIndex = FAQS.findIndex(f => f.q === faq.q);
-                            const themeIndex = originalIndex >= 0 ? originalIndex : idx;
-                            const theme = FAQ_THEMES[themeIndex % FAQ_THEMES.length];
+                    <div className="space-y-4" itemScope itemType="https://schema.org/FAQPage">
+                        {filteredFaqs.length === 0 ? (
+                            <div className="text-center py-16">
+                                <p className="text-gray-500 text-lg">No questions match your search. Try different keywords.</p>
+                            </div>
+                        ) : (
+                            filteredFaqs.map((faq, idx) => {
+                                const isOpen = openFaq === idx;
+                                const originalIndex = FAQS.findIndex(f => f.q === faq.q);
+                                const themeIndex = originalIndex >= 0 ? originalIndex : idx;
+                                const theme = FAQ_THEMES[themeIndex % FAQ_THEMES.length];
 
-                            return (
-                                <div
-                                    key={faq.q}
-                                    className={`rounded-2xl border transition-all duration-300 bg-white ${
-                                        isOpen ? `${theme.activeBorder} ${theme.shadow}` : 'border-gray-200 hover:border-gray-300'
-                                    }`}
-                                    itemScope
-                                    itemProp="mainEntity"
-                                    itemType="https://schema.org/Question"
-                                >
-                                    <button
-                                        onClick={() => setOpenFaq(isOpen ? null : idx)}
-                                        className="w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between gap-4 text-left focus:outline-none"
-                                        aria-expanded={isOpen}
+                                return (
+                                    <motion.div
+                                        key={faq.q}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.4, delay: idx * 0.05 }}
+                                        className={`rounded-2xl border transition-all duration-500 bg-white group ${theme.border} ${theme.hoverBorder} ${
+                                            isOpen ? `${theme.activeBorder} ${theme.shadow}` : 'hover:shadow-lg'
+                                        }`}
+                                        itemScope
+                                        itemProp="mainEntity"
+                                        itemType="https://schema.org/Question"
                                     >
-                                        <div className="flex items-center gap-3.5 sm:gap-5">
-                                            <span className={`flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold border ${theme.badgeBg} ${theme.badgeText} ${theme.badgeBorder}`}>
-                                                {String(themeIndex + 1).padStart(2, '0')}
-                                            </span>
-                                            <span className="font-serif text-base sm:text-lg font-medium text-gray-900" itemProp="name">
-                                                {faq.q}
-                                            </span>
-                                        </div>
-                                        <div
-                                            className={`w-7 h-7 rounded-full flex items-center justify-center border flex-shrink-0 transition-transform ${
-                                                isOpen ? `${theme.iconBgActive} ${theme.iconTextActive} border-transparent rotate-180` : 'bg-gray-50 border-gray-200 text-gray-400'
-                                            }`}
+                                        <button
+                                            onClick={() => setOpenFaq(isOpen ? null : idx)}
+                                            className="w-full px-6 py-5 md:py-6 flex items-center justify-between gap-4 text-left focus:outline-none"
+                                            aria-expanded={isOpen}
                                         >
-                                            {isOpen ? <Minus className="w-3.5 h-3.5" /> : <Plus className="w-3.5 h-3.5" />}
-                                        </div>
-                                    </button>
+                                            <div className="flex items-center gap-4 md:gap-6">
+                                                <span className={`flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold border transition-colors duration-300 ${theme.badgeBg} ${theme.badgeText} ${theme.badgeBorder}`}>
+                                                    {String(themeIndex + 1).padStart(2, '0')}
+                                                </span>
+                                                <span className={`font-serif text-[18px] sm:text-[20px] font-medium transition-colors duration-300 ${
+                                                    isOpen ? theme.activeQuestionText : theme.questionText
+                                                }`} itemProp="name">
+                                                    {faq.q}
+                                                </span>
+                                            </div>
+                                            <div
+                                                className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-500 border ${
+                                                    isOpen
+                                                        ? `${theme.iconBgActive} ${theme.iconTextActive} border-transparent rotate-180 shadow-md`
+                                                        : `${theme.iconBgInactive} ${theme.iconTextInactive} ${theme.iconBorderInactive}`
+                                                }`}
+                                            >
+                                                {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
+                                            </div>
+                                        </button>
 
-                                    {isOpen && (
-                                        <div
-                                            className="px-5 sm:px-6 pb-5 pt-1 text-xs sm:text-sm text-gray-600 leading-relaxed border-t border-gray-100"
-                                            itemScope
-                                            itemProp="acceptedAnswer"
-                                            itemType="https://schema.org/Answer"
+                                        <motion.div
+                                            initial={false}
+                                            animate={{
+                                                height: isOpen ? 'auto' : 0,
+                                                opacity: isOpen ? 1 : 0
+                                            }}
+                                            transition={{ duration: 0.3, ease: "easeInOut" }}
+                                            className="overflow-hidden"
+                                            aria-hidden={!isOpen}
                                         >
-                                            <p itemProp="text">{faq.a}</p>
-                                        </div>
-                                    )}
-                                </div>
-                            );
-                        })}
+                                            <div
+                                                className="px-6 pb-6 pt-2 md:pl-[5.5rem] leading-relaxed text-[15px] text-gray-500 max-w-prose"
+                                                itemScope
+                                                itemProp="acceptedAnswer"
+                                                itemType="https://schema.org/Answer"
+                                            >
+                                                <p itemProp="text">{faq.a}</p>
+                                            </div>
+                                        </motion.div>
+                                        {!isOpen && <div className="sr-only">{faq.a}</div>}
+                                    </motion.div>
+                                );
+                            })
+                        )}
                     </div>
                 </div>
             </section>
