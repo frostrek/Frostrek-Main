@@ -18,8 +18,7 @@ import {
     Check,
     HelpCircle,
     Cpu,
-    Lock,
-    Workflow
+    Lock
 } from 'lucide-react';
 import SpotlightCard from '../components/ui/SpotlightCard';
 import SplitTextReveal from '../components/ui/SplitTextReveal';
@@ -151,44 +150,7 @@ const QA_PIPELINE = [
     },
 ];
 
-/* ──────────────────── 03 · 5-STEP DELIVERY WORKFLOW ──────────────────── */
-
-const WORKFLOW_STEPS = [
-    {
-        step: '01',
-        title: 'Define & Sample',
-        description: 'Confirm non-negative rubrics, define prompt completeness criteria, and establish safety guardrails.',
-    },
-    {
-        step: '02',
-        title: 'Calibrate Evaluators',
-        description: 'Train domain annotators on claim isolation, run blind calibration trials, and align scoring anchors to minimize inter-annotator drift.',
-    },
-    {
-        step: '03',
-        title: 'Primary Labeled Review',
-        description: 'Qualified reviewers score candidate outputs against completeness, contradiction filters, and Source Truth standards.',
-    },
-    {
-        step: '04',
-        title: 'Peer Calibration & QA Arbiter',
-        description: 'Senior QA leads arbitrate edge-case disagreements and track inter-annotator agreement metrics (Cohen’s kappa).',
-    },
-    {
-        step: '05',
-        title: 'Delivery & Audit Export',
-        description: 'Clean data export with audit records, delivered in client-specified JSONL, Parquet, or CSV schemas.',
-    },
-];
-
-const SCOPED_DELIVERABLES = [
-    'Non-negative rubric scorecards with claim-isolation audits',
-    'Ranked preference pairs with rationales (JSONL/Parquet)',
-    'QA review logs with inter-annotator agreement metrics (Cohen’s kappa)',
-    'Contradiction detection and safety guardrail audit confirmation',
-];
-
-/* ──────────────────── 05 · RUBRIC MATRIX DIMENSIONS ──────────────────── */
+/* ──────────────────── 04 · RUBRIC MATRIX DIMENSIONS ──────────────────── */
 
 const RUBRIC_DIMENSIONS = [
     {
@@ -451,7 +413,6 @@ const LLMEvaluationRLHFPage = () => {
     const heroRef = useRef<HTMLDivElement>(null);
     const servicesRef = useRef<HTMLDivElement>(null);
     const pipelineRef = useRef<HTMLDivElement>(null);
-    const workflowRef = useRef<HTMLDivElement>(null);
     const exampleRef = useRef<HTMLDivElement>(null);
     const domainRef = useRef<HTMLDivElement>(null);
 
@@ -846,63 +807,9 @@ const LLMEvaluationRLHFPage = () => {
                 </div>
             </section>
 
-            {/* ══════════════════════════════════════════════════════════════════
-                03 · DELIVERY WORKFLOW: 5 STEPS + SCOPED DELIVERABLES LIST
-            ══════════════════════════════════════════════════════════════════ */}
-            <section ref={workflowRef} className="py-16 md:py-24 bg-[#ffffff] border-t border-gray-100 relative z-10">
-                <div className="container mx-auto px-4 md:px-6 max-w-7xl">
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-                        {/* Left column: Overview + Deliverables */}
-                        <div className="lg:col-span-5">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E8F5EE] text-[#2D6A4F] text-xs font-bold uppercase tracking-wider mb-3">
-                                <Workflow className="w-3.5 h-3.5" />
-                                Delivery Approach
-                            </div>
-                            <h2 className="font-serif text-3xl md:text-4xl text-[#2D6A4F] font-bold mb-4 leading-[1.2] tracking-tight">
-                                A clear review process from task definition to handoff
-                            </h2>
-                            <p className="text-sm sm:text-base text-gray-500 leading-relaxed mb-6">
-                                We organize the evaluation cycle around calibrated instructions, structured review gates, and traceable audit logs to give engineering teams high-confidence datasets.
-                            </p>
-
-                            <div className="bg-white rounded-2xl border border-gray-200 p-5 shadow-2xs">
-                                <span className="text-xs font-bold text-gray-800 uppercase tracking-wider block mb-3">
-                                    Typical Scoped Deliverables:
-                                </span>
-                                <ul className="space-y-2.5 text-xs sm:text-sm text-gray-600">
-                                    {SCOPED_DELIVERABLES.map((del) => (
-                                        <li key={del} className="flex items-start gap-2">
-                                            <CheckCircle2 className="w-4 h-4 text-[#2D6A4F] flex-shrink-0 mt-0.5" />
-                                            <span>{del}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </div>
-
-                        {/* Right column: 5 Short Linear Steps */}
-                        <div className="lg:col-span-7 space-y-3.5">
-                            {WORKFLOW_STEPS.map((step) => (
-                                <div
-                                    key={step.step}
-                                    className="bg-white rounded-xl border border-gray-200 p-4 sm:p-5 flex items-start gap-4 shadow-2xs hover:border-[#BBF7D0] transition-colors"
-                                >
-                                    <div className="w-9 h-9 rounded-lg bg-[#E8F5EE] text-[#166534] font-serif font-bold text-sm flex items-center justify-center flex-shrink-0">
-                                        {step.step}
-                                    </div>
-                                    <div className="flex-1">
-                                        <h3 className="font-serif text-base font-bold text-gray-900 mb-1">{step.title}</h3>
-                                        <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{step.description}</p>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </section>
 
             {/* ══════════════════════════════════════════════════════════════════
-                04 · STANDARDIZED EVALUATION RUBRIC MATRIX (CONNECTED PROCESS)
+                03 · STANDARDIZED EVALUATION RUBRIC MATRIX (CONNECTED PROCESS)
             ══════════════════════════════════════════════════════════════════ */}
             <section className="py-16 md:py-24 bg-white relative z-10 border-t border-gray-100">
                 <div className="container mx-auto px-4 md:px-6 max-w-7xl">
@@ -958,7 +865,7 @@ const LLMEvaluationRLHFPage = () => {
             </section>
 
             {/* ══════════════════════════════════════════════════════════════════
-                05 · EVALUATION EXAMPLE: SYNTHETIC TASK F-024
+                04 · EVALUATION EXAMPLE: SYNTHETIC TASK F-024
             ══════════════════════════════════════════════════════════════════ */}
             <section id="eval-example" ref={exampleRef} className="py-16 md:py-24 bg-white border-y border-gray-100 relative z-10">
                 <div className="container mx-auto px-4 md:px-6 max-w-5xl">
