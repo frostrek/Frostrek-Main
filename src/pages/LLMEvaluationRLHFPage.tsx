@@ -191,34 +191,69 @@ const SCOPED_DELIVERABLES = [
 
 const RUBRIC_DIMENSIONS = [
     {
-        dimension: 'Source Truth & Factual Grounding',
-        focus: 'Eliminating hallucination; ensuring statements align with verified enterprise Source Truth documents and Golden Response standards.',
-        measurement: 'Binary Pass/Fail on assertions, Faithfulness score (0.0 to 1.0), Citation accuracy ratio.',
-        target: 'Zero ungrounded assertions on retrieval tasks',
+        dimension: 'Source Truth Grounding',
+        focus: 'Eliminating hallucinations by verifying every assertion against enterprise documents and Golden Responses.',
+        target: 'Zero Ungrounded Claims',
+        icon: Shield,
+        iconBg: 'bg-[#F0F9FF]',
+        iconBorder: 'border-[#BAE6FD]',
+        iconColor: 'text-[#0284C7]',
+        headingColor: 'text-[#0284C7]',
+        tagBg: 'bg-[#E0F2FE]',
+        tagBorder: 'border-[#BAE6FD]',
+        tagColor: 'text-[#0369A1]',
     },
     {
-        dimension: 'Instruction & Constraint Adherence',
-        focus: 'Verifying strict compliance with negative constraints, length caps, output schemas (JSON/XML), and tone mandates.',
-        measurement: 'Constraint compliance checklist, formatting validation, regex parser checks.',
-        target: 'Strict adherence to explicit prompt constraints',
+        dimension: 'Constraint Adherence',
+        focus: 'Enforcing negative constraints, schema rules (JSON/XML), regex checks, and boundary limits.',
+        target: 'Strict Rule Compliance',
+        icon: CheckCircle2,
+        iconBg: 'bg-[#F0FDF4]',
+        iconBorder: 'border-[#BBF7D0]',
+        iconColor: 'text-[#166534]',
+        headingColor: 'text-[#166534]',
+        tagBg: 'bg-[#DCFCE7]',
+        tagBorder: 'border-[#BBF7D0]',
+        tagColor: 'text-[#15803D]',
     },
     {
-        dimension: 'Safety & Policy Compliance',
-        focus: 'Detecting adversarial exploits, jailbreak vulnerability, toxic language, and private data leakage.',
-        measurement: 'Adversarial refusal rate, policy hazard tags, boundary violation severity scale.',
-        target: 'Safe refusals without excessive over-censorship',
+        dimension: 'Safety & Policy Refusals',
+        focus: 'Detecting adversarial prompts, jailbreak resilience, toxic outputs, and sensitive data leakage.',
+        target: 'Uncompromised Safety',
+        icon: Lock,
+        iconBg: 'bg-[#FFF1F2]',
+        iconBorder: 'border-[#FECDD3]',
+        iconColor: 'text-[#E11D48]',
+        headingColor: 'text-[#E11D48]',
+        tagBg: 'bg-[#FFE4E6]',
+        tagBorder: 'border-[#FECDD3]',
+        tagColor: 'text-[#BE123C]',
     },
     {
-        dimension: 'Reasoning Coherence & Logic',
-        focus: 'Validating intermediate logical steps, mathematical proofs, deductive flow, and code syntax/execution.',
-        measurement: 'Step-by-step logic soundness rubric, execution trace sandbox testing, edge-case audit.',
-        target: 'Sound reasoning chain from premises to conclusion',
+        dimension: 'Reasoning Coherence',
+        focus: 'Auditing intermediate deduction steps, math proofs, code syntax, and sandbox execution traces.',
+        target: 'Sound Deductive Logic',
+        icon: Cpu,
+        iconBg: 'bg-[#F5F3FF]',
+        iconBorder: 'border-[#DDD6FE]',
+        iconColor: 'text-[#6D28D9]',
+        headingColor: 'text-[#6D28D9]',
+        tagBg: 'bg-[#EDE9FE]',
+        tagBorder: 'border-[#DDD6FE]',
+        tagColor: 'text-[#6D28D9]',
     },
     {
-        dimension: 'Persona & Tone Consistency',
-        focus: 'Maintaining brand voice, professional register, avoiding sycophancy, and preserving context over long conversations.',
-        measurement: 'Multi-turn persona drift score, tone rating anchor comparisons, sycophancy rate.',
-        target: 'Consistent brand persona across extended dialogue',
+        dimension: 'Persona & Tone Register',
+        focus: 'Eliminating sycophancy and tone drift across extended multi-turn dialogue to protect brand voice.',
+        target: 'Consistent Enterprise Voice',
+        icon: Sparkles,
+        iconBg: 'bg-[#FFF7ED]',
+        iconBorder: 'border-[#FED7AA]',
+        iconColor: 'text-[#C2410C]',
+        headingColor: 'text-[#C2410C]',
+        tagBg: 'bg-[#FFEDD5]',
+        tagBorder: 'border-[#FED7AA]',
+        tagColor: 'text-[#C2410C]',
     },
 ];
 
@@ -960,50 +995,57 @@ const LLMEvaluationRLHFPage = () => {
             </section>
 
             {/* ══════════════════════════════════════════════════════════════════
-                05 · STANDARDIZED EVALUATION RUBRIC MATRIX
+                05 · STANDARDIZED EVALUATION RUBRIC MATRIX (CONNECTED PROCESS)
             ══════════════════════════════════════════════════════════════════ */}
-            <section className="py-16 md:py-24 bg-[#ffffff] relative z-10 border-b border-gray-100">
-                <div className="container mx-auto px-4 md:px-6 max-w-6xl">
-                    <div className="text-center max-w-3xl mx-auto mb-12">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E8F5EE] text-[#2D6A4F] text-xs font-bold uppercase tracking-wider mb-2">
+            <section className="py-16 md:py-24 bg-white relative z-10 border-b border-gray-100">
+                <div className="container mx-auto px-4 md:px-6 max-w-7xl">
+                    <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E8F5EE] text-[#2D6A4F] text-xs font-bold uppercase tracking-wider mb-3">
                             <FileCheck className="w-3.5 h-3.5" />
                             Rubric Architecture
                         </div>
-                        <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-gray-900 font-bold mb-3">
+                        <SplitTextReveal
+                            as="h2"
+                            className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-tight"
+                            type="chars"
+                            stagger={0.015}
+                            once={false}
+                        >
                             Standardized Evaluation Rubric Dimensions
-                        </h2>
-                        <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                            Structured scoring criteria applied across conversational trajectories, code generation, and factual retrieval benchmarks.
+                        </SplitTextReveal>
+                        <p className="max-w-2xl mx-auto text-base sm:text-lg text-gray-500 mt-4 leading-relaxed">
+                            Explicit, multi-dimensional scoring anchors applied across model completions to guarantee objective, verifiable evaluation.
                         </p>
                     </div>
 
-                    <div className="overflow-x-auto bg-white rounded-2xl border border-gray-200 shadow-2xs">
-                        <table className="w-full text-left border-collapse">
-                            <thead>
-                                <tr className="border-b border-gray-200 bg-gray-50/70 text-gray-700 text-xs sm:text-sm font-semibold uppercase tracking-wider">
-                                    <th className="py-3.5 px-5">Rubric Dimension</th>
-                                    <th className="py-3.5 px-5">Evaluation Focus</th>
-                                    <th className="py-3.5 px-5">Measurement Methodology</th>
-                                    <th className="py-3.5 px-5">Quality Target</th>
-                                </tr>
-                            </thead>
-                            <tbody className="divide-y divide-gray-100 text-xs sm:text-sm text-gray-600">
-                                {RUBRIC_DIMENSIONS.map((row) => (
-                                    <tr key={row.dimension} className="hover:bg-[#F0FDF4]/30 transition-colors">
-                                        <td className="py-3.5 px-5 font-semibold text-gray-900 whitespace-nowrap">
-                                            {row.dimension}
-                                        </td>
-                                        <td className="py-3.5 px-5 leading-relaxed max-w-xs">{row.focus}</td>
-                                        <td className="py-3.5 px-5 leading-relaxed">{row.measurement}</td>
-                                        <td className="py-3.5 px-5">
-                                            <span className="inline-block px-2.5 py-1 rounded-full bg-[#E8F5EE] text-[#166534] font-medium text-xs">
-                                                {row.target}
-                                            </span>
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-6 relative">
+                        {/* Connecting dashed line (desktop) */}
+                        <div className="hidden lg:block absolute top-12 left-[10%] right-[10%] h-[1px] z-0 border-t border-dashed border-[#2D6A4F]/25 pointer-events-none" />
+
+                        {RUBRIC_DIMENSIONS.map((dim) => {
+                            const IconComponent = dim.icon;
+                            return (
+                                <div key={dim.dimension} className="flex flex-col items-center text-center relative group">
+                                    {/* Icon circle */}
+                                    <div className={`w-20 h-20 md:w-24 md:h-24 rounded-full ${dim.iconBg} border ${dim.iconBorder} flex items-center justify-center mb-5 md:mb-6 shadow-2xs transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-md relative z-10`}>
+                                        <IconComponent className={`w-8 h-8 md:w-10 md:h-10 ${dim.iconColor}`} />
+                                    </div>
+                                    <h3 className={`font-serif text-base sm:text-lg font-bold mb-2.5 ${dim.headingColor}`}>
+                                        {dim.dimension}
+                                    </h3>
+                                    <p className="text-xs sm:text-sm leading-relaxed text-gray-500 px-1 sm:px-2 mb-4 min-h-[3.5rem] sm:min-h-[4rem]">
+                                        {dim.focus}
+                                    </p>
+
+                                    {/* Target pill */}
+                                    <div className="mt-auto">
+                                        <span className={`inline-block text-[11px] font-semibold px-2.5 py-1 rounded-full ${dim.tagBg} ${dim.tagColor} border ${dim.tagBorder}`}>
+                                            {dim.target}
+                                        </span>
+                                    </div>
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
             </section>
