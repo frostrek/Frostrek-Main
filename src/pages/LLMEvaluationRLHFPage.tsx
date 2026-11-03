@@ -20,7 +20,6 @@ import {
     Cpu,
     Lock
 } from 'lucide-react';
-import CuteBackground from '../components/ui/CuteBackground';
 import SpotlightCard from '../components/ui/SpotlightCard';
 import SplitTextReveal from '../components/ui/SplitTextReveal';
 import SEO from '../components/seo/SEO';
@@ -556,7 +555,7 @@ const LLMEvaluationRLHFPage = () => {
     });
 
     return (
-        <div className="relative min-h-screen bg-[#FDFCF9] text-[#2D6A4F] font-body selection:bg-[#E8F5EE]">
+        <div className="relative min-h-screen bg-[#ffffff] text-[#2D6A4F] font-body selection:bg-[#E8F5EE]">
             <SEO
                 title="Enterprise LLM Evaluation & AI Data QA | Frostrek AI"
                 description="Task-scoped human LLM evaluation, RLHF preference data, and data QA across custom workflows. Focused review teams, explicit rubrics, and traceable review logs."
@@ -564,12 +563,11 @@ const LLMEvaluationRLHFPage = () => {
                 path="/solutions/llm-evaluation-rlhf"
                 schema={[serviceSchema, breadcrumbSchema, faqSchema]}
             />
-            <CuteBackground />
 
             {/* ══════════════════════════════════════════════════════════════════
                 01 · HERO: CLEAN 2-COLUMN STRUCTURE + RICH CONTENT + LIVE CARD
             ══════════════════════════════════════════════════════════════════ */}
-            <section ref={heroRef} className="relative pt-28 pb-16 md:pt-40 md:pb-24 overflow-hidden">
+            <section ref={heroRef} className="relative pt-28 pb-16 md:pt-40 md:pb-24 overflow-hidden bg-[#ffffff]">
                 <div className="container mx-auto px-4 md:px-6 max-w-7xl relative z-10">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
                         {/* Left column: Rich content + Headings + CTA */}
@@ -803,7 +801,7 @@ const LLMEvaluationRLHFPage = () => {
             {/* ══════════════════════════════════════════════════════════════════
                 03 · DELIVERY WORKFLOW: 5 STEPS + SCOPED DELIVERABLES LIST
             ══════════════════════════════════════════════════════════════════ */}
-            <section ref={workflowRef} className="py-16 md:py-24 bg-[#FAFCFB] relative z-10">
+            <section ref={workflowRef} className="py-16 md:py-24 bg-[#ffffff] border-t border-gray-100 relative z-10">
                 <div className="container mx-auto px-4 md:px-6 max-w-7xl">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
                         {/* Left column: Overview + Deliverables */}
@@ -873,7 +871,7 @@ const LLMEvaluationRLHFPage = () => {
 
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
                         {/* Left Card: 1 Clean A/B Comparison */}
-                        <div className="lg:col-span-7 bg-[#FAFCFB] rounded-2xl border border-gray-200 p-6 flex flex-col justify-between">
+                        <div className="lg:col-span-7 bg-[#ffffff] rounded-2xl border border-gray-200 p-6 flex flex-col justify-between">
                             <div>
                                 <div className="flex items-center justify-between pb-3 mb-4 border-b border-gray-200/80">
                                     <span className="font-serif text-sm font-bold text-gray-900">Comparing Two Model Responses</span>
@@ -975,7 +973,7 @@ const LLMEvaluationRLHFPage = () => {
             {/* ══════════════════════════════════════════════════════════════════
                 05 · STANDARDIZED EVALUATION RUBRIC MATRIX
             ══════════════════════════════════════════════════════════════════ */}
-            <section className="py-16 md:py-24 bg-[#FAFCFB] relative z-10 border-b border-gray-100">
+            <section className="py-16 md:py-24 bg-[#ffffff] relative z-10 border-b border-gray-100">
                 <div className="container mx-auto px-4 md:px-6 max-w-6xl">
                     <div className="text-center max-w-3xl mx-auto mb-12">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E8F5EE] text-[#2D6A4F] text-xs font-bold uppercase tracking-wider mb-2">
@@ -1077,7 +1075,7 @@ const LLMEvaluationRLHFPage = () => {
                             {OPERATING_PRINCIPLES.map((op) => {
                                 const IconComponent = op.icon;
                                 return (
-                                    <div key={op.title} className="bg-[#FAFCFB] rounded-2xl border border-gray-200 p-6 shadow-2xs">
+                                    <div key={op.title} className="bg-[#ffffff] rounded-2xl border border-gray-200 p-6 shadow-2xs">
                                         <div className="flex items-center justify-between mb-4">
                                             <div className="w-10 h-10 rounded-xl bg-[#E8F5EE] flex items-center justify-center text-[#166534]">
                                                 <IconComponent className="w-5 h-5" />
@@ -1097,7 +1095,7 @@ const LLMEvaluationRLHFPage = () => {
             {/* ══════════════════════════════════════════════════════════════════
                 07 · FAQS: COMPREHENSIVE BUYER FAQS (ACCORDION WITH SEARCH)
             ══════════════════════════════════════════════════════════════════ */}
-            <section id="eval-faq" className="py-16 md:py-24 bg-[#FAFCFB] border-t border-gray-100 relative z-10">
+            <section id="eval-faq" className="py-16 md:py-24 bg-[#ffffff] border-t border-gray-100 relative z-10">
                 <div className="container mx-auto px-4 md:px-6 max-w-4xl">
                     <div className="text-center max-w-2xl mx-auto mb-10">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E8F5EE] text-[#2D6A4F] text-xs font-bold uppercase tracking-wider mb-2">
