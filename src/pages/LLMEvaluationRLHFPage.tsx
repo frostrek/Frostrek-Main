@@ -117,27 +117,36 @@ const QA_PIPELINE = [
         title: 'Domain Specialist Review',
         description:
             'Annotators and domain specialists execute initial blind evaluations against versioned client rubrics, grading completions across precision, safety, and constraint adherence.',
-        iconBg: 'bg-[#F0FDF4]',
-        iconBorder: 'border-[#BBF7D0]',
-        badgeColor: 'text-[#166534]',
+        cardBorder: 'border-[#BAE6FD]',
+        hoverBorder: 'hover:border-[#0284C7]',
+        hoverShadow: 'hover:shadow-[0_12px_35px_rgba(14,165,233,0.08)]',
+        iconBg: 'bg-[#F0F9FF]',
+        iconBorder: 'border-[#BAE6FD]',
+        badgeColor: 'text-[#0284C7]',
     },
     {
         step: '02',
         title: 'Calibration & Peer Verification',
         description:
             'A sample of multi-annotator tasks undergo cross-review. Inter-annotator agreement (Cohen’s kappa) is monitored daily to detect rubric drift and enforce calibrated scoring.',
-        iconBg: 'bg-[#F0F9FF]',
-        iconBorder: 'border-[#BAE6FD]',
-        badgeColor: 'text-[#0284C7]',
+        cardBorder: 'border-[#DDD6FE]',
+        hoverBorder: 'hover:border-[#6D28D9]',
+        hoverShadow: 'hover:shadow-[0_12px_35px_rgba(109,40,217,0.08)]',
+        iconBg: 'bg-[#F5F3FF]',
+        iconBorder: 'border-[#DDD6FE]',
+        badgeColor: 'text-[#6D28D9]',
     },
     {
         step: '03',
         title: 'QA Lead Sign-Off & Arbiter Review',
         description:
             'Senior evaluation leads resolve edge-case disagreements, compile diagnostic root-cause summaries, and sign off on delivered datasets in client-specified JSONL/Parquet formats.',
-        iconBg: 'bg-[#F5F3FF]',
-        iconBorder: 'border-[#DDD6FE]',
-        badgeColor: 'text-[#6D28D9]',
+        cardBorder: 'border-[#BBF7D0]',
+        hoverBorder: 'hover:border-[#166534]',
+        hoverShadow: 'hover:shadow-[0_12px_35px_rgba(34,197,94,0.08)]',
+        iconBg: 'bg-[#F0FDF4]',
+        iconBorder: 'border-[#BBF7D0]',
+        badgeColor: 'text-[#166534]',
     },
 ];
 
@@ -782,11 +791,11 @@ const LLMEvaluationRLHFPage = () => {
                         {QA_PIPELINE.map((p) => (
                             <div
                                 key={p.step}
-                                className="pipeline-step relative bg-white border border-gray-200/90 rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col"
+                                className={`pipeline-step relative bg-white border ${p.cardBorder} ${p.hoverBorder} rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-xs ${p.hoverShadow} hover:shadow-md transition-all duration-300 flex flex-col`}
                             >
                                 <div className={`w-12 h-12 rounded-xl ${p.iconBg} border ${p.iconBorder} flex items-center justify-center font-serif text-lg font-bold ${p.badgeColor} mb-6`}>
                                     {p.step}
-                                    </div>
+                                </div>
                                 <h3 className="font-serif text-xl font-bold text-gray-900 mb-3">{p.title}</h3>
                                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{p.description}</p>
                             </div>
