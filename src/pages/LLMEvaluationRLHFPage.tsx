@@ -784,11 +784,8 @@ const LLMEvaluationRLHFPage = () => {
                                 key={p.step}
                                 className="pipeline-step relative bg-white border border-gray-200/90 rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col"
                             >
-                                <div className="flex items-center justify-between mb-6">
-                                    <div className={`w-12 h-12 rounded-xl ${p.iconBg} border ${p.iconBorder} flex items-center justify-center font-serif text-lg font-bold ${p.badgeColor}`}>
-                                        {p.step}
-                                    </div>
-                                    <span className="text-xs uppercase tracking-wider font-semibold text-gray-400">Phase Gate</span>
+                                <div className={`w-12 h-12 rounded-xl ${p.iconBg} border ${p.iconBorder} flex items-center justify-center font-serif text-lg font-bold ${p.badgeColor} mb-6`}>
+                                    {p.step}
                                 </div>
                                 <h3 className="font-serif text-xl font-bold text-gray-900 mb-3">{p.title}</h3>
                                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{p.description}</p>
