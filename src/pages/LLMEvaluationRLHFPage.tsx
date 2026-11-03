@@ -902,7 +902,63 @@ const LLMEvaluationRLHFPage = () => {
             </section>
 
             {/* ══════════════════════════════════════════════════════════════════
-                04 · EVALUATION EXAMPLE: SYNTHETIC TASK F-024
+                04 · STANDARDIZED EVALUATION RUBRIC MATRIX (CONNECTED PROCESS)
+            ══════════════════════════════════════════════════════════════════ */}
+            <section className="py-16 md:py-24 bg-white relative z-10 border-t border-gray-100">
+                <div className="container mx-auto px-4 md:px-6 max-w-7xl">
+                    <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E8F5EE] text-[#2D6A4F] text-xs font-bold uppercase tracking-wider mb-3">
+                            <FileCheck className="w-3.5 h-3.5" />
+                            Rubric Architecture
+                        </div>
+                        <SplitTextReveal
+                            as="h2"
+                            className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-tight"
+                            type="chars"
+                            stagger={0.015}
+                            once={false}
+                        >
+                            Standardized Evaluation Rubric Dimensions
+                        </SplitTextReveal>
+                        <p className="max-w-2xl mx-auto text-base sm:text-lg text-gray-500 mt-4 leading-relaxed">
+                            Explicit, multi-dimensional scoring anchors applied across model completions to guarantee objective, verifiable evaluation.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-6 relative">
+                        {/* Connecting dashed line (desktop) */}
+                        <div className="hidden lg:block absolute top-12 left-[10%] right-[10%] h-[1px] z-0 border-t border-dashed border-[#2D6A4F]/25 pointer-events-none" />
+
+                        {RUBRIC_DIMENSIONS.map((dim) => {
+                            const IconComponent = dim.icon;
+                            return (
+                                <div key={dim.dimension} className="flex flex-col items-center text-center relative group">
+                                    {/* Icon circle */}
+                                    <div className={`w-20 h-20 md:w-24 md:h-24 rounded-full ${dim.iconBg} border ${dim.iconBorder} flex items-center justify-center mb-5 md:mb-6 shadow-2xs transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-md relative z-10`}>
+                                        <IconComponent className={`w-8 h-8 md:w-10 md:h-10 ${dim.iconColor}`} />
+                                    </div>
+                                    <h3 className={`font-serif text-base sm:text-lg font-bold mb-2.5 ${dim.headingColor}`}>
+                                        {dim.dimension}
+                                    </h3>
+                                    <p className="text-xs sm:text-sm leading-relaxed text-gray-500 px-1 sm:px-2 mb-4 min-h-[3.5rem] sm:min-h-[4rem]">
+                                        {dim.focus}
+                                    </p>
+
+                                    {/* Target pill */}
+                                    <div className="mt-auto">
+                                        <span className={`inline-block text-[11px] font-semibold px-2.5 py-1 rounded-full ${dim.tagBg} ${dim.tagColor} border ${dim.tagBorder}`}>
+                                            {dim.target}
+                                        </span>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </div>
+            </section>
+
+            {/* ══════════════════════════════════════════════════════════════════
+                05 · EVALUATION EXAMPLE: SYNTHETIC TASK F-024
             ══════════════════════════════════════════════════════════════════ */}
             <section id="eval-example" ref={exampleRef} className="py-16 md:py-24 bg-white border-y border-gray-100 relative z-10">
                 <div className="container mx-auto px-4 md:px-6 max-w-5xl">
@@ -1013,62 +1069,6 @@ const LLMEvaluationRLHFPage = () => {
                             <span className="font-bold block mb-1 text-emerald-900 uppercase text-[11px] tracking-wider">Evaluator Verdict (Non-Negative Rubric):</span>
                             Response B satisfies full prompt completeness, passes claim isolation verification against Source Truth without contradicting the audit log, and respects safety guardrails. Ranked first with highest confidence under our non-negative rubric.
                         </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* ══════════════════════════════════════════════════════════════════
-                05 · STANDARDIZED EVALUATION RUBRIC MATRIX (CONNECTED PROCESS)
-            ══════════════════════════════════════════════════════════════════ */}
-            <section className="py-16 md:py-24 bg-white relative z-10 border-b border-gray-100">
-                <div className="container mx-auto px-4 md:px-6 max-w-7xl">
-                    <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E8F5EE] text-[#2D6A4F] text-xs font-bold uppercase tracking-wider mb-3">
-                            <FileCheck className="w-3.5 h-3.5" />
-                            Rubric Architecture
-                        </div>
-                        <SplitTextReveal
-                            as="h2"
-                            className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-tight"
-                            type="chars"
-                            stagger={0.015}
-                            once={false}
-                        >
-                            Standardized Evaluation Rubric Dimensions
-                        </SplitTextReveal>
-                        <p className="max-w-2xl mx-auto text-base sm:text-lg text-gray-500 mt-4 leading-relaxed">
-                            Explicit, multi-dimensional scoring anchors applied across model completions to guarantee objective, verifiable evaluation.
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-6 relative">
-                        {/* Connecting dashed line (desktop) */}
-                        <div className="hidden lg:block absolute top-12 left-[10%] right-[10%] h-[1px] z-0 border-t border-dashed border-[#2D6A4F]/25 pointer-events-none" />
-
-                        {RUBRIC_DIMENSIONS.map((dim) => {
-                            const IconComponent = dim.icon;
-                            return (
-                                <div key={dim.dimension} className="flex flex-col items-center text-center relative group">
-                                    {/* Icon circle */}
-                                    <div className={`w-20 h-20 md:w-24 md:h-24 rounded-full ${dim.iconBg} border ${dim.iconBorder} flex items-center justify-center mb-5 md:mb-6 shadow-2xs transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-md relative z-10`}>
-                                        <IconComponent className={`w-8 h-8 md:w-10 md:h-10 ${dim.iconColor}`} />
-                                    </div>
-                                    <h3 className={`font-serif text-base sm:text-lg font-bold mb-2.5 ${dim.headingColor}`}>
-                                        {dim.dimension}
-                                    </h3>
-                                    <p className="text-xs sm:text-sm leading-relaxed text-gray-500 px-1 sm:px-2 mb-4 min-h-[3.5rem] sm:min-h-[4rem]">
-                                        {dim.focus}
-                                    </p>
-
-                                    {/* Target pill */}
-                                    <div className="mt-auto">
-                                        <span className={`inline-block text-[11px] font-semibold px-2.5 py-1 rounded-full ${dim.tagBg} ${dim.tagColor} border ${dim.tagBorder}`}>
-                                            {dim.target}
-                                        </span>
-                                    </div>
-                                </div>
-                            );
-                        })}
                     </div>
                 </div>
             </section>
