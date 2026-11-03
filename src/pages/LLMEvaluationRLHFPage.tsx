@@ -59,7 +59,7 @@ const EVAL_SERVICES = [
         title: 'Source Truth & Factual Verification',
         badge: 'GROUND TRUTH · AUDIT',
         description:
-            'Cross-verifying LLM assertions against authoritative enterprise documents, source databases, and external reference records. We establish Source Truth baselines to flag hallucinations, unsupported leaps, and subtle factual errors.',
+            'Cross-verifying LLM assertions in isolation against authoritative enterprise documents, source databases, and external reference records. We decompose outputs into atomic claims to flag hallucinations, contradicting statements, and subtle factual errors.',
         icon: '/icons/shield.png',
         bgColor: 'bg-[#FFF1F2]',
         border: 'border-[#FECDD3]',
@@ -72,7 +72,7 @@ const EVAL_SERVICES = [
         title: 'Custom Evaluation Rubrics & Rating Anchors',
         badge: 'RUBRIC ARCHITECTURE',
         description:
-            'Designing calibrated, multidimensional evaluation rubrics with explicit rating anchors, boundary conditions, and tie-breaking heuristics. We align human reviewers on consistent criteria across tone, reasoning, safety, and helpfulness.',
+            'Designing calibrated, non-negative rubric frameworks with explicit rating anchors, safety guardrails, and completeness checklists. We align human reviewers on consistent criteria across reasoning soundness, tone, and guardrail adherence.',
         icon: '/icons/architecture-green.png',
         bgColor: 'bg-[#F5F3FF]',
         border: 'border-[#DDD6FE]',
@@ -85,7 +85,7 @@ const EVAL_SERVICES = [
         title: 'RAG Grounding & Source Truth Audits',
         badge: 'RAG · GROUNDING',
         description:
-            'Factual precision auditing for Retrieval-Augmented Generation workflows. We benchmark retrieved contexts against Source Truth references and Golden Response standards to systematically prevent hallucination and retrieval drift.',
+            'Factual precision auditing for Retrieval-Augmented Generation workflows. We benchmark retrieved contexts against Source Truth references in isolation, ensuring surface fluency does not mask contradictory or ungrounded assertions.',
         icon: '/icons/data-analytics-green.png',
         bgColor: 'bg-[#FFF7ED]',
         border: 'border-[#FFEDD5]',
@@ -116,7 +116,7 @@ const QA_PIPELINE = [
         step: '01',
         title: 'Domain Specialist Review',
         description:
-            'Annotators and domain specialists execute initial blind evaluations against versioned client rubrics, grading completions across precision, safety, and constraint adherence.',
+            'Annotators and domain specialists execute initial blind evaluations against non-negative rubrics, testing claim isolation, prompt completeness, and guardrail compliance.',
         cardBorder: 'border-[#BAE6FD]',
         hoverBorder: 'hover:border-[#0284C7]',
         hoverShadow: 'hover:shadow-[0_12px_35px_rgba(14,165,233,0.08)]',
@@ -128,7 +128,7 @@ const QA_PIPELINE = [
         step: '02',
         title: 'Calibration & Peer Verification',
         description:
-            'A sample of multi-annotator tasks undergo cross-review. Inter-annotator agreement (Cohen’s kappa) is monitored daily to detect rubric drift and enforce calibrated scoring.',
+            'A sample of multi-annotator tasks undergo cross-review. Inter-annotator agreement (Cohen’s kappa) is monitored daily to detect rubric drift, resolve contradicting ratings, and enforce calibrated scoring.',
         cardBorder: 'border-[#DDD6FE]',
         hoverBorder: 'hover:border-[#6D28D9]',
         hoverShadow: 'hover:shadow-[0_12px_35px_rgba(109,40,217,0.08)]',
@@ -140,7 +140,7 @@ const QA_PIPELINE = [
         step: '03',
         title: 'QA Lead Sign-Off & Arbiter Review',
         description:
-            'Senior evaluation leads resolve edge-case disagreements, compile diagnostic root-cause summaries, and sign off on delivered datasets in client-specified JSONL/Parquet formats.',
+            'Senior evaluation leads resolve edge-case disagreements, audit safety guardrails, compile diagnostic root-cause summaries, and sign off on delivered datasets in client-specified JSONL/Parquet formats.',
         cardBorder: 'border-[#BBF7D0]',
         hoverBorder: 'hover:border-[#166534]',
         hoverShadow: 'hover:shadow-[0_12px_35px_rgba(34,197,94,0.08)]',
@@ -156,17 +156,17 @@ const WORKFLOW_STEPS = [
     {
         step: '01',
         title: 'Define & Sample',
-        description: 'Confirm rubric criteria, select representative prompt and response sets, and establish edge-case boundaries.',
+        description: 'Confirm non-negative rubrics, define prompt completeness criteria, and establish safety guardrails.',
     },
     {
         step: '02',
         title: 'Calibrate Evaluators',
-        description: 'Train domain annotators, run blind calibration trials, and align scoring anchors to minimize inter-annotator drift.',
+        description: 'Train domain annotators on claim isolation, run blind calibration trials, and align scoring anchors to minimize inter-annotator drift.',
     },
     {
         step: '03',
         title: 'Primary Labeled Review',
-        description: 'Qualified reviewers score and rank candidate outputs against approved rubrics and Source Truth standards.',
+        description: 'Qualified reviewers score candidate outputs against completeness, contradiction filters, and Source Truth standards.',
     },
     {
         step: '04',
@@ -181,10 +181,10 @@ const WORKFLOW_STEPS = [
 ];
 
 const SCOPED_DELIVERABLES = [
-    'Sample-calibrated evaluation scorecards',
+    'Non-negative rubric scorecards with claim-isolation audits',
     'Ranked preference pairs with rationales (JSONL/Parquet)',
     'QA review logs with inter-annotator agreement metrics (Cohen’s kappa)',
-    'Source Truth alignment and negative constraint audit confirmation',
+    'Contradiction detection and safety guardrail audit confirmation',
 ];
 
 /* ──────────────────── 05 · RUBRIC MATRIX DIMENSIONS ──────────────────── */
@@ -192,8 +192,8 @@ const SCOPED_DELIVERABLES = [
 const RUBRIC_DIMENSIONS = [
     {
         dimension: 'Source Truth Grounding',
-        focus: 'Eliminating hallucinations by verifying every assertion against enterprise documents and Golden Responses.',
-        target: 'Zero Ungrounded Claims',
+        focus: 'Validating assertions in isolation against enterprise documents to eliminate ungrounded hallucinations.',
+        target: 'Claim Isolation & Truth',
         icon: Shield,
         iconBg: 'bg-[#F0F9FF]',
         iconBorder: 'border-[#BAE6FD]',
@@ -204,9 +204,9 @@ const RUBRIC_DIMENSIONS = [
         tagColor: 'text-[#0369A1]',
     },
     {
-        dimension: 'Constraint Adherence',
-        focus: 'Enforcing negative constraints, schema rules (JSON/XML), regex checks, and boundary limits.',
-        target: 'Strict Rule Compliance',
+        dimension: 'Guardrails & Constraints',
+        focus: 'Enforcing output guardrails, negative constraints, schema contracts (JSON/XML), and boundary limits.',
+        target: 'Strict Guardrail Compliance',
         icon: CheckCircle2,
         iconBg: 'bg-[#F0FDF4]',
         iconBorder: 'border-[#BBF7D0]',
@@ -218,8 +218,8 @@ const RUBRIC_DIMENSIONS = [
     },
     {
         dimension: 'Safety & Policy Refusals',
-        focus: 'Detecting adversarial prompts, jailbreak resilience, toxic outputs, and sensitive data leakage.',
-        target: 'Uncompromised Safety',
+        focus: 'Stress-testing input guardrails, jailbreak resilience, and ensuring models refuse harmful directives without over-refusal.',
+        target: 'Safe Refusal Guardrails',
         icon: Lock,
         iconBg: 'bg-[#FFF1F2]',
         iconBorder: 'border-[#FECDD3]',
@@ -230,9 +230,9 @@ const RUBRIC_DIMENSIONS = [
         tagColor: 'text-[#BE123C]',
     },
     {
-        dimension: 'Reasoning Coherence',
-        focus: 'Auditing intermediate deduction steps, math proofs, code syntax, and sandbox execution traces.',
-        target: 'Sound Deductive Logic',
+        dimension: 'Completeness & Logic',
+        focus: 'Verifying full prompt completeness and non-contradicting logic — ensuring superficial fluency does not mask logical fallacies.',
+        target: 'Full Completeness & Logic',
         icon: Cpu,
         iconBg: 'bg-[#F5F3FF]',
         iconBorder: 'border-[#DDD6FE]',
@@ -243,9 +243,9 @@ const RUBRIC_DIMENSIONS = [
         tagColor: 'text-[#6D28D9]',
     },
     {
-        dimension: 'Persona & Tone Register',
-        focus: 'Eliminating sycophancy and tone drift across extended multi-turn dialogue to protect brand voice.',
-        target: 'Consistent Enterprise Voice',
+        dimension: 'Non-Negative Rubrics',
+        focus: 'Applying non-negative rubric anchors across multi-turn dialogue to reward verified quality and prevent sycophancy.',
+        target: 'Additive Quality Anchors',
         icon: Sparkles,
         iconBg: 'bg-[#FFF7ED]',
         iconBorder: 'border-[#FED7AA]',
@@ -302,24 +302,24 @@ const DOMAIN_BENCH = [
 
 const OPERATING_PRINCIPLES = [
     {
-        title: 'Clear Evaluation Rubrics',
+        title: 'Non-Negative Rubric Frameworks',
         tag: 'RUBRIC INTEGRITY',
         description:
-            'We test against explicit criteria and rating anchors, eliminating subjective reviewer drift and ambiguous guesswork.',
+            'We test against explicit positive criteria, prompt completeness, and calibrated anchors, eliminating subjective reviewer drift and punitive scoring bias.',
         icon: Layers,
     },
     {
-        title: 'Accountable Data QA',
+        title: 'Accountable Data QA & Isolation',
         tag: 'CALIBRATED OPS',
         description:
-            'Every deliverable undergoes multi-stage verification with inter-annotator agreement tracking and senior lead sign-off.',
+            'Every deliverable undergoes claim-by-claim isolation audits, contradiction detection, Cohen’s kappa tracking, and senior lead sign-off.',
         icon: Shield,
     },
     {
-        title: 'Agreed Access & Confidentiality',
+        title: 'Enterprise Safety Guardrails',
         tag: 'ZERO LEAKAGE',
         description:
-            'Work is conducted inside client-approved secure environments or delivered in verified, encrypted export formats with no retention.',
+            'Work is conducted inside access-managed secure environments with comprehensive PII guardrails and verified, encrypted export formats.',
         icon: Lock,
     },
 ];
@@ -718,21 +718,21 @@ const LLMEvaluationRLHFPage = () => {
                                 {/* Checklist items */}
                                 <div className="space-y-2 text-xs border-t border-gray-100 pt-4 mb-4">
                                     <div className="flex items-center justify-between text-gray-600 py-1 border-b border-gray-50">
-                                        <span className="font-medium text-gray-700">Source Truth alignment:</span>
+                                        <span className="font-medium text-gray-700">Source Truth &amp; Isolation:</span>
                                         <span className="text-[#166534] font-semibold flex items-center gap-1">
                                             <Check className="w-3.5 h-3.5 text-[#166534]" /> Grounded
                                         </span>
                                     </div>
                                     <div className="flex items-center justify-between text-gray-600 py-1 border-b border-gray-50">
-                                        <span className="font-medium text-gray-700">Constraint compliance:</span>
+                                        <span className="font-medium text-gray-700">Guardrails &amp; Completeness:</span>
                                         <span className="text-[#166534] font-semibold flex items-center gap-1">
                                             <Check className="w-3.5 h-3.5 text-[#166534]" /> Maintained
                                         </span>
                                     </div>
                                     <div className="flex items-center justify-between text-gray-600 py-1">
-                                        <span className="font-medium text-gray-700">Persona & style register:</span>
+                                        <span className="font-medium text-gray-700">Non-negative rubric rating:</span>
                                         <span className="text-[#166534] font-semibold flex items-center gap-1">
-                                            <Check className="w-3.5 h-3.5 text-[#166534]" /> Consistent
+                                            <Check className="w-3.5 h-3.5 text-[#166534]" /> Passed
                                         </span>
                                     </div>
                                 </div>
@@ -924,8 +924,8 @@ const LLMEvaluationRLHFPage = () => {
 
                         {/* Prompt */}
                         <div className="bg-gray-50/70 rounded-2xl border border-gray-200/70 p-4 sm:p-5 mb-6 text-xs sm:text-sm font-mono text-gray-700">
-                            <span className="font-bold text-gray-500 uppercase block font-sans text-[10px] sm:text-xs mb-1.5 tracking-wider">Prompt &amp; Constraint:</span>
-                            "Summarize Q3 SLA performance using only provided audit log. Constraint: Do not speculate on root causes."
+                            <span className="font-bold text-gray-500 uppercase block font-sans text-[10px] sm:text-xs mb-1.5 tracking-wider">Prompt &amp; Constraints:</span>
+                            "Summarize Q3 SLA performance using only provided audit log. Negative constraint &amp; guardrail: Do not speculate on root causes. Completeness: Address uptime %, response latency, and penalty status."
                         </div>
 
                         {/* Completions */}
@@ -938,7 +938,7 @@ const LLMEvaluationRLHFPage = () => {
                                             Response A (Turned Down)
                                         </span>
                                         <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-rose-100/80 text-rose-700 border border-rose-200">
-                                            ✕ Constraint Violation
+                                            ✕ Guardrail &amp; Completeness Failure
                                         </span>
                                     </div>
                                     <p className="text-xs sm:text-sm text-gray-700 leading-relaxed mb-4">
@@ -948,11 +948,15 @@ const LLMEvaluationRLHFPage = () => {
                                 <div className="space-y-1.5 pt-3 border-t border-rose-200/50 text-xs text-rose-700 font-medium">
                                     <div className="flex items-center gap-1.5">
                                         <span>✕</span>
-                                        <span>Violated negative constraint by speculating on root causes</span>
+                                        <span>Violated negative constraint &amp; guardrail by speculating on root causes</span>
                                     </div>
                                     <div className="flex items-center gap-1.5">
                                         <span>✕</span>
-                                        <span>Hallucinated fiber outages not in provided log</span>
+                                        <span>Hallucinated fiber outages — claims fail verification in isolation against log</span>
+                                    </div>
+                                    <div className="flex items-center gap-1.5">
+                                        <span>✕</span>
+                                        <span>Incomplete: omitted incident response latency and penalty clause status</span>
                                     </div>
                                 </div>
                             </div>
@@ -965,7 +969,7 @@ const LLMEvaluationRLHFPage = () => {
                                             Response B (Golden Response)
                                         </span>
                                         <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-[#DCFCE7] text-[#166534] border border-[#BBF7D0]">
-                                            ✓ Grounded
+                                            ✓ Grounded &amp; Complete
                                         </span>
                                     </div>
                                     <p className="text-xs sm:text-sm text-gray-700 leading-relaxed mb-4">
@@ -975,11 +979,15 @@ const LLMEvaluationRLHFPage = () => {
                                 <div className="space-y-1.5 pt-3 border-t border-emerald-200/50 text-xs text-emerald-800 font-medium">
                                     <div className="flex items-center gap-1.5">
                                         <span>✓</span>
-                                        <span>All assertions directly supported by audit log</span>
+                                        <span>100% prompt completeness: all metrics addressed accurately</span>
                                     </div>
                                     <div className="flex items-center gap-1.5">
                                         <span>✓</span>
-                                        <span>Strict adherence to negative constraint (no speculation)</span>
+                                        <span>Verified in isolation: assertions directly supported with zero contradictions</span>
+                                    </div>
+                                    <div className="flex items-center gap-1.5">
+                                        <span>✓</span>
+                                        <span>Strict adherence to guardrails &amp; negative constraints (zero speculation)</span>
                                     </div>
                                 </div>
                             </div>
@@ -987,8 +995,8 @@ const LLMEvaluationRLHFPage = () => {
 
                         {/* Verdict */}
                         <div className="rounded-2xl bg-emerald-50/70 border border-emerald-200 p-4 sm:p-5 text-xs sm:text-sm text-emerald-950">
-                            <span className="font-bold block mb-1 text-emerald-900 uppercase text-[11px] tracking-wider">Evaluator Verdict:</span>
-                            Response B matches the Golden Response standard and strictly adhered to Source Truth grounding constraints. Response B is ranked first with full confidence.
+                            <span className="font-bold block mb-1 text-emerald-900 uppercase text-[11px] tracking-wider">Evaluator Verdict (Non-Negative Rubric):</span>
+                            Response B satisfies full prompt completeness, passes claim isolation verification against Source Truth without contradicting the audit log, and respects safety guardrails. Ranked first with highest confidence under our non-negative rubric.
                         </div>
                     </div>
                 </div>
