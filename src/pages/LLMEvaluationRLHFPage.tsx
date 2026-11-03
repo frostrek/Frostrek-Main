@@ -586,15 +586,15 @@ const LLMEvaluationRLHFPage = () => {
                             </motion.div>
 
                             {/* Headline */}
-                            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-[#2D6A4F] tracking-tight leading-[1.12] mb-5">
-                                <SplitTextReveal as="span" className="text-[#2D6A4F]" type="chars" stagger={0.015} once={false}>
-                                    Enterprise LLM Evaluation,
-                                </SplitTextReveal>
-                                <br />
-                                <SplitTextReveal as="span" className="text-[#2D6A4F]" type="chars" stagger={0.015} once={false} delay={0.15}>
-                                    RLHF Alignment & Data QA
-                                </SplitTextReveal>
-                            </h1>
+                            <SplitTextReveal
+                                as="h1"
+                                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-[#2D6A4F] tracking-tight leading-[1.14] mb-5"
+                                type="chars"
+                                stagger={0.015}
+                                once={false}
+                            >
+                                Enterprise LLM Evaluation, RLHF Alignment & Data QA
+                            </SplitTextReveal>
 
                             {/* Rich, authoritative answer-first explanation */}
                             <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-2xl mb-8 font-medium">
