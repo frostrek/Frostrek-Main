@@ -110,6 +110,38 @@ const EVAL_SERVICES = [
     },
 ];
 
+/* ──────────────────── 3-TIER HUMAN QA PIPELINE ──────────────────── */
+
+const QA_PIPELINE = [
+    {
+        step: '01',
+        title: 'Domain Specialist Review',
+        description:
+            'Annotators and domain specialists execute initial blind evaluations against versioned client rubrics, grading completions across precision, safety, and constraint adherence.',
+        iconBg: 'bg-[#F0FDF4]',
+        iconBorder: 'border-[#BBF7D0]',
+        badgeColor: 'text-[#166534]',
+    },
+    {
+        step: '02',
+        title: 'Calibration & Peer Verification',
+        description:
+            'A sample of multi-annotator tasks undergo cross-review. Inter-annotator agreement (Cohen’s kappa) is monitored daily to detect rubric drift and enforce calibrated scoring.',
+        iconBg: 'bg-[#F0F9FF]',
+        iconBorder: 'border-[#BAE6FD]',
+        badgeColor: 'text-[#0284C7]',
+    },
+    {
+        step: '03',
+        title: 'QA Lead Sign-Off & Arbiter Review',
+        description:
+            'Senior evaluation leads resolve edge-case disagreements, compile diagnostic root-cause summaries, and sign off on delivered datasets in client-specified JSONL/Parquet formats.',
+        iconBg: 'bg-[#F5F3FF]',
+        iconBorder: 'border-[#DDD6FE]',
+        badgeColor: 'text-[#6D28D9]',
+    },
+];
+
 /* ──────────────────── 03 · 5-STEP DELIVERY WORKFLOW ──────────────────── */
 
 const WORKFLOW_STEPS = [
@@ -374,6 +406,7 @@ const FAQ_THEMES = [
 const LLMEvaluationRLHFPage = () => {
     const heroRef = useRef<HTMLDivElement>(null);
     const servicesRef = useRef<HTMLDivElement>(null);
+    const pipelineRef = useRef<HTMLDivElement>(null);
     const workflowRef = useRef<HTMLDivElement>(null);
     const exampleRef = useRef<HTMLDivElement>(null);
     const domainRef = useRef<HTMLDivElement>(null);
@@ -406,6 +439,26 @@ const LLMEvaluationRLHFPage = () => {
                         ease: 'power2.out',
                         scrollTrigger: {
                             trigger: servicesRef.current,
+                            start: 'top 85%',
+                            toggleActions: 'play reverse play reverse',
+                        },
+                    }
+                );
+            }
+
+            const pipelineSteps = pipelineRef.current?.querySelectorAll('.pipeline-step');
+            if (pipelineSteps) {
+                gsap.fromTo(
+                    pipelineSteps,
+                    { y: 30, opacity: 0 },
+                    {
+                        y: 0,
+                        opacity: 1,
+                        duration: 0.5,
+                        stagger: 0.1,
+                        ease: 'power2.out',
+                        scrollTrigger: {
+                            trigger: pipelineRef.current,
                             start: 'top 85%',
                             toggleActions: 'play reverse play reverse',
                         },
@@ -699,6 +752,56 @@ const LLMEvaluationRLHFPage = () => {
                     {/* Factual Scope Note */}
                     <div className="mt-8 rounded-xl bg-gray-50 border border-gray-200 p-4 text-xs text-gray-600 text-center max-w-4xl mx-auto">
                         <span className="font-bold text-gray-800">Separate feasibility review:</span> Direct reward-model training is assessed as a separate scoped feasibility engagement based on compute parameters and dataset readiness; we do not advertise completed client training projects.
+                    </div>
+                </div>
+            </section>
+
+            {/* ══════════════════════════════════════════════════════════════════
+                03 · THE 3-TIER HUMAN QA PIPELINE (RIGOROUS GOVERNANCE)
+            ══════════════════════════════════════════════════════════════════ */}
+            <section className="py-16 md:py-24 bg-white relative z-10 overflow-hidden border-t border-gray-100">
+                <div className="container mx-auto px-4 md:px-6 max-w-7xl">
+                    <div className="text-center mb-14">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E8F5EE] text-[#2D6A4F] text-xs font-bold uppercase tracking-wider mb-3">
+                            <Shield className="w-3.5 h-3.5" />
+                            Rigorous Governance
+                        </div>
+                        <SplitTextReveal
+                            as="h2"
+                            className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-tight"
+                            type="chars"
+                            stagger={0.02}
+                            once={false}
+                        >
+                            The 3-Tier Human QA Pipeline
+                        </SplitTextReveal>
+                        <p className="max-w-2xl mx-auto text-base sm:text-lg text-gray-600 mt-4 leading-relaxed">
+                            Every evaluation dataset passes through a verifiable three-tier quality hierarchy to prevent rubric drift and eliminate reviewer bias.
+                        </p>
+                    </div>
+
+                    <div ref={pipelineRef} className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+                        {QA_PIPELINE.map((p) => (
+                            <div
+                                key={p.step}
+                                className="pipeline-step relative bg-white border border-gray-200/90 rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+                            >
+                                <div>
+                                    <div className="flex items-center justify-between mb-6">
+                                        <div className={`w-12 h-12 rounded-xl ${p.iconBg} border ${p.iconBorder} flex items-center justify-center font-serif text-lg font-bold ${p.badgeColor}`}>
+                                            {p.step}
+                                        </div>
+                                        <span className="text-xs uppercase tracking-wider font-semibold text-gray-400">Phase Gate</span>
+                                    </div>
+                                    <h3 className="font-serif text-xl font-bold text-gray-900 mb-3">{p.title}</h3>
+                                    <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6">{p.description}</p>
+                                </div>
+                                <div className="pt-4 border-t border-gray-100 flex items-center gap-2 text-xs font-medium text-[#2D6A4F]">
+                                    <CheckCircle2 className="w-4 h-4 text-[#2D6A4F]" />
+                                    <span>Verified Audit Trail & Calibration</span>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
