@@ -786,7 +786,7 @@ const LLMEvaluationRLHFPage = () => {
                             >
                                 <div className={`w-12 h-12 rounded-xl ${p.iconBg} border ${p.iconBorder} flex items-center justify-center font-serif text-lg font-bold ${p.badgeColor} mb-6`}>
                                     {p.step}
-                                </div>
+                                    </div>
                                 <h3 className="font-serif text-xl font-bold text-gray-900 mb-3">{p.title}</h3>
                                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{p.description}</p>
                             </div>
@@ -850,10 +850,10 @@ const LLMEvaluationRLHFPage = () => {
             </section>
 
             {/* ══════════════════════════════════════════════════════════════════
-                04 · EVALUATION EXAMPLE: SYNTHETIC TASK F-024 + TRACEABLE QA RECORD
+                04 · EVALUATION EXAMPLE: SYNTHETIC TASK F-024
             ══════════════════════════════════════════════════════════════════ */}
             <section id="eval-example" ref={exampleRef} className="py-16 md:py-24 bg-white border-y border-gray-100 relative z-10">
-                <div className="container mx-auto px-4 md:px-6 max-w-7xl">
+                <div className="container mx-auto px-4 md:px-6 max-w-5xl">
                     <div className="text-center max-w-3xl mx-auto mb-12">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FFFBEB] text-[#B45309] border border-[#FEF3C7] text-xs font-bold uppercase tracking-wider mb-2">
                             Illustrative Benchmark
@@ -866,102 +866,85 @@ const LLMEvaluationRLHFPage = () => {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-                        {/* Left Card: 1 Clean A/B Comparison */}
-                        <div className="lg:col-span-7 bg-[#ffffff] rounded-2xl border border-gray-200 p-6 flex flex-col justify-between">
-                            <div>
-                                <div className="flex items-center justify-between pb-3 mb-4 border-b border-gray-200/80">
-                                    <span className="font-serif text-sm font-bold text-gray-900">Comparing Two Model Responses</span>
-                                    <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-amber-100 text-amber-900">
-                                        SYNTHETIC TASK F-024 · DEMO ONLY
-                                    </span>
-                                </div>
+                    {/* Single Clean Centered Benchmark Card */}
+                    <div className="bg-[#ffffff] rounded-3xl border border-gray-200/90 p-6 sm:p-8 md:p-10 shadow-xs">
+                        <div className="flex items-center justify-between pb-3 mb-6 border-b border-gray-200/80">
+                            <div className="flex items-center gap-2 text-sm font-semibold text-gray-900">
+                                <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 inline-block" />
+                                <span>Task Type: RAG Grounding &amp; Factual Synthesis</span>
+                            </div>
+                            <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-amber-100 text-amber-900">
+                                SYNTHETIC TASK F-024 · DEMO ONLY
+                            </span>
+                        </div>
 
-                                {/* Prompt */}
-                                <div className="bg-white rounded-lg border border-gray-200/70 p-3.5 mb-4 text-xs font-mono text-gray-700">
-                                    <span className="font-bold text-gray-500 uppercase block font-sans text-[10px] mb-1">Prompt & Constraint:</span>
-                                    "Summarize Q3 SLA performance using only provided audit log. Constraint: Do not speculate on root causes."
-                                </div>
+                        {/* Prompt */}
+                        <div className="bg-gray-50/70 rounded-2xl border border-gray-200/70 p-4 sm:p-5 mb-6 text-xs sm:text-sm font-mono text-gray-700">
+                            <span className="font-bold text-gray-500 uppercase block font-sans text-[10px] sm:text-xs mb-1.5 tracking-wider">Prompt &amp; Constraint:</span>
+                            "Summarize Q3 SLA performance using only provided audit log. Constraint: Do not speculate on root causes."
+                        </div>
 
-                                {/* Completions */}
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
-                                    <div className="rounded-xl border border-rose-200 bg-white p-3.5 text-xs flex flex-col justify-between">
-                                        <div>
-                                            <span className="font-bold text-rose-700 block mb-1">Response A (Turned Down)</span>
-                                            <p className="text-gray-600 leading-relaxed text-[11px]">
-                                                "Vendor Alpha achieved 99.82% uptime. Latency blips were likely caused by third-party fiber outages."
-                                            </p>
-                                        </div>
-                                        <span className="text-[10px] text-rose-600 mt-2 font-medium">✗ Hallucinated fiber outages not in log</span>
+                        {/* Completions */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6">
+                            {/* Response A */}
+                            <div className="rounded-2xl border border-rose-200 bg-rose-50/30 p-5 flex flex-col justify-between">
+                                <div>
+                                    <div className="flex items-center justify-between pb-3 mb-3 border-b border-rose-200/60">
+                                        <span className="font-bold text-xs uppercase tracking-wider text-rose-700">
+                                            Response A (Turned Down)
+                                        </span>
+                                        <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-rose-100/80 text-rose-700 border border-rose-200">
+                                            ✕ Constraint Violation
+                                        </span>
                                     </div>
-
-                                    <div className="rounded-xl border border-emerald-300 bg-emerald-50/40 p-3.5 text-xs flex flex-col justify-between">
-                                        <div>
-                                            <span className="font-bold text-emerald-800 block mb-1">Response B (Golden Response)</span>
-                                            <p className="text-gray-700 leading-relaxed text-[11px]">
-                                                "Vendor Alpha recorded 99.82% uptime with 14 min average response time. Zero penalty clauses triggered."
-                                            </p>
-                                        </div>
-                                        <span className="text-[10px] text-emerald-700 mt-2 font-medium">✓ Fully grounded; zero speculation</span>
+                                    <p className="text-xs sm:text-sm text-gray-700 leading-relaxed mb-4">
+                                        "Vendor Alpha achieved 99.82% uptime. Latency blips were likely caused by third-party fiber outages."
+                                    </p>
+                                </div>
+                                <div className="space-y-1.5 pt-3 border-t border-rose-200/50 text-xs text-rose-700 font-medium">
+                                    <div className="flex items-center gap-1.5">
+                                        <span>✕</span>
+                                        <span>Violated negative constraint by speculating on root causes</span>
+                                    </div>
+                                    <div className="flex items-center gap-1.5">
+                                        <span>✕</span>
+                                        <span>Hallucinated fiber outages not in provided log</span>
                                     </div>
                                 </div>
                             </div>
 
-                            {/* Verdict */}
-                            <div className="rounded-xl bg-emerald-100/60 border border-emerald-200 p-3 text-xs text-emerald-900">
-                                <span className="font-bold block mb-0.5">Evaluator Verdict:</span>
-                                Response B matches the Golden Response standard and strictly adhered to Source Truth grounding constraints. Response B is ranked first with full confidence.
+                            {/* Response B */}
+                            <div className="rounded-2xl border border-emerald-300 bg-[#F0FDF4]/40 p-5 flex flex-col justify-between">
+                                <div>
+                                    <div className="flex items-center justify-between pb-3 mb-3 border-b border-emerald-200/60">
+                                        <span className="font-bold text-xs uppercase tracking-wider text-[#166534]">
+                                            Response B (Golden Response)
+                                        </span>
+                                        <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-[#DCFCE7] text-[#166534] border border-[#BBF7D0]">
+                                            ✓ Grounded
+                                        </span>
+                                    </div>
+                                    <p className="text-xs sm:text-sm text-gray-700 leading-relaxed mb-4">
+                                        "Vendor Alpha recorded 99.82% uptime with 14 min average response time. Zero penalty clauses triggered."
+                                    </p>
+                                </div>
+                                <div className="space-y-1.5 pt-3 border-t border-emerald-200/50 text-xs text-emerald-800 font-medium">
+                                    <div className="flex items-center gap-1.5">
+                                        <span>✓</span>
+                                        <span>All assertions directly supported by audit log</span>
+                                    </div>
+                                    <div className="flex items-center gap-1.5">
+                                        <span>✓</span>
+                                        <span>Strict adherence to negative constraint (no speculation)</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        {/* Right Card: Traceable Review Record Elements */}
-                        <div className="lg:col-span-5 bg-white rounded-2xl border border-gray-200 p-6 flex flex-col justify-between">
-                            <div>
-                                <span className="text-xs uppercase font-bold text-gray-400 tracking-wider block mb-1">Quality Architecture</span>
-                                <h3 className="font-serif text-lg font-bold text-gray-900 mb-4">What a traceable review record contains</h3>
-
-                                <div className="space-y-3 text-xs sm:text-sm">
-                                    <div className="flex items-start gap-2.5">
-                                        <CheckCircle2 className="w-4 h-4 text-[#2D6A4F] flex-shrink-0 mt-0.5" />
-                                        <div>
-                                            <span className="font-semibold text-gray-800">Rubric Version:</span>
-                                            <p className="text-gray-500 text-xs">Grounding & Negative Constraint v2.1</p>
-                                        </div>
-                                    </div>
-                                    <div className="flex items-start gap-2.5">
-                                        <CheckCircle2 className="w-4 h-4 text-[#2D6A4F] flex-shrink-0 mt-0.5" />
-                                        <div>
-                                            <span className="font-semibold text-gray-800">Review Status:</span>
-                                            <p className="text-gray-500 text-xs">Primary review completed, second-check verified</p>
-                                        </div>
-                                    </div>
-                                    <div className="flex items-start gap-2.5">
-                                        <CheckCircle2 className="w-4 h-4 text-[#2D6A4F] flex-shrink-0 mt-0.5" />
-                                        <div>
-                                            <span className="font-semibold text-gray-800">Inter-Annotator Agreement:</span>
-                                            <p className="text-gray-500 text-xs">Cohen’s kappa tracked across multi-annotator sets</p>
-                                        </div>
-                                    </div>
-                                    <div className="flex items-start gap-2.5">
-                                        <CheckCircle2 className="w-4 h-4 text-[#2D6A4F] flex-shrink-0 mt-0.5" />
-                                        <div>
-                                            <span className="font-semibold text-gray-800">Constraint Violation Flag:</span>
-                                            <p className="text-gray-500 text-xs">Tagged on Response A (unsupported speculation)</p>
-                                        </div>
-                                    </div>
-                                    <div className="flex items-start gap-2.5">
-                                        <CheckCircle2 className="w-4 h-4 text-[#2D6A4F] flex-shrink-0 mt-0.5" />
-                                        <div>
-                                            <span className="font-semibold text-gray-800">Delivered Schema:</span>
-                                            <p className="text-gray-500 text-xs">Validated JSONL export with rationale fields</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <p className="text-[11px] text-gray-400 mt-5 pt-3 border-t border-gray-100">
-                                Verified client evidence is withheld until formal owner and data-rights clearance.
-                            </p>
+                        {/* Verdict */}
+                        <div className="rounded-2xl bg-emerald-50/70 border border-emerald-200 p-4 sm:p-5 text-xs sm:text-sm text-emerald-950">
+                            <span className="font-bold block mb-1 text-emerald-900 uppercase text-[11px] tracking-wider">Evaluator Verdict:</span>
+                            Response B matches the Golden Response standard and strictly adhered to Source Truth grounding constraints. Response B is ranked first with full confidence.
                         </div>
                     </div>
                 </div>
