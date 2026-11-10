@@ -40,7 +40,7 @@ export function FrostyWidget() {
       // 3. Check if active widget or script is already present
       const activeRoot = document.getElementById("frosty-widget-root");
       const existingScript = document.querySelector(
-        'script[data-frosty-key="frosty_live_PkK4APzJZKZg_QxtA-QoreMMY5Zmki4g"]',
+        'script[data-frosty-key="frosty_live_jY1-9PcjSR-fqSkzYMInXFVM32oNJ0Cd"]',
       );
 
       if (existingScript && activeRoot) {
@@ -54,11 +54,11 @@ export function FrostyWidget() {
 
       // 4. Inject widget loader script
       const script = document.createElement("script");
-      script.src = "https://widget.testing.frostyagent.com/frosty-widget.js";
+      script.src = "https://widget.frostyagent.com/frosty-widget.js";
       script.async = true;
-      script.dataset.frostyKey = "frosty_live_PkK4APzJZKZg_QxtA-QoreMMY5Zmki4g";
+      script.dataset.frostyKey = "frosty_live_jY1-9PcjSR-fqSkzYMInXFVM32oNJ0Cd";
       script.dataset.frostyPosition = "bottom-right";
-      script.dataset.frostyAgent = "44dff393-10df-4665-8cb9-6cba4afac695";
+      script.dataset.frostyAgent = "ed19460c-c416-40cc-803a-4241ae7eb9c5";
       document.body.appendChild(script);
     };
 

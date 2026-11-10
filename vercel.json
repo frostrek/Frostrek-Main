@@ -38,7 +38,7 @@
   "rewrites": [
     {
       "source": "/api/frosty/(.*)",
-      "destination": "https://api.testing.frostyagent.com/$1"
+      "destination": "https://api.frostyagent.com/$1"
     }
   ]
 }

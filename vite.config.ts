@@ -123,7 +123,7 @@ export default defineConfig({
     },
     proxy: {
       '/api/frosty': {
-        target: 'https://api.testing.frostyagent.com',
+        target: 'https://api.frostyagent.com',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api\/frosty/, ''),
         secure: true,

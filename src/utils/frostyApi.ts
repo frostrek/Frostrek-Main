@@ -9,10 +9,10 @@ export const FROSTY_API_BASE = (() => {
         return '/api/frosty';
     }
     // In production (https://www.frostrek.ai), call the live Frosty Agent API directly
-    return 'https://api.testing.frostyagent.com';
+    return 'https://api.frostyagent.com';
 })();
-export const FROSTY_API_KEY = (typeof import.meta !== 'undefined' && import.meta.env?.VITE_FROSTREK_BOT_API_KEY) || 'frosty_live_PkK4APzJZKZg_QxtA-QoreMMY5Zmki4g';
-export const FROSTY_AGENT_ID = (typeof import.meta !== 'undefined' && import.meta.env?.VITE_FROSTREK_AGENT_ID) || '44dff393-10df-4665-8cb9-6cba4afac695';
+export const FROSTY_API_KEY = (typeof import.meta !== 'undefined' && import.meta.env?.VITE_FROSTREK_BOT_API_KEY) || 'frosty_live_jY1-9PcjSR-fqSkzYMInXFVM32oNJ0Cd';
+export const FROSTY_AGENT_ID = (typeof import.meta !== 'undefined' && import.meta.env?.VITE_FROSTREK_AGENT_ID) || 'ed19460c-c416-40cc-803a-4241ae7eb9c5';
 
 export const UUID_REGEX = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 

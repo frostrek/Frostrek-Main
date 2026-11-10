@@ -43,7 +43,7 @@ export function resolveBotWsBases(apiBase?: string): string[] {
         }
     }
 
-    out.push('wss://api.testing.frostyagent.com');
+    out.push('wss://api.frostyagent.com');
 
     return Array.from(new Set(out));
 }

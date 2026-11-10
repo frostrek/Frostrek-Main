@@ -250,7 +250,7 @@ const VoiceCallWidget: React.FC<VoiceCallWidgetProps> = ({ onCallStateChange }) 
                 return;
             }
 
-            const cleanBase = (typeof import.meta !== 'undefined' && import.meta.env?.VITE_FROSTY_API_BASE) || 'https://api.testing.frostyagent.com';
+            const cleanBase = (typeof import.meta !== 'undefined' && import.meta.env?.VITE_FROSTY_API_BASE) || 'https://api.frostyagent.com';
             const wsBase = cleanBase.replace(/^http/i, 'ws').replace(/\/+$/, '');
             const wsUrl = `${wsBase}/v1/public/widget/sessions/${encodeURIComponent(conversationId)}/live-s2s?ticket=${encodeURIComponent(ticket)}`;
             const ws = new WebSocket(wsUrl);
