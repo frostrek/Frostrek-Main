@@ -8,6 +8,7 @@ import {
     postChatStream,
     getBotAppearance,
     isValidUuid,
+    clearCachedSession,
 } from '../../utils/frostyApi';
 
 function getOrCreateSessionId(): string {
@@ -213,9 +214,7 @@ const ChatbotDemo: React.FC = () => {
             );
         } catch (error) {
             console.error('Error sending message:', error);
-            try {
-                sessionStorage.removeItem('frosty_experience_conversation_id');
-            } catch { /* ignore */ }
+            clearCachedSession();
             setMessages((prev) => {
                 if (prev.length > 0 && prev[prev.length - 1].type === 'bot' && !prev[prev.length - 1].content) {
                     const updated = [...prev];
