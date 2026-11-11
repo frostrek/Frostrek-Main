@@ -58,7 +58,7 @@ export function FrostyWidget() {
       script.async = true;
       script.dataset.frostyKey = "frosty_live_jY1-9PcjSR-fqSkzYMInXFVM32oNJ0Cd";
       script.dataset.frostyPosition = "bottom-right";
-      script.dataset.frostyAgent = "ed19460c-c416-40cc-803a-4241ae7eb9c5";
+      script.dataset.frostyAgent = "9111615e-c831-4c53-bff4-32bf508918ad";
       document.body.appendChild(script);
     };
 

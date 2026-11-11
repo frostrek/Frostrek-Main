@@ -12,7 +12,7 @@ export const FROSTY_API_BASE = (() => {
     return 'https://api.frostyagent.com';
 })();
 export const FROSTY_API_KEY = (typeof import.meta !== 'undefined' && import.meta.env?.VITE_FROSTREK_BOT_API_KEY) || 'frosty_live_jY1-9PcjSR-fqSkzYMInXFVM32oNJ0Cd';
-export const FROSTY_AGENT_ID = (typeof import.meta !== 'undefined' && import.meta.env?.VITE_FROSTREK_AGENT_ID) || 'ed19460c-c416-40cc-803a-4241ae7eb9c5';
+export const FROSTY_AGENT_ID = (typeof import.meta !== 'undefined' && import.meta.env?.VITE_FROSTREK_AGENT_ID) || '9111615e-c831-4c53-bff4-32bf508918ad';
 
 export const UUID_REGEX = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
