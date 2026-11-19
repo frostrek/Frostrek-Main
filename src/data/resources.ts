@@ -722,7 +722,7 @@ Our security infrastructure operates on three layers:
 Frostrek maintains compliance with:
 - **ISO 27001** information security management standards
 - **GDPR** data protection requirements for European clients
-- **SOC 2 Type II** controls for enterprise trust
+- **SOC 2 Ready Architecture** for enterprise trust
 - **India's DPDP Act** for domestic data processing
 
 ### Why This Matters for AI

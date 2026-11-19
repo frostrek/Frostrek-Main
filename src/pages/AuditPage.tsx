@@ -1,18 +1,19 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { 
-    CheckCircle2, 
-    ArrowRight, 
-    Clock, 
-    FileText, 
-    Target, 
-    Layers, 
-    BarChart3, 
+import {
+    CheckCircle2,
+    ArrowRight,
+    Clock,
+    FileText,
+    Target,
+    Layers,
+    BarChart3,
     Search,
     Send,
     ShieldCheck
 } from 'lucide-react';
 import SEO from '../components/seo/SEO';
+import { trackEvent } from '../utils/analytics';
 import SplitTextReveal from '../components/ui/SplitTextReveal';
 import CuteBackground from '../components/ui/CuteBackground';
 
@@ -107,6 +108,7 @@ const auditServiceSchema = JSON.stringify({
 export default function AuditPage() {
     const [submitted, setSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
     const [formData, setFormData] = useState({
         source: 'SEO_GEO_AEO_FREE_AUDIT',
         business_name: '',
@@ -122,12 +124,43 @@ export default function AuditPage() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        if (loading) return;
+        setError('');
         setLoading(true);
-        // Simulate local receipt confirmation
-        setTimeout(() => {
-            setLoading(false);
+
+        try {
+            const response = await fetch('/api/contact.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    source: 'SEO_GEO_AEO_FREE_AUDIT',
+                    business_name: formData.business_name,
+                    website_url: formData.website_url,
+                    contact_name: formData.contact_name,
+                    workEmail: formData.business_email,
+                    projectDetails: 'Audit Request: ' + formData.top_priority
+                }),
+            });
+
+            const data = await response.json();
+            if (!response.ok || !data.success) {
+                throw new Error(data.error || 'Failed to submit audit request.');
+            }
+
+            trackEvent('generate_lead', {
+                source: 'audit_page',
+                target_market: formData.target_market,
+                business_type: formData.business_type
+            });
             setSubmitted(true);
-        }, 600);
+        } catch (err) {
+            console.error('Audit submission error:', err);
+            setError('Failed to submit audit request. Please try again later.');
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -403,6 +436,12 @@ export default function AuditPage() {
                                                 I agree to be contacted about this audit request. *
                                             </label>
                                         </div>
+
+                                        {error && (
+                                            <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-red-600 text-xs font-semibold">
+                                                {error}
+                                            </div>
+                                        )}
 
                                         <button
                                             type="submit"

@@ -156,7 +156,7 @@ const ScheduleDemo = () => {
             // Listen for Calendly events
             const onMessage = (e: MessageEvent) => {
                 const eventName = e.data?.event;
-                
+
                 // Track Calendly initialization to remove skeleton
                 if (
                     eventName === 'calendly.page_height' ||
@@ -164,10 +164,10 @@ const ScheduleDemo = () => {
                 ) {
                     setWidgetReady(true);
                 }
-                
+
                 // Track successful demo scheduled conversion
                 if (eventName === 'calendly.event_scheduled') {
-                    trackEvent('demo_scheduled', { source: 'calendly_inline' });
+                    trackEvent('demo_booking_confirmed', { source: 'calendly_inline', event_type: 'demo_call' });
                 }
             };
             messageListenerRef.current = onMessage;
@@ -214,25 +214,14 @@ const ScheduleDemo = () => {
                     <span>Book Your Demo</span>
                 </div>
                 <div className="flex flex-col items-center">
-                    <SplitTextReveal
-                        as="h1"
-                        className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black leading-[1.1] tracking-[-0.01em]"
-                        trigger="load"
-                        type="chars"
-                        stagger={0.03}
-                    >
-                        Let's Build Something
-                    </SplitTextReveal>
-                    <SplitTextReveal
-                        as="h1"
-                        className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D6A4F] mb-4 leading-[1.1] tracking-[-0.01em]"
-                        trigger="load"
-                        type="chars"
-                        stagger={0.03}
-                        delay={0.4}
-                    >
-                        Amazing
-                    </SplitTextReveal>
+                    <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.1] tracking-[-0.01em]">
+                        <SplitTextReveal as="span" className="text-black block" stagger={0.03} trigger="load" type="chars">
+                            Let's Build Something
+                        </SplitTextReveal>
+                        <SplitTextReveal as="span" className="text-[#2D6A4F] block mb-4" delay={0.4} stagger={0.03} trigger="load" type="chars">
+                            Amazing
+                        </SplitTextReveal>
+                    </h1>
                 </div>
                 <SplitTextReveal
                     as="p"

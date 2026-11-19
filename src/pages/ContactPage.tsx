@@ -59,6 +59,7 @@ const ContactPage = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        if (isSubmitting) return;
         setError('');
 
         if (!validateForm()) {
@@ -82,9 +83,9 @@ const ContactPage = () => {
             }
 
             setIsSuccess(true);
-            
+
             // Push accurate generate_lead event to GTM
-            trackEvent('generate_lead', { 
+            trackEvent('generate_lead', {
                 source: 'contact_page',
                 reach_type: formData.reachType
             });
@@ -110,71 +111,71 @@ const ContactPage = () => {
         setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
     };
 
-const localBusinessSchema = JSON.stringify([
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": "https://www.frostrek.ai/#organization",
-    "name": "Frostrek AI (HQ)",
-    "image": "https://www.frostrek.ai/logonew.png",
-    "url": "https://www.frostrek.ai/contact",
-    "telephone": "+916399999955",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "4th Floor, Jmd Empire, 455, Golf Course Ext Rd, Sector 62",
-      "addressLocality": "Gurugram",
-      "addressRegion": "Haryana",
-      "postalCode": "122102",
-      "addressCountry": "IN"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 28.4595,
-      "longitude": 77.0266
-    },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "09:00",
-      "closes": "18:00"
-    },
-    "priceRange": "₹₹₹"
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": "https://www.frostrek.ai/#us-office",
-    "name": "Frostrek AI (USA)",
-    "image": "https://www.frostrek.ai/logonew.png",
-    "url": "https://www.frostrek.ai/contact",
-    "telephone": "+17574722491",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "701 Tillery Street Unit 12-3227",
-      "addressLocality": "Austin",
-      "addressRegion": "Texas",
-      "postalCode": "78702",
-      "addressCountry": "US"
-    },
-    "priceRange": "$$$"
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": "https://www.frostrek.ai/#uk-office",
-    "name": "Frostrek AI (UK)",
-    "image": "https://www.frostrek.ai/logonew.png",
-    "url": "https://www.frostrek.ai/contact",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "24-26 Arcadia Avenue, Fin009/8701",
-      "addressLocality": "London",
-      "postalCode": "N3 2JU",
-      "addressCountry": "GB"
-    },
-    "priceRange": "£££"
-  }
-]);
+    const localBusinessSchema = JSON.stringify([
+        {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "@id": "https://www.frostrek.ai/#organization",
+            "name": "Frostrek AI (HQ)",
+            "image": "https://www.frostrek.ai/logonew.png",
+            "url": "https://www.frostrek.ai/contact",
+            "telephone": "+916399999955",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "4th Floor, Jmd Empire, 455, Golf Course Ext Rd, Sector 62",
+                "addressLocality": "Gurugram",
+                "addressRegion": "Haryana",
+                "postalCode": "122102",
+                "addressCountry": "IN"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 28.4595,
+                "longitude": 77.0266
+            },
+            "openingHoursSpecification": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "09:00",
+                "closes": "18:00"
+            },
+            "priceRange": "₹₹₹"
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "@id": "https://www.frostrek.ai/#us-office",
+            "name": "Frostrek AI (USA)",
+            "image": "https://www.frostrek.ai/logonew.png",
+            "url": "https://www.frostrek.ai/contact",
+            "telephone": "+17574722491",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "701 Tillery Street Unit 12-3227",
+                "addressLocality": "Austin",
+                "addressRegion": "Texas",
+                "postalCode": "78702",
+                "addressCountry": "US"
+            },
+            "priceRange": "$$$"
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "@id": "https://www.frostrek.ai/#uk-office",
+            "name": "Frostrek AI (UK)",
+            "image": "https://www.frostrek.ai/logonew.png",
+            "url": "https://www.frostrek.ai/contact",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "24-26 Arcadia Avenue, Fin009/8701",
+                "addressLocality": "London",
+                "postalCode": "N3 2JU",
+                "addressCountry": "GB"
+            },
+            "priceRange": "£££"
+        }
+    ]);
 
     return (
         <div className="min-h-screen pt-32 pb-16 bg-gradient-to-b from-white via-[#FAFCFB] to-white relative font-body overflow-hidden">

@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 
 interface SEOProps {
@@ -77,6 +78,90 @@ export default function SEO({
 
   // Handle single string or array of strings for custom schema
   const customSchemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
+  const usedSchemaIds = new Set<string>(['schema-breadcrumb', 'schema-org']);
+  const customSchemaEntries = customSchemas.map((s, i) => {
+    let schemaId = '';
+    try {
+      const parsed = JSON.parse(s);
+      const entity = Array.isArray(parsed) ? parsed[0] : parsed;
+      const type = entity?.['@type'] || entity?.['type'];
+      if (type) {
+        const typeStr = Array.isArray(type) ? type[0] : type;
+        const slug = String(typeStr).toLowerCase().replace(/[^a-z0-9]/g, '-');
+        const baseId = `schema-${slug}`;
+        if (!usedSchemaIds.has(baseId)) {
+          schemaId = baseId;
+        } else {
+          let count = 2;
+          while (usedSchemaIds.has(`${baseId}-${count}`)) {
+            count++;
+          }
+          schemaId = `${baseId}-${count}`;
+        }
+      }
+    } catch {
+      // ignore JSON parse error
+    }
+    if (!schemaId) {
+      const baseId = `schema-custom-${i}`;
+      let count = 2;
+      schemaId = baseId;
+      while (usedSchemaIds.has(schemaId)) {
+        schemaId = `${baseId}-${count++}`;
+      }
+    }
+    usedSchemaIds.add(schemaId);
+    return { id: schemaId, json: s };
+  });
+
+  // Cleanup effect to deduplicate canonical links and schema scripts during client hydration
+  useEffect(() => {
+    const deduplicateHead = () => {
+      // 1. Deduplicate canonical links: ensure only 1 canonical tag exists
+      const canonicals = Array.from(document.querySelectorAll('link[rel="canonical"]'));
+      if (canonicals.length > 1) {
+        const primary = canonicals.find(el => el.getAttribute('id') === 'canonical-url' && el.getAttribute('href') === url)
+          || canonicals.find(el => el.getAttribute('id') === 'canonical-url')
+          || canonicals[canonicals.length - 1];
+
+        canonicals.forEach(el => {
+          if (el !== primary) {
+            el.remove();
+          }
+        });
+      }
+
+      // 2. Deduplicate schema scripts: remove any duplicates by id or JSON content
+      const schemaScripts = Array.from(document.querySelectorAll('script[type="application/ld+json"]'));
+      const seenIds = new Set<string>();
+      const seenContents = new Set<string>();
+
+      schemaScripts.forEach(script => {
+        const id = script.getAttribute('id');
+        const content = script.textContent ? script.textContent.trim().replace(/\s+/g, ' ') : '';
+
+        if (id) {
+          if (seenIds.has(id)) {
+            script.remove();
+            return;
+          }
+          seenIds.add(id);
+        }
+
+        if (content) {
+          if (seenContents.has(content)) {
+            script.remove();
+            return;
+          }
+          seenContents.add(content);
+        }
+      });
+    };
+
+    deduplicateHead();
+    const timer = setTimeout(deduplicateHead, 50);
+    return () => clearTimeout(timer);
+  }, [url, schema]);
 
   return (
     <Helmet>
@@ -89,7 +174,7 @@ export default function SEO({
       {noindex && <meta name="robots" content="noindex" />}
 
       {/* Canonical Link */}
-      <link rel="canonical" href={url} />
+      <link rel="canonical" href={url} id="canonical-url" />
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={type} />
@@ -110,13 +195,13 @@ export default function SEO({
       <meta name="twitter:image" content={ogImage} />
 
       {/* Dynamic Schemas */}
-      <script type="application/ld+json">{breadcrumbSchema}</script>
-      {customSchemas.map((s, i) => (
-        <script key={i} type="application/ld+json">{s}</script>
+      <script id="schema-breadcrumb" type="application/ld+json">{breadcrumbSchema}</script>
+      {customSchemaEntries.map((entry) => (
+        <script key={entry.id} id={entry.id} type="application/ld+json">{entry.json}</script>
       ))}
 
       {/* Organization Schema for Siri & Spotlight */}
-      <script type="application/ld+json">{JSON.stringify({
+      <script id="schema-org" type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org",
         "@type": "Organization",
         "@id": "https://www.frostrek.ai/#organization",

@@ -12,6 +12,7 @@ import SEO from '../components/seo/SEO';
 const websiteSchema = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": "https://www.frostrek.ai/#website",
   "name": "Frostrek AI",
   "url": "https://www.frostrek.ai",
   "potentialAction": {
@@ -25,7 +26,7 @@ const localBusinessSchema = JSON.stringify([
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://www.frostrek.ai/#organization",
+    "@id": "https://www.frostrek.ai/#hq-office",
     "name": "Frostrek AI (HQ)",
     "image": "https://www.frostrek.ai/logonew.png",
     "url": "https://www.frostrek.ai",
@@ -49,7 +50,11 @@ const localBusinessSchema = JSON.stringify([
       "opens": "09:00",
       "closes": "18:00"
     },
-    "priceRange": "₹₹₹"
+    "priceRange": "₹₹₹",
+    "parentOrganization": {
+      "@type": "Organization",
+      "@id": "https://www.frostrek.ai/#organization"
+    }
   },
   {
     "@context": "https://schema.org",
@@ -67,7 +72,11 @@ const localBusinessSchema = JSON.stringify([
       "postalCode": "78702",
       "addressCountry": "US"
     },
-    "priceRange": "$$$"
+    "priceRange": "$$$",
+    "parentOrganization": {
+      "@type": "Organization",
+      "@id": "https://www.frostrek.ai/#organization"
+    }
   },
   {
     "@context": "https://schema.org",
@@ -83,13 +92,18 @@ const localBusinessSchema = JSON.stringify([
       "postalCode": "N3 2JU",
       "addressCountry": "GB"
     },
-    "priceRange": "£££"
+    "priceRange": "£££",
+    "parentOrganization": {
+      "@type": "Organization",
+      "@id": "https://www.frostrek.ai/#organization"
+    }
   }
 ]);
 
 const faqSchema = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "FAQPage",
+  "@id": "https://www.frostrek.ai/#faq",
   "mainEntity": [
     {
       "@type": "Question",
@@ -113,10 +127,12 @@ const faqSchema = JSON.stringify({
 const personSchema = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": "https://www.frostrek.ai/#akash-mittal",
   "name": "Akash Mittal",
   "jobTitle": "Founder & CEO",
   "worksFor": {
     "@type": "Organization",
+    "@id": "https://www.frostrek.ai/#organization",
     "name": "Frostrek AI"
   },
   "url": "https://www.linkedin.com/in/akash-mittal/"

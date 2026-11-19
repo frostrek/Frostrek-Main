@@ -245,18 +245,45 @@ async function prerenderRoute(browser, route, port) {
     // deduplicates them properly instead of appending new tags.
     finalHtml = finalHtml.replace(/<title>/g, '<title data-rh="true">');
     finalHtml = finalHtml.replace(/<meta (name="(description|keywords|robots|twitter:[^"]+)"|property="og:[^"]+")/g, '<meta data-rh="true" $1');
-    finalHtml = finalHtml.replace(/<link rel="canonical"/g, '<link data-rh="true" rel="canonical"');
-    finalHtml = finalHtml.replace(/<script type="application\/ld\+json">/g, '<script data-rh="true" type="application/ld+json">');
+    finalHtml = finalHtml.replace(/<link(?![^>]*data-rh="true")(?=[^>]*\srel=["']canonical["'])[^>]*>/gi, (match) => {
+      return match.replace('<link', '<link data-rh="true"');
+    });
+    finalHtml = finalHtml.replace(/<script(?![^>]*data-rh="true")(?=[^>]*\stype=["']application\/ld\+json["'])[^>]*>/gi, (match) => {
+      return match.replace('<script', '<script data-rh="true"');
+    });
 
-    // ── Move all JSON-LD schemas into <head> for non-JS crawlers ──────
+    // ── Move all JSON-LD schemas into <head> and deduplicate for non-JS crawlers ──────
     // Non-JS crawlers (search engine bots, AI scrapers) read schema from <head>
     // directly without executing client-side scripts.
     // In React 19, Helmet leaves script tags inside the body/root.
-    // We extract all JSON-LD script tags and inject them cleanly into <head>.
+    // We extract all JSON-LD script tags, deduplicate them, and inject cleanly into <head>.
     const ldJsonRegex = /<script[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/gi;
     const ldJsonScripts = [];
+    const seenSchemaIds = new Set();
+    const seenSchemaContents = new Set();
+
     finalHtml = finalHtml.replace(ldJsonRegex, (match) => {
       const tagged = match.includes('data-rh="true"') ? match : match.replace('<script', '<script data-rh="true"');
+      
+      const idMatch = tagged.match(/\sid=["']([^"']+)["']/i);
+      const contentMatch = tagged.match(/>([\s\S]*?)<\/script>/i);
+      const scriptId = idMatch ? idMatch[1] : null;
+      const scriptContent = contentMatch ? contentMatch[1].trim().replace(/\s+/g, ' ') : '';
+
+      if (scriptId) {
+        if (seenSchemaIds.has(scriptId)) {
+          return ''; // Strip duplicate by ID
+        }
+        seenSchemaIds.add(scriptId);
+      }
+
+      if (scriptContent) {
+        if (seenSchemaContents.has(scriptContent)) {
+          return ''; // Strip duplicate by content
+        }
+        seenSchemaContents.add(scriptContent);
+      }
+
       ldJsonScripts.push(tagged);
       return '';
     });
@@ -268,18 +295,19 @@ async function prerenderRoute(browser, route, port) {
     // Puppeteer captures the page after react-helmet-async has injected
     // its canonical into the <head>. If the template already had one, or
     // if Helmet appended a duplicate, we end up with multiple canonicals.
-    // Keep only the LAST canonical tag (the page-specific one from Helmet).
-    const canonicalRegex = /<link[^>]*rel="canonical"[^>]*>/gi;
+    // Keep only ONE canonical tag (prefer the one with id="canonical-url" or the page-specific one).
+    const canonicalRegex = /<link[^>]*rel=["']canonical["'][^>]*>/gi;
     const canonicalMatches = finalHtml.match(canonicalRegex);
     if (canonicalMatches && canonicalMatches.length > 1) {
-      // Remove all but the last canonical tag
-      let removeCount = canonicalMatches.length - 1;
+      let targetIndex = canonicalMatches.findLastIndex(tag => tag.includes('id="canonical-url"'));
+      if (targetIndex === -1) {
+        targetIndex = canonicalMatches.length - 1;
+      }
+      let idx = 0;
       finalHtml = finalHtml.replace(canonicalRegex, (match) => {
-        if (removeCount > 0) {
-          removeCount--;
-          return ''; // Strip this duplicate
-        }
-        return match; // Keep the last one
+        const keep = (idx === targetIndex);
+        idx++;
+        return keep ? match : '';
       });
     }
 
