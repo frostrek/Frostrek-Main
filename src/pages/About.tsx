@@ -1206,21 +1206,21 @@ const About = () => {
                             <div className="absolute -top-12 -right-12 w-64 h-64 bg-[#2D6A4F]/6 rounded-full blur-3xl -z-10" />
                             <div className="absolute -bottom-12 -left-12 w-64 h-64 bg-[#2D6A4F]/5 rounded-full blur-3xl -z-10" />
 
-                            {/* 4-Image Masonry Gallery — 2 CSS columns, natural image heights */}
-                            <div className="columns-2 gap-3 space-y-0">
+                            {/* 4-Image Grid Gallery — balanced 2x2 grid */}
+                            <div className="grid grid-cols-2 gap-3">
 
-                                {/* Col 1, top */}
+                                {/* Row 1, Col 1: Frostrek Office */}
                                 <motion.div
                                     initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.7, delay: 0.0, ease: [0.16, 1, 0.3, 1] }}
-                                    className="relative rounded-2xl overflow-hidden group shadow-lg mb-3 break-inside-avoid"
+                                    className="relative rounded-2xl overflow-hidden group shadow-lg aspect-[4/3]"
                                 >
                                     <img src="/office1.png"
                                         alt="Frostrek Office"
-                                        className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
-                                        loading="lazy" width={512} height={512} />
+                                        className="w-full h-full object-cover block transition-transform duration-700 group-hover:scale-105"
+                                        loading="lazy" width={460} height={346} />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                                     {/* Team Frostrek badge */}
                                     <motion.div
@@ -1238,48 +1238,49 @@ const About = () => {
                                     </motion.div>
                                 </motion.div>
 
-                                {/* Col 1, bottom */}
-                                <motion.div
-                                    initial={{ opacity: 0, x: -16 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                                    className="relative rounded-2xl overflow-hidden group shadow-md break-inside-avoid"
-                                >
-                                    <img src="/office2.jpeg"
-                                        alt="Frostrek Workspace"
-                                        className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
-                                        loading="lazy" width={512} height={512} />
-                                    <div className="absolute inset-0 bg-[#2D6A4F]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                                </motion.div>
-
-                                {/* Col 2, top */}
+                                {/* Row 1, Col 2: Frostrek Team */}
                                 <motion.div
                                     initial={{ opacity: 0, x: 16 }}
                                     whileInView={{ opacity: 1, x: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                                    className="relative rounded-2xl overflow-hidden group shadow-lg mb-3 break-inside-avoid"
+                                    className="relative rounded-2xl overflow-hidden group shadow-lg aspect-[4/3]"
                                 >
-                                    <img src="/FrostrekTeam2.png"
+                                    <img src="/optimized/FrostrekTeam2.webp"
+                                        onError={(e) => { e.currentTarget.src = '/FrostrekTeam2.png'; }}
                                         alt="Frostrek Team"
-                                        className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
-                                        loading="lazy" width={512} height={512} />
+                                        className="w-full h-full object-cover block transition-transform duration-700 group-hover:scale-105"
+                                        loading="lazy" width={460} height={346} />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                                 </motion.div>
 
-                                {/* Col 2, bottom */}
+                                {/* Row 2, Col 1: Workspace */}
+                                <motion.div
+                                    initial={{ opacity: 0, x: -16 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                                    className="relative rounded-2xl overflow-hidden group shadow-md aspect-[4/3]"
+                                >
+                                    <img src="/office2.jpeg"
+                                        alt="Frostrek Workspace"
+                                        className="w-full h-full object-cover block transition-transform duration-700 group-hover:scale-105"
+                                        loading="lazy" width={460} height={346} />
+                                    <div className="absolute inset-0 bg-[#2D6A4F]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                </motion.div>
+
+                                {/* Row 2, Col 2: Meeting / Culture */}
                                 <motion.div
                                     initial={{ opacity: 0, y: 16 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                                    className="relative rounded-2xl overflow-hidden group shadow-md break-inside-avoid"
+                                    className="relative rounded-2xl overflow-hidden group shadow-md aspect-[4/3]"
                                 >
                                     <img src="/office5.jpeg"
                                         alt="Frostrek Culture"
-                                        className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
-                                        loading="lazy" width={512} height={512} />
+                                        className="w-full h-full object-cover block transition-transform duration-700 group-hover:scale-105"
+                                        loading="lazy" width={460} height={346} />
                                     <div className="absolute inset-0 bg-[#2D6A4F]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                 </motion.div>
                             </div>
