@@ -4,6 +4,7 @@ const OurProductsSection = lazy(() => import('../components/home/OurProductsSect
 const AISolutionsShowcase = lazy(() => import('../components/home/AISolutionsShowcase'));
 const WhatWeDoSection = lazy(() => import('../components/home/WhatWeDoSection'));
 const ImpactComparison = lazy(() => import('../components/home/ImpactComparison'));
+const TestimonialsSection = lazy(() => import('../components/home/TestimonialsSection'));
 const FeaturesSection = lazy(() => import('../components/home/FeaturesSection'));
 
 import SEO from '../components/seo/SEO';
@@ -161,10 +162,13 @@ const Home = () => {
         {/* 3. What We Do */}
         <WhatWeDoSection />
 
-        {/* 4. Impact Comparison */}
+        {/* 4. What our customers says (Testimonials) */}
+        <TestimonialsSection />
+
+        {/* 5. Impact Comparison (AI-Driven Outcomes We Deliver) */}
         <ImpactComparison />
 
-        {/* 5. Answer Alignment / Visually Hidden FAQ for SEO */}
+        {/* Answer Alignment / Visually Hidden FAQ for SEO */}
         <div className="sr-only">
           <h2>Frequently Asked Questions</h2>
           <dl>
