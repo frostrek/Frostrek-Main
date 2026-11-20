@@ -1,10 +1,37 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Sparkles, MapPin, ExternalLink } from 'lucide-react';
-import { NAV_ITEMS, COMPANY_INFO } from '../../utils/constants';
+import { Sparkles, MapPin, ExternalLink, Phone, Mail, ShieldCheck, Award } from 'lucide-react';
+import { COMPANY_INFO } from '../../utils/constants';
 import FlipText from '../ui/FlipText';
 
+const PRODUCTS_LINKS = [
+  { name: 'Frosty Agent', href: '/products/frosty-agent' },
+  { name: 'VettEdge', href: '/products/vettedge' },
+  { name: 'Vedashi Herbals', href: '/products/vedashi-ecommerce' },
+  { name: 'Hiring', href: '/products/hiyring' },
+];
 
+const SOLUTIONS_LINKS = [
+  { name: 'AI Agents', href: '/solutions/ai-agents' },
+  { name: 'AI Consulting & Roadmap', href: '/solutions/ai-consulting' },
+  { name: 'Custom Software & AI', href: '/solutions/custom-software-ai-integration' },
+  { name: 'Manufacturing Intelligence', href: '/solutions/manufacturing-intelligence' },
+  { name: 'Voice AI', href: '/solutions/voice-ai' },
+  { name: 'LLM Model Training', href: '/solutions/llm-model-training' },
+  { name: 'LLM Evaluation & RLHF', href: '/solutions/llm-evaluation-rlhf' },
+  { name: 'Managed AI Workforce', href: '/solutions/managed-ai-workforce' },
+  { name: 'AI Visibility (SEO, AEO & GEO)', href: '/solutions/ai-visibility' },
+];
+
+const COMPANY_LINKS = [
+  { name: 'About Us', href: '/about' },
+  { name: 'Experience', href: '/experience' },
+  { name: 'Case Studies', href: '/resources/case-studies' },
+  { name: 'Blog', href: '/resources/blog' },
+  { name: 'FAQ', href: '/resources/faq' },
+  { name: 'Schedule Demo', href: '/schedule-demo' },
+  { name: 'Contact', href: '/contact' },
+];
 
 const Footer = () => {
   const location = useLocation();
@@ -12,7 +39,6 @@ const Footer = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   const footerRef = useRef<HTMLDivElement>(null);
-  const locationRef = useRef<HTMLDivElement>(null);
 
   // Intersection Observer for footer reveal
   useEffect(() => {
@@ -40,24 +66,14 @@ const Footer = () => {
     <>
       <style>{`
         @keyframes footerReveal { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes underlineExpand { from { width: 0; } to { width: 100%; } }
-        @keyframes linkFadeIn { from { opacity: 0; transform: translateX(-4px); } to { opacity: 1; transform: translateX(0); } }
-        @keyframes networkPulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 0.6; } }
-
         .footer-revealed { animation: footerReveal 300ms ease-out forwards; }
-        .section-title { position: relative; display: inline-block; }
-        .section-title::after { content: ''; position: absolute; bottom: -4px; left: 0; height: 2px; background: #2D6A4F; width: 0; }
-        .footer-revealed .section-title::after { animation: underlineExpand 400ms ease-out 150ms forwards; }
-        .footer-link { position: relative; display: inline-block; transition: color 150ms ease-out; }
-        .footer-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 100%; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform 200ms ease-out; }
-        .footer-link:hover::after { transform: scaleX(1); }
-        .footer-revealed .footer-link { animation: linkFadeIn 300ms ease-out forwards; }
         
         .careers-card { transition: all 300ms ease-out; }
         .careers-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(45,106,79,0.06); }
         .careers-card:active { transform: translateY(2px); }
         .careers-icon { transition: opacity 200ms ease-out; }
         .careers-card:hover .careers-icon { opacity: 1; }
+        @keyframes networkPulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 0.6; } }
         .network-node { animation: networkPulse 3s ease-in-out infinite; }
         .network-node:nth-child(1) { animation-delay: 0s; }
         .network-node:nth-child(2) { animation-delay: 0.6s; }
@@ -100,7 +116,7 @@ const Footer = () => {
                   </div>
                   <div className="flex-shrink-0 mt-4 md:mt-0">
                     <div className="w-14 h-14 rounded-full flex items-center justify-center bg-brand-badge-bg text-[#2D6A4F] font-bold text-2xl border border-[#c4e0d4]/50 shadow-sm">
-                      →
+                      &rarr;
                     </div>
                   </div>
                 </div>
@@ -110,143 +126,210 @@ const Footer = () => {
         </div>
       )}
 
-      {/* Footer */}
+      {/* Main Footer Container */}
       <footer
         ref={footerRef}
-        className={`border-t pt-8 pb-4 transition-colors duration-300 font-sans ${isVisible ? 'footer-revealed' : 'opacity-0'} bg-[#F8FAF9] border-[#E6EFE6]`}
+        className={`border-t border-[#E6EFE6] bg-white transition-opacity duration-300 font-sans ${isVisible ? 'footer-revealed' : 'opacity-0'}`}
       >
-        <div className="container mx-auto px-4 md:px-6 max-w-[1400px]">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 mb-6">
-            {/* Brand & Info (Left - Uses 3/12 cols) */}
-            <div className="lg:col-span-3 space-y-6">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-8 py-12 lg:py-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-0">
+            
+            {/* ─── Column 1: Brand & Contact Info (3/12 cols) ─── */}
+            <div className="lg:col-span-3 lg:pr-8 lg:border-r border-gray-200/80 flex flex-col justify-between space-y-6">
               <div className="space-y-4">
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-3 group">
-                  <Link to="/" className="flex items-center gap-1">
-                    <img src="/logonew.png"
-                      alt="Frostrek AI Logo"
-                      className="h-9 w-auto transition-transform group-hover:scale-110" loading="lazy" width={512} height={512} />
-                    <FlipText className="text-[1.35rem] font-black font-sans font-bold text-black">
-                      frostrek
-                    </FlipText>
-                  </Link>
-                </div>
+                {/* Brand Logo */}
+                <Link to="/" className="inline-flex items-center gap-1.5 group">
+                  <img
+                    src="/logonew.png"
+                    alt="Frostrek AI Logo"
+                    className="h-8 sm:h-9 w-auto transition-transform group-hover:scale-105"
+                    loading="lazy"
+                    width={512}
+                    height={512}
+                  />
+                  <FlipText className="text-[1.35rem] sm:text-[1.45rem] font-bold font-sans text-gray-900 tracking-tight">
+                    frostrek
+                  </FlipText>
+                </Link>
 
+                {/* Subtitle Tagline */}
+                <p className="text-[12px] sm:text-[12.5px] font-medium text-gray-500 tracking-tight">
+                  AI Data &bull; AI Agents &bull; Automation
+                </p>
 
-
-                <div className="pt-0 flex flex-col gap-1 text-[13px] text-gray-500 font-medium" itemScope itemType="https://schema.org/LocalBusiness">
-                  <span itemProp="name" className="sr-only">Frostrek AI</span>
-                  <div className="flex items-start gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 flex-shrink-0"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg>
-                    <span itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
-                      <span itemProp="streetAddress">4th Floor, Jmd Empire, 455, Golf Course Ext Rd,</span><br />
-                      <span itemProp="streetAddress">Sector 62,</span> <span itemProp="addressLocality">Gurugram</span>, <span itemProp="addressRegion">Haryana</span> <span itemProp="postalCode">122102</span>, <span itemProp="addressCountry">India</span>
+                {/* Contact List */}
+                <div className="space-y-3 pt-2 text-[12.5px] text-gray-600 leading-snug">
+                  {/* Address */}
+                  <div className="flex items-start gap-2.5">
+                    <MapPin className="w-4 h-4 text-[#2D6A4F] shrink-0 mt-0.5" />
+                    <span>
+                      4th Floor, JMD Empire, 455, Golf Course Ext Rd, Sector 62, Gurugram, Haryana 122102, India
                     </span>
                   </div>
-                  <div className="flex items-center gap-2 mt-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
-                    <span itemProp="telephone">+91 6399999955</span>
+
+                  {/* Phone */}
+                  <div className="flex items-center gap-2.5">
+                    <Phone className="w-4 h-4 text-[#2D6A4F] shrink-0" />
+                    <a href="tel:+916399999955" className="hover:text-[#2D6A4F] transition-colors font-medium">
+                      +91 6399999955
+                    </a>
                   </div>
-                  <div className="flex items-center gap-2 mt-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
-                    <a href={`mailto:${COMPANY_INFO.contact}`} className="hover:text-[#2D6A4F] transition-colors">{COMPANY_INFO.contact}</a>
+
+                  {/* Email */}
+                  <div className="flex items-center gap-2.5">
+                    <Mail className="w-4 h-4 text-[#2D6A4F] shrink-0" />
+                    <a href={`mailto:${COMPANY_INFO.contact}`} className="hover:text-[#2D6A4F] transition-colors font-medium">
+                      {COMPANY_INFO.contact}
+                    </a>
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col w-full max-w-[340px] space-y-8">
-                {/* Social Icons */}
-                <div className="flex items-center justify-between w-full">
-                  <a href={COMPANY_INFO.socials.linkedin} target="_blank" rel="noopener noreferrer" aria-label="Visit our LinkedIn page" className="w-10 h-10 rounded-full flex items-center justify-center transition-all text-[#2D6A4F] hover:-translate-y-1"><img src="/linkedin.png" alt="Linkedin" className="w-6 h-6 object-contain transition-all hover:scale-110" loading="lazy" width={512} height={512} /></a>
-                  <a href={COMPANY_INFO.socials.instagram} target="_blank" rel="noopener noreferrer" aria-label="Visit our Instagram page" className="w-10 h-10 rounded-full flex items-center justify-center transition-all text-[#2D6A4F] hover:-translate-y-1"><img src="/instagram.png" alt="Instagram" className="w-6 h-6 object-contain transition-all hover:scale-110" loading="lazy" width={512} height={512} /></a>
-                  <a href={COMPANY_INFO.socials.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp" className="w-10 h-10 rounded-full flex items-center justify-center transition-all text-[#2D6A4F] hover:-translate-y-1"><img src="/whatsapp.png" alt="WhatsApp" className="w-6 h-6 object-contain transition-all hover:scale-110" loading="lazy" width={512} height={512} /></a>
-                  <a href={`mailto:${COMPANY_INFO.contact}`} aria-label="Send us an email" className="w-10 h-10 rounded-full flex items-center justify-center transition-all text-[#2D6A4F] hover:-translate-y-1"><img src="/gmail.png" alt="Gmail" className="w-8 h-8 object-contain transition-all hover:scale-110" loading="lazy" width={512} height={512} /></a>
-                  <a href={COMPANY_INFO.socials.facebook} target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook page" className="w-10 h-10 rounded-full flex items-center justify-center transition-all hover:-translate-y-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" className="transition-all hover:scale-110">
-                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#1877F2" />
-                      <path d="M16.671 15.542l.532-3.469h-3.328v-2.25c0-.949.465-1.874 1.956-1.874h1.514V5.006s-1.375-.235-2.686-.235c-2.741 0-4.533 1.662-4.533 4.669v2.633H7.078v3.469h3.047v8.385a12.09 12.09 0 003.75 0v-8.385h2.796z" fill="#FFF" />
-                    </svg>
-                  </a>
-                  <a href={COMPANY_INFO.socials.youtube} target="_blank" rel="noopener noreferrer" aria-label="Visit our YouTube channel" className="w-10 h-10 rounded-full flex items-center justify-center transition-all hover:-translate-y-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" className="transition-all hover:scale-110">
-                      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z" fill="#FF0000" />
-                      <path d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="#FFF" />
-                    </svg>
-                  </a>
-                </div>
 
-                {/* Certifications and Compliance Logos */}
-                <div className="flex items-center gap-6">
-                  <img src="/images/ISO 27001.png" alt="ISO 27001:2022 certified — information security management" width={38} height={38} className="h-[38px] w-auto object-contain mix-blend-multiply drop-shadow-sm hover:scale-105 transition-transform" loading="lazy" />
-                  <img src="/images/ISO_9001-2015.svg.webp" alt="ISO 9001:2015 certified — quality management systems" width={37} height={34} className="h-[34px] w-auto object-contain mix-blend-multiply drop-shadow-sm hover:scale-105 transition-transform" loading="lazy" />
-                </div>
+              {/* Social Icons (Neat rounded square cards) */}
+              <div className="flex items-center gap-2.5 pt-2">
+                <a
+                  href={COMPANY_INFO.socials.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Visit our LinkedIn page"
+                  className="w-9 h-9 rounded-lg border border-gray-200 bg-white hover:border-[#2D6A4F]/50 hover:bg-[#F4F9F6] flex items-center justify-center transition-all hover:-translate-y-0.5 shadow-2xs"
+                >
+                  <img src="/linkedin.png" alt="LinkedIn" className="w-4 h-4 object-contain" loading="lazy" width={32} height={32} />
+                </a>
+
+                <a
+                  href={COMPANY_INFO.socials.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Visit our Instagram page"
+                  className="w-9 h-9 rounded-lg border border-gray-200 bg-white hover:border-[#2D6A4F]/50 hover:bg-[#F4F9F6] flex items-center justify-center transition-all hover:-translate-y-0.5 shadow-2xs"
+                >
+                  <img src="/instagram.png" alt="Instagram" className="w-4 h-4 object-contain" loading="lazy" width={32} height={32} />
+                </a>
+
+                <a
+                  href={COMPANY_INFO.socials.youtube}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Visit our YouTube channel"
+                  className="w-9 h-9 rounded-lg border border-gray-200 bg-white hover:border-[#2D6A4F]/50 hover:bg-[#F4F9F6] flex items-center justify-center transition-all hover:-translate-y-0.5 shadow-2xs"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z" fill="#FF0000" />
+                    <path d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="#FFF" />
+                  </svg>
+                </a>
+
+                <a
+                  href={COMPANY_INFO.socials.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Visit our Facebook page"
+                  className="w-9 h-9 rounded-lg border border-gray-200 bg-white hover:border-[#2D6A4F]/50 hover:bg-[#F4F9F6] flex items-center justify-center transition-all hover:-translate-y-0.5 shadow-2xs"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#1877F2" />
+                    <path d="M16.671 15.542l.532-3.469h-3.328v-2.25c0-.949.465-1.874 1.956-1.874h1.514V5.006s-1.375-.235-2.686-.235c-2.741 0-4.533 1.662-4.533 4.669v2.633H7.078v3.469h3.047v8.385a12.09 12.09 0 003.75 0v-8.385h2.796z" fill="#FFF" />
+                  </svg>
+                </a>
               </div>
             </div>
 
-            {/* Links (Right - Uses 9/12 cols) */}
-            <div className="lg:col-span-9 grid grid-cols-2 md:grid-cols-4 gap-8">
-              {/* Products */}
-              <div className="space-y-4">
-                <h3 className="section-title font-bold text-xs uppercase tracking-widest text-[#2D6A4F]">Products</h3>
-                <ul className="space-y-1.5">
-                  {NAV_ITEMS.find(n => n.label === 'Products')?.megaMenu?.flatMap(s => s.items).slice(0, 7).map(item => (
-                    <li key={item.name}>
-                      <Link to={item.href} className="footer-link text-[13px] font-medium text-gray-500 hover:text-[#2D6A4F] group">
-                        <FlipText>{item.name}</FlipText>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+            {/* ─── Column 2: Products (2/12 cols) ─── */}
+            <div className="lg:col-span-2 lg:px-8 lg:border-r border-gray-200/80">
+              <div>
+                <h3 className="font-bold text-[15px] sm:text-base text-[#164E38] tracking-tight">
+                  Products
+                </h3>
+                <div className="w-8 h-[2.5px] bg-[#2D6A4F] mt-1.5 mb-5 rounded-full" />
+              </div>
+              <ul className="space-y-2.5">
+                {PRODUCTS_LINKS.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      to={item.href}
+                      className="text-[13px] sm:text-[13.5px] font-medium text-gray-600 hover:text-[#2D6A4F] transition-colors leading-relaxed block"
+                    >
+                      <FlipText>{item.name}</FlipText>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* ─── Column 3: Solutions (3/12 cols) ─── */}
+            <div className="lg:col-span-3 lg:px-8 lg:border-r border-gray-200/80">
+              <div>
+                <h3 className="font-bold text-[15px] sm:text-base text-[#164E38] tracking-tight">
+                  Solutions
+                </h3>
+                <div className="w-8 h-[2.5px] bg-[#2D6A4F] mt-1.5 mb-5 rounded-full" />
+              </div>
+              <ul className="space-y-2.5">
+                {SOLUTIONS_LINKS.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      to={item.href}
+                      className="text-[13px] sm:text-[13.5px] font-medium text-gray-600 hover:text-[#2D6A4F] transition-colors leading-relaxed block"
+                    >
+                      <FlipText>{item.name}</FlipText>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* ─── Column 4: Company (2/12 cols) ─── */}
+            <div className="lg:col-span-2 lg:px-8 lg:border-r border-gray-200/80">
+              <div>
+                <h3 className="font-bold text-[15px] sm:text-base text-[#164E38] tracking-tight">
+                  Company
+                </h3>
+                <div className="w-8 h-[2.5px] bg-[#2D6A4F] mt-1.5 mb-5 rounded-full" />
+              </div>
+              <ul className="space-y-2.5">
+                {COMPANY_LINKS.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      to={item.href}
+                      className="text-[13px] sm:text-[13.5px] font-medium text-gray-600 hover:text-[#2D6A4F] transition-colors leading-relaxed block"
+                    >
+                      <FlipText>{item.name}</FlipText>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* ─── Column 5: Location / Map Card (2/12 cols) ─── */}
+            <div className="lg:col-span-2 lg:pl-8">
+              <div>
+                <h3 className="font-bold text-[15px] sm:text-base text-[#164E38] tracking-tight">
+                  Location
+                </h3>
+                <div className="w-8 h-[2.5px] bg-[#2D6A4F] mt-1.5 mb-5 rounded-full" />
               </div>
 
-              {/* Solutions */}
-              <div className="space-y-4">
-                <h3 className="section-title font-bold text-xs uppercase tracking-widest text-[#2D6A4F]">Solutions</h3>
-                <ul className="space-y-1.5">
-                  {NAV_ITEMS.find(n => n.label === 'Solutions')?.megaMenu?.flatMap(s => s.items).map(item => (
-                    <li key={item.name}>
-                      <Link to={item.href} className="footer-link text-[13px] font-medium text-gray-500 hover:text-[#2D6A4F] group">
-                        <FlipText>{item.name}</FlipText>
-                      </Link>
-                    </li>
-                  ))}
-
-                </ul>
-              </div>
-
-              {/* Company */}
-              <div className="space-y-4">
-                <h3 className="section-title font-bold text-xs uppercase tracking-widest text-[#2D6A4F]">Company</h3>
-                <ul className="space-y-1.5">
-                  <li><Link to="/about" className="footer-link text-[13px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>About Us</FlipText></Link></li>
-                  <li><Link to="/experience" className="footer-link text-[13px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>Experience</FlipText></Link></li>
-                  <li><Link to="/resources/case-studies" className="footer-link text-[13px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>Case Studies</FlipText></Link></li>
-                  <li><Link to="/resources/blog" className="footer-link text-[13px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>Blog</FlipText></Link></li>
-                  <li><Link to="/resources/faq" className="footer-link text-[13px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>FAQ</FlipText></Link></li>
-                  <li><Link to="/schedule-demo" className="footer-link text-[13px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>Schedule Demo</FlipText></Link></li>
-                  <li><Link to="/contact" className="footer-link text-[13px] font-medium text-gray-500 hover:text-[#2D6A4F] group"><FlipText>Contact</FlipText></Link></li>
-                </ul>
-              </div>
-
-              {/* Connect (Map only) */}
-              <div className="space-y-4">
-                <h3 className="font-bold text-xs uppercase tracking-widest text-[#2D6A4F]">Location</h3>
-
-                {/* Interactive Static Map Preview */}
+              {/* Map Preview Card Container */}
+              <div className="w-full max-w-[240px] rounded-2xl border border-gray-200/90 bg-white p-2.5 shadow-xs">
+                {/* Stylized Vector Map Preview */}
                 <div
-                  ref={locationRef}
                   onClick={handleLocationClick}
                   role="button"
                   tabIndex={0}
                   onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') handleLocationClick(); }}
                   aria-label="Open Frostrek AI office location in Google Maps"
-                  className="relative w-full h-40 md:h-48 rounded-2xl overflow-hidden shadow-sm border border-[#E6EFE6] bg-[#F4F8F6] hover:shadow-md cursor-pointer transition-all duration-300 group hover:border-[#2D6A4F]/30 select-none"
+                  className="relative w-full h-28 rounded-xl overflow-hidden cursor-pointer group bg-[#EDF5F0] border border-gray-100 select-none"
                 >
-                  {/* Stylized Vector Map Background */}
-                  <svg className="absolute inset-0 w-full h-full object-cover opacity-65 group-hover:opacity-85 transition-opacity duration-300" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-                    {/* Area shading */}
+                  <svg
+                    className="absolute inset-0 w-full h-full object-cover opacity-75 group-hover:opacity-90 transition-opacity duration-300"
+                    viewBox="0 0 400 200"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    preserveAspectRatio="xMidYMid slice"
+                  >
                     <rect width="400" height="200" fill="#EDF5F0" />
                     <path d="M-20 60 C80 90, 160 30, 240 70 C320 110, 380 40, 420 80 L420 220 L-20 220 Z" fill="#E2EEE6" />
-
-                    {/* Road Network Lines */}
                     <path d="M-10 40 L410 160" stroke="#CBDED4" strokeWidth="6" strokeLinecap="round" />
                     <path d="M120 -10 L190 210" stroke="#CBDED4" strokeWidth="8" strokeLinecap="round" />
                     <path d="M-10 130 L410 70" stroke="#DAEAE1" strokeWidth="4" />
@@ -255,48 +338,81 @@ const Footer = () => {
                     <path d="M-10 95 L410 115" stroke="#FFFFFF" strokeWidth="3" strokeDasharray="4 4" />
                     <path d="M185 -10 L185 210" stroke="#FFFFFF" strokeWidth="2" />
                     <path d="M-10 160 Q 150 140 280 180 T 410 130" stroke="#CBDED4" strokeWidth="5" fill="none" />
-
-                    {/* Landmark building blocks */}
                     <rect x="140" y="70" width="35" height="25" rx="3" fill="#B7D9C7" fillOpacity="0.6" />
                     <rect x="210" y="55" width="28" height="40" rx="3" fill="#B7D9C7" fillOpacity="0.6" />
                     <rect x="150" y="110" width="45" height="30" rx="3" fill="#B7D9C7" fillOpacity="0.5" />
                   </svg>
 
-                  {/* Pulsing Pin Marker */}
+                  {/* Pulsing Center Map Pin */}
                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none">
-                    <span className="absolute w-12 h-12 rounded-full bg-[#2D6A4F]/20 animate-ping" />
-                    <span className="absolute w-7 h-7 rounded-full bg-[#2D6A4F]/30" />
-                    <div className="relative z-10 w-9 h-9 rounded-full bg-[#2D6A4F] text-white flex items-center justify-center shadow-lg shadow-[#2D6A4F]/40 transform group-hover:scale-110 transition-transform duration-300">
-                      <MapPin size={18} className="text-white fill-white" />
-                    </div>
-                  </div>
-
-                  {/* Hover "Open in Maps" overlay indicator */}
-                  <div className="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                    <span className="inline-flex items-center gap-1 text-[10px] font-bold text-white bg-[#2D6A4F] px-2 py-1 rounded-md shadow-md">
-                      Open Map <ExternalLink size={10} />
-                    </span>
-                  </div>
-
-                  {/* Address Badge */}
-                  <div className="absolute bottom-3 left-3 z-[400]">
-                    <div className="px-3 py-1.5 rounded-lg shadow-sm backdrop-blur-md bg-white/95 border border-[#E6EFE6] text-[#2D6A4F] flex flex-col gap-0.5 group-hover:border-[#2D6A4F]/30 transition-colors">
-                      <div className="flex items-center gap-1.5">
-                        <MapPin size={12} className="text-[#336B55]" />
-                        <span className="text-[11px] font-bold">JMD Empire, Sector 62</span>
-                      </div>
+                    <span className="absolute w-8 h-8 rounded-full bg-[#2D6A4F]/25 animate-ping" />
+                    <div className="relative z-10 w-7 h-7 rounded-full bg-[#2D6A4F] text-white flex items-center justify-center shadow-md transform group-hover:scale-110 transition-transform">
+                      <MapPin size={14} className="text-white fill-white" />
                     </div>
                   </div>
                 </div>
+
+                {/* Location text label */}
+                <div className="mt-2.5 px-1 flex items-start gap-1.5">
+                  <MapPin className="w-3.5 h-3.5 text-[#2D6A4F] shrink-0 mt-0.5" />
+                  <div className="text-[11px] leading-tight text-gray-700">
+                    <div className="font-bold text-gray-900">JMD Empire, Sector 62</div>
+                    <div className="text-gray-500 text-[10px] mt-0.5">Gurugram, Haryana 122102</div>
+                  </div>
+                </div>
+
+                {/* View on Google Maps button */}
+                <button
+                  onClick={handleLocationClick}
+                  className="w-full mt-2.5 py-1.5 px-3 rounded-lg border border-[#2D6A4F]/40 bg-[#F4F9F6] hover:bg-[#E8F3EE] text-[#2D6A4F] text-[11px] font-bold flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+                >
+                  <ExternalLink size={12} />
+                  <span>View on Google Maps</span>
+                </button>
               </div>
             </div>
-          </div>
 
-          <div className="text-center pt-4 border-t border-[#E6EFE6] text-sm font-medium text-gray-400">
-            &copy; {currentYear} {COMPANY_INFO.name}. All rights reserved.
           </div>
         </div>
-      </footer >
+
+        {/* ─── Frostrek Green Bottom Strip ─── */}
+        <div className="bg-[#0C452C] text-white text-xs md:text-[13px] font-medium py-3.5 px-4 md:px-8 border-t border-[#093522]">
+          <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            
+            {/* Left: ISO Markings */}
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4 text-emerald-300" />
+                <span className="font-semibold text-white tracking-wide">ISO 27001</span>
+              </div>
+              <span className="text-white/40">|</span>
+              <div className="flex items-center gap-1.5">
+                <Award className="w-4 h-4 text-emerald-300" />
+                <span className="font-semibold text-white tracking-wide">ISO 9001</span>
+              </div>
+            </div>
+
+            {/* Center: Copyright */}
+            <div className="flex items-center gap-3 text-white/90">
+              <span className="text-white/40 hidden md:inline">|</span>
+              <span>&copy; {currentYear} Frostrek AI. All rights reserved.</span>
+              <span className="text-white/40 hidden md:inline">|</span>
+            </div>
+
+            {/* Right: Legal Links */}
+            <div className="flex items-center gap-3 text-white/90">
+              <Link to="/contact" className="hover:text-white transition-colors">
+                Privacy Policy
+              </Link>
+              <span className="text-white/40">|</span>
+              <Link to="/contact" className="hover:text-white transition-colors">
+                Terms & Conditions
+              </Link>
+            </div>
+
+          </div>
+        </div>
+      </footer>
     </>
   );
 };
