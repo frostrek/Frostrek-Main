@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
     CheckCircle2,
@@ -460,6 +461,12 @@ export default function AuditPage() {
 
                                         <p className="text-[10px] text-center text-gray-400 mt-2">
                                             Preliminary review snapshot • Zero cost • No unpromised SLA
+                                        </p>
+                                        <p className="text-[10px] text-center text-gray-400 mt-1">
+                                            By submitting, you agree to our{' '}
+                                            <Link to="/privacy-policy" className="underline hover:text-[#2D6A4F] text-gray-500 transition-colors">
+                                                Privacy Policy
+                                            </Link>.
                                         </p>
                                     </form>
                                 </>

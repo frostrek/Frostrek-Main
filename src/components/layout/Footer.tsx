@@ -376,10 +376,10 @@ const Footer = () => {
 
         {/* ─── Frostrek Green Bottom Strip ─── */}
         <div className="bg-[#2D6A4F] text-white text-xs md:text-[13px] font-medium py-3.5 px-4 md:px-8 border-t border-[#235840]">
-          <div className="max-w-[1400px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row items-center justify-between gap-3 md:gap-4 text-center md:text-left">
             
             {/* Left: ISO Markings */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center justify-center md:justify-start gap-3 md:w-1/3">
               <div className="flex items-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 text-emerald-300" />
                 <span className="font-semibold text-white tracking-wide">ISO 27001</span>
@@ -391,9 +391,20 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Copyright */}
-            <div className="text-white/90">
+            {/* Center: Copyright */}
+            <div className="text-white md:w-1/3 text-center font-medium">
               &copy; {currentYear} Frostrek AI. All rights reserved.
+            </div>
+
+            {/* Right: Legal Links */}
+            <div className="flex items-center justify-center md:justify-end gap-3 text-white md:w-1/3 font-medium">
+              <Link to="/privacy-policy" className="text-white hover:underline transition-all">
+                Privacy Policy
+              </Link>
+              <span className="text-white/40">|</span>
+              <Link to="/terms-and-conditions" className="text-white hover:underline transition-all">
+                Terms &amp; Conditions
+              </Link>
             </div>
 
           </div>

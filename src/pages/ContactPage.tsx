@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Send, Check, Loader2, ArrowRight, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 import SEO from '../components/seo/SEO';
@@ -507,7 +508,10 @@ const ContactPage = () => {
 
                                     {/* Privacy Agreement Text */}
                                     <p className="text-xs text-slate-400 leading-relaxed">
-                                        By submitting this form, your information will be processed securely and in strict accordance with our Privacy Policy.
+                                        By submitting this form, your information will be processed securely and in strict accordance with our{' '}
+                                        <Link to="/privacy-policy" className="underline hover:text-[#2D6A4F] text-slate-500 font-medium transition-colors">
+                                            Privacy Policy
+                                        </Link>.
                                     </p>
 
                                     {/* Error Display */}

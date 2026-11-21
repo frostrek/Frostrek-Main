@@ -35,6 +35,8 @@ const LLMModelTrainingPage = lazy(() => import('./pages/LLMModelTrainingPage'));
 const LLMEvaluationRLHFPage = lazy(() => import('./pages/LLMEvaluationRLHFPage'));
 const AIVisibilityPage = lazy(() => import('./pages/AIVisibilityPage'));
 const AuditPage = lazy(() => import('./pages/AuditPage'));
+const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'));
+const TermsAndConditionsPage = lazy(() => import('./pages/TermsAndConditionsPage'));
 import FrostyWidget from './components/chat/FrostyWidget';
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
@@ -88,6 +90,8 @@ function App() {
                   <Route path="/experience" element={<ExperiencePage />} />
                   <Route path="/contact" element={<ContactPage />} />
                   <Route path="/resources/faq" element={<FAQPage />} />
+                  <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+                  <Route path="/terms-and-conditions" element={<TermsAndConditionsPage />} />
                   <Route path="*" element={<NotFoundPage />} />
                 </Routes>
               </Suspense>

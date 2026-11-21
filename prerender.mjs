@@ -34,6 +34,8 @@ const routes = [
   '/resources/faq',
   '/resources/blog',
   '/resources/case-studies',
+  '/privacy-policy',
+  '/terms-and-conditions',
   // Products
   '/products/hiyring',
   '/products/vedashi-ecommerce',
