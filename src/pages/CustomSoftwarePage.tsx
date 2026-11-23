@@ -168,7 +168,7 @@ const FAQS = [
     },
     {
         q: 'How do you address software and data security?',
-        a: 'Security needs are mapped to the systems and information involved. They can include authentication, role-based permissions, logging, secure integration access, test controls and environment-specific deployment checks. No certification or security outcome is guaranteed in this draft.'
+        a: 'Security needs are mapped to the systems and information involved. They can include authentication, role-based permissions, logging, secure integration access, test controls and environment-specific deployment checks. No certification or security outcome is guaranteed.'
     },
     {
         q: 'Do you maintain software after it is launched?',
@@ -412,7 +412,7 @@ export default function CustomSoftwarePage() {
 
                 <div className="container mx-auto px-4 md:px-6 relative z-10 text-center max-w-[1200px]">
                     <div className="flex flex-col items-center max-w-4xl mx-auto">
-                        
+
                         {/* Eyebrow badge */}
                         <div className="software-hero-el inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-sm border border-[#2D6A4F]/15 shadow-xs mb-4">
                             <div className="w-2 h-2 rounded-full bg-[#2D6A4F] animate-pulse" aria-hidden="true" />
@@ -724,9 +724,8 @@ export default function CustomSoftwarePage() {
                                         whileInView={{ opacity: 1, y: 0 }}
                                         viewport={{ once: true }}
                                         transition={{ duration: 0.35, delay: (idx % 6) * 0.04 }}
-                                        className={`rounded-2xl border transition-all duration-500 bg-white group ${theme.border} ${theme.hoverBorder} ${
-                                            isOpen ? `${theme.activeBorder} ${theme.shadow}` : 'hover:shadow-lg'
-                                        }`}
+                                        className={`rounded-2xl border transition-all duration-500 bg-white group ${theme.border} ${theme.hoverBorder} ${isOpen ? `${theme.activeBorder} ${theme.shadow}` : 'hover:shadow-lg'
+                                            }`}
                                         itemScope
                                         itemProp="mainEntity"
                                         itemType="https://schema.org/Question"
@@ -743,20 +742,18 @@ export default function CustomSoftwarePage() {
                                                     {String(themeIndex + 1).padStart(2, '0')}
                                                 </span>
                                                 <span
-                                                    className={`font-serif text-[18px] sm:text-[20px] font-medium transition-colors duration-300 ${
-                                                        isOpen ? theme.activeQuestionText : theme.questionText
-                                                    }`}
+                                                    className={`font-serif text-[18px] sm:text-[20px] font-medium transition-colors duration-300 ${isOpen ? theme.activeQuestionText : theme.questionText
+                                                        }`}
                                                     itemProp="name"
                                                 >
                                                     {faq.q}
                                                 </span>
                                             </div>
                                             <div
-                                                className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-500 border ${
-                                                    isOpen
+                                                className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-500 border ${isOpen
                                                         ? `${theme.iconBgActive} ${theme.iconTextActive} border-transparent rotate-180 shadow-md`
                                                         : `${theme.iconBgInactive} ${theme.iconTextInactive} ${theme.iconBorderInactive}`
-                                                }`}
+                                                    }`}
                                                 aria-hidden="true"
                                             >
                                                 {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
