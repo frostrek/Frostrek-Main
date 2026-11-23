@@ -129,6 +129,21 @@ export default function AuditPage() {
         setError('');
         setLoading(true);
 
+        const nameParts = formData.contact_name.trim().split(/\s+/);
+        const firstName = nameParts[0] || 'Visitor';
+        const lastName = nameParts.slice(1).join(' ') || firstName;
+
+        const auditSummary = [
+            `Audit Request Details:`,
+            `• Website URL: ${formData.website_url}`,
+            `• Business Name: ${formData.business_name}`,
+            `• Contact Name: ${formData.contact_name}`,
+            `• Target Market: ${formData.target_market}`,
+            `• Business Type: ${formData.business_type}`,
+            `• Top Priority: ${formData.top_priority}`,
+            formData.top_competitors ? `• Top Competitors: ${formData.top_competitors}` : null
+        ].filter(Boolean).join('\n');
+
         try {
             const response = await fetch('/api/contact.php', {
                 method: 'POST',
@@ -137,11 +152,20 @@ export default function AuditPage() {
                 },
                 body: JSON.stringify({
                     source: 'SEO_GEO_AEO_FREE_AUDIT',
+                    firstName,
+                    lastName,
+                    contact_name: formData.contact_name,
+                    company: formData.business_name,
                     business_name: formData.business_name,
                     website_url: formData.website_url,
-                    contact_name: formData.contact_name,
                     workEmail: formData.business_email,
-                    projectDetails: 'Audit Request: ' + formData.top_priority
+                    business_email: formData.business_email,
+                    target_market: formData.target_market,
+                    business_type: formData.business_type,
+                    top_priority: formData.top_priority,
+                    top_competitors: formData.top_competitors,
+                    reachType: 'SEO & AI Visibility Audit',
+                    projectDetails: auditSummary
                 }),
             });
 
@@ -156,9 +180,10 @@ export default function AuditPage() {
                 business_type: formData.business_type
             });
             setSubmitted(true);
-        } catch (err) {
+        } catch (err: unknown) {
             console.error('Audit submission error:', err);
-            setError('Failed to submit audit request. Please try again later.');
+            const errorMessage = err instanceof Error && err.message ? err.message : 'Failed to submit audit request. Please try again later.';
+            setError(errorMessage);
         } finally {
             setLoading(false);
         }

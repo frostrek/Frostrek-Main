@@ -34,6 +34,7 @@ const VoiceAIPage = lazy(() => import('./pages/VoiceAIPage'));
 const LLMModelTrainingPage = lazy(() => import('./pages/LLMModelTrainingPage'));
 const LLMEvaluationRLHFPage = lazy(() => import('./pages/LLMEvaluationRLHFPage'));
 const AIVisibilityPage = lazy(() => import('./pages/AIVisibilityPage'));
+const WebsiteDevelopmentPage = lazy(() => import('./pages/WebsiteDevelopmentPage'));
 const AuditPage = lazy(() => import('./pages/AuditPage'));
 const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'));
 const TermsAndConditionsPage = lazy(() => import('./pages/TermsAndConditionsPage'));
@@ -55,14 +56,14 @@ function App() {
           <Suspense fallback={null}>
             <SmoothScrollProvider />
           </Suspense>
-            <Suspense fallback={null}>
-              <Header />
-            </Suspense>
-            <main className="flex-grow">
-              <ErrorBoundary>
-                <Suspense fallback={<PageLoader />}>
-                  <ScrollToTop />
-                  <Routes>
+          <Suspense fallback={null}>
+            <Header />
+          </Suspense>
+          <main className="flex-grow">
+            <ErrorBoundary>
+              <Suspense fallback={<PageLoader />}>
+                <ScrollToTop />
+                <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/schedule-demo" element={<ScheduleDemo />} />
                   <Route path="/products/hiyring" element={<HiyringPage />} />
@@ -81,6 +82,7 @@ function App() {
                   <Route path="/solutions/llm-model-training" element={<LLMModelTrainingPage />} />
                   <Route path="/solutions/llm-evaluation-rlhf" element={<LLMEvaluationRLHFPage />} />
                   <Route path="/solutions/ai-visibility" element={<AIVisibilityPage />} />
+                  <Route path="/solutions/website-development" element={<WebsiteDevelopmentPage />} />
                   <Route path="/audit" element={<AuditPage />} />
 
                   <Route path="/resources/blog/:slug" element={<BlogPostPage />} />
@@ -95,13 +97,13 @@ function App() {
                   <Route path="*" element={<NotFoundPage />} />
                 </Routes>
               </Suspense>
-              </ErrorBoundary>
-            </main>
-            <Suspense fallback={null}>
-              <Footer />
-              <FrostyWidget />
-            </Suspense>
-          </div>
+            </ErrorBoundary>
+          </main>
+          <Suspense fallback={null}>
+            <Footer />
+            <FrostyWidget />
+          </Suspense>
+        </div>
       </ThemeProvider>
     </Router>
   );

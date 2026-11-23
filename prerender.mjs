@@ -45,6 +45,7 @@ const routes = [
   // Solutions
   '/solutions/ai-consulting',
   '/solutions/custom-software-ai-integration',
+  '/solutions/website-development',
   '/solutions/managed-ai-workforce',
   '/solutions/fintech-custom-wallets',
   '/solutions/multivendor-dashboard',

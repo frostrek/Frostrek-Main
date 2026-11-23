@@ -15,6 +15,8 @@ const SOLUTIONS_LINKS = [
   { name: 'AI Agents', href: '/solutions/ai-agents' },
   { name: 'AI Consulting & Roadmap', href: '/solutions/ai-consulting' },
   { name: 'Custom Software & AI', href: '/solutions/custom-software-ai-integration' },
+  { name: 'Website Design & Development', href: '/solutions/website-development' },
+  { name: 'Fintech & Custom Wallets', href: '/solutions/fintech-custom-wallets' },
   { name: 'Manufacturing Intelligence', href: '/solutions/manufacturing-intelligence' },
   { name: 'Voice AI', href: '/solutions/voice-ai' },
   { name: 'LLM Model Training', href: '/solutions/llm-model-training' },

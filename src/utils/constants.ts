@@ -53,7 +53,8 @@ export const NAV_ITEMS: NavItem[] = [
             {
                 title: '02 DIGITAL INFRASTRUCTURE',
                 items: [
-                    { name: 'Custom Software & AI', href: '/solutions/custom-software-ai-integration', desc: 'Custom apps, dashboards, and CRM/ERP-connected workflows.', icon: '/icons/custom dev.png', hoverBgClass: 'hover:bg-[#F0F9FF]' },
+                    { name: 'Custom Software & AI', href: '/solutions/custom-software-ai-integration', desc: 'Custom apps, dashboards, and CRM/ERP-connected workflows.', icon: '/icons/custom-dev-green.png', hoverBgClass: 'hover:bg-[#F0F9FF]' },
+                    { name: 'Website Design & Development', href: '/solutions/website-development', desc: 'Personal websites, business websites, and high-converting online stores.', icon: '/icons/Web Develop-green.png', hoverBgClass: 'hover:bg-[#F0F9FF]' },
                     { name: 'Fintech & Custom Wallets', href: '/solutions/fintech-custom-wallets', desc: 'Centralised closed-loop digital loyalty currencies to bypass commissions.', icon: '/icons/fintech-yellow.webp', hoverBgClass: 'hover:bg-[#FFFBEB]' },
                     { name: 'Multivendor Dashboard', href: '/solutions/multivendor-dashboard', desc: 'Consolidated automated command center for all your e-commerce channels.', icon: '/icons/multivendor-blue.webp', hoverBgClass: 'hover:bg-[#F0F9FF]' },
                 ],
@@ -63,7 +64,7 @@ export const NAV_ITEMS: NavItem[] = [
                 items: [
                     { name: 'LLM Model Training', href: '/solutions/llm-model-training', desc: 'Custom LLM fine-tuning, RLHF alignment, and RAG for enterprises.', icon: '/icons/machine-learning-green.webp', hoverBgClass: 'hover:bg-[#F0FDF4]' },
                     { name: 'LLM Evaluation & RLHF', href: '/solutions/llm-evaluation-rlhf', desc: 'Enterprise LLM evaluation, RLHF preference ranking, and data QA.', icon: '/icons/ai-green.webp', hoverBgClass: 'hover:bg-[#F0FDF4]' },
-                    { name: 'Managed AI Workforce', href: '/solutions/managed-ai-workforce', desc: 'Managed AI data teams, reviewer onboarding, and QA operations.', icon: '/icons/advisors.png', hoverBgClass: 'hover:bg-[#FFF7ED]' },
+                    { name: 'Managed AI Workforce', href: '/solutions/managed-ai-workforce', desc: 'Managed AI data teams, reviewer onboarding, and QA operations.', icon: '/icons/advisors-green.png', hoverBgClass: 'hover:bg-[#FFF7ED]' },
                     { name: 'AI Visibility (SEO•AEO•GEO)', href: '/solutions/ai-visibility', desc: 'Be found where answers are born — Google, ChatGPT, Perplexity & Gemini.', icon: '/icons/data-analytics-green.png', hoverBgClass: 'hover:bg-[#F0FDF4]' },
                 ],
             },
