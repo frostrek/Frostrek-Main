@@ -179,7 +179,7 @@ const ContactPage = () => {
     ]);
 
     return (
-        <div className="min-h-screen pt-32 pb-16 bg-gradient-to-b from-white via-[#FAFCFB] to-white relative font-body overflow-hidden">
+        <div className="min-h-screen pt-32 pb-28 sm:pb-24 lg:pb-16 bg-gradient-to-b from-white via-[#FAFCFB] to-white relative font-body overflow-hidden">
             <SEO
                 title="Contact Us | Frostrek AI"
                 description="Get in touch with the Frostrek AI team in Gurugram to explore how production-grade AI can transform your enterprise operations."
