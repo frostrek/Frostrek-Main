@@ -312,7 +312,7 @@ const TestimonialsSection = () => {
 
       <div className="container mx-auto px-4 md:px-6 relative z-10 max-w-[1340px]">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          
+
           {/* ──────────────── Left Column: H2 & Subtext ──────────────── */}
           <div className="lg:col-span-5 flex flex-col justify-center">
             {/* Tag Badge */}
@@ -336,9 +336,9 @@ const TestimonialsSection = () => {
                 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3rem] text-[#2D6A4F] leading-[1.12] tracking-[-0.025em]"
                 type="chars"
                 stagger={0.02}
-                once={false}
+                once={true}
               >
-                what our customers says.
+                What Our Customers Say
               </SplitTextReveal>
             </div>
 
@@ -350,14 +350,14 @@ const TestimonialsSection = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-sm sm:text-base text-gray-600 font-sans leading-relaxed"
             >
-              Here our some of our testimonials. From high-growth e-commerce storefronts and custom minimal platforms to game-changing search visibility and strategic enterprise consultations.
+              Here are some of our testimonials. From high-growth e-commerce storefronts and custom minimal platforms to game-changing search visibility and strategic enterprise consultations.
             </motion.p>
           </div>
 
           {/* ──────────────── Right Column: Wireframe Interlocking Scattered Canvas ──────────────── */}
           <div ref={cardsContainerRef} className="lg:col-span-7 relative">
             {/* Mobile View: Snug Single-Column Overlapping Deck (< 640px) */}
-            <div className="sm:hidden flex flex-col -space-y-4 max-w-[340px] mx-auto">
+            <div className="sm:hidden flex flex-col space-y-4 max-w-[340px] mx-auto">
               {TESTIMONIALS.map((testimonial, idx) => {
                 const theme = COLOR_THEMES[testimonial.colorKey];
                 const isPopped = idx < poppedCount;
@@ -403,21 +403,21 @@ const TestimonialsSection = () => {
                     animate={
                       isPopped
                         ? {
-                            scale: isHovered ? 1.05 : 1,
-                            opacity: 1,
-                            y: isHovered ? -8 : 0,
-                            x: posX,
-                            rotate: isHovered ? 0 : pos.rotate,
-                            zIndex: isHovered ? 50 : pos.zIndex,
-                          }
+                          scale: isHovered ? 1.05 : 1,
+                          opacity: 1,
+                          y: isHovered ? -8 : 0,
+                          x: posX,
+                          rotate: isHovered ? 0 : pos.rotate,
+                          zIndex: isHovered ? 50 : pos.zIndex,
+                        }
                         : {
-                            scale: 0,
-                            opacity: 0,
-                            y: 36,
-                            x: posX,
-                            rotate: 0,
-                            zIndex: pos.zIndex,
-                          }
+                          scale: 0,
+                          opacity: 0,
+                          y: 36,
+                          x: posX,
+                          rotate: 0,
+                          zIndex: pos.zIndex,
+                        }
                     }
                     transition={
                       isHovered

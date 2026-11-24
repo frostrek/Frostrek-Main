@@ -43,7 +43,7 @@ const TermsAndConditionsPage = () => {
                         streetAddress: '455, 4th Floor, JMD Empire, Golf Course Extension Road, Sector 62',
                         addressLocality: 'Gurugram',
                         addressRegion: 'Haryana',
-                        postalCode: '122102',
+                        postalCode: '122098',
                         addressCountry: 'IN',
                     },
                 },
@@ -101,7 +101,7 @@ const TermsAndConditionsPage = () => {
                     <p>
                         These terms apply to frostrek.ai, operated by Frostrek LLP (LLPIN AAW-5223), doing business as Frostrek AI.
                         Submitting inquiries or demo requests does not constitute a paid contract. Formal services are governed by separate master service agreements.
-                        Governing law: Republic of India. Registered address: 455, 4th Floor, JMD Empire, Sector 62, Gurugram, Haryana 122102, India.
+                        Governing law: Republic of India. Registered address: 455, 4th Floor, JMD Empire, Sector 62, Gurugram, Haryana 122098, India.
                     </p>
                 </article>
             </div>
@@ -263,7 +263,7 @@ const TermsAndConditionsPage = () => {
                             <MapPin className="w-5 h-5 text-[#2D6A4F] shrink-0 mt-0.5 sm:mt-0" />
                             <div>
                                 <strong className="text-gray-900">Business correspondence address:</strong>{' '}
-                                455, 4th Floor, JMD Empire, Golf Course Extension Road, Sector 62, Gurugram, Haryana 122102, India.
+                                455, 4th Floor, JMD Empire, Golf Course Extension Road, Sector 62, Gurugram, Haryana 122098, India.
                             </div>
                         </div>
                     </section>

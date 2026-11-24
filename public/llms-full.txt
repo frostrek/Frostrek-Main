@@ -76,7 +76,7 @@ We enforce a Zero-Trust architecture across all client deployments.
 - **Name**: Frostrek AI
 - **Founder**: Akash Mittal
 - **Founded**: 2019
-- **Headquarters**: 4th Floor, Jmd Empire, 455, Golf Course Ext Rd, Sector 62, Gurugram, Haryana, 122102, India
+- **Headquarters**: 4th Floor, Jmd Empire, 455, Golf Course Ext Rd, Sector 62, Gurugram, Haryana, 122098, India
 - **Phone**: +91 6399999955
 - **Email**: contact@frostrek.com
 - **Social**: 

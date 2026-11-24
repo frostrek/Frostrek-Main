@@ -398,7 +398,7 @@ const ManufacturingIntelligencePage = () => {
                                 "streetAddress": "4th Floor, Unit No. 455, JMD Empire, Sector 62",
                                 "addressLocality": "Gurugram",
                                 "addressRegion": "Haryana",
-                                "postalCode": "122102",
+                                "postalCode": "122098",
                                 "addressCountry": "IN"
                             }
                         },

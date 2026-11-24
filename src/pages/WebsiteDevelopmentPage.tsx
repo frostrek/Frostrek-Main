@@ -433,7 +433,7 @@ const WebsiteDevelopmentPage = () => {
                         <strong>Vedashi Herbals</strong> (vedashiherbals.com): Supplies Indian herbal products, cosmetics and wellness goods to Russia and South Korea. Frostrek built its cross-border ecommerce storefront, including online product catalogue and tools for managing products and orders.
                     </p>
                     <p>
-                        <strong>Tosmi</strong> (tosmi.ai): AI product website design featuring 3D-inspired website design and website motion design. An immersive product experience crafted for Tosmi’s ecommerce AI agent — combining depth-rich 3D elements, fluid UI animations, and layered visual depth to vividly demonstrate how the agent qualifies leads, automates customer engagement, and accelerates online sales.
+                        <strong>Tosmi</strong> (tosmi.ai): AI product website design featuring 3D-inspired website design and website motion design, combining 3D elements, UI animations, and layered visual presentation for Tosmi’s ecommerce AI platform.
                     </p>
                     <p>
                         <strong>AI Shield</strong> (aishieldos.com): Enterprise AI platform website and strategic portal communicating AI governance and runtime security.
@@ -483,7 +483,7 @@ const WebsiteDevelopmentPage = () => {
                                 streetAddress: '4th Floor, Unit No. 455, JMD Empire, Sector 62',
                                 addressLocality: 'Gurugram',
                                 addressRegion: 'Haryana',
-                                postalCode: '122102',
+                                postalCode: '122098',
                                 addressCountry: 'IN',
                             },
                             contactPoint: {
@@ -970,9 +970,8 @@ const WebsiteDevelopmentPage = () => {
                                     Tosmi — AI Product Website with 3D-Inspired Design
                                 </h3>
                                 <p className="text-sm sm:text-base text-gray-500 leading-relaxed mb-6">
-                                    An immersive product experience crafted for Tosmi’s ecommerce AI agent. Combining depth-rich 3D elements, fluid UI animations, and layered visual storytelling, the website vividly brings the agent’s core workflow to life. Elaborating exactly how it qualifies leads, automates customer engagement, and drives sales.
+                                    An immersive product experience crafted for Tosmi’s ecommerce AI platform, combining 3D elements, fluid UI animations, and layered visual storytelling.
                                 </p>
-
                                 <div className="flex flex-wrap items-center gap-3">
                                     <a
                                         href="https://tosmi.ai/"
@@ -1252,8 +1251,8 @@ const WebsiteDevelopmentPage = () => {
                                             </div>
                                             <div
                                                 className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-500 border ${isOpen
-                                                        ? `${theme.iconBgActive} ${theme.iconTextActive} border-transparent rotate-180 shadow-md`
-                                                        : `${theme.iconBgInactive} ${theme.iconTextInactive} ${theme.iconBorderInactive}`
+                                                    ? `${theme.iconBgActive} ${theme.iconTextActive} border-transparent rotate-180 shadow-md`
+                                                    : `${theme.iconBgInactive} ${theme.iconTextInactive} ${theme.iconBorderInactive}`
                                                     }`}
                                             >
                                                 {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}

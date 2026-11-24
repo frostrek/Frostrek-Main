@@ -58,7 +58,7 @@ const graphSchema = JSON.stringify({
                 name: 'Frostrek AI',
             },
             areaServed: ['IN', 'US', 'GB', 'Global'],
-            description: 'From AI opportunity assessment and strategy to custom development and deployment. Explore practical AI consulting with Frostrek AI.',
+            description: 'Move from AI readiness checks and workflow discovery to a practical pilot decision, architecture roadmap, and custom delivery with Frostrek AI.',
             url: 'https://www.frostrek.ai/solutions/ai-consulting'
         }
     ]
@@ -106,6 +106,24 @@ const CORE_QUESTIONS = [
         color: 'text-[#B45309]',
         bg: 'bg-[#FFFBEB]',
         border: 'border-[#FEF3C7]'
+    }
+];
+
+const READINESS_TO_PILOT_STEPS = [
+    {
+        step: 'Readiness Check',
+        title: 'Verify Data, Access & Guardrails',
+        desc: 'Confirm whether source documents, APIs, permissions, and human review points are actually ready before spending engineering cycles.'
+    },
+    {
+        step: 'Pilot Scope',
+        title: 'Define a Bounded Trial & Metrics',
+        desc: 'Pick one high-friction workflow with clear inputs, fallback rules, and measurable success criteria before broader rollout.'
+    },
+    {
+        step: 'Pilot Decision',
+        title: 'Decide to Scale, Refine, or Stop',
+        desc: 'Evaluate real pilot outcomes against agreed criteria so leadership makes an evidence-backed decision rather than guessing.'
     }
 ];
 
@@ -243,10 +261,8 @@ const FAQS = [
     }
 ];
 
-// Rotating color themes matching site FAQ design (Blue, Green, Pink, Orange, Purple)
 const FAQ_THEMES = [
     {
-        // Blue Theme
         border: 'border-[#BAE6FD]',
         hoverBorder: 'hover:border-[#0EA5E9]/40',
         activeBorder: 'border-[#0EA5E9]/40',
@@ -263,7 +279,6 @@ const FAQ_THEMES = [
         iconTextInactive: 'text-[#0284C7]',
     },
     {
-        // Green Theme
         border: 'border-[#BBF7D0]',
         hoverBorder: 'hover:border-[#2D6A4F]/40',
         activeBorder: 'border-[#2D6A4F]/40',
@@ -280,7 +295,6 @@ const FAQ_THEMES = [
         iconTextInactive: 'text-[#047857]',
     },
     {
-        // Pink Theme
         border: 'border-[#FFE4E6]',
         hoverBorder: 'hover:border-[#BE123C]/40',
         activeBorder: 'border-[#BE123C]/40',
@@ -297,7 +311,6 @@ const FAQ_THEMES = [
         iconTextInactive: 'text-[#BE123C]',
     },
     {
-        // Orange Theme
         border: 'border-[#FFEDD5]',
         hoverBorder: 'hover:border-[#C2410C]/40',
         activeBorder: 'border-[#C2410C]/40',
@@ -314,7 +327,6 @@ const FAQ_THEMES = [
         iconTextInactive: 'text-[#C2410C]',
     },
     {
-        // Purple Theme
         border: 'border-[#DDD6FE]',
         hoverBorder: 'hover:border-[#6D28D9]/40',
         activeBorder: 'border-[#6D28D9]/40',
@@ -332,10 +344,8 @@ const FAQ_THEMES = [
     }
 ];
 
-// 5 rotating color themes for Delivery Framework stages (Blue, Green, Pink, Orange, Purple)
 const STAGE_THEMES = [
     {
-        // Blue Theme - Stage 01
         border: 'border-[#BAE6FD]',
         hoverBorder: 'hover:border-[#0EA5E9]/60',
         shadow: 'hover:shadow-[0_12px_35px_rgba(14,165,233,0.12)]',
@@ -349,7 +359,6 @@ const STAGE_THEMES = [
         spotlight: 'rgba(14, 165, 233, 0.05)',
     },
     {
-        // Green Theme - Stage 02
         border: 'border-[#BBF7D0]',
         hoverBorder: 'hover:border-[#047857]/60',
         shadow: 'hover:shadow-[0_12px_35px_rgba(4,120,87,0.12)]',
@@ -363,7 +372,6 @@ const STAGE_THEMES = [
         spotlight: 'rgba(4, 120, 87, 0.05)',
     },
     {
-        // Pink Theme - Stage 03
         border: 'border-[#FFE4E6]',
         hoverBorder: 'hover:border-[#BE123C]/60',
         shadow: 'hover:shadow-[0_12px_35px_rgba(190,18,60,0.12)]',
@@ -377,7 +385,6 @@ const STAGE_THEMES = [
         spotlight: 'rgba(190, 18, 60, 0.05)',
     },
     {
-        // Orange Theme - Stage 04
         border: 'border-[#FFEDD5]',
         hoverBorder: 'hover:border-[#C2410C]/60',
         shadow: 'hover:shadow-[0_12px_35px_rgba(194,65,12,0.12)]',
@@ -391,7 +398,6 @@ const STAGE_THEMES = [
         spotlight: 'rgba(194, 65, 12, 0.05)',
     },
     {
-        // Purple Theme - Stage 05
         border: 'border-[#DDD6FE]',
         hoverBorder: 'hover:border-[#6D28D9]/60',
         shadow: 'hover:shadow-[0_12px_35px_rgba(109,40,217,0.12)]',
@@ -448,7 +454,7 @@ export default function AIConsultingPage() {
         >
             <SEO
                 title="AI Consulting & Implementation Roadmap | Frostrek AI"
-                description="From AI opportunity assessment and strategy to custom development and deployment. Explore practical AI consulting with Frostrek AI."
+                description="Go from AI readiness and workflow discovery to a clear pilot decision, architecture roadmap, and practical implementation with Frostrek AI."
                 path="/solutions/ai-consulting"
                 keywords="AI consulting, AI implementation roadmap, AI strategy for business, AI opportunity assessment, CRM ERP AI integration, Frostrek AI"
                 schema={[graphSchema, faqSchema]}
@@ -471,7 +477,7 @@ export default function AIConsultingPage() {
 
                 <div className="container mx-auto px-4 md:px-6 relative z-10 text-center max-w-[1200px]">
                     <div className="flex flex-col items-center max-w-4xl mx-auto">
-                        
+
                         {/* Eyebrow badge */}
                         <div className="consulting-hero-el inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-sm border border-[#2D6A4F]/15 shadow-xs mb-4">
                             <div className="w-2 h-2 rounded-full bg-[#2D6A4F] animate-pulse" aria-hidden="true" />
@@ -581,6 +587,39 @@ export default function AIConsultingPage() {
                                 </div>
                             );
                         })}
+                    </div>
+                </div>
+            </section>
+
+            {/* ══════════════ SECTION 2.5: FROM AI READINESS TO A PILOT DECISION ══════════════ */}
+            <section aria-label="From AI Readiness to a Pilot Decision" className="py-16 md:py-20 bg-[#FAFCFB] relative z-10 border-b border-gray-100">
+                <div className="container mx-auto px-4 md:px-6 max-w-5xl">
+                    <div className="p-8 sm:p-10 rounded-3xl bg-white border border-[#2D6A4F]/15 shadow-sm">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E8F5EE] text-[#2D6A4F] text-xs font-bold uppercase tracking-wider mb-3">
+                            <Compass className="w-3.5 h-3.5" />
+                            Decision Gate
+                        </div>
+                        <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-gray-900 font-bold mb-3">
+                            From AI Readiness to a Pilot Decision
+                        </h2>
+                        <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-6 max-w-3xl">
+                            Readiness checks only help if they lead to a concrete choice. We pair practical checks on data, systems, and human oversight with a bounded pilot scope so teams can decide clearly whether to expand, refine, or hold off.
+                        </p>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            {READINESS_TO_PILOT_STEPS.map((item, idx) => (
+                                <div key={item.step} className="rounded-2xl bg-[#F8FAF9] border border-[#E6EFE6] p-5">
+                                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#2D6A4F] block mb-1.5">
+                                        0{idx + 1} · {item.step}
+                                    </span>
+                                    <h3 className="font-serif text-base font-bold text-gray-900 mb-1.5">
+                                        {item.title}
+                                    </h3>
+                                    <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                                        {item.desc}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>
@@ -883,9 +922,8 @@ export default function AIConsultingPage() {
                                         whileInView={{ opacity: 1, y: 0 }}
                                         viewport={{ once: true }}
                                         transition={{ duration: 0.35, delay: (idx % 6) * 0.04 }}
-                                        className={`rounded-2xl border transition-all duration-500 bg-white group ${theme.border} ${theme.hoverBorder} ${
-                                            isOpen ? `${theme.activeBorder} ${theme.shadow}` : 'hover:shadow-lg'
-                                        }`}
+                                        className={`rounded-2xl border transition-all duration-500 bg-white group ${theme.border} ${theme.hoverBorder} ${isOpen ? `${theme.activeBorder} ${theme.shadow}` : 'hover:shadow-lg'
+                                            }`}
                                         itemScope
                                         itemProp="mainEntity"
                                         itemType="https://schema.org/Question"
@@ -902,20 +940,18 @@ export default function AIConsultingPage() {
                                                     {String(themeIndex + 1).padStart(2, '0')}
                                                 </span>
                                                 <span
-                                                    className={`font-serif text-[18px] sm:text-[20px] font-medium transition-colors duration-300 ${
-                                                        isOpen ? theme.activeQuestionText : theme.questionText
-                                                    }`}
+                                                    className={`font-serif text-[18px] sm:text-[20px] font-medium transition-colors duration-300 ${isOpen ? theme.activeQuestionText : theme.questionText
+                                                        }`}
                                                     itemProp="name"
                                                 >
                                                     {faq.q}
                                                 </span>
                                             </div>
                                             <div
-                                                className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-500 border ${
-                                                    isOpen
-                                                        ? `${theme.iconBgActive} ${theme.iconTextActive} border-transparent rotate-180 shadow-md`
-                                                        : `${theme.iconBgInactive} ${theme.iconTextInactive} ${theme.iconBorderInactive}`
-                                                }`}
+                                                className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-500 border ${isOpen
+                                                    ? `${theme.iconBgActive} ${theme.iconTextActive} border-transparent rotate-180 shadow-md`
+                                                    : `${theme.iconBgInactive} ${theme.iconTextInactive} ${theme.iconBorderInactive}`
+                                                    }`}
                                                 aria-hidden="true"
                                             >
                                                 {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}

@@ -322,6 +322,10 @@ const FAQS = [
         q: 'What domains and subject matter areas can your evaluation teams cover?',
         a: 'Our reviewer network covers software engineering across major programming languages, STEM fields including mathematics and data science, multilingual translation and cultural localization, as well as enterprise operations and customer support workflows.',
     },
+    {
+        q: 'How do you evaluate AI answers for customer support?',
+        a: 'We review sample replies against your support policies and help articles. Reviewers check whether the answer is accurate, gives the customer the right next step, and hands the request to a person when the policy requires it. If preference data is in scope, reviewers compare two replies and record which one better meets the agreed criteria and why.',
+    },
 ];
 
 const FAQ_THEMES = [
@@ -502,7 +506,7 @@ const LLMEvaluationRLHFPage = () => {
                 streetAddress: '4th Floor, Unit No. 455, JMD Empire, Sector 62',
                 addressLocality: 'Gurugram',
                 addressRegion: 'Haryana',
-                postalCode: '122102',
+                postalCode: '122098',
                 addressCountry: 'IN',
             },
             contactPoint: {
@@ -1129,9 +1133,8 @@ const LLMEvaluationRLHFPage = () => {
                                         whileInView={{ opacity: 1, y: 0 }}
                                         viewport={{ once: true }}
                                         transition={{ duration: 0.4, delay: idx * 0.05 }}
-                                        className={`rounded-2xl border transition-all duration-500 bg-white group ${theme.border} ${theme.hoverBorder} ${
-                                            isOpen ? `${theme.activeBorder} ${theme.shadow}` : 'hover:shadow-lg'
-                                        }`}
+                                        className={`rounded-2xl border transition-all duration-500 bg-white group ${theme.border} ${theme.hoverBorder} ${isOpen ? `${theme.activeBorder} ${theme.shadow}` : 'hover:shadow-lg'
+                                            }`}
                                         itemScope
                                         itemProp="mainEntity"
                                         itemType="https://schema.org/Question"
@@ -1145,18 +1148,16 @@ const LLMEvaluationRLHFPage = () => {
                                                 <span className={`flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold border transition-colors duration-300 ${theme.badgeBg} ${theme.badgeText} ${theme.badgeBorder}`}>
                                                     {String(themeIndex + 1).padStart(2, '0')}
                                                 </span>
-                                                <span className={`font-serif text-[18px] sm:text-[20px] font-medium transition-colors duration-300 ${
-                                                    isOpen ? theme.activeQuestionText : theme.questionText
-                                                }`} itemProp="name">
+                                                <span className={`font-serif text-[18px] sm:text-[20px] font-medium transition-colors duration-300 ${isOpen ? theme.activeQuestionText : theme.questionText
+                                                    }`} itemProp="name">
                                                     {faq.q}
                                                 </span>
                                             </div>
                                             <div
-                                                className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-500 border ${
-                                                    isOpen
-                                                        ? `${theme.iconBgActive} ${theme.iconTextActive} border-transparent rotate-180 shadow-md`
-                                                        : `${theme.iconBgInactive} ${theme.iconTextInactive} ${theme.iconBorderInactive}`
-                                                }`}
+                                                className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-500 border ${isOpen
+                                                    ? `${theme.iconBgActive} ${theme.iconTextActive} border-transparent rotate-180 shadow-md`
+                                                    : `${theme.iconBgInactive} ${theme.iconTextInactive} ${theme.iconBorderInactive}`
+                                                    }`}
                                             >
                                                 {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                                             </div>
