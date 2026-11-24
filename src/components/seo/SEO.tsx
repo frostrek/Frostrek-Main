@@ -220,7 +220,7 @@ export default function SEO({
           "streetAddress": "4th Floor, Jmd Empire, 455, Golf Course Ext Rd, Sector 62",
           "addressLocality": "Gurugram",
           "addressRegion": "Haryana",
-          "postalCode": "122102",
+          "postalCode": "122098",
           "addressCountry": "IN"
         },
         "contactPoint": {

@@ -166,7 +166,7 @@ const Footer = () => {
                   <div className="flex items-start gap-2.5">
                     <MapPin className="w-4 h-4 text-[#2D6A4F] shrink-0 mt-0.5" />
                     <span>
-                      4th Floor, JMD Empire, 455, Golf Course Ext Rd, Sector 62, Gurugram, Haryana 122102, India
+                      4th Floor, JMD Empire, 455, Golf Course Ext Rd, Sector 62, Gurugram, Haryana 122098, India
                     </span>
                   </div>
 

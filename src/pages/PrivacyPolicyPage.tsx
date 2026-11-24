@@ -42,7 +42,7 @@ const PrivacyPolicyPage = () => {
                         streetAddress: '455, 4th Floor, JMD Empire, Golf Course Extension Road, Sector 62',
                         addressLocality: 'Gurugram',
                         addressRegion: 'Haryana',
-                        postalCode: '122102',
+                        postalCode: '122098',
                         addressCountry: 'IN',
                     },
                 },
@@ -100,7 +100,7 @@ const PrivacyPolicyPage = () => {
                     <p>
                         This document is the official Privacy Policy for Frostrek AI (operated by Frostrek LLP, LLPIN AAW-5223).
                         It applies to all digital interactions on the website frostrek.ai, including contact submissions, AI visibility audit requests, and Calendly demo reservations.
-                        Contact email for privacy matters is contact@frostrek.com. Headquarters: 455, 4th Floor, JMD Empire, Sector 62, Gurugram, Haryana 122102, India.
+                        Contact email for privacy matters is contact@frostrek.com. Headquarters: 455, 4th Floor, JMD Empire, Sector 62, Gurugram, Haryana 122098, India.
                     </p>
                 </article>
             </div>
@@ -308,7 +308,7 @@ const PrivacyPolicyPage = () => {
                             <MapPin className="w-5 h-5 text-[#2D6A4F] shrink-0 mt-0.5 sm:mt-0" />
                             <div>
                                 <strong className="text-gray-900">Business correspondence address:</strong>{' '}
-                                455, 4th Floor, JMD Empire, Golf Course Extension Road, Sector 62, Gurugram, Haryana 122102, India.
+                                455, 4th Floor, JMD Empire, Golf Course Extension Road, Sector 62, Gurugram, Haryana 122098, India.
                             </div>
                         </div>
                         <p className="text-xs text-gray-500 italic">
