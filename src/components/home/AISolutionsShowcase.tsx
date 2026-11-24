@@ -490,9 +490,9 @@ const AISolutionsShowcase = () => {
                                         style={{ backgroundColor: isActive ? solution.tabColorHover : solution.tabColor }}
                                         className={`flex-shrink-0 relative transition-all duration-300 w-14 h-14 rounded-full flex items-center justify-center shadow-sm border-2 ${isActive ? 'scale-110 border-[#2D6A4F] shadow-[#2D6A4F]/10' : 'scale-100 hover:scale-105 border-white'}`}
                                     >
-                                            <img src={solution.icon}
-                                                alt={solution.title}
-                                                className="w-7 h-7 object-contain transition-all duration-300" loading="lazy" width={512} height={512} />
+                                        <img src={solution.icon}
+                                            alt={solution.title}
+                                            className="w-7 h-7 object-contain transition-all duration-300" loading="lazy" width={512} height={512} />
                                     </button>
                                 );
                             })}
@@ -533,7 +533,7 @@ const AISolutionsShowcase = () => {
                                     Explore {activeSolution.title} <ArrowRight className="w-4 h-4" />
                                 </Link>
                                 <Link
-                                    to="/contact"
+                                    to="/schedule-demo"
                                     onMouseEnter={() => setHoveredIndex(-2)}
                                     onMouseLeave={() => setHoveredIndex(null)}
                                     style={{ borderColor: hoveredIndex === -2 ? activeSolution.tabColorHover : '#E5E7EB' }}
@@ -565,10 +565,10 @@ const AISolutionsShowcase = () => {
                                                 : 'border-transparent shadow-sm hover:shadow-md'
                                                 }`}
                                         >
-                                                <img src={solution.icon}
-                                                    alt={solution.title}
-                                                    className="w-10 h-10 object-contain transition-all duration-300 shrink-0"
-                                                    style={{ filter: isActive ? 'none' : 'none' }} loading="lazy" width={512} height={512} />
+                                            <img src={solution.icon}
+                                                alt={solution.title}
+                                                className="w-10 h-10 object-contain transition-all duration-300 shrink-0"
+                                                style={{ filter: isActive ? 'none' : 'none' }} loading="lazy" width={512} height={512} />
                                             <div className="flex-1">
                                                 <div className="font-serif font-bold text-[17px] tracking-wide mb-1">
                                                     {solution.title}
@@ -653,7 +653,7 @@ const AISolutionsShowcase = () => {
                                         Explore {activeSolution.title} <ArrowRight className="w-4 h-4" />
                                     </Link>
                                     <Link
-                                        to="/contact"
+                                        to="/schedule-demo"
                                         onMouseEnter={() => setHoveredIndex(-2)}
                                         onMouseLeave={() => setHoveredIndex(null)}
                                         style={{ borderColor: hoveredIndex === -2 ? activeSolution.tabColorHover : '#F3F4F6' }}
