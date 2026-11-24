@@ -89,6 +89,41 @@ const WHAT_WE_BUILD = [
     },
 ];
 
+const TRAINING_DELIVERABLES = [
+    {
+        title: 'Curated SFT & Preference Datasets',
+        description:
+            'Cleaned, deduplicated instruction pairs, preference rankings, and schema-validated JSONL/Parquet splits ready for training runs.',
+        bgColor: 'bg-[#F0FDF4]',
+        border: 'border-[#BBF7D0]',
+        headingColor: 'text-[#166534]',
+    },
+    {
+        title: 'Fine-Tuned Checkpoints & Training Configs',
+        description:
+            'Versioned LoRA/QLoRA adapters or aligned checkpoints paired with reproducible hyperparameters, prompt templates, and training logs.',
+        bgColor: 'bg-[#F0F9FF]',
+        border: 'border-[#BAE6FD]',
+        headingColor: 'text-[#0284C7]',
+    },
+    {
+        title: 'Eval Suites & Red-Team Reports',
+        description:
+            'Task-specific benchmark sets, base-vs-tuned comparison metrics, edge-case failure notes, and safety/guardrail findings.',
+        bgColor: 'bg-[#FFF7ED]',
+        border: 'border-[#FFEDD5]',
+        headingColor: 'text-[#C2410C]',
+    },
+    {
+        title: 'Inference & Handoff Documentation',
+        description:
+            'Quantization notes, serving configurations, drift-check checklists, and runbooks for smooth handoff to your engineering team.',
+        bgColor: 'bg-[#F5F3FF]',
+        border: 'border-[#DDD6FE]',
+        headingColor: 'text-[#6D28D9]',
+    },
+];
+
 const CAPABILITIES_LEFT = [
     'LoRA / QLoRA parameter-efficient fine-tuning',
     'Full fine-tuning for maximum performance',
@@ -286,16 +321,12 @@ const HOW_WE_WORK = [
     },
 ];
 
-
-
 const RESULTS = [
     { metric: '40%', label: 'Reduction in hallucination rate after domain-specific fine-tuning vs. base model' },
     { metric: '3–5×', label: 'Faster time-to-deploy using reusable fine-tuning and eval pipelines' },
     { metric: '90%+', label: 'Task-relevant accuracy on custom benchmark suites post-alignment' },
     { metric: '24/7', label: 'Continuous monitoring pipelines to catch drift before it impacts users' },
 ];
-
-
 
 /* ──────────────────── COMPONENT ──────────────────── */
 
@@ -403,7 +434,7 @@ const LLMModelTrainingPage = () => {
                                 "streetAddress": "4th Floor, Unit No. 455, JMD Empire, Sector 62",
                                 "addressLocality": "Gurugram",
                                 "addressRegion": "Haryana",
-                                "postalCode": "122102",
+                                "postalCode": "122098",
                                 "addressCountry": "IN"
                             },
                             "contactPoint": {
@@ -444,12 +475,8 @@ const LLMModelTrainingPage = () => {
 
                         {/* Headline */}
                         <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif mb-8 tracking-tight max-w-5xl mx-auto leading-tight text-[#2D6A4F]">
-                            <SplitTextReveal as="span" className="text-[#2D6A4F]" type="chars" stagger={0.02} once={false}>
-                                We Train and Align Custom LLMs
-                            </SplitTextReveal>
-                            <br />
-                            <SplitTextReveal as="span" className="text-[#2D6A4F]" type="chars" stagger={0.02} once={false} delay={0.2}>
-                                That Are Actually Ready for Production
+                            <SplitTextReveal as="h1" className="text-[#2D6A4F]" type="chars" stagger={0.02} once={false}>
+                                Enterprise Custom LLM Training &amp; Domain Fine-Tuning
                             </SplitTextReveal>
                         </div>
 
@@ -528,6 +555,50 @@ const LLMModelTrainingPage = () => {
                 </div>
             </section>
 
+            {/* ═══════ SECTION 2.5 — TRAINING DATA AND FINE-TUNING DELIVERABLES ═══════ */}
+            <section className="py-16 lg:py-24 bg-white relative z-10 overflow-hidden border-t border-gray-100">
+                <div className="container mx-auto px-4 md:px-6 max-w-7xl">
+                    <div className="text-center mb-14">
+                        <SplitTextReveal
+                            as="h2"
+                            className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]"
+                            type="chars" stagger={0.02} once={false}
+                        >
+                            Training Data and Fine-Tuning Deliverables
+                        </SplitTextReveal>
+                        <div className="mt-4">
+                            <SplitTextReveal
+                                as="p"
+                                className="max-w-2xl mx-auto text-lg text-gray-500"
+                                type="words" stagger={0.02} once={false} delay={0.3}
+                            >
+                                Concrete, verifiable artifacts handed over at each milestone so your team can audit, reproduce, and ship with confidence.
+                            </SplitTextReveal>
+                        </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                        {TRAINING_DELIVERABLES.map((item) => (
+                            <div
+                                key={item.title}
+                                className={`rounded-[1.25rem] md:rounded-[1.5rem] border p-5 md:p-7 ${item.bgColor} ${item.border}`}
+                            >
+                                <h3 className={`font-serif text-base md:text-xl font-bold mb-2 ${item.headingColor}`}>
+                                    {item.title}
+                                </h3>
+                                <p className="text-xs md:text-sm text-gray-600 leading-relaxed">
+                                    {item.description}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className="mt-8 rounded-2xl bg-[#F4FAF7] border border-[#2D6A4F]/15 px-5 py-4 text-xs sm:text-sm text-gray-700 text-center max-w-4xl mx-auto">
+                        <span className="font-semibold text-[#2D6A4F]">Anonymized benchmark note:</span> In an anonymized enterprise workflow engagement, pairing domain-curated instruction examples with rubric-checked evaluation sets reduced unsupported responses and improved task accuracy against the unaligned baseline.
+                    </div>
+                </div>
+            </section>
+
             {/* ═══════ SECTION 3 — OUR CAPABILITIES (Split-view) ═══════ */}
             <section className="py-16 lg:py-24 bg-white relative z-10 overflow-hidden">
                 <div className="container mx-auto px-4 md:px-6 max-w-7xl">
@@ -558,7 +629,7 @@ const LLMModelTrainingPage = () => {
                                 <div className="w-9 h-9 md:w-12 md:h-12 rounded-lg md:rounded-2xl bg-[#166534]/10 border border-[#BBF7D0] flex items-center justify-center">
                                     <img src="/icons/machine-learning-green.webp" alt="Training" className="w-4 h-4 md:w-6 md:h-6 object-contain" loading="lazy" width={512} height={512} />
                                 </div>
-                                <h3 className="font-serif text-[15px] md:text-xl font-bold text-[#166534]">Training & Alignment</h3>
+                                <h3 className="font-serif text-[15px] md:text-xl font-bold text-[#166534]">Training &amp; Alignment</h3>
                             </div>
                             <ul className="space-y-2.5 md:space-y-4">
                                 {CAPABILITIES_LEFT.map((item) => (
@@ -576,7 +647,7 @@ const LLMModelTrainingPage = () => {
                                 <div className="w-9 h-9 md:w-12 md:h-12 rounded-lg md:rounded-2xl bg-[#0284C7]/10 border border-[#BAE6FD] flex items-center justify-center">
                                     <img src="/icons/shield.png" alt="Evaluation" className="w-4 h-4 md:w-6 md:h-6 object-contain" loading="lazy" width={512} height={512} />
                                 </div>
-                                <h3 className="font-serif text-[15px] md:text-xl font-bold text-[#0284C7]">Evaluation & Deployment</h3>
+                                <h3 className="font-serif text-[15px] md:text-xl font-bold text-[#0284C7]">Evaluation &amp; Deployment</h3>
                             </div>
                             <ul className="space-y-2.5 md:space-y-4">
                                 {CAPABILITIES_RIGHT.map((item) => (
@@ -753,8 +824,6 @@ const LLMModelTrainingPage = () => {
                     </div>
                 </div>
             </section>
-
-
 
             {/* ═══════ SECTION 9 — CLOSING CTA ═══════ */}
             <section className="py-16 lg:py-24 relative overflow-hidden bg-white font-sans">

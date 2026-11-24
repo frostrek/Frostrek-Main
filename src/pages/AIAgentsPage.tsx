@@ -61,6 +61,33 @@ const WHAT_WE_BUILD = [
     },
 ];
 
+const WORKFLOW_FIT_STEPS = [
+    {
+        stage: 'Trigger & Context',
+        title: 'Enters at a Clear Workflow Touchpoint',
+        desc: 'Starts from a ticket, inbound call, chat message, lead form, or scheduled event with defined permissions and approved data sources.',
+        bgColor: 'bg-[#F0F9FF]',
+        border: 'border-[#BAE6FD]',
+        headingColor: 'text-[#0284C7]',
+    },
+    {
+        stage: 'Tool Execution',
+        title: 'Updates Systems Within Set Boundaries',
+        desc: 'Looks up records, drafts replies, logs notes, or triggers approved APIs/webhooks while keeping sensitive actions gated.',
+        bgColor: 'bg-[#F0FDF4]',
+        border: 'border-[#BBF7D0]',
+        headingColor: 'text-[#166534]',
+    },
+    {
+        stage: 'Handoff & Oversight',
+        title: 'Escalates Cleanly With Full Context',
+        desc: 'Hands off exceptions, edge cases, or policy-restricted requests to your team along with conversation history and next steps.',
+        bgColor: 'bg-[#FFF7ED]',
+        border: 'border-[#FFEDD5]',
+        headingColor: 'text-[#C2410C]',
+    },
+];
+
 const KEY_CAPABILITIES = [
     {
         title: 'Large Language Model Backbone',
@@ -340,7 +367,6 @@ export default function AIAgentsPage() {
 
     useGSAP(() => {
         const ctx = gsap.context(() => {
-            // Hero Animation
             if (heroRef.current) {
                 gsap.fromTo(
                     '.hero-el',
@@ -349,7 +375,6 @@ export default function AIAgentsPage() {
                 );
             }
 
-            // What We Build cards
             const buildCards = buildRef.current?.querySelectorAll('.build-card');
             if (buildCards) {
                 gsap.fromTo(buildCards, { y: 40, opacity: 0 }, {
@@ -358,7 +383,6 @@ export default function AIAgentsPage() {
                 });
             }
 
-            // Capabilities
             const capCards = capabilitiesRef.current?.querySelectorAll('.cap-card');
             if (capCards) {
                 gsap.fromTo(capCards, { y: 40, opacity: 0 }, {
@@ -367,7 +391,6 @@ export default function AIAgentsPage() {
                 });
             }
 
-            // How Agents Work
             const flowItems = howWorkRef.current?.querySelectorAll('.flow-item');
             if (flowItems) {
                 gsap.fromTo(flowItems, { x: -30, opacity: 0 }, {
@@ -376,7 +399,6 @@ export default function AIAgentsPage() {
                 });
             }
 
-            // Use Cases
             const caseCards = useCasesRef.current?.querySelectorAll('.case-card');
             if (caseCards) {
                 gsap.fromTo(caseCards, { y: 30, opacity: 0 }, {
@@ -385,7 +407,6 @@ export default function AIAgentsPage() {
                 });
             }
 
-            // Industries
             const indCards = industriesRef.current?.querySelectorAll('.ind-card');
             if (indCards) {
                 gsap.fromTo(indCards, { y: 30, opacity: 0 }, {
@@ -394,7 +415,6 @@ export default function AIAgentsPage() {
                 });
             }
 
-            // How We Build It
             const processSteps = processRef.current?.querySelectorAll('.process-step');
             if (processSteps) {
                 gsap.fromTo(processSteps, { y: 30, opacity: 0 }, {
@@ -402,7 +422,6 @@ export default function AIAgentsPage() {
                     scrollTrigger: { trigger: processRef.current, start: 'top 85%', toggleActions: 'play reverse play reverse' },
                 });
             }
-
         });
         return () => ctx.revert();
     }, []);
@@ -411,14 +430,13 @@ export default function AIAgentsPage() {
         <div className="bg-brand-light-bg min-h-screen pt-24 font-body text-primary overflow-x-hidden">
             <SEO
                 title="AI Agents | Frostrek AI Solutions"
-                description="We design and deploy custom AI agents that think, respond, and act — handling calls, conversations, workflows, and decisions at scale."
+                description="Deploy custom voice, chat, and workflow AI agents integrated with your tools, knowledge base, and escalation guardrails with Frostrek AI."
                 path="/solutions/ai-agents"
             />
             <CuteBackground />
 
             {/* ═══════ SECTION 1 — HERO ═══════ */}
             <section ref={heroRef} className="relative pt-24 md:pt-32 pb-16 md:pb-20 overflow-hidden flex items-center justify-center min-h-[85vh]">
-                {/* Decorative background elements matching Fintech */}
                 <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-brand-badge-bg/40 rounded-full blur-[100px] opacity-60 animate-pulse pointer-events-none" />
                 <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-[#E8F5EE]/60 rounded-full blur-[120px] opacity-60 pointer-events-none" />
 
@@ -442,7 +460,6 @@ export default function AIAgentsPage() {
                             AI Agents — Intelligent, Autonomous, Built for Your Business
                         </SplitTextReveal>
 
-                        {/* Answer-First SEO Subtext */}
                         <p
                             className="hero-el text-base md:text-lg text-gray-600 leading-relaxed mb-10 max-w-3xl font-medium"
                             itemProp="description"
@@ -469,7 +486,6 @@ export default function AIAgentsPage() {
 
                 <div className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none bg-gradient-to-t from-white to-transparent" />
             </section>
-
 
             {/* ═══════ SECTION 3 — WHAT WE BUILD ═══════ */}
             <section ref={buildRef} className="py-16 lg:py-24 bg-brand-light-bg relative z-10 overflow-hidden border-t border-[#2D6A4F]/5">
@@ -510,6 +526,39 @@ export default function AIAgentsPage() {
                                     </div>
                                 </div>
                             </SpotlightCard>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* ═══════ SECTION 3.5 — HOW AN AI AGENT FITS YOUR WORKFLOW ═══════ */}
+            <section className="py-16 lg:py-24 bg-white relative z-10 overflow-hidden border-t border-gray-100">
+                <div className="container mx-auto px-4 md:px-6 max-w-7xl">
+                    <div className="text-center mb-14">
+                        <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#2D6A4F] leading-[1.15] tracking-[-0.01em]">
+                            How an AI Agent Fits Your Workflow
+                        </h2>
+                        <p className="max-w-2xl mx-auto text-base md:text-lg text-gray-500 mt-4">
+                            Designed around your existing queues, systems, and approval boundaries so agents support real operations without disrupting your team.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+                        {WORKFLOW_FIT_STEPS.map((step, idx) => (
+                            <div
+                                key={step.stage}
+                                className={`rounded-[1.25rem] md:rounded-[1.5rem] border p-5 md:p-7 ${step.bgColor} ${step.border}`}
+                            >
+                                <span className="text-[11px] font-bold uppercase tracking-wider text-gray-500 block mb-1.5">
+                                    0{idx + 1} · {step.stage}
+                                </span>
+                                <h3 className={`font-serif text-base md:text-xl font-bold mb-2 ${step.headingColor}`}>
+                                    {step.title}
+                                </h3>
+                                <p className="text-xs md:text-sm text-gray-600 leading-relaxed">
+                                    {step.desc}
+                                </p>
+                            </div>
                         ))}
                     </div>
                 </div>
@@ -610,19 +659,16 @@ export default function AIAgentsPage() {
                             </ul>
                         </div>
 
-                        {/* Right side: Abstract architectural flow */}
                         <div className="flex justify-center items-center relative min-h-[300px] md:min-h-[400px] mt-8 lg:mt-0">
                             <div className="absolute w-[400px] h-[400px] bg-[#E8F5EE] rounded-full blur-[100px] opacity-80 -z-10" />
                             <div className="relative w-full max-w-[450px] bg-white rounded-3xl md:rounded-[2rem] border border-[#2D6A4F]/10 shadow-xl overflow-hidden p-6 md:p-8 hover:-translate-y-2 transition-transform duration-500">
                                 <div className="flex flex-col items-center gap-4 md:gap-6">
-                                    {/* 1. Understand */}
                                     <div className="w-full flex justify-center">
                                         <div className="bg-emerald-50 border border-emerald-200 text-emerald-800 font-bold text-sm px-6 py-3 rounded-full shadow-sm text-center w-48">
                                             1. Understand Input
                                         </div>
                                     </div>
                                     <div className="w-px h-6 bg-gray-300"></div>
-                                    {/* 2 & 3. Retrieve and Reason (side by side loop) */}
                                     <div className="w-full flex justify-center gap-8 relative">
                                         <div className="absolute top-1/2 left-[25%] right-[25%] h-px bg-gray-300 -z-10 border-t border-dashed"></div>
                                         <div className="bg-sky-50 border border-sky-200 text-sky-800 font-bold text-sm px-4 py-3 rounded-xl shadow-sm text-center w-32">
@@ -633,14 +679,12 @@ export default function AIAgentsPage() {
                                         </div>
                                     </div>
                                     <div className="w-px h-6 bg-gray-300"></div>
-                                    {/* 4. Act */}
                                     <div className="w-full flex justify-center">
                                         <div className="bg-rose-50 border border-rose-200 text-rose-800 font-bold text-sm px-6 py-3 rounded-full shadow-sm text-center w-48">
                                             4. Execute Action
                                         </div>
                                     </div>
                                     <div className="w-px h-6 bg-gray-300"></div>
-                                    {/* 5. Learn */}
                                     <div className="w-full flex justify-center">
                                         <div className="bg-amber-50 border border-amber-200 text-amber-800 font-bold text-sm px-6 py-3 rounded-full shadow-sm text-center w-48 border-dashed">
                                             5. Learn & Refine
@@ -740,19 +784,16 @@ export default function AIAgentsPage() {
                     </div>
 
                     <div ref={processRef} className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 relative">
-                        {/* Connecting dashed line (desktop) */}
                         <div className="hidden md:block absolute top-12 left-[12.5%] right-[12.5%] h-[1px] -z-10 border-t border-dashed border-[#2D6A4F]/30" />
 
                         {HOW_WE_BUILD.map((step) => (
                             <div key={step.step} className="process-step flex flex-col items-center text-center relative group">
-                                {/* Icon circle */}
                                 <div className={`w-16 h-16 md:w-24 md:h-24 rounded-full ${step.iconBg} border ${step.iconBorder} flex items-center justify-center mb-4 md:mb-6 shadow-sm transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-md relative z-10`}>
                                     <img src={step.icon} alt={step.title} className="w-8 h-8 md:w-10 md:h-10 object-contain opacity-80" loading="lazy" width={512} height={512} />
                                 </div>
                                 <h3 className={`font-serif text-[15px] sm:text-lg md:text-xl font-bold mb-2 md:mb-3 ${step.headingColor}`}>{step.title}</h3>
                                 <p className="text-[13px] sm:text-sm leading-relaxed text-gray-500 px-1 sm:px-2 mb-4 md:mb-6 min-h-[5rem] md:min-h-[80px]">{step.description}</p>
 
-                                {/* Step number badge */}
                                 <div className="mt-auto flex flex-col items-center gap-3 w-full">
                                     <div className="w-7 h-7 md:w-8 md:h-8 rounded-full border border-[#2D6A4F]/30 flex items-center justify-center text-[#2D6A4F] text-xs md:text-sm font-bold bg-[#2D6A4F]/5 shadow-sm">
                                         {step.step}
@@ -787,9 +828,7 @@ export default function AIAgentsPage() {
                     </div>
                 </div>
 
-                {/* Marquee reel */}
                 <div ref={techRef} className="relative w-full overflow-hidden py-8 group">
-                    {/* Left / right fade masks */}
                     <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-brand-light-bg to-transparent z-10 pointer-events-none" />
                     <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-brand-light-bg to-transparent z-10 pointer-events-none" />
 

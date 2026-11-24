@@ -19,7 +19,8 @@ import {
     ExternalLink,
     Workflow,
     GitBranch,
-    Boxes
+    Boxes,
+    Factory
 } from 'lucide-react';
 import CuteBackground from '../components/ui/CuteBackground';
 import SpotlightCard from '../components/ui/SpotlightCard';
@@ -112,6 +113,21 @@ const WHAT_WE_BUILD = [
     }
 ];
 
+const WORKFLOW_TO_SOFTWARE_STEPS = [
+    {
+        phase: 'Map the Manual Steps',
+        detail: 'Trace where requests start, who approves them, and where spreadsheets or handoffs currently slow teams down.'
+    },
+    {
+        phase: 'Define Data & Permissions',
+        detail: 'Clarify system sources, role access, and exception rules before writing application logic.'
+    },
+    {
+        phase: 'Ship Usable Working Software',
+        detail: 'Roll out focused modules with clear status tracking, auditability, and room to iterate.'
+    }
+];
+
 const DEVELOPMENT_PROCESS = [
     {
         step: '01',
@@ -187,7 +203,6 @@ const FAQS = [
 // Rotating color themes matching site FAQ design (Blue, Green, Pink, Orange, Purple)
 const FAQ_THEMES = [
     {
-        // Blue Theme
         border: 'border-[#BAE6FD]',
         hoverBorder: 'hover:border-[#0EA5E9]/40',
         activeBorder: 'border-[#0EA5E9]/40',
@@ -204,7 +219,6 @@ const FAQ_THEMES = [
         iconTextInactive: 'text-[#0284C7]',
     },
     {
-        // Green Theme
         border: 'border-[#BBF7D0]',
         hoverBorder: 'hover:border-[#2D6A4F]/40',
         activeBorder: 'border-[#2D6A4F]/40',
@@ -221,7 +235,6 @@ const FAQ_THEMES = [
         iconTextInactive: 'text-[#047857]',
     },
     {
-        // Pink Theme
         border: 'border-[#FFE4E6]',
         hoverBorder: 'hover:border-[#BE123C]/40',
         activeBorder: 'border-[#BE123C]/40',
@@ -238,7 +251,6 @@ const FAQ_THEMES = [
         iconTextInactive: 'text-[#BE123C]',
     },
     {
-        // Orange Theme
         border: 'border-[#FFEDD5]',
         hoverBorder: 'hover:border-[#C2410C]/40',
         activeBorder: 'border-[#C2410C]/40',
@@ -255,7 +267,6 @@ const FAQ_THEMES = [
         iconTextInactive: 'text-[#C2410C]',
     },
     {
-        // Purple Theme
         border: 'border-[#DDD6FE]',
         hoverBorder: 'hover:border-[#6D28D9]/40',
         activeBorder: 'border-[#6D28D9]/40',
@@ -276,7 +287,6 @@ const FAQ_THEMES = [
 // 5 rotating color themes for Delivery Framework stages (Blue, Green, Pink, Orange, Purple)
 const STAGE_THEMES = [
     {
-        // Blue Theme - Stage 01
         border: 'border-[#BAE6FD]',
         hoverBorder: 'hover:border-[#0EA5E9]/60',
         shadow: 'hover:shadow-[0_12px_35px_rgba(14,165,233,0.12)]',
@@ -290,7 +300,6 @@ const STAGE_THEMES = [
         spotlight: 'rgba(14, 165, 233, 0.05)',
     },
     {
-        // Green Theme - Stage 02
         border: 'border-[#BBF7D0]',
         hoverBorder: 'hover:border-[#047857]/60',
         shadow: 'hover:shadow-[0_12px_35px_rgba(4,120,87,0.12)]',
@@ -304,7 +313,6 @@ const STAGE_THEMES = [
         spotlight: 'rgba(4, 120, 87, 0.05)',
     },
     {
-        // Pink Theme - Stage 03
         border: 'border-[#FFE4E6]',
         hoverBorder: 'hover:border-[#BE123C]/60',
         shadow: 'hover:shadow-[0_12px_35px_rgba(190,18,60,0.12)]',
@@ -318,7 +326,6 @@ const STAGE_THEMES = [
         spotlight: 'rgba(190, 18, 60, 0.05)',
     },
     {
-        // Orange Theme - Stage 04
         border: 'border-[#FFEDD5]',
         hoverBorder: 'hover:border-[#C2410C]/60',
         shadow: 'hover:shadow-[0_12px_35px_rgba(194,65,12,0.12)]',
@@ -332,7 +339,6 @@ const STAGE_THEMES = [
         spotlight: 'rgba(194, 65, 12, 0.05)',
     },
     {
-        // Purple Theme - Stage 05
         border: 'border-[#DDD6FE]',
         hoverBorder: 'hover:border-[#6D28D9]/60',
         shadow: 'hover:shadow-[0_12px_35px_rgba(109,40,217,0.12)]',
@@ -351,6 +357,7 @@ export default function CustomSoftwarePage() {
     const heroRef = useRef<HTMLDivElement>(null);
     const [openFaq, setOpenFaq] = useState<number | null>(null);
     const [faqSearch, setFaqSearch] = useState('');
+    const [mfgImgError, setMfgImgError] = useState(false);
 
     useGSAP(() => {
         const ctx = gsap.context(() => {
@@ -525,10 +532,43 @@ export default function CustomSoftwarePage() {
                 </div>
             </section>
 
+            {/* ══════════════ SECTION 2.5: FROM WORKFLOW TO WORKING SOFTWARE ══════════════ */}
+            <section aria-label="From Workflow to Working Software" className="py-20 bg-brand-light-bg relative z-10">
+                <div className="container mx-auto px-4 md:px-6 max-w-5xl">
+                    <div className="p-8 sm:p-10 rounded-3xl bg-white border border-gray-200/90 shadow-sm">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E8F5EE] text-[#2D6A4F] text-xs font-bold uppercase tracking-wider mb-3">
+                            <Workflow className="w-3.5 h-3.5" />
+                            Practical Execution
+                        </div>
+                        <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-gray-900 font-bold mb-3">
+                            From Workflow to Working Software
+                        </h2>
+                        <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-6 max-w-3xl">
+                            We start with how work actually moves across people, tools, and approvals—then build focused software around those steps rather than adding complexity that teams have to work around.
+                        </p>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            {WORKFLOW_TO_SOFTWARE_STEPS.map((item, idx) => (
+                                <div key={item.phase} className="rounded-2xl bg-[#FAFCFB] border border-gray-200/80 p-5">
+                                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#2D6A4F] block mb-1.5">
+                                        0{idx + 1} · Step
+                                    </span>
+                                    <h3 className="font-serif text-base font-bold text-gray-900 mb-1.5">
+                                        {item.phase}
+                                    </h3>
+                                    <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                                        {item.detail}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* ══════════════ SECTION 3: WHEN CUSTOM SOFTWARE MAKES SENSE ══════════════ */}
-            <section aria-label="When custom software makes sense" className="py-20 bg-brand-light-bg relative z-10">
+            <section aria-label="When custom software makes sense" className="py-20 bg-white relative z-10 border-t border-gray-100">
                 <div className="container mx-auto px-4 md:px-6 max-w-4xl">
-                    <div className="p-8 sm:p-12 rounded-3xl bg-white border border-[#2D6A4F]/20 shadow-sm space-y-6">
+                    <div className="p-8 sm:p-12 rounded-3xl bg-[#FAFCFB] border border-[#2D6A4F]/20 shadow-sm space-y-6">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E8F5EE] text-[#2D6A4F] text-xs font-bold uppercase tracking-wider">
                             <Workflow className="w-3.5 h-3.5" />
                             Decision Framework
@@ -614,18 +654,18 @@ export default function CustomSoftwarePage() {
 
             {/* ══════════════ SECTION 5: BUILT FOR BUSINESS & IN-HOUSE EXPERIENCE ══════════════ */}
             <section aria-label="Built for practical business requirements" className="py-20 bg-brand-light-bg relative z-10">
-                <div className="container mx-auto px-4 md:px-6 max-w-5xl">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch mb-12">
+                <div className="container mx-auto px-4 md:px-6 max-w-6xl">
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch mb-12">
                         {/* Practical Business Needs */}
-                        <div className="p-8 rounded-3xl bg-white border border-gray-200/90 shadow-sm flex flex-col justify-between">
+                        <div className="p-7 rounded-3xl bg-white border border-gray-200/90 shadow-sm flex flex-col justify-between">
                             <div>
                                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E8F5EE] text-[#2D6A4F] text-xs font-bold uppercase tracking-wider mb-4">
                                     Target Market
                                 </div>
-                                <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4">
+                                <h3 className="font-serif text-xl sm:text-2xl font-bold text-gray-900 mb-3">
                                     Built for practical business requirements
                                 </h3>
-                                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
+                                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-3">
                                     Frostrek AI works with B2B startups, growing businesses and mid-market teams internationally, with enterprise engagements considered according to project requirements. We aim to connect business and engineering decisions so the delivered solution addresses a clear operational need.
                                 </p>
                                 <p className="text-xs sm:text-sm text-gray-500 leading-relaxed">
@@ -634,14 +674,71 @@ export default function CustomSoftwarePage() {
                             </div>
                         </div>
 
+                        {/* Manufacturing OS Card with Screenshot + Visible Demo Label */}
+                        <div className="p-7 rounded-3xl bg-white border border-[#BBF7D0] shadow-sm flex flex-col justify-between">
+                            <div>
+                                <div className="flex items-center justify-between gap-2 mb-4">
+                                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F0FDF4] text-[#166534] border border-[#BBF7D0] text-xs font-bold uppercase tracking-wider">
+                                        <Factory className="w-3.5 h-3.5" />
+                                        Manufacturing OS
+                                    </span>
+                                    <span className="px-2.5 py-1 rounded-full bg-amber-100 text-amber-900 border border-amber-200 text-[11px] font-bold uppercase tracking-wider">
+                                        Demo
+                                    </span>
+                                </div>
+
+                                {/* Screenshot / Preview Container */}
+                                <div className="rounded-2xl border border-gray-200 bg-[#F8FAFC] overflow-hidden mb-4">
+                                    {!mfgImgError ? (
+                                        <img
+                                            src="/manufacturing-os-demo.png"
+                                            alt="Manufacturing OS Demo interface preview"
+                                            className="w-full h-36 object-cover"
+                                            onError={() => setMfgImgError(true)}
+                                        />
+                                    ) : (
+                                        <div className="h-36 p-4 flex flex-col justify-between bg-gradient-to-br from-[#F0FDF4] via-white to-[#F0F9FF]">
+                                            <div className="flex items-center justify-between text-[11px] text-gray-500 font-medium">
+                                                <span>Manufacturing OS • Demo Preview</span>
+                                                <span className="px-2 py-0.5 rounded bg-white border border-gray-200 text-[#166534] font-semibold">
+                                                    Demo
+                                                </span>
+                                            </div>
+                                            <div className="grid grid-cols-3 gap-2 text-left">
+                                                <div className="rounded-lg bg-white border border-gray-200/80 p-2">
+                                                    <div className="text-[10px] text-gray-400">Line Status</div>
+                                                    <div className="text-xs font-bold text-gray-800">Active</div>
+                                                </div>
+                                                <div className="rounded-lg bg-white border border-gray-200/80 p-2">
+                                                    <div className="text-[10px] text-gray-400">Batch Queue</div>
+                                                    <div className="text-xs font-bold text-gray-800">12 Jobs</div>
+                                                </div>
+                                                <div className="rounded-lg bg-white border border-gray-200/80 p-2">
+                                                    <div className="text-[10px] text-gray-400">QA Check</div>
+                                                    <div className="text-xs font-bold text-[#166534]">Verified</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+
+                                <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">
+                                    Manufacturing OS (Demo)
+                                </h3>
+                                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                                    Illustrative operations console demo showing shift handoffs, production batch tracking, and exception queues for plant workflows.
+                                </p>
+                            </div>
+                        </div>
+
                         {/* Frosty Agent In-House Product Showcase */}
-                        <div className="p-8 rounded-3xl bg-gradient-to-br from-[#F0F9FF] via-white to-[#F0FDF4] border border-[#BAE6FD] shadow-sm flex flex-col justify-between">
+                        <div className="p-7 rounded-3xl bg-gradient-to-br from-[#F0F9FF] via-white to-[#F0FDF4] border border-[#BAE6FD] shadow-sm flex flex-col justify-between">
                             <div>
                                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E0F2FE] text-[#0284C7] text-xs font-bold uppercase tracking-wider mb-4">
                                     <Bot className="w-3.5 h-3.5" />
                                     In-House Showcase
                                 </div>
-                                <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4">
+                                <h3 className="font-serif text-xl sm:text-2xl font-bold text-gray-900 mb-3">
                                     Our own product engineering experience
                                 </h3>
                                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
@@ -751,8 +848,8 @@ export default function CustomSoftwarePage() {
                                             </div>
                                             <div
                                                 className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-500 border ${isOpen
-                                                        ? `${theme.iconBgActive} ${theme.iconTextActive} border-transparent rotate-180 shadow-md`
-                                                        : `${theme.iconBgInactive} ${theme.iconTextInactive} ${theme.iconBorderInactive}`
+                                                    ? `${theme.iconBgActive} ${theme.iconTextActive} border-transparent rotate-180 shadow-md`
+                                                    : `${theme.iconBgInactive} ${theme.iconTextInactive} ${theme.iconBorderInactive}`
                                                     }`}
                                                 aria-hidden="true"
                                             >
