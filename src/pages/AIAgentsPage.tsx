@@ -429,8 +429,8 @@ export default function AIAgentsPage() {
     return (
         <div className="bg-brand-light-bg min-h-screen pt-24 font-body text-primary overflow-x-hidden">
             <SEO
-                title="AI Agents | Frostrek AI Solutions"
-                description="Deploy custom voice, chat, and workflow AI agents integrated with your tools, knowledge base, and escalation guardrails with Frostrek AI."
+                title="AI Agent Development & Workflow Integration | Frostrek AI"
+                description="Scope AI agents for business workflows with Frostrek AI, including knowledge sources, system integrations, human handoff and testing."
                 path="/solutions/ai-agents"
             />
             <CuteBackground />
@@ -539,7 +539,7 @@ export default function AIAgentsPage() {
                             How an AI Agent Fits Your Workflow
                         </h2>
                         <p className="max-w-2xl mx-auto text-base md:text-lg text-gray-500 mt-4">
-                            Designed around your existing queues, systems, and approval boundaries so agents support real operations without disrupting your team.
+                            We agree what requests the agent can handle, which information it can use and when it should hand a request to a person. Before launch, we test representative requests, handoffs and integration failures against the agreed rules.
                         </p>
                     </div>
 

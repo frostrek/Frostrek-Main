@@ -213,7 +213,7 @@ const TESTIMONIALS: Testimonial[] = [
 const TestimonialsSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const cardsContainerRef = useRef<HTMLDivElement>(null);
-  const isCardsInView = useInView(cardsContainerRef, { amount: 0.2, once: false });
+  const isCardsInView = useInView(cardsContainerRef, { amount: 0.1, once: true });
   const [poppedCount, setPoppedCount] = useState<number>(0);
   const [hoveredCardId, setHoveredCardId] = useState<string | null>(null);
 
@@ -387,55 +387,37 @@ const TestimonialsSection = () => {
               })}
             </div>
 
-            {/* Tablet & Desktop View: Exact Interlocking Geometric Scatter (>= 640px) */}
-            <div className="hidden sm:block relative w-full h-[530px] sm:h-[550px] lg:h-[570px] max-w-[660px] mx-auto">
+            {/* Tablet & Desktop View: Clean Non-Overlapping Responsive Grid (>= 640px) */}
+            <div className="hidden sm:grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-[680px] mx-auto">
               {TESTIMONIALS.map((testimonial, idx) => {
                 const theme = COLOR_THEMES[testimonial.colorKey];
                 const isPopped = idx < poppedCount;
                 const isHovered = hoveredCardId === testimonial.id;
-                const pos = testimonial.desktopPosition;
-                const posX = pos.x ?? 0;
 
                 return (
                   <motion.div
                     key={testimonial.id}
-                    initial={{ scale: 0, opacity: 0, y: 36, x: posX }}
+                    initial={{ scale: 0.9, opacity: 0, y: 20 }}
                     animate={
                       isPopped
                         ? {
-                          scale: isHovered ? 1.05 : 1,
+                          scale: isHovered ? 1.02 : 1,
                           opacity: 1,
-                          y: isHovered ? -8 : 0,
-                          x: posX,
-                          rotate: isHovered ? 0 : pos.rotate,
-                          zIndex: isHovered ? 50 : pos.zIndex,
+                          y: isHovered ? -4 : 0,
                         }
                         : {
-                          scale: 0,
+                          scale: 0.9,
                           opacity: 0,
-                          y: 36,
-                          x: posX,
-                          rotate: 0,
-                          zIndex: pos.zIndex,
+                          y: 20,
                         }
                     }
-                    transition={
-                      isHovered
-                        ? { type: 'spring', stiffness: 400, damping: 25 }
-                        : { type: 'spring', stiffness: 320, damping: 18, mass: 0.85 }
-                    }
+                    transition={{ type: 'spring', stiffness: 350, damping: 22 }}
                     onMouseEnter={() => setHoveredCardId(testimonial.id)}
                     onMouseLeave={() => setHoveredCardId(null)}
                     style={{
-                      position: 'absolute',
-                      top: pos.top,
-                      bottom: pos.bottom,
-                      left: pos.left,
-                      right: pos.right,
-                      maxWidth: '282px',
                       pointerEvents: isPopped ? 'auto' : 'none',
                     }}
-                    className={`cursor-pointer bg-white rounded-xl sm:rounded-2xl border ${theme.cardBorder} p-3 sm:p-3.5 shadow-[0_4px_18px_rgba(0,0,0,0.04)] ${theme.cardHoverBorder} ${theme.cardHoverShadow} transition-shadow duration-300`}
+                    className={`cursor-pointer bg-white rounded-xl sm:rounded-2xl border ${theme.cardBorder} p-4 sm:p-5 shadow-[0_4px_18px_rgba(0,0,0,0.04)] ${theme.cardHoverBorder} ${theme.cardHoverShadow} transition-shadow duration-300 flex flex-col justify-between`}
                   >
                     {renderCardContent(testimonial)}
                   </motion.div>

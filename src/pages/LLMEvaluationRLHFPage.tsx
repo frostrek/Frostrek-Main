@@ -564,7 +564,9 @@ const LLMEvaluationRLHFPage = () => {
             name: faq.q,
             acceptedAnswer: {
                 '@type': 'Answer',
-                text: faq.a,
+                text: faq.q === 'How do you evaluate AI answers for customer support?'
+                    ? `${faq.a} For supervised training data and model fine-tuning support, see our LLM Training services.`
+                    : faq.a,
             },
         })),
     });
@@ -1180,9 +1182,24 @@ const LLMEvaluationRLHFPage = () => {
                                                 itemType="https://schema.org/Answer"
                                             >
                                                 <p itemProp="text">{faq.a}</p>
+                                                {faq.q === 'How do you evaluate AI answers for customer support?' && (
+                                                    <p className="mt-2 text-gray-600">
+                                                        For supervised training data and model fine-tuning support, see our{' '}
+                                                        <Link to="/solutions/llm-model-training" className="text-[#2D6A4F] font-semibold hover:underline">
+                                                            LLM Training services
+                                                        </Link>
+                                                        .
+                                                    </p>
+                                                )}
                                             </div>
                                         </motion.div>
-                                        {!isOpen && <div className="sr-only">{faq.a}</div>}
+                                        {!isOpen && (
+                                            <div className="sr-only">
+                                                {faq.a}
+                                                {faq.q === 'How do you evaluate AI answers for customer support?' &&
+                                                    ' For supervised training data and model fine-tuning support, see our LLM Training services.'}
+                                            </div>
+                                        )}
                                     </motion.div>
                                 );
                             })

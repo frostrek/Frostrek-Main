@@ -113,21 +113,6 @@ const WHAT_WE_BUILD = [
     }
 ];
 
-const WORKFLOW_TO_SOFTWARE_STEPS = [
-    {
-        phase: 'Map the Manual Steps',
-        detail: 'Trace where requests start, who approves them, and where spreadsheets or handoffs currently slow teams down.'
-    },
-    {
-        phase: 'Define Data & Permissions',
-        detail: 'Clarify system sources, role access, and exception rules before writing application logic.'
-    },
-    {
-        phase: 'Ship Usable Working Software',
-        detail: 'Roll out focused modules with clear status tracking, auditability, and room to iterate.'
-    }
-];
-
 const DEVELOPMENT_PROCESS = [
     {
         step: '01',
@@ -357,7 +342,6 @@ export default function CustomSoftwarePage() {
     const heroRef = useRef<HTMLDivElement>(null);
     const [openFaq, setOpenFaq] = useState<number | null>(null);
     const [faqSearch, setFaqSearch] = useState('');
-    const [mfgImgError, setMfgImgError] = useState(false);
 
     useGSAP(() => {
         const ctx = gsap.context(() => {
@@ -396,7 +380,7 @@ export default function CustomSoftwarePage() {
         >
             <SEO
                 title="Custom Software Development & AI Integration | Frostrek AI"
-                description="Build custom web apps, dashboards and CRM- or ERP-connected workflows with Frostrek AI. From development to AI integration, testing and deployment."
+                description="Plan and build software for business workflows with Frostrek AI. Scope dashboards, internal tools, integrations, testing and ongoing support."
                 path="/solutions/custom-software-ai-integration"
                 keywords="custom software development, AI integration, business portals, operational dashboards, CRM ERP integration, API development, Frostrek AI"
                 schema={[graphSchema, faqSchema]}
@@ -540,27 +524,12 @@ export default function CustomSoftwarePage() {
                             <Workflow className="w-3.5 h-3.5" />
                             Practical Execution
                         </div>
-                        <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-gray-900 font-bold mb-3">
+                        <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-gray-900 font-bold mb-4">
                             From Workflow to Working Software
                         </h2>
-                        <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-6 max-w-3xl">
-                            We start with how work actually moves across people, tools, and approvals—then build focused software around those steps rather than adding complexity that teams have to work around.
+                        <p className="text-sm sm:text-base text-gray-600 leading-relaxed max-w-3xl">
+                            We start by mapping the current process, the people who use it and the information they need. We agree which steps the software should support, what systems it needs to connect to and how we will test it. We then build the agreed workflow and document how the team will use and maintain it.
                         </p>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            {WORKFLOW_TO_SOFTWARE_STEPS.map((item, idx) => (
-                                <div key={item.phase} className="rounded-2xl bg-[#FAFCFB] border border-gray-200/80 p-5">
-                                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#2D6A4F] block mb-1.5">
-                                        0{idx + 1} · Step
-                                    </span>
-                                    <h3 className="font-serif text-base font-bold text-gray-900 mb-1.5">
-                                        {item.phase}
-                                    </h3>
-                                    <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-                                        {item.detail}
-                                    </p>
-                                </div>
-                            ))}
-                        </div>
                     </div>
                 </div>
             </section>
@@ -688,46 +657,33 @@ export default function CustomSoftwarePage() {
                                 </div>
 
                                 {/* Screenshot / Preview Container */}
-                                <div className="rounded-2xl border border-gray-200 bg-[#F8FAFC] overflow-hidden mb-4">
-                                    {!mfgImgError ? (
-                                        <img
-                                            src="/manufacturing-os-demo.png"
-                                            alt="Manufacturing OS Demo interface preview"
-                                            className="w-full h-36 object-cover"
-                                            onError={() => setMfgImgError(true)}
-                                        />
-                                    ) : (
-                                        <div className="h-36 p-4 flex flex-col justify-between bg-gradient-to-br from-[#F0FDF4] via-white to-[#F0F9FF]">
-                                            <div className="flex items-center justify-between text-[11px] text-gray-500 font-medium">
-                                                <span>Manufacturing OS • Demo Preview</span>
-                                                <span className="px-2 py-0.5 rounded bg-white border border-gray-200 text-[#166534] font-semibold">
-                                                    Demo
-                                                </span>
-                                            </div>
-                                            <div className="grid grid-cols-3 gap-2 text-left">
-                                                <div className="rounded-lg bg-white border border-gray-200/80 p-2">
-                                                    <div className="text-[10px] text-gray-400">Line Status</div>
-                                                    <div className="text-xs font-bold text-gray-800">Active</div>
-                                                </div>
-                                                <div className="rounded-lg bg-white border border-gray-200/80 p-2">
-                                                    <div className="text-[10px] text-gray-400">Batch Queue</div>
-                                                    <div className="text-xs font-bold text-gray-800">12 Jobs</div>
-                                                </div>
-                                                <div className="rounded-lg bg-white border border-gray-200/80 p-2">
-                                                    <div className="text-[10px] text-gray-400">QA Check</div>
-                                                    <div className="text-xs font-bold text-[#166534]">Verified</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    )}
+                                <div className="rounded-2xl border border-gray-200 bg-[#F8FAFC] overflow-hidden mb-3">
+                                    <img
+                                        src="/Manufacturing OS - Demo Dashboard Screenshot.jpg"
+                                        alt="Sample production monitoring dashboard with line activity and status."
+                                        className="w-full h-44 object-cover"
+                                        loading="lazy"
+                                    />
                                 </div>
+                                <p className="text-[11px] text-gray-500 italic mb-4">
+                                    Illustrative production-monitoring dashboard showing line status and throughput.
+                                </p>
 
                                 <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">
-                                    Manufacturing OS (Demo)
+                                    Manufacturing OS — Production Monitoring
                                 </h3>
-                                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-                                    Illustrative operations console demo showing shift handoffs, production batch tracking, and exception queues for plant workflows.
+                                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
+                                    Frostrek’s Manufacturing OS brings production monitoring and operational information into a single dashboard so teams can review factory activity and spot issues in one place.
                                 </p>
+                            </div>
+
+                            <div className="pt-4 border-t border-gray-100 mt-2">
+                                <Link
+                                    to="/solutions/manufacturing-intelligence"
+                                    className="text-xs sm:text-sm font-semibold text-[#166534] hover:underline inline-flex items-center gap-1.5"
+                                >
+                                    Explore Manufacturing Intelligence <ArrowRight className="w-3.5 h-3.5" />
+                                </Link>
                             </div>
                         </div>
 

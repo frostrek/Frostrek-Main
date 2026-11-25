@@ -1,4 +1,5 @@
 import { lazy, Suspense } from 'react';
+import { Link } from 'react-router-dom';
 import HeroSection from '../components/home/HeroSection';
 const OurProductsSection = lazy(() => import('../components/home/OurProductsSection'));
 const AISolutionsShowcase = lazy(() => import('../components/home/AISolutionsShowcase'));
@@ -158,6 +159,32 @@ const Home = () => {
 
         {/* 2. Product Features / Deep Dive */}
         <AISolutionsShowcase />
+
+        {/* 2.5 Explore more Frostrek services (LINK-01) */}
+        <section aria-label="Explore more Frostrek services" className="py-8 bg-white border-b border-gray-100">
+          <div className="container mx-auto px-4 md:px-6 max-w-7xl text-center">
+            <h2 className="font-serif text-lg sm:text-xl font-bold text-gray-900 mb-4">
+              Explore more Frostrek services
+            </h2>
+            <nav aria-label="More Frostrek services" className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+              {[
+                { name: 'Website Development', path: '/solutions/website-development' },
+                { name: 'Custom Software Development', path: '/solutions/custom-software-ai-integration' },
+                { name: 'AI Consulting', path: '/solutions/ai-consulting' },
+                { name: 'AI Agents', path: '/solutions/ai-agents' },
+                { name: 'AI Answer Review', path: '/solutions/llm-evaluation-rlhf' },
+              ].map((service) => (
+                <Link
+                  key={service.path}
+                  to={service.path}
+                  className="px-4 py-2 rounded-full border border-gray-200 bg-[#FAFCFB] hover:bg-[#F0FDF4] hover:border-[#BBF7D0] text-gray-700 hover:text-[#166534] text-xs sm:text-sm font-semibold transition-all focus:outline-none focus:ring-2 focus:ring-[#2D6A4F] focus:ring-offset-2"
+                >
+                  {service.name} &rarr;
+                </Link>
+              ))}
+            </nav>
+          </div>
+        </section>
 
         {/* 3. What We Do */}
         <WhatWeDoSection />

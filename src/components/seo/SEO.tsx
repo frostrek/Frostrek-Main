@@ -156,6 +156,22 @@ export default function SEO({
           seenContents.add(content);
         }
       });
+
+      // Deduplicate meta description tags in DOM
+      const descriptions = document.querySelectorAll('meta[name="description"]');
+      if (descriptions.length > 1) {
+        for (let i = 0; i < descriptions.length - 1; i++) {
+          descriptions[i].remove();
+        }
+      }
+
+      // Deduplicate titles in DOM
+      const titles = document.querySelectorAll('title');
+      if (titles.length > 1) {
+        for (let i = 0; i < titles.length - 1; i++) {
+          titles[i].remove();
+        }
+      }
     };
 
     deduplicateHead();

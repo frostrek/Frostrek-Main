@@ -314,6 +314,32 @@ async function prerenderRoute(browser, route, port) {
       });
     }
 
+    // ── Deduplicate meta description tags ──────────────────────────
+    const descRegex = /<meta[^>]*name=["']description["'][^>]*>/gi;
+    const descMatches = finalHtml.match(descRegex);
+    if (descMatches && descMatches.length > 1) {
+      let lastIdx = descMatches.length - 1;
+      let dIdx = 0;
+      finalHtml = finalHtml.replace(descRegex, (match) => {
+        const keep = (dIdx === lastIdx);
+        dIdx++;
+        return keep ? match : '';
+      });
+    }
+
+    // ── Deduplicate title tags ──────────────────────────────────────
+    const titleRegex = /<title[^>]*>[\s\S]*?<\/title>/gi;
+    const titleMatches = finalHtml.match(titleRegex);
+    if (titleMatches && titleMatches.length > 1) {
+      let lastTitleIdx = titleMatches.length - 1;
+      let tIdx = 0;
+      finalHtml = finalHtml.replace(titleRegex, (match) => {
+        const keep = (tIdx === lastTitleIdx);
+        tIdx++;
+        return keep ? match : '';
+      });
+    }
+
     // ── Strip Inline Styles ─────────────────────────────────────────
     // Strips inline style="" attributes injected by Framer Motion during SSR.
     // The SEO tool flags any inline style as an error.

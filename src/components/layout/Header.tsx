@@ -80,7 +80,7 @@ const Header = () => {
                         : "bg-transparent border-transparent shadow-none backdrop-blur-none scale-[1.02]"
             )}>
                 <div className={cn(
-                    "flex items-center justify-between px-4 sm:px-5 md:px-6 w-full shrink-0 transition-all duration-500",
+                    "flex items-center justify-between px-2.5 sm:px-5 md:px-6 w-full shrink-0 transition-all duration-500",
                     "h-14 sm:h-16"
                 )}>
                     {/* 1. Logo (Left) */}
@@ -88,8 +88,8 @@ const Header = () => {
                         <Link to="/" className="flex items-center gap-1 group shrink-0">
                             <img src="/optimized/logonew.webp"
                                 alt="Frostrek AI"
-                                className="h-8 sm:h-9 w-auto object-contain transition-all duration-300 group-hover:scale-110" width={36} height={36} fetchPriority="high" />
-                            <FlipText className="text-xl sm:text-2xl font-black font-sans font-bold text-black">
+                                className="h-7 sm:h-9 w-auto object-contain transition-all duration-300 group-hover:scale-110" width={36} height={36} fetchPriority="high" />
+                            <FlipText className="text-lg sm:text-2xl font-black font-sans font-bold text-black">
                                 frostrek
                             </FlipText>
                         </Link>
@@ -194,7 +194,7 @@ const Header = () => {
                     </nav>
 
                     {/* 3. CTAs & Mobile Toggle (Right) */}
-                    <div className="flex-1 flex items-center justify-end gap-2 sm:gap-3 shrink-0">
+                    <div className="flex-1 flex items-center justify-end gap-1.5 sm:gap-3 shrink-0">
                         {/* Desktop CTA */}
                         <Link
                             to="/schedule-demo"
@@ -212,7 +212,7 @@ const Header = () => {
                             className="flex xl:hidden items-center"
                             onClick={() => trackEvent('contact_intent', { location: 'header_mobile' })}
                         >
-                            <div className="px-3 py-2 sm:px-4 sm:py-2 text-[12px] sm:text-xs font-bold uppercase tracking-wider rounded-xl bg-[#2D6A4F] text-white shadow-sm whitespace-nowrap flex items-center justify-center transition-all active:scale-95">
+                            <div className="px-2.5 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs font-bold uppercase tracking-wider rounded-xl bg-[#2D6A4F] text-white shadow-sm whitespace-nowrap flex items-center justify-center transition-all active:scale-95">
                                 Book a demo
                             </div>
                         </Link>

@@ -430,10 +430,10 @@ const WebsiteDevelopmentPage = () => {
                     </ul>
                     <h3>Verified Case Implementation:</h3>
                     <p>
-                        <strong>Vedashi Herbals</strong> (vedashiherbals.com): Supplies Indian herbal products, cosmetics and wellness goods to Russia and South Korea. Frostrek built its cross-border ecommerce storefront, including online product catalogue and tools for managing products and orders.
+                        <strong>Vedashi Herbals</strong> (vedashiherbals.com): Frostrek built a Russian-language storefront for Vedashi Herbals, with a browsable product catalogue and customer help for placing orders. The Frostrek project description also documents tools for managing products and orders.
                     </p>
                     <p>
-                        <strong>Tosmi</strong> (tosmi.ai): AI product website design featuring 3D-inspired website design and website motion design, combining 3D elements, UI animations, and layered visual presentation for Tosmi’s ecommerce AI platform.
+                        <strong>Tosmi</strong> (tosmi.ai): A website for Tosmi's ecommerce AI agent, using layered visuals and motion to create a sense of depth and explain how the product works.
                     </p>
                     <p>
                         <strong>AI Shield</strong> (aishieldos.com): Enterprise AI platform website and strategic portal communicating AI governance and runtime security.
@@ -462,7 +462,7 @@ const WebsiteDevelopmentPage = () => {
 
             <SEO
                 title="Website Design & Development Services | Frostrek AI"
-                description="Frostrek AI provides website design and development services for personal websites, business sites, and online stores. Explore website redesign services, custom ecommerce, and Shopify store development."
+                description="Frostrek AI designs and develops personal websites, business websites and online stores. Explore website redesign, Shopify development and ongoing support."
                 keywords="website design and development services, business website design, website redesign services, personal website design services, ecommerce website development, Shopify store development, Shopify website design, Shopify theme customization, AI product website design, 3D-inspired website design, website motion design, website development services, website design company India, custom ecommerce development, corporate website development, Frostrek web development"
                 canonicalUrl="https://www.frostrek.ai/solutions/website-development"
                 path="/solutions/website-development"
@@ -472,7 +472,7 @@ const WebsiteDevelopmentPage = () => {
                         '@type': 'Service',
                         name: 'Website Design and Development Services',
                         description:
-                            'Frostrek AI designs and develops personal websites, business websites and online stores. Explore website redesign services, Shopify development and ongoing support.',
+                            'Frostrek AI designs and develops personal websites, business websites and online stores. Explore website redesign, Shopify development and ongoing support.',
                         provider: {
                             '@type': 'Organization',
                             name: 'Frostrek AI',
@@ -810,6 +810,24 @@ const WebsiteDevelopmentPage = () => {
                             </ul>
                         </div>
                     </div>
+
+                    {/* Surat Textile Businesses Section (LOC-02) */}
+                    <div className="mt-10 p-8 sm:p-10 rounded-3xl bg-[#FAFCFB] border border-[#2D6A4F]/20 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                        <div className="max-w-2xl">
+                            <h3 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+                                Website Development for Surat Textile Businesses
+                            </h3>
+                            <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                                Frostrek AI accepts remote website enquiries from textile businesses in Surat. Tell us how your buyers browse products, request quotes or place repeat orders. We can discuss whether a product catalogue website or a B2B ordering site fits how you sell.
+                            </p>
+                        </div>
+                        <Link
+                            to="/contact"
+                            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#2D6A4F] text-white text-sm font-semibold hover:bg-[#1B4332] transition-colors shadow-sm shrink-0"
+                        >
+                            Discuss Your Website Project <ArrowRight className="w-4 h-4" />
+                        </Link>
+                    </div>
                 </div>
             </section>
 
@@ -916,10 +934,10 @@ const WebsiteDevelopmentPage = () => {
                                     Cross-Border E-Commerce
                                 </div>
                                 <h3 className="font-serif text-2xl sm:text-3xl text-[#2D6A4F] font-semibold leading-snug tracking-tight mb-4">
-                                    Vedashi Herbals
+                                    Vedashi Herbals — Cross-border ecommerce storefront
                                 </h3>
                                 <p className="text-sm sm:text-base text-gray-500 leading-relaxed mb-6">
-                                    Vedashi Herbals supplies Indian herbal products, cosmetics and other products from India to customers in Russia and South Korea. Frostrek built its cross-border ecommerce storefront, including the online product catalogue and tools for managing products and orders.
+                                    Frostrek built a Russian-language storefront for Vedashi Herbals, with a browsable product catalogue and customer help for placing orders. The Frostrek project description also documents tools for managing products and orders.
                                 </p>
 
                                 {/* Action Links */}
@@ -970,7 +988,7 @@ const WebsiteDevelopmentPage = () => {
                                     Tosmi — AI Product Website with 3D-Inspired Design
                                 </h3>
                                 <p className="text-sm sm:text-base text-gray-500 leading-relaxed mb-6">
-                                    An immersive product experience crafted for Tosmi’s ecommerce AI platform, combining 3D elements, fluid UI animations, and layered visual storytelling.
+                                    A website for Tosmi's ecommerce AI agent, using layered visuals and motion to create a sense of depth and explain how the product works.
                                 </p>
                                 <div className="flex flex-wrap items-center gap-3">
                                     <a

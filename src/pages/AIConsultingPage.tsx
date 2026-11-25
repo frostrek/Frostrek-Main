@@ -453,8 +453,8 @@ export default function AIConsultingPage() {
             itemType="https://schema.org/Service"
         >
             <SEO
-                title="AI Consulting & Implementation Roadmap | Frostrek AI"
-                description="Go from AI readiness and workflow discovery to a clear pilot decision, architecture roadmap, and practical implementation with Frostrek AI."
+                title="AI Consulting & Implementation Roadmaps | Frostrek AI"
+                description="Assess AI opportunities, data readiness and pilot scope with Frostrek AI. Get an implementation roadmap with criteria for deciding what to scale."
                 path="/solutions/ai-consulting"
                 keywords="AI consulting, AI implementation roadmap, AI strategy for business, AI opportunity assessment, CRM ERP AI integration, Frostrek AI"
                 schema={[graphSchema, faqSchema]}
@@ -603,7 +603,7 @@ export default function AIConsultingPage() {
                             From AI Readiness to a Pilot Decision
                         </h2>
                         <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-6 max-w-3xl">
-                            Readiness checks only help if they lead to a concrete choice. We pair practical checks on data, systems, and human oversight with a bounded pilot scope so teams can decide clearly whether to expand, refine, or hold off.
+                            We identify a business process to improve, review its data and systems, and agree what a useful result would look like. The roadmap records the proposed pilot, the access and people it needs, and how to assess the outcome before deciding whether to scale.
                         </p>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                             {READINESS_TO_PILOT_STEPS.map((item, idx) => (

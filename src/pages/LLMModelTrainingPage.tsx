@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2, HelpCircle } from 'lucide-react';
 import CuteBackground from '../components/ui/CuteBackground';
 import SpotlightCard from '../components/ui/SpotlightCard';
 import SplitTextReveal from '../components/ui/SplitTextReveal';
@@ -414,16 +414,16 @@ const LLMModelTrainingPage = () => {
     return (
         <div className="relative min-h-screen bg-white text-[#2D6A4F] font-body">
             <SEO
-                title="LLM Fine-Tuning & Model Training Services | Frostrek AI"
-                description="We take foundation models from generic to genuinely useful. Expert LLM fine-tuning, RLHF alignment, and RAG deployment for enterprises and frontier AI teams."
+                title="LLM Training Data & Model Fine-Tuning Support | Frostrek AI"
+                description="Scope supervised training data, human preference comparisons and model fine-tuning support with Frostrek AI."
                 keywords="custom LLM fine-tuning, enterprise RLHF alignment, supervised fine-tuning data, RAG implementation, model red-teaming, LoRA QLoRA training, open-source LLM deployment, domain-specific AI"
                 path="/solutions/llm-model-training"
                 schema={[
                     JSON.stringify({
                         "@context": "https://schema.org",
                         "@type": "Service",
-                        "name": "LLM Fine-Tuning & Model Training Services",
-                        "description": "Frostrek AI delivers custom LLM fine-tuning, RLHF alignment, dataset preparation, and RAG implementation for enterprises and frontier AI teams.",
+                        "name": "LLM Training Data & Model Fine-Tuning Support",
+                        "description": "Scope supervised training data, human preference comparisons and model fine-tuning support with Frostrek AI.",
                         "provider": {
                             "@type": "Organization",
                             "name": "Frostrek AI",
@@ -446,6 +446,20 @@ const LLMModelTrainingPage = () => {
                         "serviceType": ["LLM Fine-Tuning", "RLHF Alignment", "Dataset Preparation", "RAG Implementation", "Model Evaluation", "MLOps"],
                         "areaServed": ["IN", "US", "GB", "AE", "SG"],
                         "url": "https://www.frostrek.ai/solutions/llm-model-training"
+                    }),
+                    JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "FAQPage",
+                        "mainEntity": [
+                            {
+                                "@type": "Question",
+                                "name": "What training data do I need before fine-tuning an LLM?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Start with representative examples of the tasks your model should handle and the responses you want it to produce. For each task, include the input, an expected response and the criteria reviewers should use to assess it. Set aside a separate sample to evaluate the model after fine-tuning."
+                                }
+                            }
+                        ]
                     })
                 ]}
             />
@@ -567,13 +581,9 @@ const LLMModelTrainingPage = () => {
                             Training Data and Fine-Tuning Deliverables
                         </SplitTextReveal>
                         <div className="mt-4">
-                            <SplitTextReveal
-                                as="p"
-                                className="max-w-2xl mx-auto text-lg text-gray-500"
-                                type="words" stagger={0.02} once={false} delay={0.3}
-                            >
-                                Concrete, verifiable artifacts handed over at each milestone so your team can audit, reproduce, and ship with confidence.
-                            </SplitTextReveal>
+                            <p className="max-w-3xl mx-auto text-base sm:text-lg text-gray-600 leading-relaxed">
+                                Frostrek prepares training data for supervised fine-tuning and human preference evaluation. For supervised fine-tuning, we create task examples and expected responses using agreed instructions and quality criteria. For preference data, reviewers compare two responses against an agreed rubric and record which response better meets the criteria and why. If your project includes model fine-tuning, we agree on the model, access requirements, evaluation criteria, and handover deliverables before scoping the training run.
+                            </p>
                         </div>
                     </div>
 
@@ -594,7 +604,7 @@ const LLMModelTrainingPage = () => {
                     </div>
 
                     <div className="mt-8 rounded-2xl bg-[#F4FAF7] border border-[#2D6A4F]/15 px-5 py-4 text-xs sm:text-sm text-gray-700 text-center max-w-4xl mx-auto">
-                        <span className="font-semibold text-[#2D6A4F]">Anonymized benchmark note:</span> In an anonymized enterprise workflow engagement, pairing domain-curated instruction examples with rubric-checked evaluation sets reduced unsupported responses and improved task accuracy against the unaligned baseline.
+                        <span className="font-semibold text-[#2D6A4F]">Proof:</span> Frostrek prepared supervised fine-tuning datasets with domain-specific example responses and subject-matter expert review.
                     </div>
                 </div>
             </section>
@@ -821,6 +831,53 @@ const LLMModelTrainingPage = () => {
                                 <p className="text-[11px] md:text-sm text-gray-600 leading-snug md:leading-relaxed">{r.label}</p>
                             </div>
                         ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* ═══════ SECTION 8 — FREQUENTLY ASKED QUESTIONS ═══════ */}
+            <section className="py-16 lg:py-24 bg-[#FAFCFB] relative z-10 overflow-hidden border-t border-gray-100">
+                <div className="container mx-auto px-4 md:px-6 max-w-4xl">
+                    <div className="text-center mb-12">
+                        <h2 className="font-serif text-3xl md:text-4xl text-[#2D6A4F] font-bold">
+                            Frequently Asked Questions
+                        </h2>
+                    </div>
+                    <div className="space-y-4">
+                        <div className="bg-white border border-[#2D6A4F]/20 rounded-2xl p-6 md:p-8 shadow-sm">
+                            <h3 className="font-serif text-lg md:text-xl font-bold text-gray-900 mb-3">
+                                What training data do I need before fine-tuning an LLM?
+                            </h3>
+                            <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                                Start with representative examples of the tasks your model should handle and the responses you want it to produce. For each task, include the input, an expected response and the criteria reviewers should use to assess it. Set aside a separate sample to evaluate the model after fine-tuning.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ═══════ SECTION 8 — FREQUENTLY ASKED QUESTIONS ═══════ */}
+            <section aria-label="Frequently Asked Questions" className="py-16 lg:py-24 bg-[#FAFCFB] relative z-10 overflow-hidden border-t border-gray-100">
+                <div className="container mx-auto px-4 md:px-6 max-w-4xl">
+                    <div className="text-center mb-12">
+                        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#E8F5EE] text-[#2D6A4F] text-xs font-bold uppercase tracking-wider mb-3">
+                            <HelpCircle className="w-3.5 h-3.5" />
+                            Got Questions?
+                        </div>
+                        <h2 className="font-serif text-3xl md:text-4xl text-[#2D6A4F] font-bold">
+                            Frequently Asked Questions
+                        </h2>
+                    </div>
+
+                    <div className="bg-white border border-[#2D6A4F]/20 rounded-2xl p-6 md:p-8 shadow-sm" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
+                        <h3 className="font-serif text-lg md:text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                            What training data do I need before fine-tuning an LLM?
+                        </h3>
+                        <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+                            <p className="text-sm sm:text-base text-gray-600 leading-relaxed" itemProp="text">
+                                Start with representative examples of the tasks your model should handle and the responses you want it to produce. For each task, include the input, an expected response and the criteria reviewers should use to assess it. Set aside a separate sample to evaluate the model after fine-tuning.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </section>
