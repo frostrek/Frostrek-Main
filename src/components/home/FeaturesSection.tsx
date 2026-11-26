@@ -98,7 +98,7 @@ const FeaturesSection = () => {
                                     <CheckCircle2 size={14} className="text-[#047857]" /> GDPR Ready
                                 </span>
                                 <span className="inline-flex items-center gap-1.5 px-2 py-1 md:px-4 md:py-2 border rounded-full text-[10px] md:text-sm font-bold bg-white border-[#BBF7D0] text-[#047857] shadow-sm">
-                                    <CheckCircle2 size={14} className="text-[#047857]" /> ISO 27001 Certified
+                                    <CheckCircle2 size={14} className="text-[#047857]" /> Zero-Trust Security
                                 </span>
                             </div>
 

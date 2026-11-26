@@ -901,82 +901,82 @@ const LLMEvaluationRLHFPage = () => {
 
                     {/* Single Clean Centered Benchmark Card */}
                     <div className="bg-[#ffffff] rounded-3xl border border-gray-200/90 p-6 sm:p-8 md:p-10 shadow-xs">
-                        <div className="flex items-center justify-between pb-3 mb-6 border-b border-gray-200/80">
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 mb-6 border-b border-gray-200/80 gap-2">
                             <div className="flex items-center gap-2 text-sm font-semibold text-gray-900">
                                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 inline-block" />
-                                <span>Task Type: RAG Grounding &amp; Factual Synthesis</span>
+                                <span>Synthetic Task F-024 (SYN-001) · Policy Adherence &amp; Evaluation</span>
                             </div>
-                            <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-amber-100 text-amber-900">
-                                SYNTHETIC TASK F-024 · DEMO ONLY
+                            <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-amber-50 text-amber-900 border border-amber-200 inline-block w-fit">
+                                Illustrative example using synthetic data. Not a client result.
                             </span>
                         </div>
 
-                        {/* Prompt */}
+                        {/* Prompt & Rule Context */}
                         <div className="bg-gray-50/70 rounded-2xl border border-gray-200/70 p-4 sm:p-5 mb-6 text-xs sm:text-sm font-mono text-gray-700">
-                            <span className="font-bold text-gray-500 uppercase block font-sans text-[10px] sm:text-xs mb-1.5 tracking-wider">Prompt &amp; Constraints:</span>
-                            "Summarize Q3 SLA performance using only provided audit log. Negative constraint &amp; guardrail: Do not speculate on root causes. Completeness: Address uptime %, response latency, and penalty status."
+                            <span className="font-bold text-gray-500 uppercase block font-sans text-[10px] sm:text-xs mb-1.5 tracking-wider">Policy Context &amp; Customer Prompt:</span>
+                            Under a fictional unopened-unless-defective returns policy, evaluate a customer request on Day 10 asking to return opened, non-defective merchandise.
                         </div>
 
                         {/* Completions */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6">
-                            {/* Response A */}
-                            <div className="rounded-2xl border border-rose-200 bg-rose-50/30 p-5 flex flex-col justify-between">
-                                <div>
-                                    <div className="flex items-center justify-between pb-3 mb-3 border-b border-rose-200/60">
-                                        <span className="font-bold text-xs uppercase tracking-wider text-rose-700">
-                                            Response A (Turned Down)
-                                        </span>
-                                        <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-rose-100/80 text-rose-700 border border-rose-200">
-                                            ✕ Guardrail &amp; Completeness Failure
-                                        </span>
-                                    </div>
-                                    <p className="text-xs sm:text-sm text-gray-700 leading-relaxed mb-4">
-                                        "Vendor Alpha achieved 99.82% uptime. Latency blips were likely caused by third-party fiber outages."
-                                    </p>
-                                </div>
-                                <div className="space-y-1.5 pt-3 border-t border-rose-200/50 text-xs text-rose-700 font-medium">
-                                    <div className="flex items-center gap-1.5">
-                                        <span>✕</span>
-                                        <span>Violated negative constraint &amp; guardrail by speculating on root causes</span>
-                                    </div>
-                                    <div className="flex items-center gap-1.5">
-                                        <span>✕</span>
-                                        <span>Hallucinated fiber outages — claims fail verification in isolation against log</span>
-                                    </div>
-                                    <div className="flex items-center gap-1.5">
-                                        <span>✕</span>
-                                        <span>Incomplete: omitted incident response latency and penalty clause status</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Response B */}
+                            {/* Response A (Chosen) */}
                             <div className="rounded-2xl border border-emerald-300 bg-[#F0FDF4]/40 p-5 flex flex-col justify-between">
                                 <div>
                                     <div className="flex items-center justify-between pb-3 mb-3 border-b border-emerald-200/60">
                                         <span className="font-bold text-xs uppercase tracking-wider text-[#166534]">
-                                            Response B (Golden Response)
+                                            Response A (Chosen · Score: 100)
                                         </span>
                                         <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-[#DCFCE7] text-[#166534] border border-[#BBF7D0]">
-                                            ✓ Grounded &amp; Complete
+                                            ✓ Policy Compliant
                                         </span>
                                     </div>
                                     <p className="text-xs sm:text-sm text-gray-700 leading-relaxed mb-4">
-                                        "Vendor Alpha recorded 99.82% uptime with 14 min average response time. Zero penalty clauses triggered."
+                                        "Under our returns policy, items that have been opened are eligible for return only if they are defective. Since this item is opened and non-defective, we cannot accept a return or issue a refund, even though you are within 14 days."
                                     </p>
                                 </div>
                                 <div className="space-y-1.5 pt-3 border-t border-emerald-200/50 text-xs text-emerald-800 font-medium">
                                     <div className="flex items-center gap-1.5">
                                         <span>✓</span>
-                                        <span>100% prompt completeness: all metrics addressed accurately</span>
+                                        <span>Correctly denies return: identifies opened, non-defective condition</span>
                                     </div>
                                     <div className="flex items-center gap-1.5">
                                         <span>✓</span>
-                                        <span>Verified in isolation: assertions directly supported with zero contradictions</span>
+                                        <span>Grounded in policy rules rather than granting based on timing alone</span>
                                     </div>
                                     <div className="flex items-center gap-1.5">
                                         <span>✓</span>
-                                        <span>Strict adherence to guardrails &amp; negative constraints (zero speculation)</span>
+                                        <span>Rubric rating [2,2,2,2] = 100/100 (Instruction 30%, Grounding 35%, Complete 20%, Clarity 15%)</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Response B (Turned Down) */}
+                            <div className="rounded-2xl border border-rose-200 bg-rose-50/30 p-5 flex flex-col justify-between">
+                                <div>
+                                    <div className="flex items-center justify-between pb-3 mb-3 border-b border-rose-200/60">
+                                        <span className="font-bold text-xs uppercase tracking-wider text-rose-700">
+                                            Response B (Turned Down · Score: 45)
+                                        </span>
+                                        <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-rose-100/80 text-rose-700 border border-rose-200">
+                                            ✕ Factual &amp; Policy Failure
+                                        </span>
+                                    </div>
+                                    <p className="text-xs sm:text-sm text-gray-700 leading-relaxed mb-4">
+                                        "Yes, we can help with that! Because you reached out on Day 10, which is well within our 14-day window, you qualify for a full refund. Please send the item back to our warehouse."
+                                    </p>
+                                </div>
+                                <div className="space-y-1.5 pt-3 border-t border-rose-200/50 text-xs text-rose-700 font-medium">
+                                    <div className="flex items-center gap-1.5">
+                                        <span>✕</span>
+                                        <span>Grants refund based on timing alone, ignoring the unopened constraint</span>
+                                    </div>
+                                    <div className="flex items-center gap-1.5">
+                                        <span>✕</span>
+                                        <span>Fails factual grounding against the provided policy terms</span>
+                                    </div>
+                                    <div className="flex items-center gap-1.5">
+                                        <span>✕</span>
+                                        <span>Rubric rating [2,0,0,2] = 45/100 (Failed factual grounding 0/35% &amp; completeness 0/20%)</span>
                                     </div>
                                 </div>
                             </div>
@@ -984,8 +984,11 @@ const LLMEvaluationRLHFPage = () => {
 
                         {/* Verdict */}
                         <div className="rounded-2xl bg-emerald-50/70 border border-emerald-200 p-4 sm:p-5 text-xs sm:text-sm text-emerald-950">
-                            <span className="font-bold block mb-1 text-emerald-900 uppercase text-[11px] tracking-wider">Evaluator Verdict (Non-Negative Rubric):</span>
-                            Response B satisfies full prompt completeness, passes claim isolation verification against Source Truth without contradicting the audit log, and respects safety guardrails. Ranked first with highest confidence under our non-negative rubric.
+                            <span className="font-bold block mb-1 text-emerald-900 uppercase text-[11px] tracking-wider">Evaluator Verdict (SYN-001 Rubric):</span>
+                            Under the fictional unopened-unless-defective returns policy on day 10, Response A correctly denies an opened non-defective return (Score: 100), while Response B incorrectly grants it based on timing alone (Score: 45). Scored 0–2 using instruction (30%), factual grounding (35%), completeness (20%), clarity (15%). Response A selected with high confidence.
+                            <div className="mt-2 text-[11px] text-gray-500 font-medium">
+                                Illustrative example using synthetic data. Not a client result.
+                            </div>
                         </div>
                     </div>
                 </div>

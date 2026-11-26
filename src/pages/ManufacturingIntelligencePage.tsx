@@ -463,7 +463,7 @@ const ManufacturingIntelligencePage = () => {
                         </motion.div>
 
                         {/* Headline */}
-                        <div className="text-[32px] leading-[1.2] sm:text-5xl md:text-6xl lg:text-7xl font-serif mb-6 md:mb-8 tracking-tight max-w-5xl mx-auto text-[#2D6A4F]">
+                        <h1 className="text-[32px] leading-[1.2] sm:text-5xl md:text-6xl lg:text-7xl font-serif mb-6 md:mb-8 tracking-tight max-w-5xl mx-auto text-[#2D6A4F]">
                             <SplitTextReveal as="span" className="text-[#2D6A4F]" type="words" stagger={0.02} once={false}>
                                 Manufacturing Intelligence
                             </SplitTextReveal>
@@ -472,7 +472,7 @@ const ManufacturingIntelligencePage = () => {
                             <SplitTextReveal as="span" className="text-[#2D6A4F]" type="words" stagger={0.02} once={false} delay={0.2}>
                                 From Factory Floor to Full Visibility
                             </SplitTextReveal>
-                        </div>
+                        </h1>
 
                         {/* Answer-First SEO Subtext */}
                         <p

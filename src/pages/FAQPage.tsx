@@ -41,15 +41,15 @@ const FAQ_CATEGORIES: FAQCategory[] = [
         faqs: [
             {
                 question: "Is my data secure with your AI models?",
-                answer: "Absolutely. Security is our top priority. We implement enterprise-grade encryption at rest and in transit, on-premise deployment options, and strict compliance with global data protection standards including ISO 27001, a SOC 2 ready architecture, GDPR, and India's DPDP Act. All annotation staff undergo background checks, and we maintain complete audit logging of all data access events."
+                answer: "Absolutely. Security is our top priority. We implement enterprise-grade encryption at rest and in transit, on-premise deployment options, and strict compliance with global data protection standards including a SOC 2 ready architecture, GDPR, and India's DPDP Act. All annotation staff undergo background checks, and we maintain complete audit logging of all data access events."
             },
             {
                 question: "Do you offer on-premise deployments?",
                 answer: "Yes. For clients with strict data residency requirements, we offer fully on-premise deployments where your data never leaves your infrastructure. We also support hybrid models where the AI inference runs on your servers while management and monitoring tools are cloud-hosted. This is particularly popular with our manufacturing and healthcare clients."
             },
             {
-                question: "What compliance certifications do you hold?",
-                answer: "Frostrek holds ISO/IEC 27001 certification for information security management and ISO 9001:2015 for quality management. We maintain a SOC 2 ready architecture and full compliance alignment with GDPR and India's Digital Personal Data Protection Act (DPDP). Our secure annotation facilities feature access controls, no personal devices policies, and CCTV monitoring with 90-day retention."
+                question: "What compliance standards and recognitions do you hold?",
+                answer: "Frostrek is recognized under the Government of India's DPIIT Startup programme and registered under the Udyam MSME scheme. We maintain a SOC 2 ready architecture and full compliance alignment with GDPR and India's Digital Personal Data Protection Act (DPDP). Our secure annotation facilities feature access controls, no personal devices policies, and CCTV monitoring with 90-day retention."
             }
         ]
     },

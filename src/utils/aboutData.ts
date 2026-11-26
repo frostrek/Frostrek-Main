@@ -110,10 +110,16 @@ export const TEAM_DATA: TeamMember[] = [
 // ============ CERTIFICATIONS DATA ============
 export const CERTIFICATIONS_DATA: Certification[] = [
     {
-        name: 'ISO 27001',
-        icon: ShieldCheck,
-        description: 'International standard for information security management systems (ISMS)',
-        color: 'from-blue-500 to-blue-600',
+        name: 'DPIIT Recognized',
+        icon: Award,
+        description: 'Recognized by the Department for Promotion of Industry and Internal Trade, Government of India',
+        color: 'from-emerald-500 to-emerald-600',
+    },
+    {
+        name: 'Udyam Registered',
+        icon: BadgeCheck,
+        description: 'Registered under India’s Udyam MSME programme',
+        color: 'from-green-500 to-green-600',
     },
     {
         name: 'SOC 2 Ready Architecture',
@@ -125,7 +131,7 @@ export const CERTIFICATIONS_DATA: Certification[] = [
         name: 'GDPR Compliant',
         icon: Shield,
         description: 'Full compliance with EU General Data Protection Regulation',
-        color: 'from-green-500 to-green-600',
+        color: 'from-blue-500 to-blue-600',
     },
     {
         name: 'HIPAA Ready',

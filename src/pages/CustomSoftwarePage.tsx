@@ -182,6 +182,10 @@ const FAQS = [
     {
         q: 'How long will it take to build?',
         a: 'Timelines depend on project scope, technical dependencies, stakeholder availability, integration access and testing requirements. We agree milestones after requirements are understood rather than advertise a universal delivery promise.'
+    },
+    {
+        q: 'Can my business work with Frostrek AI remotely from Rajasthan or Gujarat?',
+        a: 'If your business is based in Jaipur, Udaipur, Surat, or elsewhere in Rajasthan or Gujarat, tell us what you need help with, such as tracking orders, managing inventory, or automating manual work. We can discuss your requirements and whether remote delivery fits your project.'
     }
 ];
 

@@ -67,28 +67,34 @@ const TEAM_DATA = [
 // ============ CERTIFICATIONS DATA ============
 const CERTIFICATIONS_DATA = [
     {
-        name: 'ISO 27001',
-        icon: ShieldCheck,
-        description: 'International standard for information security management systems (ISMS)',
+        name: 'DPIIT Recognized',
+        icon: Award,
+        description: 'Recognized by the Department for Promotion of Industry and Internal Trade, Government of India',
         color: 'from-[#2D6A4F] to-[#2D6A4F]/80',
+    },
+    {
+        name: 'Udyam Registered',
+        icon: BadgeCheck,
+        description: 'Registered under India’s Udyam MSME programme',
+        color: 'from-[#2D6A4F]/90 to-[#2D6A4F]/70',
     },
     {
         name: 'SOC 2 Ready Architecture',
         icon: Lock,
         description: 'Engineered for enterprise trust controls, data isolation, and comprehensive auditability',
-        color: 'from-[#2D6A4F]/90 to-[#2D6A4F]/70',
+        color: 'from-[#2D6A4F]/80 to-[#2D6A4F]/60',
     },
     {
         name: 'GDPR Compliant',
         icon: Shield,
         description: 'Full compliance with EU General Data Protection Regulation',
-        color: 'from-[#2D6A4F]/80 to-[#2D6A4F]/60',
+        color: 'from-[#2D6A4F]/70 to-[#2D6A4F]/50',
     },
     {
         name: 'HIPAA Ready',
         icon: BadgeCheck,
         description: 'Healthcare data protection and privacy standards',
-        color: 'from-[#2D6A4F]/70 to-[#2D6A4F]/50',
+        color: 'from-[#2D6A4F]/60 to-[#2D6A4F]/40',
     },
 ];
 
@@ -827,7 +833,7 @@ const About = () => {
         {
             icon: '/icons/lightning.png',
             title: 'Excellence',
-            desc: 'ISO certified quality',
+            desc: 'Focus on quality',
             glowColor: '#2D6A4F',
             hoverBg: 'bg-[#F0FDF4]',
             hoverBorder: 'border-[#2D6A4F]/40',
@@ -1564,6 +1570,49 @@ const About = () => {
                             </motion.div>
                         ))}
                     </motion.div>
+                </div>
+            </section>
+
+            {/* ===== COMPANY CREDENTIALS ===== */}
+            <section className="py-16 md:py-24 relative z-10 bg-white border-t border-gray-100">
+                <div className="container mx-auto px-4 max-w-4xl">
+                    <div className="text-center mb-12 space-y-2">
+                        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#E8F5EE] text-[#2D6A4F] border border-[#2D6A4F]/15 font-body uppercase tracking-wider font-semibold">
+                            <CheckCircle2 size={12} /> Recognized &amp; Registered
+                        </div>
+                        <h2 className="text-3xl sm:text-4xl font-serif text-[#2D6A4F]">Company Credentials</h2>
+                        <p className="text-slate-600 font-body text-sm sm:text-base">Government of India recognitions and enterprise registrations</p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="rounded-2xl border border-gray-200/80 bg-[#FAFCFB] p-6 sm:p-8 shadow-xs">
+                            <div className="flex items-center gap-3 mb-3">
+                                <div className="w-10 h-10 rounded-xl bg-[#E8F5EE] border border-[#2D6A4F]/20 flex items-center justify-center text-[#2D6A4F] shrink-0">
+                                    <Award className="w-5 h-5" />
+                                </div>
+                                <h3 className="font-serif text-lg sm:text-xl font-bold text-gray-900">
+                                    DPIIT Startup Recognition
+                                </h3>
+                            </div>
+                            <p className="text-sm sm:text-base text-gray-600 leading-relaxed font-body">
+                                Recognized by the Department for Promotion of Industry and Internal Trade, Government of India.
+                            </p>
+                        </div>
+
+                        <div className="rounded-2xl border border-gray-200/80 bg-[#FAFCFB] p-6 sm:p-8 shadow-xs">
+                            <div className="flex items-center gap-3 mb-3">
+                                <div className="w-10 h-10 rounded-xl bg-[#E8F5EE] border border-[#2D6A4F]/20 flex items-center justify-center text-[#2D6A4F] shrink-0">
+                                    <BadgeCheck className="w-5 h-5" />
+                                </div>
+                                <h3 className="font-serif text-lg sm:text-xl font-bold text-gray-900">
+                                    Udyam MSME Registration
+                                </h3>
+                            </div>
+                            <p className="text-sm sm:text-base text-gray-600 leading-relaxed font-body">
+                                Registered under India’s Udyam programme.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </section>
 

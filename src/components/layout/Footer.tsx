@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Sparkles, MapPin, ExternalLink, Phone, Mail, ShieldCheck, Award } from 'lucide-react';
+import { Sparkles, MapPin, ExternalLink, Phone, Mail, ShieldCheck } from 'lucide-react';
 import { COMPANY_INFO } from '../../utils/constants';
 import FlipText from '../ui/FlipText';
 
@@ -380,16 +380,11 @@ const Footer = () => {
         <div className="bg-[#2D6A4F] text-white text-xs md:text-[13px] font-medium py-3.5 px-4 md:px-8 border-t border-[#235840]">
           <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row items-center justify-between gap-3 md:gap-4 text-center md:text-left">
             
-            {/* Left: ISO Markings */}
+            {/* Left: Enterprise Trust Markings */}
             <div className="flex items-center justify-center md:justify-start gap-3 md:w-1/3">
               <div className="flex items-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 text-emerald-300" />
-                <span className="font-semibold text-white tracking-wide">ISO 27001</span>
-              </div>
-              <span className="text-white/40">|</span>
-              <div className="flex items-center gap-1.5">
-                <Award className="w-4 h-4 text-emerald-300" />
-                <span className="font-semibold text-white tracking-wide">ISO 9001</span>
+                <span className="font-semibold text-white tracking-wide">SOC 2 Ready Architecture</span>
               </div>
             </div>
 

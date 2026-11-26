@@ -430,7 +430,7 @@ const WebsiteDevelopmentPage = () => {
                     </ul>
                     <h3>Verified Case Implementation:</h3>
                     <p>
-                        <strong>Vedashi Herbals</strong> (vedashiherbals.com): Frostrek built a Russian-language storefront for Vedashi Herbals, with a browsable product catalogue and customer help for placing orders. The Frostrek project description also documents tools for managing products and orders.
+                        <strong>Vedashi Herbals</strong> (vedashiherbals.com): Frostrek built a Russian-language storefront for Vedashi Herbals, with a browsable product catalogue and customer help for placing orders. The Frostrek project description also documents tools for managing products and orders; this is a documented build scope, not an independent test of private admin features.
                     </p>
                     <p>
                         <strong>Tosmi</strong> (tosmi.ai): A website for Tosmi's ecommerce AI agent, using layered visuals and motion to create a sense of depth and explain how the product works.
@@ -937,7 +937,7 @@ const WebsiteDevelopmentPage = () => {
                                     Vedashi Herbals — Cross-border ecommerce storefront
                                 </h3>
                                 <p className="text-sm sm:text-base text-gray-500 leading-relaxed mb-6">
-                                    Frostrek built a Russian-language storefront for Vedashi Herbals, with a browsable product catalogue and customer help for placing orders. The Frostrek project description also documents tools for managing products and orders.
+                                    Frostrek built a Russian-language storefront for Vedashi Herbals, with a browsable product catalogue and customer help for placing orders. The Frostrek project description also documents tools for managing products and orders; this is a documented build scope, not an independent test of private admin features.
                                 </p>
 
                                 {/* Action Links */}

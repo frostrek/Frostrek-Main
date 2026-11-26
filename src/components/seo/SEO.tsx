@@ -26,7 +26,7 @@ export default function SEO({
   noindex = false,
   image,
   canonicalUrl,
-  excludeIsoCredentials = false
+  excludeIsoCredentials: _excludeIsoCredentials = false
 }: SEOProps) {
   const url = canonicalUrl || `https://www.frostrek.ai${path}`;
   // Ensure the image URL is absolute because social crawlers require it
@@ -254,20 +254,18 @@ export default function SEO({
           "https://www.facebook.com/people/Frostrek-Ai/pfbid0VWudotryavaCWUi3utjYrUJYh35mGbSHmq73RnhksigdjJA28XQVBgNLz1Nryympl/",
           "https://www.youtube.com/@frostrekai"
         ],
-        ...(!excludeIsoCredentials ? {
-          "hasCredential": [
-            {
-              "@type": "EducationalOccupationalCredential",
-              "credentialCategory": "certification",
-              "name": "ISO 27001"
-            },
-            {
-              "@type": "EducationalOccupationalCredential",
-              "credentialCategory": "certification",
-              "name": "ISO 9001"
-            }
-          ]
-        } : {})
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "recognition",
+            "name": "DPIIT Startup Recognition"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "registration",
+            "name": "Udyam MSME Registration"
+          }
+        ]
       })}</script>
     </Helmet>
   );

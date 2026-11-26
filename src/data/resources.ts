@@ -687,7 +687,7 @@ Frostrek AI builds voice bots with sub-200ms response times that handle real acc
         id: 'blog-data-security',
         slug: 'enterprise-grade-data-security-protocols',
         title: 'Enterprise-Grade Data Security Protocols',
-        excerpt: 'Security cannot be an afterthought. A look at our ISO 27001 certified workflows and how we protect sensitive client data during annotation.',
+        excerpt: 'Security cannot be an afterthought. A look at our zero-trust workflows and how we protect sensitive client data during annotation.',
         date: 'Apr 18, 2025',
         readTime: '6 min read',
         author: 'Security Officer',
@@ -720,7 +720,7 @@ Our security infrastructure operates on three layers:
 ### Compliance Framework
 
 Frostrek maintains compliance with:
-- **ISO 27001** information security management standards
+- **Zero-Trust Security** and enterprise data governance frameworks
 - **GDPR** data protection requirements for European clients
 - **SOC 2 Ready Architecture** for enterprise trust
 - **India's DPDP Act** for domestic data processing

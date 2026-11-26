@@ -740,7 +740,7 @@ export default function FrostyPage() {
             ["Can Frosty answer phone calls too?", "Yes, through a separate voice agent. It answers inbound calls, qualifies the caller the same way the website and WhatsApp agents do, and books a callback when no one is free to pick up. Voice is offered as an add-on, so ask the Frosty team to include it."],
         ]],
         ["Trust and getting started", [
-            ["Is my data safe with Frosty?", "Yes. Frostrek is ISO 27001 and ISO 9001 certified and GDPR-ready. Your content is used only to train your own agent, and Frosty is built and hosted end to end by Frostrek rather than pieced together from other people's tools."],
+            ["Is my data safe with Frosty?", "Yes. Frostrek employs a strict Zero-Trust security architecture and is GDPR-ready. Your content is used only to train your own agent, and Frosty is built and hosted end to end by Frostrek rather than pieced together from other people's tools."],
             ["Who maintains and updates Frosty after it goes live?", "The Frostrek team does. We keep Frosty running, update it as your business changes, and retrain it when you add new services or content. If something needs adjusting, you have a team to reach rather than a tool you're left to manage on your own."],
             ["What types of businesses is Frosty for?", "Frosty fits any business that gets enquiries and wants to answer them fast. That includes marketing agencies, real estate, clinics and healthcare, education and study-abroad consultancies, car dealers, financial services, and online stores. If your leads come in through a website or WhatsApp, Frosty can capture and qualify them."],
             // Adapted from the doc: it routed all pricing to the team, which would contradict
@@ -808,7 +808,7 @@ export default function FrostyPage() {
                         - Publisher: Frostrek AI
                         - Headquarters: Gurugram, India
                         - Global Offices: Austin, TX (USA) and London (UK)
-                        - Certifications: ISO 27001, ISO 9001, GDPR-ready
+                        - Certifications: SOC 2 Ready Architecture, GDPR-ready
                         - Official website: <a href="https://frostyagent.com" rel="dofollow">frostyagent.com</a>
                     </p>
                 </article>
@@ -1033,8 +1033,8 @@ export default function FrostyPage() {
                         </div>
                         <div className="fx-tile third t-rose fx-reveal">
                             <div className="ic"><img src="/icons/shield.png" alt="Secure" className="w-6 h-6 object-contain" /></div>
-                            <h3>Secure &amp; certified</h3>
-                            <p>ISO 27001 &amp; ISO 9001 certified, GDPR-ready. Your content trains only your own agent.</p>
+                            <h3>Secure &amp; compliant</h3>
+                            <p>Zero-Trust architecture, GDPR-ready. Your content trains only your own agent.</p>
                         </div>
                     </div>
                 </div>
@@ -1073,7 +1073,7 @@ export default function FrostyPage() {
                         {[["/icons/data-analytics.png", "Grounded in your data", "Trained on your products, pricing and policies — accurate answers, never made up.", "w-green"],
                         ["/icons/world.png", "Web + WhatsApp continuity", "One conversation across channels; customers never start over.", "w-blue"],
                         ["/icons/innovation.png", "Your team, amplified", "Frosty absorbs volume and repeat questions so people do the high-value work.", "w-orange"],
-                        ["/icons/shield.png", "Enterprise-grade & certified", "ISO 27001 & ISO 9001 certified, GDPR-ready — built in Gurugram by a 50+ engineer team.", "w-rose"]].map((w) => (
+                        ["/icons/shield.png", "Enterprise-grade & secure", "Zero-Trust architecture, GDPR-ready — built in Gurugram by a 50+ engineer team.", "w-rose"]].map((w) => (
                             <div className={`fx-w ${w[3]}`} key={w[1]}>
                                 <div className="ic"><img src={w[0]} alt="" className="w-6 h-6 object-contain" /></div>
                                 <div><h3>{w[1]}</h3><p>{w[2]}</p></div>

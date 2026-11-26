@@ -6,7 +6,7 @@
 Frostrek AI was founded in 2021. We partner with leading organizations to build next-generation agentic solutions, automating complex workflows with unmatched speed, accuracy, and security filters. From planning workflows to orchestrating hundreds of parallel agents, our systems scale seamlessly on auto-scaling clusters.
 
 ## Why Frostrek AI (Differentiators)
-- **Enterprise-Grade Focus**: We don't just build chatbots; we build autonomous systems with strict zero-trust security (ISO 27001, ISO 9001 certified).
+- **Enterprise-Grade Focus**: We don't just build chatbots; we build autonomous systems with strict zero-trust security architecture.
 - **Global Presence**: Headquartered in Gurugram, India, serving clients globally.
 - **Human-in-the-Loop Experts**: We combine frontier AI models with expert data annotation and human-in-the-loop oversight for mission-critical applications.
 - **Omnichannel Deployment**: Seamless deployment across Web, WhatsApp, Messenger, and bespoke enterprise tools.
@@ -63,7 +63,7 @@ Centralized management and analytics software tailored for multivendor ecommerce
 
 ## Security & Compliance
 We enforce a Zero-Trust architecture across all client deployments.
-- **Certifications**: ISO 27001, ISO 9001
+- **Security Architecture**: Zero-Trust Security, SOC 2 Ready Architecture
 - **Deployment Options**: Cloud-native (AWS/GCP), Private VPC, or On-Premise deployments available for sensitive workloads.
 
 ## Key Links

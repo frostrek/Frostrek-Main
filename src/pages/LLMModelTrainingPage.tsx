@@ -836,27 +836,6 @@ const LLMModelTrainingPage = () => {
             </section>
 
             {/* ═══════ SECTION 8 — FREQUENTLY ASKED QUESTIONS ═══════ */}
-            <section className="py-16 lg:py-24 bg-[#FAFCFB] relative z-10 overflow-hidden border-t border-gray-100">
-                <div className="container mx-auto px-4 md:px-6 max-w-4xl">
-                    <div className="text-center mb-12">
-                        <h2 className="font-serif text-3xl md:text-4xl text-[#2D6A4F] font-bold">
-                            Frequently Asked Questions
-                        </h2>
-                    </div>
-                    <div className="space-y-4">
-                        <div className="bg-white border border-[#2D6A4F]/20 rounded-2xl p-6 md:p-8 shadow-sm">
-                            <h3 className="font-serif text-lg md:text-xl font-bold text-gray-900 mb-3">
-                                What training data do I need before fine-tuning an LLM?
-                            </h3>
-                            <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                                Start with representative examples of the tasks your model should handle and the responses you want it to produce. For each task, include the input, an expected response and the criteria reviewers should use to assess it. Set aside a separate sample to evaluate the model after fine-tuning.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* ═══════ SECTION 8 — FREQUENTLY ASKED QUESTIONS ═══════ */}
             <section aria-label="Frequently Asked Questions" className="py-16 lg:py-24 bg-[#FAFCFB] relative z-10 overflow-hidden border-t border-gray-100">
                 <div className="container mx-auto px-4 md:px-6 max-w-4xl">
                     <div className="text-center mb-12">
