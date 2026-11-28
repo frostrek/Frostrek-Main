@@ -74,6 +74,7 @@ const BlogPostPage = () => {
 
         const formatInline = (text: string) => {
             return text
+                .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-[#2D6A4F] hover:text-[#1B4332] underline font-semibold focus:outline-none focus:ring-2 focus:ring-[#2D6A4F] focus:ring-offset-1 rounded transition-colors">$1</a>')
                 .replace(/\*\*(.*?)\*\*/g, '<strong class="text-gray-800 font-semibold">$1</strong>')
                 .replace(/\*(.*?)\*/g, '<em>$1</em>');
         };

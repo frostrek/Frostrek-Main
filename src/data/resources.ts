@@ -309,6 +309,8 @@ The lead still gets handed to your team, with full context, but by the time they
 
 If your current process depends on someone being awake and available, you're competing against businesses that don't have that limitation anymore. The five-minute rule hasn't gotten any more forgiving — but the businesses winning on speed today mostly aren't winning because their teams are faster. They're winning because they stopped needing their teams to be first.
 
+Explore how [AI agents for customer enquiries](/solutions/ai-agents) can answer initial questions, follow up and hand conversations over to your team.
+
 [Deploy an AI Agent to respond instantly →](/products/frosty-agent)
 *Still curious about how we handle integrations? Check out our [Technical FAQ](/resources/faq).*
 
@@ -351,6 +353,8 @@ The same principle carries through to the human handoff. When a conversation get
 
 ## What to actually check in your own setup
 If you're not sure whether your current setup is genuinely omnichannel or just multi-channel wearing the label, the test is simple: have someone on your team start a conversation on your website, don't finish it, then message your WhatsApp number an hour later pretending to be a new customer. If whoever (or whatever) answers on WhatsApp has no idea the first conversation happened, you've found the gap — and you're very likely losing the customers the research above is describing, even if nobody's complained to you directly about it yet.
+
+If this test reveals gaps between channels, [AI consulting and implementation planning](/solutions/ai-consulting) can help you identify which systems to connect and where to start.
 
 [See how Frosty's shared memory works across web and WhatsApp →](/products/frosty-agent)
 *For more on how we secure your conversational data, read our [Security FAQ](/resources/faq).*

@@ -461,7 +461,7 @@ export default function AIAgentsPage() {
                         </SplitTextReveal>
 
                         <p
-                            className="hero-el text-base md:text-lg text-gray-600 leading-relaxed mb-10 max-w-3xl font-medium"
+                            className="text-base md:text-lg text-gray-600 leading-relaxed mb-10 max-w-3xl font-medium"
                             itemProp="description"
                         >
                             We design autonomous AI agents capable of reasoning, planning, and executing complex workflows. Built for enterprise teams, our agents automate customer support, qualify sales leads, and streamline internal operations. Connected securely to your APIs, they resolve queries instantly without human intervention.

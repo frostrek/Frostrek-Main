@@ -501,7 +501,7 @@ export default function AIConsultingPage() {
                         </p>
 
                         {/* Approved Public Intro Copy */}
-                        <div className="consulting-hero-el text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed mb-8 max-w-3xl space-y-4">
+                        <div className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed mb-8 max-w-3xl space-y-4">
                             <p>
                                 Your business does not need another generic AI demo. It needs clarity on which workflows are worth improving, what data and systems are ready, where human oversight matters, and how to move from an idea to a tested solution. Frostrek AI helps businesses assess AI opportunities, prioritize feasible use cases, and define a practical path to implementation.
                             </p>

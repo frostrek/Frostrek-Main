@@ -179,7 +179,7 @@ const ContactPage = () => {
     ]);
 
     return (
-        <div className="min-h-screen pt-32 pb-28 sm:pb-24 lg:pb-16 bg-gradient-to-b from-white via-[#FAFCFB] to-white relative font-body overflow-hidden">
+        <div className="min-h-screen pt-20 sm:pt-28 lg:pt-32 pb-28 sm:pb-24 lg:pb-16 bg-gradient-to-b from-white via-[#FAFCFB] to-white relative font-body overflow-hidden">
             <SEO
                 title="Contact Us | Frostrek AI"
                 description="Get in touch with the Frostrek AI team in Gurugram to explore how production-grade AI can transform your enterprise operations."
@@ -207,11 +207,11 @@ const ContactPage = () => {
                         initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6 }}
-                        className="space-y-8 lg:sticky lg:top-28"
+                        className="space-y-6 sm:space-y-8 lg:sticky lg:top-28"
                     >
                         <div>
                             {/* Badge */}
-                            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full mb-6 bg-[#E8F5EE] border border-[#2D6A4F]/20 text-[#2D6A4F] font-bold text-[11px] uppercase tracking-wider">
+                            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full mb-3 sm:mb-6 bg-[#E8F5EE] border border-[#2D6A4F]/20 text-[#2D6A4F] font-bold text-[11px] uppercase tracking-wider">
                                 <Sparkles size={12} className="animate-pulse" />
                                 <span>Get In Touch</span>
                             </div>
@@ -225,7 +225,7 @@ const ContactPage = () => {
                             </div>
                             <SplitTextReveal
                                 as="p"
-                                className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-lg mt-4"
+                                className="text-sm sm:text-lg text-slate-600 leading-relaxed max-w-lg mt-2.5 sm:mt-4"
                                 type="words"
                                 stagger={0.015}
                                 once={false}
@@ -237,18 +237,18 @@ const ContactPage = () => {
                         </div>
 
                         {/* Contact Methods Container */}
-                        <div className="space-y-6 max-w-xl">
+                        <div className="space-y-5 sm:space-y-6 max-w-xl">
                             {/* Call & Direct Contact Details */}
-                            <div className="p-4 sm:p-6 rounded-3xl bg-white border border-[#2D6A4F]/10 shadow-xl shadow-gray-100/50 space-y-4">
-                                <div className="border-b border-gray-100 pb-3">
-                                    <h2 className="text-xl sm:text-2xl font-serif font-semibold text-gray-900">Direct Connect</h2>
+                            <div className="p-3.5 sm:p-6 rounded-3xl bg-white border border-[#2D6A4F]/10 shadow-xl shadow-gray-100/50 space-y-3.5 sm:space-y-4">
+                                <div className="border-b border-gray-100 pb-2.5 sm:pb-3">
+                                    <h2 className="text-lg sm:text-2xl font-serif font-semibold text-gray-900">Direct Connect</h2>
                                 </div>
 
                                 <div className="grid grid-cols-2 gap-2 sm:gap-3">
                                     {/* CALL US */}
                                     <a
                                         href="tel:+916399999955"
-                                        className="flex flex-col items-center justify-center text-center gap-1.5 sm:gap-2 p-3 sm:p-4 rounded-2xl bg-[#FFF7ED] border border-[#FFEDD5] hover:border-[#EA580C]/35 shadow-sm hover:shadow-md transition-all duration-300 group"
+                                        className="flex flex-col items-center justify-center text-center gap-1.5 sm:gap-2 p-2.5 sm:p-4 rounded-2xl bg-[#FFF7ED] border border-[#FFEDD5] hover:border-[#EA580C]/35 shadow-sm hover:shadow-md transition-all duration-300 group"
                                     >
                                         <div className="p-1.5 sm:p-2 rounded-xl bg-white/40 border border-white/60 flex items-center justify-center shadow-sm backdrop-blur-[2px] transition-all duration-300 group-hover:scale-110">
                                             <img src="/icons/phone-call.png" alt="Phone" className="w-4 h-4 sm:w-5 sm:h-5 object-contain" loading="lazy" width={512} height={512} />
@@ -264,7 +264,7 @@ const ContactPage = () => {
                                         href="https://wa.me/918882527839"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex flex-col items-center justify-center text-center gap-1.5 sm:gap-2 p-3 sm:p-4 rounded-2xl bg-[#F0FDF4] border border-[#E8F5EE] hover:border-[#2D6A4F]/35 shadow-sm hover:shadow-md transition-all duration-300 group"
+                                        className="flex flex-col items-center justify-center text-center gap-1.5 sm:gap-2 p-2.5 sm:p-4 rounded-2xl bg-[#F0FDF4] border border-[#E8F5EE] hover:border-[#2D6A4F]/35 shadow-sm hover:shadow-md transition-all duration-300 group"
                                     >
                                         <div className="p-1.5 sm:p-2 rounded-xl bg-white/40 border border-white/60 flex items-center justify-center shadow-sm backdrop-blur-[2px] transition-all duration-300 group-hover:scale-110">
                                             <img src="/icons/chat.png" alt="Chat" className="w-4 h-4 sm:w-5 sm:h-5 object-contain" loading="lazy" width={512} height={512} />
@@ -278,14 +278,14 @@ const ContactPage = () => {
                                     {/* EMAIL US */}
                                     <a
                                         href="mailto:contact@frostrek.com"
-                                        className="col-span-2 flex flex-col items-center justify-center text-center gap-1.5 sm:gap-2 p-3 sm:p-4 rounded-2xl bg-[#F0F9FF] border border-[#E0F2FE] hover:border-[#0284C7]/35 shadow-sm hover:shadow-md transition-all duration-300 group"
+                                        className="col-span-2 flex flex-row sm:flex-col items-center justify-start sm:justify-center text-left sm:text-center gap-3 sm:gap-2 p-2.5 sm:p-4 rounded-2xl bg-[#F0F9FF] border border-[#E0F2FE] hover:border-[#0284C7]/35 shadow-sm hover:shadow-md transition-all duration-300 group"
                                     >
-                                        <div className="p-1.5 sm:p-2 rounded-xl bg-white/40 border border-white/60 flex items-center justify-center shadow-sm backdrop-blur-[2px] transition-all duration-300 group-hover:scale-110">
+                                        <div className="p-1.5 sm:p-2 rounded-xl bg-white/40 border border-white/60 flex items-center justify-center shadow-sm backdrop-blur-[2px] transition-all duration-300 group-hover:scale-110 shrink-0">
                                             <img src="/icons/email.png" alt="Email" className="w-4 h-4 sm:w-5 sm:h-5 object-contain" loading="lazy" width={512} height={512} />
                                         </div>
-                                        <div className="w-full">
-                                            <h3 className="font-bold text-[9px] sm:text-xs text-[#0284C7] uppercase tracking-wider font-body leading-none mb-1 sm:mb-1.5 truncate">Email Us</h3>
-                                            <p className="font-serif font-bold text-[10px] sm:text-sm md:text-base text-gray-900 tracking-wide w-full truncate">contact@frostrek.com</p>
+                                        <div className="w-full min-w-0">
+                                            <h3 className="font-bold text-[9px] sm:text-xs text-[#0284C7] uppercase tracking-wider font-body leading-none mb-0.5 sm:mb-1.5 truncate">Email Us</h3>
+                                            <p className="font-serif font-bold text-[11px] sm:text-sm md:text-base text-gray-900 tracking-wide truncate">contact@frostrek.com</p>
                                         </div>
                                     </a>
                                 </div>
